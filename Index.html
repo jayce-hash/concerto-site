@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,75 +21,72 @@
             --border-hi:  rgba(18,30,54,0.22);
         }
 
-```
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; overflow-x:hidden; }
+    html { scroll-behavior: smooth; }
 
     body {
-        font-family:'DM Sans', sans-serif;
-        background:var(--bg);
-        color:var(--navy);
-        overflow-x:hidden;
-        -webkit-font-smoothing:antialiased;
-        width:100%;
-        max-width:100%;
+        font-family: 'DM Sans', sans-serif;
+        background: var(--bg);
+        color: var(--navy);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        width: 100%;
+        max-width: 100vw;
     }
 
     body::after {
         content:''; position:fixed; inset:0;
-        background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        opacity:0.03; pointer-events:none; z-index:9998;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.03; pointer-events:none; z-index:9998;
     }
 
     /* ─── NAV ─── */
     nav {
-        position:fixed; top:0; width:100%; z-index:100;
-        padding:0 3rem;
-        height:68px;
-        display:flex; align-items:center; justify-content:space-between;
-        background:rgba(248,249,249,0.88);
-        backdrop-filter:blur(28px);
-        border-bottom:1px solid var(--border);
+        position: fixed; top:0; width:100%; z-index:100;
+        padding: 0 3rem;
+        height: 68px;
+        display: flex; align-items:center; justify-content:space-between;
+        background: rgba(248,249,249,0.88);
+        backdrop-filter: blur(28px);
+        border-bottom: 1px solid var(--border);
     }
-    .nav-logo { text-decoration:none; display:flex; align-items:center; }
-    /* SVG logo in nav — sized by height */
-    .nav-logo svg { height:38px; width:auto; display:block; }
+    .nav-logo { text-decoration:none; display:block; }
+    .nav-logo img { height: 38px; display:block; }
     .nav-links { display:flex; align-items:center; gap:2.5rem; }
     .nav-links a {
-        font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
-        color:var(--silver); text-decoration:none; transition:color 0.3s;
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        color: var(--silver); text-decoration:none; transition:color 0.3s;
     }
-    .nav-links a:hover { color:var(--navy); }
+    .nav-links a:hover { color: var(--navy); }
     .nav-cta {
-        color:var(--navy) !important;
-        border:1px solid var(--border-hi);
-        padding:0.55rem 1.3rem;
-        transition:background 0.3s, border-color 0.3s !important;
+        color: var(--navy) !important;
+        border: 1px solid var(--border-hi);
+        padding: 0.55rem 1.3rem;
+        transition: background 0.3s, border-color 0.3s !important;
     }
     .nav-cta:hover {
-        background:var(--navy) !important;
-        color:var(--bg) !important;
-        border-color:var(--navy) !important;
+        background: var(--navy) !important;
+        color: var(--bg) !important;
+        border-color: var(--navy) !important;
     }
 
     /* ─── BUTTONS ─── */
     .btn {
-        display:inline-flex; align-items:center; gap:0.55rem;
-        font-family:'DM Sans', sans-serif;
-        font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
-        text-decoration:none; padding:1rem 2.2rem;
-        transition:all 0.35s ease; cursor:pointer; border:none;
-        white-space:nowrap;
+        display: inline-flex; align-items:center; gap:0.55rem;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        text-decoration:none; padding: 1rem 2.2rem;
+        transition: all 0.35s ease; cursor:pointer; border:none;
     }
-    .btn-fill { background:var(--navy); color:var(--bg); }
+    .btn-fill { background: var(--navy); color: var(--bg); }
     .btn-fill:hover {
-        background:var(--navy-mid);
-        box-shadow:0 12px 40px rgba(18,30,54,0.18);
-        transform:translateY(-2px);
+        background: var(--navy-mid);
+        box-shadow: 0 12px 40px rgba(18,30,54,0.18);
+        transform: translateY(-2px);
     }
     .btn-outline {
-        background:transparent; color:var(--silver);
-        border:1px solid var(--border-md);
+        background: transparent; color: var(--silver);
+        border: 1px solid var(--border-md);
     }
     .btn-outline:hover { border-color:var(--border-hi); color:var(--navy); }
 
@@ -99,78 +95,69 @@
         position:relative; min-height:100vh;
         display:flex; flex-direction:column;
         align-items:center; justify-content:center;
-        text-align:center; padding:10rem 2rem 6rem; overflow:hidden;
+        text-align:center; padding: 10rem 2rem 6rem; overflow:hidden;
     }
     .hero::before {
         content:''; position:absolute;
-        width:min(800px,100vw); height:min(800px,100vw); border-radius:50%;
-        background:radial-gradient(circle, rgba(18,30,54,0.04) 0%, transparent 70%);
+        width:800px; height:800px; border-radius:50%;
+        background: radial-gradient(circle, rgba(18,30,54,0.04) 0%, transparent 70%);
         top:50%; left:50%; transform:translate(-50%,-55%); pointer-events:none;
     }
     .hero-eyebrow {
         display:inline-flex; align-items:center; gap:0.7rem;
         font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
         color:var(--silver); margin-bottom:2.5rem;
-        animation:fiu 1s ease both;
+        animation: fiu 1s ease both;
     }
-    .hero-eyebrow span { display:inline-block; width:28px; height:1px; background:var(--border-hi); flex-shrink:0; }
+    .hero-eyebrow span { display:inline-block; width:28px; height:1px; background:var(--border-hi); }
     .hero-logo {
-        margin-bottom:2.5rem;
-        animation:fiu 1s ease 0.05s both;
-        width:100%;
+        margin-bottom: 2.5rem;
+        animation: fiu 1s ease 0.05s both;
     }
-    /* SVG logo in hero — responsive width */
-    .hero-logo svg {
-        width:min(480px, 76vw);
-        height:auto;
-        display:block;
-        margin:0 auto;
-    }
+    .hero-logo img { width:min(480px,76vw); display:block; margin:0 auto; }
     .hero-tagline {
-        font-family:'Cormorant Garamond', serif;
-        font-style:italic; font-weight:300;
-        font-size:clamp(1.25rem, 2.8vw, 1.85rem);
-        color:var(--silver); line-height:1.6;
-        max-width:560px; margin:0 auto 1rem;
-        animation:fiu 1s ease 0.15s both;
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic; font-weight:300;
+        font-size: clamp(1.25rem, 2.8vw, 1.85rem);
+        color: var(--silver); line-height:1.6;
+        max-width: 560px; margin: 0 auto 1rem;
+        animation: fiu 1s ease 0.15s both;
     }
     .hero-rule {
         width:1px; height:48px;
-        background:linear-gradient(to bottom, transparent, var(--border-hi), transparent);
-        margin:1.8rem auto;
-        animation:fiu 1s ease 0.2s both;
+        background: linear-gradient(to bottom, transparent, var(--border-hi), transparent);
+        margin: 1.8rem auto;
+        animation: fiu 1s ease 0.2s both;
     }
     .hero-sub {
-        font-family:'Cormorant Garamond', serif;
-        font-size:clamp(1.05rem, 1.8vw, 1.3rem); font-weight:400;
-        color:var(--silver); line-height:1.75;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight:400;
+        color: var(--silver); line-height:1.75;
         max-width:500px; margin:0 auto 2.8rem;
-        animation:fiu 1s ease 0.25s both;
+        animation: fiu 1s ease 0.25s both;
     }
     .hero-actions {
         display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
-        animation:fiu 1s ease 0.35s both;
+        animation: fiu 1s ease 0.35s both;
     }
     .hero-proof {
         display:flex; align-items:center; gap:2rem;
-        margin-top:4rem; animation:fiu 1s ease 0.45s both;
+        margin-top:4rem; animation: fiu 1s ease 0.45s both;
         color:var(--silver-lt); font-size:0.7rem;
-        letter-spacing:0.12em; text-transform:uppercase;
-        flex-wrap:wrap; justify-content:center;
+        letter-spacing:0.12em; text-transform:uppercase; flex-wrap:wrap; justify-content:center;
     }
-    .proof-sep { width:1px; height:14px; background:var(--border-md); flex-shrink:0; }
+    .proof-sep { width:1px; height:14px; background:var(--border-md); }
     .stars { color:var(--silver); }
     .scroll-hint {
         position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
         display:flex; flex-direction:column; align-items:center; gap:0.5rem;
         color:var(--silver-lt); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
-        animation:fiu 1.2s ease 0.8s both;
-        white-space:nowrap;
+        animation: fiu 1.2s ease 0.8s both;
     }
     .scroll-line {
         width:1px; height:36px;
-        background:linear-gradient(to bottom, var(--border-hi), transparent);
-        animation:scrollPulse 2s ease-in-out infinite;
+        background: linear-gradient(to bottom, var(--border-hi), transparent);
+        animation: scrollPulse 2s ease-in-out infinite;
     }
     @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.9} }
 
@@ -178,26 +165,22 @@
     .marquee-band {
         border-top:1px solid var(--border); border-bottom:1px solid var(--border);
         padding:1.1rem 0; overflow:hidden; background:var(--bg-mid);
-        width:100%;
     }
     .marquee-track {
         display:flex; gap:3rem;
-        animation:marquee 32s linear infinite; width:max-content;
+        animation: marquee 32s linear infinite; width:max-content;
     }
     .marquee-item {
         display:flex; align-items:center; gap:3rem;
         font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
         color:var(--silver-lt); white-space:nowrap;
     }
-    .marquee-dot { width:3px; height:3px; border-radius:50%; background:var(--silver-lt); flex-shrink:0; }
+    .marquee-dot { width:3px; height:3px; border-radius:50%; background:var(--silver-lt); }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ─── SECTION BASE ─── */
-    .s { position:relative; z-index:1; overflow:hidden; width:100%; }
-    .s-inner {
-        max-width:1120px; margin:0 auto;
-        padding:6rem 2.5rem; width:100%;
-    }
+    .s { position:relative; z-index:1; overflow:hidden; }
+    .s-inner { max-width:1120px; margin:0 auto; padding:6rem 2.5rem; width:100%; }
     .s-label {
         font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
         color:var(--silver-lt); margin-bottom:1rem; font-family:'DM Sans',sans-serif;
@@ -223,9 +206,8 @@
     .intro-right {
         display:grid; grid-template-columns:1fr 1fr;
         gap:1px; background:var(--border-md); border:1px solid var(--border-md);
-        min-width:0;
     }
-    .intro-stat { background:var(--bg); padding:2rem 1.8rem; min-width:0; }
+    .intro-stat { background:var(--bg); padding:2rem 1.8rem; }
     .stat-num {
         font-family:'Cormorant Garamond',serif;
         font-size:3rem; font-weight:400; color:var(--navy); line-height:1; margin-bottom:0.5rem;
@@ -236,32 +218,29 @@
     .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); overflow:hidden; }
     .app-preview .s-inner { padding:5rem 2.5rem; }
     .carousel-container {
-        position:relative; margin-top:3.5rem;
-        overflow:hidden; width:100%;
+        position:relative; margin-top:3.5rem; overflow:hidden; width:100%;
     }
     .carousel-track {
-        display:flex; gap:2rem;
-        transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);
-        cursor:grab;
-        will-change:transform;
+        display:flex; gap:2rem; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: grab;
     }
     .carousel-track.dragging {
-        cursor:grabbing;
-        transition:none;
+        cursor: grabbing;
+        transition: none;
     }
     .screen {
-        flex:0 0 calc(33.333% - 1.35rem);
-        position:relative;
+        flex:0 0 calc(33.333% - 1.35rem); position:relative;
         border-radius:24px; overflow:hidden;
         border:1px solid var(--border-md);
-        box-shadow:0 12px 32px rgba(18,30,54,0.07);
-        background:var(--bg);
-        transition:transform 0.4s ease, box-shadow 0.4s ease;
-        aspect-ratio:9/19.5;
+        box-shadow: 0 12px 32px rgba(18,30,54,0.07);
+        background: var(--bg);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        max-width: 200px;
+        aspect-ratio: 9/19.5;
     }
     .screen:hover {
-        transform:translateY(-4px);
-        box-shadow:0 20px 48px rgba(18,30,54,0.1);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(18,30,54,0.1);
     }
     .screen img { width:100%; height:100%; object-fit:cover; display:block; }
     .screen-placeholder {
@@ -291,18 +270,24 @@
     }
     .carousel-arrow:hover {
         background:var(--navy); color:var(--bg);
-        box-shadow:0 8px 24px rgba(18,30,54,0.15);
+        box-shadow: 0 8px 24px rgba(18,30,54,0.15);
     }
-    .carousel-arrow.disabled { opacity:0.3; cursor:not-allowed; pointer-events:none; }
+    .carousel-arrow.disabled {
+        opacity:0.3; cursor:not-allowed; pointer-events:none;
+    }
     .carousel-arrow.left { left:-24px; }
     .carousel-arrow.right { right:-24px; }
-    .carousel-dots { display:none; }
+    .carousel-dots {
+        display:none;
+    }
     .carousel-dot {
         width:8px; height:8px; border-radius:50%;
         background:var(--border-hi); cursor:pointer;
         transition:all 0.3s ease;
     }
-    .carousel-dot.active { background:var(--navy); width:24px; border-radius:4px; }
+    .carousel-dot.active {
+        background:var(--navy); width:24px; border-radius:4px;
+    }
 
     /* ─── FEATURES ─── */
     .features-section { border-top:1px solid var(--border); }
@@ -316,7 +301,7 @@
     }
     .feat {
         background:var(--bg); padding:2.8rem 2.2rem;
-        transition:background 0.4s; position:relative; min-width:0;
+        transition:background 0.4s; position:relative;
     }
     .feat::after {
         content:''; position:absolute; top:0; left:0; right:0; height:1px;
@@ -347,10 +332,9 @@
     .process-wrap {
         display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
     }
-    .process-steps { display:flex; flex-direction:column; gap:0; min-width:0; }
+    .process-steps { display:flex; flex-direction:column; gap:0; }
     .process-step {
-        padding:2.2rem 0; border-bottom:1px solid var(--border-md);
-        display:flex; gap:2rem; align-items:flex-start;
+        padding:2.2rem 0; border-bottom:1px solid var(--border-md); display:flex; gap:2rem; align-items:flex-start;
     }
     .process-step:first-child { border-top:1px solid var(--border-md); }
     .step-num {
@@ -358,7 +342,7 @@
         line-height:1; -webkit-text-stroke:1px var(--border-hi); color:transparent;
         flex-shrink:0; width:3rem;
     }
-    .step-body { min-width:0; }
+    .step-body {}
     .process-step h3 {
         font-family:'Cormorant Garamond',serif; text-transform:uppercase;
         letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
@@ -370,10 +354,9 @@
         width:240px; height:480px;
         border-radius:36px; overflow:hidden;
         border:1px solid var(--border-md);
-        box-shadow:0 24px 60px rgba(18,30,54,0.1);
+        box-shadow: 0 24px 60px rgba(18,30,54,0.1);
         background:var(--bg);
     }
-    .process-screen img { width:100%; height:100%; object-fit:cover; display:block; }
     .process-screen .screen-placeholder { height:100%; }
 
     /* ─── PULL QUOTE ─── */
@@ -399,7 +382,7 @@
     .premium-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
     .premium-card {
         border:1px solid var(--border-md); background:var(--bg-mid);
-        padding:3rem; position:relative; width:100%; min-width:0;
+        padding:3rem; position:relative; width:100%; max-width:100%;
     }
     .premium-card::before {
         content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:1px;
@@ -413,7 +396,6 @@
     .prem-prices {
         display:flex; gap:2.5rem; margin-bottom:2.5rem;
         padding-bottom:2.5rem; border-bottom:1px solid var(--border-md);
-        flex-wrap:wrap;
     }
     .prem-amount {
         font-family:'Cormorant Garamond',serif; font-size:2.8rem;
@@ -430,7 +412,7 @@
         padding:0.65rem 0; border-bottom:1px solid var(--border);
         display:flex; align-items:center; gap:0.8rem; font-weight:300;
     }
-    .prem-list li::before { content:'–'; color:var(--silver-lt); flex-shrink:0; }
+    .prem-list li::before { content:'–'; color:var(--silver-lt); }
 
     /* ─── PARTNERS ─── */
     .partners { border-top:1px solid var(--border); background:var(--bg-mid); }
@@ -441,7 +423,7 @@
     }
     .partner-card {
         background:var(--bg-mid); padding:2.5rem 2rem;
-        transition:background 0.4s; min-width:0;
+        transition:background 0.4s;
     }
     .partner-card:hover { background:var(--bg); }
     .partner-card h3 {
@@ -458,14 +440,14 @@
     .contact-item {
         display:flex; align-items:center; gap:1rem;
         font-size:0.95rem; color:var(--silver); text-decoration:none;
-        transition:color 0.3s; word-break:break-word;
+        transition:color 0.3s;
     }
     .contact-item:hover { color:var(--navy); }
     .contact-item-label {
         font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
         color:var(--silver-lt); margin-bottom:0.3rem;
     }
-    .contact-right { padding-top:2rem; min-width:0; }
+    .contact-right { padding-top:2rem; }
     .contact-note {
         font-family:'Cormorant Garamond',serif; font-style:italic;
         font-size:clamp(1.2rem,2.2vw,1.65rem); font-weight:300;
@@ -498,9 +480,8 @@
         padding:2rem 3rem; display:flex; align-items:center;
         justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
     }
-    /* SVG logo in footer — invert to white */
-    .foot-logo svg { height:28px; width:auto; display:block; filter:brightness(0) invert(1); opacity:0.7; }
-    .foot-links { display:flex; gap:2rem; flex-wrap:wrap; }
+    .foot-logo img { height:28px; display:block; filter: brightness(0) invert(1); opacity:0.7; }
+    .foot-links { display:flex; gap:2rem; }
     .foot-links a {
         font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
         color:rgba(248,249,249,0.35); text-decoration:none; transition:color 0.3s;
@@ -515,84 +496,39 @@
 
     @keyframes fiu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-    /* ─── RESPONSIVE: TABLET ─── */
+    /* ─── RESPONSIVE ─── */
     @media (max-width:960px) {
         nav { padding:0 1.5rem; }
         .nav-links a:not(.nav-cta) { display:none; }
-
-        .s-inner { padding:4.5rem 1.5rem; }
-
-        .intro-grid,
-        .premium-wrap,
-        .process-wrap,
-        .contact-wrap { grid-template-columns:1fr; gap:3rem; }
-
+        .s-inner { padding:4.5rem 1.5rem; width:100%; }
+        .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns:1fr; gap:3rem; }
         .features-grid { grid-template-columns:1fr 1fr; }
         .partners-grid { grid-template-columns:1fr 1fr; }
         .process-right { display:none; }
-
-        footer { padding:2rem 1.5rem; }
-
+        footer { flex-direction:column; align-items:flex-start; }
         .carousel-arrow { display:none; }
         .screen { flex:0 0 calc(50% - 1rem); }
-
         .premium-card { padding:2rem 1.5rem; }
-        .prem-prices { gap:1.5rem; }
+        .prem-prices { flex-direction:column; gap:1.5rem; }
     }
-
-    /* ─── RESPONSIVE: MOBILE ─── */
     @media (max-width:600px) {
-        nav { padding:0 1rem; }
-
-        .s-inner { padding:3.5rem 1.25rem; }
-
-        .features-grid,
-        .partners-grid { grid-template-columns:1fr; }
-
+        .features-grid, .partners-grid { grid-template-columns:1fr; }
         .intro-right { grid-template-columns:1fr 1fr; }
-
-        .hero { padding:8rem 1.25rem 5rem; }
-        .hero-proof { gap:0.75rem; }
+        .hero-proof { gap:1rem; }
         .proof-sep { display:none; }
-
-        .screen { flex:0 0 80%; }
+        .screen { flex:0 0 85%; }
         .carousel-track { gap:1rem; }
-
-        .feat { padding:2rem 1.5rem; }
-
-        .process-step { gap:1.2rem; }
-        .step-num { font-size:2rem; width:2.5rem; }
-
-        .pullquote .s-inner { padding:4rem 1.25rem; }
-
-        .premium-card { padding:1.75rem 1.25rem; }
-
-        footer {
-            padding:1.5rem 1.25rem;
-            flex-direction:column; align-items:flex-start;
-        }
-
-        .final .s-inner { padding:6rem 1.25rem 7rem; }
-        .final h2 { letter-spacing:0.06em; }
-    }
-
-    /* ─── RESPONSIVE: SMALL MOBILE ─── */
-    @media (max-width:380px) {
-        .btn { padding:0.85rem 1.5rem; font-size:0.68rem; }
-        .hero-actions { flex-direction:column; align-items:stretch; }
-        .hero-actions .btn { justify-content:center; }
     }
 </style>
-```
+
 
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav>
     <a href="#" class="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="25 86 311 80" style="height:38px;width:auto;display:block;" aria-label="Concerto — From the Concert to the City"><defs><clipPath id="nav-clip"><rect x="0" width="311" y="0" height="80"/></clipPath></defs><g transform="matrix(1,0,0,1,25,86)"><g clip-path="url(#nav-clip)"><g fill="#121e36" fill-opacity="1"><g transform="translate(0.200004,53.565614)"><g><path d="M 23.65625 -36.59375 C 26.070312 -36.59375 28.101562 -36.421875 29.75 -36.078125 C 31.394531 -35.734375 33.046875 -35.140625 34.703125 -34.296875 C 34.972656 -34.140625 35.125 -34.003906 35.15625 -33.890625 C 35.195312 -33.773438 35.253906 -33.488281 35.328125 -33.03125 L 36.03125 -26.1875 C 36.03125 -26.070312 35.921875 -26.003906 35.703125 -25.984375 C 35.492188 -25.960938 35.367188 -26.007812 35.328125 -26.125 C 33.566406 -32.53125 29.617188 -35.734375 23.484375 -35.734375 C 20.253906 -35.734375 17.410156 -35.023438 14.953125 -33.609375 C 12.503906 -32.191406 10.609375 -30.164062 9.265625 -27.53125 C 7.921875 -24.90625 7.25 -21.847656 7.25 -18.359375 C 7.25 -15.015625 7.988281 -11.953125 9.46875 -9.171875 C 10.945312 -6.390625 12.941406 -4.191406 15.453125 -2.578125 C 17.960938 -0.972656 20.695312 -0.171875 23.65625 -0.171875 C 26.800781 -0.171875 29.347656 -0.9375 31.296875 -2.46875 C 33.253906 -4.007812 34.753906 -6.351562 35.796875 -9.5 C 35.796875 -9.570312 35.890625 -9.609375 36.078125 -9.609375 C 36.347656 -9.609375 36.484375 -9.550781 36.484375 -9.4375 L 35.90625 -3.109375 C 35.875 -2.648438 35.816406 -2.363281 35.734375 -2.25 C 35.660156 -2.132812 35.507812 -2 35.28125 -1.84375 C 33.28125 -0.882812 31.40625 -0.210938 29.65625 0.171875 C 27.914062 0.554688 25.914062 0.75 23.65625 0.75 C 19.625 0.75 16.023438 -0.046875 12.859375 -1.640625 C 9.691406 -3.234375 7.222656 -5.46875 5.453125 -8.34375 C 3.691406 -11.21875 2.8125 -14.519531 2.8125 -18.25 C 2.8125 -21.851562 3.710938 -25.046875 5.515625 -27.828125 C 7.328125 -30.609375 9.8125 -32.765625 12.96875 -34.296875 C 16.132812 -35.828125 19.695312 -36.59375 23.65625 -36.59375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(39.676884,53.565614)"><g><path d="M 21.0625 0.6875 C 17.488281 0.6875 14.3125 -0.144531 11.53125 -1.8125 C 8.75 -3.476562 6.597656 -5.738281 5.078125 -8.59375 C 3.566406 -11.457031 2.8125 -14.578125 2.8125 -17.953125 C 2.8125 -21.898438 3.804688 -25.285156 5.796875 -28.109375 C 7.796875 -30.929688 10.359375 -33.050781 13.484375 -34.46875 C 16.617188 -35.882812 19.816406 -36.59375 23.078125 -36.59375 C 26.722656 -36.59375 29.925781 -35.738281 32.6875 -34.03125 C 35.445312 -32.332031 37.566406 -30.082031 39.046875 -27.28125 C 40.523438 -24.476562 41.265625 -21.503906 41.265625 -18.359375 C 41.265625 -14.867188 40.34375 -11.664062 38.5 -8.75 C 36.65625 -5.832031 34.1875 -3.53125 31.09375 -1.84375 C 28.007812 -0.15625 24.664062 0.6875 21.0625 0.6875 Z M 23.078125 -0.515625 C 25.679688 -0.515625 28.03125 -1.144531 30.125 -2.40625 C 32.21875 -3.675781 33.867188 -5.539062 35.078125 -8 C 36.285156 -10.457031 36.890625 -13.375 36.890625 -16.75 C 36.890625 -20.351562 36.21875 -23.554688 34.875 -26.359375 C 33.53125 -29.160156 31.640625 -31.347656 29.203125 -32.921875 C 26.765625 -34.492188 23.914062 -35.28125 20.65625 -35.28125 C 16.4375 -35.28125 13.132812 -33.914062 10.75 -31.1875 C 8.375 -28.46875 7.1875 -24.726562 7.1875 -19.96875 C 7.1875 -16.363281 7.859375 -13.070312 9.203125 -10.09375 C 10.546875 -7.125 12.425781 -4.785156 14.84375 -3.078125 C 17.257812 -1.367188 20.003906 -0.515625 23.078125 -0.515625 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(83.757491,53.565614)"><g><path d="M 40.515625 -35.96875 C 40.628906 -35.96875 40.6875 -35.851562 40.6875 -35.625 C 40.6875 -35.394531 40.628906 -35.28125 40.515625 -35.28125 C 38.898438 -35.28125 37.726562 -34.835938 37 -33.953125 C 36.269531 -33.066406 35.90625 -31.628906 35.90625 -29.640625 L 35.90625 0.6875 C 35.90625 0.769531 35.804688 0.828125 35.609375 0.859375 C 35.421875 0.898438 35.289062 0.882812 35.21875 0.8125 L 8.75 -31.25 L 8.234375 -31.828125 L 8.234375 -6.265625 C 8.234375 -4.273438 8.585938 -2.847656 9.296875 -1.984375 C 10.003906 -1.117188 11.144531 -0.6875 12.71875 -0.6875 C 12.832031 -0.6875 12.890625 -0.570312 12.890625 -0.34375 C 12.890625 -0.113281 12.832031 0 12.71875 0 C 11.757812 0 11.03125 -0.0195312 10.53125 -0.0625 L 7.65625 -0.109375 L 4.71875 -0.0625 C 4.175781 -0.0195312 3.390625 0 2.359375 0 C 2.285156 0 2.25 -0.113281 2.25 -0.34375 C 2.25 -0.570312 2.285156 -0.6875 2.359375 -0.6875 C 4.003906 -0.6875 5.171875 -1.117188 5.859375 -1.984375 C 6.554688 -2.847656 6.90625 -4.273438 6.90625 -6.265625 L 6.90625 -33.203125 C 5.40625 -34.585938 3.890625 -35.28125 2.359375 -35.28125 C 2.242188 -35.28125 2.1875 -35.394531 2.1875 -35.625 C 2.1875 -35.851562 2.242188 -35.96875 2.359375 -35.96875 L 4.484375 -35.90625 C 4.941406 -35.875 5.578125 -35.859375 6.390625 -35.859375 C 7.234375 -35.859375 7.921875 -35.875 8.453125 -35.90625 C 8.992188 -35.945312 9.414062 -35.96875 9.71875 -35.96875 C 10.03125 -35.96875 10.253906 -35.898438 10.390625 -35.765625 C 10.523438 -35.628906 10.742188 -35.332031 11.046875 -34.875 C 11.503906 -34.1875 11.96875 -33.550781 12.4375 -32.96875 L 34.578125 -5.75 L 34.578125 -29.640625 C 34.578125 -31.628906 34.242188 -33.066406 33.578125 -33.953125 C 32.910156 -34.835938 31.789062 -35.28125 30.21875 -35.28125 C 30.132812 -35.28125 30.09375 -35.394531 30.09375 -35.625 C 30.09375 -35.851562 30.132812 -35.96875 30.21875 -35.96875 L 32.453125 -35.90625 C 33.609375 -35.832031 34.550781 -35.796875 35.28125 -35.796875 C 35.96875 -35.796875 36.925781 -35.832031 38.15625 -35.90625 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(125.593776,53.565614)"><g><path d="M 23.65625 -36.59375 C 26.070312 -36.59375 28.101562 -36.421875 29.75 -36.078125 C 31.394531 -35.734375 33.046875 -35.140625 34.703125 -34.296875 C 34.972656 -34.140625 35.125 -34.003906 35.15625 -33.890625 C 35.195312 -33.773438 35.253906 -33.488281 35.328125 -33.03125 L 36.03125 -26.1875 C 36.03125 -26.070312 35.921875 -26.003906 35.703125 -25.984375 C 35.492188 -25.960938 35.367188 -26.007812 35.328125 -26.125 C 33.566406 -32.53125 29.617188 -35.734375 23.484375 -35.734375 C 20.253906 -35.734375 17.410156 -35.023438 14.953125 -33.609375 C 12.503906 -32.191406 10.609375 -30.164062 9.265625 -27.53125 C 7.921875 -24.90625 7.25 -21.847656 7.25 -18.359375 C 7.25 -15.015625 7.988281 -11.953125 9.46875 -9.171875 C 10.945312 -6.390625 12.941406 -4.191406 15.453125 -2.578125 C 17.960938 -0.972656 20.695312 -0.171875 23.65625 -0.171875 C 26.800781 -0.171875 29.347656 -0.9375 31.296875 -2.46875 C 33.253906 -4.007812 34.753906 -6.351562 35.796875 -9.5 C 35.796875 -9.570312 35.890625 -9.609375 36.078125 -9.609375 C 36.347656 -9.609375 36.484375 -9.550781 36.484375 -9.4375 L 35.90625 -3.109375 C 35.875 -2.648438 35.816406 -2.363281 35.734375 -2.25 C 35.660156 -2.132812 35.507812 -2 35.28125 -1.84375 C 33.28125 -0.882812 31.40625 -0.210938 29.65625 0.171875 C 27.914062 0.554688 25.914062 0.75 23.65625 0.75 C 19.625 0.75 16.023438 -0.046875 12.859375 -1.640625 C 9.691406 -3.234375 7.222656 -5.46875 5.453125 -8.34375 C 3.691406 -11.21875 2.8125 -14.519531 2.8125 -18.25 C 2.8125 -21.851562 3.710938 -25.046875 5.515625 -27.828125 C 7.328125 -30.609375 9.8125 -32.765625 12.96875 -34.296875 C 16.132812 -35.828125 19.695312 -36.59375 23.65625 -36.59375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(165.070653,53.565614)"><g><path d="M 27.328125 -8.578125 C 27.328125 -8.648438 27.40625 -8.6875 27.5625 -8.6875 C 27.675781 -8.6875 27.78125 -8.664062 27.875 -8.625 C 27.976562 -8.59375 28.03125 -8.535156 28.03125 -8.453125 C 27.675781 -6.035156 27.5 -3.503906 27.5 -0.859375 C 27.5 -0.554688 27.429688 -0.335938 27.296875 -0.203125 C 27.171875 -0.0664062 26.9375 0 26.59375 0 L 2.46875 0 C 2.394531 0 2.359375 -0.113281 2.359375 -0.34375 C 2.359375 -0.570312 2.394531 -0.6875 2.46875 -0.6875 C 3.925781 -0.6875 4.988281 -0.78125 5.65625 -0.96875 C 6.332031 -1.164062 6.796875 -1.539062 7.046875 -2.09375 C 7.296875 -2.65625 7.421875 -3.507812 7.421875 -4.65625 L 7.421875 -31.3125 C 7.421875 -32.457031 7.296875 -33.296875 7.046875 -33.828125 C 6.796875 -34.367188 6.332031 -34.742188 5.65625 -34.953125 C 4.988281 -35.171875 3.925781 -35.28125 2.46875 -35.28125 C 2.394531 -35.28125 2.359375 -35.394531 2.359375 -35.625 C 2.359375 -35.851562 2.394531 -35.96875 2.46875 -35.96875 L 25.609375 -35.96875 C 25.953125 -35.96875 26.125 -35.796875 26.125 -35.453125 L 26.234375 -28.375 C 26.234375 -28.257812 26.140625 -28.191406 25.953125 -28.171875 C 25.765625 -28.148438 25.648438 -28.195312 25.609375 -28.3125 C 25.492188 -30.34375 24.878906 -31.925781 23.765625 -33.0625 C 22.648438 -34.195312 21.171875 -34.765625 19.328125 -34.765625 L 15.828125 -34.765625 C 14.484375 -34.765625 13.492188 -34.65625 12.859375 -34.4375 C 12.222656 -34.226562 11.78125 -33.863281 11.53125 -33.34375 C 11.289062 -32.832031 11.171875 -32.054688 11.171875 -31.015625 L 11.171875 -19.328125 L 18.1875 -19.328125 C 20.03125 -19.328125 21.34375 -19.632812 22.125 -20.25 C 22.914062 -20.863281 23.3125 -21.898438 23.3125 -23.359375 C 23.3125 -23.441406 23.425781 -23.484375 23.65625 -23.484375 C 23.882812 -23.484375 24 -23.441406 24 -23.359375 L 23.9375 -18.703125 C 23.9375 -17.585938 23.957031 -16.742188 24 -16.171875 L 24.046875 -13.40625 C 24.046875 -13.332031 23.929688 -13.296875 23.703125 -13.296875 C 23.472656 -13.296875 23.359375 -13.332031 23.359375 -13.40625 C 23.359375 -15.09375 22.945312 -16.300781 22.125 -17.03125 C 21.300781 -17.757812 19.929688 -18.125 18.015625 -18.125 L 11.171875 -18.125 L 11.171875 -4.890625 C 11.171875 -3.816406 11.285156 -3.03125 11.515625 -2.53125 C 11.742188 -2.03125 12.164062 -1.679688 12.78125 -1.484375 C 13.394531 -1.296875 14.351562 -1.203125 15.65625 -1.203125 L 20.25 -1.203125 C 22.09375 -1.203125 23.628906 -1.851562 24.859375 -3.15625 C 26.085938 -4.46875 26.910156 -6.273438 27.328125 -8.578125 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(195.97311,53.565614)"><g><path d="M 39.296875 -0.6875 C 39.378906 -0.6875 39.421875 -0.570312 39.421875 -0.34375 C 39.421875 -0.113281 39.378906 0 39.296875 0 L 31.875 0 C 30.914062 0 29.113281 -1.585938 26.46875 -4.765625 C 23.820312 -7.953125 20.675781 -12.328125 17.03125 -17.890625 C 16 -17.660156 14.925781 -17.546875 13.8125 -17.546875 C 13.582031 -17.546875 12.71875 -17.601562 11.21875 -17.71875 L 11.21875 -4.65625 C 11.21875 -3.46875 11.332031 -2.601562 11.5625 -2.0625 C 11.789062 -1.53125 12.238281 -1.164062 12.90625 -0.96875 C 13.582031 -0.78125 14.648438 -0.6875 16.109375 -0.6875 C 16.222656 -0.6875 16.28125 -0.570312 16.28125 -0.34375 C 16.28125 -0.113281 16.222656 0 16.109375 0 C 14.921875 0 13.984375 -0.0195312 13.296875 -0.0625 L 9.328125 -0.109375 L 5.40625 -0.0625 C 4.71875 -0.0195312 3.738281 0 2.46875 0 C 2.394531 0 2.359375 -0.113281 2.359375 -0.34375 C 2.359375 -0.570312 2.394531 -0.6875 2.46875 -0.6875 C 3.925781 -0.6875 5 -0.78125 5.6875 -0.96875 C 6.382812 -1.164062 6.859375 -1.539062 7.109375 -2.09375 C 7.359375 -2.65625 7.484375 -3.507812 7.484375 -4.65625 L 7.484375 -31.3125 C 7.484375 -32.457031 7.367188 -33.296875 7.140625 -33.828125 C 6.910156 -34.367188 6.457031 -34.742188 5.78125 -34.953125 C 5.113281 -35.171875 4.050781 -35.28125 2.59375 -35.28125 C 2.476562 -35.28125 2.421875 -35.394531 2.421875 -35.625 C 2.421875 -35.851562 2.476562 -35.96875 2.59375 -35.96875 L 5.40625 -35.90625 C 7.019531 -35.832031 8.328125 -35.796875 9.328125 -35.796875 C 10.171875 -35.796875 10.957031 -35.8125 11.6875 -35.84375 C 12.414062 -35.882812 13.03125 -35.925781 13.53125 -35.96875 C 14.945312 -36.082031 16.226562 -36.140625 17.375 -36.140625 C 20.40625 -36.140625 22.742188 -35.445312 24.390625 -34.0625 C 26.046875 -32.6875 26.875 -30.847656 26.875 -28.546875 C 26.875 -26.472656 26.269531 -24.597656 25.0625 -22.921875 C 23.851562 -21.253906 22.25 -19.941406 20.25 -18.984375 C 23.476562 -14.347656 26.191406 -10.710938 28.390625 -8.078125 C 30.597656 -5.453125 32.554688 -3.5625 34.265625 -2.40625 C 35.972656 -1.257812 37.648438 -0.6875 39.296875 -0.6875 Z M 11.21875 -19.109375 C 12.175781 -18.953125 13.304688 -18.875 14.609375 -18.875 C 17.609375 -18.875 19.75 -19.523438 21.03125 -20.828125 C 22.320312 -22.128906 22.96875 -24.144531 22.96875 -26.875 C 22.96875 -29.863281 22.300781 -32.007812 20.96875 -33.3125 C 19.644531 -34.625 17.71875 -35.28125 15.1875 -35.28125 C 13.695312 -35.28125 12.660156 -35.007812 12.078125 -34.46875 C 11.503906 -33.9375 11.21875 -32.84375 11.21875 -31.1875 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(229.98309,53.565614)"><g><path d="M 10.875 -34.9375 C 8.457031 -34.9375 6.644531 -34.320312 5.4375 -33.09375 C 4.226562 -31.863281 3.351562 -29.769531 2.8125 -26.8125 C 2.8125 -26.738281 2.707031 -26.703125 2.5 -26.703125 C 2.289062 -26.703125 2.1875 -26.738281 2.1875 -26.8125 C 2.34375 -28.195312 2.515625 -30 2.703125 -32.21875 C 2.898438 -34.445312 3 -36.117188 3 -37.234375 C 3 -37.421875 3.101562 -37.515625 3.3125 -37.515625 C 3.519531 -37.515625 3.625 -37.421875 3.625 -37.234375 C 3.625 -36.390625 4.660156 -35.96875 6.734375 -35.96875 C 9.992188 -35.851562 13.847656 -35.796875 18.296875 -35.796875 C 20.554688 -35.796875 22.957031 -35.832031 25.5 -35.90625 L 29.40625 -35.96875 C 30.789062 -35.96875 31.816406 -36.0625 32.484375 -36.25 C 33.160156 -36.445312 33.59375 -36.832031 33.78125 -37.40625 C 33.820312 -37.5625 33.9375 -37.640625 34.125 -37.640625 C 34.3125 -37.640625 34.40625 -37.5625 34.40625 -37.40625 C 34.289062 -36.289062 34.175781 -34.601562 34.0625 -32.34375 C 33.945312 -30.082031 33.890625 -28.238281 33.890625 -26.8125 C 33.890625 -26.738281 33.773438 -26.703125 33.546875 -26.703125 C 33.316406 -26.703125 33.203125 -26.738281 33.203125 -26.8125 C 33.085938 -29.8125 32.472656 -31.914062 31.359375 -33.125 C 30.242188 -34.332031 28.40625 -34.9375 25.84375 -34.9375 C 24.113281 -34.9375 22.882812 -34.859375 22.15625 -34.703125 C 21.425781 -34.546875 20.925781 -34.21875 20.65625 -33.71875 C 20.382812 -33.21875 20.25 -32.375 20.25 -31.1875 L 20.25 -4.65625 C 20.25 -3.46875 20.382812 -2.601562 20.65625 -2.0625 C 20.925781 -1.53125 21.441406 -1.164062 22.203125 -0.96875 C 22.972656 -0.78125 24.1875 -0.6875 25.84375 -0.6875 C 25.957031 -0.6875 26.015625 -0.570312 26.015625 -0.34375 C 26.015625 -0.113281 25.957031 0 25.84375 0 C 24.570312 0 23.550781 -0.0195312 22.78125 -0.0625 L 18.296875 -0.109375 L 13.984375 -0.0625 C 13.210938 -0.0195312 12.15625 0 10.8125 0 C 10.738281 0 10.703125 -0.113281 10.703125 -0.34375 C 10.703125 -0.570312 10.738281 -0.6875 10.8125 -0.6875 C 12.46875 -0.6875 13.675781 -0.78125 14.4375 -0.96875 C 15.207031 -1.164062 15.734375 -1.539062 16.015625 -2.09375 C 16.304688 -2.65625 16.453125 -3.507812 16.453125 -4.65625 L 16.453125 -31.3125 C 16.453125 -32.5 16.316406 -33.332031 16.046875 -33.8125 C 15.785156 -34.289062 15.289062 -34.597656 14.5625 -34.734375 C 13.832031 -34.867188 12.601562 -34.9375 10.875 -34.9375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(265.719447,53.565614)"><g><path d="M 21.0625 0.6875 C 17.488281 0.6875 14.3125 -0.144531 11.53125 -1.8125 C 8.75 -3.476562 6.597656 -5.738281 5.078125 -8.59375 C 3.566406 -11.457031 2.8125 -14.578125 2.8125 -17.953125 C 2.8125 -21.898438 3.804688 -25.285156 5.796875 -28.109375 C 7.796875 -30.929688 10.359375 -33.050781 13.484375 -34.46875 C 16.617188 -35.882812 19.816406 -36.59375 23.078125 -36.59375 C 26.722656 -36.59375 29.925781 -35.738281 32.6875 -34.03125 C 35.445312 -32.332031 37.566406 -30.082031 39.046875 -27.28125 C 40.523438 -24.476562 41.265625 -21.503906 41.265625 -18.359375 C 41.265625 -14.867188 40.34375 -11.664062 38.5 -8.75 C 36.65625 -5.832031 34.1875 -3.53125 31.09375 -1.84375 C 28.007812 -0.15625 24.664062 0.6875 21.0625 0.6875 Z M 23.078125 -0.515625 C 25.679688 -0.515625 28.03125 -1.144531 30.125 -2.40625 C 32.21875 -3.675781 33.867188 -5.539062 35.078125 -8 C 36.285156 -10.457031 36.890625 -13.375 36.890625 -16.75 C 36.890625 -20.351562 36.21875 -23.554688 34.875 -26.359375 C 33.53125 -29.160156 31.640625 -31.347656 29.203125 -32.921875 C 26.765625 -34.492188 23.914062 -35.28125 20.65625 -35.28125 C 16.4375 -35.28125 13.132812 -33.914062 10.75 -31.1875 C 8.375 -28.46875 7.1875 -24.726562 7.1875 -19.96875 C 7.1875 -16.363281 7.859375 -13.070312 9.203125 -10.09375 C 10.546875 -7.125 12.425781 -4.785156 14.84375 -3.078125 C 17.257812 -1.367188 20.003906 -0.515625 23.078125 -0.515625 Z"/></g></g></g></g></g></svg>
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
     </a>
     <div class="nav-links">
         <a href="#features">Features</a>
@@ -603,11 +539,10 @@
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
     <div class="hero-eyebrow"><span></span> Now on the App Store <span></span></div>
     <div class="hero-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="25 60 311 106" style="width:min(480px,76vw);height:auto;display:block;margin:0 auto;" aria-label="Concerto — From the Concert to the City"><defs><clipPath id="hero-clip"><rect x="0" width="311" y="0" height="80"/></clipPath></defs><g transform="matrix(1,0,0,1,25,86)"><g clip-path="url(#hero-clip)"><g fill="#121e36" fill-opacity="1"><g transform="translate(0.200004,53.565614)"><g><path d="M 23.65625 -36.59375 C 26.070312 -36.59375 28.101562 -36.421875 29.75 -36.078125 C 31.394531 -35.734375 33.046875 -35.140625 34.703125 -34.296875 C 34.972656 -34.140625 35.125 -34.003906 35.15625 -33.890625 C 35.195312 -33.773438 35.253906 -33.488281 35.328125 -33.03125 L 36.03125 -26.1875 C 36.03125 -26.070312 35.921875 -26.003906 35.703125 -25.984375 C 35.492188 -25.960938 35.367188 -26.007812 35.328125 -26.125 C 33.566406 -32.53125 29.617188 -35.734375 23.484375 -35.734375 C 20.253906 -35.734375 17.410156 -35.023438 14.953125 -33.609375 C 12.503906 -32.191406 10.609375 -30.164062 9.265625 -27.53125 C 7.921875 -24.90625 7.25 -21.847656 7.25 -18.359375 C 7.25 -15.015625 7.988281 -11.953125 9.46875 -9.171875 C 10.945312 -6.390625 12.941406 -4.191406 15.453125 -2.578125 C 17.960938 -0.972656 20.695312 -0.171875 23.65625 -0.171875 C 26.800781 -0.171875 29.347656 -0.9375 31.296875 -2.46875 C 33.253906 -4.007812 34.753906 -6.351562 35.796875 -9.5 C 35.796875 -9.570312 35.890625 -9.609375 36.078125 -9.609375 C 36.347656 -9.609375 36.484375 -9.550781 36.484375 -9.4375 L 35.90625 -3.109375 C 35.875 -2.648438 35.816406 -2.363281 35.734375 -2.25 C 35.660156 -2.132812 35.507812 -2 35.28125 -1.84375 C 33.28125 -0.882812 31.40625 -0.210938 29.65625 0.171875 C 27.914062 0.554688 25.914062 0.75 23.65625 0.75 C 19.625 0.75 16.023438 -0.046875 12.859375 -1.640625 C 9.691406 -3.234375 7.222656 -5.46875 5.453125 -8.34375 C 3.691406 -11.21875 2.8125 -14.519531 2.8125 -18.25 C 2.8125 -21.851562 3.710938 -25.046875 5.515625 -27.828125 C 7.328125 -30.609375 9.8125 -32.765625 12.96875 -34.296875 C 16.132812 -35.828125 19.695312 -36.59375 23.65625 -36.59375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(39.676884,53.565614)"><g><path d="M 21.0625 0.6875 C 17.488281 0.6875 14.3125 -0.144531 11.53125 -1.8125 C 8.75 -3.476562 6.597656 -5.738281 5.078125 -8.59375 C 3.566406 -11.457031 2.8125 -14.578125 2.8125 -17.953125 C 2.8125 -21.898438 3.804688 -25.285156 5.796875 -28.109375 C 7.796875 -30.929688 10.359375 -33.050781 13.484375 -34.46875 C 16.617188 -35.882812 19.816406 -36.59375 23.078125 -36.59375 C 26.722656 -36.59375 29.925781 -35.738281 32.6875 -34.03125 C 35.445312 -32.332031 37.566406 -30.082031 39.046875 -27.28125 C 40.523438 -24.476562 41.265625 -21.503906 41.265625 -18.359375 C 41.265625 -14.867188 40.34375 -11.664062 38.5 -8.75 C 36.65625 -5.832031 34.1875 -3.53125 31.09375 -1.84375 C 28.007812 -0.15625 24.664062 0.6875 21.0625 0.6875 Z M 23.078125 -0.515625 C 25.679688 -0.515625 28.03125 -1.144531 30.125 -2.40625 C 32.21875 -3.675781 33.867188 -5.539062 35.078125 -8 C 36.285156 -10.457031 36.890625 -13.375 36.890625 -16.75 C 36.890625 -20.351562 36.21875 -23.554688 34.875 -26.359375 C 33.53125 -29.160156 31.640625 -31.347656 29.203125 -32.921875 C 26.765625 -34.492188 23.914062 -35.28125 20.65625 -35.28125 C 16.4375 -35.28125 13.132812 -33.914062 10.75 -31.1875 C 8.375 -28.46875 7.1875 -24.726562 7.1875 -19.96875 C 7.1875 -16.363281 7.859375 -13.070312 9.203125 -10.09375 C 10.546875 -7.125 12.425781 -4.785156 14.84375 -3.078125 C 17.257812 -1.367188 20.003906 -0.515625 23.078125 -0.515625 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(83.757491,53.565614)"><g><path d="M 40.515625 -35.96875 C 40.628906 -35.96875 40.6875 -35.851562 40.6875 -35.625 C 40.6875 -35.394531 40.628906 -35.28125 40.515625 -35.28125 C 38.898438 -35.28125 37.726562 -34.835938 37 -33.953125 C 36.269531 -33.066406 35.90625 -31.628906 35.90625 -29.640625 L 35.90625 0.6875 C 35.90625 0.769531 35.804688 0.828125 35.609375 0.859375 C 35.421875 0.898438 35.289062 0.882812 35.21875 0.8125 L 8.75 -31.25 L 8.234375 -31.828125 L 8.234375 -6.265625 C 8.234375 -4.273438 8.585938 -2.847656 9.296875 -1.984375 C 10.003906 -1.117188 11.144531 -0.6875 12.71875 -0.6875 C 12.832031 -0.6875 12.890625 -0.570312 12.890625 -0.34375 C 12.890625 -0.113281 12.832031 0 12.71875 0 C 11.757812 0 11.03125 -0.0195312 10.53125 -0.0625 L 7.65625 -0.109375 L 4.71875 -0.0625 C 4.175781 -0.0195312 3.390625 0 2.359375 0 C 2.285156 0 2.25 -0.113281 2.25 -0.34375 C 2.25 -0.570312 2.285156 -0.6875 2.359375 -0.6875 C 4.003906 -0.6875 5.171875 -1.117188 5.859375 -1.984375 C 6.554688 -2.847656 6.90625 -4.273438 6.90625 -6.265625 L 6.90625 -33.203125 C 5.40625 -34.585938 3.890625 -35.28125 2.359375 -35.28125 C 2.242188 -35.28125 2.1875 -35.394531 2.1875 -35.625 C 2.1875 -35.851562 2.242188 -35.96875 2.359375 -35.96875 L 4.484375 -35.90625 C 4.941406 -35.875 5.578125 -35.859375 6.390625 -35.859375 C 7.234375 -35.859375 7.921875 -35.875 8.453125 -35.90625 C 8.992188 -35.945312 9.414062 -35.96875 9.71875 -35.96875 C 10.03125 -35.96875 10.253906 -35.898438 10.390625 -35.765625 C 10.523438 -35.628906 10.742188 -35.332031 11.046875 -34.875 C 11.503906 -34.1875 11.96875 -33.550781 12.4375 -32.96875 L 34.578125 -5.75 L 34.578125 -29.640625 C 34.578125 -31.628906 34.242188 -33.066406 33.578125 -33.953125 C 32.910156 -34.835938 31.789062 -35.28125 30.21875 -35.28125 C 30.132812 -35.28125 30.09375 -35.394531 30.09375 -35.625 C 30.09375 -35.851562 30.132812 -35.96875 30.21875 -35.96875 L 32.453125 -35.90625 C 33.609375 -35.832031 34.550781 -35.796875 35.28125 -35.796875 C 35.96875 -35.796875 36.925781 -35.832031 38.15625 -35.90625 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(125.593776,53.565614)"><g><path d="M 23.65625 -36.59375 C 26.070312 -36.59375 28.101562 -36.421875 29.75 -36.078125 C 31.394531 -35.734375 33.046875 -35.140625 34.703125 -34.296875 C 34.972656 -34.140625 35.125 -34.003906 35.15625 -33.890625 C 35.195312 -33.773438 35.253906 -33.488281 35.328125 -33.03125 L 36.03125 -26.1875 C 36.03125 -26.070312 35.921875 -26.003906 35.703125 -25.984375 C 35.492188 -25.960938 35.367188 -26.007812 35.328125 -26.125 C 33.566406 -32.53125 29.617188 -35.734375 23.484375 -35.734375 C 20.253906 -35.734375 17.410156 -35.023438 14.953125 -33.609375 C 12.503906 -32.191406 10.609375 -30.164062 9.265625 -27.53125 C 7.921875 -24.90625 7.25 -21.847656 7.25 -18.359375 C 7.25 -15.015625 7.988281 -11.953125 9.46875 -9.171875 C 10.945312 -6.390625 12.941406 -4.191406 15.453125 -2.578125 C 17.960938 -0.972656 20.695312 -0.171875 23.65625 -0.171875 C 26.800781 -0.171875 29.347656 -0.9375 31.296875 -2.46875 C 33.253906 -4.007812 34.753906 -6.351562 35.796875 -9.5 C 35.796875 -9.570312 35.890625 -9.609375 36.078125 -9.609375 C 36.347656 -9.609375 36.484375 -9.550781 36.484375 -9.4375 L 35.90625 -3.109375 C 35.875 -2.648438 35.816406 -2.363281 35.734375 -2.25 C 35.660156 -2.132812 35.507812 -2 35.28125 -1.84375 C 33.28125 -0.882812 31.40625 -0.210938 29.65625 0.171875 C 27.914062 0.554688 25.914062 0.75 23.65625 0.75 C 19.625 0.75 16.023438 -0.046875 12.859375 -1.640625 C 9.691406 -3.234375 7.222656 -5.46875 5.453125 -8.34375 C 3.691406 -11.21875 2.8125 -14.519531 2.8125 -18.25 C 2.8125 -21.851562 3.710938 -25.046875 5.515625 -27.828125 C 7.328125 -30.609375 9.8125 -32.765625 12.96875 -34.296875 C 16.132812 -35.828125 19.695312 -36.59375 23.65625 -36.59375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(165.070653,53.565614)"><g><path d="M 27.328125 -8.578125 C 27.328125 -8.648438 27.40625 -8.6875 27.5625 -8.6875 C 27.675781 -8.6875 27.78125 -8.664062 27.875 -8.625 C 27.976562 -8.59375 28.03125 -8.535156 28.03125 -8.453125 C 27.675781 -6.035156 27.5 -3.503906 27.5 -0.859375 C 27.5 -0.554688 27.429688 -0.335938 27.296875 -0.203125 C 27.171875 -0.0664062 26.9375 0 26.59375 0 L 2.46875 0 C 2.394531 0 2.359375 -0.113281 2.359375 -0.34375 C 2.359375 -0.570312 2.394531 -0.6875 2.46875 -0.6875 C 3.925781 -0.6875 4.988281 -0.78125 5.65625 -0.96875 C 6.332031 -1.164062 6.796875 -1.539062 7.046875 -2.09375 C 7.296875 -2.65625 7.421875 -3.507812 7.421875 -4.65625 L 7.421875 -31.3125 C 7.421875 -32.457031 7.296875 -33.296875 7.046875 -33.828125 C 6.796875 -34.367188 6.332031 -34.742188 5.65625 -34.953125 C 4.988281 -35.171875 3.925781 -35.28125 2.46875 -35.28125 C 2.394531 -35.28125 2.359375 -35.394531 2.359375 -35.625 C 2.359375 -35.851562 2.394531 -35.96875 2.46875 -35.96875 L 25.609375 -35.96875 C 25.953125 -35.96875 26.125 -35.796875 26.125 -35.453125 L 26.234375 -28.375 C 26.234375 -28.257812 26.140625 -28.191406 25.953125 -28.171875 C 25.765625 -28.148438 25.648438 -28.195312 25.609375 -28.3125 C 25.492188 -30.34375 24.878906 -31.925781 23.765625 -33.0625 C 22.648438 -34.195312 21.171875 -34.765625 19.328125 -34.765625 L 15.828125 -34.765625 C 14.484375 -34.765625 13.492188 -34.65625 12.859375 -34.4375 C 12.222656 -34.226562 11.78125 -33.863281 11.53125 -33.34375 C 11.289062 -32.832031 11.171875 -32.054688 11.171875 -31.015625 L 11.171875 -19.328125 L 18.1875 -19.328125 C 20.03125 -19.328125 21.34375 -19.632812 22.125 -20.25 C 22.914062 -20.863281 23.3125 -21.898438 23.3125 -23.359375 C 23.3125 -23.441406 23.425781 -23.484375 23.65625 -23.484375 C 23.882812 -23.484375 24 -23.441406 24 -23.359375 L 23.9375 -18.703125 C 23.9375 -17.585938 23.957031 -16.742188 24 -16.171875 L 24.046875 -13.40625 C 24.046875 -13.332031 23.929688 -13.296875 23.703125 -13.296875 C 23.472656 -13.296875 23.359375 -13.332031 23.359375 -13.40625 C 23.359375 -15.09375 22.945312 -16.300781 22.125 -17.03125 C 21.300781 -17.757812 19.929688 -18.125 18.015625 -18.125 L 11.171875 -18.125 L 11.171875 -4.890625 C 11.171875 -3.816406 11.285156 -3.03125 11.515625 -2.53125 C 11.742188 -2.03125 12.164062 -1.679688 12.78125 -1.484375 C 13.394531 -1.296875 14.351562 -1.203125 15.65625 -1.203125 L 20.25 -1.203125 C 22.09375 -1.203125 23.628906 -1.851562 24.859375 -3.15625 C 26.085938 -4.46875 26.910156 -6.273438 27.328125 -8.578125 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(195.97311,53.565614)"><g><path d="M 39.296875 -0.6875 C 39.378906 -0.6875 39.421875 -0.570312 39.421875 -0.34375 C 39.421875 -0.113281 39.378906 0 39.296875 0 L 31.875 0 C 30.914062 0 29.113281 -1.585938 26.46875 -4.765625 C 23.820312 -7.953125 20.675781 -12.328125 17.03125 -17.890625 C 16 -17.660156 14.925781 -17.546875 13.8125 -17.546875 C 13.582031 -17.546875 12.71875 -17.601562 11.21875 -17.71875 L 11.21875 -4.65625 C 11.21875 -3.46875 11.332031 -2.601562 11.5625 -2.0625 C 11.789062 -1.53125 12.238281 -1.164062 12.90625 -0.96875 C 13.582031 -0.78125 14.648438 -0.6875 16.109375 -0.6875 C 16.222656 -0.6875 16.28125 -0.570312 16.28125 -0.34375 C 16.28125 -0.113281 16.222656 0 16.109375 0 C 14.921875 0 13.984375 -0.0195312 13.296875 -0.0625 L 9.328125 -0.109375 L 5.40625 -0.0625 C 4.71875 -0.0195312 3.738281 0 2.46875 0 C 2.394531 0 2.359375 -0.113281 2.359375 -0.34375 C 2.359375 -0.570312 2.394531 -0.6875 2.46875 -0.6875 C 3.925781 -0.6875 5 -0.78125 5.6875 -0.96875 C 6.382812 -1.164062 6.859375 -1.539062 7.109375 -2.09375 C 7.359375 -2.65625 7.484375 -3.507812 7.484375 -4.65625 L 7.484375 -31.3125 C 7.484375 -32.457031 7.367188 -33.296875 7.140625 -33.828125 C 6.910156 -34.367188 6.457031 -34.742188 5.78125 -34.953125 C 5.113281 -35.171875 4.050781 -35.28125 2.59375 -35.28125 C 2.476562 -35.28125 2.421875 -35.394531 2.421875 -35.625 C 2.421875 -35.851562 2.476562 -35.96875 2.59375 -35.96875 L 5.40625 -35.90625 C 7.019531 -35.832031 8.328125 -35.796875 9.328125 -35.796875 C 10.171875 -35.796875 10.957031 -35.8125 11.6875 -35.84375 C 12.414062 -35.882812 13.03125 -35.925781 13.53125 -35.96875 C 14.945312 -36.082031 16.226562 -36.140625 17.375 -36.140625 C 20.40625 -36.140625 22.742188 -35.445312 24.390625 -34.0625 C 26.046875 -32.6875 26.875 -30.847656 26.875 -28.546875 C 26.875 -26.472656 26.269531 -24.597656 25.0625 -22.921875 C 23.851562 -21.253906 22.25 -19.941406 20.25 -18.984375 C 23.476562 -14.347656 26.191406 -10.710938 28.390625 -8.078125 C 30.597656 -5.453125 32.554688 -3.5625 34.265625 -2.40625 C 35.972656 -1.257812 37.648438 -0.6875 39.296875 -0.6875 Z M 11.21875 -19.109375 C 12.175781 -18.953125 13.304688 -18.875 14.609375 -18.875 C 17.609375 -18.875 19.75 -19.523438 21.03125 -20.828125 C 22.320312 -22.128906 22.96875 -24.144531 22.96875 -26.875 C 22.96875 -29.863281 22.300781 -32.007812 20.96875 -33.3125 C 19.644531 -34.625 17.71875 -35.28125 15.1875 -35.28125 C 13.695312 -35.28125 12.660156 -35.007812 12.078125 -34.46875 C 11.503906 -33.9375 11.21875 -32.84375 11.21875 -31.1875 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(229.98309,53.565614)"><g><path d="M 10.875 -34.9375 C 8.457031 -34.9375 6.644531 -34.320312 5.4375 -33.09375 C 4.226562 -31.863281 3.351562 -29.769531 2.8125 -26.8125 C 2.8125 -26.738281 2.707031 -26.703125 2.5 -26.703125 C 2.289062 -26.703125 2.1875 -26.738281 2.1875 -26.8125 C 2.34375 -28.195312 2.515625 -30 2.703125 -32.21875 C 2.898438 -34.445312 3 -36.117188 3 -37.234375 C 3 -37.421875 3.101562 -37.515625 3.3125 -37.515625 C 3.519531 -37.515625 3.625 -37.421875 3.625 -37.234375 C 3.625 -36.390625 4.660156 -35.96875 6.734375 -35.96875 C 9.992188 -35.851562 13.847656 -35.796875 18.296875 -35.796875 C 20.554688 -35.796875 22.957031 -35.832031 25.5 -35.90625 L 29.40625 -35.96875 C 30.789062 -35.96875 31.816406 -36.0625 32.484375 -36.25 C 33.160156 -36.445312 33.59375 -36.832031 33.78125 -37.40625 C 33.820312 -37.5625 33.9375 -37.640625 34.125 -37.640625 C 34.3125 -37.640625 34.40625 -37.5625 34.40625 -37.40625 C 34.289062 -36.289062 34.175781 -34.601562 34.0625 -32.34375 C 33.945312 -30.082031 33.890625 -28.238281 33.890625 -26.8125 C 33.890625 -26.738281 33.773438 -26.703125 33.546875 -26.703125 C 33.316406 -26.703125 33.203125 -26.738281 33.203125 -26.8125 C 33.085938 -29.8125 32.472656 -31.914062 31.359375 -33.125 C 30.242188 -34.332031 28.40625 -34.9375 25.84375 -34.9375 C 24.113281 -34.9375 22.882812 -34.859375 22.15625 -34.703125 C 21.425781 -34.546875 20.925781 -34.21875 20.65625 -33.71875 C 20.382812 -33.21875 20.25 -32.375 20.25 -31.1875 L 20.25 -4.65625 C 20.25 -3.46875 20.382812 -2.601562 20.65625 -2.0625 C 20.925781 -1.53125 21.441406 -1.164062 22.203125 -0.96875 C 22.972656 -0.78125 24.1875 -0.6875 25.84375 -0.6875 C 25.957031 -0.6875 26.015625 -0.570312 26.015625 -0.34375 C 26.015625 -0.113281 25.957031 0 25.84375 0 C 24.570312 0 23.550781 -0.0195312 22.78125 -0.0625 L 18.296875 -0.109375 L 13.984375 -0.0625 C 13.210938 -0.0195312 12.15625 0 10.8125 0 C 10.738281 0 10.703125 -0.113281 10.703125 -0.34375 C 10.703125 -0.570312 10.738281 -0.6875 10.8125 -0.6875 C 12.46875 -0.6875 13.675781 -0.78125 14.4375 -0.96875 C 15.207031 -1.164062 15.734375 -1.539062 16.015625 -2.09375 C 16.304688 -2.65625 16.453125 -3.507812 16.453125 -4.65625 L 16.453125 -31.3125 C 16.453125 -32.5 16.316406 -33.332031 16.046875 -33.8125 C 15.785156 -34.289062 15.289062 -34.597656 14.5625 -34.734375 C 13.832031 -34.867188 12.601562 -34.9375 10.875 -34.9375 Z"/></g></g></g><g fill="#121e36" fill-opacity="1"><g transform="translate(265.719447,53.565614)"><g><path d="M 21.0625 0.6875 C 17.488281 0.6875 14.3125 -0.144531 11.53125 -1.8125 C 8.75 -3.476562 6.597656 -5.738281 5.078125 -8.59375 C 3.566406 -11.457031 2.8125 -14.578125 2.8125 -17.953125 C 2.8125 -21.898438 3.804688 -25.285156 5.796875 -28.109375 C 7.796875 -30.929688 10.359375 -33.050781 13.484375 -34.46875 C 16.617188 -35.882812 19.816406 -36.59375 23.078125 -36.59375 C 26.722656 -36.59375 29.925781 -35.738281 32.6875 -34.03125 C 35.445312 -32.332031 37.566406 -30.082031 39.046875 -27.28125 C 40.523438 -24.476562 41.265625 -21.503906 41.265625 -18.359375 C 41.265625 -14.867188 40.34375 -11.664062 38.5 -8.75 C 36.65625 -5.832031 34.1875 -3.53125 31.09375 -1.84375 C 28.007812 -0.15625 24.664062 0.6875 21.0625 0.6875 Z M 23.078125 -0.515625 C 25.679688 -0.515625 28.03125 -1.144531 30.125 -2.40625 C 32.21875 -3.675781 33.867188 -5.539062 35.078125 -8 C 36.285156 -10.457031 36.890625 -13.375 36.890625 -16.75 C 36.890625 -20.351562 36.21875 -23.554688 34.875 -26.359375 C 33.53125 -29.160156 31.640625 -31.347656 29.203125 -32.921875 C 26.765625 -34.492188 23.914062 -35.28125 20.65625 -35.28125 C 16.4375 -35.28125 13.132812 -33.914062 10.75 -31.1875 C 8.375 -28.46875 7.1875 -24.726562 7.1875 -19.96875 C 7.1875 -16.363281 7.859375 -13.070312 9.203125 -10.09375 C 10.546875 -7.125 12.425781 -4.785156 14.84375 -3.078125 C 17.257812 -1.367188 20.003906 -0.515625 23.078125 -0.515625 Z"/></g></g></g></g></g></svg>
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
     </div>
     <p class="hero-tagline">More than a show. A complete night out.</p>
     <div class="hero-rule"></div>
@@ -630,16 +565,14 @@
 </section>
 
 <!-- MARQUEE -->
-
 <div class="marquee-band">
     <div class="marquee-track">
-        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists &amp; Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
-        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists &amp; Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
     </div>
 </div>
 
 <!-- INTRO -->
-
 <section class="s intro">
     <div class="s-inner">
         <div class="intro-grid">
@@ -671,28 +604,33 @@
 </section>
 
 <!-- APP PREVIEW -->
-
 <section class="s app-preview">
     <div class="s-inner">
         <div class="r" style="text-align:center;">
             <div class="s-label" style="text-align:center;">The App</div>
             <div class="s-title" style="text-align:center; max-width:none;">See It in Action.</div>
         </div>
+        <!-- 
+            SCREENSHOT INSTRUCTIONS:
+            Replace each screen-placeholder div with:
+            <img src="./screenshot-name.png" alt="Description">
+            Add your screenshot files to the same folder as index.html
+        -->
         <div class="carousel-container">
-            <div class="carousel-arrow left">‹</div>
-            <div class="carousel-arrow right">›</div>
+            <div class="carousel-arrow left" onclick="moveCarousel(-1)">‹</div>
+            <div class="carousel-arrow right" onclick="moveCarousel(1)">›</div>
             <div class="carousel-track" id="carouselTrack">
                 <div class="screen">
                     <img src="./home.jpeg" alt="Concerto Home Screen">
                     <div class="screen-cap">Home</div>
                 </div>
                 <div class="screen">
-                    <img src="./featured-tours.jpeg" alt="Featured Tours">
+                   <img src="./featured-tours.jpeg" alt="Featured Tours">
                     <div class="screen-cap">Featured Tours</div>
                 </div>
                 <div class="screen">
-                    <img src="./setlists.jpeg" alt="Setlists &amp; Tour Info">
-                    <div class="screen-cap">Setlists &amp; Info</div>
+                    <img src="./setlists.jpeg" alt="Setlists & Tour Info">
+                    <div class="screen-cap">Setlists & Info</div>
                 </div>
                 <div class="screen">
                     <img src="./city-guides.jpeg" alt="City Guides">
@@ -721,7 +659,6 @@
 </section>
 
 <!-- FEATURES -->
-
 <section class="s features-section" id="features">
     <div class="s-inner">
         <div class="features-header">
@@ -739,7 +676,7 @@
             </div>
             <div class="feat">
                 <div class="feat-num">No. 02</div>
-                <h3>Setlists &amp; Tour Info</h3>
+                <h3>Setlists & Tour Info</h3>
                 <p>Instantly access accurate setlists, local start times, and official tour websites. Tap any song to reveal Apple Music and Spotify links — so fans know exactly what to expect before the lights go down.</p>
             </div>
             <div class="feat">
@@ -768,7 +705,6 @@
 </section>
 
 <!-- HOW IT WORKS -->
-
 <section class="s process" id="process">
     <div class="s-inner">
         <div class="r" style="margin-bottom:4rem;">
@@ -801,6 +737,7 @@
             </div>
             <div class="process-right r r2">
                 <div class="process-screen">
+                    <!-- Replace with: <img src="./screenshot-timeline.png" alt="Concerto app timeline view"> -->
                     <img src="./timeline.jpg" alt="Concerto Timeline">
                 </div>
             </div>
@@ -809,7 +746,6 @@
 </section>
 
 <!-- PULL QUOTE -->
-
 <section class="s pullquote">
     <div class="s-inner">
         <div class="r">
@@ -822,7 +758,6 @@
 </section>
 
 <!-- PREMIUM -->
-
 <section class="s premium" id="premium">
     <div class="s-inner">
         <div class="premium-wrap">
@@ -863,7 +798,6 @@
 </section>
 
 <!-- PARTNERS -->
-
 <section class="s partners" id="partners">
     <div class="s-inner">
         <div class="r">
@@ -893,7 +827,6 @@
 </section>
 
 <!-- CONTACT -->
-
 <section class="s contact" id="contact">
     <div class="s-inner">
         <div class="contact-wrap">
@@ -907,7 +840,7 @@
                     </div>
                     <div>
                         <div class="contact-item-label">Email</div>
-                        <a href="/cdn-cgi/l/email-protection#e288839b8187a2818d8c818790968d818b969bcc818d8f" class="contact-item"><span class="__cf_email__" data-cfemail="2a404b53494f6a494544494f585e4549435e5304494547">[email&#160;protected]</span></a>
+                        <a href="mailto:jayce@concertocity.com" class="contact-item">jayce@concertocity.com</a>
                     </div>
                     <div>
                         <div class="contact-item-label">Website</div>
@@ -921,14 +854,13 @@
             </div>
             <div class="contact-right r r2">
                 <p class="contact-note">"Concerto connects your business with high-intent concertgoers at the exact moments event-night demand peaks — again and again, all year long."</p>
-                <a href="/cdn-cgi/l/email-protection#0369627a606643606c6d606671776c606a777a2d606c6e" class="btn btn-fill">Get in Touch</a>
+                <a href="mailto:jayce@concertocity.com" class="btn btn-fill">Get in Touch</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- FINAL CTA -->
-
 <section class="s final">
     <div class="s-inner">
         <div class="r">
@@ -940,17 +872,9 @@
 </section>
 
 <!-- FOOTER -->
-
 <footer>
     <div class="foot-logo">
-        <!--
-            ╔══════════════════════════════════════════════════════╗
-            ║  REPLACE THIS COMMENT WITH YOUR SVG LOGO CODE       ║
-            ║  The CSS filter: brightness(0) invert(1) will make  ║
-            ║  it appear white automatically on the dark footer   ║
-            ╚══════════════════════════════════════════════════════╝
-        -->
-        <img src="./logo.png" alt="Concerto" style="height:28px;display:block;filter:brightness(0) invert(1);opacity:0.7;">
+        <img src="./logo.png" alt="Concerto">
     </div>
     <div class="foot-links">
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">App Store</a>
@@ -961,161 +885,1181 @@
     <div class="foot-copy">&copy; 2025 Concerto LLC. All rights reserved.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+    // Intersection Observer for reveal animations
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-```
-// Intersection Observer for reveal animations
-const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-}, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
-document.querySelectorAll('.r').forEach(el => obs.observe(el));
+    // Carousel functionality
+    let currentSlide = 0;
+    let autoScrollInterval;
+    const track = document.getElementById('carouselTrack');
+    const screens = track.querySelectorAll('.screen');
+    const totalSlides = Math.ceil(screens.length / 3);
+    const dotsContainer = document.getElementById('carouselDots');
+    const carouselContainer = document.querySelector('.carousel-container');
 
-// ─── CAROUSEL ───
-let currentSlide = 0;
-let autoScrollInterval;
-const track = document.getElementById('carouselTrack');
-const screens = track.querySelectorAll('.screen');
-const dotsContainer = document.getElementById('carouselDots');
-const carouselContainer = document.querySelector('.carousel-container');
+    // Touch/drag variables
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
 
-function getSlidesPerView() {
-    if (window.innerWidth <= 600) return 1;
-    if (window.innerWidth <= 960) return 2;
-    return 3;
-}
-
-function getTotalSlides() {
-    return Math.ceil(screens.length / getSlidesPerView());
-}
-
-// Touch/drag variables
-let isDragging = false;
-let startPos = 0;
-
-// Build dots
-function buildDots() {
-    dotsContainer.innerHTML = '';
-    const total = getTotalSlides();
-    for (let i = 0; i < total; i++) {
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('div');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.onclick = () => { goToSlide(i); resetAutoScroll(); };
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => {
+            goToSlide(i);
+            resetAutoScroll();
+        };
         dotsContainer.appendChild(dot);
     }
-}
 
-function updateCarousel() {
-    const total = getTotalSlides();
-    const safeSlide = Math.min(currentSlide, total - 1);
-    currentSlide = safeSlide;
+    function updateCarousel() {
+        const offset = currentSlide * -100;
+        track.style.transform = `translateX(${offset}%)`;
+        
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
 
-    const perView = getSlidesPerView();
-    const gapPx = window.innerWidth <= 600 ? 16 : 32;
-    const containerW = carouselContainer.offsetWidth;
-    const slideW = (containerW - gapPx * (perView - 1)) / perView;
-    const offset = currentSlide * (slideW + gapPx);
+        document.querySelector('.carousel-arrow.left').classList.toggle('disabled', currentSlide === 0);
+        document.querySelector('.carousel-arrow.right').classList.toggle('disabled', currentSlide === totalSlides - 1);
+    }
 
-    track.style.transform = `translateX(-${offset}px)`;
+    function moveCarousel(direction) {
+        currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+        updateCarousel();
+    }
 
-    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    function autoScroll() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(autoScroll, 3500); // Slower interval for smoother feel
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScrollInterval);
+        startAutoScroll();
+    }
+
+    // Touch/Drag handlers
+    function touchStart(e) {
+        isDragging = true;
+        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        clearInterval(autoScrollInterval);
+        track.style.transition = 'none';
+    }
+
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentPosition - startPos;
+        const movePercent = (diff / carouselContainer.offsetWidth) * 100;
+        const offset = (currentSlide * -100) + movePercent;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+
+    function touchEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = e.type.includes('mouse') ? e.pageX - startPos : e.changedTouches[0].clientX - startPos;
+        
+        track.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Threshold: if moved more than 50px, change slide
+        if (movedBy < -50 && currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else if (movedBy > 50 && currentSlide > 0) {
+            currentSlide--;
+        }
+        
+        updateCarousel();
+        startAutoScroll();
+    }
+
+    // Mouse events
+    track.addEventListener('mousedown', touchStart);
+    track.addEventListener('mousemove', touchMove);
+    track.addEventListener('mouseup', touchEnd);
+    track.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd({ type: 'mouse', pageX: startPos });
     });
 
-    const leftArrow = document.querySelector('.carousel-arrow.left');
-    const rightArrow = document.querySelector('.carousel-arrow.right');
-    if (leftArrow) leftArrow.classList.toggle('disabled', currentSlide === 0);
-    if (rightArrow) rightArrow.classList.toggle('disabled', currentSlide >= total - 1);
-}
+    // Touch events
+    track.addEventListener('touchstart', touchStart);
+    track.addEventListener('touchmove', touchMove);
+    track.addEventListener('touchend', touchEnd);
 
-function moveCarousel(direction) {
-    const total = getTotalSlides();
-    currentSlide = Math.max(0, Math.min(total - 1, currentSlide + direction));
-    updateCarousel();
-}
+    // Prevent image dragging
+    track.addEventListener('dragstart', (e) => e.preventDefault());
 
-function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
-}
+    // Manual arrow controls
+    document.querySelector('.carousel-arrow.left').onclick = () => {
+        moveCarousel(-1);
+        resetAutoScroll();
+    };
+    document.querySelector('.carousel-arrow.right').onclick = () => {
+        moveCarousel(1);
+        resetAutoScroll();
+    };
 
-function autoScroll() {
-    const total = getTotalSlides();
-    currentSlide = (currentSlide + 1) % total;
-    updateCarousel();
-}
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    carouselContainer.addEventListener('mouseleave', () => {
+        if (!isDragging) startAutoScroll();
+    });
 
-function startAutoScroll() {
-    autoScrollInterval = setInterval(autoScroll, 3500);
-}
-
-function resetAutoScroll() {
-    clearInterval(autoScrollInterval);
-    startAutoScroll();
-}
-
-// Touch/Drag handlers
-function touchStart(e) {
-    isDragging = true;
-    startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    clearInterval(autoScrollInterval);
-    track.style.transition = 'none';
-}
-
-function touchMove(e) {
-    if (!isDragging) return;
-    const currentPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-    const diff = currentPos - startPos;
-    const perView = getSlidesPerView();
-    const gapPx = window.innerWidth <= 600 ? 16 : 32;
-    const containerW = carouselContainer.offsetWidth;
-    const slideW = (containerW - gapPx * (perView - 1)) / perView;
-    const baseOffset = currentSlide * (slideW + gapPx);
-    track.style.transform = `translateX(${-baseOffset + diff}px)`;
-}
-
-function touchEnd(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    const movedBy = e.type.includes('mouse')
-        ? e.pageX - startPos
-        : e.changedTouches[0].clientX - startPos;
-    track.style.transition = 'transform 0.8s cubic-bezier(0.4,0,0.2,1)';
-    const total = getTotalSlides();
-    if (movedBy < -50 && currentSlide < total - 1) currentSlide++;
-    else if (movedBy > 50 && currentSlide > 0) currentSlide--;
+    // Initialize
     updateCarousel();
     startAutoScroll();
-}
+</script>
 
-// Arrow click handlers
-document.querySelector('.carousel-arrow.left').addEventListener('click', () => {
-    moveCarousel(-1); resetAutoScroll();
-});
-document.querySelector('.carousel-arrow.right').addEventListener('click', () => {
-    moveCarousel(1); resetAutoScroll();
-});
 
-// Mouse events
-track.addEventListener('mousedown', touchStart);
-track.addEventListener('mousemove', touchMove);
-track.addEventListener('mouseup', touchEnd);
-track.addEventListener('mouseleave', () => {
-    if (isDragging) touchEnd({ type:'mouse', pageX: startPos, changedTouches:[{clientX:startPos}] });
-});
+</body>
+</html>
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concerto — From the Concert to the City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:         #F8F9F9;
+            --bg-mid:     #F1F2F2;
+            --bg-deep:    #E8EAEA;
+            --navy:       #121E36;
+            --navy-mid:   #1e3050;
+            --silver:     #8a8f99;
+            --silver-lt:  #b4b8c0;
+            --border:     rgba(18,30,54,0.08);
+            --border-md:  rgba(18,30,54,0.13);
+            --border-hi:  rgba(18,30,54,0.22);
+        }
 
-// Touch events
-track.addEventListener('touchstart', touchStart, { passive:true });
-track.addEventListener('touchmove', touchMove, { passive:true });
-track.addEventListener('touchend', touchEnd);
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
 
-// Prevent image drag
-track.addEventListener('dragstart', e => e.preventDefault());
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--bg);
+        color: var(--navy);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        width: 100%;
+        max-width: 100vw;
+    }
 
-// Pause on hover
-carouselContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-carouselContainer.addEventListener('mouseleave', () => { if (!isDragging) startAutoScroll(); });
+    body::after {
+        content:''; position:fixed; inset:0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.03; pointer-events:none; z-index:9998;
+    }
 
-// Handle resize
-let resizeTimer;
-window.addEventListener('resize', () => {
-```
+    /* ─── NAV ─── */
+    nav {
+        position: fixed; top:0; width:100%; z-index:100;
+        padding: 0 3rem;
+        height: 68px;
+        display: flex; align-items:center; justify-content:space-between;
+        background: rgba(248,249,249,0.88);
+        backdrop-filter: blur(28px);
+        border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { text-decoration:none; display:block; }
+    .nav-logo img { height: 38px; display:block; }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; }
+    .nav-links a {
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        color: var(--silver); text-decoration:none; transition:color 0.3s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+        color: var(--navy) !important;
+        border: 1px solid var(--border-hi);
+        padding: 0.55rem 1.3rem;
+        transition: background 0.3s, border-color 0.3s !important;
+    }
+    .nav-cta:hover {
+        background: var(--navy) !important;
+        color: var(--bg) !important;
+        border-color: var(--navy) !important;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+        display: inline-flex; align-items:center; gap:0.55rem;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        text-decoration:none; padding: 1rem 2.2rem;
+        transition: all 0.35s ease; cursor:pointer; border:none;
+    }
+    .btn-fill { background: var(--navy); color: var(--bg); }
+    .btn-fill:hover {
+        background: var(--navy-mid);
+        box-shadow: 0 12px 40px rgba(18,30,54,0.18);
+        transform: translateY(-2px);
+    }
+    .btn-outline {
+        background: transparent; color: var(--silver);
+        border: 1px solid var(--border-md);
+    }
+    .btn-outline:hover { border-color:var(--border-hi); color:var(--navy); }
+
+    /* ─── HERO ─── */
+    .hero {
+        position:relative; min-height:100vh;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        text-align:center; padding: 10rem 2rem 6rem; overflow:hidden;
+    }
+    .hero::before {
+        content:''; position:absolute;
+        width:800px; height:800px; border-radius:50%;
+        background: radial-gradient(circle, rgba(18,30,54,0.04) 0%, transparent 70%);
+        top:50%; left:50%; transform:translate(-50%,-55%); pointer-events:none;
+    }
+    .hero-eyebrow {
+        display:inline-flex; align-items:center; gap:0.7rem;
+        font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+        color:var(--silver); margin-bottom:2.5rem;
+        animation: fiu 1s ease both;
+    }
+    .hero-eyebrow span { display:inline-block; width:28px; height:1px; background:var(--border-hi); }
+    .hero-logo {
+        margin-bottom: 2.5rem;
+        animation: fiu 1s ease 0.05s both;
+    }
+    .hero-logo img { width:min(480px,76vw); display:block; margin:0 auto; }
+    .hero-tagline {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic; font-weight:300;
+        font-size: clamp(1.25rem, 2.8vw, 1.85rem);
+        color: var(--silver); line-height:1.6;
+        max-width: 560px; margin: 0 auto 1rem;
+        animation: fiu 1s ease 0.15s both;
+    }
+    .hero-rule {
+        width:1px; height:48px;
+        background: linear-gradient(to bottom, transparent, var(--border-hi), transparent);
+        margin: 1.8rem auto;
+        animation: fiu 1s ease 0.2s both;
+    }
+    .hero-sub {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight:400;
+        color: var(--silver); line-height:1.75;
+        max-width:500px; margin:0 auto 2.8rem;
+        animation: fiu 1s ease 0.25s both;
+    }
+    .hero-actions {
+        display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+        animation: fiu 1s ease 0.35s both;
+    }
+    .hero-proof {
+        display:flex; align-items:center; gap:2rem;
+        margin-top:4rem; animation: fiu 1s ease 0.45s both;
+        color:var(--silver-lt); font-size:0.7rem;
+        letter-spacing:0.12em; text-transform:uppercase; flex-wrap:wrap; justify-content:center;
+    }
+    .proof-sep { width:1px; height:14px; background:var(--border-md); }
+    .stars { color:var(--silver); }
+    .scroll-hint {
+        position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+        display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+        color:var(--silver-lt); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+        animation: fiu 1.2s ease 0.8s both;
+    }
+    .scroll-line {
+        width:1px; height:36px;
+        background: linear-gradient(to bottom, var(--border-hi), transparent);
+        animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.9} }
+
+    /* ─── MARQUEE ─── */
+    .marquee-band {
+        border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        padding:1.1rem 0; overflow:hidden; background:var(--bg-mid);
+    }
+    .marquee-track {
+        display:flex; gap:3rem;
+        animation: marquee 32s linear infinite; width:max-content;
+    }
+    .marquee-item {
+        display:flex; align-items:center; gap:3rem;
+        font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver-lt); white-space:nowrap;
+    }
+    .marquee-dot { width:3px; height:3px; border-radius:50%; background:var(--silver-lt); }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ─── SECTION BASE ─── */
+    .s { position:relative; z-index:1; overflow:hidden; }
+    .s-inner { max-width:1120px; margin:0 auto; padding:6rem 2.5rem; width:100%; }
+    .s-label {
+        font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver-lt); margin-bottom:1rem; font-family:'DM Sans',sans-serif;
+    }
+    .s-title {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.09em; font-weight:500;
+        font-size:clamp(2.2rem,4.5vw,3.6rem); line-height:1.05;
+        color:var(--navy); margin-bottom:1.2rem;
+    }
+    .s-desc {
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(1.05rem,1.6vw,1.25rem); font-weight:400;
+        color:var(--silver); line-height:1.75; max-width:520px;
+    }
+
+    /* ─── INTRO ─── */
+    .intro { border-top:1px solid var(--border); }
+    .intro-grid {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:5rem; align-items:center;
+    }
+    .intro-right {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+    }
+    .intro-stat { background:var(--bg); padding:2rem 1.8rem; }
+    .stat-num {
+        font-family:'Cormorant Garamond',serif;
+        font-size:3rem; font-weight:400; color:var(--navy); line-height:1; margin-bottom:0.5rem;
+    }
+    .stat-label { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
+
+    /* ─── APP PREVIEW ─── */
+    .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); overflow:hidden; }
+    .app-preview .s-inner { padding:5rem 2.5rem; }
+    .carousel-container {
+        position:relative; margin-top:3.5rem; overflow:hidden; width:100%;
+    }
+    .carousel-track {
+        display:flex; gap:2rem; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: grab;
+    }
+    .carousel-track.dragging {
+        cursor: grabbing;
+        transition: none;
+    }
+    .screen {
+        flex:0 0 calc(33.333% - 1.35rem); position:relative;
+        border-radius:24px; overflow:hidden;
+        border:1px solid var(--border-md);
+        box-shadow: 0 12px 32px rgba(18,30,54,0.07);
+        background: var(--bg);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        max-width: 200px;
+        aspect-ratio: 9/19.5;
+    }
+    .screen:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(18,30,54,0.1);
+    }
+    .screen img { width:100%; height:100%; object-fit:cover; display:block; }
+    .screen-placeholder {
+        width:100%; height:100%;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        background:var(--bg); gap:0.8rem; padding:1.5rem; text-align:center;
+    }
+    .screen-placeholder .ph-icon { font-size:2rem; opacity:0.25; }
+    .screen-placeholder .ph-label {
+        font-family:'Cormorant Garamond',serif;
+        font-size:0.85rem; color:var(--silver-lt);
+        letter-spacing:0.08em; line-height:1.5;
+    }
+    .screen-cap {
+        text-align:center; margin-top:1rem;
+        font-size:0.65rem; letter-spacing:0.15em;
+        text-transform:uppercase; color:var(--silver-lt);
+    }
+    .carousel-arrow {
+        position:absolute; top:50%; transform:translateY(-50%);
+        width:48px; height:48px; border-radius:50%;
+        background:var(--bg); border:1px solid var(--border-hi);
+        display:flex; align-items:center; justify-content:center;
+        cursor:pointer; z-index:10; transition:all 0.3s ease;
+        color:var(--navy); font-size:1.2rem;
+    }
+    .carousel-arrow:hover {
+        background:var(--navy); color:var(--bg);
+        box-shadow: 0 8px 24px rgba(18,30,54,0.15);
+    }
+    .carousel-arrow.disabled {
+        opacity:0.3; cursor:not-allowed; pointer-events:none;
+    }
+    .carousel-arrow.left { left:-24px; }
+    .carousel-arrow.right { right:-24px; }
+    .carousel-dots {
+        display:none;
+    }
+    .carousel-dot {
+        width:8px; height:8px; border-radius:50%;
+        background:var(--border-hi); cursor:pointer;
+        transition:all 0.3s ease;
+    }
+    .carousel-dot.active {
+        background:var(--navy); width:24px; border-radius:4px;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-section { border-top:1px solid var(--border); }
+    .features-header {
+        display:flex; justify-content:space-between; align-items:flex-end;
+        margin-bottom:4rem; gap:2rem; flex-wrap:wrap;
+    }
+    .features-grid {
+        display:grid; grid-template-columns:repeat(3,1fr);
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+    }
+    .feat {
+        background:var(--bg); padding:2.8rem 2.2rem;
+        transition:background 0.4s; position:relative;
+    }
+    .feat::after {
+        content:''; position:absolute; top:0; left:0; right:0; height:1px;
+        background:linear-gradient(90deg,transparent,var(--border-hi),transparent);
+        opacity:0; transition:opacity 0.4s;
+    }
+    .feat:hover { background:var(--bg-mid); }
+    .feat:hover::after { opacity:1; }
+    .feat-num {
+        font-family:'Cormorant Garamond',serif; font-size:0.78rem;
+        color:var(--silver-lt); letter-spacing:0.1em; margin-bottom:2rem;
+    }
+    .feat h3 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.75rem;
+    }
+    .feat p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
+    .feat-badge {
+        display:inline-block; margin-top:1rem;
+        font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase;
+        color:var(--silver-lt); border:1px solid var(--border-md);
+        padding:0.25rem 0.6rem;
+    }
+
+    /* ─── PROCESS ─── */
+    .process { border-top:1px solid var(--border); background:var(--bg-mid); }
+    .process-wrap {
+        display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+    }
+    .process-steps { display:flex; flex-direction:column; gap:0; }
+    .process-step {
+        padding:2.2rem 0; border-bottom:1px solid var(--border-md); display:flex; gap:2rem; align-items:flex-start;
+    }
+    .process-step:first-child { border-top:1px solid var(--border-md); }
+    .step-num {
+        font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300;
+        line-height:1; -webkit-text-stroke:1px var(--border-hi); color:transparent;
+        flex-shrink:0; width:3rem;
+    }
+    .step-body {}
+    .process-step h3 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.5rem;
+    }
+    .process-step p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
+    .process-right { display:flex; align-items:center; justify-content:center; }
+    .process-screen {
+        width:240px; height:480px;
+        border-radius:36px; overflow:hidden;
+        border:1px solid var(--border-md);
+        box-shadow: 0 24px 60px rgba(18,30,54,0.1);
+        background:var(--bg);
+    }
+    .process-screen .screen-placeholder { height:100%; }
+
+    /* ─── PULL QUOTE ─── */
+    .pullquote {
+        border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        text-align:center; background:var(--bg);
+    }
+    .pullquote .s-inner { padding:7rem 2.5rem; }
+    .pq-mark {
+        font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300;
+        color:var(--border-hi); line-height:0.6; margin-bottom:2.2rem;
+    }
+    .pq-text {
+        font-family:'Cormorant Garamond',serif; font-style:italic;
+        font-size:clamp(1.4rem,3.2vw,2.2rem); font-weight:300;
+        line-height:1.65; color:var(--navy); max-width:740px; margin:0 auto 2.5rem;
+    }
+    .pq-rule { width:32px; height:1px; background:var(--border-hi); margin:0 auto 1.2rem; }
+    .pq-attr { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--silver); }
+
+    /* ─── PREMIUM ─── */
+    .premium { border-top:1px solid var(--border); overflow:hidden; }
+    .premium-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .premium-card {
+        border:1px solid var(--border-md); background:var(--bg-mid);
+        padding:3rem; position:relative; width:100%; max-width:100%;
+    }
+    .premium-card::before {
+        content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:1px;
+        background:linear-gradient(90deg,transparent,var(--border-hi),transparent);
+    }
+    .prem-badge {
+        font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver); border:1px solid var(--border-md);
+        padding:0.35rem 0.9rem; display:inline-block; margin-bottom:2rem;
+    }
+    .prem-prices {
+        display:flex; gap:2.5rem; margin-bottom:2.5rem;
+        padding-bottom:2.5rem; border-bottom:1px solid var(--border-md);
+    }
+    .prem-amount {
+        font-family:'Cormorant Garamond',serif; font-size:2.8rem;
+        font-weight:400; color:var(--navy); line-height:1;
+    }
+    .prem-period {
+        font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
+        color:var(--silver); margin-top:0.35rem;
+    }
+    .prem-save { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy); margin-top:0.25rem; }
+    .prem-list { margin-bottom:2.5rem; }
+    .prem-list li {
+        list-style:none; font-size:0.875rem; color:var(--silver);
+        padding:0.65rem 0; border-bottom:1px solid var(--border);
+        display:flex; align-items:center; gap:0.8rem; font-weight:300;
+    }
+    .prem-list li::before { content:'–'; color:var(--silver-lt); }
+
+    /* ─── PARTNERS ─── */
+    .partners { border-top:1px solid var(--border); background:var(--bg-mid); }
+    .partners-grid {
+        display:grid; grid-template-columns:repeat(4,1fr);
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+        margin-top:3.5rem;
+    }
+    .partner-card {
+        background:var(--bg-mid); padding:2.5rem 2rem;
+        transition:background 0.4s;
+    }
+    .partner-card:hover { background:var(--bg); }
+    .partner-card h3 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.75rem;
+    }
+    .partner-card p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
+
+    /* ─── CONTACT ─── */
+    .contact { border-top:1px solid var(--border); }
+    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .contact-details { margin-top:2.5rem; display:flex; flex-direction:column; gap:1.2rem; }
+    .contact-item {
+        display:flex; align-items:center; gap:1rem;
+        font-size:0.95rem; color:var(--silver); text-decoration:none;
+        transition:color 0.3s;
+    }
+    .contact-item:hover { color:var(--navy); }
+    .contact-item-label {
+        font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+        color:var(--silver-lt); margin-bottom:0.3rem;
+    }
+    .contact-right { padding-top:2rem; }
+    .contact-note {
+        font-family:'Cormorant Garamond',serif; font-style:italic;
+        font-size:clamp(1.2rem,2.2vw,1.65rem); font-weight:300;
+        color:var(--navy); line-height:1.65; margin-bottom:2rem;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final { border-top:1px solid var(--border); text-align:center; background:var(--navy); }
+    .final .s-inner { padding:9rem 2.5rem 10rem; }
+    .final h2 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.12em; font-size:clamp(3rem,8vw,7rem);
+        font-weight:500; line-height:0.95; color:var(--bg); margin-bottom:2rem;
+    }
+    .final h2 em {
+        font-style:italic; font-weight:300; text-transform:none;
+        letter-spacing:0.04em; color:rgba(248,249,249,0.4);
+    }
+    .final-sub {
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(1.05rem,1.8vw,1.3rem); color:rgba(248,249,249,0.5);
+        margin-bottom:3rem; line-height:1.75;
+    }
+    .final .btn-fill { background:var(--bg); color:var(--navy); }
+    .final .btn-fill:hover { background:#fff; box-shadow:0 12px 48px rgba(248,249,249,0.12); transform:translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+        border-top:1px solid rgba(248,249,249,0.1); background:var(--navy);
+        padding:2rem 3rem; display:flex; align-items:center;
+        justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
+    }
+    .foot-logo img { height:28px; display:block; filter: brightness(0) invert(1); opacity:0.7; }
+    .foot-links { display:flex; gap:2rem; }
+    .foot-links a {
+        font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+        color:rgba(248,249,249,0.35); text-decoration:none; transition:color 0.3s;
+    }
+    .foot-links a:hover { color:var(--bg); }
+    .foot-copy { font-size:0.68rem; letter-spacing:0.08em; color:rgba(248,249,249,0.25); }
+
+    /* ─── REVEAL ─── */
+    .r { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+    .r.on { opacity:1; transform:translateY(0); }
+    .r2 { transition-delay:0.1s; } .r3 { transition-delay:0.2s; } .r4 { transition-delay:0.3s; }
+
+    @keyframes fiu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+        nav { padding:0 1.5rem; }
+        .nav-links a:not(.nav-cta) { display:none; }
+        .s-inner { padding:4.5rem 1.5rem; width:100%; }
+        .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns:1fr; gap:3rem; }
+        .features-grid { grid-template-columns:1fr 1fr; }
+        .partners-grid { grid-template-columns:1fr 1fr; }
+        .process-right { display:none; }
+        footer { flex-direction:column; align-items:flex-start; }
+        .carousel-arrow { display:none; }
+        .screen { flex:0 0 calc(50% - 1rem); }
+        .premium-card { padding:2rem 1.5rem; }
+        .prem-prices { flex-direction:column; gap:1.5rem; }
+    }
+    @media (max-width:600px) {
+        .features-grid, .partners-grid { grid-template-columns:1fr; }
+        .intro-right { grid-template-columns:1fr 1fr; }
+        .hero-proof { gap:1rem; }
+        .proof-sep { display:none; }
+        .screen { flex:0 0 85%; }
+        .carousel-track { gap:1rem; }
+    }
+</style>
+
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#" class="nav-logo">
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
+    </a>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#process">How It Works</a>
+        <a href="#premium">Premium</a>
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="nav-cta" target="_blank">Download</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-eyebrow"><span></span> Now on the App Store <span></span></div>
+    <div class="hero-logo">
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
+    </div>
+    <p class="hero-tagline">More than a show. A complete night out.</p>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Concerto transforms every live event into a complete night-out experience — from the concert to the city.</p>
+    <div class="hero-actions">
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Download for iOS</a>
+        <a href="#features" class="btn btn-outline">Explore the App</a>
+    </div>
+    <div class="hero-proof">
+        <span><span class="stars">★★★★★</span>&nbsp; 5.0 on the App Store</span>
+        <div class="proof-sep"></div>
+        <span>Free to Download</span>
+        <div class="proof-sep"></div>
+        <span>Concerts · Sports · Festivals</span>
+    </div>
+    <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        Scroll
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+    <div class="marquee-track">
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
+    </div>
+</div>
+
+<!-- INTRO -->
+<section class="s intro">
+    <div class="s-inner">
+        <div class="intro-grid">
+            <div class="r">
+                <div class="s-label">About Concerto</div>
+                <div class="s-title">From the Concert.<br>To the City.</div>
+                <div class="s-desc" style="margin-top:1.2rem;">Most apps help you find a show. Concerto takes over from there — turning your entire event day into something effortless. Curated dining, hotels, venue logistics, setlists, and insider tips, all tied to your specific show and city.</div>
+            </div>
+            <div class="intro-right r r2">
+                <div class="intro-stat">
+                    <div class="stat-num">25+</div>
+                    <div class="stat-label">Featured<br>Tours</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">5.0</div>
+                    <div class="stat-label">App Store<br>Rating</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Core<br>Features</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">∞</div>
+                    <div class="stat-label">Better show<br>days ahead</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APP PREVIEW -->
+<section class="s app-preview">
+    <div class="s-inner">
+        <div class="r" style="text-align:center;">
+            <div class="s-label" style="text-align:center;">The App</div>
+            <div class="s-title" style="text-align:center; max-width:none;">See It in Action.</div>
+        </div>
+        <!-- 
+            SCREENSHOT INSTRUCTIONS:
+            Replace each screen-placeholder div with:
+            <img src="./screenshot-name.png" alt="Description">
+            Add your screenshot files to the same folder as index.html
+        -->
+        <div class="carousel-container">
+            <div class="carousel-arrow left" onclick="moveCarousel(-1)">‹</div>
+            <div class="carousel-arrow right" onclick="moveCarousel(1)">›</div>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="screen">
+                    <img src="./home.jpeg" alt="Concerto Home Screen">
+                    <div class="screen-cap">Home</div>
+                </div>
+                <div class="screen">
+                   <img src="./featured-tours.jpeg" alt="Featured Tours">
+                    <div class="screen-cap">Featured Tours</div>
+                </div>
+                <div class="screen">
+                    <img src="./setlists.jpeg" alt="Setlists & Tour Info">
+                    <div class="screen-cap">Setlists & Info</div>
+                </div>
+                <div class="screen">
+                    <img src="./city-guides.jpeg" alt="City Guides">
+                    <div class="screen-cap">City Guides</div>
+                </div>
+                <div class="screen">
+                    <img src="./events-near-me.jpeg" alt="Events Near Me">
+                    <div class="screen-cap">Events Near Me</div>
+                </div>
+                <div class="screen">
+                    <img src="./at-the-venue.jpeg" alt="At The Venue">
+                    <div class="screen-cap">At The Venue</div>
+                </div>
+                <div class="screen">
+                    <img src="./festivals.jpeg" alt="Festivals">
+                    <div class="screen-cap">Festivals</div>
+                </div>
+                <div class="screen">
+                    <img src="./concerto-plus.jpeg" alt="Concerto+ Timeline">
+                    <div class="screen-cap">Concerto+</div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="s features-section" id="features">
+    <div class="s-inner">
+        <div class="features-header">
+            <div class="r">
+                <div class="s-label">Key Features</div>
+                <div class="s-title">Everything for<br>Your Show Day.</div>
+            </div>
+            <div class="s-desc r r2" style="max-width:340px;">Six features, one seamless experience — from the moment you buy your ticket to the last song of the night.</div>
+        </div>
+        <div class="features-grid r">
+            <div class="feat">
+                <div class="feat-num">No. 01</div>
+                <h3>Featured Tours</h3>
+                <p>Explore current tours through beautifully organized tour pages. Each stop includes a venue-based City Guide, direct ticket access, bag policies, rideshare, concessions, and parking — all in one tap.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 02</div>
+                <h3>Setlists & Tour Info</h3>
+                <p>Instantly access accurate setlists, local start times, and official tour websites. Tap any song to reveal Apple Music and Spotify links — so fans know exactly what to expect before the lights go down.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 03</div>
+                <h3>City Guides</h3>
+                <p>The best restaurants, hotels, and shops near your venue — curated and ranked. Top Picks surface the standout spots first, using smart search and accurate distance tracking tied to your specific event night.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 04</div>
+                <h3>Events Near Me</h3>
+                <p>Discover concerts, sports, comedy, festivals, theater, and nightlife happening around you — searchable by city, date, and category. Perfect for extending a concert weekend or planning a spontaneous night out.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 05</div>
+                <h3>At The Venue</h3>
+                <p>Everything fans need once they arrive. Rideshare zones, bag policies, concessions overviews, parking guidance, and real-time concert day weather — centralized so you can focus on the experience.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 06</div>
+                <h3>Festivals</h3>
+                <p>Plan multi-day festival experiences with ease. Discover lineups, nearby stays, dining, and attractions — organized into a personalized itinerary designed around your schedule and style.</p>
+                <div class="feat-badge">Premium Feature</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="s process" id="process">
+    <div class="s-inner">
+        <div class="r" style="margin-bottom:4rem;">
+            <div class="s-label">How It Works</div>
+            <div class="s-title">Plan Your Night<br>in Seconds.</div>
+        </div>
+        <div class="process-wrap">
+            <div class="process-steps">
+                <div class="process-step r">
+                    <div class="step-num">01</div>
+                    <div class="step-body">
+                        <h3>Find Your Tour or Event</h3>
+                        <p>Search by artist, venue, or city. Concerto surfaces your show from its library of featured tours and nearby events — instantly revealing every detail for that specific stop.</p>
+                    </div>
+                </div>
+                <div class="process-step r r2">
+                    <div class="step-num">02</div>
+                    <div class="step-body">
+                        <h3>Explore the City Around It</h3>
+                        <p>Browse curated restaurants, hotels, and local spots — all anchored to your venue. Check the setlist, confirm start times, and lock in your rideshare zone before you leave the house.</p>
+                    </div>
+                </div>
+                <div class="process-step r r3">
+                    <div class="step-num">03</div>
+                    <div class="step-body">
+                        <h3>Arrive Informed. Enjoy the Show.</h3>
+                        <p>Walk in knowing the bag policy, parking situation, and concessions layout. From the first stop to the final encore, Concerto has the whole night handled.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="process-right r r2">
+                <div class="process-screen">
+                    <!-- Replace with: <img src="./screenshot-timeline.png" alt="Concerto app timeline view"> -->
+                    <img src="./timeline.jpg" alt="Concerto Timeline">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="s pullquote">
+    <div class="s-inner">
+        <div class="r">
+            <div class="pq-mark">"</div>
+            <p class="pq-text">I built Concerto because I was tired of juggling five different apps just to figure out where to park and eat before a show. Everything should be in one place.</p>
+            <div class="pq-rule"></div>
+            <div class="pq-attr">Jayce Wells — Founder, Concerto</div>
+        </div>
+    </div>
+</section>
+
+<!-- PREMIUM -->
+<section class="s premium" id="premium">
+    <div class="s-inner">
+        <div class="premium-wrap">
+            <div class="r">
+                <div class="s-label">Concerto+</div>
+                <div class="s-title">Your Perfect<br>Night Out, Built<br>by AI.</div>
+                <div class="s-desc" style="margin-top:1.2rem;">Concerto+ uses AI to build a personalized itinerary around your show — curated dining, hotels, and attractions tailored to your preferences and concert plans. From first stop to final encore, all in one scroll.</div>
+                <div style="margin-top:2.5rem;">
+                    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Start Free — Upgrade Anytime</a>
+                </div>
+            </div>
+            <div class="r r2">
+                <div class="premium-card">
+                    <div class="prem-badge">Premium Plan</div>
+                    <div class="prem-prices">
+                        <div class="prem-price">
+                            <div class="prem-amount">$7.99</div>
+                            <div class="prem-period">Per Month</div>
+                        </div>
+                        <div class="prem-price">
+                            <div class="prem-amount">$69.99</div>
+                            <div class="prem-period">Per Year</div>
+                            <div class="prem-save">Save over 25%</div>
+                        </div>
+                    </div>
+                    <ul class="prem-list">
+                        <li>Concerto+ — AI-curated night-out itineraries</li>
+                        <li>Festivals — full multi-day festival planning</li>
+                        <li>Priority live updates &amp; notifications</li>
+                        <li>Expanded Top Picks in City Guides</li>
+                        <li>Ad-free experience</li>
+                    </ul>
+                    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-outline" target="_blank" style="width:100%; justify-content:center;">Get Concerto+</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="s partners" id="partners">
+    <div class="s-inner">
+        <div class="r">
+            <div class="s-label">Partner With Concerto</div>
+            <div class="s-title">Reach Fans at the<br>Exact Right Moment.</div>
+            <div class="s-desc" style="margin-top:1rem;">Concerto connects restaurants, hotels, festivals, artists, and venues with high-intent concertgoers — at the moments they're actively deciding where to eat, stay, and go.</div>
+        </div>
+        <div class="partners-grid r r2">
+            <div class="partner-card">
+                <h3>Restaurants</h3>
+                <p>Top Picks placement in City Guides surfaces your restaurant to fans searching for dinner before or after a nearby show — event-timed discovery that drives real foot traffic, not impressions.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Hotels</h3>
+                <p>Reach guests actively planning trips around concerts and festivals. Venue-proximity discovery converts one-night shows into full weekend stays, aligned with known tour and festival dates.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Artists &amp; Tours</h3>
+                <p>Featured tour placement, direct ticket links, setlist integration, and fan-facing logistics — all in one place. Concerto helps artists deliver better show nights and extended fan engagement.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Venues &amp; Festivals</h3>
+                <p>Centralize your bag policies, parking, rideshare, and concession information so fans arrive informed. Fewer day-of questions, smoother entry, and better show nights — with no additional operational burden.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="s contact" id="contact">
+    <div class="s-inner">
+        <div class="contact-wrap">
+            <div class="r">
+                <div class="s-label">Get in Touch</div>
+                <div class="s-title">Let's Work<br>Together.</div>
+                <div class="contact-details">
+                    <div>
+                        <div class="contact-item-label">Phone</div>
+                        <a href="tel:8173120040" class="contact-item">(817) 312-0040</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Email</div>
+                        <a href="mailto:jayce@concertocity.com" class="contact-item">jayce@concertocity.com</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Website</div>
+                        <a href="https://www.concertocity.com" class="contact-item" target="_blank">www.concertocity.com</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Instagram</div>
+                        <a href="https://instagram.com/theconcertoapp" class="contact-item" target="_blank">@theconcertoapp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-right r r2">
+                <p class="contact-note">"Concerto connects your business with high-intent concertgoers at the exact moments event-night demand peaks — again and again, all year long."</p>
+                <a href="mailto:jayce@concertocity.com" class="btn btn-fill">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="s final">
+    <div class="s-inner">
+        <div class="r">
+            <h2>From the Concert.<br><em>To the City.</em></h2>
+            <p class="final-sub">Download Concerto and make every show day the best one yet.</p>
+            <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Download for iOS — It's Free</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img src="./logo.png" alt="Concerto">
+    </div>
+    <div class="foot-links">
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">App Store</a>
+        <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+        <a href="https://app.appdocumentation.com/app/8ef92dbd-0a8b-11f0-a97f-12565309935d/security/policy" target="_blank">Privacy</a>
+        <a href="https://learn.appdocumentation.com/en/collections/1618556-terms-conditions-and-privacy-policy" target="_blank">Terms</a>
+    </div>
+    <div class="foot-copy">&copy; 2025 Concerto LLC. All rights reserved.</div>
+</footer>
+
+<script>
+    // Intersection Observer for reveal animations
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+    // Carousel functionality
+    let currentSlide = 0;
+    let autoScrollInterval;
+    const track = document.getElementById('carouselTrack');
+    const screens = track.querySelectorAll('.screen');
+    const totalSlides = Math.ceil(screens.length / 3);
+    const dotsContainer = document.getElementById('carouselDots');
+    const carouselContainer = document.querySelector('.carousel-container');
+
+    // Touch/drag variables
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => {
+            goToSlide(i);
+            resetAutoScroll();
+        };
+        dotsContainer.appendChild(dot);
+    }
+
+    function updateCarousel() {
+        const offset = currentSlide * -100;
+        track.style.transform = `translateX(${offset}%)`;
+        
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+
+        document.querySelector('.carousel-arrow.left').classList.toggle('disabled', currentSlide === 0);
+        document.querySelector('.carousel-arrow.right').classList.toggle('disabled', currentSlide === totalSlides - 1);
+    }
+
+    function moveCarousel(direction) {
+        currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    function autoScroll() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(autoScroll, 3500); // Slower interval for smoother feel
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScrollInterval);
+        startAutoScroll();
+    }
+
+    // Touch/Drag handlers
+    function touchStart(e) {
+        isDragging = true;
+        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        clearInterval(autoScrollInterval);
+        track.style.transition = 'none';
+    }
+
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentPosition - startPos;
+        const movePercent = (diff / carouselContainer.offsetWidth) * 100;
+        const offset = (currentSlide * -100) + movePercent;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+
+    function touchEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = e.type.includes('mouse') ? e.pageX - startPos : e.changedTouches[0].clientX - startPos;
+        
+        track.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Threshold: if moved more than 50px, change slide
+        if (movedBy < -50 && currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else if (movedBy > 50 && currentSlide > 0) {
+            currentSlide--;
+        }
+        
+        updateCarousel();
+        startAutoScroll();
+    }
+
+    // Mouse events
+    track.addEventListener('mousedown', touchStart);
+    track.addEventListener('mousemove', touchMove);
+    track.addEventListener('mouseup', touchEnd);
+    track.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd({ type: 'mouse', pageX: startPos });
+    });
+
+    // Touch events
+    track.addEventListener('touchstart', touchStart);
+    track.addEventListener('touchmove', touchMove);
+    track.addEventListener('touchend', touchEnd);
+
+    // Prevent image dragging
+    track.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Manual arrow controls
+    document.querySelector('.carousel-arrow.left').onclick = () => {
+        moveCarousel(-1);
+        resetAutoScroll();
+    };
+    document.querySelector('.carousel-arrow.right').onclick = () => {
+        moveCarousel(1);
+        resetAutoScroll();
+    };
+
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    carouselContainer.addEventListener('mouseleave', () => {
+        if (!isDragging) startAutoScroll();
+    });
+
+    // Initialize
+    updateCarousel();
+    startAutoScroll();
+</script>
+
+
+</body>
+</html>
