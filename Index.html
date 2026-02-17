@@ -24,7 +24,7 @@
 
 ```
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; width:100%; overflow-x:hidden; }
 
     body {
         font-family: 'DM Sans', sans-serif;
@@ -32,6 +32,9 @@
         color: var(--navy);
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
     }
 
     body::after {
@@ -179,8 +182,8 @@
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ─── SECTION BASE ─── */
-    .s { position:relative; z-index:1; }
-    .s-inner { max-width:1120px; margin:0 auto; padding:6rem 2.5rem; }
+    .s { position:relative; z-index:1; width:100%; overflow-x:hidden; }
+    .s-inner { max-width:1120px; margin:0 auto; padding:6rem 2rem; width:100%; box-sizing:border-box; }
     .s-label {
         font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
         color:var(--silver-lt); margin-bottom:1rem; font-family:'DM Sans',sans-serif;
@@ -198,14 +201,15 @@
     }
 
     /* ─── INTRO ─── */
-    .intro { border-top:1px solid var(--border); }
+    .intro { border-top:1px solid var(--border); width:100%; overflow-x:hidden; }
     .intro-grid {
         display:grid; grid-template-columns:1fr 1fr;
-        gap:5rem; align-items:center;
+        gap:4rem; align-items:center;
     }
     .intro-right {
         display:grid; grid-template-columns:1fr 1fr;
         gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+        max-width:100%;
     }
     .intro-stat { background:var(--bg); padding:2rem 1.8rem; }
     .stat-num {
@@ -215,14 +219,14 @@
     .stat-label { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
 
     /* ─── APP PREVIEW ─── */
-    .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); }
-    .app-preview .s-inner { padding:5rem 2.5rem; }
+    .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); width:100%; overflow-x:hidden; }
+    .app-preview .s-inner { padding:5rem 2rem; }
     .carousel-container {
-        position:relative; margin-top:3.5rem; overflow:hidden;
+        position:relative; margin:3.5rem auto 0; max-width:100%; overflow:hidden;
     }
     .carousel-track {
         display:flex; gap:2rem; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: grab;
+        cursor: grab; padding:0 2rem;
     }
     .carousel-track.dragging {
         cursor: grabbing;
@@ -378,11 +382,11 @@
     .pq-attr { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--silver); }
 
     /* ─── PREMIUM ─── */
-    .premium { border-top:1px solid var(--border); }
+    .premium { border-top:1px solid var(--border); overflow:hidden; }
     .premium-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
     .premium-card {
         border:1px solid var(--border-md); background:var(--bg-mid);
-        padding:3rem; position:relative;
+        padding:3rem; position:relative; width:100%; max-width:100%;
     }
     .premium-card::before {
         content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:1px;
@@ -500,7 +504,7 @@
     @media (max-width:960px) {
         nav { padding:0 1.5rem; }
         .nav-links a:not(.nav-cta) { display:none; }
-        .s-inner { padding:4.5rem 1.5rem; }
+        .s-inner { padding:4.5rem 1.5rem; width:100%; }
         .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns:1fr; gap:3rem; }
         .features-grid { grid-template-columns:1fr 1fr; }
         .partners-grid { grid-template-columns:1fr 1fr; }
@@ -508,6 +512,8 @@
         footer { flex-direction:column; align-items:flex-start; }
         .carousel-arrow { display:none; }
         .screen { flex:0 0 calc(50% - 1rem); }
+        .premium-card { padding:2rem 1.5rem; }
+        .prem-prices { flex-direction:column; gap:1.5rem; }
     }
     @media (max-width:600px) {
         .features-grid, .partners-grid { grid-template-columns:1fr; }
@@ -620,35 +626,59 @@
             <div class="carousel-arrow right" onclick="moveCarousel(1)">›</div>
             <div class="carousel-track" id="carouselTrack">
                 <div class="screen">
-                    <img src="./home.jpeg" alt="Concerto Home Screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🏠</div>
+                        <div class="ph-label">Home Screen</div>
+                    </div>
                     <div class="screen-cap">Home</div>
                 </div>
                 <div class="screen">
-                    <img src="./featured-tours.jpeg" alt="Featured Tours">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">📋</div>
+                        <div class="ph-label">Featured Tours</div>
+                    </div>
                     <div class="screen-cap">Featured Tours</div>
                 </div>
                 <div class="screen">
-                    <img src="./setlists.jpeg" alt="Setlists & Tour Info">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎵</div>
+                        <div class="ph-label">Setlists & Tour Info</div>
+                    </div>
                     <div class="screen-cap">Setlists & Info</div>
                 </div>
                 <div class="screen">
-                    <img src="./city-guides.jpeg" alt="City Guides">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🗺️</div>
+                        <div class="ph-label">City Guides</div>
+                    </div>
                     <div class="screen-cap">City Guides</div>
                 </div>
                 <div class="screen">
-                    <img src="./events-near-me.jpeg" alt="Events Near Me">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">📍</div>
+                        <div class="ph-label">Events Near Me</div>
+                    </div>
                     <div class="screen-cap">Events Near Me</div>
                 </div>
                 <div class="screen">
-                    <img src="./at-the-venue.jpeg" alt="At The Venue">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎟️</div>
+                        <div class="ph-label">At The Venue</div>
+                    </div>
                     <div class="screen-cap">At The Venue</div>
                 </div>
                 <div class="screen">
-                    <img src="./festivals.jpeg" alt="Festivals">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎪</div>
+                        <div class="ph-label">Festivals</div>
+                    </div>
                     <div class="screen-cap">Festivals</div>
                 </div>
                 <div class="screen">
-                   <img src="./concerto-plus.jpeg" alt="Concerto+ Timeline">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">✨</div>
+                        <div class="ph-label">Concerto+ Timeline</div>
+                    </div>
                     <div class="screen-cap">Concerto+</div>
                 </div>
             </div>
@@ -737,7 +767,10 @@
             <div class="process-right r r2">
                 <div class="process-screen">
                     <!-- Replace with: <img src="./screenshot-timeline.png" alt="Concerto app timeline view"> -->
-                  <img src="./timeline.jpeg" alt="Concerto Timeline">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🗓️</div>
+                        <div class="ph-label">Timeline / Itinerary Screenshot</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -834,6 +867,10 @@
                 <div class="s-title">Let's Work<br>Together.</div>
                 <div class="contact-details">
                     <div>
+                        <div class="contact-item-label">Phone</div>
+                        <a href="tel:8173120040" class="contact-item">(817) 312-0040</a>
+                    </div>
+                    <div>
                         <div class="contact-item-label">Email</div>
                         <a href="mailto:jayce@concertocity.com" class="contact-item">jayce@concertocity.com</a>
                     </div>
@@ -859,7 +896,7 @@
 <section class="s final">
     <div class="s-inner">
         <div class="r">
-            <h2>From the Concert<br><em>To the City.</em></h2>
+            <h2>From the Concert.<br><em>To the City.</em></h2>
             <p class="final-sub">Download Concerto and make every show day the best one yet.</p>
             <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Download for iOS — It's Free</a>
         </div>
