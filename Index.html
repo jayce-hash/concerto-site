@@ -3,964 +3,523 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concerto — From the Concert to the City</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
     <style>
-        /* ─── TOKENS ─── */
         :root {
-            --bg:        #F8F9F9;
-            --bg-mid:    #F1F2F2;
-            --navy:      #121E36;
-            --navy-mid:  #1e3050;
-            --silver:    #8a8f99;
-            --silver-lt: #b4b8c0;
-            --border:    rgba(18,30,54,0.08);
-            --border-md: rgba(18,30,54,0.13);
-            --border-hi: rgba(18,30,54,0.22);
-            --nav-h:     60px;
-            --px:        20px;   /* horizontal page padding */
-            --py:        52px;   /* vertical section padding */
+            --bg:         #F8F9F9;
+            --bg-mid:     #F1F2F2;
+            --bg-deep:    #E8EAEA;
+            --navy:       #121E36;
+            --navy-mid:   #1e3050;
+            --silver:     #8a8f99;
+            --silver-lt:  #b4b8c0;
+            --border:     rgba(18,30,54,0.08);
+            --border-md:  rgba(18,30,54,0.13);
+            --border-hi:  rgba(18,30,54,0.22);
         }
 
 ```
-    /* ─── HARD RESET ─── */
-    *, *::before, *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    /* Lock the root — NOTHING escapes this width */
-    html {
-        scroll-behavior: smooth;
-        /* Absolutely prevent any horizontal overflow */
-        overflow-x: hidden;
-        /* Force full width, nothing more */
-        width: 100%;
-        max-width: 100%;
-    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
         font-family: 'DM Sans', sans-serif;
         background: var(--bg);
         color: var(--navy);
-        -webkit-font-smoothing: antialiased;
-        /* Lock body to viewport width — the key fix */
-        width: 100%;
-        max-width: 100%;
         overflow-x: hidden;
-        /* Establish stacking context so fixed elements respect this */
-        position: relative;
+        -webkit-font-smoothing: antialiased;
+        width: 100%;
+        max-width: 100vw;
     }
 
-    /* Every direct child of body is locked */
-    body > * {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    img { display: block; max-width: 100%; height: auto; }
-    a   { text-decoration: none; color: inherit; }
-
-    /* ─── PAGE WRAPPER ─── */
-    /* Central content column — all sections live inside this */
-    .wrap {
-        width: 100%;
-        max-width: 100%;
-        /* Center the max-width cap for desktop */
-    }
-
-    /* Inner content — padded, max-width capped, always centered */
-    .inner {
-        width: 100%;
-        max-width: 1080px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: var(--py);
-        padding-bottom: var(--py);
-        padding-left: var(--px);
-        padding-right: var(--px);
-        /* Do NOT use shorthand padding here — keeps overrides simpler */
-    }
-
-    /* Section dividers */
-    .section {
-        width: 100%;
-        border-top: 1px solid var(--border);
+    body::after {
+        content:''; position:fixed; inset:0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.03; pointer-events:none; z-index:9998;
     }
 
     /* ─── NAV ─── */
     nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: var(--nav-h);
-        z-index: 500;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 var(--px);
-        background: rgba(248,249,249,0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        position: fixed; top:0; width:100%; z-index:100;
+        padding: 0 3rem;
+        height: 68px;
+        display: flex; align-items:center; justify-content:space-between;
+        background: rgba(248,249,249,0.88);
+        backdrop-filter: blur(28px);
         border-bottom: 1px solid var(--border);
     }
-    
-
     .nav-logo { text-decoration:none; display:block; }
     .nav-logo img { height: 38px; display:block; }
-
-    /* Desktop links — hidden on mobile */
-    .nav-links {
-        display: none;
-        align-items: center;
-        gap: 1.8rem;
-    }
+    .nav-links { display:flex; align-items:center; gap:2.5rem; }
     .nav-links a {
-        font-size: 0.68rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--silver);
-        transition: color 0.25s;
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        color: var(--silver); text-decoration:none; transition:color 0.3s;
     }
     .nav-links a:hover { color: var(--navy); }
     .nav-cta {
         color: var(--navy) !important;
         border: 1px solid var(--border-hi);
-        padding: 7px 16px;
+        padding: 0.55rem 1.3rem;
+        transition: background 0.3s, border-color 0.3s !important;
     }
-
-    /* Hamburger */
-    .burger {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 6px;
-        /* Tap target */
-        min-width: 36px;
-        min-height: 36px;
-        align-items: center;
-        justify-content: center;
-    }
-    .burger span {
-        display: block;
-        width: 20px;
-        height: 1.5px;
-        background: var(--navy);
-        transition: transform 0.28s ease, opacity 0.28s ease;
-    }
-    .burger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-    .burger.open span:nth-child(2) { opacity: 0; }
-    .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-
-    /* Mobile drawer */
-    .drawer {
-        position: fixed;
-        top: var(--nav-h);
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 499;
-        background: rgba(248,249,249,0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        padding: 0 var(--px) 20px;
-        /* Slide in from top */
-        transform: translateY(-105%);
-        transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
-        /* Hidden until open */
-        pointer-events: none;
-    }
-    .drawer.open {
-        transform: translateY(0);
-        pointer-events: auto;
-    }
-    .drawer a {
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--silver);
-        padding: 15px 0;
-        border-bottom: 1px solid var(--border);
-        transition: color 0.2s;
-    }
-    .drawer a:last-child {
-        border-bottom: none;
-        border: 1px solid var(--border-hi);
-        text-align: center;
-        color: var(--navy);
-        margin-top: 14px;
-        padding: 13px;
+    .nav-cta:hover {
+        background: var(--navy) !important;
+        color: var(--bg) !important;
+        border-color: var(--navy) !important;
     }
 
     /* ─── BUTTONS ─── */
     .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-flex; align-items:center; gap:0.55rem;
         font-family: 'DM Sans', sans-serif;
-        font-size: 0.7rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        padding: 15px 24px;
-        cursor: pointer;
-        border: none;
-        transition: all 0.25s ease;
-        /* Full width on mobile by default */
-        width: 100%;
+        font-size: 0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+        text-decoration:none; padding: 1rem 2.2rem;
+        transition: all 0.35s ease; cursor:pointer; border:none;
     }
-    .btn-fill    { background: var(--navy);      color: var(--bg);   }
-    .btn-outline { background: transparent;      color: var(--navy); border: 1px solid var(--border-hi); }
-    .btn-fill:active    { background: var(--navy-mid); }
-    .btn-outline:active { background: var(--bg-mid); }
-    @media (hover: hover) {
-        .btn-fill:hover    { background: var(--navy-mid); box-shadow: 0 8px 24px rgba(18,30,54,0.16); }
-        .btn-outline:hover { background: var(--bg-mid); }
+    .btn-fill { background: var(--navy); color: var(--bg); }
+    .btn-fill:hover {
+        background: var(--navy-mid);
+        box-shadow: 0 12px 40px rgba(18,30,54,0.18);
+        transform: translateY(-2px);
     }
+    .btn-outline {
+        background: transparent; color: var(--silver);
+        border: 1px solid var(--border-md);
+    }
+    .btn-outline:hover { border-color:var(--border-hi); color:var(--navy); }
 
     /* ─── HERO ─── */
     .hero {
-        /* Lock hero to viewport, no overflow */
-        width: 100%;
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding-top: calc(var(--nav-h) + 28px);
-        padding-bottom: 44px;
-        padding-left: var(--px);
-        padding-right: var(--px);
-        position: relative;
-        overflow: hidden;   /* clip the radial glow */
+        position:relative; min-height:100vh;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        text-align:center; padding: 10rem 2rem 6rem; overflow:hidden;
     }
-    /* Subtle background glow — clipped inside hero */
     .hero::before {
-        content: '';
-        position: absolute;
-        width: min(600px, 120vw);
-        height: min(600px, 120vw);
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(18,30,54,0.045) 0%, transparent 70%);
-        top: 42%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
+        content:''; position:absolute;
+        width:800px; height:800px; border-radius:50%;
+        background: radial-gradient(circle, rgba(18,30,54,0.04) 0%, transparent 70%);
+        top:50%; left:50%; transform:translate(-50%,-55%); pointer-events:none;
     }
-
-    /* All hero children centered, max-width capped */
-    .hero > * { position: relative; z-index: 1; }
-
     .hero-eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 0.62rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--silver);
-        margin-bottom: 18px;
-        animation: up 0.8s ease both;
+        display:inline-flex; align-items:center; gap:0.7rem;
+        font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase;
+        color:var(--silver); margin-bottom:2.5rem;
+        animation: fiu 1s ease both;
     }
-    .hero-eyebrow i {
-        display: block;
-        width: 22px;
-        height: 1px;
-        background: var(--border-hi);
-    }
-
+    .hero-eyebrow span { display:inline-block; width:28px; height:1px; background:var(--border-hi); }
     .hero-logo {
         margin-bottom: 2.5rem;
         animation: fiu 1s ease 0.05s both;
     }
-    .hero-logo img { width: min(480px, 76vw); display:block; margin:0 auto; }
-
+    .hero-logo img { width:min(480px,76vw); display:block; margin:0 auto; }
     .hero-tagline {
         font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-weight: 300;
-        font-size: clamp(1.1rem, 4vw, 1.6rem);
-        color: var(--silver);
-        line-height: 1.6;
-        /* Cap width so it never stretches */
-        max-width: 280px;
-        margin: 0 auto 10px;
-        animation: up 0.8s ease 0.13s both;
+        font-style: italic; font-weight:300;
+        font-size: clamp(1.25rem, 2.8vw, 1.85rem);
+        color: var(--silver); line-height:1.6;
+        max-width: 560px; margin: 0 auto 1rem;
+        animation: fiu 1s ease 0.15s both;
     }
-
     .hero-rule {
-        width: 1px;
-        height: 28px;
+        width:1px; height:48px;
         background: linear-gradient(to bottom, transparent, var(--border-hi), transparent);
-        margin: 12px auto;
-        animation: up 0.8s ease 0.18s both;
+        margin: 1.8rem auto;
+        animation: fiu 1s ease 0.2s both;
     }
-
     .hero-sub {
         font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(0.95rem, 3.2vw, 1.15rem);
-        font-weight: 400;
-        color: var(--silver);
-        line-height: 1.75;
-        max-width: 260px;
-        margin: 0 auto 22px;
-        animation: up 0.8s ease 0.22s both;
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem); font-weight:400;
+        color: var(--silver); line-height:1.75;
+        max-width:500px; margin:0 auto 2.8rem;
+        animation: fiu 1s ease 0.25s both;
     }
-
-    .hero-btns {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        /* Never wider than 290px on mobile */
-        max-width: 290px;
-        margin: 0 auto;
-        animation: up 0.8s ease 0.28s both;
+    .hero-actions {
+        display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+        animation: fiu 1s ease 0.35s both;
     }
-
     .hero-proof {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px 12px;
-        margin: 24px auto 0;
-        font-size: 0.6rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
-        animation: up 0.8s ease 0.36s both;
-        /* Don't let this overflow */
-        max-width: 320px;
+        display:flex; align-items:center; gap:2rem;
+        margin-top:4rem; animation: fiu 1s ease 0.45s both;
+        color:var(--silver-lt); font-size:0.7rem;
+        letter-spacing:0.12em; text-transform:uppercase; flex-wrap:wrap; justify-content:center;
     }
-    /* Separators — desktop only */
-    .psep { display: none; }
-
-    /* Scroll hint — desktop only */
+    .proof-sep { width:1px; height:14px; background:var(--border-md); }
+    .stars { color:var(--silver); }
     .scroll-hint {
-        display: none;
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        color: var(--silver-lt);
-        font-size: 0.58rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        animation: up 1s ease 0.9s both;
+        position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+        display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+        color:var(--silver-lt); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+        animation: fiu 1.2s ease 0.8s both;
     }
     .scroll-line {
-        width: 1px;
-        height: 28px;
+        width:1px; height:36px;
         background: linear-gradient(to bottom, var(--border-hi), transparent);
-        animation: pulse 2s ease-in-out infinite;
+        animation: scrollPulse 2s ease-in-out infinite;
     }
-
-    @keyframes up    { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes pulse { 0%,100% { opacity:0.25; } 50% { opacity:1; } }
+    @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.9} }
 
     /* ─── MARQUEE ─── */
     .marquee-band {
-        width: 100%;
-        overflow: hidden;           /* critical — clips the scrolling text */
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        background: var(--bg-mid);
-        padding: 12px 0;
+        border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        padding:1.1rem 0; overflow:hidden; background:var(--bg-mid);
     }
     .marquee-track {
-        display: flex;
-        gap: 2.5rem;
-        width: max-content;         /* let it be as wide as it needs */
-        animation: scroll 26s linear infinite;
+        display:flex; gap:3rem;
+        animation: marquee 32s linear infinite; width:max-content;
     }
-    .mitem {
-        display: flex;
-        align-items: center;
-        gap: 2.5rem;
-        font-size: 0.6rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
-        white-space: nowrap;
+    .marquee-item {
+        display:flex; align-items:center; gap:3rem;
+        font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver-lt); white-space:nowrap;
     }
-    .mdot {
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background: var(--silver-lt);
-        flex-shrink: 0;
-    }
-    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-dot { width:3px; height:3px; border-radius:50%; background:var(--silver-lt); }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* ─── INTRO / STATS ─── */
-    .intro-text { margin-bottom: 32px; }
-
-    .label {
-        font-size: 0.62rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
-        margin-bottom: 10px;
-        display: block;
+    /* ─── SECTION BASE ─── */
+    .s { position:relative; z-index:1; overflow:hidden; }
+    .s-inner { max-width:1120px; margin:0 auto; padding:6rem 2.5rem; width:100%; }
+    .s-label {
+        font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver-lt); margin-bottom:1rem; font-family:'DM Sans',sans-serif;
     }
-    .title {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        line-height: 1.05;
-        color: var(--navy);
-        font-size: clamp(1.9rem, 7vw, 2.8rem);
-        margin-bottom: 14px;
+    .s-title {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.09em; font-weight:500;
+        font-size:clamp(2.2rem,4.5vw,3.6rem); line-height:1.05;
+        color:var(--navy); margin-bottom:1.2rem;
     }
-    .desc {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(1rem, 3vw, 1.1rem);
-        color: var(--silver);
-        line-height: 1.75;
+    .s-desc {
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(1.05rem,1.6vw,1.25rem); font-weight:400;
+        color:var(--silver); line-height:1.75; max-width:520px;
     }
 
-    .stats-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--border-md);
-        border: 1px solid var(--border-md);
+    /* ─── INTRO ─── */
+    .intro { border-top:1px solid var(--border); }
+    .intro-grid {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:5rem; align-items:center;
     }
-    .stat {
+    .intro-right {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+    }
+    .intro-stat { background:var(--bg); padding:2rem 1.8rem; }
+    .stat-num {
+        font-family:'Cormorant Garamond',serif;
+        font-size:3rem; font-weight:400; color:var(--navy); line-height:1; margin-bottom:0.5rem;
+    }
+    .stat-label { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--silver); line-height:1.5; }
+
+    /* ─── APP PREVIEW ─── */
+    .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); overflow:hidden; }
+    .app-preview .s-inner { padding:5rem 2.5rem; }
+    .carousel-container {
+        position:relative; margin-top:3.5rem; overflow:hidden; width:100%;
+    }
+    .carousel-track {
+        display:flex; gap:2rem; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: grab;
+    }
+    .carousel-track.dragging {
+        cursor: grabbing;
+        transition: none;
+    }
+    .screen {
+        flex:0 0 calc(33.333% - 1.35rem); position:relative;
+        border-radius:24px; overflow:hidden;
+        border:1px solid var(--border-md);
+        box-shadow: 0 12px 32px rgba(18,30,54,0.07);
         background: var(--bg);
-        padding: 22px 18px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        max-width: 200px;
+        aspect-ratio: 9/19.5;
     }
-    .stat-n {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2.4rem;
-        font-weight: 400;
-        color: var(--navy);
-        line-height: 1;
-        margin-bottom: 5px;
+    .screen:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(18,30,54,0.1);
     }
-    .stat-l {
-        font-size: 0.62rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--silver);
-        line-height: 1.5;
+    .screen img { width:100%; height:100%; object-fit:cover; display:block; }
+    .screen-placeholder {
+        width:100%; height:100%;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        background:var(--bg); gap:0.8rem; padding:1.5rem; text-align:center;
     }
-
-    /* ─── APP CAROUSEL ─── */
-    .carousel-section { background: var(--bg-mid); }
-
-    .carousel-head {
-        text-align: center;
-        margin-bottom: 24px;
+    .screen-placeholder .ph-icon { font-size:2rem; opacity:0.25; }
+    .screen-placeholder .ph-label {
+        font-family:'Cormorant Garamond',serif;
+        font-size:0.85rem; color:var(--silver-lt);
+        letter-spacing:0.08em; line-height:1.5;
     }
-
-    /* The scroll strip — bleeds edge-to-edge */
-    .phones-strip {
-        /* Negative margin = bleed to edges */
-        margin-left: calc(-1 * var(--px));
-        margin-right: calc(-1 * var(--px));
-        width: calc(100% + var(--px) * 2);
-        /* Native horizontal scroll */
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        /* Start and end padding so first/last card don't hug the edge */
-        padding-left: var(--px);
-        padding-right: var(--px);
-        padding-bottom: 16px;
-        /* Hide scrollbar */
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+    .screen-cap {
+        text-align:center; margin-top:1rem;
+        font-size:0.65rem; letter-spacing:0.15em;
+        text-transform:uppercase; color:var(--silver-lt);
     }
-    .phones-strip::-webkit-scrollbar { display: none; }
-
-    .pcard {
-        /* Fixed card width — never fluid */
-        flex: 0 0 160px;
-        width: 160px;
-        scroll-snap-align: start;
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid var(--border-md);
-        box-shadow: 0 4px 16px rgba(18,30,54,0.07);
-        background: var(--bg);
-        aspect-ratio: 9 / 19.5;
-        /* No shrink ever */
-        flex-shrink: 0;
+    .carousel-arrow {
+        position:absolute; top:50%; transform:translateY(-50%);
+        width:48px; height:48px; border-radius:50%;
+        background:var(--bg); border:1px solid var(--border-hi);
+        display:flex; align-items:center; justify-content:center;
+        cursor:pointer; z-index:10; transition:all 0.3s ease;
+        color:var(--navy); font-size:1.2rem;
     }
-    .pcard img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+    .carousel-arrow:hover {
+        background:var(--navy); color:var(--bg);
+        box-shadow: 0 8px 24px rgba(18,30,54,0.15);
     }
-
-    .swipe-hint {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-        margin-top: 10px;
-        font-size: 0.58rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
+    .carousel-arrow.disabled {
+        opacity:0.3; cursor:not-allowed; pointer-events:none;
+    }
+    .carousel-arrow.left { left:-24px; }
+    .carousel-arrow.right { right:-24px; }
+    .carousel-dots {
+        display:none;
+    }
+    .carousel-dot {
+        width:8px; height:8px; border-radius:50%;
+        background:var(--border-hi); cursor:pointer;
+        transition:all 0.3s ease;
+    }
+    .carousel-dot.active {
+        background:var(--navy); width:24px; border-radius:4px;
     }
 
     /* ─── FEATURES ─── */
-    .feat-intro { margin-bottom: 28px; }
-
-    .feat-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 1px;
-        background: var(--border-md);
-        border: 1px solid var(--border-md);
+    .features-section { border-top:1px solid var(--border); }
+    .features-header {
+        display:flex; justify-content:space-between; align-items:flex-end;
+        margin-bottom:4rem; gap:2rem; flex-wrap:wrap;
+    }
+    .features-grid {
+        display:grid; grid-template-columns:repeat(3,1fr);
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
     }
     .feat {
-        background: var(--bg);
-        padding: 26px 22px;
+        background:var(--bg); padding:2.8rem 2.2rem;
+        transition:background 0.4s; position:relative;
     }
+    .feat::after {
+        content:''; position:absolute; top:0; left:0; right:0; height:1px;
+        background:linear-gradient(90deg,transparent,var(--border-hi),transparent);
+        opacity:0; transition:opacity 0.4s;
+    }
+    .feat:hover { background:var(--bg-mid); }
+    .feat:hover::after { opacity:1; }
     .feat-num {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 0.68rem;
-        color: var(--silver-lt);
-        letter-spacing: 0.1em;
-        margin-bottom: 12px;
+        font-family:'Cormorant Garamond',serif; font-size:0.78rem;
+        color:var(--silver-lt); letter-spacing:0.1em; margin-bottom:2rem;
     }
     .feat h3 {
-        font-family: 'Cormorant Garamond', serif;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 0.98rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin-bottom: 8px;
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.75rem;
     }
-    .feat p {
-        font-size: 0.85rem;
-        color: var(--silver);
-        line-height: 1.75;
-        font-weight: 300;
-    }
-    .badge {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.56rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
-        border: 1px solid var(--border-md);
-        padding: 3px 9px;
+    .feat p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
+    .feat-badge {
+        display:inline-block; margin-top:1rem;
+        font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase;
+        color:var(--silver-lt); border:1px solid var(--border-md);
+        padding:0.25rem 0.6rem;
     }
 
-    /* ─── HOW IT WORKS ─── */
-    .process-section { background: var(--bg-mid); }
-    .process-intro { margin-bottom: 28px; }
-
-    .steps {
-        border-top: 1px solid var(--border-md);
+    /* ─── PROCESS ─── */
+    .process { border-top:1px solid var(--border); background:var(--bg-mid); }
+    .process-wrap {
+        display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
     }
-    .step {
-        display: flex;
-        gap: 18px;
-        align-items: flex-start;
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border-md);
+    .process-steps { display:flex; flex-direction:column; gap:0; }
+    .process-step {
+        padding:2.2rem 0; border-bottom:1px solid var(--border-md); display:flex; gap:2rem; align-items:flex-start;
     }
-    .step-n {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2rem;
-        font-weight: 300;
-        line-height: 1;
-        -webkit-text-stroke: 1px var(--border-hi);
-        color: transparent;
-        flex-shrink: 0;
-        width: 44px;
+    .process-step:first-child { border-top:1px solid var(--border-md); }
+    .step-num {
+        font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300;
+        line-height:1; -webkit-text-stroke:1px var(--border-hi); color:transparent;
+        flex-shrink:0; width:3rem;
     }
-    .step h3 {
-        font-family: 'Cormorant Garamond', serif;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 0.98rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin-bottom: 6px;
+    .step-body {}
+    .process-step h3 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.5rem;
     }
-    .step p {
-        font-size: 0.85rem;
-        color: var(--silver);
-        line-height: 1.75;
-        font-weight: 300;
+    .process-step p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
+    .process-right { display:flex; align-items:center; justify-content:center; }
+    .process-screen {
+        width:240px; height:480px;
+        border-radius:36px; overflow:hidden;
+        border:1px solid var(--border-md);
+        box-shadow: 0 24px 60px rgba(18,30,54,0.1);
+        background:var(--bg);
     }
+    .process-screen .screen-placeholder { height:100%; }
 
     /* ─── PULL QUOTE ─── */
-    .pq-inner { text-align: center; }
+    .pullquote {
+        border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        text-align:center; background:var(--bg);
+    }
+    .pullquote .s-inner { padding:7rem 2.5rem; }
     .pq-mark {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 3.5rem;
-        font-weight: 300;
-        color: var(--border-hi);
-        line-height: 0.6;
-        margin-bottom: 20px;
+        font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300;
+        color:var(--border-hi); line-height:0.6; margin-bottom:2.2rem;
     }
     .pq-text {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: clamp(1.15rem, 4vw, 1.8rem);
-        font-weight: 300;
-        line-height: 1.65;
-        color: var(--navy);
-        margin-bottom: 22px;
+        font-family:'Cormorant Garamond',serif; font-style:italic;
+        font-size:clamp(1.4rem,3.2vw,2.2rem); font-weight:300;
+        line-height:1.65; color:var(--navy); max-width:740px; margin:0 auto 2.5rem;
     }
-    .pq-rule { width: 26px; height: 1px; background: var(--border-hi); margin: 0 auto 12px; }
-    .pq-attr {
-        font-size: 0.62rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--silver);
-    }
+    .pq-rule { width:32px; height:1px; background:var(--border-hi); margin:0 auto 1.2rem; }
+    .pq-attr { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--silver); }
 
     /* ─── PREMIUM ─── */
-    .prem-intro { margin-bottom: 32px; }
-
-    .prem-card {
-        border: 1px solid var(--border-md);
-        background: var(--bg-mid);
-        padding: 26px 22px;
-        position: relative;
+    .premium { border-top:1px solid var(--border); overflow:hidden; }
+    .premium-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .premium-card {
+        border:1px solid var(--border-md); background:var(--bg-mid);
+        padding:3rem; position:relative; width:100%; max-width:100%;
     }
-    .prem-card::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 22px; right: 22px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--border-hi), transparent);
+    .premium-card::before {
+        content:''; position:absolute; top:0; left:2.5rem; right:2.5rem; height:1px;
+        background:linear-gradient(90deg,transparent,var(--border-hi),transparent);
     }
     .prem-badge {
-        display: inline-block;
-        font-size: 0.58rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--silver);
-        border: 1px solid var(--border-md);
-        padding: 4px 11px;
-        margin-bottom: 22px;
+        font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+        color:var(--silver); border:1px solid var(--border-md);
+        padding:0.35rem 0.9rem; display:inline-block; margin-bottom:2rem;
     }
     .prem-prices {
-        display: flex;
-        gap: 24px;
-        flex-wrap: wrap;
-        margin-bottom: 22px;
-        padding-bottom: 22px;
-        border-bottom: 1px solid var(--border-md);
+        display:flex; gap:2.5rem; margin-bottom:2.5rem;
+        padding-bottom:2.5rem; border-bottom:1px solid var(--border-md);
     }
-    .prem-amt {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 2.4rem;
-        font-weight: 400;
-        color: var(--navy);
-        line-height: 1;
+    .prem-amount {
+        font-family:'Cormorant Garamond',serif; font-size:2.8rem;
+        font-weight:400; color:var(--navy); line-height:1;
     }
-    .prem-per {
-        font-size: 0.6rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--silver);
-        margin-top: 4px;
+    .prem-period {
+        font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
+        color:var(--silver); margin-top:0.35rem;
     }
-    .prem-save {
-        font-size: 0.58rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--navy);
-        margin-top: 2px;
-    }
-    .prem-list {
-        list-style: none;
-        margin-bottom: 22px;
-    }
+    .prem-save { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy); margin-top:0.25rem; }
+    .prem-list { margin-bottom:2.5rem; }
     .prem-list li {
-        font-size: 0.85rem;
-        color: var(--silver);
-        padding: 11px 0;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        font-weight: 300;
+        list-style:none; font-size:0.875rem; color:var(--silver);
+        padding:0.65rem 0; border-bottom:1px solid var(--border);
+        display:flex; align-items:center; gap:0.8rem; font-weight:300;
     }
-    .prem-list li::before { content: '–'; color: var(--silver-lt); flex-shrink: 0; }
+    .prem-list li::before { content:'–'; color:var(--silver-lt); }
 
     /* ─── PARTNERS ─── */
-    .partners-section { background: var(--bg-mid); }
-    .partners-intro { margin-bottom: 28px; }
-
+    .partners { border-top:1px solid var(--border); background:var(--bg-mid); }
     .partners-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 1px;
-        background: var(--border-md);
-        border: 1px solid var(--border-md);
+        display:grid; grid-template-columns:repeat(4,1fr);
+        gap:1px; background:var(--border-md); border:1px solid var(--border-md);
+        margin-top:3.5rem;
     }
-    .pcard-item {
-        background: var(--bg-mid);
-        padding: 26px 22px;
+    .partner-card {
+        background:var(--bg-mid); padding:2.5rem 2rem;
+        transition:background 0.4s;
     }
-    .pcard-item h3 {
-        font-family: 'Cormorant Garamond', serif;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: 0.98rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin-bottom: 8px;
+    .partner-card:hover { background:var(--bg); }
+    .partner-card h3 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.1em; font-size:1.05rem; font-weight:600;
+        color:var(--navy); margin-bottom:0.75rem;
     }
-    .pcard-item p {
-        font-size: 0.85rem;
-        color: var(--silver);
-        line-height: 1.75;
-        font-weight: 300;
-    }
+    .partner-card p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
 
     /* ─── CONTACT ─── */
-    .contact-intro { margin-bottom: 26px; }
-
-    .contact-details {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        margin-bottom: 32px;
+    .contact { border-top:1px solid var(--border); }
+    .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    .contact-details { margin-top:2.5rem; display:flex; flex-direction:column; gap:1.2rem; }
+    .contact-item {
+        display:flex; align-items:center; gap:1rem;
+        font-size:0.95rem; color:var(--silver); text-decoration:none;
+        transition:color 0.3s;
     }
-    .clabel {
-        font-size: 0.58rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--silver-lt);
-        margin-bottom: 3px;
-        display: block;
+    .contact-item:hover { color:var(--navy); }
+    .contact-item-label {
+        font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+        color:var(--silver-lt); margin-bottom:0.3rem;
     }
-    .clink {
-        font-size: 0.92rem;
-        color: var(--silver);
-        transition: color 0.2s;
-    }
-    .clink:hover { color: var(--navy); }
-
+    .contact-right { padding-top:2rem; }
     .contact-note {
-        font-family: 'Cormorant Garamond', serif;
-        font-style: italic;
-        font-size: clamp(1.05rem, 3.5vw, 1.4rem);
-        font-weight: 300;
-        color: var(--navy);
-        line-height: 1.65;
-        margin-bottom: 22px;
-        padding-top: 28px;
-        border-top: 1px solid var(--border);
+        font-family:'Cormorant Garamond',serif; font-style:italic;
+        font-size:clamp(1.2rem,2.2vw,1.65rem); font-weight:300;
+        color:var(--navy); line-height:1.65; margin-bottom:2rem;
     }
 
     /* ─── FINAL CTA ─── */
-    .final-section {
-        background: var(--navy);
-        border-top: none;
-        text-align: center;
+    .final { border-top:1px solid var(--border); text-align:center; background:var(--navy); }
+    .final .s-inner { padding:9rem 2.5rem 10rem; }
+    .final h2 {
+        font-family:'Cormorant Garamond',serif; text-transform:uppercase;
+        letter-spacing:0.12em; font-size:clamp(3rem,8vw,7rem);
+        font-weight:500; line-height:0.95; color:var(--bg); margin-bottom:2rem;
     }
-    .final-section .inner {
-        padding-top: 68px;
-        padding-bottom: 76px;
-    }
-    .final-h {
-        font-family: 'Cormorant Garamond', serif;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-size: clamp(2.6rem, 11vw, 6rem);
-        font-weight: 500;
-        line-height: 0.95;
-        color: var(--bg);
-        margin-bottom: 18px;
-    }
-    .final-h em {
-        font-style: italic;
-        font-weight: 300;
-        text-transform: none;
-        letter-spacing: 0.04em;
-        color: rgba(248,249,249,0.32);
+    .final h2 em {
+        font-style:italic; font-weight:300; text-transform:none;
+        letter-spacing:0.04em; color:rgba(248,249,249,0.4);
     }
     .final-sub {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(0.95rem, 3.2vw, 1.2rem);
-        color: rgba(248,249,249,0.45);
-        margin-bottom: 28px;
-        line-height: 1.75;
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(1.05rem,1.8vw,1.3rem); color:rgba(248,249,249,0.5);
+        margin-bottom:3rem; line-height:1.75;
     }
-    .final-section .btn-fill {
-        background: var(--bg);
-        color: var(--navy);
-        max-width: 300px;
-        margin: 0 auto;
-    }
+    .final .btn-fill { background:var(--bg); color:var(--navy); }
+    .final .btn-fill:hover { background:#fff; box-shadow:0 12px 48px rgba(248,249,249,0.12); transform:translateY(-2px); }
 
     /* ─── FOOTER ─── */
     footer {
-        width: 100%;
-        background: var(--navy);
-        border-top: 1px solid rgba(248,249,249,0.08);
-        padding: 26px var(--px);
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+        border-top:1px solid rgba(248,249,249,0.1); background:var(--navy);
+        padding:2rem 3rem; display:flex; align-items:center;
+        justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
     }
     .foot-logo img { height:28px; display:block; filter: brightness(0) invert(1); opacity:0.7; }
-    .foot-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-    }
+    .foot-links { display:flex; gap:2rem; }
     .foot-links a {
-        font-size: 0.62rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: rgba(248,249,249,0.32);
-        transition: color 0.25s;
+        font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+        color:rgba(248,249,249,0.35); text-decoration:none; transition:color 0.3s;
     }
-    .foot-links a:hover { color: var(--bg); }
-    .foot-copy {
-        font-size: 0.6rem;
-        letter-spacing: 0.08em;
-        color: rgba(248,249,249,0.18);
+    .foot-links a:hover { color:var(--bg); }
+    .foot-copy { font-size:0.68rem; letter-spacing:0.08em; color:rgba(248,249,249,0.25); }
+
+    /* ─── REVEAL ─── */
+    .r { opacity:0; transform:translateY(28px); transition:opacity 0.85s ease, transform 0.85s ease; }
+    .r.on { opacity:1; transform:translateY(0); }
+    .r2 { transition-delay:0.1s; } .r3 { transition-delay:0.2s; } .r4 { transition-delay:0.3s; }
+
+    @keyframes fiu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:960px) {
+        nav { padding:0 1.5rem; }
+        .nav-links a:not(.nav-cta) { display:none; }
+        .s-inner { padding:4.5rem 1.5rem; width:100%; }
+        .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns:1fr; gap:3rem; }
+        .features-grid { grid-template-columns:1fr 1fr; }
+        .partners-grid { grid-template-columns:1fr 1fr; }
+        .process-right { display:none; }
+        footer { flex-direction:column; align-items:flex-start; }
+        .carousel-arrow { display:none; }
+        .screen { flex:0 0 calc(50% - 1rem); }
+        .premium-card { padding:2rem 1.5rem; }
+        .prem-prices { flex-direction:column; gap:1.5rem; }
     }
-
-    /* ─── REVEAL ANIMATION ─── */
-    .rev {
-        opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .rev.in { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.08s; }
-    .d2 { transition-delay: 0.16s; }
-
-    /* ════════════════════════════════════════════
-       TABLET  ≥ 660px
-       Add side-by-side layouts, show desktop nav
-    ════════════════════════════════════════════ */
-    @media (min-width: 660px) {
-        :root {
-            --px:    36px;
-            --py:    68px;
-            --nav-h: 66px;
-        }
-
-        /* Nav */
-        nav { padding: 0 var(--px); }
-        
-        .nav-links { display: flex; }
-        .burger     { display: none; }
-        .drawer     { display: none !important; }
-
-        /* Hero */
-        .hero-tagline { max-width: 440px; }
-        .hero-sub     { max-width: 380px; }
-        .hero-btns    { flex-direction: row; max-width: none; width: auto; }
-        .btn          { width: auto; }
-        .psep         { display: block; width: 1px; height: 13px; background: var(--border-md); }
-        .scroll-hint  { display: flex; }
-
-        /* Intro — two column */
-        .intro-cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            align-items: center;
-        }
-        .intro-text { margin-bottom: 0; }
-
-        /* Carousel cards — a bit wider */
-        .pcard { flex: 0 0 190px; width: 190px; }
-
-        /* Features — two column */
-        .feat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            /* Reset flex */
-            flex-direction: unset;
-        }
-
-        /* Process — full width steps, no phone */
-        /* (phone already removed from HTML) */
-
-        /* Premium — two column */
-        .prem-cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            align-items: start;
-        }
-        .prem-intro { margin-bottom: 0; }
-
-        /* Partners — two column */
-        .partners-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            flex-direction: unset;
-        }
-
-        /* Contact — two column */
-        .contact-cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            align-items: start;
-        }
-        .contact-note { padding-top: 0; border-top: none; }
-
-        /* Footer — row */
-        footer {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 22px var(--px);
-        }
-    }
-
-    /* ════════════════════════════════════════════
-       DESKTOP  ≥ 980px
-       Three / four column grids
-    ════════════════════════════════════════════ */
-    @media (min-width: 980px) {
-        :root {
-            --px: 52px;
-            --py: 84px;
-        }
-
-        .feat-grid     { grid-template-columns: 1fr 1fr 1fr; }
-        .partners-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
-
-        /* Carousel cards */
-        .pcard { flex: 0 0 200px; width: 200px; }
+    @media (max-width:600px) {
+        .features-grid, .partners-grid { grid-template-columns:1fr; }
+        .intro-right { grid-template-columns:1fr 1fr; }
+        .hero-proof { gap:1rem; }
+        .proof-sep { display:none; }
+        .screen { flex:0 0 85%; }
+        .carousel-track { gap:1rem; }
     }
 </style>
 ```
@@ -968,51 +527,38 @@
 </head>
 <body>
 
+```
 <!-- NAV -->
-
 <nav>
-    <a href="#" class="nav-logo" aria-label="Concerto home">
-        <img src="./Logo.png" alt="Concerto — From the Concert to the City">
+    <a href="#" class="nav-logo">
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
     </a>
+    <div class="nav-links">
+        <a href="#features">Features</a>
         <a href="#process">How It Works</a>
         <a href="#premium">Premium</a>
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="nav-cta" target="_blank">Download</a>
     </div>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
 </nav>
 
-<!-- MOBILE DRAWER -->
-
-<div class="drawer" id="drawer" aria-hidden="true">
-    <a href="#features"  onclick="closeMenu()">Features</a>
-    <a href="#process"   onclick="closeMenu()">How It Works</a>
-    <a href="#premium"   onclick="closeMenu()">Premium</a>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">Download Free</a>
-</div>
-
 <!-- HERO -->
-
 <section class="hero">
-    <div class="hero-eyebrow">
-        <i></i> Now on the App Store <i></i>
-    </div>
+    <div class="hero-eyebrow"><span></span> Now on the App Store <span></span></div>
     <div class="hero-logo">
-        <img src="./Logo.png" alt="Concerto — From the Concert to the City">
+        <img src="./logo.png" alt="Concerto — From the Concert to the City">
     </div>
     <p class="hero-tagline">More than a show. A complete night out.</p>
     <div class="hero-rule"></div>
     <p class="hero-sub">Concerto transforms every live event into a complete night-out experience — from the concert to the city.</p>
-    <div class="hero-btns">
+    <div class="hero-actions">
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Download for iOS</a>
         <a href="#features" class="btn btn-outline">Explore the App</a>
     </div>
     <div class="hero-proof">
-        <span>★★★★★&nbsp; 5.0 on the App Store</span>
-        <span class="psep"></span>
+        <span><span class="stars">★★★★★</span>&nbsp; 5.0 on the App Store</span>
+        <div class="proof-sep"></div>
         <span>Free to Download</span>
-        <span class="psep"></span>
+        <div class="proof-sep"></div>
         <span>Concerts · Sports · Festivals</span>
     </div>
     <div class="scroll-hint">
@@ -1022,109 +568,207 @@
 </section>
 
 <!-- MARQUEE -->
-
 <div class="marquee-band">
     <div class="marquee-track">
-        <div class="mitem">Featured Tours <div class="mdot"></div> Setlists &amp; Info <div class="mdot"></div> City Guides <div class="mdot"></div> Events Near Me <div class="mdot"></div> At The Venue <div class="mdot"></div> Concerto+ <div class="mdot"></div> Festivals <div class="mdot"></div> Bag Policies <div class="mdot"></div> Rideshare <div class="mdot"></div> Parking <div class="mdot"></div> Concessions</div>
-        <div class="mitem">Featured Tours <div class="mdot"></div> Setlists &amp; Info <div class="mdot"></div> City Guides <div class="mdot"></div> Events Near Me <div class="mdot"></div> At The Venue <div class="mdot"></div> Concerto+ <div class="mdot"></div> Festivals <div class="mdot"></div> Bag Policies <div class="mdot"></div> Rideshare <div class="mdot"></div> Parking <div class="mdot"></div> Concessions</div>
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
+        <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
     </div>
 </div>
 
 <!-- INTRO -->
-
-<section class="section">
-    <div class="inner">
-        <div class="intro-cols">
-            <div class="intro-text rev">
-                <span class="label">About Concerto</span>
-                <h2 class="title">From the Concert.<br>To the City.</h2>
-                <p class="desc">Most apps help you find a show. Concerto takes over from there — turning your entire event day into something effortless. Curated dining, hotels, venue logistics, setlists, and insider tips, all tied to your specific show and city.</p>
+<section class="s intro">
+    <div class="s-inner">
+        <div class="intro-grid">
+            <div class="r">
+                <div class="s-label">About Concerto</div>
+                <div class="s-title">From the Concert.<br>To the City.</div>
+                <div class="s-desc" style="margin-top:1.2rem;">Most apps help you find a show. Concerto takes over from there — turning your entire event day into something effortless. Curated dining, hotels, venue logistics, setlists, and insider tips, all tied to your specific show and city.</div>
             </div>
-            <div class="stats-grid rev d1">
-                <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Featured<br>Tours</div></div>
-                <div class="stat"><div class="stat-n">5.0</div><div class="stat-l">App Store<br>Rating</div></div>
-                <div class="stat"><div class="stat-n">6</div><div class="stat-l">Core<br>Features</div></div>
-                <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Better show<br>days ahead</div></div>
+            <div class="intro-right r r2">
+                <div class="intro-stat">
+                    <div class="stat-num">25+</div>
+                    <div class="stat-label">Featured<br>Tours</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">5.0</div>
+                    <div class="stat-label">App Store<br>Rating</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Core<br>Features</div>
+                </div>
+                <div class="intro-stat">
+                    <div class="stat-num">∞</div>
+                    <div class="stat-label">Better show<br>days ahead</div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- APP CAROUSEL -->
-
-<section class="section carousel-section">
-    <div class="inner">
-        <div class="carousel-head rev">
-            <span class="label">The App</span>
-            <h2 class="title">See It in Action.</h2>
+<!-- APP PREVIEW -->
+<section class="s app-preview">
+    <div class="s-inner">
+        <div class="r" style="text-align:center;">
+            <div class="s-label" style="text-align:center;">The App</div>
+            <div class="s-title" style="text-align:center; max-width:none;">See It in Action.</div>
         </div>
-        <div class="phones-strip">
-            <div class="pcard"><img src="./home.jpeg"           alt="Home Screen"></div>
-            <div class="pcard"><img src="./Featured-tours.jpeg" alt="Featured Tours"></div>
-            <div class="pcard"><img src="./Setlists.jpeg"       alt="Setlists &amp; Info"></div>
-            <div class="pcard"><img src="./City-guides.jpeg"    alt="City Guides"></div>
-            <div class="pcard"><img src="./Events-near-me.jpeg" alt="Events Near Me"></div>
-            <div class="pcard"><img src="./At-the-venue.jpeg"   alt="At The Venue"></div>
-            <div class="pcard"><img src="./Festivals.jpeg"      alt="Festivals"></div>
-            <div class="pcard"><img src="./Concerto-plus.jpeg"  alt="Concerto+"></div>
-        </div>
-        <div class="swipe-hint">
-            <svg width="13" height="9" viewBox="0 0 13 9" fill="none" aria-hidden="true">
-                <path d="M1 4.5h11M8 1l3.5 3.5L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Swipe to explore
+        <!-- 
+            SCREENSHOT INSTRUCTIONS:
+            Replace each screen-placeholder div with:
+            <img src="./screenshot-name.png" alt="Description">
+            Add your screenshot files to the same folder as index.html
+        -->
+        <div class="carousel-container">
+            <div class="carousel-arrow left" onclick="moveCarousel(-1)">‹</div>
+            <div class="carousel-arrow right" onclick="moveCarousel(1)">›</div>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🏠</div>
+                        <div class="ph-label">Home Screen</div>
+                    </div>
+                    <div class="screen-cap">Home</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">📋</div>
+                        <div class="ph-label">Featured Tours</div>
+                    </div>
+                    <div class="screen-cap">Featured Tours</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎵</div>
+                        <div class="ph-label">Setlists & Tour Info</div>
+                    </div>
+                    <div class="screen-cap">Setlists & Info</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🗺️</div>
+                        <div class="ph-label">City Guides</div>
+                    </div>
+                    <div class="screen-cap">City Guides</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">📍</div>
+                        <div class="ph-label">Events Near Me</div>
+                    </div>
+                    <div class="screen-cap">Events Near Me</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎟️</div>
+                        <div class="ph-label">At The Venue</div>
+                    </div>
+                    <div class="screen-cap">At The Venue</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🎪</div>
+                        <div class="ph-label">Festivals</div>
+                    </div>
+                    <div class="screen-cap">Festivals</div>
+                </div>
+                <div class="screen">
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">✨</div>
+                        <div class="ph-label">Concerto+ Timeline</div>
+                    </div>
+                    <div class="screen-cap">Concerto+</div>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </div>
 </section>
 
 <!-- FEATURES -->
-
-<section class="section" id="features">
-    <div class="inner">
-        <div class="feat-intro rev">
-            <span class="label">Key Features</span>
-            <h2 class="title">Everything for<br>Your Show Day.</h2>
-            <p class="desc">Six features, one seamless experience — from the moment you buy your ticket to the last song of the night.</p>
+<section class="s features-section" id="features">
+    <div class="s-inner">
+        <div class="features-header">
+            <div class="r">
+                <div class="s-label">Key Features</div>
+                <div class="s-title">Everything for<br>Your Show Day.</div>
+            </div>
+            <div class="s-desc r r2" style="max-width:340px;">Six features, one seamless experience — from the moment you buy your ticket to the last song of the night.</div>
         </div>
-        <div class="feat-grid rev d1">
-            <div class="feat"><div class="feat-num">No. 01</div><h3>Featured Tours</h3><p>Explore current tours through beautifully organized tour pages. Each stop includes a venue-based City Guide, direct ticket access, bag policies, rideshare, concessions, and parking — all in one tap.</p></div>
-            <div class="feat"><div class="feat-num">No. 02</div><h3>Setlists &amp; Tour Info</h3><p>Instantly access accurate setlists, local start times, and official tour websites. Tap any song to reveal Apple Music and Spotify links — so fans know exactly what to expect before the lights go down.</p></div>
-            <div class="feat"><div class="feat-num">No. 03</div><h3>City Guides</h3><p>The best restaurants, hotels, and shops near your venue — curated and ranked. Top Picks surface the standout spots first, using smart search and accurate distance tracking tied to your specific event night.</p></div>
-            <div class="feat"><div class="feat-num">No. 04</div><h3>Events Near Me</h3><p>Discover concerts, sports, comedy, festivals, theater, and nightlife happening around you — searchable by city, date, and category. Perfect for extending a concert weekend or planning a spontaneous night out.</p></div>
-            <div class="feat"><div class="feat-num">No. 05</div><h3>At The Venue</h3><p>Everything fans need once they arrive. Rideshare zones, bag policies, concessions overviews, parking guidance, and real-time concert day weather — centralized so you can focus on the experience.</p></div>
-            <div class="feat"><div class="feat-num">No. 06</div><h3>Festivals</h3><p>Plan multi-day festival experiences with ease. Discover lineups, nearby stays, dining, and attractions — organized into a personalized itinerary designed around your schedule and style.</p><div class="badge">Premium Feature</div></div>
+        <div class="features-grid r">
+            <div class="feat">
+                <div class="feat-num">No. 01</div>
+                <h3>Featured Tours</h3>
+                <p>Explore current tours through beautifully organized tour pages. Each stop includes a venue-based City Guide, direct ticket access, bag policies, rideshare, concessions, and parking — all in one tap.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 02</div>
+                <h3>Setlists & Tour Info</h3>
+                <p>Instantly access accurate setlists, local start times, and official tour websites. Tap any song to reveal Apple Music and Spotify links — so fans know exactly what to expect before the lights go down.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 03</div>
+                <h3>City Guides</h3>
+                <p>The best restaurants, hotels, and shops near your venue — curated and ranked. Top Picks surface the standout spots first, using smart search and accurate distance tracking tied to your specific event night.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 04</div>
+                <h3>Events Near Me</h3>
+                <p>Discover concerts, sports, comedy, festivals, theater, and nightlife happening around you — searchable by city, date, and category. Perfect for extending a concert weekend or planning a spontaneous night out.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 05</div>
+                <h3>At The Venue</h3>
+                <p>Everything fans need once they arrive. Rideshare zones, bag policies, concessions overviews, parking guidance, and real-time concert day weather — centralized so you can focus on the experience.</p>
+            </div>
+            <div class="feat">
+                <div class="feat-num">No. 06</div>
+                <h3>Festivals</h3>
+                <p>Plan multi-day festival experiences with ease. Discover lineups, nearby stays, dining, and attractions — organized into a personalized itinerary designed around your schedule and style.</p>
+                <div class="feat-badge">Premium Feature</div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- HOW IT WORKS -->
-
-<section class="section process-section" id="process">
-    <div class="inner">
-        <div class="process-intro rev">
-            <span class="label">How It Works</span>
-            <h2 class="title">Plan Your Night<br>in Seconds.</h2>
+<section class="s process" id="process">
+    <div class="s-inner">
+        <div class="r" style="margin-bottom:4rem;">
+            <div class="s-label">How It Works</div>
+            <div class="s-title">Plan Your Night<br>in Seconds.</div>
         </div>
-        <div class="steps">
-            <div class="step rev">
-                <div class="step-n">01</div>
-                <div>
-                    <h3>Find Your Tour or Event</h3>
-                    <p>Search by artist, venue, or city. Concerto surfaces your show from its library of featured tours and nearby events — instantly revealing every detail for that specific stop.</p>
+        <div class="process-wrap">
+            <div class="process-steps">
+                <div class="process-step r">
+                    <div class="step-num">01</div>
+                    <div class="step-body">
+                        <h3>Find Your Tour or Event</h3>
+                        <p>Search by artist, venue, or city. Concerto surfaces your show from its library of featured tours and nearby events — instantly revealing every detail for that specific stop.</p>
+                    </div>
+                </div>
+                <div class="process-step r r2">
+                    <div class="step-num">02</div>
+                    <div class="step-body">
+                        <h3>Explore the City Around It</h3>
+                        <p>Browse curated restaurants, hotels, and local spots — all anchored to your venue. Check the setlist, confirm start times, and lock in your rideshare zone before you leave the house.</p>
+                    </div>
+                </div>
+                <div class="process-step r r3">
+                    <div class="step-num">03</div>
+                    <div class="step-body">
+                        <h3>Arrive Informed. Enjoy the Show.</h3>
+                        <p>Walk in knowing the bag policy, parking situation, and concessions layout. From the first stop to the final encore, Concerto has the whole night handled.</p>
+                    </div>
                 </div>
             </div>
-            <div class="step rev d1">
-                <div class="step-n">02</div>
-                <div>
-                    <h3>Explore the City Around It</h3>
-                    <p>Browse curated restaurants, hotels, and local spots — all anchored to your venue. Check the setlist, confirm start times, and lock in your rideshare zone before you leave the house.</p>
-                </div>
-            </div>
-            <div class="step rev d2">
-                <div class="step-n">03</div>
-                <div>
-                    <h3>Arrive Informed. Enjoy the Show.</h3>
-                    <p>Walk in knowing the bag policy, parking situation, and concessions layout. From the first stop to the final encore, Concerto has the whole night handled.</p>
+            <div class="process-right r r2">
+                <div class="process-screen">
+                    <!-- Replace with: <img src="./screenshot-timeline.png" alt="Concerto app timeline view"> -->
+                    <div class="screen-placeholder">
+                        <div class="ph-icon">🗓️</div>
+                        <div class="ph-label">Timeline / Itinerary Screenshot</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1132,35 +776,42 @@
 </section>
 
 <!-- PULL QUOTE -->
-
-<section class="section">
-    <div class="inner pq-inner">
-        <div class="rev">
+<section class="s pullquote">
+    <div class="s-inner">
+        <div class="r">
             <div class="pq-mark">"</div>
             <p class="pq-text">I built Concerto because I was tired of juggling five different apps just to figure out where to park and eat before a show. Everything should be in one place.</p>
             <div class="pq-rule"></div>
-            <p class="pq-attr">Jayce Wells — Founder, Concerto</p>
+            <div class="pq-attr">Jayce Wells — Founder, Concerto</div>
         </div>
     </div>
 </section>
 
 <!-- PREMIUM -->
-
-<section class="section" id="premium">
-    <div class="inner">
-        <div class="prem-cols">
-            <div class="prem-intro rev">
-                <span class="label">Concerto+</span>
-                <h2 class="title">Your Perfect<br>Night Out,<br>Built by AI.</h2>
-                <p class="desc" style="margin-top:12px;">Concerto+ uses AI to build a personalized itinerary around your show — curated dining, hotels, and attractions tailored to your preferences and concert plans. From first stop to final encore, all in one scroll.</p>
-                <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank" style="margin-top:22px;max-width:290px;">Start Free — Upgrade Anytime</a>
+<section class="s premium" id="premium">
+    <div class="s-inner">
+        <div class="premium-wrap">
+            <div class="r">
+                <div class="s-label">Concerto+</div>
+                <div class="s-title">Your Perfect<br>Night Out, Built<br>by AI.</div>
+                <div class="s-desc" style="margin-top:1.2rem;">Concerto+ uses AI to build a personalized itinerary around your show — curated dining, hotels, and attractions tailored to your preferences and concert plans. From first stop to final encore, all in one scroll.</div>
+                <div style="margin-top:2.5rem;">
+                    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Start Free — Upgrade Anytime</a>
+                </div>
             </div>
-            <div class="rev d1">
-                <div class="prem-card">
+            <div class="r r2">
+                <div class="premium-card">
                     <div class="prem-badge">Premium Plan</div>
                     <div class="prem-prices">
-                        <div><div class="prem-amt">$7.99</div><div class="prem-per">Per Month</div></div>
-                        <div><div class="prem-amt">$69.99</div><div class="prem-per">Per Year</div><div class="prem-save">Save over 25%</div></div>
+                        <div class="prem-price">
+                            <div class="prem-amount">$7.99</div>
+                            <div class="prem-period">Per Month</div>
+                        </div>
+                        <div class="prem-price">
+                            <div class="prem-amount">$69.99</div>
+                            <div class="prem-period">Per Year</div>
+                            <div class="prem-save">Save over 25%</div>
+                        </div>
                     </div>
                     <ul class="prem-list">
                         <li>Concerto+ — AI-curated night-out itineraries</li>
@@ -1169,7 +820,7 @@
                         <li>Expanded Top Picks in City Guides</li>
                         <li>Ad-free experience</li>
                     </ul>
-                    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-outline" target="_blank">Get Concerto+</a>
+                    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-outline" target="_blank" style="width:100%; justify-content:center;">Get Concerto+</a>
                 </div>
             </div>
         </div>
@@ -1177,54 +828,73 @@
 </section>
 
 <!-- PARTNERS -->
-
-<section class="section partners-section" id="partners">
-    <div class="inner">
-        <div class="partners-intro rev">
-            <span class="label">Partner With Concerto</span>
-            <h2 class="title">Reach Fans at the<br>Exact Right Moment.</h2>
-            <p class="desc" style="margin-top:10px;">Concerto connects restaurants, hotels, festivals, artists, and venues with high-intent concertgoers — at the moments they're actively deciding where to eat, stay, and go.</p>
+<section class="s partners" id="partners">
+    <div class="s-inner">
+        <div class="r">
+            <div class="s-label">Partner With Concerto</div>
+            <div class="s-title">Reach Fans at the<br>Exact Right Moment.</div>
+            <div class="s-desc" style="margin-top:1rem;">Concerto connects restaurants, hotels, festivals, artists, and venues with high-intent concertgoers — at the moments they're actively deciding where to eat, stay, and go.</div>
         </div>
-        <div class="partners-grid rev d1">
-            <div class="pcard-item"><h3>Restaurants</h3><p>Top Picks placement in City Guides surfaces your restaurant to fans searching for dinner before or after a nearby show — event-timed discovery that drives real foot traffic, not impressions.</p></div>
-            <div class="pcard-item"><h3>Hotels</h3><p>Reach guests actively planning trips around concerts and festivals. Venue-proximity discovery converts one-night shows into full weekend stays, aligned with known tour and festival dates.</p></div>
-            <div class="pcard-item"><h3>Artists &amp; Tours</h3><p>Featured tour placement, direct ticket links, setlist integration, and fan-facing logistics — all in one place. Concerto helps artists deliver better show nights and extended fan engagement.</p></div>
-            <div class="pcard-item"><h3>Venues &amp; Festivals</h3><p>Centralize your bag policies, parking, rideshare, and concession information so fans arrive informed. Fewer day-of questions, smoother entry, and better show nights — with no additional operational burden.</p></div>
+        <div class="partners-grid r r2">
+            <div class="partner-card">
+                <h3>Restaurants</h3>
+                <p>Top Picks placement in City Guides surfaces your restaurant to fans searching for dinner before or after a nearby show — event-timed discovery that drives real foot traffic, not impressions.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Hotels</h3>
+                <p>Reach guests actively planning trips around concerts and festivals. Venue-proximity discovery converts one-night shows into full weekend stays, aligned with known tour and festival dates.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Artists &amp; Tours</h3>
+                <p>Featured tour placement, direct ticket links, setlist integration, and fan-facing logistics — all in one place. Concerto helps artists deliver better show nights and extended fan engagement.</p>
+            </div>
+            <div class="partner-card">
+                <h3>Venues &amp; Festivals</h3>
+                <p>Centralize your bag policies, parking, rideshare, and concession information so fans arrive informed. Fewer day-of questions, smoother entry, and better show nights — with no additional operational burden.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-
-<section class="section" id="contact">
-    <div class="inner">
-        <div class="contact-cols">
-            <div class="rev">
-                <div class="contact-intro">
-                    <span class="label">Get in Touch</span>
-                    <h2 class="title">Let's Work<br>Together.</h2>
-                </div>
+<section class="s contact" id="contact">
+    <div class="s-inner">
+        <div class="contact-wrap">
+            <div class="r">
+                <div class="s-label">Get in Touch</div>
+                <div class="s-title">Let's Work<br>Together.</div>
                 <div class="contact-details">
-                    <div><span class="clabel">Phone</span><a href="tel:8173120040" class="clink">(817) 312-0040</a></div>
-                    <div><span class="clabel">Email</span><a href="/cdn-cgi/l/email-protection#7a101b03191f3a191514191f080e1519130e0354191517" class="clink"><span class="__cf_email__" data-cfemail="ef858e968c8aaf8c80818c8a9d9b808c869b96c18c8082">[email&#160;protected]</span></a></div>
-                    <div><span class="clabel">Website</span><a href="https://www.concertocity.com" class="clink" target="_blank">www.concertocity.com</a></div>
-                    <div><span class="clabel">Instagram</span><a href="https://instagram.com/theconcertoapp" class="clink" target="_blank">@theconcertoapp</a></div>
+                    <div>
+                        <div class="contact-item-label">Phone</div>
+                        <a href="tel:8173120040" class="contact-item">(817) 312-0040</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Email</div>
+                        <a href="mailto:jayce@concertocity.com" class="contact-item">jayce@concertocity.com</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Website</div>
+                        <a href="https://www.concertocity.com" class="contact-item" target="_blank">www.concertocity.com</a>
+                    </div>
+                    <div>
+                        <div class="contact-item-label">Instagram</div>
+                        <a href="https://instagram.com/theconcertoapp" class="contact-item" target="_blank">@theconcertoapp</a>
+                    </div>
                 </div>
             </div>
-            <div class="rev d1">
+            <div class="contact-right r r2">
                 <p class="contact-note">"Concerto connects your business with high-intent concertgoers at the exact moments event-night demand peaks — again and again, all year long."</p>
-                <a href="/cdn-cgi/l/email-protection#3258534b515772515d5c515740465d515b464b1c515d5f" class="btn btn-fill" style="max-width:290px;">Get in Touch</a>
+                <a href="mailto:jayce@concertocity.com" class="btn btn-fill">Get in Touch</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- FINAL CTA -->
-
-<section class="section final-section">
-    <div class="inner">
-        <div class="rev">
-            <h2 class="final-h">From the Concert.<br><em>To the City.</em></h2>
+<section class="s final">
+    <div class="s-inner">
+        <div class="r">
+            <h2>From the Concert.<br><em>To the City.</em></h2>
             <p class="final-sub">Download Concerto and make every show day the best one yet.</p>
             <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-fill" target="_blank">Download for iOS — It's Free</a>
         </div>
@@ -1232,10 +902,9 @@
 </section>
 
 <!-- FOOTER -->
-
 <footer>
     <div class="foot-logo">
-        <img src="./Logo.png" alt="Concerto">
+        <img src="./logo.png" alt="Concerto">
     </div>
     <div class="foot-links">
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">App Store</a>
@@ -1243,33 +912,152 @@
         <a href="https://app.appdocumentation.com/app/8ef92dbd-0a8b-11f0-a97f-12565309935d/security/policy" target="_blank">Privacy</a>
         <a href="https://learn.appdocumentation.com/en/collections/1618556-terms-conditions-and-privacy-policy" target="_blank">Terms</a>
     </div>
-    <p class="foot-copy">&copy; 2025 Concerto LLC. All rights reserved.</p>
+    <div class="foot-copy">&copy; 2025 Concerto LLC. All rights reserved.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+    // Intersection Observer for reveal animations
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-/* ── MENU ── */
-const burger = document.getElementById(‘burger’);
-const drawer = document.getElementById(‘drawer’);
+    // Carousel functionality
+    let currentSlide = 0;
+    let autoScrollInterval;
+    const track = document.getElementById('carouselTrack');
+    const screens = track.querySelectorAll('.screen');
+    const totalSlides = Math.ceil(screens.length / 3);
+    const dotsContainer = document.getElementById('carouselDots');
+    const carouselContainer = document.querySelector('.carousel-container');
 
-burger.addEventListener(‘click’, () => {
-const open = burger.classList.toggle(‘open’);
-drawer.classList.toggle(‘open’, open);
-burger.setAttribute(‘aria-expanded’, open);
-drawer.setAttribute(‘aria-hidden’, !open);
-});
+    // Touch/drag variables
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID = 0;
 
-function closeMenu() {
-burger.classList.remove(‘open’);
-drawer.classList.remove(‘open’);
-burger.setAttribute(‘aria-expanded’, ‘false’);
-drawer.setAttribute(‘aria-hidden’, ‘true’);
-}
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => {
+            goToSlide(i);
+            resetAutoScroll();
+        };
+        dotsContainer.appendChild(dot);
+    }
 
-/* Close drawer if user clicks outside */
-document.addEventListener(‘click’, e => {
-if (!burger.contains(e.target) && !drawer.contains(e.target)) closeMenu();
-});
+    function updateCarousel() {
+        const offset = currentSlide * -100;
+        track.style.transform = `translateX(${offset}%)`;
+        
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
 
-/* ── SCROLL REVEAL ── */
-const io = new IntersectionO
+        document.querySelector('.carousel-arrow.left').classList.toggle('disabled', currentSlide === 0);
+        document.querySelector('.carousel-arrow.right').classList.toggle('disabled', currentSlide === totalSlides - 1);
+    }
+
+    function moveCarousel(direction) {
+        currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    function autoScroll() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(autoScroll, 3500); // Slower interval for smoother feel
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScrollInterval);
+        startAutoScroll();
+    }
+
+    // Touch/Drag handlers
+    function touchStart(e) {
+        isDragging = true;
+        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        clearInterval(autoScrollInterval);
+        track.style.transition = 'none';
+    }
+
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = currentPosition - startPos;
+        const movePercent = (diff / carouselContainer.offsetWidth) * 100;
+        const offset = (currentSlide * -100) + movePercent;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+
+    function touchEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const movedBy = e.type.includes('mouse') ? e.pageX - startPos : e.changedTouches[0].clientX - startPos;
+        
+        track.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Threshold: if moved more than 50px, change slide
+        if (movedBy < -50 && currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else if (movedBy > 50 && currentSlide > 0) {
+            currentSlide--;
+        }
+        
+        updateCarousel();
+        startAutoScroll();
+    }
+
+    // Mouse events
+    track.addEventListener('mousedown', touchStart);
+    track.addEventListener('mousemove', touchMove);
+    track.addEventListener('mouseup', touchEnd);
+    track.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd({ type: 'mouse', pageX: startPos });
+    });
+
+    // Touch events
+    track.addEventListener('touchstart', touchStart);
+    track.addEventListener('touchmove', touchMove);
+    track.addEventListener('touchend', touchEnd);
+
+    // Prevent image dragging
+    track.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Manual arrow controls
+    document.querySelector('.carousel-arrow.left').onclick = () => {
+        moveCarousel(-1);
+        resetAutoScroll();
+    };
+    document.querySelector('.carousel-arrow.right').onclick = () => {
+        moveCarousel(1);
+        resetAutoScroll();
+    };
+
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    carouselContainer.addEventListener('mouseleave', () => {
+        if (!isDragging) startAutoScroll();
+    });
+
+    // Initialize
+    updateCarousel();
+    startAutoScroll();
+</script>
+```
+
+</body>
+</html>
