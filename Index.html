@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Concerto — From the Concert to the City</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +49,9 @@
         padding: 0 3rem;
         height: 68px;
         display: flex; align-items:center; justify-content:space-between;
-        background: rgba(248,249,249,0.88);
+        background: rgba(248,249,249,0.92);
         backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
         border-bottom: 1px solid var(--border);
     }
     .nav-logo { text-decoration:none; display:block; }
@@ -72,6 +73,59 @@
         color: var(--bg) !important;
         border-color: var(--navy) !important;
     }
+
+    /* Hamburger */
+    .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+        background: none;
+        border: none;
+    }
+    .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--navy);
+        transition: all 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+    /* Mobile menu */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: rgba(248,249,249,0.97);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        border-bottom: 1px solid var(--border);
+        z-index: 99;
+        flex-direction: column;
+        padding: 1.5rem 2rem 2rem;
+        gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+        font-size: 0.8rem; letter-spacing:0.14em; text-transform:uppercase;
+        color: var(--silver); text-decoration:none;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+        transition: color 0.3s;
+    }
+    .mobile-menu a:last-child {
+        margin-top: 1.5rem;
+        border-bottom: none;
+        border: 1px solid var(--border-hi);
+        text-align: center;
+        color: var(--navy);
+        padding: 0.9rem 1.3rem;
+    }
+    .mobile-menu a:hover { color: var(--navy); }
 
     /* ─── BUTTONS ─── */
     .btn {
@@ -95,7 +149,7 @@
 
     /* ─── HERO ─── */
     .hero {
-        position:relative; min-height:100vh;
+        position:relative; min-height:100svh;
         display:flex; flex-direction:column;
         align-items:center; justify-content:center;
         text-align:center; padding: 10rem 2rem 6rem; overflow:hidden;
@@ -221,32 +275,46 @@
     /* ─── APP PREVIEW ─── */
     .app-preview { border-top:1px solid var(--border); background:var(--bg-mid); width:100%; overflow-x:hidden; }
     .app-preview .s-inner { padding:5rem 2rem; }
-    .carousel-container {
-        position:relative; margin:3.5rem auto 0; max-width:100%; overflow:hidden;
+
+    .carousel-outer {
+        position: relative;
+        margin: 3.5rem 0 0;
+        width: 100%;
+    }
+    .carousel-viewport {
+        overflow: hidden;
+        width: 100%;
     }
     .carousel-track {
-        display:flex; gap:2rem; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: grab; padding:0 2rem;
+        display: flex;
+        gap: 1.5rem;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+        cursor: grab;
+        user-select: none;
+        -webkit-user-select: none;
+        padding: 1rem 0 2rem;
     }
     .carousel-track.dragging {
         cursor: grabbing;
         transition: none;
     }
     .screen {
-        flex:0 0 calc(33.333% - 1.35rem); position:relative;
-        border-radius:24px; overflow:hidden;
-        border:1px solid var(--border-md);
-        box-shadow: 0 12px 32px rgba(18,30,54,0.07);
+        flex: 0 0 var(--screen-w, 200px);
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border-md);
+        box-shadow: 0 8px 24px rgba(18,30,54,0.07);
         background: var(--bg);
+        aspect-ratio: 9 / 19.5;
         transition: transform 0.4s ease, box-shadow 0.4s ease;
-        max-width: 200px;
-        aspect-ratio: 9/19.5;
     }
     .screen:hover {
         transform: translateY(-4px);
-        box-shadow: 0 20px 48px rgba(18,30,54,0.1);
+        box-shadow: 0 18px 40px rgba(18,30,54,0.1);
     }
-    .screen img { width:100%; height:100%; object-fit:cover; display:block; }
+    .screen img { width:100%; height:100%; object-fit:cover; display:block; border-radius: 20px; }
     .screen-placeholder {
         width:100%; height:100%;
         display:flex; flex-direction:column;
@@ -259,38 +327,41 @@
         font-size:0.85rem; color:var(--silver-lt);
         letter-spacing:0.08em; line-height:1.5;
     }
-    .screen-cap {
-        text-align:center; margin-top:1rem;
-        font-size:0.65rem; letter-spacing:0.15em;
-        text-transform:uppercase; color:var(--silver-lt);
-    }
+
     .carousel-arrow {
-        position:absolute; top:50%; transform:translateY(-50%);
-        width:48px; height:48px; border-radius:50%;
-        background:var(--bg); border:1px solid var(--border-hi);
-        display:flex; align-items:center; justify-content:center;
-        cursor:pointer; z-index:10; transition:all 0.3s ease;
-        color:var(--navy); font-size:1.2rem;
+        position: absolute;
+        top: 50%; transform: translateY(-50%);
+        width: 48px; height: 48px; border-radius: 50%;
+        background: var(--bg); border: 1px solid var(--border-hi);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; z-index: 10;
+        transition: all 0.3s ease;
+        color: var(--navy); font-size: 1.4rem;
+        box-shadow: 0 4px 16px rgba(18,30,54,0.1);
+        line-height: 1;
+        padding-bottom: 2px;
     }
     .carousel-arrow:hover {
-        background:var(--navy); color:var(--bg);
-        box-shadow: 0 8px 24px rgba(18,30,54,0.15);
+        background: var(--navy); color: var(--bg);
+        box-shadow: 0 8px 24px rgba(18,30,54,0.18);
     }
-    .carousel-arrow.disabled {
-        opacity:0.3; cursor:not-allowed; pointer-events:none;
-    }
-    .carousel-arrow.left { left:-24px; }
-    .carousel-arrow.right { right:-24px; }
+    .carousel-arrow.disabled { opacity: 0.25; cursor: not-allowed; pointer-events: none; }
+    .carousel-arrow.prev { left: -24px; }
+    .carousel-arrow.next { right: -24px; }
+
     .carousel-dots {
-        display:none;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 0;
     }
     .carousel-dot {
-        width:8px; height:8px; border-radius:50%;
-        background:var(--border-hi); cursor:pointer;
-        transition:all 0.3s ease;
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--border-hi); cursor: pointer;
+        transition: all 0.3s ease;
     }
     .carousel-dot.active {
-        background:var(--navy); width:24px; border-radius:4px;
+        background: var(--navy); width: 24px; border-radius: 4px;
     }
 
     /* ─── FEATURES ─── */
@@ -355,12 +426,14 @@
     .process-step p { font-size:0.875rem; color:var(--silver); line-height:1.75; font-weight:300; }
     .process-right { display:flex; align-items:center; justify-content:center; }
     .process-screen {
-        width:240px; height:480px;
+        width: min(240px, 70vw);
+        aspect-ratio: 9 / 19.5;
         border-radius:36px; overflow:hidden;
         border:1px solid var(--border-md);
         box-shadow: 0 24px 60px rgba(18,30,54,0.1);
         background:var(--bg);
     }
+    .process-screen img { width:100%; height:100%; object-fit:cover; display:block; }
     .process-screen .screen-placeholder { height:100%; }
 
     /* ─── PULL QUOTE ─── */
@@ -400,6 +473,7 @@
     .prem-prices {
         display:flex; gap:2.5rem; margin-bottom:2.5rem;
         padding-bottom:2.5rem; border-bottom:1px solid var(--border-md);
+        flex-wrap: wrap;
     }
     .prem-amount {
         font-family:'Cormorant Garamond',serif; font-size:2.8rem;
@@ -485,7 +559,7 @@
         justify-content:space-between; flex-wrap:wrap; gap:1.5rem;
     }
     .foot-logo img { height:28px; display:block; filter: brightness(0) invert(1); opacity:0.7; }
-    .foot-links { display:flex; gap:2rem; }
+    .foot-links { display:flex; gap:2rem; flex-wrap: wrap; }
     .foot-links a {
         font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
         color:rgba(248,249,249,0.35); text-decoration:none; transition:color 0.3s;
@@ -500,28 +574,72 @@
 
     @keyframes fiu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-    /* ─── RESPONSIVE ─── */
+    /* ─── RESPONSIVE: TABLET (≤960px) ─── */
     @media (max-width:960px) {
         nav { padding:0 1.5rem; }
-        .nav-links a:not(.nav-cta) { display:none; }
-        .s-inner { padding:4.5rem 1.5rem; width:100%; }
-        .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns:1fr; gap:3rem; }
+        .nav-links { display:none; }
+        .nav-hamburger { display:flex; }
+
+        .s-inner { padding:4.5rem 1.5rem; }
+
+        .intro-grid { grid-template-columns:1fr; gap:3rem; }
+        .premium-wrap { grid-template-columns:1fr; gap:3rem; }
+        .process-wrap { grid-template-columns:1fr; gap:3rem; }
+        .contact-wrap { grid-template-columns:1fr; gap:3rem; }
+
         .features-grid { grid-template-columns:1fr 1fr; }
         .partners-grid { grid-template-columns:1fr 1fr; }
-        .process-right { display:none; }
-        footer { flex-direction:column; align-items:flex-start; }
+
+        .process-right { display:flex; justify-content:center; }
+
+        footer { flex-direction:column; align-items:flex-start; padding:2rem 1.5rem; }
+
         .carousel-arrow { display:none; }
-        .screen { flex:0 0 calc(50% - 1rem); }
+
+        .pullquote .s-inner { padding:5rem 1.5rem; }
+        .final .s-inner { padding:6rem 1.5rem 7rem; }
+
         .premium-card { padding:2rem 1.5rem; }
-        .prem-prices { flex-direction:column; gap:1.5rem; }
     }
+
+    /* ─── RESPONSIVE: MOBILE (≤600px) ─── */
     @media (max-width:600px) {
-        .features-grid, .partners-grid { grid-template-columns:1fr; }
-        .intro-right { grid-template-columns:1fr 1fr; }
-        .hero-proof { gap:1rem; }
+        nav { height:60px; }
+        .mobile-menu { top:60px; }
+
+        .hero { padding:8rem 1.25rem 5rem; min-height:100svh; }
+        .hero-proof { gap:0.75rem; font-size:0.62rem; }
         .proof-sep { display:none; }
-        .screen { flex:0 0 85%; }
-        .carousel-track { gap:1rem; }
+        .scroll-hint { display:none; }
+
+        .s-inner { padding:3.5rem 1.25rem; }
+
+        .features-grid { grid-template-columns:1fr; }
+        .partners-grid { grid-template-columns:1fr; }
+        .intro-right { grid-template-columns:1fr 1fr; }
+
+        .prem-prices { gap:1.5rem; }
+
+        .pullquote .s-inner { padding:4rem 1.25rem; }
+        .final .s-inner { padding:5rem 1.25rem 6rem; }
+        .final h2 { font-size: clamp(2.4rem, 12vw, 4rem); }
+
+        footer { padding:2rem 1.25rem; gap:1.2rem; }
+        .foot-links { gap:1.2rem; }
+
+        .hero-actions { flex-direction:column; align-items:center; width:100%; }
+        .hero-actions .btn { width:100%; max-width:280px; justify-content:center; }
+
+        .process-right { display:none; }
+
+        .btn { font-size:0.7rem; padding:0.9rem 1.8rem; }
+    }
+
+    /* ─── RESPONSIVE: SMALL MOBILE (≤380px) ─── */
+    @media (max-width:380px) {
+        .intro-right { grid-template-columns:1fr; }
+        .intro-stat { padding:1.5rem 1.2rem; }
+        .stat-num { font-size:2.4rem; }
     }
 </style>
 ```
@@ -529,11 +647,11 @@
 </head>
 <body>
 
-```
 <!-- NAV -->
+
 <nav>
     <a href="#" class="nav-logo">
-        <img src="./logo.png" alt="Concerto — From the Concert to the City">
+        <img src="./Logo.png" alt="Concerto — From the Concert to the City">
     </a>
     <div class="nav-links">
         <a href="#features">Features</a>
@@ -541,13 +659,26 @@
         <a href="#premium">Premium</a>
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="nav-cta" target="_blank">Download</a>
     </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="closeMobileMenu()">Features</a>
+    <a href="#process" onclick="closeMobileMenu()">How It Works</a>
+    <a href="#premium" onclick="closeMobileMenu()">Premium</a>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">Download Free</a>
+</div>
+
 <!-- HERO -->
+
 <section class="hero">
     <div class="hero-eyebrow"><span></span> Now on the App Store <span></span></div>
     <div class="hero-logo">
-        <img src="./logo.png" alt="Concerto — From the Concert to the City">
+        <img src="./Logo.png" alt="Concerto — From the Concert to the City">
     </div>
     <p class="hero-tagline">More than a show. A complete night out.</p>
     <div class="hero-rule"></div>
@@ -570,6 +701,7 @@
 </section>
 
 <!-- MARQUEE -->
+
 <div class="marquee-band">
     <div class="marquee-track">
         <div class="marquee-item">Featured Tours <div class="marquee-dot"></div> Setlists & Info <div class="marquee-dot"></div> City Guides <div class="marquee-dot"></div> Events Near Me <div class="marquee-dot"></div> At The Venue <div class="marquee-dot"></div> Concerto+ <div class="marquee-dot"></div> Festivals <div class="marquee-dot"></div> Bag Policies <div class="marquee-dot"></div> Rideshare <div class="marquee-dot"></div> Parking <div class="marquee-dot"></div> Concessions</div>
@@ -578,6 +710,7 @@
 </div>
 
 <!-- INTRO -->
+
 <section class="s intro">
     <div class="s-inner">
         <div class="intro-grid">
@@ -609,85 +742,57 @@
 </section>
 
 <!-- APP PREVIEW -->
+
 <section class="s app-preview">
     <div class="s-inner">
         <div class="r" style="text-align:center;">
             <div class="s-label" style="text-align:center;">The App</div>
             <div class="s-title" style="text-align:center; max-width:none;">See It in Action.</div>
         </div>
-        <!-- 
-            SCREENSHOT INSTRUCTIONS:
-            Replace each screen-placeholder div with:
-            <img src="./screenshot-name.png" alt="Description">
-            Add your screenshot files to the same folder as index.html
-        -->
-        <div class="carousel-container">
-            <div class="carousel-arrow left" onclick="moveCarousel(-1)">‹</div>
-            <div class="carousel-arrow right" onclick="moveCarousel(1)">›</div>
+
+```
+    <div class="carousel-outer">
+        <button class="carousel-arrow prev" id="prevBtn" aria-label="Previous">&#8249;</button>
+        <button class="carousel-arrow next" id="nextBtn" aria-label="Next">&#8250;</button>
+
+        <div class="carousel-viewport">
             <div class="carousel-track" id="carouselTrack">
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🏠</div>
-                        <div class="ph-label">Home Screen</div>
-                    </div>
-                    <div class="screen-cap">Home</div>
+                    <img src="./home.jpeg" alt="Concerto Home Screen">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">📋</div>
-                        <div class="ph-label">Featured Tours</div>
-                    </div>
-                    <div class="screen-cap">Featured Tours</div>
+                    <img src="./Featured-tours.jpeg" alt="Featured Tours">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🎵</div>
-                        <div class="ph-label">Setlists & Tour Info</div>
-                    </div>
-                    <div class="screen-cap">Setlists & Info</div>
+                    <img src="./Setlists.jpeg" alt="Setlists & Tour Info">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🗺️</div>
-                        <div class="ph-label">City Guides</div>
-                    </div>
-                    <div class="screen-cap">City Guides</div>
+                    <img src="./City-guides.jpeg" alt="City Guides">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">📍</div>
-                        <div class="ph-label">Events Near Me</div>
-                    </div>
-                    <div class="screen-cap">Events Near Me</div>
+                    <img src="./Events-near-me.jpeg" alt="Events Near Me">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🎟️</div>
-                        <div class="ph-label">At The Venue</div>
-                    </div>
-                    <div class="screen-cap">At The Venue</div>
+                    <img src="./At-the-venue.jpeg" alt="At The Venue">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🎪</div>
-                        <div class="ph-label">Festivals</div>
-                    </div>
-                    <div class="screen-cap">Festivals</div>
+                    <img src="./Festivals.jpeg" alt="Festivals">
                 </div>
                 <div class="screen">
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">✨</div>
-                        <div class="ph-label">Concerto+ Timeline</div>
-                    </div>
-                    <div class="screen-cap">Concerto+</div>
+                    <img src="./Concerto-plus.jpeg" alt="Concerto+ Premium">
                 </div>
             </div>
-            <div class="carousel-dots" id="carouselDots"></div>
         </div>
+
+        <div class="carousel-dots" id="carouselDots"></div>
     </div>
+</div>
+```
+
 </section>
 
 <!-- FEATURES -->
+
 <section class="s features-section" id="features">
     <div class="s-inner">
         <div class="features-header">
@@ -734,6 +839,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
+
 <section class="s process" id="process">
     <div class="s-inner">
         <div class="r" style="margin-bottom:4rem;">
@@ -766,11 +872,7 @@
             </div>
             <div class="process-right r r2">
                 <div class="process-screen">
-                    <!-- Replace with: <img src="./screenshot-timeline.png" alt="Concerto app timeline view"> -->
-                    <div class="screen-placeholder">
-                        <div class="ph-icon">🗓️</div>
-                        <div class="ph-label">Timeline / Itinerary Screenshot</div>
-                    </div>
+                    <img src="./Timeline.jpeg" alt="Concerto app timeline view">
                 </div>
             </div>
         </div>
@@ -778,6 +880,7 @@
 </section>
 
 <!-- PULL QUOTE -->
+
 <section class="s pullquote">
     <div class="s-inner">
         <div class="r">
@@ -790,6 +893,7 @@
 </section>
 
 <!-- PREMIUM -->
+
 <section class="s premium" id="premium">
     <div class="s-inner">
         <div class="premium-wrap">
@@ -830,6 +934,7 @@
 </section>
 
 <!-- PARTNERS -->
+
 <section class="s partners" id="partners">
     <div class="s-inner">
         <div class="r">
@@ -859,6 +964,7 @@
 </section>
 
 <!-- CONTACT -->
+
 <section class="s contact" id="contact">
     <div class="s-inner">
         <div class="contact-wrap">
@@ -893,6 +999,7 @@
 </section>
 
 <!-- FINAL CTA -->
+
 <section class="s final">
     <div class="s-inner">
         <div class="r">
@@ -904,9 +1011,10 @@
 </section>
 
 <!-- FOOTER -->
+
 <footer>
     <div class="foot-logo">
-        <img src="./logo.png" alt="Concerto">
+        <img src="./Logo.png" alt="Concerto">
     </div>
     <div class="foot-links">
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank">App Store</a>
@@ -918,148 +1026,182 @@
 </footer>
 
 <script>
-    // Intersection Observer for reveal animations
+    /* ─── MOBILE MENU ─── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+    }
+
+    /* ─── SCROLL REVEAL ─── */
     const obs = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
-    }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-    // Carousel functionality
-    let currentSlide = 0;
-    let autoScrollInterval;
-    const track = document.getElementById('carouselTrack');
-    const screens = track.querySelectorAll('.screen');
-    const totalSlides = Math.ceil(screens.length / 3);
-    const dotsContainer = document.getElementById('carouselDots');
-    const carouselContainer = document.querySelector('.carousel-container');
+    /* ─── CAROUSEL ─── */
+    (function() {
+        const track      = document.getElementById('carouselTrack');
+        const viewport   = track.parentElement;
+        const dotsWrap   = document.getElementById('carouselDots');
+        const prevBtn    = document.getElementById('prevBtn');
+        const nextBtn    = document.getElementById('nextBtn');
+        const screens    = Array.from(track.querySelectorAll('.screen'));
+        const total      = screens.length;
 
-    // Touch/drag variables
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID = 0;
+        let currentIndex = 0;
+        let visibleCount = 3;        // how many cards are visible
+        let cardWidth    = 200;      // base card width in px
+        let gap          = 24;       // gap in px
+        let autoTimer    = null;
 
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot';
-        if (i === 0) dot.classList.add('active');
-        dot.onclick = () => {
-            goToSlide(i);
-            resetAutoScroll();
-        };
-        dotsContainer.appendChild(dot);
-    }
+        // ── Compute layout from viewport width ──
+        function computeLayout() {
+            const vw = viewport.offsetWidth;
+            if (vw <= 480) {
+                visibleCount = 1.4; // show 1 + peek of next
+                cardWidth    = Math.round(vw * 0.72);
+            } else if (vw <= 700) {
+                visibleCount = 2.2;
+                cardWidth    = Math.round((vw - gap * 2) / 2.2);
+            } else if (vw <= 960) {
+                visibleCount = 3;
+                cardWidth    = Math.round((vw - gap * 3) / 3.2);
+            } else {
+                visibleCount = 4;
+                cardWidth    = Math.round((vw - gap * 4) / 4.4);
+            }
+            // Cap card width
+            cardWidth = Math.min(cardWidth, 220);
+            track.style.setProperty('--screen-w', cardWidth + 'px');
+            screens.forEach(s => { s.style.flex = '0 0 ' + cardWidth + 'px'; });
+        }
 
-    function updateCarousel() {
-        const offset = currentSlide * -100;
-        track.style.transform = `translateX(${offset}%)`;
-        
-        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentSlide);
+        // ── Max slide index ──
+        function maxIndex() {
+            return Math.max(0, total - Math.floor(visibleCount));
+        }
+
+        // ── Slide to index ──
+        function goTo(idx) {
+            currentIndex = Math.max(0, Math.min(idx, maxIndex()));
+            const offset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(-${offset}px)`;
+            updateDots();
+            updateArrows();
+        }
+
+        // ── Arrows ──
+        function updateArrows() {
+            prevBtn.classList.toggle('disabled', currentIndex === 0);
+            nextBtn.classList.toggle('disabled', currentIndex >= maxIndex());
+        }
+        prevBtn.addEventListener('click', () => { goTo(currentIndex - 1); resetAuto(); });
+        nextBtn.addEventListener('click', () => { goTo(currentIndex + 1); resetAuto(); });
+
+        // ── Dots ──
+        function buildDots() {
+            dotsWrap.innerHTML = '';
+            const dotCount = maxIndex() + 1;
+            for (let i = 0; i <= maxIndex(); i++) {
+                const d = document.createElement('div');
+                d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                d.addEventListener('click', () => { goTo(i); resetAuto(); });
+                dotsWrap.appendChild(d);
+            }
+        }
+        function updateDots() {
+            dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        // ── Auto-scroll ──
+        function startAuto() {
+            autoTimer = setInterval(() => {
+                const next = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
+                goTo(next);
+            }, 3800);
+        }
+        function stopAuto() { clearInterval(autoTimer); }
+        function resetAuto() { stopAuto(); startAuto(); }
+
+        // ── Touch / Drag ──
+        let dragStart = 0;
+        let dragDelta = 0;
+        let dragging  = false;
+
+        function onDragStart(x) {
+            dragging  = true;
+            dragStart = x;
+            dragDelta = 0;
+            track.classList.add('dragging');
+            stopAuto();
+        }
+        function onDragMove(x) {
+            if (!dragging) return;
+            dragDelta = x - dragStart;
+            const offset = currentIndex * (cardWidth + gap) - dragDelta;
+            track.style.transform = `translateX(-${offset}px)`;
+        }
+        function onDragEnd() {
+            if (!dragging) return;
+            dragging = false;
+            track.classList.remove('dragging');
+            if (dragDelta < -50) {
+                goTo(currentIndex + 1);
+            } else if (dragDelta > 50) {
+                goTo(currentIndex - 1);
+            } else {
+                goTo(currentIndex); // snap back
+            }
+            startAuto();
+        }
+
+        // Mouse
+        track.addEventListener('mousedown',  e => { e.preventDefault(); onDragStart(e.pageX); });
+        window.addEventListener('mousemove', e => onDragMove(e.pageX));
+        window.addEventListener('mouseup',   () => onDragEnd());
+        track.addEventListener('dragstart',  e => e.preventDefault());
+
+        // Touch
+        track.addEventListener('touchstart', e => onDragStart(e.touches[0].clientX), { passive:true });
+        track.addEventListener('touchmove',  e => onDragMove(e.touches[0].clientX),  { passive:true });
+        track.addEventListener('touchend',   () => onDragEnd());
+
+        // Pause on hover (desktop)
+        viewport.addEventListener('mouseenter', stopAuto);
+        viewport.addEventListener('mouseleave', () => { if (!dragging) startAuto(); });
+
+        // ── Init & resize ──
+        function init() {
+            computeLayout();
+            buildDots();
+            goTo(0);
+            startAuto();
+        }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                computeLayout();
+                buildDots();
+                goTo(Math.min(currentIndex, maxIndex()));
+            }, 120);
         });
 
-        document.querySelector('.carousel-arrow.left').classList.toggle('disabled', currentSlide === 0);
-        document.querySelector('.carousel-arrow.right').classList.toggle('disabled', currentSlide === totalSlides - 1);
-    }
-
-    function moveCarousel(direction) {
-        currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
-        updateCarousel();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-    }
-
-    function autoScroll() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    function startAutoScroll() {
-        autoScrollInterval = setInterval(autoScroll, 3500); // Slower interval for smoother feel
-    }
-
-    function resetAutoScroll() {
-        clearInterval(autoScrollInterval);
-        startAutoScroll();
-    }
-
-    // Touch/Drag handlers
-    function touchStart(e) {
-        isDragging = true;
-        startPos = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        clearInterval(autoScrollInterval);
-        track.style.transition = 'none';
-    }
-
-    function touchMove(e) {
-        if (!isDragging) return;
-        const currentPosition = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        const diff = currentPosition - startPos;
-        const movePercent = (diff / carouselContainer.offsetWidth) * 100;
-        const offset = (currentSlide * -100) + movePercent;
-        track.style.transform = `translateX(${offset}%)`;
-    }
-
-    function touchEnd(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        const movedBy = e.type.includes('mouse') ? e.pageX - startPos : e.changedTouches[0].clientX - startPos;
-        
-        track.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        
-        // Threshold: if moved more than 50px, change slide
-        if (movedBy < -50 && currentSlide < totalSlides - 1) {
-            currentSlide++;
-        } else if (movedBy > 50 && currentSlide > 0) {
-            currentSlide--;
-        }
-        
-        updateCarousel();
-        startAutoScroll();
-    }
-
-    // Mouse events
-    track.addEventListener('mousedown', touchStart);
-    track.addEventListener('mousemove', touchMove);
-    track.addEventListener('mouseup', touchEnd);
-    track.addEventListener('mouseleave', () => {
-        if (isDragging) touchEnd({ type: 'mouse', pageX: startPos });
-    });
-
-    // Touch events
-    track.addEventListener('touchstart', touchStart);
-    track.addEventListener('touchmove', touchMove);
-    track.addEventListener('touchend', touchEnd);
-
-    // Prevent image dragging
-    track.addEventListener('dragstart', (e) => e.preventDefault());
-
-    // Manual arrow controls
-    document.querySelector('.carousel-arrow.left').onclick = () => {
-        moveCarousel(-1);
-        resetAutoScroll();
-    };
-    document.querySelector('.carousel-arrow.right').onclick = () => {
-        moveCarousel(1);
-        resetAutoScroll();
-    };
-
-    // Pause on hover
-    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-    carouselContainer.addEventListener('mouseleave', () => {
-        if (!isDragging) startAutoScroll();
-    });
-
-    // Initialize
-    updateCarousel();
-    startAutoScroll();
+        init();
+    })();
 </script>
-```
 
 </body>
 </html>
