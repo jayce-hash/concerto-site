@@ -59,7 +59,7 @@
       width: 100%;
       z-index: 100;
       padding: 0 clamp(1.2rem, 4vw, 3rem); /* fluid */
-      height: 68px;
+      height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -68,7 +68,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { text-decoration: none; display: block; }
-    .nav-logo img { height: 38px; display: block; }
+    .nav-logo img { height: 46px; display: block; }
     .nav-links { display: flex; align-items: center; gap: 2.5rem; }
     .nav-links a {
       font-size: 0.72rem;
@@ -130,7 +130,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(7rem, 12vh, 10rem) 2rem 6rem; /* fluid */
+      padding: clamp(5.5rem, 9vh, 8rem) 2rem 4rem;
       overflow: hidden;
     }
     .hero::before {
@@ -161,7 +161,7 @@
       margin-bottom: 2.5rem;
       animation: fiu 1s ease 0.05s both;
     }
-    .hero-logo img { width: min(480px, 76vw); display: block; margin: 0 auto; }
+    .hero-logo img { width: min(560px, 85vw); display: block; margin: 0 auto; }
     .hero-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -201,7 +201,7 @@
       display: flex;
       align-items: center;
       gap: 2rem;
-      margin-top: 4rem;
+      margin-top: 2.8rem;
       animation: fiu 1s ease 0.45s both;
       color: var(--silver-lt);
       font-size: 0.72rem;
@@ -356,14 +356,14 @@
       border-radius: 24px;
       overflow: hidden;
       border: 1px solid var(--border-md);
-      box-shadow: 0 12px 32px rgba(18, 30, 54, 0.07);
+      box-shadow: 0 30px 90px rgba(18, 30, 54, 0.15);
       background: var(--bg);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       aspect-ratio: 9/19.5;
     }
     .screen:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(18, 30, 54, 0.1);
+      transform: translateY(-10px);
+      box-shadow: 0 50px 120px rgba(18, 30, 54, 0.25);
     }
     .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -401,8 +401,8 @@
       box-shadow: 0 8px 24px rgba(18, 30, 54, 0.15);
     }
     .carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
-    .carousel-arrow.left { left: -24px; }
-    .carousel-arrow.right { right: -24px; }
+    .carousel-arrow.left { left: 8px; }
+.carousel-arrow.right { right: 8px; }
 
     .carousel-dots {
       margin-top: 1.5rem;
