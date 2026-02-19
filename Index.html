@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -39,7 +40,6 @@
       max-width: 100vw;
     }
 
-    /* Anchor links won't tuck behind fixed nav */
     section { scroll-margin-top: 90px; }
 
     body::after {
@@ -58,7 +58,7 @@
       top: 0;
       width: 100%;
       z-index: 100;
-      padding: 0 clamp(1.2rem, 4vw, 3rem); /* fluid */
+      padding: 0 clamp(1.2rem, 4vw, 3rem);
       height: 74px;
       display: flex;
       align-items: center;
@@ -124,7 +124,7 @@
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      min-height: 100svh; /* iOS-safe viewport height */
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -205,7 +205,7 @@
       animation: fiu 1s ease 0.45s both;
       color: var(--silver-lt);
       font-size: 0.72rem;
-      line-height: 1.6; /* polish */
+      line-height: 1.6;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       flex-wrap: wrap;
@@ -269,7 +269,7 @@
       max-width: 1120px;
       margin: 0 auto;
       width: 100%;
-      padding: clamp(4rem, 8vw, 6rem) clamp(1.2rem, 4vw, 2.5rem); /* fluid */
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.2rem, 4vw, 2.5rem);
     }
     .s-label {
       font-size: 0.68rem;
@@ -287,7 +287,7 @@
       font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       line-height: 1.05;
       color: var(--navy);
-      margin-bottom: 1.5rem; /* rhythm */
+      margin-bottom: 1.5rem;
     }
     .s-desc {
       font-family: 'Cormorant Garamond', serif;
@@ -331,94 +331,168 @@
     }
 
     /* ─── APP PREVIEW ─── */
-    .app-preview { border-top: 1px solid var(--border); background: var(--bg-mid); overflow: hidden; }
-    .app-preview .s-inner { padding: clamp(4rem, 7vw, 5rem) clamp(1.2rem, 4vw, 2.5rem); }
-
-    .carousel-container {
-      position: relative;
-      margin-top: 3.5rem;
-      overflow: hidden;
-      width: 100%;
-    }
-    .carousel-track {
-      display: flex;
-      gap: 2rem;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: grab;
-      will-change: transform;
-    }
-    .carousel-track.dragging { cursor: grabbing; transition: none; }
-
-    /* ✅ fixed: no hard max-width; fluid cards */
-    .screen {
-      flex: 0 0 260px;
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--border-md);
-      box-shadow: 0 30px 90px rgba(18, 30, 54, 0.15);
-      background: var(--bg);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      aspect-ratio: 9/19.5;
-    }
-    .screen:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 50px 120px rgba(18, 30, 54, 0.25);
-    }
-    .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .screen-cap {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--silver-lt);
-    }
-
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 1px solid var(--border-hi);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      transition: all 0.3s ease;
-      color: var(--navy);
-      font-size: 1.2rem;
-      user-select: none;
-    }
-    .carousel-arrow:hover {
+    .app-preview {
+      border-top: 1px solid var(--border);
       background: var(--navy);
-      color: var(--bg);
-      box-shadow: 0 8px 24px rgba(18, 30, 54, 0.15);
+      overflow: hidden;
+      position: relative;
     }
-    .carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
-    .carousel-arrow.left { left: 8px; }
-.carousel-arrow.right { right: 8px; }
-
-    .carousel-dots {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
+    .app-preview::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
-      background: var(--border-hi);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      top: 50%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
     }
-    .carousel-dot.active { background: var(--navy); width: 24px; border-radius: 4px; }
+    .app-preview .s-inner {
+      padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.2rem, 4vw, 2.5rem);
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+    }
+
+    /* Header */
+    .preview-header {
+      margin-bottom: clamp(1.8rem, 3vw, 2.5rem);
+    }
+    .preview-header .s-label { color: rgba(248,249,249,0.35); }
+    .preview-header .s-title { color: var(--bg); margin-bottom: 0; }
+
+    /* Stage: phone left, tabs right */
+    .preview-stage {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    /* Phone */
+    .preview-phone-wrap { position: relative; flex-shrink: 0; }
+    .preview-phone {
+      width: clamp(180px, 20vw, 230px);
+      aspect-ratio: 9 / 19.5;
+      border-radius: clamp(22px, 2.5vw, 32px);
+      overflow: hidden;
+      border: 1px solid rgba(248,249,249,0.12);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.4),
+        0 32px 80px rgba(0,0,0,0.55),
+        0 0 50px rgba(255,255,255,0.025) inset;
+      position: relative;
+      background: #0a1120;
+    }
+    .preview-screen {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .preview-screen.active { opacity: 1; pointer-events: auto; }
+    .preview-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .preview-phone::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .preview-phone-wrap::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 60%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(248,249,249,0.06) 0%, transparent 70%);
+      bottom: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Vertical tab list */
+    .preview-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .preview-tab {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(248,249,249,0.28);
+      background: transparent;
+      border: none;
+      border-left: 1px solid rgba(248,249,249,0.07);
+      padding: 0.65rem 0 0.65rem 1.1rem;
+      cursor: pointer;
+      transition: color 0.22s ease, border-color 0.22s ease;
+      white-space: nowrap;
+      width: 100%;
+      text-align: left;
+    }
+    .preview-tab:hover { color: rgba(248,249,249,0.6); border-color: rgba(248,249,249,0.2); }
+    .preview-tab.active {
+      color: var(--bg);
+      border-color: rgba(248,249,249,0.55);
+    }
+
+    /* Progress bar — thin line under phone */
+    .preview-progress {
+      margin-top: 1.5rem;
+      height: 1px;
+      background: rgba(248,249,249,0.08);
+      position: relative;
+      overflow: hidden;
+      width: clamp(180px, 20vw, 230px);
+    }
+    .preview-progress-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 0%;
+      background: rgba(248,249,249,0.35);
+      transition: width linear;
+    }
+
+    /* Mobile: stack phone above tabs */
+    @media (max-width: 700px) {
+      .app-preview .s-inner { max-width: 100%; }
+      .preview-stage {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 2rem;
+      }
+      .preview-phone { width: clamp(160px, 52vw, 220px); }
+      .preview-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(248,249,249,0.07);
+      }
+      .preview-tab {
+        border-left: none;
+        border-bottom: 1px solid rgba(248,249,249,0.07);
+        padding: 0.55rem 0.8rem;
+        font-size: 0.58rem;
+        width: auto;
+      }
+      .preview-tab.active { border-bottom-color: rgba(248,249,249,0.55); }
+      .preview-progress { width: clamp(160px, 52vw, 220px); }
+    }
 
     /* ─── FEATURES ─── */
     .features-section { border-top: 1px solid var(--border); }
@@ -576,7 +650,7 @@
       position: relative;
       width: 100%;
       max-width: 100%;
-      display: flex; /* polish */
+      display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
@@ -728,7 +802,7 @@
     footer {
       border-top: 1px solid rgba(248, 249, 249, 0.1);
       background: var(--navy);
-      padding: 2rem clamp(1.2rem, 4vw, 3rem); /* fluid */
+      padding: 2rem clamp(1.2rem, 4vw, 3rem);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -755,38 +829,38 @@
 
     @keyframes fiu { from { opacity: 0; transform: translateY(22px) } to { opacity: 1; transform: translateY(0) } }
 
-    /* ─── RESPONSIVE ─── */
-   @media (max-width: 960px) {
-  .nav-links a:not(.nav-cta) { display: none; }
-  .intro-grid, .premium-wrap, .process-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
-  .features-grid { grid-template-columns: 1fr 1fr; }
-  .partners-grid { grid-template-columns: 1fr 1fr; }
-  .process-right { display: none; }
-
-  .screen { flex: 0 0 220px; }
-}
-
-      /* Footer centered on mobile/tablet */
+    /* ─── RESPONSIVE: 960px ─── */
+    @media (max-width: 960px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .intro-grid,
+      .premium-wrap,
+      .process-wrap,
+      .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .partners-grid { grid-template-columns: 1fr 1fr; }
+      .process-right { display: none; }
+      .screen { flex: 0 0 220px; }
+      .carousel-arrow { display: none; }
+            .premium-card { padding: 2rem 1.5rem; }
+      .prem-prices { flex-direction: column; gap: 1.5rem; }
       footer { flex-direction: column; align-items: center; text-align: center; }
       .foot-links { justify-content: center; }
-
-      /* arrows hidden already in your original mobile logic */
-      .carousel-arrow { display: none; }
-
-      .premium-card { padding: 2rem 1.5rem; }
-      .prem-prices { flex-direction: column; gap: 1.5rem; }
     }
 
+    /* ─── RESPONSIVE: 600px ─── */
     @media (max-width: 600px) {
-      .features-grid, .partners-grid { grid-template-columns: 1fr; }
+      .features-grid,
+      .partners-grid { grid-template-columns: 1fr; }
       .intro-right { grid-template-columns: 1fr 1fr; }
       .hero-proof { gap: 1rem; }
       .proof-sep { display: none; }
-
-      /* feature padding polish */
       .feat { padding: 2.2rem 1.5rem; }
+
+      /* Mobile tabs */
+      .preview-tab { font-size: 0.58rem; margin-right: 0.8rem; }
     }
   </style>
+
 </head>
 
 <body>
@@ -804,6 +878,7 @@
   </nav>
 
   <!-- HERO -->
+
   <section class="hero">
     <div class="hero-eyebrow"><span></span> Now on the App Store <span></span></div>
     <div class="hero-logo">
@@ -832,6 +907,7 @@
   </section>
 
   <!-- MARQUEE -->
+
   <div class="marquee-band">
     <div class="marquee-track">
       <div class="marquee-item">
@@ -852,6 +928,7 @@
   </div>
 
   <!-- INTRO -->
+
   <section class="s intro">
     <div class="s-inner">
       <div class="intro-grid">
@@ -886,58 +963,58 @@
   </section>
 
   <!-- APP PREVIEW -->
+
   <section class="s app-preview">
     <div class="s-inner">
-      <div class="r" style="text-align: center;">
-        <div class="s-label" style="text-align: center;">The App</div>
-        <div class="s-title" style="text-align: center; max-width: none;">See It in Action.</div>
+
+```
+  <!-- Header -->
+  <div class="preview-header r">
+    <div class="s-label">The App</div>
+    <div class="s-title">See It in Action.</div>
+  </div>
+
+  <!-- Stage: phone left, tabs right -->
+  <div class="preview-stage r r2">
+
+    <!-- Phone -->
+    <div class="preview-phone-wrap">
+      <div class="preview-phone" id="previewPhone">
+        <div class="preview-screen active" data-index="0"><img src="./home.jpeg" alt="Concerto Home Screen" /></div>
+        <div class="preview-screen" data-index="1"><img src="./featured-tours.jpeg" alt="Featured Tours" /></div>
+        <div class="preview-screen" data-index="2"><img src="./setlists.jpeg" alt="Setlists & Tour Info" /></div>
+        <div class="preview-screen" data-index="3"><img src="./city-guides.jpeg" alt="City Guides" /></div>
+        <div class="preview-screen" data-index="4"><img src="./events-near-me.jpeg" alt="Events Near Me" /></div>
+        <div class="preview-screen" data-index="5"><img src="./at-the-venue.jpeg" alt="At The Venue" /></div>
+        <div class="preview-screen" data-index="6"><img src="./festivals.jpeg" alt="Festivals" /></div>
+        <div class="preview-screen" data-index="7"><img src="./concerto-plus.jpeg" alt="Concerto+ Timeline" /></div>
       </div>
-
-      <div class="carousel-container" aria-label="Concerto app preview carousel">
-        <div class="carousel-arrow left" id="carArrowLeft" aria-label="Previous">‹</div>
-        <div class="carousel-arrow right" id="carArrowRight" aria-label="Next">›</div>
-
-        <div class="carousel-track" id="carouselTrack">
-          <div>
-            <div class="screen"><img src="./home.jpeg" alt="Concerto Home Screen" /></div>
-            <div class="screen-cap">Home</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./featured-tours.jpeg" alt="Featured Tours" /></div>
-            <div class="screen-cap">Featured Tours</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./setlists.jpeg" alt="Setlists & Tour Info" /></div>
-            <div class="screen-cap">Setlists & Info</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./city-guides.jpeg" alt="City Guides" /></div>
-            <div class="screen-cap">City Guides</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./events-near-me.jpeg" alt="Events Near Me" /></div>
-            <div class="screen-cap">Events Near Me</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./at-the-venue.jpeg" alt="At The Venue" /></div>
-            <div class="screen-cap">At The Venue</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./festivals.jpeg" alt="Festivals" /></div>
-            <div class="screen-cap">Festivals</div>
-          </div>
-          <div>
-            <div class="screen"><img src="./concerto-plus.jpeg" alt="Concerto+ Timeline" /></div>
-            <div class="screen-cap">Concerto+</div>
-          </div>
-        </div>
-
-        <div class="carousel-dots" id="carouselDots"></div>
+      <div class="preview-progress">
+        <div class="preview-progress-fill" id="previewProgress"></div>
       </div>
     </div>
+
+    <!-- Vertical tabs -->
+    <div class="preview-tabs" id="previewTabs">
+      <button class="preview-tab active" data-index="0">Home</button>
+      <button class="preview-tab" data-index="1">Tours</button>
+      <button class="preview-tab" data-index="2">Setlists</button>
+      <button class="preview-tab" data-index="3">City Guides</button>
+      <button class="preview-tab" data-index="4">Events</button>
+      <button class="preview-tab" data-index="5">At the Venue</button>
+      <button class="preview-tab" data-index="6">Festivals</button>
+      <button class="preview-tab" data-index="7">Concerto+</button>
+    </div>
+
+  </div>
+
+</div>
+```
+
   </section>
 
   <!-- FEATURES -->
+
   <section class="s features-section" id="features">
     <div class="s-inner">
       <div class="features-header">
@@ -986,6 +1063,7 @@
   </section>
 
   <!-- HOW IT WORKS -->
+
   <section class="s process" id="process">
     <div class="s-inner">
       <div class="r" style="margin-bottom: 4rem;">
@@ -1026,6 +1104,7 @@
   </section>
 
   <!-- PULL QUOTE -->
+
   <section class="s pullquote">
     <div class="s-inner">
       <div class="r">
@@ -1038,6 +1117,7 @@
   </section>
 
   <!-- PREMIUM -->
+
   <section class="s premium" id="premium">
     <div class="s-inner">
       <div class="premium-wrap">
@@ -1052,40 +1132,44 @@
           </div>
         </div>
 
-        <div class="r r2">
-          <div class="premium-card">
-            <div>
-              <div class="prem-badge">Premium Plan</div>
-              <div class="prem-prices">
-                <div class="prem-price">
-                  <div class="prem-amount">$7.99</div>
-                  <div class="prem-period">Per Month</div>
-                </div>
-                <div class="prem-price">
-                  <div class="prem-amount">$69.99</div>
-                  <div class="prem-period">Per Year</div>
-                  <div class="prem-save">Save over 25%</div>
-                </div>
-              </div>
-              <ul class="prem-list">
-                <li>Concerto+ — AI-curated night-out itineraries</li>
-                <li>Festivals — full multi-day festival planning</li>
-                <li>Priority live updates &amp; notifications</li>
-                <li>Expanded Top Picks in City Guides</li>
-                <li>Ad-free experience</li>
-              </ul>
+```
+    <div class="r r2">
+      <div class="premium-card">
+        <div>
+          <div class="prem-badge">Premium Plan</div>
+          <div class="prem-prices">
+            <div class="prem-price">
+              <div class="prem-amount">$7.99</div>
+              <div class="prem-period">Per Month</div>
             </div>
-
-            <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-outline" target="_blank" rel="noopener" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
-              Get Concerto+
-            </a>
+            <div class="prem-price">
+              <div class="prem-amount">$69.99</div>
+              <div class="prem-period">Per Year</div>
+              <div class="prem-save">Save over 25%</div>
+            </div>
           </div>
+          <ul class="prem-list">
+            <li>Concerto+ — AI-curated night-out itineraries</li>
+            <li>Festivals — full multi-day festival planning</li>
+            <li>Priority live updates &amp; notifications</li>
+            <li>Expanded Top Picks in City Guides</li>
+            <li>Ad-free experience</li>
+          </ul>
         </div>
+
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-outline" target="_blank" rel="noopener" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
+          Get Concerto+
+        </a>
       </div>
     </div>
+  </div>
+</div>
+```
+
   </section>
 
   <!-- PARTNERS -->
+
   <section class="s partners" id="partners">
     <div class="s-inner">
       <div class="r">
@@ -1096,28 +1180,32 @@
         </div>
       </div>
 
-      <div class="partners-grid r r2">
-        <div class="partner-card">
-          <h3>Restaurants</h3>
-          <p>Top Picks placement in City Guides surfaces your restaurant to fans searching for dinner before or after a nearby show — event-timed discovery that drives real foot traffic, not impressions.</p>
-        </div>
-        <div class="partner-card">
-          <h3>Hotels</h3>
-          <p>Reach guests actively planning trips around concerts and festivals. Venue-proximity discovery converts one-night shows into full weekend stays, aligned with known tour and festival dates.</p>
-        </div>
-        <div class="partner-card">
-          <h3>Artists &amp; Tours</h3>
-          <p>Featured tour placement, direct ticket links, setlist integration, and fan-facing logistics — all in one place. Concerto helps artists deliver better show nights and extended fan engagement.</p>
-        </div>
-        <div class="partner-card">
-          <h3>Venues &amp; Festivals</h3>
-          <p>Centralize your bag policies, parking, rideshare, and concession information so fans arrive informed. Fewer day-of questions, smoother entry, and better show nights — with no additional operational burden.</p>
-        </div>
-      </div>
+```
+  <div class="partners-grid r r2">
+    <div class="partner-card">
+      <h3>Restaurants</h3>
+      <p>Top Picks placement in City Guides surfaces your restaurant to fans searching for dinner before or after a nearby show — event-timed discovery that drives real foot traffic, not impressions.</p>
     </div>
+    <div class="partner-card">
+      <h3>Hotels</h3>
+      <p>Reach guests actively planning trips around concerts and festivals. Venue-proximity discovery converts one-night shows into full weekend stays, aligned with known tour and festival dates.</p>
+    </div>
+    <div class="partner-card">
+      <h3>Artists &amp; Tours</h3>
+      <p>Featured tour placement, direct ticket links, setlist integration, and fan-facing logistics — all in one place. Concerto helps artists deliver better show nights and extended fan engagement.</p>
+    </div>
+    <div class="partner-card">
+      <h3>Venues &amp; Festivals</h3>
+      <p>Centralize your bag policies, parking, rideshare, and concession information so fans arrive informed. Fewer day-of questions, smoother entry, and better show nights — with no additional operational burden.</p>
+    </div>
+  </div>
+</div>
+```
+
   </section>
 
   <!-- CONTACT -->
+
   <section class="s contact" id="contact">
     <div class="s-inner">
       <div class="contact-wrap">
@@ -1127,7 +1215,7 @@
           <div class="contact-details">
             <div>
               <div class="contact-item-label">Email</div>
-              <a href="mailto:support@concertocity.com" class="contact-item">support@concertocity.com</a>
+              <a href="/cdn-cgi/l/email-protection#63101613130c111723000c0d000611170c000a171a4d000c0e" class="contact-item"><span class="__cf_email__" data-cfemail="d9aaaca9a9b6abad99bab6b7babcabadb6bab0ada0f7bab6b4">[email&#160;protected]</span></a>
             </div>
             <div>
               <div class="contact-item-label">Website</div>
@@ -1141,13 +1229,14 @@
         </div>
         <div class="contact-right r r2">
           <p class="contact-note">"Concerto connects your business with high-intent concertgoers at the exact moments event-night demand peaks — again and again, all year long."</p>
-          <a href="mailto:support@concertocity.com" class="btn btn-fill">Get in Touch</a>
+          <a href="/cdn-cgi/l/email-protection#04777174746b767044676b6a676176706b676d707d2a676b69" class="btn btn-fill">Get in Touch</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
+
   <section class="s final">
     <div class="s-inner">
       <div class="r">
@@ -1159,6 +1248,7 @@
   </section>
 
   <!-- FOOTER -->
+
   <footer>
     <div class="foot-logo">
       <img src="./logo.png" alt="Concerto" />
@@ -1180,214 +1270,55 @@
     );
     document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-    // ==========================================
-    // Carousel (Responsive + Functional)
-    // - Works with 3/2/1 per view
-    // - Uses pixel-based transform (matches flex sizing)
-    // - Rebuilds dots on resize
-    // ==========================================
-    const track = document.getElementById('carouselTrack');
-    const carouselContainer = document.querySelector('.carousel-container');
-    const dotsContainer = document.getElementById('carouselDots');
-    const leftArrow = document.getElementById('carArrowLeft');
-    const rightArrow = document.getElementById('carArrowRight');
+    // ── App Preview: tab sync with auto-advance ──
+    const PREVIEW_DURATION = 4000;
 
-    let currentPage = 0;
-    let autoScrollInterval = null;
-    let isDragging = false;
-    let startX = 0;
-    let startTranslate = 0;
+    const screens      = document.querySelectorAll('.preview-screen');
+    const tabs         = document.querySelectorAll('.preview-tab');
+    const progressFill = document.getElementById('previewProgress');
 
-    function getSlidesPerView() {
-      const w = window.innerWidth;
-      if (w <= 600) return 1;
-      if (w <= 960) return 2;
-      return 3;
+    let previewIndex = 0;
+    let previewTimer = null;
+
+    function activatePreview(index, resetAuto = true) {
+      previewIndex = index;
+      screens.forEach(s => s.classList.toggle('active', +s.dataset.index === index));
+      tabs.forEach(t => t.classList.toggle('active', +t.dataset.index === index));
+      if (resetAuto) restartAutoAdvance();
     }
 
-    function getGapPx() {
-      const styles = window.getComputedStyle(track);
-      const gap = parseFloat(styles.gap || styles.columnGap || '0');
-      return isNaN(gap) ? 0 : gap;
+    function restartAutoAdvance() {
+      clearTimeout(previewTimer);
+      progressFill.style.transition = 'none';
+      progressFill.style.width = '0%';
+      void progressFill.offsetWidth;
+      progressFill.style.transition = `width ${PREVIEW_DURATION}ms linear`;
+      progressFill.style.width = '100%';
+      previewTimer = setTimeout(() => {
+        activatePreview((previewIndex + 1) % screens.length, true);
+      }, PREVIEW_DURATION);
     }
 
-    function getItemWidth() {
-      const firstItem = track.querySelector('.screen');
-      if (!firstItem) return 0;
-      return firstItem.getBoundingClientRect().width;
-    }
-
-    function getMaxTranslate() {
-      const containerW = carouselContainer.getBoundingClientRect().width;
-      const totalW = track.scrollWidth;
-      return Math.max(0, totalW - containerW);
-    }
-
-    function getTotalPages() {
-      const slidesPerView = getSlidesPerView();
-      const screens = track.querySelectorAll('.screen');
-      return Math.max(1, Math.ceil(screens.length / slidesPerView));
-    }
-
-    function clampPage() {
-      const totalPages = getTotalPages();
-      currentPage = Math.max(0, Math.min(totalPages - 1, currentPage));
-    }
-
-    function setTranslate(px) {
-      const maxT = getMaxTranslate();
-      const clamped = Math.max(0, Math.min(maxT, px));
-      track.style.transform = `translateX(${-clamped}px)`;
-      return clamped;
-    }
-
-    function pageToTranslate(pageIndex) {
-      const slidesPerView = getSlidesPerView();
-      const itemW = getItemWidth();
-      const gap = getGapPx();
-      const pageStep = (itemW + gap) * slidesPerView;
-      return pageIndex * pageStep;
-    }
-
-    function rebuildDots() {
-      dotsContainer.innerHTML = '';
-      const totalPages = getTotalPages();
-      for (let i = 0; i < totalPages; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot' + (i === currentPage ? ' active' : '');
-        dot.addEventListener('click', () => {
-          currentPage = i;
-          updateCarousel(true);
-          resetAutoScroll();
-        });
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateArrows() {
-      const totalPages = getTotalPages();
-      if (!leftArrow || !rightArrow) return;
-      leftArrow.classList.toggle('disabled', currentPage === 0);
-      rightArrow.classList.toggle('disabled', currentPage === totalPages - 1);
-    }
-
-    function updateDotsActive() {
-      const dots = dotsContainer.querySelectorAll('.carousel-dot');
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
-    }
-
-    function updateCarousel(smooth = false) {
-      clampPage();
-      track.style.transition = smooth
-        ? 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
-        : 'none';
-
-      const targetPx = pageToTranslate(currentPage);
-      setTranslate(targetPx);
-
-      updateArrows();
-      updateDotsActive();
-    }
-
-    function movePage(dir) {
-      currentPage += dir;
-      updateCarousel(true);
-    }
-
-    function startAutoScroll() {
-      stopAutoScroll();
-      autoScrollInterval = setInterval(() => {
-        const totalPages = getTotalPages();
-        currentPage = (currentPage + 1) % totalPages;
-        updateCarousel(true);
-      }, 3500);
-    }
-
-    function stopAutoScroll() {
-      if (autoScrollInterval) clearInterval(autoScrollInterval);
-      autoScrollInterval = null;
-    }
-
-    function resetAutoScroll() {
-      stopAutoScroll();
-      startAutoScroll();
-    }
-
-    // Drag / swipe
-    function dragStart(e) {
-      isDragging = true;
-      track.classList.add('dragging');
-      stopAutoScroll();
-
-      const clientX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-      startX = clientX;
-
-      // Read current translate from transform matrix
-      const matrix = new DOMMatrixReadOnly(getComputedStyle(track).transform);
-      const current = Math.abs(matrix.m41 || 0);
-      startTranslate = current;
-
-      track.style.transition = 'none';
-    }
-
-    function dragMove(e) {
-      if (!isDragging) return;
-      const clientX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-      const delta = startX - clientX; // positive = swiping left
-      setTranslate(startTranslate + delta);
-    }
-
-    function dragEnd(e) {
-      if (!isDragging) return;
-      isDragging = false;
-      track.classList.remove('dragging');
-
-      const clientX = e.type.includes('mouse')
-        ? e.pageX
-        : (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : startX);
-
-      const movedBy = startX - clientX; // positive = moved left
-      const threshold = 50;
-
-      if (movedBy > threshold) movePage(1);
-      else if (movedBy < -threshold) movePage(-1);
-      else updateCarousel(true);
-
-      startAutoScroll();
-    }
-
-    // Arrow controls
-    if (leftArrow) leftArrow.addEventListener('click', () => { movePage(-1); resetAutoScroll(); });
-    if (rightArrow) rightArrow.addEventListener('click', () => { movePage(1); resetAutoScroll(); });
-
-    // Mouse events
-    track.addEventListener('mousedown', dragStart);
-    track.addEventListener('mousemove', dragMove);
-    track.addEventListener('mouseup', dragEnd);
-    track.addEventListener('mouseleave', () => { if (isDragging) dragEnd({ type: 'mouse', pageX: startX }); });
-
-    // Touch events
-    track.addEventListener('touchstart', dragStart, { passive: true });
-    track.addEventListener('touchmove', dragMove, { passive: true });
-    track.addEventListener('touchend', dragEnd);
-
-    // Prevent native image drag
-    track.addEventListener('dragstart', (e) => e.preventDefault());
-
-    // Pause on hover
-    carouselContainer.addEventListener('mouseenter', stopAutoScroll);
-    carouselContainer.addEventListener('mouseleave', () => { if (!isDragging) startAutoScroll(); });
-
-    // Resize: rebuild dots + re-align
-    window.addEventListener('resize', () => {
-      rebuildDots();
-      updateCarousel(false);
+    // Tab clicks
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activatePreview(+tab.dataset.index, true));
     });
 
-    // Init
-    rebuildDots();
-    updateCarousel(true);
-    startAutoScroll();
+    // Pause on hover
+    const previewSection = document.querySelector('.app-preview');
+    previewSection.addEventListener('mouseenter', () => {
+      clearTimeout(previewTimer);
+      const computed = getComputedStyle(progressFill).width;
+      const parentW  = progressFill.parentElement.getBoundingClientRect().width;
+      const pct      = (parseFloat(computed) / parentW) * 100;
+      progressFill.style.transition = 'none';
+      progressFill.style.width = pct + '%';
+    });
+    previewSection.addEventListener('mouseleave', () => restartAutoAdvance());
+
+    // Kick off
+    activatePreview(0, true);
   </script>
+
 </body>
 </html>
