@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — Terms of Service</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── EXACT BRAND PALETTE ─── */
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.65);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    /* ─── AMBIENT BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.2s ease-out; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.2; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(201, 168, 76, 0.05); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ─── TYPOGRAPHY & BUTTONS ─── */
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; text-align: center; }
+    
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    /* ─── UNIFIED NAVIGATION ─── */
+    nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase; flex: 1; }
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2; }
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-action { flex: 1; display: flex; justify-content: flex-end; }
+
+    /* ─── EDITORIAL LAYOUT FOR LEGAL ─── */
+    .editorial-container {
+      max-width: 800px; margin: 0 auto; padding: 180px 5% 100px;
+    }
+    .page-title {
+      font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; line-height: 1.1; margin-bottom: 1rem;
+    }
+    .last-updated {
+      text-align: center; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    
+    .prose p {
+      font-size: 1.05rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 1.5rem;
+    }
+    .prose h2 {
+      font-size: 1.8rem; color: var(--text); margin: 3.5rem 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light);
+    }
+    .prose ul {
+      margin-bottom: 2rem; padding-left: 1.5rem; color: var(--text-dim); font-size: 1.05rem; line-height: 1.8;
+    }
+    .prose ul li { margin-bottom: 0.8rem; }
+    .prose strong { color: var(--text); font-weight: 600; }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 3rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-links a { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    @media (max-width: 768px) {
+      .editorial-container { padding: 140px 5% 80px; }
+      .footer-links a { margin-left: 0; margin-right: 1.5rem; display: inline-block; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-action">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+    </div>
+  </nav>
+
+  <section class="editorial-container">
+    <span class="eyebrow">Legal</span>
+    <h1 class="page-title serif">Terms of Service.</h1>
+    <div class="last-updated">Effective Date: March 17, 2026</div>
+
+    <div class="prose">
+      <p>Welcome to Concerto — the app you open after you buy the ticket. These Terms of Service (“Terms”) govern your access to and use of our mobile application, website, and any services we provide, including Concerto Premium and Concerto+ (collectively, the “Service”).</p>
+      <p>By using Concerto, you agree to be bound by these Terms. If you do not agree, please do not use the app.</p>
+
+      <h2 class="serif">1. About Concerto</h2>
+      <p>Concerto is a comprehensive companion app designed for live events. We provide users with curated city guides, venue logistics (including bag policies and parking), tour setlists, and AI-driven tools like Bag Check and Concerto+ itineraries to elevate the concert and gameday experience.</p>
+
+      <h2 class="serif">2. Eligibility</h2>
+      <p>You must be at least 13 years old to use Concerto. If you are under 18, you must have permission from a parent or legal guardian to use the app and to purchase a Concerto Premium subscription.</p>
+
+      <h2 class="serif">3. User Conduct</h2>
+      <p>By using Concerto, you agree to:</p>
+      <ul>
+        <li>Use the app only for lawful purposes.</li>
+        <li>Not impersonate anyone or misrepresent your identity.</li>
+        <li>Not attempt to disrupt, hack, reverse-engineer, or interfere with the app or its AI tools.</li>
+        <li>Respect the experience of other users and the third-party businesses we showcase.</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate your access immediately if we believe you are violating these rules.</p>
+
+      <h2 class="serif">4. Disclaimers & Liability Waivers (Please Read Carefully)</h2>
+      <p><strong>a. AI Bag Check & Venue Policies:</strong> The Concerto AI Bag Check feature uses computer vision to estimate your bag's dimensions and structure against a database of venue policies. <strong>This tool provides an estimation only and does not guarantee entry.</strong> Venue security personnel always possess the final discretion regarding what is allowed into a facility. Concerto is not liable for bags rejected at the gate, missed events, or confiscated items.</p>
+      <p><strong>b. Setlists & Logistics:</strong> Setlists, start times, and venue maps are based on historical data and verified official sources. However, artists frequently change setlists, and venues may alter policies without notice. Concerto provides this information for convenience and cannot guarantee 100% real-time accuracy.</p>
+      <p><strong>c. General Liability:</strong> Concerto is provided “as is” without warranties of any kind. We are not responsible for any injury, loss, delayed travel, or damage related to the use of the app or third-party services mentioned within it.</p>
+
+      <h2 class="serif">5. Third-Party Services</h2>
+      <p>Concerto displays recommendations and links to third-party services (such as Uber, Lyft, Apple Music, Spotify, and external ticketing/venue sites). We do not own or control these services and are not responsible for their content, privacy policies, or reliability. Use them at your own discretion.</p>
+
+      <h2 class="serif">6. Intellectual Property</h2>
+      <p>All content within Concerto—including the app design, proprietary code, original descriptions, and the "Concerto Crew" characters (SCOUT, VAULT, RIFF, etc.)—is owned by Concerto LLC or licensed to us. You may not copy, modify, distribute, or sell any part of our intellectual property without explicit written permission.</p>
+
+      <h2 class="serif">7. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Concerto, its founders, and its team will not be liable for any indirect, incidental, special, or consequential damages (including lost profits or missed events) related to your use of the app.</p>
+
+      <h2 class="serif">8. Brand & Affiliation Disclaimer</h2>
+      <p>Concerto is an independent platform and is <strong>not affiliated with, sponsored by, or endorsed by any artist, band, sports team, league, venue, or promoter.</strong> All artist names, tour titles, team names, event information, and images are the property of their respective owners and are used for informational purposes only.</p>
+
+      <h2 class="serif">9. Changes to the Service & Terms</h2>
+      <p>We may update, modify, or discontinue parts of the app at any time to improve the user experience. We may also update these Terms occasionally. If we do, we’ll update the “Effective Date” at the top of this page. Continued use of the app after changes indicates your acceptance of the revised Terms.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="partners.html">Partnerships</a>
+      <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+      <a href="mailto:support@concertocity.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar Blur
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Subtle Background Parallax
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      bgCanvas.style.transform = `translate(${mouseX * -10}px, ${mouseY * -10}px)`;
+    });
+  </script>
+</body>
+</html>
