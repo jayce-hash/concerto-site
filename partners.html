@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — Partnerships</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── EXACT BRAND PALETTE ─── */
+    :root {
+      --bg: #121E36; /* Dark Navy */
+      --text: #F8F9F9; /* Snow Gray */
+      --text-dim: #C0C0C0; /* Cool Silver */
+      --glass-bg: rgba(248, 249, 249, 0.03);
+      --glass-border: rgba(192, 192, 192, 0.15); /* Silver tint */
+      --spotlight: rgba(248, 249, 249, 0.08);
+      --accent-gold: rgba(212, 175, 55, 0.15);
+      --transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background: var(--bg);
+    }
+
+    /* ─── AMBIENT REACTIVE BACKGROUND ─── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: -2;
+      overflow: hidden; pointer-events: none;
+      transition: transform 0.2s ease-out;
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.6; }
+    .orb-1 { width: 60vw; height: 60vw; background: var(--accent-gold); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.05); bottom: -10%; right: -10%; }
+    
+    .noise {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ─── B2B GHOST MARQUEE ─── */
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03;
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span {
+      font-family: 'Cormorant Garamond', serif; font-size: 12vw;
+      text-transform: uppercase; line-height: 1; letter-spacing: 0.05em;
+    }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ─── TYPOGRAPHY & BUTTONS ─── */
+    h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+    .eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 2rem; display: block;
+    }
+    
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1.2rem 3rem; font-size: 0.7rem; letter-spacing: 0.25em;
+      text-transform: uppercase; transition: var(--transition);
+      cursor: pointer; text-decoration: none; border-radius: 100px;
+    }
+    .btn-glass {
+      background: var(--glass-bg); color: var(--text);
+      border: 1px solid var(--glass-border); backdrop-filter: blur(20px);
+    }
+    .btn-glass:hover {
+      background: rgba(248, 249, 249, 0.1); border-color: rgba(248, 249, 249, 0.3);
+      transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .btn-fill {
+      background: var(--text); color: var(--bg); font-weight: 500;
+    }
+    .btn-fill:hover {
+      background: var(--text-dim); transform: translateY(-2px);
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 1000; transition: var(--transition);
+    }
+    nav.scrolled {
+      padding: 1.5rem 5%; background: rgba(18, 30, 54, 0.85);
+      backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; text-transform: uppercase;}
+    .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: var(--transition); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 0 5%;
+    }
+    .reveal-wrap { overflow: hidden; display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .reveal-text {
+      display: block; font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: -0.02em; transform: translateY(110%);
+      animation: curtainUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-desc {
+      font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 700px;
+      margin: 2rem auto 4rem; font-weight: 300; line-height: 1.8;
+      opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.6s;
+    }
+    .hero .btn { opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.8s; }
+
+    @keyframes curtainUp { to { transform: translateY(0); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── LAYOUT & CARDS ─── */
+    .section { padding: 120px 5%; position: relative; z-index: 10; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    
+    .glass-card {
+      background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border); border-radius: 30px;
+      padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%;
+      position: relative; overflow: hidden; cursor: crosshair;
+    }
+    
+    /* Dynamic Spotlight Effect */
+    .glass-card::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlight), transparent 40%);
+      opacity: 0; transition: opacity 0.5s ease; z-index: 0; pointer-events: none;
+    }
+    .glass-card:hover::before { opacity: 1; }
+
+    .card-content { position: relative; z-index: 1; }
+    .glass-card h3 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .glass-card p { color: var(--text-dim); font-size: 1.05rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section { text-align: center; padding: 150px 5%; border-top: 1px solid var(--glass-border); background: rgba(18, 30, 54, 0.4); }
+    
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--glass-border); padding: 4rem 5%;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .glass-card { padding: 3rem 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise"></div>
+
+  <div class="ghost-marquee">
+    <div class="marquee-track">
+      <span>RESTAURANTS • HOTELS • VENUES • TOURS • BRANDS • </span>
+      <span>RESTAURANTS • HOTELS • VENUES • TOURS • BRANDS • </span>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="index.html">The App</a>
+      <a href="mailto:support@concertocity.com">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow" style="opacity: 0; animation: fadeUp 1s ease forwards;">Concerto Partnerships</span>
+    
+    <div class="hero-title serif">
+      <div class="reveal-wrap"><span class="reveal-text">Capture the night.</span></div>
+    </div>
+    
+    <p class="hero-desc">Connect with high-intent concertgoers at the exact moments event-night demand peaks. No passive scrolling—just real fans looking for where to eat, stay, and spend before the show.</p>
+    <a href="mailto:support@concertocity.com" class="btn btn-fill">Become a Partner</a>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">The Ecosystem</span>
+      
+      <div class="cards-wrapper grid-2">
+        <div class="glass-card">
+          <div class="card-content">
+            <h3 class="serif">Restaurants & Bars</h3>
+            <p>"Top Picks" placement in our City Guides surfaces your venue to fans searching for pre-show dinner or post-show drinks. We convert proximity into guaranteed foot traffic, perfectly timed to the local event schedule.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-content">
+            <h3 class="serif">Hotels & Hospitality</h3>
+            <p>Reach guests actively planning trips around major concerts and festivals. Our venue-centric discovery converts one-night shows into full weekend stays, aligned perfectly with known tour routing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-wrapper grid-2">
+        <div class="glass-card">
+          <div class="card-content">
+            <h3 class="serif">Artists & Tours</h3>
+            <p>Claim your featured tour placement. Deliver direct ticket links, official setlists, and fan-facing venue logistics directly to your audience. We help artists ensure their fans have a flawless night out from start to finish.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-content">
+            <h3 class="serif">Venues & Festivals</h3>
+            <p>Centralize your bag policies, parking maps, and concessions. By integrating with Concerto, venues drastically reduce day-of operational burden, ease security bottlenecks, and guarantee fans arrive informed and ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="serif" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 800px; margin: 0 auto 2rem; line-height: 1.1;">Event-night demand doesn't happen by accident. Own it.</h2>
+      <p style="color: var(--text-dim); max-width: 500px; margin: 0 auto 3rem;">Join the ecosystem powering the modern live music experience.</p>
+      <a href="mailto:support@concertocity.com" class="btn btn-glass">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+    <div class="nav-links" style="margin: 0;">
+      <a href="index.html" style="margin-left: 0; margin-right: 2rem;">The App</a>
+      <a href="https://instagram.com/theconcertoapp" target="_blank" style="margin-left: 0; margin-right: 2rem;">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Navbar Blur on Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // 2. Dynamic Spotlight Effect on Cards
+    const cards = document.querySelectorAll('.glass-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // 3. Mouse-Tracked Parallax Background
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      bgCanvas.style.transform = `translate(${mouseX * -30}px, ${mouseY * -30}px)`;
+    });
+  </script>
+</body>
+</html>
