@@ -10,15 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── BASE VARIABLES ─── */
+    /* ─── EXACT BRAND PALETTE ─── */
     :root {
-      --bg: #03060D;
-      --text: #F8F9F9;
-      --text-dim: #9CA3AF;
-      --glass-bg: rgba(255, 255, 255, 0.02);
-      --glass-border: rgba(255, 255, 255, 0.05);
-      --spotlight: rgba(255, 255, 255, 0.08);
-      --premium-glow: linear-gradient(135deg, #D4AF37, #F8F9F9, #9CA3AF);
+      --bg: #121E36; /* Dark Navy */
+      --text: #F8F9F9; /* Snow Gray */
+      --text-dim: #C0C0C0; /* Cool Silver */
+      --glass-bg: rgba(248, 249, 249, 0.03);
+      --glass-border: rgba(192, 192, 192, 0.15); /* Silver tint */
+      --spotlight: rgba(248, 249, 249, 0.08);
+      --premium-glow: linear-gradient(135deg, #D4AF37, #F8F9F9, #C0C0C0); /* Gold to Silver */
       --transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -39,14 +39,12 @@
       overflow: hidden; pointer-events: none;
       transition: transform 0.2s ease-out;
     }
-    .orb {
-      position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.4;
-    }
-    .orb-1 { width: 60vw; height: 60vw; background: rgba(212, 175, 55, 0.08); top: -20%; left: -10%; }
-    .orb-2 { width: 50vw; height: 50vw; background: rgba(30, 64, 175, 0.12); bottom: -10%; right: -10%; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(212, 175, 55, 0.12); top: -20%; left: -10%; } /* Premium Gold */
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.06); bottom: -10%; right: -10%; } /* Snow Gray */
     
     .noise {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.05;
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
@@ -54,7 +52,7 @@
     .ghost-marquee {
       position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
       transform: translateY(-50%); pointer-events: none; overflow: hidden;
-      white-space: nowrap; display: flex; opacity: 0.02;
+      white-space: nowrap; display: flex; opacity: 0.03;
     }
     .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
     .ghost-marquee span {
@@ -81,8 +79,8 @@
       border: 1px solid var(--glass-border); backdrop-filter: blur(20px);
     }
     .btn-glass:hover {
-      background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2);
-      transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      background: rgba(248, 249, 249, 0.1); border-color: rgba(248, 249, 249, 0.3);
+      transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     }
 
     /* ─── NAVIGATION ─── */
@@ -92,7 +90,7 @@
       z-index: 1000; transition: var(--transition);
     }
     nav.scrolled {
-      padding: 1.5rem 5%; background: rgba(3, 6, 13, 0.8);
+      padding: 1.5rem 5%; background: rgba(18, 30, 54, 0.85); /* Dark Navy Glass */
       backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
     }
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; text-transform: uppercase;}
@@ -152,12 +150,12 @@
     }
 
     /* ─── CONCERTO CREW ─── */
-    .crew-section { border-top: 1px solid var(--glass-border); padding: 120px 5%; background: rgba(0,0,0,0.2); }
+    .crew-section { border-top: 1px solid var(--glass-border); padding: 120px 5%; background: rgba(248, 249, 249, 0.015); }
     .crew-card {
       padding: 3rem 2rem; text-align: center; border: 1px solid var(--glass-border);
-      border-radius: 20px; background: rgba(255,255,255,0.01);
+      border-radius: 20px; background: rgba(248, 249, 249, 0.02);
     }
-    .crew-name { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 1rem; color: #fff; }
+    .crew-name { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 1rem; color: var(--text); }
 
     /* ─── FOOTER ─── */
     footer {
@@ -217,7 +215,7 @@
           <div class="card-content">
             <h3 class="serif">Venue Intel</h3>
             <p>We cover over 300 venues worldwide. Instantly view verified bag policies, parking maps, and concession details. Never walk into a venue blind again.</p>
-            <p style="color: #fff; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Includes 1-Tap Rideshare routing directly to venue doors.</p>
+            <p style="color: var(--text); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Includes 1-Tap Rideshare routing directly to venue doors.</p>
           </div>
         </div>
 
