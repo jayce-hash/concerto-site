@@ -7,19 +7,21 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── EXACT BRAND PALETTE ─── */
+    /* ─── EXACT BRAND PALETTE & FORMULA ─── */
     :root {
-      --bg: #121E36; /* Dark Navy */
-      --text: #F8F9F9; /* Snow Gray */
-      --text-dim: #C0C0C0; /* Cool Silver */
-      --glass-bg: rgba(248, 249, 249, 0.03);
-      --glass-border: rgba(192, 192, 192, 0.15); /* Silver tint */
-      --spotlight: rgba(248, 249, 249, 0.08);
-      --premium-glow: linear-gradient(135deg, #D4AF37, #F8F9F9, #C0C0C0); /* Gold to Silver */
-      --transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg: #F8F9F9; /* Snow Gray */
+      --card-bg: #FFFFFF;
+      --text: #121E36; /* Dark Navy */
+      --text-dim: rgba(18, 30, 54, 0.55); /* Matches snippet --ink-2 */
+      --border: #C0C0C0; /* Cool Silver */
+      --border-light: rgba(18, 30, 54, 0.08); /* Subtle card borders */
+      --premium-gold: #C9A84C;
+      --shadow-sm: 0 4px 20px rgba(18, 30, 54, 0.04);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,54 +35,53 @@
       background: var(--bg);
     }
 
-    /* ─── AMBIENT REACTIVE BACKGROUND ─── */
+    /* ─── AMBIENT LIGHT BACKGROUND ─── */
     .bg-canvas {
       position: fixed; inset: 0; z-index: -2;
       overflow: hidden; pointer-events: none;
       transition: transform 0.2s ease-out;
     }
-    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
-    .orb-1 { width: 60vw; height: 60vw; background: rgba(212, 175, 55, 0.12); top: -20%; left: -10%; } /* Premium Gold */
-    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.06); bottom: -10%; right: -10%; } /* Snow Gray */
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(201, 168, 76, 0.1); bottom: -10%; right: -10%; }
     
     .noise {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     /* ─── GHOST MARQUEE ─── */
     .ghost-marquee {
       position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
       transform: translateY(-50%); pointer-events: none; overflow: hidden;
-      white-space: nowrap; display: flex; opacity: 0.03;
+      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
     }
     .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
     .ghost-marquee span {
-      font-family: 'Cormorant Garamond', serif; font-size: 15vw;
-      text-transform: uppercase; line-height: 1; letter-spacing: 0.05em;
+      font-family: 'Playfair Display', serif; font-size: 15vw;
+      text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700;
     }
     @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ─── TYPOGRAPHY & BUTTONS ─── */
-    h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
     .eyebrow {
-      font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--text-dim); margin-bottom: 2rem; display: block;
     }
     
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 1.2rem 3rem; font-size: 0.7rem; letter-spacing: 0.25em;
-      text-transform: uppercase; transition: var(--transition);
-      cursor: pointer; text-decoration: none; border-radius: 100px;
+      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer; text-decoration: none; border-radius: 20px;
     }
-    .btn-glass {
-      background: var(--glass-bg); color: var(--text);
-      border: 1px solid var(--glass-border); backdrop-filter: blur(20px);
+    .btn-primary {
+      background: var(--text); color: var(--bg);
+      box-shadow: var(--shadow-btn);
     }
-    .btn-glass:hover {
-      background: rgba(248, 249, 249, 0.1); border-color: rgba(248, 249, 249, 0.3);
-      transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    .btn-primary:hover {
+      transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24);
     }
 
     /* ─── NAVIGATION ─── */
@@ -90,25 +91,25 @@
       z-index: 1000; transition: var(--transition);
     }
     nav.scrolled {
-      padding: 1.5rem 5%; background: rgba(18, 30, 54, 0.85); /* Dark Navy Glass */
-      backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
+      padding: 1.5rem 5%; background: rgba(248, 249, 249, 0.9);
+      backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light);
     }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; text-transform: uppercase;}
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase;}
 
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center; padding: 0 5%;
     }
-    .reveal-wrap { overflow: hidden; display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .reveal-wrap { overflow: hidden; display: block; line-height: 1.1; margin-bottom: 0.2rem; }
     .reveal-text {
-      display: block; font-size: clamp(3rem, 8vw, 7rem);
+      display: block; font-size: clamp(3.5rem, 8vw, 7.5rem);
       letter-spacing: -0.02em; transform: translateY(110%);
       animation: curtainUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .hero-desc {
       font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 650px;
-      margin: 2rem auto 4rem; font-weight: 300; line-height: 1.8;
+      margin: 2rem auto 4rem; line-height: 1.6;
       opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.6s;
     }
     .hero .btn { opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.8s; }
@@ -118,58 +119,57 @@
 
     /* ─── LAYOUT & CARDS ─── */
     .section { padding: 120px 5%; position: relative; z-index: 10; }
-    .container { max-width: 1400px; margin: 0 auto; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     
-    .glass-card {
-      background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border); border-radius: 30px;
-      padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%;
-      position: relative; overflow: hidden; cursor: crosshair;
+    .feature-card {
+      background: var(--card-bg); border: 1px solid var(--border-light);
+      border-radius: 24px; padding: 3.5rem 3rem; display: flex; flex-direction: column; 
+      height: 100%; position: relative; overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px); box-shadow: 0 12px 32px rgba(18, 30, 54, 0.08);
     }
     
-    /* Dynamic Spotlight Effect */
-    .glass-card::before {
-      content: ""; position: absolute; inset: 0; border-radius: inherit;
-      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlight), transparent 40%);
-      opacity: 0; transition: opacity 0.5s ease; z-index: 0; pointer-events: none;
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 14px; background: var(--bg);
+      display: grid; place-items: center; font-size: 20px; margin-bottom: 2rem;
+      border: 1px solid var(--border-light);
     }
-    .glass-card:hover::before { opacity: 1; }
-
-    .card-content { position: relative; z-index: 1; }
-    .glass-card h3 { font-size: 2.2rem; margin-bottom: 1rem; letter-spacing: 0.02em; }
-    .glass-card h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--text); font-family: 'DM Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;}
-    .glass-card p { color: var(--text-dim); font-size: 1.05rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; }
+    
+    .feature-card h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    .feature-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
+    .feature-card p { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem; }
 
     /* ─── PREMIUM SECTION ─── */
     .premium-header { text-align: center; margin-bottom: 5rem; }
     .premium-title {
-      font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 1rem;
-      background: var(--premium-glow); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: clamp(3rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1rem; color: var(--text);
     }
 
     /* ─── CONCERTO CREW ─── */
-    .crew-section { border-top: 1px solid var(--glass-border); padding: 120px 5%; background: rgba(248, 249, 249, 0.015); }
+    .crew-section { border-top: 1px solid var(--border-light); padding: 120px 5%; background: #FFFFFF; }
     .crew-card {
-      padding: 3rem 2rem; text-align: center; border: 1px solid var(--glass-border);
-      border-radius: 20px; background: rgba(248, 249, 249, 0.02);
+      padding: 3rem 2rem; text-align: center; border: 1px solid var(--border-light);
+      border-radius: 20px; background: var(--bg);
     }
-    .crew-name { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 1rem; color: var(--text); }
+    .crew-name { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 1rem; color: var(--text); }
 
     /* ─── FOOTER ─── */
     footer {
-      border-top: 1px solid var(--glass-border); padding: 4rem 5%;
+      border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg);
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
     }
     .footer-links a {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
-      color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: var(--transition);
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: color 0.3s;
     }
     .footer-links a:hover { color: var(--text); }
 
     @media (max-width: 768px) {
-      .glass-card { padding: 3rem 2rem; }
+      .feature-card { padding: 2.5rem 2rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
     }
   </style>
@@ -191,7 +191,7 @@
 
   <nav id="navbar">
     <a href="#" class="logo">Concerto</a>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-glass" style="padding: 0.8rem 2rem;">Get Access</a>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-primary" style="padding: 0.8rem 2rem; font-size: 0.7rem;">Get Access</a>
   </nav>
 
   <header class="hero">
@@ -199,47 +199,43 @@
     
     <div class="hero-title serif">
       <div class="reveal-wrap"><span class="reveal-text">The app you open</span></div>
-      <div class="reveal-wrap"><span class="reveal-text delay-title"><i>after you buy the ticket.</i></span></div>
+      <div class="reveal-wrap"><span class="reveal-text delay-title"><i style="color: var(--text-dim);">after you buy the ticket.</i></span></div>
     </div>
     
     <p class="hero-desc">Concerto picks up where every other app drops off. From the moment the tour is announced to the moment you’re buzzing on the drive home.</p>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-glass">Download for iOS</a>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-primary">Download for iOS</a>
   </header>
 
   <section class="section">
     <div class="container">
       <span class="eyebrow">The Foundation</span>
       
-      <div class="cards-wrapper grid-2">
-        <div class="glass-card">
-          <div class="card-content">
-            <h3 class="serif">Venue Intel</h3>
-            <p>We cover over 300 venues worldwide. Instantly view verified bag policies, parking maps, and concession details. Never walk into a venue blind again.</p>
-            <p style="color: var(--text); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Includes 1-Tap Rideshare routing directly to venue doors.</p>
-          </div>
+      <div class="grid-2">
+        <div class="feature-card">
+          <div class="card-icon">📋</div>
+          <h3 class="serif">Venue Intel</h3>
+          <p>We cover over 300 venues worldwide. Instantly view verified bag policies, parking maps, and concession details. Never walk into a venue blind again.</p>
+          <div style="margin-top: auto; display: inline-flex; align-items: center; gap: 5px; background: var(--bg); color: var(--text); padding: 6px 12px; border-radius: 999px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border-light); width: fit-content;">Includes 1-Tap Rideshare</div>
         </div>
 
-        <div class="glass-card">
-          <div class="card-content">
-            <h3 class="serif">Featured Tours & Setlists</h3>
-            <p>Know exactly what you're walking into. View official setlists, deep cuts, and local start times. Every major tour includes a venue-specific breakdown for that exact date.</p>
-          </div>
+        <div class="feature-card">
+          <div class="card-icon">🎶</div>
+          <h3 class="serif">Featured Tours & Setlists</h3>
+          <p>Know exactly what you're walking into. View official setlists, deep cuts, and local start times. Every major tour includes a venue-specific breakdown for that exact date.</p>
         </div>
       </div>
 
-      <div class="cards-wrapper grid-2">
-        <div class="glass-card">
-          <div class="card-content">
-            <h3 class="serif">City Guides</h3>
-            <p>Curated dining and upscale hotels handpicked for the neighborhood around your venue. Built to help you plan the night, not just the destination.</p>
-          </div>
+      <div class="grid-2">
+        <div class="feature-card">
+          <div class="card-icon">🍸</div>
+          <h3 class="serif">City Guides</h3>
+          <p>Curated dining and upscale hotels handpicked for the neighborhood around your venue. Built to help you plan the night, not just the destination.</p>
         </div>
 
-        <div class="glass-card">
-          <div class="card-content">
-            <h3 class="serif">Events Near Me</h3>
-            <p>Open the app and instantly see what’s happening in your city tonight. No friction, no setup—just pure discovery for spontaneous nights out.</p>
-          </div>
+        <div class="feature-card">
+          <div class="card-icon">📍</div>
+          <h3 class="serif">Events Near Me</h3>
+          <p>Open the app and instantly see what’s happening in your city tonight. No friction, no setup—just pure discovery for spontaneous nights out.</p>
         </div>
       </div>
     </div>
@@ -248,38 +244,34 @@
   <section class="section">
     <div class="container">
       <div class="premium-header">
-        <span class="eyebrow">The Magic</span>
+        <span class="eyebrow" style="color: var(--premium-gold);">The Magic</span>
         <h2 class="premium-title serif">Concerto Premium</h2>
         <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Making the entire live music experience completely effortless.</p>
       </div>
       
-      <div class="cards-wrapper grid-2">
-        <div class="glass-card" style="border-color: rgba(212, 175, 55, 0.3);">
-          <div class="card-content">
-            <h4>AI Bag Check</h4>
-            <p>Don't just read the policy. Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue. No surprises at the door.</p>
-          </div>
+      <div class="grid-2">
+        <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
+          <div class="card-icon">📷</div>
+          <h4>AI Bag Check</h4>
+          <p>Don't just read the policy. Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue. No surprises at the door.</p>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(212, 175, 55, 0.3);">
-          <div class="card-content">
-            <h4>Live Mode & Recaps</h4>
-            <p>Once you arrive, the app switches to an in-show experience. After the encore, receive a beautifully designed, shareable Story Card documenting your night—like a Strava post for your concert.</p>
-          </div>
+        <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
+          <div class="card-icon">✨</div>
+          <h4>Live Mode & Recaps</h4>
+          <p>Once you arrive, the app switches to an in-show experience. After the encore, receive a beautifully designed, shareable Story Card documenting your night—like a Strava post for your concert.</p>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(212, 175, 55, 0.3);">
-          <div class="card-content">
-            <h4>Concerto+ AI Itinerary</h4>
-            <p>Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks, all mathematically mapped to the venue.</p>
-          </div>
+        <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
+          <div class="card-icon">🗺️</div>
+          <h4>Concerto+ AI Itinerary</h4>
+          <p>Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks, all mathematically mapped to the venue.</p>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(212, 175, 55, 0.3);">
-          <div class="card-content">
-            <h4>Festivals Logistics</h4>
-            <p>Navigate the most complex live music puzzles. Full access to multi-day lineups, schedules, set times, stage maps, and survival intel for major festivals.</p>
-          </div>
+        <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
+          <div class="card-icon">🎪</div>
+          <h4>Festivals Logistics</h4>
+          <p>Navigate the most complex live music puzzles. Full access to multi-day lineups, schedules, set times, stage maps, and survival intel for major festivals.</p>
         </div>
       </div>
     </div>
@@ -288,21 +280,21 @@
   <section class="crew-section">
     <div class="container" style="text-align: center;">
       <span class="eyebrow">The Universe</span>
-      <h2 class="serif" style="font-size: 3rem; margin-bottom: 1rem;">Meet the Concerto Crew.</h2>
-      <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 4rem;">A cast of 18 retro cartoon mascots holding the universe together. They aren't just branding—they are the personality of the app.</p>
+      <h2 class="serif" style="font-size: 3.5rem; margin-bottom: 1rem; color: var(--text);">Meet the Concerto Crew.</h2>
+      <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 4rem; font-size: 1.1rem;">A cast of 18 retro cartoon mascots holding the universe together. They aren't just branding—they are the personality of the app.</p>
       
       <div class="grid-3">
         <div class="crew-card">
           <div class="crew-name">SCOUT</div>
-          <p style="color: var(--text-dim); font-size: 0.9rem;">The navigator. Scout is always on the ground, finding your shows and tracking the tours.</p>
+          <p style="color: var(--text-dim); font-size: 0.95rem;">The navigator. Scout is always on the ground, finding your shows and tracking the tours.</p>
         </div>
         <div class="crew-card">
           <div class="crew-name">VAULT</div>
-          <p style="color: var(--text-dim); font-size: 0.9rem;">The gatekeeper. Vault holds your venue intel, bag policies, and parking secrets.</p>
+          <p style="color: var(--text-dim); font-size: 0.95rem;">The gatekeeper. Vault holds your venue intel, bag policies, and parking secrets.</p>
         </div>
         <div class="crew-card">
           <div class="crew-name">RIFF</div>
-          <p style="color: var(--text-dim); font-size: 0.9rem;">The archivist. Riff knows every setlist, every deep cut, and every encore.</p>
+          <p style="color: var(--text-dim); font-size: 0.95rem;">The archivist. Riff knows every setlist, every deep cut, and every encore.</p>
         </div>
       </div>
     </div>
@@ -310,13 +302,13 @@
 
   <section class="section" style="text-align: center; padding-top: 150px;">
     <div class="container">
-      <h2 class="serif" style="font-size: clamp(2rem, 4vw, 3rem); max-width: 900px; margin: 0 auto; line-height: 1.4;">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single event."</h2>
+      <h2 class="serif" style="font-size: clamp(2rem, 4vw, 3rem); max-width: 900px; margin: 0 auto; line-height: 1.3;">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single event."</h2>
       <span class="eyebrow" style="color: var(--text); margin-top: 3rem;">— Jayce Wells, Founder</span>
     </div>
   </section>
 
   <footer>
-    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+    <div class="logo" style="font-size: 1.1rem;">CONCERTO</div>
     <div class="footer-links">
       <a href="partners.html">Partnerships</a>
       <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
@@ -325,26 +317,14 @@
   </footer>
 
   <script>
-    // 1. Navbar Blur on Scroll
+    // Navbar Blur on Scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     });
 
-    // 2. Dynamic Spotlight Effect on Cards
-    const cards = document.querySelectorAll('.glass-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-    });
-
-    // 3. Mouse-Tracked Parallax Background
+    // Mouse-Tracked Parallax Background
     const bgCanvas = document.getElementById('bg-canvas');
     document.addEventListener('mousemove', (e) => {
       const mouseX = e.clientX / window.innerWidth - 0.5;
