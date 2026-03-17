@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — The Shop</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── EXACT BRAND PALETTE & FORMULA ─── */
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.55);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-sm: 0 4px 20px rgba(18, 30, 54, 0.04);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    /* ─── AMBIENT LIGHT BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.2s ease-out; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ─── GHOST MARQUEE ─── */
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ─── TYPOGRAPHY & BUTTONS ─── */
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; display: block; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none; border-radius: 20px; }
+    .btn-primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    /* ─── NAVIGATION ─── */
+    nav { position: fixed; top: 0; width: 100%; padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.5rem 5%; background: rgba(248, 249, 249, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase;}
+    .nav-links { display: flex; align-items: center; }
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* ─── HERO ─── */
+    .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
+    .hero-title { font-size: clamp(3.5rem, 8vw, 7.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── LAYOUT & STORE CARDS ─── */
+    .section { padding: 80px 5%; position: relative; z-index: 10; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+    /* Hero Product (Essentials Kit) */
+    .hero-product {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      background: var(--card-bg); border: 1px solid var(--border-light);
+      border-radius: 24px; padding: 4rem; box-shadow: var(--shadow-sm); margin-bottom: 6rem;
+    }
+    .hero-img-placeholder {
+      aspect-ratio: 1/1; background: #EDEEF0; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border-light); font-size: 4rem;
+    }
+    .badge {
+      display: inline-block; padding: 6px 12px; background: var(--text); color: var(--bg);
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 999px; margin-bottom: 1.5rem;
+    }
+
+    /* Standard Product Card */
+    .product-card {
+      background: var(--card-bg); border: 1px solid var(--border-light);
+      border-radius: 20px; padding: 1.5rem; transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(18, 30, 54, 0.08); }
+    .prod-img {
+      aspect-ratio: 4/5; background: #EDEEF0; border-radius: 12px; margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; font-size: 3rem;
+      border: 1px solid var(--border-light);
+    }
+    .prod-info { display: flex; justify-content: space-between; align-items: flex-start; }
+    .prod-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .prod-cat { font-size: 0.85rem; color: var(--text-dim); }
+    .prod-status { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .hero-product { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise"></div>
+  <div class="ghost-marquee"><div class="marquee-track"><span>THE ESSENTIALS KIT • CONCERTO CREW • DROP 01 • </span><span>THE ESSENTIALS KIT • CONCERTO CREW • DROP 01 • </span></div></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="partners.html">Partners</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Equipment for the Encore</span>
+    <h1 class="hero-title serif">The Concerto Shop.</h1>
+    <p class="hero-desc">Curated gear and exclusive apparel built for the people who treat going to a show as an event. Chapter 01 dropping soon.</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="hero-product">
+        <div class="hero-img-placeholder">
+          🔋👜
+        </div>
+        <div>
+          <span class="badge">Signature Drop</span>
+          <h2 class="serif" style="font-size: 3rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text);">The Essentials Kit.</h2>
+          <p style="color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Everything you need to survive the night. A stadium-approved, premium clear crossbody bag paired with a high-capacity portable charger to keep Live Mode running until the house lights come on.</p>
+          <ul style="list-style: none; margin-bottom: 2.5rem;">
+            <li style="margin-bottom: 0.8rem; color: var(--text); font-weight: 500;">— Compliant with 95% of major venue clear bag policies.</li>
+            <li style="margin-bottom: 0.8rem; color: var(--text); font-weight: 500;">— 10,000mAh ultra-slim power bank included.</li>
+            <li style="margin-bottom: 0.8rem; color: var(--text); font-weight: 500;">— Exclusive Concerto show-day goodies.</li>
+          </ul>
+          <a href="#" class="btn btn-primary" style="padding: 1rem 2.5rem; width: fit-content;">Join the Waitlist</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+        <div>
+          <span class="eyebrow" style="margin-bottom: 0.5rem;">Collection 01</span>
+          <h2 class="serif" style="font-size: 2.5rem;">The Concerto Crew.</h2>
+        </div>
+        <a href="#" style="color: var(--text); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; border-bottom: 1px solid var(--text); padding-bottom: 2px;">View All</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="product-card">
+          <div class="prod-img">🧢</div>
+          <div class="prod-info">
+            <div>
+              <div class="prod-title">Vault Dad Cap</div>
+              <div class="prod-cat">Washed Navy / Silver</div>
+            </div>
+            <div class="prod-status">Soon</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="prod-img">👕</div>
+          <div class="prod-info">
+            <div>
+              <div class="prod-title">Scout Heavyweight</div>
+              <div class="prod-cat">Vintage Wash Tee</div>
+            </div>
+            <div class="prod-status">Soon</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="prod-img">🧥</div>
+          <div class="prod-info">
+            <div>
+              <div class="prod-title">Riff Tour Jacket</div>
+              <div class="prod-cat">Limited Edition Satin</div>
+            </div>
+            <div class="prod-status">Soon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom: 150px;">
+    <div class="container">
+      <div style="background: var(--text); border-radius: 24px; padding: 5rem 3rem; text-align: center; color: var(--bg);">
+        <h2 class="serif" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem;">Core Collection</h2>
+        <p style="color: rgba(248, 249, 249, 0.7); font-size: 1.1rem; max-width: 500px; margin: 0 auto 3rem;">Classic Concerto apparel and show-day accessories. Coming later this season.</p>
+        <a href="#" class="btn" style="background: var(--bg); color: var(--text); box-shadow: 0 8px 24px rgba(0,0,0,0.2);">Get Notified</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo" style="font-size: 1.1rem;">CONCERTO</div>
+    <div class="footer-links" style="margin: 0;">
+      <a href="https://instagram.com/theconcertoapp" target="_blank" style="margin-left: 0; margin-right: 2rem;">Instagram</a>
+      <a href="mailto:support@concertocity.com" style="margin-left: 0;">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      bgCanvas.style.transform = `translate(${mouseX * -20}px, ${mouseY * -20}px)`;
+    });
+  </script>
+</body>
+</html>
