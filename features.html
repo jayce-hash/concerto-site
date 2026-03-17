@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — Core Features</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.55);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.4); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; display: block; }
+    
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    nav { position: fixed; top: 0; width: 100%; padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.5rem 5%; background: rgba(248, 249, 249, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase;}
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
+    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* EDITORIAL LIST LAYOT */
+    .feature-list { max-width: 1000px; margin: 0 auto; padding: 100px 5%; }
+    .feature-row { display: flex; gap: 4rem; align-items: flex-start; padding: 80px 0; border-bottom: 1px solid var(--border-light); }
+    .feature-row:last-child { border-bottom: none; }
+    .feat-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--border); line-height: 0.8; font-style: italic; flex-shrink: 0; width: 80px; }
+    .feat-content { flex: 1; }
+    .feat-content h3 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text); }
+    .feat-content p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 600px; }
+    
+    .feat-list { list-style: none; margin-top: 2rem; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; font-size: 1rem; color: var(--text); }
+    .feat-list li::before { content: '—'; color: var(--border); font-weight: 700; }
+
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .feature-row { flex-direction: column; gap: 1.5rem; padding: 60px 0; }
+      .nav-links { display: none; }
+      .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise"></div>
+  <div class="ghost-marquee"><div class="marquee-track"><span>EVENTS NEAR ME • SETLISTS • CITY GUIDES • VENUE INTEL • </span><span>EVENTS NEAR ME • SETLISTS • CITY GUIDES • VENUE INTEL • </span></div></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="features.html" class="active">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="partners.html">Partners</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">The Foundation</span>
+    <h1 class="hero-title serif">The Essentials.</h1>
+    <p class="hero-desc">Everything you need for the perfect night out. Concerto's core suite of features is available entirely for free.</p>
+  </header>
+
+  <section class="feature-list">
+    
+    <div class="feature-row">
+      <div class="feat-num">01</div>
+      <div class="feat-content">
+        <h3 class="serif">Venue Intel</h3>
+        <p>The backbone of Concerto. We actively cover over 300 venues around the world, removing the guesswork from your arrival. No more Googling. No more cross-referencing five different pages. Everything you need, in one place, every time.</p>
+        <ul class="feat-list">
+          <li><strong>Bag Policy:</strong> Exactly what’s allowed and what isn’t, verified by our team.</li>
+          <li><strong>Parking:</strong> Official lots, alternatives, and how to avoid the post-show trap.</li>
+          <li><strong>Concessions:</strong> What’s inside and what to expect.</li>
+          <li><strong>1-Tap Rideshare:</strong> Direct links to Uber and Lyft with the venue drop-off pre-inputted.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-num">02</div>
+      <div class="feat-content">
+        <h3 class="serif">Setlists & Tour Info</h3>
+        <p>Know what you’re walking into before you walk in. See exactly what songs an artist has been playing on the current tour, which deep cuts they’ve been pulling out, and what the closer has been. You’re not guessing; you’re prepared.</p>
+        <p>Every track on the setlist links directly to Apple Music and Spotify so you can prep your playlist before the lights go down.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-num">03</div>
+      <div class="feat-content">
+        <h3 class="serif">City Guides</h3>
+        <p>For when the show takes you somewhere new. Concerto doesn’t leave you stranded with just a hotel and a venue address. Each City Guide gives you the neighborhood context.</p>
+        <p>We skip the generic Yelp results and provide curated, handpicked dining and hotel options physically anchored to your venue. Built for the show, not just the destination.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-num">04</div>
+      <div class="feat-content">
+        <h3 class="serif">Events Near Me</h3>
+        <p>Your starting point. Open the app and instantly see what’s happening around you tonight—concerts, comedy, tours, and festivals. No setup, no friction. Just what’s on in your city right now.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer style="margin-top: 50px;">
+    <div class="logo" style="font-size: 1.1rem;">CONCERTO</div>
+    <div class="footer-links" style="margin: 0;">
+      <a href="premium.html" style="margin-left: 0; margin-right: 2rem;">Explore Premium</a>
+      <a href="https://instagram.com/theconcertoapp" target="_blank" style="margin-left: 0; margin-right: 2rem;">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
