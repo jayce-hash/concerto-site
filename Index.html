@@ -12,13 +12,13 @@
   <style>
     /* ─── BASE VARIABLES ─── */
     :root {
-      --bg: #03060D; /* Abyss Navy */
-      --text: #F8F9F9; /* Pure White */
-      --text-dim: #9CA3AF; /* Metallic Silver */
-      --glass-bg: rgba(255, 255, 255, 0.015);
-      --glass-border: rgba(255, 255, 255, 0.06);
-      --glass-glow: rgba(255, 255, 255, 0.1);
-      --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      --bg: #03060D;
+      --text: #F8F9F9;
+      --text-dim: #9CA3AF;
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      --spotlight: rgba(255, 255, 255, 0.08);
+      --transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,55 +29,51 @@
       overflow-x: hidden;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      background: var(--bg);
     }
 
-    /* ─── FLUID LUMINESCENT BACKGROUND ─── */
-    .fluid-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background-color: var(--bg);
-      overflow: hidden;
+    /* ─── AMBIENT REACTIVE BACKGROUND ─── */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: -2;
+      overflow: hidden; pointer-events: none;
+      transition: transform 0.2s ease-out;
     }
     .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(140px);
-      opacity: 0.5;
-      animation: float 20s infinite ease-in-out alternate;
+      position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5;
     }
     .orb-1 {
-      width: 60vw; height: 60vw;
-      background: rgba(212, 175, 55, 0.08); /* Warm Gold */
-      top: -20%; left: -10%;
+      width: 60vw; height: 60vw; background: rgba(212, 175, 55, 0.08); top: -20%; left: -10%;
     }
     .orb-2 {
-      width: 50vw; height: 50vw;
-      background: rgba(30, 64, 175, 0.15); /* Deep Neon Blue */
-      bottom: -10%; right: -10%;
-      animation-delay: -5s;
+      width: 50vw; height: 50vw; background: rgba(30, 64, 175, 0.12); bottom: -10%; right: -10%;
     }
-    .orb-3 {
-      width: 40vw; height: 40vw;
-      background: rgba(139, 92, 246, 0.06); /* Subtle Purple */
-      top: 40%; left: 40%;
-      animation-duration: 25s;
-    }
-
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(5%, 10%) scale(1.1); }
-    }
-
+    
     /* Film Grain Overlay */
     .noise {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ─── GHOST MARQUEE ─── */
+    .ghost-marquee {
+      position: fixed; top: 45%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03;
+    }
+    .marquee-track {
+      display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite;
+    }
+    .ghost-marquee span {
+      font-family: 'Cormorant Garamond', serif; font-size: 15vw;
+      text-transform: uppercase; line-height: 1; letter-spacing: 0.05em;
+    }
+    @keyframes ghostScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ─── TYPOGRAPHY ─── */
     h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
-    
     .eyebrow {
       font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--text-dim); margin-bottom: 2rem; display: block;
@@ -92,22 +88,12 @@
       position: relative; overflow: hidden;
     }
     .btn-glass {
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: var(--glass-bg); color: var(--text);
+      border: 1px solid var(--glass-border); backdrop-filter: blur(20px);
     }
-    .btn-glass::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      transition: 0.5s;
-    }
-    .btn-glass:hover::before { left: 150%; }
     .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--glass-glow);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
 
     /* ─── NAVIGATION ─── */
@@ -118,76 +104,76 @@
     }
     nav.scrolled {
       padding: 1.5rem 5%; background: rgba(3, 6, 13, 0.8);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border);
     }
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; text-transform: uppercase;}
 
-    /* ─── HERO ─── */
+    /* ─── HERO WITH CURTAIN REVEAL ─── */
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
-      padding: 0 5%; position: relative;
+      align-items: center; justify-content: center; text-align: center; padding: 0 5%;
     }
-    .hero-title {
-      font-size: clamp(4rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 2rem;
-      letter-spacing: -0.02em; text-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    .reveal-wrap { overflow: hidden; display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .reveal-text {
+      display: block; font-size: clamp(4rem, 10vw, 8rem);
+      letter-spacing: -0.02em; transform: translateY(110%);
+      animation: curtainUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .hero-title i { font-style: italic; color: var(--text-dim); }
+    .delay-title { animation-delay: 0.2s; }
+    
     .hero-desc {
-      font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim);
-      max-width: 600px; margin: 0 auto 4rem; font-weight: 300; line-height: 1.8;
+      font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px;
+      margin: 2rem auto 4rem; font-weight: 300; line-height: 1.8;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 1s ease forwards 0.6s;
     }
+    .hero .btn { opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.8s; }
 
-    /* ─── GLASS CARDS (LAYOUT) ─── */
+    @keyframes curtainUp { to { transform: translateY(0); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── DYNAMIC SPOTLIGHT CARDS ─── */
     .section { padding: 150px 5%; position: relative; z-index: 10; }
     .container { max-width: 1400px; margin: 0 auto; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
     
-    .grid-3 {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;
-    }
-    
+    .cards-wrapper { position: relative; }
     .glass-card {
       background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--glass-border); border-radius: 30px;
-      padding: 4rem 3rem; transition: var(--transition);
-      display: flex; flex-direction: column; height: 100%;
+      padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%;
+      position: relative; overflow: hidden; cursor: crosshair;
     }
-    .glass-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateY(-5px);
+    
+    /* The Glow Effect (Controlled by JS) */
+    .glass-card::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlight), transparent 40%);
+      opacity: 0; transition: opacity 0.5s ease; z-index: 0; pointer-events: none;
     }
+    .cards-wrapper:hover .glass-card::before { opacity: 1; }
+
+    /* Card Content */
+    .card-content { position: relative; z-index: 1; }
     .card-icon {
-      font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--glass-glow);
-      margin-bottom: 2rem; line-height: 1; font-style: italic;
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: rgba(255,255,255,0.4);
+      margin-bottom: 2rem; line-height: 1; font-style: italic; transition: var(--transition);
     }
+    .glass-card:hover .card-icon { color: var(--text); transform: scale(1.05); }
     .glass-card h3 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
     .glass-card p { color: var(--text-dim); font-size: 1.05rem; font-weight: 300; line-height: 1.8; }
 
-    /* ─── MANIFESTO (TEXT ONLY SEC) ─── */
-    .manifesto { text-align: center; max-width: 900px; margin: 0 auto; }
-    .manifesto h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 3rem;
-    }
-    
     /* ─── FOOTER ─── */
     footer {
       border-top: 1px solid var(--glass-border); padding: 4rem 5%;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 2rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
     }
     .footer-links a {
       font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
       color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: var(--transition);
     }
     .footer-links a:hover { color: var(--text); }
-
-    /* ─── ANIMATIONS ─── */
-    .fade-up { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: 0.2s; }
-    .delay-2 { transition-delay: 0.4s; }
 
     @media (max-width: 768px) {
       .glass-card { padding: 3rem 2rem; }
@@ -197,12 +183,18 @@
 </head>
 <body>
 
-  <div class="fluid-bg">
+  <div class="bg-canvas" id="bg-canvas">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
   </div>
   <div class="noise"></div>
+
+  <div class="ghost-marquee">
+    <div class="marquee-track">
+      <span>NEW YORK • LOS ANGELES • LONDON • TOKYO • PARIS • CHICAGO • AUSTIN • </span>
+      <span>NEW YORK • LOS ANGELES • LONDON • TOKYO • PARIS • CHICAGO • AUSTIN • </span>
+    </div>
+  </div>
 
   <nav id="navbar">
     <a href="#" class="logo">Concerto</a>
@@ -210,50 +202,52 @@
   </nav>
 
   <header class="hero">
-    <div class="fade-up">
-      <span class="eyebrow">The New Standard</span>
-      <h1 class="hero-title">From the Concert<br><i>To the City.</i></h1>
-      <p class="hero-desc">More than a show. Concerto transforms every live event into a curated, effortless night out. Exclusive city guides, real-time logistics, and tour intelligence—all in one place.</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-glass">Download for iOS</a>
+    <span class="eyebrow" style="opacity: 0; animation: fadeUp 1s ease forwards;">The New Standard</span>
+    
+    <div class="hero-title serif">
+      <div class="reveal-wrap"><span class="reveal-text">From the Concert</span></div>
+      <div class="reveal-wrap"><span class="reveal-text delay-title"><i>To the City.</i></span></div>
     </div>
+    
+    <p class="hero-desc">More than a show. Concerto transforms every live event into a curated, effortless night out. Exclusive city guides, real-time logistics, and tour intelligence—all in one place.</p>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-glass">Download for iOS</a>
   </header>
 
   <section class="section">
     <div class="container">
-      <span class="eyebrow fade-up" style="text-align: center;">The Experience</span>
-      <div class="grid-3">
+      <span class="eyebrow" style="text-align: center; margin-bottom: 4rem;">The Experience</span>
+      
+      <div class="cards-wrapper grid-3" id="cards-wrapper">
         
-        <div class="glass-card fade-up">
-          <div class="card-icon">01</div>
-          <h3 class="serif">Tour Intelligence.</h3>
-          <p>Access accurate setlists, official start times, and direct streaming links before the lights go down. Arrive at the venue knowing exactly what to expect.</p>
+        <div class="glass-card">
+          <div class="card-content">
+            <div class="card-icon">01</div>
+            <h3 class="serif">Tour Intelligence.</h3>
+            <p>Access accurate setlists, official start times, and direct streaming links before the lights go down. Arrive at the venue knowing exactly what to expect.</p>
+          </div>
         </div>
 
-        <div class="glass-card fade-up delay-1">
-          <div class="card-icon">02</div>
-          <h3 class="serif">Curated City Guides.</h3>
-          <p>Discover the finest dining, upscale hotels, and local nightlife—all intelligently anchored to your specific venue and event date.</p>
+        <div class="glass-card">
+          <div class="card-content">
+            <div class="card-icon">02</div>
+            <h3 class="serif">Curated City Guides.</h3>
+            <p>Discover the finest dining, upscale hotels, and local nightlife—all intelligently anchored to your specific venue and event date.</p>
+          </div>
         </div>
 
-        <div class="glass-card fade-up delay-2">
-          <div class="card-icon">03</div>
-          <h3 class="serif">Flawless Logistics.</h3>
-          <p>Master the venue before you arrive. Instantly access bag policies, parking maps, rideshare zones, and concession layouts.</p>
+        <div class="glass-card">
+          <div class="card-content">
+            <div class="card-icon">03</div>
+            <h3 class="serif">Flawless Logistics.</h3>
+            <p>Master the venue before you arrive. Instantly access bag policies, parking maps, rideshare zones, and concession layouts.</p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container manifesto fade-up">
-      <span class="eyebrow">The Philosophy</span>
-      <h2 class="serif">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single, beautiful experience."</h2>
-      <span class="eyebrow" style="color: var(--text); margin-top: 3rem;">— Jayce Wells, Founder</span>
-    </div>
-  </section>
-
-  <footer>
+  <footer style="margin-top: 100px;">
     <div class="logo" style="font-size: 1rem;">CONCERTO</div>
     <div class="footer-links">
       <a href="partners.html">Partnerships</a>
@@ -263,28 +257,38 @@
   </footer>
 
   <script>
-    // Navbar blur on scroll
+    // 1. Navbar Blur on Scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
     });
 
-    // Fade up elements on scroll
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+    // 2. Dynamic Spotlight Effect on Cards
+    const cardsWrapper = document.getElementById('cards-wrapper');
+    const cards = document.querySelectorAll('.glass-card');
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    cardsWrapper.addEventListener('mousemove', (e) => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        // Calculate mouse position relative to the card
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        // Pass coordinates to CSS variables
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // 3. Mouse-Tracked Parallax Background
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      
+      // Move background slightly in the opposite direction of the mouse
+      bgCanvas.style.transform = `translate(${mouseX * -30}px, ${mouseY * -30}px)`;
+    });
   </script>
 </body>
 </html>
