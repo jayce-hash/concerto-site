@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — FAQ</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── EXACT BRAND PALETTE ─── */
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.65);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    /* ─── AMBIENT BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.2s ease-out; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.2; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(201, 168, 76, 0.05); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ─── GHOST MARQUEE ─── */
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.02; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ─── TYPOGRAPHY & BUTTONS ─── */
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; text-align: center; }
+    
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    /* ─── UNIFIED NAVIGATION ─── */
+    nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase; flex: 1; }
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2; }
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-action { flex: 1; display: flex; justify-content: flex-end; }
+
+    /* ─── FAQ LAYOUT ─── */
+    .editorial-container {
+      max-width: 800px; margin: 0 auto; padding: 180px 5% 100px;
+    }
+    .page-title {
+      font-size: clamp(3rem, 6vw, 4.5rem); text-align: center; line-height: 1.1; margin-bottom: 4rem;
+    }
+
+    .faq-list { margin-top: 2rem; }
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border-light); }
+    
+    .faq-question {
+      width: 100%; text-align: left; padding: 1.8rem 0; background: none; border: none;
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--text);
+      display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+    }
+    .faq-icon {
+      font-family: 'DM Sans', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--border);
+      transition: transform 0.4s ease, color 0.4s ease;
+    }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-answer-inner {
+      padding-bottom: 2rem; color: var(--text-dim); font-size: 1.1rem; line-height: 1.7;
+    }
+    
+    /* Active State */
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg); color: var(--text);
+    }
+    .faq-item.active .faq-question {
+      color: var(--text);
+    }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 3rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-links a { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    @media (max-width: 768px) {
+      .editorial-container { padding: 140px 5% 80px; }
+      .faq-question { font-size: 1.2rem; padding: 1.5rem 0; }
+      .footer-links a { margin-left: 0; margin-right: 1.5rem; display: inline-block; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise"></div>
+  <div class="ghost-marquee"><div class="marquee-track"><span>QUESTIONS • ANSWERS • THE CONCERT COMPANION • </span><span>QUESTIONS • ANSWERS • THE CONCERT COMPANION • </span></div></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-action">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+    </div>
+  </nav>
+
+  <section class="editorial-container">
+    <span class="eyebrow">Common Questions</span>
+    <h1 class="page-title serif">Frequently Asked.</h1>
+
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <button class="faq-question">What exactly is Concerto?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Concerto is the app you open after you buy the ticket. Instead of juggling maps, reviews, and ticketing websites, Concerto gives you one hub for your night out. You get curated city guides, venue logistics (parking, bag policies, concessions), and official setlists all in one place.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is Concerto free to use?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes! The foundation of Concerto is completely free. You can access Events Near Me, City Guides, Setlists, and all Venue Intel (including 1-Tap Rideshare routing and bag policies) at no cost. Concerto Premium ($7.99/mo) unlocks our advanced AI tools like AI Bag Check, Live Mode, and Concerto+ itineraries.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How does the AI Bag Check work?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            As part of Concerto Premium, you can hold your bag up to your phone's camera. Our computer vision AI will estimate your bag's dimensions and structure, cross-reference it with your specific venue's official policy, and give you an instant Pass, Warn, or Fail verdict.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What is Concerto+?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Concerto+ is our AI-powered itinerary builder. You tell it your show, your city, and your vibe, and it generates a mathematically mapped timeline for your night—including dinner reservation timing, precise venue arrival windows, and post-show plans.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What is Live Mode?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Live Mode is your in-show companion. Once you arrive at the venue, the app transforms into a real-time experience. When the show ends, you receive a beautifully designed, shareable Story Card documenting your night—like a Strava post for your concert.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you cover every venue?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We currently provide verified, deeply detailed intel for over 300 major venues around the world, and our database is constantly growing. 
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Does Concerto sell tickets?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            No, Concerto is not a ticketing platform. However, each Featured Tour page links you directly to the official, verified ticketing site so you can secure your spot safely.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How do I contact support?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            You can reach our team anytime by emailing <a href="mailto:support@concertocity.com" style="color: var(--text); font-weight: 600;">support@concertocity.com</a>. We're here to help make your event night flawless.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="faq.html">FAQ</a>
+      <a href="partners.html">Partnerships</a>
+      <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar Blur
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Subtle Background Parallax
+    const bgCanvas = document.getElementById('bg-canvas');
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      bgCanvas.style.transform = `translate(${mouseX * -10}px, ${mouseY * -10}px)`;
+    });
+
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        
+        // Close all other open FAQs smoothly
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Open the clicked one if it wasn't already open
+        if (!isOpen) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
