@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concerto — Premium</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.55);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --premium-gold: #C9A84C;
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(201, 168, 76, 0.15); top: -20%; left: -10%; } /* Gold touch */
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--premium-gold); margin-bottom: 2rem; display: block; }
+    
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    nav { position: fixed; top: 0; width: 100%; padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.5rem 5%; background: rgba(248, 249, 249, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase;}
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
+    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* EDITORIAL LIST LAYOT */
+    .feature-list { max-width: 1000px; margin: 0 auto; padding: 100px 5%; }
+    .feature-row { display: flex; gap: 4rem; align-items: flex-start; padding: 80px 0; border-bottom: 1px solid var(--border-light); }
+    .feature-row:last-child { border-bottom: none; }
+    .feat-icon { font-size: 3rem; flex-shrink: 0; width: 80px; text-align: left; }
+    .feat-content { flex: 1; }
+    .feat-content h3 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text); }
+    .feat-content p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 600px; }
+
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .feature-row { flex-direction: column; gap: 1.5rem; padding: 60px 0; }
+      .nav-links { display: none; }
+      .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise"></div>
+  <div class="ghost-marquee"><div class="marquee-track"><span>AI BAG CHECK • LIVE MODE • AI ITINERARIES • FESTIVALS • </span><span>AI BAG CHECK • LIVE MODE • AI ITINERARIES • FESTIVALS • </span></div></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">Concerto</a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html" class="active">Premium</a>
+      <a href="partners.html">Partners</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">The Magic</span>
+    <h1 class="hero-title serif">Concerto Premium.</h1>
+    <p class="hero-desc">Take the friction out of the live music experience. Premium features built for the people who treat going to a show as an event.</p>
+  </header>
+
+  <section class="feature-list">
+    
+    <div class="feature-row">
+      <div class="feat-icon">📷</div>
+      <div class="feat-content">
+        <h3 class="serif">AI Bag Check</h3>
+        <p>Don't just read the policy—test it. Instead of guessing if your bag meets the venue's rules, hold it up to your camera. Concerto’s AI cross-references your bag's dimensions and structure against the specific venue's database.</p>
+        <p>Get an instant Pass, Warn, or Fail verdict, complete with the exact policy rules cited. No surprises at the door.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-icon">✨</div>
+      <div class="feat-content">
+        <h3 class="serif">Live Mode & Recaps</h3>
+        <p>Once you arrive at the venue, Concerto switches into a real-time companion. We provide an editorial onboarding that sets the tone for the night.</p>
+        <p>When the encore is over, you receive a shareable Story Card capturing your night. It's a beautifully designed, full-screen canvas documenting the show—think of it as a Strava post for your concert.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-icon">🗺️</div>
+      <div class="feat-content">
+        <h3 class="serif">Concerto+ AI Itinerary</h3>
+        <p>You tell us the show, the city, and your vibe. Concerto+ builds the rest. We generate a full night-out timeline, including dinner reservation timing, precise arrival windows, and where to grab drinks after the show.</p>
+        <p>These aren't generic suggestions. It's an actual, mathematical plan tailored to the venue, the artist, and your unique style.</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feat-icon">🎪</div>
+      <div class="feat-content">
+        <h3 class="serif">Festivals Logistics</h3>
+        <p>Festivals aren’t just shows—they’re multi-day logistical puzzles. Concerto Premium unlocks everything you need to navigate them seamlessly.</p>
+        <p>Access full lineups, schedules, set times, stage maps, and survival intel that makes the difference between a chaotic weekend and an unforgettable one.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer style="margin-top: 50px;">
+    <div class="logo" style="font-size: 1.1rem;">CONCERTO</div>
+    <div class="footer-links" style="margin: 0;">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" style="margin-left: 0; margin-right: 2rem;">Get Access</a>
+      <a href="https://instagram.com/theconcertoapp" target="_blank" style="margin-left: 0; margin-right: 2rem;">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
