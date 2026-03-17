@@ -116,7 +116,13 @@
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center; padding: 100px 5% 0;
     }
-    .reveal-wrap { overflow: hidden; display: block; line-height: 1.1; margin-bottom: 0.2rem; }
+    .reveal-wrap { 
+  overflow: hidden; 
+  display: block; 
+  line-height: 1.1; 
+  padding-bottom: 0.25em; /* Gives the 'y' and 'f' room to drop */
+  margin-bottom: -0.1em; /* Pulls the next line back up */
+}
     
     /* SCALED DOWN HERO TEXT */
     .reveal-text {
