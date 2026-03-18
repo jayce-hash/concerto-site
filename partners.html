@@ -28,14 +28,12 @@
       line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
     }
 
-    /* ─── BACKGROUND EFFECTS ─── */
     .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
     .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; }
     .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.4); top: -20%; left: -10%; }
     .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
     .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-    /* ─── MARQUEE ─── */
     .ghost-marquee {
       position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
       transform: translateY(-50%); pointer-events: none; overflow: hidden;
@@ -45,7 +43,6 @@
     .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
     @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ─── TYPOGRAPHY & BUTTONS ─── */
     h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
     .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; display: block; }
     
@@ -57,7 +54,6 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
 
-    /* ─── NAVIGATION ─── */
     nav { position: fixed; top: 0; width: 100%; padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
     nav.scrolled { padding: 1.5rem 5%; background: rgba(248, 249, 249, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
     .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase;}
@@ -65,43 +61,26 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--text); }
 
-    /* ─── HERO ─── */
     .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
     .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
     .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
     .hero .btn-primary { animation: fadeUp 1s ease forwards 0.4s; opacity: 0; transform: translateY(20px); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── PARTNERS GRID LAYOUT ─── */
-    .partners-section { max-width: 1200px; margin: 0 auto; padding: 80px 5%; position: relative; z-index: 10; }
+    /* ─── B2B PITCH GRID ─── */
+    .pitch-section { max-width: 1200px; margin: 0 auto; padding: 60px 5% 120px; position: relative; z-index: 10; }
     .section-heading { font-size: 2.5rem; color: var(--text); margin-bottom: 3rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem; }
 
-    /* Premier Grid */
-    .premier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 6rem; }
-    .partner-card { 
+    .pitch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+    .pitch-card { 
       background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 24px; 
-      padding: 3rem; transition: var(--transition); text-decoration: none; color: inherit; 
-      display: flex; flex-direction: column; 
+      padding: 3.5rem; transition: var(--transition); display: flex; flex-direction: column; 
     }
-    .partner-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-btn); }
+    .pitch-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-btn); }
     
-    .partner-logo-wrap { height: 50px; margin-bottom: 2rem; display: flex; align-items: center; }
-    .partner-logo { max-height: 100%; max-width: 160px; object-fit: contain; filter: grayscale(100%) opacity(0.5); transition: filter 0.4s ease; }
-    .partner-card:hover .partner-logo { filter: grayscale(0%) opacity(1); }
-    
-    .partner-card h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--text); }
-    .partner-card p { color: var(--text-dim); font-size: 1.05rem; line-height: 1.7; }
-
-    /* Small Network Grid */
-    .network-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 6rem; }
-    .network-card { 
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 20px; 
-      height: 120px; display: flex; align-items: center; justify-content: center; padding: 2rem; 
-      transition: var(--transition); text-decoration: none; 
-    }
-    .network-card:hover { background: rgba(18, 30, 54, 0.02); transform: scale(0.98); }
-    .network-card img { max-height: 40px; max-width: 100%; object-fit: contain; filter: grayscale(100%) opacity(0.4); transition: filter 0.3s ease; }
-    .network-card:hover img { filter: grayscale(0%) opacity(1); }
+    .pitch-icon { font-size: 2.5rem; margin-bottom: 1.5rem; opacity: 0.8; }
+    .pitch-card h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    .pitch-card p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.7; }
 
     /* ─── CTA SECTION ─── */
     .cta-section { text-align: center; padding: 120px 5%; border-top: 1px solid var(--border-light); position: relative; z-index: 10; }
@@ -113,8 +92,8 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .premier-grid { grid-template-columns: 1fr; }
-      .network-grid { grid-template-columns: repeat(2, 1fr); }
+      .pitch-grid { grid-template-columns: 1fr; }
+      .pitch-card { padding: 2.5rem 1.5rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
     }
   </style>
@@ -146,84 +125,45 @@
 
   <header class="hero">
     <span class="eyebrow">Concerto Partnerships</span>
-    <h1 class="hero-title serif">The Network.</h1>
+    <h1 class="hero-title serif">Capture the night.</h1>
     <p class="hero-desc">Connect with high-intent concertgoers at the exact moments event-night demand peaks. No passive scrolling—just real fans looking for where to eat, stay, and spend before the show.</p>
-    <a href="mailto:support@concertocity.com" class="btn-primary">Join the Roster</a>
+    <a href="mailto:partners@concertocity.com" class="btn-primary">Become a Partner</a>
   </header>
 
-  <section class="partners-section">
+  <section class="pitch-section">
+    <h2 class="section-heading serif">The Ecosystem</h2>
     
-    <h2 class="section-heading serif">Premier Integrations</h2>
-    <div class="premier-grid">
-      
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/1024px-Uber_logo_2018.svg.png" class="partner-logo" alt="Uber">
-        </div>
-        <h3 class="serif">Rideshare Integration</h3>
-        <p>Seamless 1-tap rideshare hailing directly from the dynamic Concerto itinerary to the venue's designated drop-off zone.</p>
-      </a>
+    <div class="pitch-grid">
+      <div class="pitch-card">
+        <div class="pitch-icon">🍸</div>
+        <h3 class="serif">Restaurants & Bars</h3>
+        <p>"Top Picks" placement in our City Guides surfaces your venue to fans searching for pre-show dinner or post-show drinks. We convert proximity into guaranteed foot traffic, perfectly timed to the local event schedule.</p>
+      </div>
 
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ticketmaster_logo.svg/1024px-Ticketmaster_logo.svg.png" class="partner-logo" alt="Ticketmaster">
-        </div>
-        <h3 class="serif">Live Sync</h3>
-        <p>Automatically sync upcoming shows and secure tickets in the app, fueling the personalized Live Mode timeline.</p>
-      </a>
+      <div class="pitch-card">
+        <div class="pitch-icon">🏨</div>
+        <h3 class="serif">Hotels & Hospitality</h3>
+        <p>Reach guests actively planning trips around major concerts and festivals. Our venue-centric discovery converts one-night shows into full weekend stays, aligned perfectly with known tour routing.</p>
+      </div>
 
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Marriott_International_Logo.svg/1024px-Marriott_International_Logo.svg.png" class="partner-logo" alt="Marriott">
-        </div>
-        <h3 class="serif">Hospitality</h3>
-        <p>Reach guests actively planning trips around major concerts. Our venue-centric discovery converts one-night shows into weekend stays.</p>
-      </a>
+      <div class="pitch-card">
+        <div class="pitch-icon">🎸</div>
+        <h3 class="serif">Artists & Tours</h3>
+        <p>Claim your featured tour placement. Deliver direct ticket links, official setlists, and fan-facing venue logistics directly to your audience. We help artists ensure their fans have a flawless night out from start to finish.</p>
+      </div>
 
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/OpenTable_logo.svg/1024px-OpenTable_logo.svg.png" class="partner-logo" alt="OpenTable">
-        </div>
-        <h3 class="serif">Dining & Nightlife</h3>
-        <p>"Top Picks" placement in our City Guides surfaces venues to fans searching for perfectly-timed pre-show dinner or post-show drinks.</p>
-      </a>
-
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Spotify_logo_2024.svg/1024px-Spotify_logo_2024.svg.png" class="partner-logo" alt="Spotify">
-        </div>
-        <h3 class="serif">Music Integration</h3>
-        <p>Pre-game the exact setlist you are about to hear. Direct streaming links available on every artist's Tour Page.</p>
-      </a>
-
-      <a href="#" class="partner-card">
-        <div class="partner-logo-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Live_Nation_Entertainment_logo.svg/1024px-Live_Nation_Entertainment_logo.svg.png" class="partner-logo" alt="Live Nation">
-        </div>
+      <div class="pitch-card">
+        <div class="pitch-icon">🏟️</div>
         <h3 class="serif">Venues & Festivals</h3>
-        <p>Centralize your bag policies and maps. We drastically reduce day-of operational burden by ensuring fans arrive informed.</p>
-      </a>
-
+        <p>Centralize your bag policies, parking maps, and concessions. By integrating with Concerto, venues drastically reduce day-of operational burden, ease security bottlenecks, and guarantee fans arrive informed and ready.</p>
+      </div>
     </div>
-
-    <h2 class="section-heading serif">City & Venue Partners</h2>
-    <div class="network-grid">
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="Airbnb"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Spotify_logo_2024.svg/1024px-Spotify_logo_2024.svg.png" alt="Spotify"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_Music_Logo.svg/1024px-Apple_Music_Logo.svg.png" alt="Apple Music"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Marriott_International_Logo.svg/1024px-Marriott_International_Logo.svg.png" alt="Marriott"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/OpenTable_logo.svg/1024px-OpenTable_logo.svg.png" alt="OpenTable"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Lyft_logo.svg/1024px-Lyft_logo.svg.png" alt="Lyft"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Delta_logo.svg/1024px-Delta_logo.svg.png" alt="Delta"></a>
-      <a href="#" class="network-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Yelp_logo.svg/1024px-Yelp_logo.svg.png" alt="Yelp"></a>
-    </div>
-
   </section>
 
   <section class="cta-section">
     <h2 class="serif" style="font-size: clamp(2.5rem, 5vw, 4rem); max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.1;">Event-night demand doesn't happen by accident. Own it.</h2>
     <p style="color: var(--text-dim); max-width: 500px; margin: 0 auto 3rem; font-size: 1.1rem;">Join the ecosystem powering the modern live music experience.</p>
-    <a href="mailto:support@concertocity.com" class="btn-primary">Get in Touch</a>
+    <a href="mailto:partners@concertocity.com" class="btn-primary">Get in Touch</a>
   </section>
   
   <footer>
@@ -231,7 +171,7 @@
     <div class="footer-links">
       <a href="faq.html">FAQ</a>
       <a href="about.html">About Us</a>
-      <a href="partners.html">Partnerships</a>
+      <a href="partners.html" class="active" style="color: var(--text);">Partnerships</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
       <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
