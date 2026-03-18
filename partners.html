@@ -102,11 +102,12 @@
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--text); text-decoration: none; text-transform: uppercase;}
     .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: var(--transition); }
     .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
 
     /* ─── HERO ─── */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center; padding: 0 5%;
+      min-height: 90vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0;
     }
     .reveal-wrap { overflow: hidden; display: block; line-height: 1; margin-bottom: 0.5rem; }
     .reveal-text {
@@ -125,28 +126,54 @@
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
     /* ─── LAYOUT & CARDS ─── */
-    .section { padding: 120px 5%; position: relative; z-index: 10; }
+    .section { padding: 80px 5% 120px; position: relative; z-index: 10; }
     .container { max-width: 1400px; margin: 0 auto; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    
+    /* Partner Grid Specifics */
+    .partner-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 1.5rem; 
+    }
     
     .glass-card {
       background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--glass-border); border-radius: 30px;
-      padding: 4rem 3rem; display: flex; flex-direction: column; height: 100%;
-      position: relative; overflow: hidden; cursor: crosshair;
+      border: 1px solid var(--glass-border); border-radius: 20px;
+      padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; cursor: crosshair; text-align: center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(248, 249, 249, 0.3);
     }
     
     /* Dynamic Spotlight Effect */
     .glass-card::before {
       content: ""; position: absolute; inset: 0; border-radius: inherit;
-      background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlight), transparent 40%);
+      background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), var(--spotlight), transparent 40%);
       opacity: 0; transition: opacity 0.5s ease; z-index: 0; pointer-events: none;
     }
     .glass-card:hover::before { opacity: 1; }
 
-    .card-content { position: relative; z-index: 1; }
-    .glass-card h3 { font-size: 2.2rem; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
-    .glass-card p { color: var(--text-dim); font-size: 1.05rem; font-weight: 300; line-height: 1.8; margin-bottom: 1.5rem; }
+    .card-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+    
+    /* Logo Styling for Dark Mode */
+    .partner-logo {
+      height: 45px;
+      max-width: 180px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      /* Forces logos to be white/light silver so they pop against the dark navy */
+      filter: brightness(0) invert(1) opacity(0.6);
+      transition: filter 0.4s ease;
+    }
+    .glass-card:hover .partner-logo {
+      filter: brightness(0) invert(1) opacity(1);
+    }
+
+    .glass-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; letter-spacing: 0.05em; color: var(--text); }
+    .glass-card p { color: var(--text-dim); font-size: 0.95rem; font-weight: 300; line-height: 1.6; }
 
     /* ─── CTA SECTION ─── */
     .cta-section { text-align: center; padding: 150px 5%; border-top: 1px solid var(--glass-border); background: rgba(18, 30, 54, 0.4); }
@@ -158,7 +185,7 @@
     }
 
     @media (max-width: 768px) {
-      .glass-card { padding: 3rem 2rem; }
+      .glass-card { padding: 2.5rem 1.5rem; }
       .nav-links { display: none; }
     }
   </style>
@@ -178,7 +205,7 @@
     </div>
   </div>
   
-<nav id="navbar">
+  <nav id="navbar">
     <a href="index.html" class="logo">Concerto</a>
     <div class="nav-links">
       <a href="features.html">Features</a>
@@ -188,7 +215,7 @@
       <a href="about.html">About Us</a>
     </div>
     <div class="nav-action">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn btn-fill" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
     </div>
   </nav>
 
@@ -196,47 +223,67 @@
     <span class="eyebrow" style="opacity: 0; animation: fadeUp 1s ease forwards;">Concerto Partnerships</span>
     
     <div class="hero-title serif">
-      <div class="reveal-wrap"><span class="reveal-text">Capture the night.</span></div>
+      <div class="reveal-wrap"><span class="reveal-text">The Network.</span></div>
     </div>
     
     <p class="hero-desc">Connect with high-intent concertgoers at the exact moments event-night demand peaks. No passive scrolling—just real fans looking for where to eat, stay, and spend before the show.</p>
-    <a href="mailto:support@concertocity.com" class="btn btn-fill">Become a Partner</a>
+    <a href="mailto:support@concertocity.com" class="btn btn-glass">Join The Roster</a>
   </header>
 
   <section class="section">
     <div class="container">
-      <span class="eyebrow">The Ecosystem</span>
+      <span class="eyebrow">Select Partners</span>
       
-      <div class="cards-wrapper grid-2">
+      <div class="partner-grid">
+        
         <div class="glass-card">
           <div class="card-content">
-            <h3 class="serif">Restaurants & Bars</h3>
-            <p>"Top Picks" placement in our City Guides surfaces your venue to fans searching for pre-show dinner or post-show drinks. We convert proximity into guaranteed foot traffic, perfectly timed to the local event schedule.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/1024px-Uber_logo_2018.svg.png" class="partner-logo" alt="Uber">
+            <h3 class="serif">Rideshare Integration</h3>
+            <p>Seamless 1-tap rideshare hailing directly from the dynamic Concerto itinerary to the venue's designated drop-off zone.</p>
           </div>
         </div>
 
         <div class="glass-card">
           <div class="card-content">
-            <h3 class="serif">Hotels & Hospitality</h3>
-            <p>Reach guests actively planning trips around major concerts and festivals. Our venue-centric discovery converts one-night shows into full weekend stays, aligned perfectly with known tour routing.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cards-wrapper grid-2">
-        <div class="glass-card">
-          <div class="card-content">
-            <h3 class="serif">Artists & Tours</h3>
-            <p>Claim your featured tour placement. Deliver direct ticket links, official setlists, and fan-facing venue logistics directly to your audience. We help artists ensure their fans have a flawless night out from start to finish.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ticketmaster_logo.svg/1024px-Ticketmaster_logo.svg.png" class="partner-logo" alt="Ticketmaster">
+            <h3 class="serif">Live Sync</h3>
+            <p>Automatically sync your upcoming shows and secure your tickets in the app, fueling your personalized Live Mode timeline.</p>
           </div>
         </div>
 
         <div class="glass-card">
           <div class="card-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Marriott_International_Logo.svg/1024px-Marriott_International_Logo.svg.png" class="partner-logo" alt="Marriott">
+            <h3 class="serif">Hospitality</h3>
+            <p>Reach guests actively planning trips around major concerts. Our venue-centric discovery converts one-night shows into weekend stays.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/OpenTable_logo.svg/1024px-OpenTable_logo.svg.png" class="partner-logo" alt="OpenTable">
+            <h3 class="serif">Dining & Nightlife</h3>
+            <p>"Top Picks" placement in our City Guides surfaces your venue to fans searching for perfectly-timed pre-show dinner or post-show drinks.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Spotify_logo_2024.svg/1024px-Spotify_logo_2024.svg.png" class="partner-logo" alt="Spotify">
+            <h3 class="serif">Music Integration</h3>
+            <p>Pre-game the exact setlist you are about to hear. Direct streaming links available on every artist's Tour Page.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Live_Nation_Entertainment_logo.svg/1024px-Live_Nation_Entertainment_logo.svg.png" class="partner-logo" alt="Live Nation">
             <h3 class="serif">Venues & Festivals</h3>
-            <p>Centralize your bag policies, parking maps, and concessions. By integrating with Concerto, venues drastically reduce day-of operational burden, ease security bottlenecks, and guarantee fans arrive informed and ready.</p>
+            <p>Centralize your bag policies and maps. We drastically reduce day-of operational burden by ensuring fans arrive informed.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -249,12 +296,12 @@
     </div>
   </section>
   
-<footer>
+  <footer>
     <div class="logo" style="font-size: 1rem;">CONCERTO</div>
     <div class="footer-links">
       <a href="faq.html">FAQ</a>
       <a href="about.html">About Us</a>
-      <a href="partners.html">Partnerships</a>
+      <a href="partners.html" class="active" style="color: var(--text);">Partnerships</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
       <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
