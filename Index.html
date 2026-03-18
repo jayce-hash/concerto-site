@@ -84,7 +84,7 @@
       transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24);
     }
 
-    /* ─── UNIFIED NAVIGATION ─── */
+    /* ─── UNIFIED NAVIGATION & LOGO ─── */
     nav {
       position: fixed; top: 0; width: 100%; padding: 2rem 5%;
       display: flex; align-items: center; justify-content: space-between;
@@ -96,10 +96,15 @@
       border-bottom: 1px solid var(--border-light);
     }
     .logo { 
-      font-family: 'Playfair Display', serif; font-size: 1.4rem; 
-      font-weight: 700; letter-spacing: 0.02em; color: var(--text); 
-      text-decoration: none; text-transform: uppercase; flex: 1;
+      text-decoration: none; display: flex; align-items: center; flex: 1;
     }
+    .nav-logo-img {
+      height: 2.2rem; width: auto; object-fit: contain; mix-blend-mode: multiply; display: block;
+    }
+    .footer-logo-img {
+      height: 1.2rem; width: auto; object-fit: contain; mix-blend-mode: multiply; display: block; opacity: 0.8;
+    }
+    
     .nav-links { 
       display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2;
     }
@@ -117,14 +122,13 @@
       align-items: center; justify-content: center; text-align: center; padding: 100px 5% 0;
     }
     .reveal-wrap { 
-  overflow: hidden; 
-  display: block; 
-  line-height: 1.1; 
-  padding-bottom: 0.25em; /* Gives the 'y' and 'f' room to drop */
-  margin-bottom: -0.1em; /* Pulls the next line back up */
-}
+      overflow: hidden; 
+      display: block; 
+      line-height: 1.1; 
+      padding-bottom: 0.25em; 
+      margin-bottom: -0.1em; 
+    }
     
-    /* SCALED DOWN HERO TEXT */
     .reveal-text {
       display: block; font-size: clamp(2.5rem, 6vw, 5rem);
       letter-spacing: -0.02em; transform: translateY(110%);
@@ -162,7 +166,6 @@
       border: 1px solid var(--border-light);
     }
     
-    /* SCALED DOWN CARD TEXT */
     .feature-card h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.8rem; color: var(--text); }
     .feature-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
     .feature-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
@@ -194,7 +197,7 @@
 
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) {
-      .nav-links { display: none; } /* Hides center links to keep mobile nav clean */
+      .nav-links { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -225,7 +228,9 @@
   </div>
 
   <nav id="navbar">
-    <a href="index.html" class="logo">Concerto</a>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Concerto" class="nav-logo-img">
+    </a>
     <div class="nav-links">
       <a href="features.html">Features</a>
       <a href="premium.html">Premium</a>
@@ -350,8 +355,11 @@
       <span class="eyebrow" style="color: var(--text); margin-top: 2rem;">— Jayce Wells, Founder</span>
     </div>
   </section>
-<footer>
-    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+
+  <footer>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Concerto" class="footer-logo-img">
+    </a>
     <div class="footer-links">
       <a href="faq.html">FAQ</a>
       <a href="about.html">About Us</a>
