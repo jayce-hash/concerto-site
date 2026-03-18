@@ -99,21 +99,21 @@
       text-decoration: none; display: flex; align-items: center; flex: 1;
     }
     
-    /* LOGO SIZING: Adjust 'height' to make it bigger/smaller */
+    /* UNIFIED LOGO SIZING & ALIGNMENT FIX */
     .nav-logo-img {
-      height: 4rem; /* <--- INCREASED FROM 2.2rem */
+      height: 7rem; /* <--- SCALED UP SIGNIFICANTLY */
       width: auto; 
       object-fit: contain; 
-      mix-blend-mode: multiply; 
       display: block;
+      mix-blend-mode: normal; /* <--- Reverting mix-blend-mode to normal for pure transparency handling */
     }
     .footer-logo-img {
-      height: 2rem; /* <--- INCREASED FROM 1.2rem */
+      height: 3.5rem; /* <--- SCALED UP SIGNIFICANTLY */
       width: auto; 
       object-fit: contain; 
-      mix-blend-mode: multiply; 
       display: block; 
       opacity: 0.8;
+      mix-blend-mode: normal; /* <--- Also reverted to normal blend mode */
     }
     
     .nav-links { 
@@ -220,8 +220,8 @@
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
       
-      /* Scale logo down slightly on mobile so it fits the smaller navbar */
-      .nav-logo-img { height: 2.8rem; } 
+      /* Scale logo down for mobile navigation */
+      .nav-logo-img { height: 5rem; } 
     }
   </style>
 </head>
