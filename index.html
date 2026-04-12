@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concerto — The City Awaits</title>
+  
+  <title>Concerto App | The Ultimate Concert & Live Music Companion</title>
+  <meta name="description" content="Concerto is the ultimate concert companion app. Get verified venue intel, bag policies, tour setlists, and curated city guides for your next live music event." />
+  <meta property="og:title" content="Concerto App | The Ultimate Concert Companion" />
+  <meta property="og:description" content="Navigate the night flawlessly. Get venue intel, 3D maps, bag policies, and curated guides for your next show." />
+  <meta property="og:image" content="https://yourwebsite.com/preview-image.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com/" />
+  <meta property="og:type" content="website" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,19 +108,19 @@
     
     /* UNIFIED LOGO SIZING & ALIGNMENT FIX */
     .nav-logo-img {
-      height: 7rem; /* <--- SCALED UP SIGNIFICANTLY */
+      height: 7rem;
       width: auto; 
       object-fit: contain; 
       display: block;
-      mix-blend-mode: normal; /* <--- Reverting mix-blend-mode to normal for pure transparency handling */
+      mix-blend-mode: normal;
     }
     .footer-logo-img {
-      height: 3.5rem; /* <--- SCALED UP SIGNIFICANTLY */
+      height: 3.5rem;
       width: auto; 
       object-fit: contain; 
       display: block; 
       opacity: 0.8;
-      mix-blend-mode: normal; /* <--- Also reverted to normal blend mode */
+      mix-blend-mode: normal;
     }
     
     .nav-links { 
@@ -177,7 +184,8 @@
     }
     
     .feature-card h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.8rem; color: var(--text); }
-    .feature-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
+    /* Added premium-feature-title to maintain existing styling when converting h4 to h3 for SEO */
+    .feature-card h4, .feature-card .premium-feature-title { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 600; letter-spacing: 0.02em; }
     .feature-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
 
     /* ─── PREMIUM SECTION ─── */
@@ -195,7 +203,7 @@
     .crew-name { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 0.8rem; color: var(--text); }
 
     /* ─── FOOTER ─── */
-    footer {
+    <footer>
       border-top: 1px solid var(--border-light); padding: 3rem 5%; background: var(--bg);
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
     }
@@ -259,10 +267,10 @@
   <header class="hero">
     <span class="eyebrow" style="opacity: 0; animation: fadeUp 1s ease forwards;">THE ULTIMATE CONCERT COMPANION</span>
     
-    <div class="hero-title serif">
+    <h1 class="hero-title serif">
       <div class="reveal-wrap"><span class="reveal-text">Everything you need</span></div>
       <div class="reveal-wrap"><span class="reveal-text delay-title"><i style="color: var(--text-dim);">from the concert to the city.</i></span></div>
-    </div>
+    </h1>
     
     <p class="hero-desc">The app you open the second you buy the ticket. Concerto picks up where ticketing apps drop off, giving you the insider data, 3D maps, and curated guides to navigate the night flawlessly.</p>
     <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" class="btn btn-primary">DOWNLOAD THE APP</a>
@@ -314,25 +322,25 @@
       <div class="grid-2">
         <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
           <div class="card-icon">📷</div>
-          <h4>AI Bag Check</h4>
+          <h3 class="premium-feature-title">AI Bag Check</h3>
           <p>Don't just read the policy. Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue. No surprises at the door.</p>
         </div>
 
         <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
           <div class="card-icon">✨</div>
-          <h4>Live Mode & Recaps</h4>
+          <h3 class="premium-feature-title">Live Mode & Recaps</h3>
           <p>Once you arrive, the app switches to an in-show experience. After the encore, receive a beautifully designed, shareable Story Card documenting your night—like a Strava post for your concert.</p>
         </div>
 
         <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
           <div class="card-icon">🗺️</div>
-          <h4>Concerto+ AI Itinerary</h4>
+          <h3 class="premium-feature-title">Concerto+ AI Itinerary</h3>
           <p>Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks, all mathematically mapped to the venue.</p>
         </div>
 
         <div class="feature-card" style="border-color: rgba(201, 168, 76, 0.4);">
           <div class="card-icon">🎪</div>
-          <h4>Festivals Logistics</h4>
+          <h3 class="premium-feature-title">Festivals Logistics</h3>
           <p>Navigate the most complex live music puzzles. Full access to multi-day lineups, schedules, set times, stage maps, and survival intel for major festivals.</p>
         </div>
       </div>
