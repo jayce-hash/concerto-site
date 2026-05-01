@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8F9F9" />
   
   <title>About Concerto | The Live Event & Concert Companion App</title>
   <meta name="description" content="Learn the story behind Concerto, the ultimate companion app for live music, concerts, and sporting events. We make your entire night out effortless." />
+  
   <meta property="og:title" content="About Concerto | The Live Event Companion App" />
   <meta property="og:description" content="Discover why we built Concerto. From venue intel to post-show rideshares, we're the app you open after you buy the ticket." />
   <meta property="og:image" content="https://yourwebsite.com/preview-about.jpg" />
@@ -40,7 +42,7 @@
     }
 
     /* ─── AMBIENT BACKGROUND ─── */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.2s ease-out; }
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
     .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
     .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
     .orb-2 { width: 50vw; height: 50vw; background: rgba(201, 168, 76, 0.08); bottom: -10%; right: -10%; }
@@ -63,7 +65,7 @@
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; transition: all 0.3s; cursor: pointer; text-decoration: none;
+      text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none;
       border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
@@ -71,7 +73,11 @@
     /* ─── UNIFIED NAVIGATION ─── */
     nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
     nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; text-transform: uppercase; flex: 1; }
+    .logo { text-decoration: none; display: flex; align-items: center; flex: 1; }
+    
+    .nav-logo-img { height: 7rem; width: auto; object-fit: contain; display: block; mix-blend-mode: normal; }
+    .footer-logo-img { height: 3.5rem; width: auto; object-fit: contain; display: block; opacity: 0.8; mix-blend-mode: normal; }
+    
     .nav-links { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2; }
     .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
@@ -97,7 +103,6 @@
       background: var(--card-bg); border: 1px solid var(--border-light); border-left: 3px solid var(--premium-gold);
       border-radius: 16px; padding: 3rem; margin: 4rem 0; box-shadow: var(--shadow-sm);
     }
-    /* Fixed h3 to h2 for proper SEO hierarchy */
     .premium-callout h2 { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
     .premium-callout p { font-size: 1.05rem; line-height: 1.7; color: var(--text-dim); margin-bottom: 1.5rem; }
     .premium-callout ul { margin-bottom: 2rem; padding-left: 1.2rem; color: var(--text-dim); font-size: 1.05rem; line-height: 1.7; }
@@ -112,85 +117,104 @@
     .disclaimer p { font-size: 0.85rem; line-height: 1.6; color: rgba(18, 30, 54, 0.45); margin-bottom: 1rem; }
 
     /* ─── FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 3rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    footer { border-top: 1px solid var(--border-light); padding: 3rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
     .footer-links a { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 2rem; transition: color 0.3s; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
       .editorial-container { padding: 140px 5% 80px; }
       .premium-callout { padding: 2rem 1.5rem; }
       .footer-links a { margin-left: 0; margin-right: 1.5rem; display: inline-block; margin-bottom: 1rem; }
+      nav { padding: 1.5rem 5%; }
+      nav.scrolled { padding: 1rem 5%; }
+      .nav-logo-img { height: 5rem; } 
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-canvas" id="bg-canvas"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-  <div class="noise"></div>
-  <div class="ghost-marquee"><div class="marquee-track"><span>OUR STORY • THE CONCERT COMPANION • </span><span>OUR STORY • THE CONCERT COMPANION • </span></div></div>
+  <div class="bg-canvas" id="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  
+  <div class="ghost-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>OUR STORY • THE CONCERT COMPANION • </span>
+      <span>OUR STORY • THE CONCERT COMPANION • </span>
+    </div>
+  </div>
 
-<nav id="navbar">
-    <a href="index.html" class="logo">Concerto</a>
+  <nav id="navbar" aria-label="Main Navigation">
+    <a href="index.html" class="logo" aria-label="Concerto Home">
+      <img src="logo.png" alt="Concerto Logo" class="nav-logo-img" width="150" height="112">
+    </a>
     <div class="nav-links">
       <a href="features.html">Features</a>
       <a href="premium.html">Premium</a>
       <a href="shop.html">Shop</a>
       <a href="partners.html">Partners</a>
-      <a href="about.html" class="active">About Us</a>
+      <a href="about.html" class="active" aria-current="page">About Us</a>
     </div>
     <div class="nav-action">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
     </div>
   </nav>
 
-  <section class="editorial-container">
-    <span class="eyebrow">Behind the App</span>
-    <h1 class="page-title serif">Our Story.</h1>
+  <main>
+    <section class="editorial-container">
+      <span class="eyebrow">Behind the App</span>
+      <h1 class="page-title serif">Our Story.</h1>
 
-    <div class="prose">
-      <p class="lead">Whether it’s your favorite artist taking the stage, or your hometown team hitting the court, the experience starts long before the event.</p>
-      
-      <p>It's the dinner before the show, the hotel you stay in, the rush of grabbing merch, and figuring out how to get home when the encore ends. Most apps stop at discovery. They tell you the show exists, and then you're on your own—bouncing between maps, review sites, and venue pages just to piece the night together.</p>
+      <div class="prose">
+        <p class="lead">Whether it’s your favorite artist taking the stage, or your hometown team hitting the court, the experience starts long before the event.</p>
+        
+        <p>It's the dinner before the show, the hotel you stay in, the rush of grabbing merch, and figuring out how to get home when the encore ends. Most apps stop at discovery. They tell you the show exists, and then you're on your own—bouncing between maps, review sites, and venue pages just to piece the night together.</p>
 
-      <p>At Concerto, we believe every detail of the night matters. That’s why we built the app you open <em>after</em> you buy the ticket. A single hub for the entire night out.</p>
+        <p>At Concerto, we believe every detail of the night matters. That’s why we built the app you open <em>after</em> you buy the ticket. A single hub for the entire night out.</p>
 
-      <p>We actively cover over 300 venues globally, providing verified bag policies, parking maps, official setlists, and 1-tap rideshare routing. We skip the generic Yelp reviews to bring you curated City Guides physically anchored to your venue.</p>
+        <p>We actively cover over 300 venues globally, providing verified bag policies, parking maps, official setlists, and 1-tap rideshare routing. We skip the generic Yelp reviews to bring you curated City Guides physically anchored to your venue.</p>
 
-      <p>And Concerto isn’t just for concerts. If you’re heading to a game, a match, or any live event at these same arenas and stadiums, you get the exact same benefits. From grabbing dinner before tip-off to finding the right rideshare zone after the final whistle, we built Concerto to make the entire experience effortless.</p>
+        <p>And Concerto isn’t just for concerts. If you’re heading to a game, a match, or any live event at these same arenas and stadiums, you get the exact same benefits. From grabbing dinner before tip-off to finding the right rideshare zone after the final whistle, we built Concerto to make the entire experience effortless.</p>
 
-      <div class="premium-callout">
-        <h2 class="serif">Concerto Premium</h2>
-        <p>For fans who want to remove all friction from the live event experience, Premium unlocks our most powerful tools:</p>
-        <ul>
-          <li><strong>Bag Check:</strong> Scan your bag with your camera for an instant verdict against the venue's official policy. No surprises at the door.</li>
-          <li><strong>Live Mode:</strong> Switch to an in-show experience and receive a beautifully designed, shareable Story Card documenting your night—a Strava post for your concert.</li>
-          <li><strong>Concerto+:</strong> A personalized AI builder that mathematically maps out your dinner timing, arrival windows, and post-show plans.</li>
-          <li><strong>Festivals:</strong> Every festival in one guide with lineups, logistics, policies, and schedules.</li>
-        </ul>
-        <div class="price-tag">Available for $7.99/month or $69.99/year.</div>
+        <div class="premium-callout">
+          <h2 class="serif">Concerto Premium</h2>
+          <p>For fans who want to remove all friction from the live event experience, Premium unlocks our most powerful tools:</p>
+          <ul>
+            <li><strong>Bag Check:</strong> Scan your bag with your camera for an instant verdict against the venue's official policy. No surprises at the door.</li>
+            <li><strong>Live Mode:</strong> Switch to an in-show experience and receive a beautifully designed, shareable Story Card documenting your night—a Strava post for your concert.</li>
+            <li><strong>Concerto+:</strong> A personalized AI builder that mathematically maps out your dinner timing, arrival windows, and post-show plans.</li>
+            <li><strong>Festivals:</strong> Every festival in one guide with lineups, logistics, policies, and schedules.</li>
+          </ul>
+          <div class="price-tag">Available for $7.99/month or $69.99/year.</div>
+        </div>
+
+        <p class="lead" style="text-align: center; margin-top: 4rem;">With Concerto, planning your night is as easy as enjoying it.</p>
+        <p style="text-align: center;">From the pre-show buzz to the final encore—or from the opening tip to the last play—we’re here to make every moment smoother.</p>
       </div>
 
-      <p class="lead" style="text-align: center; margin-top: 4rem;">With Concerto, planning your night is as easy as enjoying it.</p>
-      <p style="text-align: center;">From the pre-show buzz to the final encore—or from the opening tip to the last play—we’re here to make every moment smoother.</p>
-    </div>
+      <div class="disclaimer">
+        <div class="disclaimer-title">Disclaimer</div>
+        <p>Concerto is an independent platform and is not affiliated with or endorsed by any artist, band, team, league, venue, or promoter. All artist names, tour titles, team names, event information, and images are the property of their respective owners and are used for informational purposes only.</p>
+        <p>Concerto provides links to third-party websites and services, including venue information, Uber, and Lyft, for convenience only. Concerto does not own or control these services, and all trademarks and content remain the property of their respective owners.</p>
+      </div>
+    </section>
+  </main>
 
-    <div class="disclaimer">
-      <div class="disclaimer-title">Disclaimer</div>
-      <p>Concerto is an independent platform and is not affiliated with or endorsed by any artist, band, team, league, venue, or promoter. All artist names, tour titles, team names, event information, and images are the property of their respective owners and are used for informational purposes only.</p>
-      <p>Concerto provides links to third-party websites and services, including venue information, Uber, and Lyft, for convenience only. Concerto does not own or control these services, and all trademarks and content remain the property of their respective owners.</p>
-    </div>
-  </section>
-
-<footer>
-    <div class="logo" style="font-size: 1rem;">CONCERTO</div>
+  <footer>
+    <a href="index.html" class="logo" aria-label="Concerto Home">
+      <img src="logo.png" alt="Concerto Logo" class="footer-logo-img" width="100" height="56">
+    </a>
     <div class="footer-links">
       <a href="faq.html">FAQ</a>
       <a href="about.html">About Us</a>
       <a href="partners.html">Partnerships</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+      <a href="https://instagram.com/theconcertocrew" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="mailto:support@concertocity.com">Contact</a>
     </div>
   </footer>
@@ -203,12 +227,20 @@
       else navbar.classList.remove('scrolled');
     });
 
-    // Subtle Background Parallax
+    // Optimized Background Parallax
     const bgCanvas = document.getElementById('bg-canvas');
+    let ticking = false;
+
     document.addEventListener('mousemove', (e) => {
-      const mouseX = e.clientX / window.innerWidth - 0.5;
-      const mouseY = e.clientY / window.innerHeight - 0.5;
-      bgCanvas.style.transform = `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const mouseX = e.clientX / window.innerWidth - 0.5;
+          const mouseY = e.clientY / window.innerHeight - 0.5;
+          bgCanvas.style.transform = `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
   </script>
 </body>
