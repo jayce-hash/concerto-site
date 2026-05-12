@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8F9F9" />
+  
+  <title>Concert City Guides & Pre-Show Dining | Concerto</title>
+  <meta name="title" content="Concert City Guides & Pre-Show Dining | Concerto" />
+  <meta name="description" content="Find the best curated restaurants, bars, and hotels near your concert venue. Skip the tourist traps and eat where the locals eat." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── EXACT BRAND PALETTE ─── */
+    :root {
+      --bg: #F8F9F9; 
+      --card-bg: #FFFFFF;
+      --text: #121E36; 
+      --text-dim: rgba(18, 30, 54, 0.55);
+      --border: #C0C0C0; 
+      --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    /* ─── AMBIENT BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.3; }
+    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.4); top: -20%; left: -10%; }
+    .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
+
+    /* ─── TYPOGRAPHY & BUTTONS ─── */
+    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; }
+    
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
+
+    /* ─── NAVIGATION ─── */
+    nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
+    nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
+    .logo { text-decoration: none; display: flex; align-items: center; flex: 1; }
+    .nav-logo-img { height: 7rem; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2; }
+    .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-action { flex: 1; display: flex; justify-content: flex-end; }
+    .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
+
+    /* ─── HERO ─── */
+    .hero { min-height: 45vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 160px 5% 40px; }
+    .hero-title { font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; }
+    .hero-desc { font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--text-dim); max-width: 600px; margin: 0 auto; }
+
+    /* ─── DIRECTORY UI ─── */
+    .directory-container { max-width: 900px; margin: 0 auto; padding: 0 5% 120px; }
+    
+    .search-wrapper { position: relative; margin-bottom: 3rem; }
+    .search-input {
+      width: 100%; padding: 1.5rem 2rem; border-radius: 20px; border: 1px solid var(--border-light);
+      background: var(--card-bg); font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--text);
+      outline: none; transition: border-color 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(18, 30, 54, 0.04);
+    }
+    .search-input:focus { border-color: var(--text); box-shadow: 0 8px 30px rgba(18, 30, 54, 0.08); }
+    .search-input::placeholder { color: rgba(18, 30, 54, 0.3); }
+
+    .venue-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    
+    .venue-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 16px;
+      text-decoration: none; color: var(--text); transition: all 0.2s ease;
+    }
+    .venue-link:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(18, 30, 54, 0.06); border-color: var(--text); }
+    
+    .v-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; display: block; margin-bottom: 0.2rem; }
+    .v-action { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
+    .venue-link:hover .v-action { color: var(--text); }
+
+    .no-results { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-dim); font-size: 1.1rem; }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+    .footer-logo-img { height: 3.5rem; width: auto; opacity: 0.8; }
+    .footer-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; margin-left: 3rem; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 960px) { .nav-links { display: none; } }
+    @media (max-width: 768px) {
+      .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
+      .nav-logo-img { height: 5rem; }
+      .venue-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="bg-canvas" id="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <nav id="navbar">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Concerto Logo" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+    </div>
+    <div class="nav-action">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary btn-nav">Get Access</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <span class="eyebrow">The Essentials</span>
+      <h1 class="hero-title serif">City Guides</h1>
+      <p class="hero-desc">Skip the generic Yelp reviews. Search for your venue below to unlock curated pre-show dining and upscale hotel options anchored physically to your event.</p>
+    </header>
+
+    <section class="directory-container">
+      <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search a venue or festival..." autocomplete="off">
+      </div>
+      
+      <div class="venue-list" id="venueList">
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Concerto Logo" class="footer-logo-img">
+    </a>
+    <div class="footer-links">
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About Us</a>
+      <a href="features.html">All Features</a>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar Blur
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // ─── THE DIRECTORY DATABASE ───
+    // Automatically parsed from your provided spreadsheet data
+    const venues = [
+      { name: "3Arena", url: "https://concerto-venue-map.netlify.app/3arena" },
+      { name: "713 Music Hall", url: "https://concerto-venue-map.netlify.app/713musichall" },
+      { name: "Accor Arena", url: "https://concerto-venue-map.netlify.app/accorarena" },
+      { name: "ACL Live at The Moody Theater", url: "https://concerto-venue-map.netlify.app/aclliveatthemoodytheater" },
+      { name: "Acrisure Arena at Greater Palm Springs", url: "https://concerto-venue-map.netlify.app/acrisurearenaatgreaterpalmsprings" },
+      { name: "Acrisure Stadium", url: "https://concerto-venue-map.netlify.app/acrisurestadium" },
+      { name: "Addition Financial Arena", url: "https://concerto-venue-map.netlify.app/additionfinancialarena" },
+      { name: "Alamodome", url: "https://concerto-venue-map.netlify.app/alamodome" },
+      { name: "Albertsons Stadium", url: "https://concerto-venue-map.netlify.app/albertsonsstadium" },
+      { name: "Allegiant Stadium", url: "https://concerto-venue-map.netlify.app/allegiantstadium" },
+      { name: "Allas Live", url: "https://concerto-venue-map.netlify.app/allaslive" },
+      { name: "Allianz Arena", url: "https://concerto-venue-map.netlify.app/allianzarena" },
+      { name: "Allstate Arena", url: "https://concerto-venue-map.netlify.app/allstatearena" },
+      { name: "Amerant Bank Arena", url: "https://concerto-venue-map.netlify.app/amerantbankarena" },
+      { name: "American Airlines Center", url: "https://concerto-venue-map.netlify.app/americanairlinescenter" },
+      { name: "American Family Insurance Amphitheater", url: "https://concerto-venue-map.netlify.app/americanfamilyinsuranceamphitheater" },
+      { name: "American Family Field", url: "https://concerto-venue-map.netlify.app/americanfamilyfield" },
+      { name: "Amalie Arena", url: "https://concerto-venue-map.netlify.app/amaliearena" },
+      { name: "Amica Mutual Pavilion", url: "https://concerto-venue-map.netlify.app/amicamutualpavilion" },
+      { name: "Anfiteatro degli Scavi", url: "https://concerto-venue-map.netlify.app/anfiteatrodegliscavi" },
+      { name: "Angel Stadium", url: "https://concerto-venue-map.netlify.app/angelstadium" },
+      { name: "AO Arena", url: "https://concerto-venue-map.netlify.app/aoarena" },
+      { name: "Arizona Financial Theatre", url: "https://concerto-venue-map.netlify.app/arizonafinancialtheatre" },
+      { name: "AT&T Stadium", url: "https://concerto-venue-map.netlify.app/attstadium" },
+      { name: "BMO Pavilion", url: "https://concerto-venue-map.netlify.app/bmopavilion" },
+      { name: "Ball Arena", url: "https://concerto-venue-map.netlify.app/ballarena" },
+      { name: "Bank of America Stadium", url: "https://concerto-venue-map.netlify.app/bankofamericastadium" },
+      { name: "Barclays Center", url: "https://concerto-venue-map.netlify.app/barclayscenter" },
+      { name: "Barclays Arena", url: "https://concerto-venue-map.netlify.app/barclaysarena" },
+      { name: "BC Place", url: "https://concerto-venue-map.netlify.app/bcplace" },
+      { name: "Bell Centre", url: "https://concerto-venue-map.netlify.app/bellcentre" },
+      { name: "Bellco Theatre", url: "https://concerto-venue-map.netlify.app/bellcotheatre" },
+      { name: "Benchmark International Arena", url: "https://concerto-venue-map.netlify.app/benchmarkinternationalarena" },
+      { name: "Bethel Woods Center for the Arts", url: "https://concerto-venue-map.netlify.app/bethelwoodscenterforthearts" },
+      { name: "Bill Graham Civic Auditorium", url: "https://concerto-venue-map.netlify.app/billgrahamcivicauditorium" },
+      { name: "BJCC Arena", url: "https://concerto-venue-map.netlify.app/bjccarena" },
+      { name: "Blue Cross Arena", url: "https://concerto-venue-map.netlify.app/bluecrossarena" },
+      { name: "Bobby Dodd Stadium at Hyundai Field", url: "https://concerto-venue-map.netlify.app/bobbydoddstadiumathyundaifield" },
+      { name: "BOK Center", url: "https://concerto-venue-map.netlify.app/bokcenter" },
+      { name: "bp pulse Live", url: "https://concerto-venue-map.netlify.app/bppulselive" },
+      { name: "Bridgestone Arena", url: "https://concerto-venue-map.netlify.app/bridgestonearena" },
+      { name: "Broadview Stage at SPAC", url: "https://concerto-venue-map.netlify.app/broadviewstageatspac" },
+      { name: "Brighton Centre", url: "https://concerto-venue-map.netlify.app/brightoncentre" },
+      { name: "Brooklyn Paramount", url: "https://concerto-venue-map.netlify.app/brooklynparamount" },
+      { name: "Busch Stadium", url: "https://concerto-venue-map.netlify.app/buschstadium" },
+      { name: "Byline Bank Aragon Ballroom", url: "https://concerto-venue-map.netlify.app/bylinebankaragonballroom" },
+      { name: "Cable Dahmer Arena", url: "https://concerto-venue-map.netlify.app/cabledahmerarena" },
+      { name: "Caesars Superdome", url: "https://concerto-venue-map.netlify.app/caesarssuperdome" },
+      { name: "Camp Randall Stadium", url: "https://concerto-venue-map.netlify.app/camprandallstadium" },
+      { name: "Canada Life Centre", url: "https://concerto-venue-map.netlify.app/canadalifecentre" },
+      { name: "Canadian Tire Centre", url: "https://concerto-venue-map.netlify.app/canadiantirecentre" },
+      { name: "Capital One Arena", url: "https://concerto-venue-map.netlify.app/capitalonearena" },
+      { name: "Center Stage Theater", url: "https://concerto-venue-map.netlify.app/centerstagetheater" },
+      { name: "CFG Bank Arena", url: "https://concerto-venue-map.netlify.app/cfgbankarena" },
+      { name: "Chaifetz Arena", url: "https://concerto-venue-map.netlify.app/chaifetzarena" },
+      { name: "Chase Center", url: "https://concerto-venue-map.netlify.app/chasecenter" },
+      { name: "Chase Field", url: "https://concerto-venue-map.netlify.app/chasefield" },
+      { name: "CHI Health Center", url: "https://concerto-venue-map.netlify.app/chihealthcenter" },
+      { name: "Citi Field", url: "https://concerto-venue-map.netlify.app/citifield" },
+      { name: "Citizens Bank Park", url: "https://concerto-venue-map.netlify.app/citizensbankpark" },
+      { name: "Citizens House of Blues", url: "https://concerto-venue-map.netlify.app/citizenshouseofblues" },
+      { name: "Climate Pledge Arena", url: "https://concerto-venue-map.netlify.app/climatepledgearena" },
+      { name: "Coca-Cola Coliseum", url: "https://concerto-venue-map.netlify.app/cocacolacoliseum" },
+      { name: "Coca-Cola Roxy", url: "https://concerto-venue-map.netlify.app/cocacolaroxy" },
+      { name: "Colonial Life Arena", url: "https://concerto-venue-map.netlify.app/coloniallifearena" },
+      { name: "Comerica Park", url: "https://concerto-venue-map.netlify.app/comericapark" },
+      { name: "Commonwealth Stadium", url: "https://concerto-venue-map.netlify.app/commonwealthstadium" },
+      { name: "Co-op Live", url: "https://concerto-venue-map.netlify.app/cooplive" },
+      { name: "Coors Field", url: "https://concerto-venue-map.netlify.app/coorsfield" },
+      { name: "Credit Union 1 Amphitheatre", url: "https://concerto-venue-map.netlify.app/creditunion1amphitheatre" },
+      { name: "Cross Insurance Arena", url: "https://concerto-venue-map.netlify.app/crossinsurancearena" },
+      { name: "Cross Insurance Center", url: "https://concerto-venue-map.netlify.app/crossinsurancecenter" },
+      { name: "Crypto.com Arena", url: "https://concerto-venue-map.netlify.app/cryptocomarena" },
+      { name: "CURE Insurance Arena", url: "https://concerto-venue-map.netlify.app/cureinsurancearena" },
+      { name: "Daikin Park", url: "https://concerto-venue-map.netlify.app/daikinpark" },
+      { name: "Delta Center", url: "https://concerto-venue-map.netlify.app/deltacenter" },
+      { name: "Desert Diamond Arena", url: "https://concerto-venue-map.netlify.app/desertdiamondarena" },
+      { name: "Dickies Arena", url: "https://concerto-venue-map.netlify.app/dickiesarena" },
+      { name: "Dodger Stadium", url: "https://concerto-venue-map.netlify.app/dodgerstadium" },
+      { name: "Dolby Live at Park MGM", url: "https://concerto-venue-map.netlify.app/dolbyliveatparkmgm" },
+      { name: "Dos Equis Pavilion", url: "https://concerto-venue-map.netlify.app/dosequispavilion" },
+      { name: "EagleBank Arena", url: "https://concerto-venue-map.netlify.app/eaglebankarena" },
+      { name: "Empower Federal Credit Union Amphitheater", url: "https://concerto-venue-map.netlify.app/empowerfederalcreditunionamphitheater" },
+      { name: "Empower Field at Mile High", url: "https://concerto-venue-map.netlify.app/empowerfieldatmilehigh" },
+      { name: "Enterprise Center", url: "https://concerto-venue-map.netlify.app/enterprisecenter" },
+      { name: "Estadio GNP Seguros", url: "https://concerto-venue-map.netlify.app/estadiognpseguros" },
+      { name: "Eventim Apollo", url: "https://concerto-venue-map.netlify.app/eventimapollo" },
+      { name: "EverBank Stadium", url: "https://concerto-venue-map.netlify.app/everbankstadium" },
+      { name: "Falcon Stadium", url: "https://concerto-venue-map.netlify.app/falconstadium" },
+      { name: "Fargodome", url: "https://concerto-venue-map.netlify.app/fargodome" },
+      { name: "FedExForum", url: "https://concerto-venue-map.netlify.app/fedexforum" },
+      { name: "Fenway Park", url: "https://concerto-venue-map.netlify.app/fenwaypark" },
+      { name: "Festhalle", url: "https://concerto-venue-map.netlify.app/festhalle" },
+      { name: "Fillmore Minneapolis presented by Affinity Plus", url: "https://concerto-venue-map.netlify.app/fillmoreminneapolispresentedbyaffinityplus" },
+      { name: "Fishers Event Center", url: "https://concerto-venue-map.netlify.app/fisherseventcenter" },
+      { name: "FivePoint Amphitheatre", url: "https://concerto-venue-map.netlify.app/fivepointamphitheatre" },
+      { name: "Fiserv Forum", url: "https://concerto-venue-map.netlify.app/fiservforum" },
+      { name: "Fontainebleau Las Vegas", url: "https://concerto-venue-map.netlify.app/fontainebleaulasvegas" },
+      { name: "Food City Center", url: "https://concerto-venue-map.netlify.app/foodcitycenter" },
+      { name: "Ford Field", url: "https://concerto-venue-map.netlify.app/fordfield" },
+      { name: "Ford Idaho Center Arena", url: "https://concerto-venue-map.netlify.app/fordidahocenterarena" },
+      { name: "Forum Karlín", url: "https://concerto-venue-map.netlify.app/forumkarln" },
+      { name: "Fox Theatre Detroit", url: "https://concerto-venue-map.netlify.app/foxtheatredetroit" },
+      { name: "Fox Theater", url: "https://concerto-venue-map.netlify.app/foxtheater" },
+      { name: "Franklin Music Hall", url: "https://concerto-venue-map.netlify.app/franklinmusichall" },
+      { name: "Freedom Mortgage Pavilion", url: "https://concerto-venue-map.netlify.app/freedommortgagepavilion" },
+      { name: "Frost Bank Center", url: "https://concerto-venue-map.netlify.app/frostbankcenter" },
+      { name: "Gainbridge Fieldhouse", url: "https://concerto-venue-map.netlify.app/gainbridgefieldhouse" },
+      { name: "Gallagher Square at Petco Park", url: "https://concerto-venue-map.netlify.app/gallaghersquareatpetcopark" },
+      { name: "Gas South Arena", url: "https://concerto-venue-map.netlify.app/gassoutharena" },
+      { name: "GEHA Field at Arrowhead Stadium", url: "https://concerto-venue-map.netlify.app/gehafieldatarrowheadstadium" },
+      { name: "GIANT Center", url: "https://concerto-venue-map.netlify.app/giantcenter" },
+      { name: "Gillette Stadium", url: "https://concerto-venue-map.netlify.app/gillettestadium" },
+      { name: "Globe Life Field", url: "https://concerto-venue-map.netlify.app/globelifefield" },
+      { name: "Golden 1 Center", url: "https://concerto-venue-map.netlify.app/golden1center" },
+      { name: "Grand Casino Arena", url: "https://concerto-venue-map.netlify.app/grandcasinoarena" },
+      { name: "Great American Ball Park", url: "https://concerto-venue-map.netlify.app/greatamericanballpark" },
+      { name: "Hard Rock Stadium", url: "https://concerto-venue-map.netlify.app/hardrockstadium" },
+      { name: "Heritage Bank Center", url: "https://concerto-venue-map.netlify.app/heritagebankcenter" },
+      { name: "Hersheypark Stadium", url: "https://concerto-venue-map.netlify.app/hersheyparkstadium" },
+      { name: "Highmark Stadium", url: "https://concerto-venue-map.netlify.app/highmarkstadium" },
+      { name: "History", url: "https://concerto-venue-map.netlify.app/history" },
+      { name: "Hollywood Bowl", url: "https://concerto-venue-map.netlify.app/hollywoodbowl" },
+      { name: "Honda Center", url: "https://concerto-venue-map.netlify.app/hondacenter" },
+      { name: "House of Blues Chicago", url: "https://concerto-venue-map.netlify.app/houseofblueschicago" },
+      { name: "House of Blues Las Vegas", url: "https://concerto-venue-map.netlify.app/houseofblueslasvegas" },
+      { name: "Howard Theatre", url: "https://concerto-venue-map.netlify.app/howardtheatre" },
+      { name: "Huntington Bank Field", url: "https://concerto-venue-map.netlify.app/huntingtonbankfield" },
+      { name: "Intuit Dome", url: "https://concerto-venue-map.netlify.app/intuitdome" },
+      { name: "Irving Plaza", url: "https://concerto-venue-map.netlify.app/irvingplaza" },
+      { name: "Isleta Amphitheater", url: "https://concerto-venue-map.netlify.app/isletaamphitheater" },
+      { name: "Iveagh Gardens", url: "https://concerto-venue-map.netlify.app/iveaghgardens" },
+      { name: "Jiffy Lube Live", url: "https://concerto-venue-map.netlify.app/jiffylubelive" },
+      { name: "JMA Wireless Dome", url: "https://concerto-venue-map.netlify.app/jmawirelessdome" },
+      { name: "Johan Cruijff ArenA", url: "https://concerto-venue-map.netlify.app/johancruijffarena" },
+      { name: "John Paul Jones Arena", url: "https://concerto-venue-map.netlify.app/johnpauljonesarena" },
+      { name: "Kaseya Center", url: "https://concerto-venue-map.netlify.app/kaseyacenter" },
+      { name: "Kauffman Stadium", url: "https://concerto-venue-map.netlify.app/kauffmanstadium" },
+      { name: "KeyBank Center", url: "https://concerto-venue-map.netlify.app/keybankcenter" },
+      { name: "King Baudouin Stadium", url: "https://concerto-venue-map.netlify.app/kingbaudouinstadium" },
+      { name: "Kia Center", url: "https://concerto-venue-map.netlify.app/kiacenter" },
+      { name: "Kia Forum", url: "https://concerto-venue-map.netlify.app/kiaforum" },
+      { name: "LANXESS Arena", url: "https://concerto-venue-map.netlify.app/lanxessarena" },
+      { name: "Lambeau Field", url: "https://concerto-venue-map.netlify.app/lambeaufield" },
+      { name: "LDLC Arena", url: "https://concerto-venue-map.netlify.app/ldlcarena" },
+      { name: "Lenovo Center", url: "https://concerto-venue-map.netlify.app/lenovocenter" },
+      { name: "Letnia Scena Progresji", url: "https://concerto-venue-map.netlify.app/letniascenaprogresji" },
+      { name: "Levi’s Stadium", url: "https://concerto-venue-map.netlify.app/levisstadium" },
+      { name: "Lincoln Financial Field", url: "https://concerto-venue-map.netlify.app/lincolnfinancialfield" },
+      { name: "Little Caesars Arena", url: "https://concerto-venue-map.netlify.app/littlecaesarsarena" },
+      { name: "LoanDepot Park", url: "https://concerto-venue-map.netlify.app/loandepotpark" },
+      { name: "Lotto Arena", url: "https://concerto-venue-map.netlify.app/lottoarena" },
+      { name: "Lucas Oil Stadium", url: "https://concerto-venue-map.netlify.app/lucasoilstadium" },
+      { name: "Lumen Field", url: "https://concerto-venue-map.netlify.app/lumenfield" },
+      { name: "Madison Square Garden", url: "https://concerto-venue-map.netlify.app/madisonsquaregarden" },
+      { name: "Manchester Academy", url: "https://concerto-venue-map.netlify.app/manchesteracademy" },
+      { name: "Manhattan Center Hammerstein Ballroom", url: "https://concerto-venue-map.netlify.app/manhattancenterhammersteinballroom" },
+      { name: "Marx Halle", url: "https://concerto-venue-map.netlify.app/marxhalle" },
+      { name: "Massey Hall", url: "https://concerto-venue-map.netlify.app/masseyhall" },
+      { name: "Maverik Center", url: "https://concerto-venue-map.netlify.app/maverikcenter" },
+      { name: "M&T Bank Stadium", url: "https://concerto-venue-map.netlify.app/mtbankstadium" },
+      { name: "Mercedes-Benz Stadium", url: "https://concerto-venue-map.netlify.app/mercedesbenzstadium" },
+      { name: "Merriweather Post Pavilion", url: "https://concerto-venue-map.netlify.app/merriweatherpostpavilion" },
+      { name: "MetLife Stadium", url: "https://concerto-venue-map.netlify.app/metlifestadium" },
+      { name: "MGM Grand Garden Arena", url: "https://concerto-venue-map.netlify.app/mgmgrandgardenarena" },
+      { name: "MGM Music Hall at Fenway", url: "https://concerto-venue-map.netlify.app/mgmmusichallatfenway" },
+      { name: "Moda Center", url: "https://concerto-venue-map.netlify.app/modacenter" },
+      { name: "Mohegan Sun Arena", url: "https://concerto-venue-map.netlify.app/mohegansunarena" },
+      { name: "Moody Center", url: "https://concerto-venue-map.netlify.app/moodycenter" },
+      { name: "Mortgage Matchup Center", url: "https://concerto-venue-map.netlify.app/mortgagematchupcenter" },
+      { name: "Movistar Arena", url: "https://concerto-venue-map.netlify.app/movistararena" },
+      { name: "MVP Arena", url: "https://concerto-venue-map.netlify.app/mvparena" },
+      { name: "myticket Jahrhunderthalle", url: "https://concerto-venue-map.netlify.app/myticketjahrhunderthalle" },
+      { name: "Nationals Park", url: "https://concerto-venue-map.netlify.app/nationalspark" },
+      { name: "Nationwide Arena", url: "https://concerto-venue-map.netlify.app/nationwidearena" },
+      { name: "Nissan Stadium", url: "https://concerto-venue-map.netlify.app/nissanstadium" },
+      { name: "North Island Credit Union Amphitheatre", url: "https://concerto-venue-map.netlify.app/northislandcreditunionamphitheatre" },
+      { name: "NRG Stadium", url: "https://concerto-venue-map.netlify.app/nrgstadium" },
+      { name: "Oakland Arena", url: "https://concerto-venue-map.netlify.app/oaklandarena" },
+      { name: "Oracle Park", url: "https://concerto-venue-map.netlify.app/oraclepark" },
+      { name: "Oriole Park at Camden Yards", url: "https://concerto-venue-map.netlify.app/orioleparkatcamdenyards" },
+      { name: "O2 Academy Birmingham", url: "https://concerto-venue-map.netlify.app/o2academybirmingham" },
+      { name: "O2 Arena", url: "https://concerto-venue-map.netlify.app/o2arena" },
+      { name: "O2 Shepherds Bush Empire", url: "https://concerto-venue-map.netlify.app/o2shepherdsbushempire" },
+      { name: "Ohio Stadium", url: "https://concerto-venue-map.netlify.app/ohiostadium" },
+      { name: "Olympiahalle", url: "https://concerto-venue-map.netlify.app/olympiahalle" },
+      { name: "Olympiastadion", url: "https://concerto-venue-map.netlify.app/olympiastadion" },
+      { name: "OVO Hydro", url: "https://concerto-venue-map.netlify.app/ovohydro" },
+      { name: "Palacio de los Deportes", url: "https://concerto-venue-map.netlify.app/palaciodelosdeportes" },
+      { name: "Palau Sant Jordi", url: "https://concerto-venue-map.netlify.app/palausantjordi" },
+      { name: "Paramount Theatre", url: "https://concerto-venue-map.netlify.app/paramounttheatre" },
+      { name: "Patrick Gym", url: "https://concerto-venue-map.netlify.app/patrickgym" },
+      { name: "Paycom Center", url: "https://concerto-venue-map.netlify.app/paycomcenter" },
+      { name: "Paycor Stadium", url: "https://concerto-venue-map.netlify.app/paycorstadium" },
+      { name: "Pechanga Arena", url: "https://concerto-venue-map.netlify.app/pechangaarena" },
+      { name: "PeoplesBank Arena", url: "https://concerto-venue-map.netlify.app/peoplesbankarena" },
+      { name: "Petco Park", url: "https://concerto-venue-map.netlify.app/petcopark" },
+      { name: "Petersen Events Center", url: "https://concerto-venue-map.netlify.app/peterseneventscenter" },
+      { name: "PHX Arena", url: "https://concerto-venue-map.netlify.app/phxarena" },
+      { name: "PNC Park", url: "https://concerto-venue-map.netlify.app/pncpark" },
+      { name: "PNC Arena", url: "https://concerto-venue-map.netlify.app/pncarena" },
+      { name: "Pinnacle Bank Arena", url: "https://concerto-venue-map.netlify.app/pinnaclebankarena" },
+      { name: "PPG Paints Arena", url: "https://concerto-venue-map.netlify.app/ppgpaintsarena" },
+      { name: "Progressive Field", url: "https://concerto-venue-map.netlify.app/progressivefield" },
+      { name: "Providence Park", url: "https://concerto-venue-map.netlify.app/providencepark" },
+      { name: "Prudential Center", url: "https://concerto-venue-map.netlify.app/prudentialcenter" },
+      { name: "Rate Field", url: "https://concerto-venue-map.netlify.app/ratefield" },
+      { name: "Raymond James Stadium", url: "https://concerto-venue-map.netlify.app/raymondjamesstadium" },
+      { name: "Red Hat Amphitheater", url: "https://concerto-venue-map.netlify.app/redhatamphitheater" },
+      { name: "Red Rocks Amphitheatre", url: "https://concerto-venue-map.netlify.app/redrocksamphitheatre" },
+      { name: "Riyadh Air Metropolitano", url: "https://concerto-venue-map.netlify.app/riyadhairmetropolitano" },
+      { name: "Rocket Mortgage FieldHouse", url: "https://concerto-venue-map.netlify.app/rocketmortgagefieldhouse" },
+      { name: "Rocket Arena", url: "https://concerto-venue-map.netlify.app/rocketarena" },
+      { name: "Rogers Arena", url: "https://concerto-venue-map.netlify.app/rogersarena" },
+      { name: "Rogers Centre", url: "https://concerto-venue-map.netlify.app/rogerscentre" },
+      { name: "Rogers Place", url: "https://concerto-venue-map.netlify.app/rogersplace" },
+      { name: "Rogers Stadium", url: "https://concerto-venue-map.netlify.app/rogersstadium" },
+      { name: "Rosemont Theatre", url: "https://concerto-venue-map.netlify.app/rosemonttheatre" },
+      { name: "Rupp Arena", url: "https://concerto-venue-map.netlify.app/rupparena" },
+      { name: "Ryman Auditorium", url: "https://concerto-venue-map.netlify.app/rymanauditorium" },
+      { name: "SAP Center", url: "https://concerto-venue-map.netlify.app/sapcenter" },
+      { name: "Save Mart Center", url: "https://concerto-venue-map.netlify.app/savemartcenter" },
+      { name: "Schottenstein Center", url: "https://concerto-venue-map.netlify.app/schottensteincenter" },
+      { name: "Scotiabank Arena", url: "https://concerto-venue-map.netlify.app/scotiabankarena" },
+      { name: "Scotiabank Saddledome", url: "https://concerto-venue-map.netlify.app/scotiabanksaddledome" },
+      { name: "Scottish Gas Murrayfield", url: "https://concerto-venue-map.netlify.app/scottishgasmurrayfield" },
+      { name: "Shoreline Amphitheatre", url: "https://concerto-venue-map.netlify.app/shorelineamphitheatre" },
+      { name: "Simmons Bank Arena", url: "https://concerto-venue-map.netlify.app/simmonsbankarena" },
+      { name: "Skyline Stage at the Mann", url: "https://concerto-venue-map.netlify.app/skylinestageatthemann" },
+      { name: "SNHU Arena", url: "https://concerto-venue-map.netlify.app/snhuarena" },
+      { name: "Smoothie King Center", url: "https://concerto-venue-map.netlify.app/smoothiekingcenter" },
+      { name: "SoFi Stadium", url: "https://concerto-venue-map.netlify.app/sofistadium" },
+      { name: "Soldier Field", url: "https://concerto-venue-map.netlify.app/soldierfield" },
+      { name: "Spectrum Center", url: "https://concerto-venue-map.netlify.app/spectrumcenter" },
+      { name: "Sphere", url: "https://concerto-venue-map.netlify.app/sphere" },
+      { name: "SSE Arena Belfast", url: "https://concerto-venue-map.netlify.app/ssearenabelfast" },
+      { name: "Stade de France", url: "https://concerto-venue-map.netlify.app/stadedefrance" },
+      { name: "Stadio San Siro", url: "https://concerto-venue-map.netlify.app/stadiosansiro" },
+      { name: "Stadtpark Open Air", url: "https://concerto-venue-map.netlify.app/stadtparkopenair" },
+      { name: "Starlight Theatre", url: "https://concerto-venue-map.netlify.app/starlighttheatre" },
+      { name: "Stanford Stadium", url: "https://concerto-venue-map.netlify.app/stanfordstadium" },
+      { name: "State Farm Arena", url: "https://concerto-venue-map.netlify.app/statefarmarena" },
+      { name: "State Farm Stadium", url: "https://concerto-venue-map.netlify.app/statefarmstadium" },
+      { name: "Summit Music Hall", url: "https://concerto-venue-map.netlify.app/summitmusichall" },
+      { name: "Sun Bowl Stadium", url: "https://concerto-venue-map.netlify.app/sunbowlstadium" },
+      { name: "Synovus Bank Amphitheater at Chastain Park", url: "https://concerto-venue-map.netlify.app/synovusbankamphitheateratchastainpark" },
+      { name: "Target Center", url: "https://concerto-venue-map.netlify.app/targetcenter" },
+      { name: "Target Field", url: "https://concerto-venue-map.netlify.app/targetfield" },
+      { name: "TD Coliseum", url: "https://concerto-venue-map.netlify.app/tdcoliseum" },
+      { name: "TD Garden", url: "https://concerto-venue-map.netlify.app/tdgarden" },
+      { name: "The Anthem", url: "https://concerto-venue-map.netlify.app/theanthem" },
+      { name: "The Armory", url: "https://concerto-venue-map.netlify.app/thearmory" },
+      { name: "The Danforth Music Hall", url: "https://concerto-venue-map.netlify.app/thedanforthmusichall" },
+      { name: "The Dome at America’s Center", url: "https://concerto-venue-map.netlify.app/thedomeatamericascenter" },
+      { name: "The Fillmore Detroit", url: "https://concerto-venue-map.netlify.app/thefillmoredetroit" },
+      { name: "The Fillmore Silver Spring", url: "https://concerto-venue-map.netlify.app/thefillmoresilverspring" },
+      { name: "The Lyric", url: "https://concerto-venue-map.netlify.app/thelyric" },
+      { name: "The Met Presented by Highmark", url: "https://concerto-venue-map.netlify.app/themetpresentedbyhighmark" },
+      { name: "The O2", url: "https://concerto-venue-map.netlify.app/theo2" },
+      { name: "The Pavilion at Star Lake", url: "https://concerto-venue-map.netlify.app/thepavilionatstarlake" },
+      { name: "The Pavilion at Toyota Music Factory", url: "https://concerto-venue-map.netlify.app/thepavilionattoyotamusicfactory" },
+      { name: "The Pinnacle", url: "https://concerto-venue-map.netlify.app/thepinnacle" },
+      { name: "The Rady Shell at Jacobs Park", url: "https://concerto-venue-map.netlify.app/theradyshellatjacobspark" },
+      { name: "The Tabernacle", url: "https://concerto-venue-map.netlify.app/thetabernacle" },
+      { name: "The Theatre of Living Arts", url: "https://concerto-venue-map.netlify.app/thetheatreoflivingarts" },
+      { name: "The Van Buren", url: "https://concerto-venue-map.netlify.app/thevanburen" },
+      { name: "The Wiltern", url: "https://concerto-venue-map.netlify.app/thewiltern" },
+      { name: "Thunder Ridge Nature Arena", url: "https://concerto-venue-map.netlify.app/thunderridgenaturearena" },
+      { name: "T-Mobile Arena", url: "https://concerto-venue-map.netlify.app/tmobilearena" },
+      { name: "T-Mobile Center", url: "https://concerto-venue-map.netlify.app/tmobilecenter" },
+      { name: "T-Mobile Park", url: "https://concerto-venue-map.netlify.app/tmobilepark" },
+      { name: "Talking Stick Resort Amphitheatre", url: "https://concerto-venue-map.netlify.app/talkingstickresortamphitheatre" },
+      { name: "Tottenham Hotspur Stadium", url: "https://concerto-venue-map.netlify.app/tottenhamhotspurstadium" },
+      { name: "Toyota Center", url: "https://concerto-venue-map.netlify.app/toyotacenter" },
+      { name: "Truist Park", url: "https://concerto-venue-map.netlify.app/truistpark" },
+      { name: "UBC – Doug Mitchell Thunderbird Sports Centre", url: "https://concerto-venue-map.netlify.app/ubcdougmitchellthunderbirdsportscentre" },
+      { name: "UBS Arena", url: "https://concerto-venue-map.netlify.app/ubsarena" },
+      { name: "UC Berkeley Greek Theatre", url: "https://concerto-venue-map.netlify.app/ucberkeleygreektheatre" },
+      { name: "U.S. Bank Stadium", url: "https://concerto-venue-map.netlify.app/usbankstadium" },
+      { name: "Unipol Arena", url: "https://concerto-venue-map.netlify.app/unipolarena" },
+      { name: "Unipol Forum", url: "https://concerto-venue-map.netlify.app/unipolforum" },
+      { name: "United Center", url: "https://concerto-venue-map.netlify.app/unitedcenter" },
+      { name: "Unity Arena", url: "https://concerto-venue-map.netlify.app/unityarena" },
+      { name: "Usher Hall", url: "https://concerto-venue-map.netlify.app/usherhall" },
+      { name: "Utah First Credit Union Amphitheatre", url: "https://concerto-venue-map.netlify.app/utahfirstcreditunionamphitheatre" },
+      { name: "Utilita Arena Birmingham", url: "https://concerto-venue-map.netlify.app/utilitaarenabirmingham" },
+      { name: "Utilita Arena Newcastle", url: "https://concerto-venue-map.netlify.app/utilitaarenanewcastle" },
+      { name: "Utilita Arena Sheffield", url: "https://concerto-venue-map.netlify.app/utilitaarenasheffield" },
+      { name: "UW – Panther Arena", url: "https://concerto-venue-map.netlify.app/uwpantherarena" },
+      { name: "Van Andel Arena", url: "https://concerto-venue-map.netlify.app/vanandelarena" },
+      { name: "Veikkaus Arena", url: "https://concerto-venue-map.netlify.app/veikkausarena" },
+      { name: "Veterans Memorial Coliseum", url: "https://concerto-venue-map.netlify.app/veteransmemorialcoliseum" },
+      { name: "Veterans United Home Loans Amphitheater", url: "https://concerto-venue-map.netlify.app/veteransunitedhomeloansamphitheater" },
+      { name: "Videotron Centre", url: "https://concerto-venue-map.netlify.app/videotroncentre" },
+      { name: "Viejas Arena", url: "https://concerto-venue-map.netlify.app/viejasarena" },
+      { name: "Villa Erba", url: "https://concerto-venue-map.netlify.app/villaerba" },
+      { name: "WAMU Theater", url: "https://concerto-venue-map.netlify.app/wamutheater" },
+      { name: "Walmart AMP", url: "https://concerto-venue-map.netlify.app/walmartamp" },
+      { name: "Wells Fargo Arena", url: "https://concerto-venue-map.netlify.app/wellsfargoarena" },
+      { name: "Wells Fargo Center", url: "https://concerto-venue-map.netlify.app/wellsfargocenter" },
+      { name: "Wembley Stadium", url: "https://concerto-venue-map.netlify.app/wembleystadium" },
+      { name: "WinStar Lucas Oil Live", url: "https://concerto-venue-map.netlify.app/winstarlucasoillive" },
+      { name: "Wrigley Field", url: "https://concerto-venue-map.netlify.app/wrigleyfield" },
+      { name: "XL Center", url: "https://concerto-venue-map.netlify.app/xlcenter" },
+      { name: "Xcel Energy Center", url: "https://concerto-venue-map.netlify.app/xcelenergycenter" },
+      { name: "Yankee Stadium", url: "https://concerto-venue-map.netlify.app/yankeestadium" },
+      { name: "Coachella Valley Music and Arts Festival", url: "https://concerto-venue-map.netlify.app/coachellavalleymusicandartsfestival" },
+      { name: "Stagecoach Festival", url: "https://concerto-venue-map.netlify.app/stagecoachfestival" },
+      { name: "Ultra Music Festival", url: "https://concerto-venue-map.netlify.app/ultramusicfestival" },
+      { name: "EDC Las Vegas", url: "https://concerto-venue-map.netlify.app/edclasvegas" },
+      { name: "Electric Forest", url: "https://concerto-venue-map.netlify.app/electricforest" },
+      { name: "Bonnaroo Music & Arts Festival", url: "https://concerto-venue-map.netlify.app/bonnaroomusicandartsfestival" },
+      { name: "Governors Ball", url: "https://concerto-venue-map.netlify.app/governorsball" },
+      { name: "Boston Calling", url: "https://concerto-venue-map.netlify.app/bostoncalling" },
+      { name: "BottleRock Napa Valley", url: "https://concerto-venue-map.netlify.app/bottlerocknapavalley" },
+      { name: "Hangout Music Festival", url: "https://concerto-venue-map.netlify.app/hangoutmusicfestival" },
+      { name: "Outside Lands", url: "https://concerto-venue-map.netlify.app/outsidelands" },
+      { name: "Lollapalooza", url: "https://concerto-venue-map.netlify.app/lollapalooza" },
+      { name: "Rolling Loud Miami", url: "https://concerto-venue-map.netlify.app/rollingloudmiami" },
+      { name: "Rolling Loud Los Angeles", url: "https://concerto-venue-map.netlify.app/rollingloudlosangeles" },
+      { name: "Summerfest", url: "https://concerto-venue-map.netlify.app/summerfest" },
+      { name: "Pitchfork Music Festival", url: "https://concerto-venue-map.netlify.app/pitchforkmusicfestival" },
+      { name: "New Orleans Jazz & Heritage Festival", url: "https://concerto-venue-map.netlify.app/neworleansjazzandheritagefestival" },
+      { name: "Newport Folk Festival", url: "https://concerto-venue-map.netlify.app/newportfolkfestival" },
+      { name: "Newport Jazz Festival", url: "https://concerto-venue-map.netlify.app/newportjazzfestival" },
+      { name: "Austin City Limits Music Festival", url: "https://concerto-venue-map.netlify.app/austincitylimitsmusicfestival" },
+      { name: "When We Were Young", url: "https://concerto-venue-map.netlify.app/whenwewereyoung" },
+      { name: "Life Is Beautiful", url: "https://concerto-venue-map.netlify.app/lifeisbeautiful" },
+      { name: "Lightning in a Bottle", url: "https://concerto-venue-map.netlify.app/lightninginabottle" },
+      { name: "Shaky Knees Music Festival", url: "https://concerto-venue-map.netlify.app/shakykneesmusicfestival" },
+      { name: "Music Midtown", url: "https://concerto-venue-map.netlify.app/musicmidtown" },
+      { name: "III Points", url: "https://concerto-venue-map.netlify.app/iiipoints" },
+      { name: "HARD Summer Music Festival", url: "https://concerto-venue-map.netlify.app/hardsummermusicfestival" },
+      { name: "Beyond Wonderland SoCal", url: "https://concerto-venue-map.netlify.app/beyondwonderlandsocal" },
+      { name: "Moonrise Festival", url: "https://concerto-venue-map.netlify.app/moonrisefestival" },
+      { name: "Country Thunder Wisconsin", url: "https://concerto-venue-map.netlify.app/countrythunderwisconsin" },
+      { name: "Burning Man", url: "https://concerto-venue-map.netlify.app/burningman" },
+      { name: "Electric Zoo", url: "https://concerto-venue-map.netlify.app/electriczoo" },
+      { name: "Riot Fest", url: "https://concerto-venue-map.netlify.app/riotfest" },
+      { name: "Essence Festival of Culture", url: "https://concerto-venue-map.netlify.app/essencefestivalofculture" },
+      { name: "SXSW (Music, Film & Interactive)", url: "https://concerto-venue-map.netlify.app/sxswmusicfilmandinteractive" },
+      { name: "CMA Fest", url: "https://concerto-venue-map.netlify.app/cmafest" },
+      { name: "Made in America", url: "https://concerto-venue-map.netlify.app/madeinamerica" },
+      { name: "Radio City Music Hall", url: "https://concerto-venue-map.netlify.app/radiocitymusichall" },
+      { name: "The Star", url: "https://concerto-venue-map.netlify.app/thestar" },
+      { name: "The Gorge Amphitheatre", url: "https://concerto-venue-map.netlify.app/thegorgeamphitheatre" }
+    ];
+
+    const venueListEl = document.getElementById('venueList');
+    const searchInput = document.getElementById('searchInput');
+
+    // Render the links
+    function renderList(items) {
+      venueListEl.innerHTML = '';
+      
+      if (items.length === 0) {
+        venueListEl.innerHTML = '<div class="no-results">No venues found. Try a different search.</div>';
+        return;
+      }
+
+      items.forEach(item => {
+        const linkEl = document.createElement('a');
+        linkEl.className = 'venue-link';
+        linkEl.href = item.url;
+        linkEl.target = '_blank'; // Opens your specific Netlify app in a new tab
+        
+        linkEl.innerHTML = `
+          <span class="v-name">${item.name}</span>
+          <span class="v-action">View Guide &rarr;</span>
+        `;
+        venueListEl.appendChild(linkEl);
+      });
+    }
+
+    // Initial render
+    renderList(venues);
+
+    // Search filtering
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = venues.filter(item => item.name.toLowerCase().includes(term));
+      renderList(filtered);
+    });
+
+  </script>
+</body>
+</html>
