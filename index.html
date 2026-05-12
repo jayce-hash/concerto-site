@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F8F9F9" />
   
   <title>Concerto | Your Live Music Companion</title>
-  <meta name="title" content="Concerto | Your Live Music Companion" />
-  <meta name="description" content="Get verified venue intel, bag policies, tour setlists, and curated city guides for your next concert." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,11 +21,11 @@
       --border-light: rgba(18, 30, 54, 0.08);
       --gold: #C9A84C;
       --shadow-sm: 0 4px 12px rgba(18, 30, 54, 0.03);
-      --shadow-lg: 0 12px 30px rgba(18, 30, 54, 0.15);
+      --shadow-lg: 0 24px 60px rgba(18, 30, 54, 0.12);
       --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; background: var(--bg); }
     body {
       font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
@@ -37,128 +35,141 @@
     /* ─── TYPOGRAPHY ─── */
     .serif { font-family: 'Playfair Display', serif !important; }
     .sans { font-family: 'DM Sans', sans-serif !important; }
-    .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
-    
-    /* ─── DOUBLE HEADER NAVIGATION ─── */
-    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-    
-    /* Main Top Nav */
-    .main-nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 5%; border-bottom: 1px solid var(--border-light); }
-    .logo-img { height: 2.5rem; width: auto; object-fit: contain; }
-    .top-links { display: flex; gap: 2rem; align-items: center; }
-    .top-links a { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
-    .top-links a:hover { color: var(--text); }
-    .btn-primary { background: var(--text); color: var(--bg) !important; padding: 0.6rem 1.5rem; border-radius: 99px; }
-    .btn-primary:hover { opacity: 0.9; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
 
-    /* Secondary Feature Nav (Scrollable on Mobile) */
-    .feature-nav { display: flex; justify-content: center; gap: 2rem; padding: 0.8rem 5%; border-bottom: 1px solid var(--border-light); background: rgba(255, 255, 255, 0.8); overflow-x: auto; scrollbar-width: none; }
-    .feature-nav::-webkit-scrollbar { display: none; }
-    .feature-nav a { flex: 0 0 auto; font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; transition: opacity 0.3s; }
-    .feature-nav a:hover { opacity: 0.6; }
+    /* ─── DESKTOP HEADER ─── */
+    header { 
+      position: fixed; top: 0; width: 100%; z-index: 1000; 
+      background: rgba(248, 249, 249, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between; padding: 1rem 4%;
+    }
+    
+    .logo-img { height: 36px; width: auto; object-fit: contain; }
+    
+    .nav-features { display: flex; gap: 2rem; align-items: center; }
+    .nav-features a { 
+      font-size: 0.8rem; font-weight: 600; color: var(--text); text-decoration: none; 
+      transition: color 0.3s;
+    }
+    .nav-features a:hover { color: var(--gold); }
+
+    .btn-primary { 
+      background: var(--text); color: var(--bg) !important; padding: 0.7rem 1.8rem; 
+      border-radius: 99px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; 
+      letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(18, 30, 54, 0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(18, 30, 54, 0.3); }
 
     /* ─── LAYOUT CONTAINERS ─── */
-    main { padding-top: 140px; padding-bottom: 60px; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
-    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; margin-top: 4rem; }
-    .section-title { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1; }
+    main { padding-top: 100px; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+    
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; margin-top: 6rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; }
+    .section-title { font-size: 32px; font-weight: 700; color: var(--text); line-height: 1; }
 
-    /* ─── INTERACTIVE HERO CARD (From App) ─── */
-    .hero-card {
-      background: var(--text); color: #FFFFFF; border-radius: 24px; padding: 40px;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden; display: flex;
-      flex-direction: column; gap: 20px; cursor: pointer; transition: transform 0.3s ease;
+    /* ─── SPLIT DESKTOP HERO ─── */
+    .hero-split { 
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; 
+      align-items: center; min-height: 75vh; padding: 4rem 0;
     }
-    .hero-card:hover { transform: translateY(-4px); }
+    .hero-text h1 { font-size: clamp(3.5rem, 5vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; color: var(--text); }
+    .hero-text p { font-size: 1.15rem; color: var(--text-dim); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.7; }
+
+    /* ─── INTERACTIVE HERO CARD (Desktop Scaled) ─── */
+    .hero-card-wrapper { perspective: 1000px; }
+    .hero-card {
+      background: var(--text); color: #FFFFFF; border-radius: 32px; padding: 50px;
+      box-shadow: var(--shadow-lg); position: relative; overflow: hidden; display: flex;
+      flex-direction: column; gap: 24px; cursor: pointer; transition: transform 0.4s ease;
+      aspect-ratio: 4/3; justify-content: center;
+    }
+    .hero-card:hover { transform: translateY(-8px) rotateX(2deg) rotateY(-2deg); }
     .hero-card::before {
-      content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
-      background: rgba(201,168,76,0.2); filter: blur(40px); border-radius: 50%; pointer-events: none;
+      content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
+      background: rgba(201,168,76,0.15); filter: blur(60px); border-radius: 50%; pointer-events: none;
     }
     
-    .hero-artist { font-size: 40px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; color: #FFFFFF; }
-    .hero-tour { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.02em; }
+    .hero-artist { font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 8px; color: #FFFFFF; }
+    .hero-tour { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.02em; }
     
     .timer-wrap {
       display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 30px; margin-top: 10px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 24px 40px; margin-top: 20px;
     }
-    .timer-row { display: flex; gap: 30px; align-items: baseline; }
+    .timer-row { display: flex; gap: 40px; align-items: baseline; width: 100%; justify-content: center; }
     .time-block { display: flex; flex-direction: column; align-items: center; }
-    .time-num { font-size: 36px; font-weight: 700; line-height: 1; color: #FFFFFF; }
-    .time-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 4px; }
-    .time-colon { font-size: 24px; color: rgba(201,168,76,0.5); transform: translateY(-8px); }
-    
-    /* ─── INLINE FORM (Hidden by Default) ─── */
-    .show-form { display: none; background: #FFFFFF; border-radius: 24px; padding: 30px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-light); }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
-    .form-group input { width: 100%; background: var(--bg); border: 1px solid var(--border-light); border-radius: 12px; padding: 14px; font-family: 'DM Sans'; font-size: 16px; color: var(--text); outline: none; }
+    .time-num { font-size: 48px; font-weight: 700; line-height: 1; color: #FFFFFF; }
+    .time-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 8px; }
+    .time-colon { font-size: 32px; color: rgba(201,168,76,0.5); transform: translateY(-12px); }
+
+    /* ─── INLINE FORM ─── */
+    .show-form { display: none; background: #FFFFFF; border-radius: 32px; padding: 50px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-light); aspect-ratio: 4/3; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .form-group input { width: 100%; background: var(--bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 16px 20px; font-family: 'DM Sans'; font-size: 16px; color: var(--text); outline: none; transition: border-color 0.3s; }
     .form-group input:focus { border-color: var(--text); }
-    .form-actions { display: flex; gap: 10px; margin-top: 24px; }
-    .btn-clear { background: transparent; border: 1px solid var(--border-light); border-radius: 12px; padding: 14px 24px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; cursor: pointer; }
-    .btn-save { flex: 1; background: var(--text); border: none; border-radius: 12px; padding: 14px; font-weight: 700; color: #FFF; text-transform: uppercase; cursor: pointer; }
+    .form-actions { display: flex; gap: 16px; margin-top: 32px; }
+    .btn-clear { background: transparent; border: 1px solid var(--border-light); border-radius: 16px; padding: 16px 32px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+    .btn-clear:hover { background: var(--bg); }
+    .btn-save { flex: 1; background: var(--text); border: none; border-radius: 16px; padding: 16px; font-weight: 700; color: #FFF; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+    .btn-save:hover { background: #000; }
 
-    /* ─── FEATURED TOURS HORIZONTAL SCROLL ─── */
-    .tour-scroll { display: flex; overflow-x: auto; gap: 16px; padding-bottom: 10px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-    .tour-scroll::-webkit-scrollbar { display: none; }
-    .tour-card { flex: 0 0 180px; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden; text-decoration: none; transition: transform 0.3s; box-shadow: var(--shadow-sm); }
-    .tour-card:hover { transform: translateY(-4px); }
-    .tour-img { width: 100%; height: 200px; object-fit: cover; }
-    .tour-info { padding: 16px; }
-    .tour-name { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.1; margin-bottom: 4px; }
-    .tour-desc { font-size: 12px; color: var(--text-dim); }
+    /* ─── DESKTOP FEATURED TOURS GRID ─── */
+    .tours-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding-bottom: 60px; }
+    .tour-card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: var(--shadow-sm); }
+    .tour-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.08); }
+    .tour-img { width: 100%; height: 260px; object-fit: cover; }
+    .tour-info { padding: 20px; }
+    .tour-name { font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 4px; }
+    .tour-desc { font-size: 13px; color: var(--text-dim); }
 
-    /* ─── THE ESSENTIALS (8 HTML Links) ─── */
-    .essentials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
-    .essential-btn {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 20px;
-      font-size: 14px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em;
-      display: flex; align-items: center; justify-content: space-between; text-decoration: none;
-      box-shadow: var(--shadow-sm); transition: transform 0.2s, border-color 0.2s;
-    }
-    .essential-btn:hover { transform: translateY(-2px); border-color: var(--text); }
-    .essential-arrow { color: rgba(18,30,54,0.3); font-size: 20px; font-weight: 300; }
-
-    /* ─── PREMIUM GRID ─── */
-    .premium-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    /* ─── DESKTOP PREMIUM GRID ─── */
+    .premium-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 80px; }
     .premium-item {
-      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 16px; padding: 20px;
-      display: flex; flex-direction: column; justify-content: center; text-decoration: none;
-      box-shadow: var(--shadow-sm); transition: transform 0.2s;
+      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 24px; padding: 32px 24px;
+      display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform 0.3s, border-color 0.3s;
     }
-    .premium-item:hover { transform: translateY(-2px); background: rgba(201,168,76,0.02); }
-    .premium-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-    .premium-title::after { content: '•'; color: var(--gold); }
-    .premium-desc { font-size: 12px; font-weight: 500; color: var(--text-dim); line-height: 1.4; }
+    .premium-item:hover { transform: translateY(-4px); border-color: var(--gold); background: rgba(201,168,76,0.02); }
+    .premium-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .premium-desc { font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+
+    /* ─── FOOTER (Cleaned up) ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4rem; }
+    .footer-col { display: flex; flex-direction: column; gap: 1rem; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 0.5rem; }
+    .footer-col a { font-size: 0.9rem; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-logo { height: 40px; width: auto; opacity: 0.8; margin-bottom: 1rem; }
 
     /* ─── MOBILE RESPONSIVENESS ─── */
+    @media (max-width: 1024px) {
+      .hero-split { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-text p { margin: 0 auto 2.5rem; }
+      .nav-features { display: none; /* Hide full feature nav on tablet/mobile */ }
+      .tours-grid { grid-template-columns: repeat(3, 1fr); }
+      .premium-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
-      .top-links { display: none; }
-      .feature-nav { justify-content: flex-start; padding: 1rem 5%; }
-      .hero-card { padding: 30px 20px; }
-      .hero-artist { font-size: 32px; }
-      .timer-wrap { padding: 16px; }
-      .time-num { font-size: 28px; }
-      .tour-card { flex: 0 0 140px; }
-      .tour-img { height: 160px; }
+      .tours-grid { grid-template-columns: 1fr 1fr; }
+      .premium-grid { grid-template-columns: 1fr; }
+      .hero-artist { font-size: 40px; }
+      .time-num { font-size: 32px; }
+      .timer-row { gap: 20px; }
+      .hero-card, .show-form { padding: 30px; aspect-ratio: auto; }
+      footer { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="main-nav">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Concerto" class="logo-img">
-      </a>
-      <div class="top-links">
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary">Download App</a>
-      </div>
-    </div>
-    <div class="feature-nav">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Concerto" class="logo-img">
+    </a>
+    
+    <nav class="nav-features">
       <a href="cityguides.html">City Guides</a>
       <a href="events.html">Events</a>
       <a href="setlists.html">Setlists</a>
@@ -167,50 +178,65 @@
       <a href="bags.html">Bag Policies</a>
       <a href="parking.html">Parking</a>
       <a href="concessions.html">Concessions</a>
-    </div>
+    </nav>
+
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary">Download App</a>
   </header>
 
   <main>
     <div class="container">
 
-      <div class="hero-card" id="hero-card" onclick="openModal()">
+      <section class="hero-split">
+        <div class="hero-text">
+          <span class="eyebrow">The Concert Companion</span>
+          <h1 class="serif">Navigate the night flawlessly.</h1>
+          <p class="sans">The app you open the second you buy the ticket. Concerto gives you verified venue intel, 3D maps, bag policies, and curated guides for your next show.</p>
+          <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Get the iOS App</a>
         </div>
 
-      <div class="show-form" id="show-form">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
-          <h2 class="serif" style="font-size:24px; font-weight:700; color:var(--text);">Set Your Show</h2>
-          <button onclick="closeModal()" style="background:none; border:none; font-size:24px; color:var(--text-dim); cursor:pointer;">&times;</button>
+        <div class="hero-card-wrapper">
+          <div class="hero-card" id="hero-card" onclick="openModal()">
+            </div>
+
+          <div class="show-form" id="show-form">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
+              <h2 class="serif" style="font-size:28px; font-weight:700; color:var(--text);">Set Your Show</h2>
+              <button onclick="closeModal()" style="background:none; border:none; font-size:28px; color:var(--text-dim); cursor:pointer;">&times;</button>
+            </div>
+            
+            <div class="form-group">
+              <label class="sans">Artist</label>
+              <input id="input-artist" type="text" placeholder="e.g. Lady Gaga" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label class="sans">Tour Name (Optional)</label>
+              <input id="input-tour" type="text" placeholder="e.g. The Chromatica Ball">
+            </div>
+            <div class="form-group">
+              <label class="sans">Venue</label>
+              <input id="input-venue" type="text" placeholder="e.g. Soldier Field, Chicago" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label class="sans">Date</label>
+              <input id="input-date" type="date">
+            </div>
+            
+            <div class="form-actions">
+              <button class="btn-clear sans" onclick="clearShow()">Clear</button>
+              <button class="btn-save sans" onclick="saveShow()">Save Show</button>
+            </div>
+          </div>
         </div>
-        
-        <div class="form-group">
-          <label class="sans">Artist</label>
-          <input id="input-artist" type="text" placeholder="e.g. Lady Gaga" autocomplete="off">
-        </div>
-        <div class="form-group">
-          <label class="sans">Tour Name (Optional)</label>
-          <input id="input-tour" type="text" placeholder="e.g. The Chromatica Ball">
-        </div>
-        <div class="form-group">
-          <label class="sans">Venue</label>
-          <input id="input-venue" type="text" placeholder="e.g. Soldier Field, Chicago" autocomplete="off">
-        </div>
-        <div class="form-group">
-          <label class="sans">Date</label>
-          <input id="input-date" type="date">
-        </div>
-        
-        <div class="form-actions">
-          <button class="btn-clear sans" onclick="clearShow()">Clear</button>
-          <button class="btn-save sans" onclick="saveShow()">Save Show</button>
-        </div>
-      </div>
+      </section>
 
       <div class="section-header">
-        <h2 class="section-title serif">Featured Tours</h2>
-        <span class="eyebrow">Trending Now</span>
+        <div>
+          <span class="eyebrow">Trending Now</span>
+          <h2 class="section-title serif">Featured Tours</h2>
+        </div>
       </div>
       
-      <div class="tour-scroll">
+      <div class="tours-grid">
         <a href="tours.html" class="tour-card">
           <img src="https://buildfire.imgix.net/8ef92dbd-0a8b-11f0-a97f-12565309935d/img_4557.jpeg?auto=format&fit=crop&q=80&w=400" class="tour-img" alt="Harry Styles">
           <div class="tour-info"><h4 class="tour-name serif">Harry Styles</h4><p class="tour-desc sans">Together, Together Tour</p></div>
@@ -233,25 +259,11 @@
         </a>
       </div>
 
-      <div class="section-header" style="margin-top: 4rem;">
-        <h2 class="section-title serif">The Essentials</h2>
-        <span class="eyebrow">Free Tools</span>
-      </div>
-
-      <div class="essentials-grid">
-        <a href="cityguides.html" class="essential-btn sans">City Guides <span class="essential-arrow">&#8250;</span></a>
-        <a href="events.html" class="essential-btn sans">Events Near Me <span class="essential-arrow">&#8250;</span></a>
-        <a href="setlists.html" class="essential-btn sans">Setlists <span class="essential-arrow">&#8250;</span></a>
-        <a href="tours.html" class="essential-btn sans">Tour Info <span class="essential-arrow">&#8250;</span></a>
-        <a href="rideshare.html" class="essential-btn sans">1-Tap Rideshare <span class="essential-arrow">&#8250;</span></a>
-        <a href="bags.html" class="essential-btn sans">Bag Policies <span class="essential-arrow">&#8250;</span></a>
-        <a href="parking.html" class="essential-btn sans">Parking <span class="essential-arrow">&#8250;</span></a>
-        <a href="concessions.html" class="essential-btn sans">Concessions <span class="essential-arrow">&#8250;</span></a>
-      </div>
-
-      <div class="section-header" style="margin-top: 4rem;">
-        <h2 class="section-title serif">Concerto Premium</h2>
-        <span class="eyebrow">Unlock The Magic</span>
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Unlock The Magic</span>
+          <h2 class="section-title serif">Concerto Premium</h2>
+        </div>
       </div>
 
       <div class="premium-grid">
@@ -260,7 +272,7 @@
           <p class="premium-desc sans">Your AI timeline and custom itinerary perfectly mapped to the venue.</p>
         </a>
         <a href="premium.html" class="premium-item">
-          <h4 class="premium-title serif">AI Bag Check</h4>
+          <h4 class="premium-title serif">Bag Check</h4>
           <p class="premium-desc sans">Use your camera for instant bag verification before you leave home.</p>
         </a>
         <a href="premium.html" class="premium-item">
@@ -276,8 +288,38 @@
     </div>
   </main>
 
+  <footer>
+    <div class="footer-col">
+      <img src="logo.png" alt="Concerto Logo" class="footer-logo">
+      <p class="sans" style="font-size: 0.9rem; color: var(--text-dim); max-width: 250px;">The ultimate concert companion app. Navigate the night flawlessly.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partnerships</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="faq.html">FAQ</a>
+      <a href="mailto:support@concertocity.com">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Social</h4>
+      <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@theconcertoapp" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@theconcertoapp" target="_blank">YouTube</a>
+    </div>
+  </footer>
+
   <script>
-    // ─── HERO COUNTDOWN LOGIC ───
+    // ─── HERO COUNTDOWN LOGIC (Adapted for Desktop) ───
     let timerInterval = null;
 
     function loadShow() {
@@ -292,11 +334,11 @@
       if (!show || !show.artist) {
         // EMPTY STATE
         card.innerHTML = `
-          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 20px 0;">
-            <div style="font-size:48px; margin-bottom: 10px;">🎙️</div>
-            <h3 class="serif" style="font-size:28px; font-weight:700; color:#FFF;">Set Your Next Show</h3>
-            <p class="sans" style="font-size:14px; color:rgba(255,255,255,0.6); margin-bottom: 20px;">Tap here to lock in your upcoming concert and start the countdown.</p>
-            <span class="sans" style="background:#C9A84C; color:#121E36; padding: 12px 30px; border-radius:99px; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Add Show</span>
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+            <div style="font-size:64px; margin-bottom: 16px;">🎙️</div>
+            <h3 class="serif" style="font-size:36px; font-weight:700; color:#FFF; margin-bottom:8px;">Set Your Next Show</h3>
+            <p class="sans" style="font-size:16px; color:rgba(255,255,255,0.6); margin-bottom: 24px;">Tap here to lock in your upcoming concert and start the countdown.</p>
+            <span class="sans" style="background:#C9A84C; color:#121E36; padding: 14px 36px; border-radius:99px; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Add Show</span>
           </div>
         `;
         if (timerInterval) clearInterval(timerInterval);
@@ -307,11 +349,10 @@
       const tourLine = show.tour ? `${show.tour} • ${show.venue}` : show.venue;
       
       card.innerHTML = `
-        <div style="position:relative; z-index:1;">
-          <span class="eyebrow" style="color:#C9A84C; margin-bottom:10px; display:block;">Your Next Event</span>
+        <div style="position:relative; z-index:1; text-align:center;">
+          <span class="eyebrow" style="color:#C9A84C; margin-bottom:12px; display:block;">Your Next Event</span>
           <h3 class="hero-artist serif">${show.artist}</h3>
           <p class="hero-tour sans">${tourLine}</p>
-          <span class="sans" style="font-size:10px; color:rgba(255,255,255,0.3); margin-top:8px; display:block;">Tap to edit</span>
         </div>
         <div class="timer-wrap">
           <div class="timer-row">
@@ -319,16 +360,16 @@
             <span class="time-colon serif">:</span>
             <div class="time-block"><span class="time-num serif" id="hours">--</span><span class="time-label sans">Hrs</span></div>
             <span class="time-colon serif">:</span>
-            <div class="time-block"><span class="time-num serif" id="mins">--</span><span class="time-label sans">Min</span></div>
+            <div class="time-block"><span class="time-num serif" id="mins">--</span><span class="time-label sans">Mins</span></div>
           </div>
         </div>
+        <span class="sans" style="font-size:11px; color:rgba(255,255,255,0.3); text-align:center; margin-top:8px; display:block;">Tap anywhere to edit</span>
       `;
       startTimer(show.date);
     }
 
     function startTimer(dateStr) {
       if (timerInterval) clearInterval(timerInterval);
-      // Default to 8:00 PM local time for the show
       const eventDate = new Date(`${dateStr}T20:00:00`);
       
       function tick() {
