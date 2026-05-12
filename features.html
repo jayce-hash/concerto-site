@@ -56,14 +56,13 @@
     :root {
       --bg: #F8F9F9; 
       --card-bg: #FFFFFF;
-      --app-pill-bg: #F0F2F5; /* Matches your screenshot pill color */
       --text: #121E36; 
       --text-dim: rgba(18, 30, 54, 0.55);
       --border: #C0C0C0; 
       --border-light: rgba(18, 30, 54, 0.08);
+      --shadow-sm: 0 4px 20px rgba(18, 30, 54, 0.04);
       --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
-      --shadow-modal: 0 20px 60px rgba(18, 30, 54, 0.15);
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,25 +79,15 @@
     .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
     .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-    /* ─── GHOST MARQUEE ─── */
-    .ghost-marquee {
-      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
-      transform: translateY(-50%); pointer-events: none; overflow: hidden;
-      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
-    }
-    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
-    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
-    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
     /* ─── TYPOGRAPHY & BUTTONS ─── */
     h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
-    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; text-align: center; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; }
     
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em;
       text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none;
-      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn); width: 100%;
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
 
@@ -114,55 +103,42 @@
     .nav-action { flex: 1; display: flex; justify-content: flex-end; }
     .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
 
-    /* ─── APP-MIMICRY LAYOUT ─── */
-    .app-showcase-container {
-      max-width: 800px; margin: 160px auto 100px; padding: 0 5%; position: relative; z-index: 10;
-    }
-    .app-section-title { font-size: 2.5rem; color: var(--text); margin-bottom: 2rem; }
+    /* ─── HERO ─── */
+    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 160px 5% 0; }
+    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    .essentials-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;
-    }
-
-    /* Interactive Feature Pills */
-    .feature-pill {
-      background: var(--app-pill-bg); border: none; border-radius: 16px;
-      padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center;
-      cursor: pointer; transition: transform 0.2s ease, background 0.3s ease;
-      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
-    }
-    .feature-pill:hover { background: #E4E7EC; transform: scale(1.02); }
-    .pill-chevron { color: var(--text-dim); font-size: 1.2rem; font-weight: 300; transition: transform 0.2s ease; }
-    .feature-pill:hover .pill-chevron { transform: translateX(4px); color: var(--text); }
-
-    /* ─── SLEEK MODAL TRAP ─── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(18, 30, 54, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      z-index: 2000; display: flex; align-items: flex-end; justify-content: center;
-      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
-    }
-    .modal-overlay.active { opacity: 1; pointer-events: all; }
+    /* ─── APPLE-STYLE STAGGERED SHOWCASE ─── */
+    .showcase-container { max-width: 1200px; margin: 0 auto; padding: 40px 5% 120px; }
     
-    .modal-content {
-      background: var(--card-bg); width: 100%; max-width: 500px; border-radius: 24px 24px 0 0;
-      padding: 3rem 2.5rem 4rem; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: var(--shadow-modal);
+    .feature-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+      margin-bottom: 140px; opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    @media(min-width: 600px) {
-      .modal-overlay { align-items: center; }
-      .modal-content { border-radius: 24px; padding: 3rem; transform: translateY(20px) scale(0.95); }
-    }
-    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-
-    .modal-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .modal-title { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
-    .modal-desc { font-size: 1.1rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 2.5rem; }
+    .feature-block.visible { opacity: 1; transform: translateY(0); }
     
-    .modal-close {
-      position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none;
-      font-size: 1.5rem; cursor: pointer; color: var(--border); transition: color 0.3s; padding: 0.5rem;
+    /* Alternate Layout */
+    .feature-block:nth-child(even) .feat-text { order: 2; }
+    .feature-block:nth-child(even) .feat-image { order: 1; }
+
+    .feat-text { max-width: 500px; }
+    .feat-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; opacity: 0.9; }
+    .feat-text h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); }
+    .feat-text p { font-size: 1.15rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 2rem; }
+    
+    .feat-list { list-style: none; margin-bottom: 2.5rem; }
+    .feat-list li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 1.05rem; font-weight: 500; color: var(--text); }
+    .feat-list li::before { content: '✓'; color: var(--border); font-size: 1.2rem; }
+
+    .feat-image {
+      background: var(--card-bg); border-radius: 32px; padding: 2rem;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 4/5; overflow: hidden; position: relative;
     }
-    .modal-close:hover { color: var(--text); }
+    .feat-image img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.05); transition: transform 0.6s ease; }
+    .feature-block:hover .feat-image img { transform: scale(1.08); }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -172,9 +148,12 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .app-showcase-container { padding: 0 5%; margin: 120px auto 80px; }
-      .essentials-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .feature-block { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 100px; text-align: center; }
+      .feature-block:nth-child(even) .feat-text { order: 1; }
+      .feature-block:nth-child(even) .feat-image { order: 2; }
+      .feat-text { margin: 0 auto; }
+      .feat-list li { justify-content: center; }
+      .feat-image { aspect-ratio: 1/1; padding: 1rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
@@ -189,13 +168,6 @@
     <div class="orb orb-2"></div>
   </div>
   <div class="noise" aria-hidden="true"></div>
-  
-  <div class="ghost-marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>EVENTS NEAR ME • SETLISTS • CITY GUIDES • VENUE INTEL • </span>
-      <span>EVENTS NEAR ME • SETLISTS • CITY GUIDES • VENUE INTEL • </span>
-    </div>
-  </div>
 
   <nav id="navbar" aria-label="Main Navigation">
     <a href="index.html" class="logo" aria-label="Concerto Home">
@@ -214,54 +186,82 @@
   </nav>
 
   <main>
-    <section class="app-showcase-container">
-      <span class="eyebrow" style="text-align: left; margin-bottom: 1rem;">The Foundation</span>
-      <h1 class="app-section-title serif">The Essentials</h1>
+    <header class="hero">
+      <span class="eyebrow">The Foundation</span>
+      <h1 class="hero-title serif">The Essentials.</h1>
+      <p class="hero-desc">Everything you need for the perfect night out. Concerto's core suite of tools is available entirely for free.</p>
+    </header>
+
+    <section class="showcase-container">
       
-      <div class="essentials-grid">
-        <button class="feature-pill" data-id="city-guides">
-          <span>City Guides</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="events-near-me">
-          <span>Events Near Me</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="setlists">
-          <span>Setlists</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="tour-info">
-          <span>Tour Info</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="rideshare">
-          <span>Rideshare</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="bag-policies">
-          <span>Bag Policies</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="parking">
-          <span>Parking</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="concessions">
-          <span>Concessions</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="local-weather">
-          <span>Local Weather</span> <span class="pill-chevron">›</span>
-        </button>
-        <button class="feature-pill" data-id="app-support">
-          <span>App Support</span> <span class="pill-chevron">›</span>
-        </button>
+      <div class="feature-block scroll-reveal">
+        <div class="feat-text">
+          <span class="feat-icon" aria-hidden="true">🏟️</span>
+          <h2 class="serif">Venue Intel</h2>
+          <p>We actively cover over 300 venues globally. No more cross-referencing five different pages just to figure out how to get inside.</p>
+          <ul class="feat-list">
+            <li>Verified Bag Policies</li>
+            <li>Interactive Parking Maps</li>
+            <li>1-Tap Uber & Lyft Routing</li>
+            <li>Concession Details</li>
+          </ul>
+        </div>
+        <div class="feat-image">
+          <img src="mockup-venue.png" alt="Concerto Venue Intel Interface" onerror="this.style.display='none'">
+        </div>
       </div>
+
+      <div class="feature-block scroll-reveal">
+        <div class="feat-text">
+          <span class="feat-icon" aria-hidden="true">🎶</span>
+          <h2 class="serif">Setlists & Tours</h2>
+          <p>Know what you’re walking into before the lights go down. View verified, up-to-date setlists for every major active tour.</p>
+          <ul class="feat-list">
+            <li>Track Deep Cuts & Closers</li>
+            <li>Spotify & Apple Music Links</li>
+            <li>Official Local Start Times</li>
+          </ul>
+        </div>
+        <div class="feat-image">
+          <img src="mockup-setlists.png" alt="Concerto Tour Setlists Interface" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="feature-block scroll-reveal">
+        <div class="feat-text">
+          <span class="feat-icon" aria-hidden="true">🍸</span>
+          <h2 class="serif">City Guides</h2>
+          <p>We skip the generic Yelp reviews. Each City Guide is a handpicked, curated list of dining and hotel options physically anchored to your venue.</p>
+          <ul class="feat-list">
+            <li>Pre-Show Dinner Spots</li>
+            <li>Post-Show Drinks</li>
+            <li>Upscale Nearby Hotels</li>
+          </ul>
+        </div>
+        <div class="feat-image">
+          <img src="mockup-cityguide.png" alt="Concerto City Guides Interface" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="feature-block scroll-reveal">
+        <div class="feat-text">
+          <span class="feat-icon" aria-hidden="true">📍</span>
+          <h2 class="serif">Events Near Me</h2>
+          <p>Your starting point for a spontaneous night out. Open the app and instantly see what’s happening in your city tonight.</p>
+          <ul class="feat-list">
+            <li>Live Concerts</li>
+            <li>Comedy Tours</li>
+            <li>Sporting Events & Festivals</li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 1rem; width: auto;">Download Now</a>
+        </div>
+        <div class="feat-image">
+          <img src="mockup-events.png" alt="Concerto Events Interface" onerror="this.style.display='none'">
+        </div>
+      </div>
+
     </section>
   </main>
-
-  <div class="modal-overlay" id="feature-modal" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="modal-close" id="close-modal" aria-label="Close modal">✕</button>
-      <div class="modal-icon" id="modal-icon" aria-hidden="true">✧</div>
-      <h3 class="modal-title serif" id="modal-title">Feature Title</h3>
-      <p class="modal-desc" id="modal-desc">Feature Description</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary">Unlock in App</a>
-    </div>
-  </div>
 
   <footer>
     <a href="index.html" class="logo" aria-label="Concerto Home">
@@ -304,43 +304,18 @@
       }
     });
 
-    // Interactive Velvet Rope Logic
-    const featureData = {
-      'city-guides': { icon: '🍸', title: 'City Guides', desc: 'Handpicked dining and upscale hotels anchored physically to your venue. Skip generic Yelp reviews and plan the perfect night out.' },
-      'events-near-me': { icon: '📍', title: 'Events Near Me', desc: 'Open the app and instantly see every major concert, comedy show, and festival happening in your city tonight.' },
-      'setlists': { icon: '🎶', title: 'Setlists', desc: 'View official setlists, deep cuts, and local start times. Every track links directly to Apple Music and Spotify.' },
-      'tour-info': { icon: '🎸', title: 'Tour Info', desc: 'Full logistics for every major tour, including direct ticket links, verified venue rules, and specific drop-off zones.' },
-      'rideshare': { icon: '🚗', title: '1-Tap Rideshare', desc: 'Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.' },
-      'bag-policies': { icon: '🎒', title: 'Bag Policies', desc: 'Stop guessing. Get the exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.' },
-      'parking': { icon: '🅿️', title: 'Parking', desc: 'Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.' },
-      'concessions': { icon: '🥨', title: 'Concessions', desc: 'Know what is available inside before you arrive. Find specific vendors, bars, and food options for your venue.' },
-      'local-weather': { icon: '☁️', title: 'Local Weather', desc: 'Real-time, hyper-local weather tracking mapped directly to your venue location for event-day preparation.' },
-      'app-support': { icon: '💬', title: 'App Support', desc: 'Direct access to the Concerto Crew. Get help navigating the app, reporting venue changes, or managing your Premium account.' }
-    };
-
-    const modal = document.getElementById('feature-modal');
-    const modalIcon = document.getElementById('modal-icon');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const closeBtn = document.getElementById('close-modal');
-    const pills = document.querySelectorAll('.feature-pill');
-
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        const data = featureData[pill.getAttribute('data-id')];
-        if(data) {
-          modalIcon.textContent = data.icon;
-          modalTitle.textContent = data.title;
-          modalDesc.textContent = data.desc;
-          modal.classList.add('active');
+    // Premium Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    });
+    }, { rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
 
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-    modal.addEventListener('click', (e) => {
-      if(e.target === modal) modal.classList.remove('active');
-    });
+    revealElements.forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
