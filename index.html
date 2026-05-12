@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F8F9F9" />
-  
   <title>Concerto | The Ultimate Concert Companion</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── EXACT BRAND PALETTE ─── */
+    /* ─── EXACT APP BRAND PALETTE ─── */
     :root {
       --bg: #F8F9F9; 
       --card-bg: #FFFFFF;
@@ -20,8 +18,7 @@
       --gold: #C9A84C;
       --text-dim: rgba(18, 30, 54, 0.55);
       --border-light: rgba(18, 30, 54, 0.08);
-      --shadow-soft: 0 4px 12px rgba(18, 30, 54, 0.03);
-      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 4px 12px rgba(18, 30, 54, 0.03);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,26 +33,19 @@
     .sans { font-family: 'DM Sans', sans-serif !important; }
     .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
 
-    /* ─── AMBIENT BACKGROUND ─── */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.4; }
-    .orb-1 { width: 50vw; height: 50vw; background: rgba(201,168,76,0.12); top: -20%; right: -10%; }
-    .orb-2 { width: 60vw; height: 60vw; background: rgba(18,30,54,0.04); bottom: -20%; left: -20%; }
-
-    /* ─── DESKTOP HEADER ─── */
+    /* ─── HEADER (9 Features & Small Logo) ─── */
     header { 
       position: fixed; top: 0; width: 100%; z-index: 1000; 
-      background: rgba(248, 249, 249, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: space-between; padding: 0 4%; height: 72px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 4%; height: 70px;
     }
     
-    .header-logo { height: 28px; width: auto; object-fit: contain; opacity: 0; transition: opacity 0.4s ease; }
-    header.scrolled .header-logo { opacity: 1; }
+    .header-logo { height: 24px; width: auto; object-fit: contain; }
     
-    .nav-features { display: flex; gap: 2rem; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-features { display: flex; gap: 1.5rem; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-features a { 
-      font-size: 0.75rem; font-weight: 700; color: var(--navy); text-decoration: none; 
+      font-size: 0.7rem; font-weight: 700; color: var(--navy); text-decoration: none; 
       text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
     }
     .nav-features a:hover { color: var(--gold); }
@@ -65,98 +55,98 @@
     .header-actions a.text-link:hover { color: var(--navy); }
     
     .btn-primary { 
-      background: var(--navy); color: #FFFFFF !important; padding: 0.7rem 1.8rem; 
-      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+      background: var(--navy); color: #FFFFFF !important; padding: 0.6rem 1.5rem; 
+      border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; 
       letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s;
     }
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(18, 30, 54, 0.15); }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
 
-    /* ─── MAIN LAYOUT ─── */
-    main { padding-top: 140px; padding-bottom: 100px; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 4%; }
+    /* ─── CONSTRAINED MAIN LAYOUT ─── */
+    main { padding-top: 150px; padding-bottom: 100px; }
+    
+    /* Strict 900px width keeps the layout from stretching */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 5%; }
 
-    /* ─── CENTERED HERO ─── */
-    .hero { text-align: center; margin-bottom: 6rem; display: flex; flex-direction: column; align-items: center; }
-    .hero-main-logo { height: 70px; width: auto; object-fit: contain; margin-bottom: 1rem; }
-    .hero-subtitle { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2rem; }
-    .hero h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem; max-width: 800px; }
-    .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; }
+    /* ─── CENTERED HERO LOGO ─── */
+    .hero-brand { text-align: center; margin-bottom: 5rem; }
+    .main-logo { height: 60px; width: auto; object-fit: contain; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2.5rem; display: block; }
+    .hero-brand h1 { font-size: 3.5rem; color: var(--navy); line-height: 1.1; margin-bottom: 1rem; }
+    .hero-brand p { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
     /* ─── SECTION HEADERS ─── */
-    .section-header { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 6rem 0 3rem; }
-    .section-title { font-size: 28px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; margin-top: 5rem; border-bottom: 1px solid rgba(18,30,54,0.04); padding-bottom: 0.8rem;}
+    .section-title { font-size: 24px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .section-right { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
 
-    /* ─── THE ESSENTIALS GRID (Matches App UI) ─── */
-    .essentials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .essential-btn {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px;
-      font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em;
-      display: flex; align-items: center; justify-content: space-between; text-decoration: none;
-      box-shadow: var(--shadow-soft); transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    /* ─── PREMIUM GRID (2x2) ─── */
+    .premium-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .premium-item {
+      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 16px; padding: 24px;
+      display: flex; flex-direction: column; justify-content: center; text-decoration: none;
+      box-shadow: var(--shadow-sm); position: relative; transition: transform 0.2s, background 0.2s;
     }
-    .essential-btn:hover { transform: translateY(-2px); background: rgba(18,30,54,0.02); border-color: rgba(18,30,54,0.15); }
-    .essential-arrow { color: rgba(18,30,54,0.3); font-size: 20px; font-weight: 300; transition: color 0.2s; }
+    .premium-item:hover { transform: translateY(-2px); background: rgba(201,168,76,0.02); }
+    .premium-item::after { content: '•'; position: absolute; top: 24px; right: 24px; color: var(--gold); font-size: 24px; line-height: 0.5; }
+    .premium-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .premium-desc { font-size: 12px; font-weight: 500; color: var(--text-dim); line-height: 1.4; padding-right: 20px; }
+
+    /* ─── ESSENTIALS GRID (3x3 - Mathematically Perfect) ─── */
+    .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .essential-btn {
+      background: rgba(18,30,54,0.02); border: 1px solid rgba(18,30,54,0.06); border-radius: 12px; padding: 18px 20px;
+      font-size: 11px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em;
+      display: flex; align-items: center; justify-content: space-between; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .essential-btn:hover { background: rgba(18,30,54,0.06); border-color: rgba(18,30,54,0.12); }
+    .essential-arrow { color: rgba(18,30,54,0.3); font-size: 18px; font-weight: 300; transition: color 0.2s; }
     .essential-btn:hover .essential-arrow { color: var(--navy); }
 
-    /* ─── PREMIUM SECTION (Matches App UI) ─── */
-    .premium-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
-    .premium-item {
-      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 16px; padding: 32px;
-      display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-soft); transition: transform 0.2s;
-    }
-    .premium-item:hover { transform: translateY(-2px); background: rgba(201,168,76,0.03); }
-    .premium-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-    .premium-title::after { content: '•'; color: var(--gold); font-size: 24px; line-height: 0; }
-    .premium-desc { font-size: 13px; font-weight: 500; color: var(--text-dim); line-height: 1.5; }
-
-    /* ─── FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 5rem 4% 3rem; background: var(--bg); margin-top: 4rem; }
-    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
-    .footer-col { display: flex; flex-direction: column; gap: 1rem; }
-    .footer-col p { font-size: 13px; color: var(--text-dim); line-height: 1.6; max-width: 250px; margin-top: 1rem;}
-    .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 1rem; }
-    .footer-col a { font-size: 13px; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    /* ─── CLEAN FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 4rem 5% 3rem; background: var(--bg); margin-top: 4rem; }
+    .footer-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-col { display: flex; flex-direction: column; gap: 0.8rem; }
+    .footer-col h4 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 0.5rem; }
+    .footer-col a { font-size: 12px; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
     .footer-col a:hover { color: var(--navy); }
-    .footer-bottom { max-width: 1200px; margin: 4rem auto 0; border-top: 1px solid var(--border-light); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-dim); }
+    .footer-logo { height: 32px; width: auto; opacity: 0.8; margin-bottom: 0.5rem; object-fit: contain; object-position: left; }
+    .footer-bottom { max-width: 900px; margin: 4rem auto 0; border-top: 1px solid var(--border-light); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 11px; color: var(--text-dim); }
 
     /* ─── RESPONSIVENESS ─── */
     @media (max-width: 1024px) {
       .nav-features { display: none; }
-      .header-logo { opacity: 1; }
-      .essentials-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
-      .premium-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-main-logo { height: 50px; }
-      .hero h1 { font-size: 2.2rem; }
+      .essentials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .premium-grid, .essentials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .hero-brand h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-canvas">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-
-  <header id="main-header">
+  <header>
     <a href="index.html" class="logo">
       <img src="logo.png" alt="Concerto" class="header-logo">
     </a>
     
-    <nav class="nav-features">
-      <a href="cityguides.html">City Guides</a>
+    <nav class="nav-features sans">
+      <a href="cityguides.html">Guides</a>
       <a href="events.html">Events</a>
+      <a href="featuredtours.html">Tours</a>
       <a href="setlists.html">Setlists</a>
-      <a href="tours.html">Tours</a>
+      <a href="tourinfo.html">Info</a>
       <a href="rideshare.html">Rideshare</a>
-      <a href="bags.html">Bag Policies</a>
+      <a href="bags.html">Bags</a>
       <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
+      <a href="concessions.html">Food</a>
     </nav>
 
-    <div class="header-actions">
+    <div class="header-actions sans">
       <a href="premium.html" class="text-link">Premium</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary">Download App</a>
     </div>
@@ -165,32 +155,16 @@
   <main>
     <div class="container">
 
-      <section class="hero">
-        <img src="logo.png" alt="CONCERTO" class="hero-main-logo">
-        <span class="hero-subtitle">From the Concert to the City</span>
+      <div class="hero-brand">
+        <img src="logo.png" alt="CONCERTO" class="main-logo">
+        <span class="subtitle sans">From the Concert to the City</span>
         <h1 class="serif">Navigate the night flawlessly.</h1>
         <p class="sans">The ultimate live music companion. Unlock verified venue intel, interactive maps, and curated city guides the moment you buy the ticket.</p>
-      </section>
-
-      <div class="section-header">
-        <span class="eyebrow">Free Tools</span>
-        <h2 class="section-title serif">The Essentials</h2>
-      </div>
-
-      <div class="essentials-grid">
-        <a href="cityguides.html" class="essential-btn sans">City Guides <span class="essential-arrow">&#8250;</span></a>
-        <a href="events.html" class="essential-btn sans">Events Near Me <span class="essential-arrow">&#8250;</span></a>
-        <a href="setlists.html" class="essential-btn sans">Setlists <span class="essential-arrow">&#8250;</span></a>
-        <a href="tours.html" class="essential-btn sans">Tour Info <span class="essential-arrow">&#8250;</span></a>
-        <a href="rideshare.html" class="essential-btn sans">Rideshare <span class="essential-arrow">&#8250;</span></a>
-        <a href="bags.html" class="essential-btn sans">Bag Policies <span class="essential-arrow">&#8250;</span></a>
-        <a href="parking.html" class="essential-btn sans">Parking <span class="essential-arrow">&#8250;</span></a>
-        <a href="concessions.html" class="essential-btn sans">Concessions <span class="essential-arrow">&#8250;</span></a>
       </div>
 
       <div class="section-header">
-        <span class="eyebrow">Unlock The Magic</span>
         <h2 class="section-title serif">Concerto Premium</h2>
+        <span class="section-right sans">Unlock The Magic</span>
       </div>
 
       <div class="premium-grid">
@@ -212,56 +186,56 @@
         </a>
       </div>
 
+      <div class="section-header">
+        <h2 class="section-title serif">The Essentials</h2>
+      </div>
+
+      <div class="essentials-grid">
+        <a href="cityguides.html" class="essential-btn sans">City Guides <span class="essential-arrow">&#8250;</span></a>
+        <a href="events.html" class="essential-btn sans">Events Near Me <span class="essential-arrow">&#8250;</span></a>
+        <a href="featuredtours.html" class="essential-btn sans">Featured Tours <span class="essential-arrow">&#8250;</span></a>
+        <a href="setlists.html" class="essential-btn sans">Setlists <span class="essential-arrow">&#8250;</span></a>
+        <a href="tourinfo.html" class="essential-btn sans">Tour Info <span class="essential-arrow">&#8250;</span></a>
+        <a href="rideshare.html" class="essential-btn sans">Rideshare <span class="essential-arrow">&#8250;</span></a>
+        <a href="bags.html" class="essential-btn sans">Bag Policies <span class="essential-arrow">&#8250;</span></a>
+        <a href="parking.html" class="essential-btn sans">Parking <span class="essential-arrow">&#8250;</span></a>
+        <a href="concessions.html" class="essential-btn sans">Concessions <span class="essential-arrow">&#8250;</span></a>
+      </div>
+
     </div>
   </main>
 
   <footer>
     <div class="footer-grid">
-      <div class="footer-col">
-        <img src="logo.png" alt="Concerto Logo" class="header-logo" style="opacity:1;">
-        <p class="sans">Concerto is the ultimate companion for live music. From the moment you secure the ticket to the post-show drinks, we navigate the night flawlessly.</p>
+      <div class="footer-col" style="grid-column: span 2; padding-right: 2rem;">
+        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
+        <p class="sans" style="font-size: 12px; color: var(--text-dim); line-height: 1.6;">
+          Concerto is the ultimate companion for live music. From the moment you secure the ticket to the post-show drinks, we navigate the night flawlessly.
+        </p>
       </div>
       
       <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop Merch</a>
-        <a href="partners.html">Partnerships</a>
+        <h4 class="sans">Company</h4>
+        <a href="about.html" class="sans">About Us</a>
+        <a href="premium.html" class="sans">Premium</a>
+        <a href="shop.html" class="sans">Shop Merch</a>
+        <a href="partners.html" class="sans">Partnerships</a>
       </div>
 
       <div class="footer-col">
-        <h4>Support</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="mailto:support@concertocity.com">App Support</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank">YouTube</a>
+        <h4 class="sans">Support</h4>
+        <a href="faq.html" class="sans">FAQ</a>
+        <a href="mailto:support@concertocity.com" class="sans">App Support</a>
+        <a href="privacy.html" class="sans">Privacy Policy</a>
+        <a href="terms.html" class="sans">Terms of Service</a>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <span>&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
-      <span>Designed in Texas</span>
+      <span class="sans">&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
+      <span class="sans">Designed in Texas</span>
     </div>
   </footer>
 
-  <script>
-    // Show top-left logo only when scrolled past the main centered logo
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 150) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
 </body>
 </html>
