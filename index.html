@@ -2,167 +2,192 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F8F9F9" />
-  
-  <title>Concerto | Your Live Music Companion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Concerto | The Ultimate Concert Companion</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── EXACT BRAND PALETTE ─── */
+    /* ─── EXACT APP BRAND PALETTE ─── */
     :root {
       --bg: #F8F9F9; 
       --card-bg: #FFFFFF;
-      --text: #121E36; 
+      --navy: #121E36; 
+      --gold: #C9A84C;
       --text-dim: rgba(18, 30, 54, 0.55);
       --border-light: rgba(18, 30, 54, 0.08);
-      --gold: #C9A84C;
-      --shadow-sm: 0 4px 12px rgba(18, 30, 54, 0.03);
-      --shadow-lg: 0 24px 60px rgba(18, 30, 54, 0.12);
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-soft: 0 4px 12px rgba(18, 30, 54, 0.03);
+      --shadow-heavy: 0 20px 40px rgba(18, 30, 54, 0.15);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; background: var(--bg); }
     body {
-      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      font-family: 'DM Sans', sans-serif; color: var(--navy); overflow-x: hidden;
       line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
     }
 
     /* ─── TYPOGRAPHY ─── */
     .serif { font-family: 'Playfair Display', serif !important; }
     .sans { font-family: 'DM Sans', sans-serif !important; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+
+    /* ─── AMBIENT WEB BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.3; }
+    .orb-1 { width: 50vw; height: 50vw; background: rgba(201,168,76,0.15); top: -20%; right: -10%; }
+    .orb-2 { width: 60vw; height: 60vw; background: rgba(18,30,54,0.05); bottom: -20%; left: -20%; }
 
     /* ─── DESKTOP HEADER ─── */
     header { 
       position: fixed; top: 0; width: 100%; z-index: 1000; 
-      background: rgba(248, 249, 249, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(248, 249, 249, 0.9); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: space-between; padding: 1rem 4%;
+      display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 4%;
+      height: 80px;
     }
     
-    .logo-img { height: 36px; width: auto; object-fit: contain; }
+    .logo-img { height: 32px; width: auto; object-fit: contain; } /* Properly sized for header */
     
     .nav-features { display: flex; gap: 2rem; align-items: center; }
     .nav-features a { 
-      font-size: 0.8rem; font-weight: 600; color: var(--text); text-decoration: none; 
-      transition: color 0.3s;
+      font-size: 0.8rem; font-weight: 700; color: var(--navy); text-decoration: none; 
+      text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
     }
     .nav-features a:hover { color: var(--gold); }
 
     .btn-primary { 
-      background: var(--text); color: var(--bg) !important; padding: 0.7rem 1.8rem; 
-      border-radius: 99px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; 
-      letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s;
-      box-shadow: 0 8px 24px rgba(18, 30, 54, 0.2);
+      background: var(--navy); color: #FFFFFF !important; padding: 0.8rem 2rem; 
+      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(18, 30, 54, 0.3); }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(18, 30, 54, 0.2); }
 
-    /* ─── LAYOUT CONTAINERS ─── */
-    main { padding-top: 100px; }
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+    /* ─── MAIN LAYOUT ─── */
+    main { padding-top: 140px; padding-bottom: 100px; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 4%; }
     
-    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; margin-top: 6rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; }
-    .section-title { font-size: 32px; font-weight: 700; color: var(--text); line-height: 1; }
+    /* ─── WEB-NATIVE HERO SECTION ─── */
+    .hero-wrapper { text-align: center; margin-bottom: 4rem; }
+    .hero-wrapper h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero-wrapper p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-    /* ─── SPLIT DESKTOP HERO ─── */
-    .hero-split { 
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; 
-      align-items: center; min-height: 75vh; padding: 4rem 0;
+    /* Widescreen Dashboard Card */
+    .dashboard-card {
+      background: var(--navy); border-radius: 32px; padding: 48px 64px;
+      box-shadow: var(--shadow-heavy); position: relative; overflow: hidden;
+      display: flex; justify-content: space-between; align-items: center; gap: 40px;
+      cursor: pointer; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-text h1 { font-size: clamp(3.5rem, 5vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; color: var(--text); }
-    .hero-text p { font-size: 1.15rem; color: var(--text-dim); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.7; }
-
-    /* ─── INTERACTIVE HERO CARD (Desktop Scaled) ─── */
-    .hero-card-wrapper { perspective: 1000px; }
-    .hero-card {
-      background: var(--text); color: #FFFFFF; border-radius: 32px; padding: 50px;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden; display: flex;
-      flex-direction: column; gap: 24px; cursor: pointer; transition: transform 0.4s ease;
-      aspect-ratio: 4/3; justify-content: center;
-    }
-    .hero-card:hover { transform: translateY(-8px) rotateX(2deg) rotateY(-2deg); }
-    .hero-card::before {
-      content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
-      background: rgba(201,168,76,0.15); filter: blur(60px); border-radius: 50%; pointer-events: none;
+    .dashboard-card:hover { transform: translateY(-4px); }
+    .dashboard-card::before {
+      content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px;
+      background: rgba(201,168,76,0.15); filter: blur(80px); border-radius: 50%; pointer-events: none; z-index: 0;
     }
     
-    .hero-artist { font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 8px; color: #FFFFFF; }
-    .hero-tour { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.02em; }
+    .dash-left { position: relative; z-index: 1; text-align: left; flex: 1; }
+    .dash-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .dash-artist { font-size: 56px; font-weight: 700; line-height: 1.1; color: #FFFFFF; margin-bottom: 8px; }
+    .dash-tour { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.6); }
     
+    .dash-right { position: relative; z-index: 1; }
     .timer-wrap {
-      display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 24px 40px; margin-top: 20px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
+      border-radius: 24px; padding: 32px 48px; display: flex; gap: 40px; align-items: baseline;
     }
-    .timer-row { display: flex; gap: 40px; align-items: baseline; width: 100%; justify-content: center; }
     .time-block { display: flex; flex-direction: column; align-items: center; }
-    .time-num { font-size: 48px; font-weight: 700; line-height: 1; color: #FFFFFF; }
+    .time-num { font-size: 56px; font-weight: 700; line-height: 1; color: #FFFFFF; }
     .time-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 8px; }
-    .time-colon { font-size: 32px; color: rgba(201,168,76,0.5); transform: translateY(-12px); }
+    .time-colon { font-size: 40px; color: rgba(201,168,76,0.5); transform: translateY(-16px); }
 
-    /* ─── INLINE FORM ─── */
-    .show-form { display: none; background: #FFFFFF; border-radius: 32px; padding: 50px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-light); aspect-ratio: 4/3; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
-    .form-group input { width: 100%; background: var(--bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 16px 20px; font-family: 'DM Sans'; font-size: 16px; color: var(--text); outline: none; transition: border-color 0.3s; }
-    .form-group input:focus { border-color: var(--text); }
-    .form-actions { display: flex; gap: 16px; margin-top: 32px; }
-    .btn-clear { background: transparent; border: 1px solid var(--border-light); border-radius: 16px; padding: 16px 32px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
-    .btn-clear:hover { background: var(--bg); }
-    .btn-save { flex: 1; background: var(--text); border: none; border-radius: 16px; padding: 16px; font-weight: 700; color: #FFF; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
-    .btn-save:hover { background: #000; }
-
-    /* ─── DESKTOP FEATURED TOURS GRID ─── */
-    .tours-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding-bottom: 60px; }
-    .tour-card { background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: var(--shadow-sm); }
-    .tour-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.08); }
-    .tour-img { width: 100%; height: 260px; object-fit: cover; }
-    .tour-info { padding: 20px; }
-    .tour-name { font-size: 20px; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 4px; }
-    .tour-desc { font-size: 13px; color: var(--text-dim); }
-
-    /* ─── DESKTOP PREMIUM GRID ─── */
-    .premium-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 80px; }
-    .premium-item {
-      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 24px; padding: 32px 24px;
-      display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform 0.3s, border-color 0.3s;
+    /* Show Form (Matches Dashboard dimensions) */
+    .show-form { 
+      display: none; background: #FFFFFF; border-radius: 32px; padding: 48px 64px; 
+      box-shadow: var(--shadow-heavy); border: 1px solid var(--border-light); 
     }
-    .premium-item:hover { transform: translateY(-4px); border-color: var(--gold); background: rgba(201,168,76,0.02); }
-    .premium-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
-    .premium-desc { font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .form-group input { width: 100%; background: var(--bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 18px 24px; font-family: 'DM Sans'; font-size: 16px; color: var(--navy); outline: none; }
+    .form-group input:focus { border-color: var(--navy); }
+    .form-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 32px; }
+    .btn-clear { background: transparent; border: 1px solid var(--border-light); border-radius: 99px; padding: 16px 32px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; cursor: pointer; }
+    .btn-save { background: var(--navy); border: none; border-radius: 99px; padding: 16px 48px; font-weight: 700; color: #FFF; text-transform: uppercase; cursor: pointer; letter-spacing: 0.05em; }
 
-    /* ─── FOOTER (Cleaned up) ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4rem; }
+    /* ─── SECTION HEADERS (App Style, Web Scale) ─── */
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin: 6rem 0 2rem; }
+    .section-title { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .section-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+
+    /* ─── THE ESSENTIALS (4-Column Web Grid) ─── */
+    .essentials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .essential-btn {
+      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 16px; padding: 24px 28px;
+      font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em;
+      display: flex; align-items: center; justify-content: space-between; text-decoration: none;
+      box-shadow: var(--shadow-soft); transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .essential-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(18, 30, 54, 0.06); }
+    .essential-arrow { color: rgba(18,30,54,0.2); font-size: 24px; font-weight: 300; transition: color 0.2s; }
+    .essential-btn:hover .essential-arrow { color: var(--navy); }
+
+    /* ─── PREMIUM SECTION (App style 2x2 or 4x1) ─── */
+    .premium-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .premium-item {
+      background: #FFFFFF; border: 1px solid rgba(201,168,76,0.3); border-radius: 24px; padding: 32px;
+      display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-soft); transition: transform 0.3s;
+    }
+    .premium-item:hover { transform: translateY(-4px); background: rgba(201,168,76,0.02); }
+    .premium-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .premium-title::after { content: '•'; color: var(--gold); }
+    .premium-desc { font-size: 13px; font-weight: 500; color: var(--text-dim); line-height: 1.5; }
+
+    /* ─── FEATURED TOURS (Web Scale Horizontal Scroll) ─── */
+    .tour-scroll { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .tour-scroll::-webkit-scrollbar { display: none; }
+    .tour-card { flex: 0 0 240px; background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; text-decoration: none; box-shadow: var(--shadow-soft); transition: transform 0.3s; }
+    .tour-card:hover { transform: translateY(-4px); }
+    .tour-img { width: 100%; height: 280px; object-fit: cover; }
+    .tour-info { padding: 20px; }
+    .tour-name { font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.1; margin-bottom: 4px; }
+    .tour-desc { font-size: 12px; color: var(--text-dim); }
+
+    /* ─── MASSIVE WEB FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 5rem 4% 3rem; background: var(--bg); margin-top: 4rem; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
     .footer-col { display: flex; flex-direction: column; gap: 1rem; }
-    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 0.5rem; }
-    .footer-col a { font-size: 0.9rem; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--text); }
-    .footer-logo { height: 40px; width: auto; opacity: 0.8; margin-bottom: 1rem; }
+    .footer-logo { height: 48px; width: auto; margin-bottom: 1rem; object-fit: contain; object-position: left; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 1rem; }
+    .footer-col a { font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--navy); }
+    .footer-bottom { max-width: 1400px; margin: 4rem auto 0; border-top: 1px solid var(--border-light); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-dim); }
 
-    /* ─── MOBILE RESPONSIVENESS ─── */
-    @media (max-width: 1024px) {
-      .hero-split { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
-      .hero-text p { margin: 0 auto 2.5rem; }
-      .nav-features { display: none; /* Hide full feature nav on tablet/mobile */ }
-      .tours-grid { grid-template-columns: repeat(3, 1fr); }
+    /* ─── RESPONSIVE RULES ─── */
+    @media (max-width: 1100px) {
+      .nav-features { display: none; /* Collapses features into a hamburger menu conceptually */ }
+      .essentials-grid { grid-template-columns: repeat(2, 1fr); }
       .premium-grid { grid-template-columns: repeat(2, 1fr); }
+      .dashboard-card { flex-direction: column; text-align: center; padding: 40px 32px; }
+      .dash-left { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .tours-grid { grid-template-columns: 1fr 1fr; }
-      .premium-grid { grid-template-columns: 1fr; }
-      .hero-artist { font-size: 40px; }
-      .time-num { font-size: 32px; }
-      .timer-row { gap: 20px; }
-      .hero-card, .show-form { padding: 30px; aspect-ratio: auto; }
-      footer { flex-direction: column; }
+      .hero-wrapper h1 { font-size: 40px; }
+      .timer-wrap { padding: 24px; gap: 24px; width: 100%; justify-content: center; }
+      .time-num { font-size: 40px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .show-form { padding: 32px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
   </style>
 </head>
 <body>
+
+  <div class="bg-canvas">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
 
   <header>
     <a href="index.html" class="logo">
@@ -186,57 +211,91 @@
   <main>
     <div class="container">
 
-      <section class="hero-split">
-        <div class="hero-text">
-          <span class="eyebrow">The Concert Companion</span>
-          <h1 class="serif">Navigate the night flawlessly.</h1>
-          <p class="sans">The app you open the second you buy the ticket. Concerto gives you verified venue intel, 3D maps, bag policies, and curated guides for your next show.</p>
-          <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 0.9rem;">Get the iOS App</a>
+      <div class="hero-wrapper">
+        <h1 class="serif">Navigate the night flawlessly.</h1>
+        <p class="sans">The ultimate live music companion. Open the app the second you buy the ticket to unlock venue intel, curated guides, and your exact event timeline.</p>
+      </div>
+
+      <div class="dashboard-card" id="hero-card" onclick="openModal()">
         </div>
 
-        <div class="hero-card-wrapper">
-          <div class="hero-card" id="hero-card" onclick="openModal()">
-            </div>
-
-          <div class="show-form" id="show-form">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:32px;">
-              <h2 class="serif" style="font-size:28px; font-weight:700; color:var(--text);">Set Your Show</h2>
-              <button onclick="closeModal()" style="background:none; border:none; font-size:28px; color:var(--text-dim); cursor:pointer;">&times;</button>
-            </div>
-            
-            <div class="form-group">
-              <label class="sans">Artist</label>
-              <input id="input-artist" type="text" placeholder="e.g. Lady Gaga" autocomplete="off">
-            </div>
-            <div class="form-group">
-              <label class="sans">Tour Name (Optional)</label>
-              <input id="input-tour" type="text" placeholder="e.g. The Chromatica Ball">
-            </div>
-            <div class="form-group">
-              <label class="sans">Venue</label>
-              <input id="input-venue" type="text" placeholder="e.g. Soldier Field, Chicago" autocomplete="off">
-            </div>
-            <div class="form-group">
-              <label class="sans">Date</label>
-              <input id="input-date" type="date">
-            </div>
-            
-            <div class="form-actions">
-              <button class="btn-clear sans" onclick="clearShow()">Clear</button>
-              <button class="btn-save sans" onclick="saveShow()">Save Show</button>
-            </div>
+      <div class="show-form" id="show-form">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h2 class="serif" style="font-size:32px; font-weight:700; color:var(--navy);">Your Next Show</h2>
+          <button onclick="closeModal()" style="background:none; border:none; font-size:32px; color:var(--text-dim); cursor:pointer;">&times;</button>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="sans">Artist</label>
+            <input id="input-artist" type="text" placeholder="e.g. Lady Gaga" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label class="sans">Tour Name (Optional)</label>
+            <input id="input-tour" type="text" placeholder="e.g. The Chromatica Ball">
+          </div>
+          <div class="form-group">
+            <label class="sans">Venue</label>
+            <input id="input-venue" type="text" placeholder="e.g. Madison Square Garden" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label class="sans">Date</label>
+            <input id="input-date" type="date">
           </div>
         </div>
-      </section>
-
-      <div class="section-header">
-        <div>
-          <span class="eyebrow">Trending Now</span>
-          <h2 class="section-title serif">Featured Tours</h2>
+        
+        <div class="form-actions">
+          <button class="btn-clear sans" onclick="clearShow()">Clear</button>
+          <button class="btn-save sans" onclick="saveShow()">Save Show</button>
         </div>
       </div>
+
+      <div class="section-header">
+        <h2 class="section-title serif">The Essentials</h2>
+        <span class="section-subtitle">Free Tools</span>
+      </div>
+
+      <div class="essentials-grid">
+        <a href="cityguides.html" class="essential-btn sans">City Guides <span class="essential-arrow">&#8250;</span></a>
+        <a href="events.html" class="essential-btn sans">Events Near Me <span class="essential-arrow">&#8250;</span></a>
+        <a href="setlists.html" class="essential-btn sans">Setlists <span class="essential-arrow">&#8250;</span></a>
+        <a href="tours.html" class="essential-btn sans">Tour Info <span class="essential-arrow">&#8250;</span></a>
+        <a href="rideshare.html" class="essential-btn sans">Rideshare <span class="essential-arrow">&#8250;</span></a>
+        <a href="bags.html" class="essential-btn sans">Bag Policies <span class="essential-arrow">&#8250;</span></a>
+        <a href="parking.html" class="essential-btn sans">Parking <span class="essential-arrow">&#8250;</span></a>
+        <a href="concessions.html" class="essential-btn sans">Concessions <span class="essential-arrow">&#8250;</span></a>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title serif">Concerto Premium</h2>
+        <span class="section-subtitle">Unlock The Magic</span>
+      </div>
+
+      <div class="premium-grid">
+        <a href="premium.html" class="premium-item">
+          <h4 class="premium-title serif">Concerto+</h4>
+          <p class="premium-desc sans">Your AI timeline and custom itinerary perfectly mapped to the venue.</p>
+        </a>
+        <a href="premium.html" class="premium-item">
+          <h4 class="premium-title serif">Bag Check</h4>
+          <p class="premium-desc sans">Instant bag verification for venues using your camera.</p>
+        </a>
+        <a href="premium.html" class="premium-item">
+          <h4 class="premium-title serif">Live Mode</h4>
+          <p class="premium-desc sans">In-show hub with live setlists and personalized visual recaps.</p>
+        </a>
+        <a href="premium.html" class="premium-item">
+          <h4 class="premium-title serif">Festivals</h4>
+          <p class="premium-desc sans">Multi-day lineups, survival guides, and stage routing.</p>
+        </a>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title serif">Featured Tours</h2>
+        <span class="section-subtitle">Trending Now</span>
+      </div>
       
-      <div class="tours-grid">
+      <div class="tour-scroll">
         <a href="tours.html" class="tour-card">
           <img src="https://buildfire.imgix.net/8ef92dbd-0a8b-11f0-a97f-12565309935d/img_4557.jpeg?auto=format&fit=crop&q=80&w=400" class="tour-img" alt="Harry Styles">
           <div class="tour-info"><h4 class="tour-name serif">Harry Styles</h4><p class="tour-desc sans">Together, Together Tour</p></div>
@@ -259,67 +318,50 @@
         </a>
       </div>
 
-      <div class="section-header">
-        <div>
-          <span class="eyebrow">Unlock The Magic</span>
-          <h2 class="section-title serif">Concerto Premium</h2>
-        </div>
-      </div>
-
-      <div class="premium-grid">
-        <a href="premium.html" class="premium-item">
-          <h4 class="premium-title serif">Concerto+</h4>
-          <p class="premium-desc sans">Your AI timeline and custom itinerary perfectly mapped to the venue.</p>
-        </a>
-        <a href="premium.html" class="premium-item">
-          <h4 class="premium-title serif">Bag Check</h4>
-          <p class="premium-desc sans">Use your camera for instant bag verification before you leave home.</p>
-        </a>
-        <a href="premium.html" class="premium-item">
-          <h4 class="premium-title serif">Live Mode</h4>
-          <p class="premium-desc sans">In-show hub with live setlists, visual recaps, and interactive sharing.</p>
-        </a>
-        <a href="premium.html" class="premium-item">
-          <h4 class="premium-title serif">Festivals</h4>
-          <p class="premium-desc sans">Multi-day lineups, survival guides, and stage-to-stage navigation.</p>
-        </a>
-      </div>
-
     </div>
   </main>
 
   <footer>
-    <div class="footer-col">
-      <img src="logo.png" alt="Concerto Logo" class="footer-logo">
-      <p class="sans" style="font-size: 0.9rem; color: var(--text-dim); max-width: 250px;">The ultimate concert companion app. Navigate the night flawlessly.</p>
+    <div class="footer-grid">
+      <div class="footer-col" style="padding-right: 2rem;">
+        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
+        <p class="sans" style="font-size: 14px; color: var(--text-dim); line-height: 1.6;">
+          Concerto is the ultimate companion for live music. From the moment you secure the ticket to the post-show drinks, we navigate the night flawlessly.
+        </p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop Merch</a>
+        <a href="partners.html">Partnerships</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:support@concertocity.com">App Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank">YouTube</a>
+      </div>
     </div>
     
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="about.html">About Us</a>
-      <a href="premium.html">Premium</a>
-      <a href="shop.html">Shop</a>
-      <a href="partners.html">Partnerships</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="faq.html">FAQ</a>
-      <a href="mailto:support@concertocity.com">Contact Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Social</h4>
-      <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@theconcertoapp" target="_blank">TikTok</a>
-      <a href="https://www.youtube.com/@theconcertoapp" target="_blank">YouTube</a>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
+      <span>Designed in Texas</span>
     </div>
   </footer>
 
   <script>
-    // ─── HERO COUNTDOWN LOGIC (Adapted for Desktop) ───
+    // ─── DASHBOARD COUNTDOWN LOGIC ───
     let timerInterval = null;
 
     function loadShow() {
@@ -332,30 +374,31 @@
       const card = document.getElementById('hero-card');
 
       if (!show || !show.artist) {
-        // EMPTY STATE
+        // EMPTY STATE (Widescreen)
         card.innerHTML = `
-          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-            <div style="font-size:64px; margin-bottom: 16px;">🎙️</div>
-            <h3 class="serif" style="font-size:36px; font-weight:700; color:#FFF; margin-bottom:8px;">Set Your Next Show</h3>
-            <p class="sans" style="font-size:16px; color:rgba(255,255,255,0.6); margin-bottom: 24px;">Tap here to lock in your upcoming concert and start the countdown.</p>
-            <span class="sans" style="background:#C9A84C; color:#121E36; padding: 14px 36px; border-radius:99px; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Add Show</span>
+          <div style="width: 100%; text-align: center; padding: 40px 0;">
+            <div style="font-size:56px; line-height:1; margin-bottom: 20px;">🎙️</div>
+            <h3 class="serif" style="font-size:40px; font-weight:700; color:#FFF; margin-bottom:8px;">Set Your Next Show</h3>
+            <p class="sans" style="font-size:16px; color:rgba(255,255,255,0.6); margin-bottom: 32px;">Click anywhere to lock in your upcoming concert and start the countdown.</p>
+            <span class="sans" style="background:#C9A84C; color:#121E36; padding: 14px 40px; border-radius:99px; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Add Show</span>
           </div>
         `;
         if (timerInterval) clearInterval(timerInterval);
         return;
       }
 
-      // COUNTDOWN STATE
-      const tourLine = show.tour ? `${show.tour} • ${show.venue}` : show.venue;
+      // COUNTDOWN STATE (Widescreen Split)
+      const tourLine = show.tour ? `${show.tour} &nbsp;&bull;&nbsp; ${show.venue}` : show.venue;
       
       card.innerHTML = `
-        <div style="position:relative; z-index:1; text-align:center;">
-          <span class="eyebrow" style="color:#C9A84C; margin-bottom:12px; display:block;">Your Next Event</span>
-          <h3 class="hero-artist serif">${show.artist}</h3>
-          <p class="hero-tour sans">${tourLine}</p>
+        <div class="dash-left">
+          <span class="dash-eyebrow">Your Next Event</span>
+          <h3 class="dash-artist serif">${show.artist}</h3>
+          <p class="dash-tour sans">${tourLine}</p>
+          <span class="sans" style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:12px; display:block;">Tap anywhere to edit</span>
         </div>
-        <div class="timer-wrap">
-          <div class="timer-row">
+        <div class="dash-right">
+          <div class="timer-wrap">
             <div class="time-block"><span class="time-num serif" id="days">--</span><span class="time-label sans">Days</span></div>
             <span class="time-colon serif">:</span>
             <div class="time-block"><span class="time-num serif" id="hours">--</span><span class="time-label sans">Hrs</span></div>
@@ -363,7 +406,6 @@
             <div class="time-block"><span class="time-num serif" id="mins">--</span><span class="time-label sans">Mins</span></div>
           </div>
         </div>
-        <span class="sans" style="font-size:11px; color:rgba(255,255,255,0.3); text-align:center; margin-top:8px; display:block;">Tap anywhere to edit</span>
       `;
       startTimer(show.date);
     }
