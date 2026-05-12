@@ -56,12 +56,14 @@
     :root {
       --bg: #F8F9F9; 
       --card-bg: #FFFFFF;
+      --app-pill-bg: #F0F2F5; /* Matches your screenshot pill color */
       --text: #121E36; 
       --text-dim: rgba(18, 30, 54, 0.55);
       --border: #C0C0C0; 
       --border-light: rgba(18, 30, 54, 0.08);
       --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
-      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-modal: 0 20px 60px rgba(18, 30, 54, 0.15);
+      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,13 +92,13 @@
 
     /* ─── TYPOGRAPHY & BUTTONS ─── */
     h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
-    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; display: block; }
+    .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; text-align: center; }
     
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em;
       text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none;
-      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
+      border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn); width: 100%;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(18, 30, 54, 0.24); }
 
@@ -104,34 +106,63 @@
     nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
     nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
     .logo { text-decoration: none; display: flex; align-items: center; flex: 1; }
-    
     .nav-logo-img { height: 7rem; width: auto; object-fit: contain; display: block; mix-blend-mode: normal; }
     .footer-logo-img { height: 3.5rem; width: auto; object-fit: contain; display: block; opacity: 0.8; mix-blend-mode: normal; }
-    
     .nav-links { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex: 2; }
     .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .nav-action { flex: 1; display: flex; justify-content: flex-end; }
+    .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
 
-    /* ─── HERO ─── */
-    .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
-    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
-    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    /* ─── APP-MIMICRY LAYOUT ─── */
+    .app-showcase-container {
+      max-width: 800px; margin: 160px auto 100px; padding: 0 5%; position: relative; z-index: 10;
+    }
+    .app-section-title { font-size: 2.5rem; color: var(--text); margin-bottom: 2rem; }
 
-    /* ─── EDITORIAL LIST LAYOUT ─── */
-    .feature-list { max-width: 1000px; margin: 0 auto; padding: 100px 5%; }
-    .feature-row { display: flex; gap: 4rem; align-items: flex-start; padding: 80px 0; border-bottom: 1px solid var(--border-light); }
-    .feature-row:last-child { border-bottom: none; }
-    .feat-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--border); line-height: 0.8; font-style: italic; flex-shrink: 0; width: 80px; }
-    .feat-content { flex: 1; }
+    .essentials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;
+    }
+
+    /* Interactive Feature Pills */
+    .feature-pill {
+      background: var(--app-pill-bg); border: none; border-radius: 16px;
+      padding: 1.5rem 1.8rem; display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; transition: transform 0.2s ease, background 0.3s ease;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text);
+    }
+    .feature-pill:hover { background: #E4E7EC; transform: scale(1.02); }
+    .pill-chevron { color: var(--text-dim); font-size: 1.2rem; font-weight: 300; transition: transform 0.2s ease; }
+    .feature-pill:hover .pill-chevron { transform: translateX(4px); color: var(--text); }
+
+    /* ─── SLEEK MODAL TRAP ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(18, 30, 54, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 2000; display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: all; }
     
-    .feat-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text); }
-    .feat-content p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 600px; }
+    .modal-content {
+      background: var(--card-bg); width: 100%; max-width: 500px; border-radius: 24px 24px 0 0;
+      padding: 3rem 2.5rem 4rem; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-modal);
+    }
+    @media(min-width: 600px) {
+      .modal-overlay { align-items: center; }
+      .modal-content { border-radius: 24px; padding: 3rem; transform: translateY(20px) scale(0.95); }
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+    .modal-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .modal-title { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    .modal-desc { font-size: 1.1rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 2.5rem; }
     
-    .feat-list { list-style: none; margin-top: 2rem; }
-    .feat-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; font-size: 1rem; color: var(--text); }
-    .feat-list li::before { content: '—'; color: var(--border); font-weight: 700; }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none;
+      font-size: 1.5rem; cursor: pointer; color: var(--border); transition: color 0.3s; padding: 0.5rem;
+    }
+    .modal-close:hover { color: var(--text); }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -141,7 +172,8 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .feature-row { flex-direction: column; gap: 1.5rem; padding: 60px 0; }
+      .app-showcase-container { padding: 0 5%; margin: 120px auto 80px; }
+      .essentials-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
@@ -177,61 +209,59 @@
       <a href="about.html">About Us</a>
     </div>
     <div class="nav-action">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary btn-nav">Get Access</a>
     </div>
   </nav>
 
   <main>
-    <header class="hero">
-      <span class="eyebrow">The Foundation</span>
-      <h1 class="hero-title serif">The Essentials.</h1>
-      <p class="hero-desc">Everything you need for the perfect night out. Concerto's core suite of features is available entirely for free.</p>
-    </header>
-
-    <section class="feature-list">
+    <section class="app-showcase-container">
+      <span class="eyebrow" style="text-align: left; margin-bottom: 1rem;">The Foundation</span>
+      <h1 class="app-section-title serif">The Essentials</h1>
       
-      <div class="feature-row">
-        <div class="feat-num" aria-hidden="true">01</div>
-        <div class="feat-content">
-          <h2 class="serif">Venue Intel</h2>
-          <p>The backbone of Concerto. We actively cover over 300 venues around the world, removing the guesswork from your arrival. No more Googling. No more cross-referencing five different pages. Everything you need, in one place, every time.</p>
-          <ul class="feat-list">
-            <li><strong>Bag Policy:</strong> Exactly what’s allowed and what isn’t, verified by our team.</li>
-            <li><strong>Parking:</strong> Official lots, alternatives, and how to avoid the post-show trap.</li>
-            <li><strong>Concessions:</strong> What’s inside and what to expect.</li>
-            <li><strong>1-Tap Rideshare:</strong> Direct links to Uber and Lyft with the venue drop-off pre-inputted.</li>
-          </ul>
-        </div>
+      <div class="essentials-grid">
+        <button class="feature-pill" data-id="city-guides">
+          <span>City Guides</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="events-near-me">
+          <span>Events Near Me</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="setlists">
+          <span>Setlists</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="tour-info">
+          <span>Tour Info</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="rideshare">
+          <span>Rideshare</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="bag-policies">
+          <span>Bag Policies</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="parking">
+          <span>Parking</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="concessions">
+          <span>Concessions</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="local-weather">
+          <span>Local Weather</span> <span class="pill-chevron">›</span>
+        </button>
+        <button class="feature-pill" data-id="app-support">
+          <span>App Support</span> <span class="pill-chevron">›</span>
+        </button>
       </div>
-
-      <div class="feature-row">
-        <div class="feat-num" aria-hidden="true">02</div>
-        <div class="feat-content">
-          <h2 class="serif">Setlists & Tour Info</h2>
-          <p>Know what you’re walking into before you walk in. See exactly what songs an artist has been playing on the current tour, which deep cuts they’ve been pulling out, and what the closer has been. You’re not guessing; you’re prepared.</p>
-          <p>Every track on the setlist links directly to Apple Music and Spotify so you can prep your playlist before the lights go down.</p>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feat-num" aria-hidden="true">03</div>
-        <div class="feat-content">
-          <h2 class="serif">City Guides</h2>
-          <p>For when the show takes you somewhere new. Concerto doesn’t leave you stranded with just a hotel and a venue address. Each City Guide gives you the neighborhood context.</p>
-          <p>We skip the generic Yelp results and provide curated, handpicked dining and hotel options physically anchored to your venue. Built for the show, not just the destination.</p>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feat-num" aria-hidden="true">04</div>
-        <div class="feat-content">
-          <h2 class="serif">Events Near Me</h2>
-          <p>Your starting point. Open the app and instantly see what’s happening around you tonight—concerts, comedy, tours, and festivals. No setup, no friction. Just what’s on in your city right now.</p>
-        </div>
-      </div>
-
     </section>
   </main>
+
+  <div class="modal-overlay" id="feature-modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal" aria-label="Close modal">✕</button>
+      <div class="modal-icon" id="modal-icon" aria-hidden="true">✧</div>
+      <h3 class="modal-title serif" id="modal-title">Feature Title</h3>
+      <p class="modal-desc" id="modal-desc">Feature Description</p>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary">Unlock in App</a>
+    </div>
+  </div>
 
   <footer>
     <a href="index.html" class="logo" aria-label="Concerto Home">
@@ -272,6 +302,44 @@
         });
         ticking = true;
       }
+    });
+
+    // Interactive Velvet Rope Logic
+    const featureData = {
+      'city-guides': { icon: '🍸', title: 'City Guides', desc: 'Handpicked dining and upscale hotels anchored physically to your venue. Skip generic Yelp reviews and plan the perfect night out.' },
+      'events-near-me': { icon: '📍', title: 'Events Near Me', desc: 'Open the app and instantly see every major concert, comedy show, and festival happening in your city tonight.' },
+      'setlists': { icon: '🎶', title: 'Setlists', desc: 'View official setlists, deep cuts, and local start times. Every track links directly to Apple Music and Spotify.' },
+      'tour-info': { icon: '🎸', title: 'Tour Info', desc: 'Full logistics for every major tour, including direct ticket links, verified venue rules, and specific drop-off zones.' },
+      'rideshare': { icon: '🚗', title: '1-Tap Rideshare', desc: 'Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.' },
+      'bag-policies': { icon: '🎒', title: 'Bag Policies', desc: 'Stop guessing. Get the exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.' },
+      'parking': { icon: '🅿️', title: 'Parking', desc: 'Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.' },
+      'concessions': { icon: '🥨', title: 'Concessions', desc: 'Know what is available inside before you arrive. Find specific vendors, bars, and food options for your venue.' },
+      'local-weather': { icon: '☁️', title: 'Local Weather', desc: 'Real-time, hyper-local weather tracking mapped directly to your venue location for event-day preparation.' },
+      'app-support': { icon: '💬', title: 'App Support', desc: 'Direct access to the Concerto Crew. Get help navigating the app, reporting venue changes, or managing your Premium account.' }
+    };
+
+    const modal = document.getElementById('feature-modal');
+    const modalIcon = document.getElementById('modal-icon');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const closeBtn = document.getElementById('close-modal');
+    const pills = document.querySelectorAll('.feature-pill');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const data = featureData[pill.getAttribute('data-id')];
+        if(data) {
+          modalIcon.textContent = data.icon;
+          modalTitle.textContent = data.title;
+          modalDesc.textContent = data.desc;
+          modal.classList.add('active');
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) modal.classList.remove('active');
     });
   </script>
 </body>
