@@ -116,43 +116,33 @@
     .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
 
     /* ─── HERO ─── */
-    .hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 160px 5% 0; }
+    .hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
     .hero-title { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
     .hero-desc { font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── PREMIUM BENTO GRID ─── */
+    /* ─── PREMIUM TEXT-DRIVEN BENTO GRID ─── */
     .showcase-container { max-width: 1200px; margin: 0 auto; padding: 40px 5% 120px; }
     
     .features-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
     }
 
     .feat-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(201, 168, 76, 0.4); /* Premium Gold Border */
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
       display: flex; flex-direction: column; opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+      box-shadow: var(--premium-glow); /* Premium Gold Glow */
+      height: 100%;
     }
     .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(201, 168, 76, 0.2); }
 
-    /* Elevated Premium Image Container */
-    .feat-image {
-      background: var(--card-bg); border-radius: 20px; aspect-ratio: 16/10;
-      border: 1px solid rgba(201, 168, 76, 0.4); /* Premium Gold Border */
-      box-shadow: var(--premium-glow); /* Premium Gold Glow */
-      margin-bottom: 1.5rem; overflow: hidden; display: flex; justify-content: center; align-items: flex-end;
-      padding: 0 2rem; 
-      transition: box-shadow 0.4s ease;
-    }
-    .feat-card:hover .feat-image { box-shadow: 0 16px 50px rgba(201, 168, 76, 0.2); }
-    
-    .feat-image img {
-      width: auto; height: 110%; object-fit: contain; transform: translateY(15%);
-      transition: transform 0.4s ease;
-    }
-    .feat-card:hover .feat-image img { transform: translateY(10%); }
-
-    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
-    .feat-text p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; }
+    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    .feat-text p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.7; }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -162,7 +152,8 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .features-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .feat-card { padding: 2.5rem 2rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
@@ -212,19 +203,13 @@
       <div class="features-grid">
         
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-bagcheck.png" alt="AI Bag Check" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>AI Bag Check</h3>
-            <p>Hold your bag up to your camera. Our AI instantly verifies it against the venue's official dimensions and policies.</p>
+            <p>Hold your bag up to your camera. Our AI instantly verifies it against the venue's official dimensions and policies. Get an instant Pass, Warn, or Fail verdict.</p>
           </div>
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-livemode.png" alt="Live Mode" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Live Mode</h3>
             <p>Your real-time in-show companion. Receive a beautifully designed, shareable Story Card documenting your night after the encore.</p>
@@ -232,22 +217,16 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-concerto-plus.png" alt="Concerto+ AI Itineraries" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Concerto+</h3>
-            <p>Your AI-powered itinerary builder. A mathematical timeline for dinner, arrival windows, and post-show drinks tailored to your vibe.</p>
+            <p>Your AI-powered itinerary builder. A mathematical timeline for dinner, arrival windows, and post-show drinks tailored exactly to your vibe.</p>
           </div>
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-festivals.png" alt="Festivals" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Festivals</h3>
-            <p>Navigate multi-day events flawlessly. Full lineups, set times, interactive stage maps, and survival intel.</p>
+            <p>Navigate multi-day events flawlessly. Access full lineups, schedules, set times, interactive stage maps, and essential survival intel.</p>
           </div>
         </div>
 
