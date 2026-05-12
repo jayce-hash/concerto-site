@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concerto | The Ultimate Concert Companion</title>
+  <title>Concerto | The Live Music Command Center</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── EXACT BRAND PALETTE ─── */
+    /* ─── ENTERPRISE BRAND PALETTE ─── */
     :root {
-      --bg: #F8F9F9; 
+      --bg: #F4F5F7; 
       --card-bg: #FFFFFF;
-      --navy: #121E36; 
+      --navy: #0A1128; /* Deeper, richer navy */
+      --navy-light: #1A2642;
       --gold: #C9A84C;
-      --text-dim: rgba(18, 30, 54, 0.55);
-      --border-light: rgba(18, 30, 54, 0.08);
-      --shadow-soft: 0 12px 36px rgba(18, 30, 54, 0.04);
-      --shadow-hover: 0 24px 48px rgba(18, 30, 54, 0.08);
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --text-dim: rgba(10, 17, 40, 0.6);
+      --border-light: rgba(10, 17, 40, 0.08);
+      --border-dark: rgba(255, 255, 255, 0.1);
+      --shadow-float: 0 24px 48px rgba(10, 17, 40, 0.08);
+      --shadow-card: 0 8px 24px rgba(10, 17, 40, 0.04);
+      --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,110 +32,158 @@
       line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
     }
 
-    /* ─── TYPOGRAPHY ─── */
     .serif { font-family: 'Playfair Display', serif !important; }
     .sans { font-family: 'DM Sans', sans-serif !important; }
-    .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
 
-    /* ─── AMBIENT WEB BACKGROUND ─── */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.4; }
-    .orb-1 { width: 50vw; height: 50vw; background: rgba(201,168,76,0.12); top: -20%; right: -10%; }
-    .orb-2 { width: 60vw; height: 60vw; background: rgba(18,30,54,0.05); bottom: -20%; left: -20%; }
+    /* ─── APPLE-STYLE DUAL NAVIGATION ─── */
+    .nav-wrapper { position: fixed; top: 0; width: 100%; z-index: 1000; }
+    
+    /* Top Tier (Logo & Primary Actions) */
+    .nav-primary {
+      background: rgba(10, 17, 40, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 4%; height: 64px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .header-logo { height: 22px; width: auto; filter: brightness(0) invert(1); }
+    .nav-primary-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-primary-links a { font-size: 13px; font-weight: 600; color: #FFF; text-decoration: none; transition: color 0.2s; }
+    .nav-primary-links a:hover { color: var(--gold); }
+    .btn-download {
+      background: #FFF; color: var(--navy) !important; padding: 8px 20px; border-radius: 99px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-download:hover { transform: scale(1.05); }
 
-    /* ─── MASSIVE DESKTOP HEADER ─── */
-    header { 
-      position: fixed; top: 0; width: 100%; z-index: 1000; 
-      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    /* Bottom Tier (The 9 Features) */
+    .nav-secondary {
+      background: rgba(244, 245, 247, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: center; padding: 0 2%; height: 80px;
+      display: flex; justify-content: center; gap: 2.5rem; padding: 0 4%; height: 48px; align-items: center;
     }
-    
-    .nav-features { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
-    .nav-features a { 
-      font-size: 0.8rem; font-weight: 700; color: var(--navy); text-decoration: none; 
-      transition: color 0.2s;
+    .nav-secondary a {
+      font-size: 11px; font-weight: 700; color: var(--navy); text-decoration: none; text-transform: uppercase;
+      letter-spacing: 0.1em; opacity: 0.7; transition: opacity 0.2s, color 0.2s;
     }
-    .nav-features a:hover { color: var(--gold); }
+    .nav-secondary a:hover { opacity: 1; color: var(--gold); }
 
-    /* ─── EXPANSIVE WEB LAYOUT ─── */
-    main { padding-top: 180px; padding-bottom: 120px; }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 4%; } /* True widescreen constraint */
-
-    /* ─── CENTERED LOGO HERO ─── */
-    .hero { text-align: center; margin-bottom: 8rem; display: flex; flex-direction: column; align-items: center; }
-    .hero-logo { height: 100px; width: auto; object-fit: contain; margin-bottom: 2rem; }
-    .hero h1 { font-size: clamp(3.5rem, 6vw, 5rem); color: var(--navy); line-height: 1.1; margin-bottom: 1.5rem; max-width: 900px; }
-    .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 3rem; line-height: 1.6; }
+    /* ─── CINEMATIC HERO (SEATGEEK/UBER STYLE) ─── */
+    main { padding-top: 112px; } /* Height of both navs */
     
-    .btn-hero { 
-      background: var(--navy); color: #FFFFFF !important; padding: 1.2rem 3rem; 
-      border-radius: 99px; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; 
-      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s;
-      box-shadow: 0 12px 30px rgba(18, 30, 54, 0.15);
+    .hero {
+      background: var(--navy); color: #FFF; padding: 8rem 4% 10rem;
+      text-align: center; position: relative; overflow: hidden;
     }
-    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(18, 30, 54, 0.25); }
-
-    /* ─── SECTION HEADERS ─── */
-    .section-header { text-align: center; margin: 8rem 0 4rem; }
-    .section-title { font-size: 40px; font-weight: 700; color: var(--navy); line-height: 1.2; }
-
-    /* ─── THE ESSENTIALS (Web-Native 3x3 Card Grid) ─── */
-    .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .feature-card {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 24px; padding: 48px;
-      display: flex; flex-direction: column; text-decoration: none;
-      box-shadow: var(--shadow-soft); transition: var(--transition);
-      position: relative; overflow: hidden;
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 100vw; height: 100vw; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, rgba(10,17,40,0) 70%);
+      pointer-events: none; z-index: 0;
     }
-    .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(18,30,54,0.15); }
-    
-    .feature-card h3 { font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
-    .feature-card h3::after { content: '→'; color: rgba(18,30,54,0.2); font-size: 24px; font-weight: 300; transition: color 0.3s; transform: translateX(-10px); opacity: 0; }
-    .feature-card:hover h3::after { color: var(--navy); transform: translateX(0); opacity: 1; }
-    
-    .feature-card p { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+    .hero h1 { font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.7); max-width: 650px; margin: 0 auto 3rem; }
 
-    /* ─── MASSIVE WEB FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 3rem; background: var(--bg); }
+    /* Massive Omni-Search Bar */
+    .hero-search-wrapper {
+      background: #FFF; border-radius: 99px; padding: 12px; display: flex; align-items: center;
+      max-width: 700px; margin: 0 auto; box-shadow: var(--shadow-float);
+    }
+    .hero-search-input {
+      flex: 1; border: none; background: transparent; padding: 16px 24px; font-family: 'DM Sans';
+      font-size: 18px; color: var(--navy); outline: none;
+    }
+    .hero-search-input::placeholder { color: rgba(10,17,40,0.3); font-weight: 500; }
+    .hero-search-btn {
+      background: var(--gold); color: var(--navy); border: none; border-radius: 99px; padding: 16px 32px;
+      font-family: 'DM Sans'; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+      cursor: pointer; transition: transform 0.2s;
+    }
+    .hero-search-btn:hover { transform: scale(1.02); }
+
+    /* ─── DYNAMIC BENTO GRID (APPLE STYLE) ─── */
+    .section-wrapper { padding: 8rem 4%; max-width: 1400px; margin: 0 auto; }
+    .section-header { margin-bottom: 4rem; }
+    .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+    .section-title { font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em; }
+
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;
+    }
+
+    .bento-card {
+      background: var(--card-bg); border-radius: 32px; padding: 48px; text-decoration: none;
+      display: flex; flex-direction: column; justify-content: space-between;
+      border: 1px solid rgba(10,17,40,0.05); box-shadow: var(--shadow-card);
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .bento-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-float); border-color: rgba(10,17,40,0.1); }
+    
+    .bento-icon { font-size: 32px; margin-bottom: 24px; background: var(--bg); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border-light); }
+    .bento-title { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .bento-desc { font-size: 16px; color: var(--text-dim); line-height: 1.5; }
+
+    /* Asymmetrical Spans */
+    .span-8 { grid-column: span 8; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; display: flex; flex-direction: row; align-items: center; gap: 60px; }
+    .span-12 .bento-text { flex: 1; }
+    .span-12 .bento-visual { flex: 1; background: var(--bg); border-radius: 20px; height: 100%; min-height: 250px; border: 1px solid var(--border-light); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* ─── DARK MODE STRIP (PREMIUM) ─── */
+    .dark-section { background: var(--navy); color: #FFF; padding: 8rem 4%; }
+    .dark-section .section-title { color: #FFF; }
+    .dark-section .bento-card { background: var(--navy-light); border-color: var(--border-dark); }
+    .dark-section .bento-title { color: #FFF; }
+    .dark-section .bento-desc { color: rgba(255,255,255,0.7); }
+    .dark-section .bento-icon { background: rgba(255,255,255,0.05); border-color: var(--border-dark); }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 4rem; background: var(--card-bg); }
     .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
     .footer-col { display: flex; flex-direction: column; gap: 1rem; }
-    .footer-col p { font-size: 15px; color: var(--text-dim); line-height: 1.6; max-width: 300px; margin-top: 1rem;}
+    .footer-logo { height: 28px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1rem; }
+    .footer-col p { font-size: 15px; color: var(--text-dim); line-height: 1.6; max-width: 300px; }
     .footer-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 1rem; }
-    .footer-col a { font-size: 15px; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .footer-col a { font-size: 15px; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
     .footer-col a:hover { color: var(--navy); }
-    .footer-logo { height: 40px; width: auto; opacity: 0.8; margin-bottom: 0.5rem; object-fit: contain; object-position: left; }
-    
-    .footer-bottom { max-width: 1400px; margin: 5rem auto 0; border-top: 1px solid var(--border-light); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-dim); }
+    .footer-bottom { max-width: 1400px; margin: 6rem auto 0; border-top: 1px solid var(--border-light); padding-top: 2rem; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-dim); font-weight: 500; }
 
     /* ─── RESPONSIVENESS ─── */
     @media (max-width: 1200px) {
-      .nav-features { gap: 1rem; }
-      .nav-features a { font-size: 0.75rem; }
+      .nav-secondary { display: none; /* Hide sub-nav on smaller screens, rely on burger/footer */ }
+      main { padding-top: 64px; }
+      .span-8, .span-4, .span-6 { grid-column: span 12; }
+      .span-12 { flex-direction: column; }
+      .span-12 .bento-visual { width: 100%; }
     }
-    @media (max-width: 960px) {
-      .essentials-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-      header { height: auto; padding: 1rem 4%; }
-      .nav-features { justify-content: center; }
-    }
-    @media (max-width: 600px) {
-      .essentials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.8rem; }
-      .hero-logo { height: 70px; }
+    @media (max-width: 768px) {
+      .hero { padding: 6rem 4% 8rem; }
+      .hero h1 { font-size: 3rem; }
+      .hero-search-wrapper { flex-direction: column; border-radius: 24px; padding: 16px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+      .hero-search-input { width: 100%; background: #FFF; border-radius: 16px; margin-bottom: 12px; }
+      .hero-search-btn { width: 100%; border-radius: 16px; }
+      .bento-card { padding: 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-canvas">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-
-  <header>
-    <nav class="nav-features sans">
+  <div class="nav-wrapper">
+    <div class="nav-primary">
+      <a href="index.html">
+        <img src="logo.png" alt="Concerto" class="header-logo">
+      </a>
+      <div class="nav-primary-links sans">
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop Merch</a>
+        <a href="about.html">About</a>
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-download">Get the App</a>
+      </div>
+    </div>
+    
+    <div class="nav-secondary sans">
       <a href="cityguides.html">City Guides</a>
       <a href="events.html">Events Near Me</a>
       <a href="featuredtours.html">Featured Tours</a>
@@ -143,72 +193,134 @@
       <a href="bags.html">Bag Policies</a>
       <a href="parking.html">Parking</a>
       <a href="concessions.html">Concessions</a>
-    </nav>
-  </header>
+    </div>
+  </div>
 
   <main>
-    <div class="container">
-
-      <section class="hero">
-        <img src="logo.png" alt="CONCERTO" class="hero-logo">
+    <section class="hero">
+      <div class="hero-content">
         <h1 class="serif">Navigate the night flawlessly.</h1>
-        <p class="sans">The ultimate live music companion. Unlock verified venue intel, interactive maps, and curated city guides the moment you buy the ticket.</p>
-        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-hero sans">Download the App</a>
-      </section>
-
-      <div class="section-header">
-        <span class="eyebrow">The Core Suite</span>
-        <h2 class="section-title serif">The Essentials</h2>
-      </div>
-
-      <div class="essentials-grid">
-        <a href="cityguides.html" class="feature-card">
-          <h3 class="serif">City Guides</h3>
-          <p class="sans">Skip the generic Yelp reviews. Curated dining and upscale hotel options anchored physically to your venue.</p>
-        </a>
+        <p class="sans">We pick up where the ticketing apps drop off. Find your venue below to unlock verified bag policies, 3D maps, and curated city guides.</p>
         
-        <a href="events.html" class="feature-card">
-          <h3 class="serif">Events Near Me</h3>
-          <p class="sans">Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
-        </a>
+        <div class="hero-search-wrapper">
+          <input type="text" class="hero-search-input" placeholder="Search a venue, artist, or city...">
+          <button class="hero-search-btn">Search Directory</button>
+        </div>
+      </div>
+    </section>
 
-        <a href="featuredtours.html" class="feature-card">
-          <h3 class="serif">Featured Tours</h3>
-          <p class="sans">Follow the world's biggest artists. Track routing, dates, and highly-specific venue details for the hottest tours.</p>
-        </a>
-
-        <a href="setlists.html" class="feature-card">
-          <h3 class="serif">Setlists</h3>
-          <p class="sans">Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
-        </a>
-
-        <a href="tourinfo.html" class="feature-card">
-          <h3 class="serif">Tour Info</h3>
-          <p class="sans">Full logistics for every major tour, including direct ticket links and official tour routing schedules.</p>
-        </a>
-
-        <a href="rideshare.html" class="feature-card">
-          <h3 class="serif">1-Tap Rideshare</h3>
-          <p class="sans">Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
-        </a>
-
-        <a href="bags.html" class="feature-card">
-          <h3 class="serif">Bag Policies</h3>
-          <p class="sans">Stop guessing at the gate. Get exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
-        </a>
-
-        <a href="parking.html" class="feature-card">
-          <h3 class="serif">Parking</h3>
-          <p class="sans">Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
-        </a>
-
-        <a href="concessions.html" class="feature-card">
-          <h3 class="serif">Concessions</h3>
-          <p class="sans">Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
-        </a>
+    <section class="section-wrapper">
+      <div class="section-header">
+        <span class="section-eyebrow">The Database</span>
+        <h2 class="section-title serif">Everything you need for the show.</h2>
       </div>
 
-    </div>
+      <div class="bento-grid">
+        
+        <a href="cityguides.html" class="bento-card span-8">
+          <div>
+            <div class="bento-icon">🍸</div>
+            <h3 class="bento-title serif">City Guides</h3>
+            <p class="bento-desc sans">Skip the generic Yelp reviews. We've curated the absolute best pre-show dining, cocktail bars, and upscale hotels physically anchored to your venue's neighborhood.</p>
+          </div>
+        </a>
+
+        <a href="events.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">📍</div>
+            <h3 class="bento-title serif">Events Near Me</h3>
+            <p class="bento-desc sans">Open the app and instantly see every major concert, comedy show, and festival happening in your city tonight.</p>
+          </div>
+        </a>
+
+        <a href="featuredtours.html" class="bento-card span-12">
+          <div class="bento-text">
+            <div class="bento-icon">🌎</div>
+            <h3 class="bento-title serif">Featured Tours</h3>
+            <p class="bento-desc sans">Follow the world's biggest artists. Track routing, dates, and highly-specific venue details for the hottest tours on the planet right now.</p>
+          </div>
+          <div class="bento-visual sans">
+            [ Interactive Tour Map Interface ]
+          </div>
+        </a>
+
+        <a href="setlists.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">🎶</div>
+            <h3 class="bento-title serif">Setlists</h3>
+            <p class="bento-desc sans">Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
+          </div>
+        </a>
+
+        <a href="tourinfo.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">📋</div>
+            <h3 class="bento-title serif">Tour Info</h3>
+            <p class="bento-desc sans">Full logistics for every major tour, including direct ticket links and official routing schedules.</p>
+          </div>
+        </a>
+
+        <a href="rideshare.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">🚗</div>
+            <h3 class="bento-title serif">1-Tap Rideshare</h3>
+            <p class="bento-desc sans">Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
+          </div>
+        </a>
+
+        <a href="bags.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">👜</div>
+            <h3 class="bento-title serif">Bag Policies</h3>
+            <p class="bento-desc sans">Stop guessing at the gate. Get exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
+          </div>
+        </a>
+
+        <a href="parking.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">🅿️</div>
+            <h3 class="bento-title serif">Parking</h3>
+            <p class="bento-desc sans">Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
+          </div>
+        </a>
+
+        <a href="concessions.html" class="bento-card span-4">
+          <div>
+            <div class="bento-icon">🌭</div>
+            <h3 class="bento-title serif">Concessions</h3>
+            <p class="bento-desc sans">Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="dark-section">
+      <div class="section-wrapper" style="padding: 0;">
+        <div class="section-header">
+          <span class="section-eyebrow">Unlock the Magic</span>
+          <h2 class="section-title serif">Concerto Premium</h2>
+        </div>
+
+        <div class="bento-grid">
+          <a href="premium.html" class="bento-card span-6">
+            <div>
+              <div class="bento-icon">✨</div>
+              <h3 class="bento-title serif">Concerto+ Itinerary</h3>
+              <p class="bento-desc sans">Tell us the show and your vibe. Our AI builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks, all mathematically mapped to the venue.</p>
+            </div>
+          </a>
+          <a href="premium.html" class="bento-card span-6">
+            <div>
+              <div class="bento-icon">📷</div>
+              <h3 class="bento-title serif">AI Bag Check</h3>
+              <p class="bento-desc sans">Don't just read the policy. Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue. No surprises at the door.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
