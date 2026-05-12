@@ -79,6 +79,16 @@
     .orb-2 { width: 50vw; height: 50vw; background: rgba(248, 249, 249, 0.8); bottom: -10%; right: -10%; }
     .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
+    /* ─── GHOST MARQUEE ─── */
+    .ghost-marquee {
+      position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none; overflow: hidden;
+      white-space: nowrap; display: flex; opacity: 0.03; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
     /* ─── TYPOGRAPHY & BUTTONS ─── */
     h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
     .eyebrow { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; display: block; }
@@ -109,34 +119,28 @@
     .hero-desc { font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── 8-ITEM COMPACT GRID ─── */
+    /* ─── TEXT-DRIVEN BENTO GRID ─── */
     .showcase-container { max-width: 1200px; margin: 0 auto; padding: 40px 5% 120px; }
     
     .features-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
     }
 
     .feat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
       display: flex; flex-direction: column; opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
     }
     .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(18, 30, 54, 0.08); }
 
-    .feat-image {
-      background: var(--card-bg); border-radius: 20px; aspect-ratio: 16/10;
-      border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
-      margin-bottom: 1.5rem; overflow: hidden; display: flex; justify-content: center; align-items: flex-end;
-      padding: 0 2rem; /* Pads the sides so image doesn't touch */
-    }
-    
-    .feat-image img {
-      width: auto; height: 110%; object-fit: contain; transform: translateY(15%);
-      transition: transform 0.4s ease;
-    }
-    .feat-card:hover .feat-image img { transform: translateY(10%); }
-
-    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
-    .feat-text p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; }
+    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    .feat-text p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.7; }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -146,7 +150,8 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .features-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .feat-card { padding: 2.5rem 2rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
@@ -189,19 +194,13 @@
       <div class="features-grid">
         
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-cityguides.png" alt="City Guides" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>City Guides</h3>
-            <p>Skip the generic Yelp reviews. Curated dining and hotel options anchored physically to your venue.</p>
+            <p>Skip the generic Yelp reviews. Curated dining and upscale hotel options anchored physically to your venue.</p>
           </div>
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-events.png" alt="Events Near Me" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Events Near Me</h3>
             <p>Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
@@ -209,9 +208,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-setlists.png" alt="Setlists" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Setlists</h3>
             <p>Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
@@ -219,9 +215,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-tourinfo.png" alt="Tour Info" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Tour Info</h3>
             <p>Full logistics for every major tour, including direct ticket links and official tour routing schedules.</p>
@@ -229,9 +222,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-rideshare.png" alt="Rideshare Routing" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>1-Tap Rideshare</h3>
             <p>Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
@@ -239,9 +229,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-bags.png" alt="Bag Policies" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Bag Policies</h3>
             <p>Stop guessing. Get the exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
@@ -249,9 +236,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-parking.png" alt="Parking Intel" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Parking</h3>
             <p>Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
@@ -259,9 +243,6 @@
         </div>
 
         <div class="feat-card scroll-reveal">
-          <div class="feat-image">
-            <img src="mockup-concessions.png" alt="Concessions" onerror="this.style.display='none'">
-          </div>
           <div class="feat-text">
             <h3>Concessions</h3>
             <p>Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
