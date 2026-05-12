@@ -85,7 +85,7 @@
     
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 1.2rem 3rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 1rem 2.5rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
       text-transform: uppercase; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; text-decoration: none;
       border-radius: 20px; background: var(--text); color: var(--bg); box-shadow: var(--shadow-btn);
     }
@@ -104,41 +104,39 @@
     .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
 
     /* ─── HERO ─── */
-    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 160px 5% 0; }
-    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
-    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    .hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 160px 5% 0; }
+    .hero-title { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── APPLE-STYLE STAGGERED SHOWCASE ─── */
+    /* ─── 8-ITEM COMPACT GRID ─── */
     .showcase-container { max-width: 1200px; margin: 0 auto; padding: 40px 5% 120px; }
     
-    .feature-block {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-      margin-bottom: 140px; opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
     }
-    .feature-block.visible { opacity: 1; transform: translateY(0); }
-    
-    /* Alternate Layout */
-    .feature-block:nth-child(even) .feat-text { order: 2; }
-    .feature-block:nth-child(even) .feat-image { order: 1; }
 
-    .feat-text { max-width: 500px; }
-    .feat-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; opacity: 0.9; }
-    .feat-text h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); }
-    .feat-text p { font-size: 1.15rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 2rem; }
-    
-    .feat-list { list-style: none; margin-bottom: 2.5rem; }
-    .feat-list li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 1.05rem; font-weight: 500; color: var(--text); }
-    .feat-list li::before { content: '✓'; color: var(--border); font-size: 1.2rem; }
+    .feat-card {
+      display: flex; flex-direction: column; opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
 
     .feat-image {
-      background: var(--card-bg); border-radius: 32px; padding: 2rem;
-      box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: center;
-      aspect-ratio: 4/5; overflow: hidden; position: relative;
+      background: var(--card-bg); border-radius: 20px; aspect-ratio: 16/10;
+      border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem; overflow: hidden; display: flex; justify-content: center; align-items: flex-end;
+      padding: 0 2rem; /* Pads the sides so image doesn't touch */
     }
-    .feat-image img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.05); transition: transform 0.6s ease; }
-    .feature-block:hover .feat-image img { transform: scale(1.08); }
+    
+    .feat-image img {
+      width: auto; height: 110%; object-fit: contain; transform: translateY(15%);
+      transition: transform 0.4s ease;
+    }
+    .feat-card:hover .feat-image img { transform: translateY(10%); }
+
+    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .feat-text p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -148,12 +146,7 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .feature-block { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 100px; text-align: center; }
-      .feature-block:nth-child(even) .feat-text { order: 1; }
-      .feature-block:nth-child(even) .feat-image { order: 2; }
-      .feat-text { margin: 0 auto; }
-      .feat-list li { justify-content: center; }
-      .feat-image { aspect-ratio: 1/1; padding: 1rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 4rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
@@ -193,73 +186,89 @@
     </header>
 
     <section class="showcase-container">
-      
-      <div class="feature-block scroll-reveal">
-        <div class="feat-text">
-          <span class="feat-icon" aria-hidden="true">🏟️</span>
-          <h2 class="serif">Venue Intel</h2>
-          <p>We actively cover over 300 venues globally. No more cross-referencing five different pages just to figure out how to get inside.</p>
-          <ul class="feat-list">
-            <li>Verified Bag Policies</li>
-            <li>Interactive Parking Maps</li>
-            <li>1-Tap Uber & Lyft Routing</li>
-            <li>Concession Details</li>
-          </ul>
+      <div class="features-grid">
+        
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-cityguides.png" alt="City Guides" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>City Guides</h3>
+            <p>Skip the generic Yelp reviews. Curated dining and hotel options anchored physically to your venue.</p>
+          </div>
         </div>
-        <div class="feat-image">
-          <img src="mockup-venue.png" alt="Concerto Venue Intel Interface" onerror="this.style.display='none'">
-        </div>
-      </div>
 
-      <div class="feature-block scroll-reveal">
-        <div class="feat-text">
-          <span class="feat-icon" aria-hidden="true">🎶</span>
-          <h2 class="serif">Setlists & Tours</h2>
-          <p>Know what you’re walking into before the lights go down. View verified, up-to-date setlists for every major active tour.</p>
-          <ul class="feat-list">
-            <li>Track Deep Cuts & Closers</li>
-            <li>Spotify & Apple Music Links</li>
-            <li>Official Local Start Times</li>
-          </ul>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-events.png" alt="Events Near Me" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Events Near Me</h3>
+            <p>Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
+          </div>
         </div>
-        <div class="feat-image">
-          <img src="mockup-setlists.png" alt="Concerto Tour Setlists Interface" onerror="this.style.display='none'">
-        </div>
-      </div>
 
-      <div class="feature-block scroll-reveal">
-        <div class="feat-text">
-          <span class="feat-icon" aria-hidden="true">🍸</span>
-          <h2 class="serif">City Guides</h2>
-          <p>We skip the generic Yelp reviews. Each City Guide is a handpicked, curated list of dining and hotel options physically anchored to your venue.</p>
-          <ul class="feat-list">
-            <li>Pre-Show Dinner Spots</li>
-            <li>Post-Show Drinks</li>
-            <li>Upscale Nearby Hotels</li>
-          </ul>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-setlists.png" alt="Setlists" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Setlists</h3>
+            <p>Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
+          </div>
         </div>
-        <div class="feat-image">
-          <img src="mockup-cityguide.png" alt="Concerto City Guides Interface" onerror="this.style.display='none'">
-        </div>
-      </div>
 
-      <div class="feature-block scroll-reveal">
-        <div class="feat-text">
-          <span class="feat-icon" aria-hidden="true">📍</span>
-          <h2 class="serif">Events Near Me</h2>
-          <p>Your starting point for a spontaneous night out. Open the app and instantly see what’s happening in your city tonight.</p>
-          <ul class="feat-list">
-            <li>Live Concerts</li>
-            <li>Comedy Tours</li>
-            <li>Sporting Events & Festivals</li>
-          </ul>
-          <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 1rem; width: auto;">Download Now</a>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-tourinfo.png" alt="Tour Info" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Tour Info</h3>
+            <p>Full logistics for every major tour, including direct ticket links and official tour routing schedules.</p>
+          </div>
         </div>
-        <div class="feat-image">
-          <img src="mockup-events.png" alt="Concerto Events Interface" onerror="this.style.display='none'">
-        </div>
-      </div>
 
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-rideshare.png" alt="Rideshare Routing" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>1-Tap Rideshare</h3>
+            <p>Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
+          </div>
+        </div>
+
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-bags.png" alt="Bag Policies" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Bag Policies</h3>
+            <p>Stop guessing. Get the exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
+          </div>
+        </div>
+
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-parking.png" alt="Parking Intel" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Parking</h3>
+            <p>Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
+          </div>
+        </div>
+
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-concessions.png" alt="Concessions" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Concessions</h3>
+            <p>Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
+          </div>
+        </div>
+
+      </div>
     </section>
   </main>
 
@@ -313,7 +322,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
 
     revealElements.forEach(el => revealObserver.observe(el));
   </script>
