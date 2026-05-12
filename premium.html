@@ -61,6 +61,7 @@
       --border: #C0C0C0; 
       --border-light: rgba(18, 30, 54, 0.08);
       --premium-gold: #C9A84C;
+      --premium-glow: 0 12px 40px rgba(201, 168, 76, 0.12);
       --shadow-btn: 0 8px 28px rgba(18, 30, 54, 0.18);
       --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -105,7 +106,6 @@
     nav { position: fixed; top: 0; width: 100%; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; z-index: 1000; transition: var(--transition); }
     nav.scrolled { padding: 1.2rem 5%; background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light); }
     .logo { text-decoration: none; display: flex; align-items: center; flex: 1; }
-    
     .nav-logo-img { height: 7rem; width: auto; object-fit: contain; display: block; mix-blend-mode: normal; }
     .footer-logo-img { height: 3.5rem; width: auto; object-fit: contain; display: block; opacity: 0.8; mix-blend-mode: normal; }
     
@@ -113,22 +113,46 @@
     .nav-links a { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .nav-action { flex: 1; display: flex; justify-content: flex-end; }
+    .nav-action .btn-nav { padding: 0.6rem 1.5rem; font-size: 0.7rem; width: auto; }
 
     /* ─── HERO ─── */
-    .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 5% 0; }
-    .hero-title { font-size: clamp(3.5rem, 8vw, 6.5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
-    .hero-desc { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
+    .hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 160px 5% 0; }
+    .hero-title { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.02em; line-height: 1; margin-bottom: 1.5rem; animation: fadeUp 1s ease forwards; }
+    .hero-desc { font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; animation: fadeUp 1s ease forwards 0.2s; opacity: 0; transform: translateY(20px); }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ─── EDITORIAL LIST LAYOUT ─── */
-    .feature-list { max-width: 1000px; margin: 0 auto; padding: 100px 5%; }
-    .feature-row { display: flex; gap: 4rem; align-items: flex-start; padding: 80px 0; border-bottom: 1px solid var(--border-light); }
-    .feature-row:last-child { border-bottom: none; }
-    .feat-icon { font-size: 3rem; flex-shrink: 0; width: 80px; text-align: left; }
-    .feat-content { flex: 1; }
+    /* ─── PREMIUM BENTO GRID ─── */
+    .showcase-container { max-width: 1200px; margin: 0 auto; padding: 40px 5% 120px; }
     
-    .feat-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--text); }
-    .feat-content p { color: var(--text-dim); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 600px; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem;
+    }
+
+    .feat-card {
+      display: flex; flex-direction: column; opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Elevated Premium Image Container */
+    .feat-image {
+      background: var(--card-bg); border-radius: 20px; aspect-ratio: 16/10;
+      border: 1px solid rgba(201, 168, 76, 0.4); /* Premium Gold Border */
+      box-shadow: var(--premium-glow); /* Premium Gold Glow */
+      margin-bottom: 1.5rem; overflow: hidden; display: flex; justify-content: center; align-items: flex-end;
+      padding: 0 2rem; 
+      transition: box-shadow 0.4s ease;
+    }
+    .feat-card:hover .feat-image { box-shadow: 0 16px 50px rgba(201, 168, 76, 0.2); }
+    
+    .feat-image img {
+      width: auto; height: 110%; object-fit: contain; transform: translateY(15%);
+      transition: transform 0.4s ease;
+    }
+    .feat-card:hover .feat-image img { transform: translateY(10%); }
+
+    .feat-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .feat-text p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; }
 
     /* ─── FOOTER ─── */
     footer { border-top: 1px solid var(--border-light); padding: 4rem 5%; background: var(--bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; position: relative; z-index: 10; }
@@ -138,8 +162,7 @@
     /* ─── MOBILE OPTIMIZATION ─── */
     @media (max-width: 960px) { .nav-links { display: none; } }
     @media (max-width: 768px) {
-      .feature-row { flex-direction: column; gap: 1.5rem; padding: 60px 0; }
-      .nav-links { display: none; }
+      .features-grid { grid-template-columns: 1fr; gap: 4rem; }
       .footer-links a { margin-left: 0; margin-right: 2rem; display: inline-block; margin-bottom: 1rem; }
       nav { padding: 1.5rem 5%; }
       nav.scrolled { padding: 1rem 5%; }
@@ -174,7 +197,7 @@
       <a href="about.html">About Us</a>
     </div>
     <div class="nav-action">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.7rem;">Get Access</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn-primary btn-nav">Get Access</a>
     </div>
   </nav>
 
@@ -185,44 +208,50 @@
       <p class="hero-desc">Take the friction out of the live music experience. Premium features built for the people who treat going to a show as an event.</p>
     </header>
 
-    <section class="feature-list">
-      
-      <div class="feature-row">
-        <div class="feat-icon" aria-hidden="true">📷</div>
-        <div class="feat-content">
-          <h2 class="serif">Bag Check</h2>
-          <p>Don't just read the policy—test it. Instead of guessing if your bag meets the venue's rules, hold it up to your camera. Concerto’s AI cross-references your bag's dimensions and structure against the specific venue's database.</p>
-          <p>Get an instant Pass, Warn, or Fail verdict, complete with the exact policy rules cited. No surprises at the door.</p>
+    <section class="showcase-container">
+      <div class="features-grid">
+        
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-bagcheck.png" alt="AI Bag Check" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>AI Bag Check</h3>
+            <p>Hold your bag up to your camera. Our AI instantly verifies it against the venue's official dimensions and policies.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-row">
-        <div class="feat-icon" aria-hidden="true">✨</div>
-        <div class="feat-content">
-          <h2 class="serif">Live Mode</h2>
-          <p>Once you arrive at the venue, Concerto switches into a real-time companion. We provide an editorial onboarding that sets the tone for the night.</p>
-          <p>When the encore is over, you receive a shareable Story Card capturing your night. It's a beautifully designed, full-screen canvas documenting the show—think of it as a Strava post for your concert.</p>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-livemode.png" alt="Live Mode" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Live Mode</h3>
+            <p>Your real-time in-show companion. Receive a beautifully designed, shareable Story Card documenting your night after the encore.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-row">
-        <div class="feat-icon" aria-hidden="true">🗺️</div>
-        <div class="feat-content">
-          <h2 class="serif">Concerto+</h2>
-          <p>You tell us the show, the city, and your vibe. Concerto+ builds the rest. We generate a full night-out timeline, including dinner reservation timing, precise arrival windows, and where to grab drinks after the show.</p>
-          <p>These aren't generic suggestions. It's an actual, mathematical plan tailored to the venue, the artist, and your unique style.</p>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-concerto-plus.png" alt="Concerto+ AI Itineraries" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Concerto+</h3>
+            <p>Your AI-powered itinerary builder. A mathematical timeline for dinner, arrival windows, and post-show drinks tailored to your vibe.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="feature-row">
-        <div class="feat-icon" aria-hidden="true">🎪</div>
-        <div class="feat-content">
-          <h2 class="serif">Festivals</h2>
-          <p>Festivals aren’t just shows—they’re multi-day logistical puzzles. Concerto Premium unlocks everything you need to navigate them seamlessly.</p>
-          <p>Access full lineups, schedules, set times, stage maps, and survival intel that makes the difference between a chaotic weekend and an unforgettable one.</p>
+        <div class="feat-card scroll-reveal">
+          <div class="feat-image">
+            <img src="mockup-festivals.png" alt="Festivals" onerror="this.style.display='none'">
+          </div>
+          <div class="feat-text">
+            <h3>Festivals</h3>
+            <p>Navigate multi-day events flawlessly. Full lineups, set times, interactive stage maps, and survival intel.</p>
+          </div>
         </div>
-      </div>
 
+      </div>
     </section>
   </main>
 
@@ -266,6 +295,19 @@
         ticking = true;
       }
     });
+
+    // Premium Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
