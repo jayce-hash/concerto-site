@@ -1,311 +1,382 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F8F9F9" />
-  
-  <title>Tour Setlists | Concerto</title>
-  <meta name="description" content="Track deep cuts, closers, and local start times for the world's biggest tours. View official setlists and direct Apple Music/Spotify links." />
-  
+
+  <!-- ─── SEO ─── -->
+
+  <title>Concert Tour Setlists 2026 — Songs, Set Times & Streaming Links | Concerto</title>
+  <meta name="title" content="Concert Tour Setlists 2026 — Songs, Set Times & Streaming Links | Concerto" />
+  <meta name="description" content="Official setlists for 2026 concert tours. Track every song, set time, and deep cut for Demi Lovato, Bruno Mars, Ed Sheeran, BTS, and more — with direct Apple Music and Spotify links." />
+  <meta name="keywords" content="concert setlist 2026, Demi Lovato setlist, Bruno Mars setlist, Ed Sheeran setlist, BTS setlist, tour setlist, what songs does the artist play, concert set list tonight" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/setlists.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/setlists.html" />
+  <meta property="og:title" content="Concert Tour Setlists 2026 — Songs, Set Times & Streaming Links" />
+  <meta property="og:description" content="Official setlists for the biggest 2026 concert tours, with Apple Music and Spotify links for every song." />
+  <meta property="og:image" content="https://concertocity.com/og-image.jpg" />
+  <meta property="og:site_name" content="Concerto" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://concertocity.com/setlists.html" />
+  <meta name="twitter:title" content="Concert Tour Setlists 2026 — Songs, Set Times & Streaming Links" />
+  <meta name="twitter:description" content="Official setlists for the biggest 2026 concert tours, with Apple Music and Spotify links for every song." />
+  <meta name="twitter:image" content="https://concertocity.com/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Concert Tour Setlists 2026",
+    "description": "Official setlists for 2026 concert tours. Every song, set time, and streaming link for Demi Lovato, Bruno Mars, Ed Sheeran, BTS, and more.",
+    "url": "https://concertocity.com/setlists.html",
+    "isPartOf": { "@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
+        { "@type": "ListItem", "position": 2, "name": "Setlists", "item": "https://concertocity.com/setlists.html" }
+      ]
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── BRAND PALETTE & VARIABLES ─── */
     :root {
-      --bg: #F8F9F9;
-      --card-bg: #FFFFFF;
-      --text: #121E36;
-      --text-dim: rgba(18, 30, 54, 0.55);
-      --border-light: rgba(18, 30, 54, 0.08);
-      --premium-gold: #C9A84C;
-      --shadow-soft: 0 8px 30px rgba(18, 30, 54, 0.04);
-      --shadow-hover: 0 20px 40px rgba(18, 30, 54, 0.08);
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
+      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
+      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
+      --gold: #C9A84C; --gold-light: #E5C365;
+      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
+      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
+      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --radius-sm: 12px; --radius-md: 20px; --radius-lg: 28px; --nav-h: 68px;
     }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
+    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: 'kern' 1, 'liga' 1; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); }
-    body {
-      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
-      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
-    }
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
+    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-    /* ─── TYPOGRAPHY ─── */
-    .serif { font-family: 'Playfair Display', serif !important; }
-    .sans { font-family: 'DM Sans', sans-serif !important; }
-    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--premium-gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-    
-    /* ─── AMBIENT BACKGROUND ─── */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
-    .orb-1 { width: 55vw; height: 55vw; background: rgba(192, 192, 192, 0.2); top: -20%; left: -10%; }
-    .orb-2 { width: 45vw; height: 45vw; background: rgba(201, 168, 76, 0.08); bottom: -10%; right: -10%; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    /* Nav */
+    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; width: 200px; }
+    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-center > a, .nav-dropdown-trigger { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; white-space: nowrap; }
+    .nav-center > a:hover, .nav-dropdown-trigger:hover, .nav-center > a.active { color: var(--text); }
+    .nav-chevron { width: 10px; height: 10px; display: block; flex-shrink: 0; transition: transform 0.35s var(--ease-out); }
+    .nav-dropdown-trigger.open .nav-chevron { transform: rotate(180deg); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-panel { position: absolute; top: calc(var(--nav-h) + 8px); left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(248,249,249,0.99); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: 0 8px 16px rgba(18,30,54,0.04), 0 24px 64px rgba(18,30,54,0.13); padding: 0.6rem; width: 700px; opacity: 0; pointer-events: none; transition: opacity 0.28s var(--ease-out), transform 0.28s var(--ease-out); }
+    .nav-dropdown-panel.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .dropdown-header { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.1rem 0.8rem; border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+    .dropdown-header-label { font-family: var(--body); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-xdim); }
+    .dropdown-header-count { font-family: var(--body); font-size: 0.58rem; font-weight: 600; color: var(--gold); }
+    .dropdown-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.25rem; padding: 0 0.25rem 0.25rem; }
+    .nav-dropdown-item { display: flex; flex-direction: column; padding: 1rem 1.1rem; border-radius: var(--radius-md); text-decoration: none; position: relative; transition: background 0.2s var(--ease-out); border: 1px solid transparent; }
+    .nav-dropdown-item::before { content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 2px; border-radius: 99px; background: var(--gold); opacity: 0; transform: scaleY(0.4); transition: opacity 0.2s, transform 0.25s var(--ease-out); }
+    .nav-dropdown-item:hover { background: var(--card-bg); border-color: var(--border); }
+    .nav-dropdown-item:hover::before { opacity: 1; transform: scaleY(1); }
+    .nav-dropdown-item-title { font-family: var(--display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; letter-spacing: -0.01em; transition: font-style 0.15s; }
+    .nav-dropdown-item:hover .nav-dropdown-item-title { font-style: italic; }
+    .nav-dropdown-item-desc { font-family: var(--body); font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; }
+    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
 
-    /* ─── NAVIGATION HEADER ─── */
-    .site-header { 
-      position: fixed; top: 0; width: 100%; z-index: 1000; transition: var(--transition);
-      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border-light); height: 80px;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
-    }
-    
-    .header-logo-wrapper { flex: 0 0 auto; width: 120px; display: flex; align-items: center; }
-    .header-logo { height: 24px; width: auto; object-fit: contain; }
-    
-    .nav-features { display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex: 1; }
-    .nav-features a { 
-      font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; 
-      text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
-    }
-    .nav-features a:hover, .nav-features a.active { color: var(--premium-gold); }
+    /* Page */
+    .page-hero { padding: calc(var(--nav-h) + 60px) 4% 0; max-width: 1280px; margin: 0 auto; text-align: center; }
+    .eyebrow { display: block; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+    .page-hero h1 { font-family: var(--display); font-size: clamp(2.4rem,5vw,4.2rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.08; margin-bottom: 1.2rem; }
+    .page-hero p { font-family: var(--body); font-size: 1rem; font-weight: 300; color: var(--text-dim); max-width: 580px; margin: 0 auto; line-height: 1.75; }
 
-    .nav-actions { flex: 0 0 auto; width: 120px; display: flex; justify-content: flex-end; }
-    .btn-primary { 
-      background: var(--text); color: var(--card-bg) !important; padding: 0.8rem 1.8rem; 
-      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
-      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; display: inline-block;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.15); }
+    main { padding-bottom: 80px; min-height: 100vh; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 4%; }
 
-    /* ─── DIRECTORY LAYOUT ─── */
-    main { padding-top: 140px; padding-bottom: 80px; min-height: 100vh; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 4%; }
+    .seo-intro { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; margin: 3rem 4%; max-width: calc(1280px - 8%); box-shadow: var(--shadow-sm); }
+    .seo-intro h2 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.7rem; letter-spacing: -0.01em; }
+    .seo-intro p { font-family: var(--body); font-size: 0.88rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
 
-    /* Hero / Search Section */
-    .directory-hero { text-align: center; margin-bottom: 4rem; }
-    .directory-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--text); line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .directory-hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .search-wrapper { position: relative; max-width: 600px; margin: 0 auto 1rem; }
+    .search-icon { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); pointer-events: none; }
+    .search-input { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 99px; padding: 0.95rem 1.8rem 0.95rem 3rem; font-family: var(--body); font-size: 0.9rem; color: var(--text); box-shadow: var(--shadow-md); outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+    .search-input:focus { border-color: var(--gold); box-shadow: var(--shadow-lg); }
+    .search-input::placeholder { color: var(--text-xdim); }
+    .search-count { font-family: var(--body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-xdim); text-align: center; display: block; margin-bottom: 2rem; }
 
-    .search-wrapper { max-width: 600px; margin: 0 auto; position: relative; }
-    .search-input {
-      width: 100%; background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 99px;
-      padding: 1.2rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--text);
-      box-shadow: var(--shadow-soft); transition: var(--transition); outline: none;
-    }
-    .search-input:focus { border-color: var(--premium-gold); box-shadow: var(--shadow-hover); }
-    .search-input::placeholder { color: rgba(18, 30, 54, 0.3); }
+    .directory-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+    .directory-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem 2rem; display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-sm); transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s; position: relative; overflow: hidden; }
+    .directory-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+    .directory-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
+    .directory-card:hover::before { opacity: 1; }
+    .tour-artist { font-family: var(--body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-xdim); margin-bottom: 0.5rem; }
+    .tour-name { font-family: var(--display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); line-height: 1.2; margin-bottom: 1.5rem; flex: 1; transition: font-style 0.15s; }
+    .directory-card:hover .tour-name { font-style: italic; }
+    .card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.1rem; }
+    .card-link-text { font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+    .card-arrow { color: var(--text-xdim); transition: transform 0.3s var(--ease-out), color 0.3s; }
+    .directory-card:hover .card-arrow { color: var(--gold); transform: translateX(4px); }
+    .no-results { text-align: center; padding: 4rem 0; color: var(--text-dim); font-family: var(--display); font-size: 1.2rem; font-style: italic; display: none; }
 
-    /* Directory Grid */
-    .directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    
-    .directory-card {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 20px; padding: 2.5rem 2rem;
-      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
-      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
-    }
-    .directory-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(18, 30, 54, 0.15); }
-    
-    .tour-artist { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 0.5rem; }
-    .tour-name { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text); line-height: 1.2; }
-    
-    .card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(18, 30, 54, 0.04); padding-top: 1.5rem; }
-    .card-link-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--premium-gold); }
-    .card-arrow { color: var(--text-dim); font-size: 1.2rem; transition: transform 0.3s, color 0.3s; }
-    .directory-card:hover .card-arrow { color: var(--text); transform: translateX(4px); }
-
-    .no-results { grid-column: span 3; text-align: center; padding: 4rem 0; color: var(--text-dim); font-size: 1.1rem; display: none; }
-
-    /* ─── MASSIVE WEB FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 3rem; background: var(--bg); margin-top: 6rem; }
-    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-    .footer-col { display: flex; flex-direction: column; gap: 1.2rem; }
-    .footer-logo { height: 32px; width: auto; object-fit: contain; object-position: left; margin-bottom: 0.5rem; }
-    .footer-col p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; max-width: 320px; }
-    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 0.5rem; }
-    .footer-col a { font-size: 0.95rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    /* Footer */
+    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); margin-top: 6rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
+    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
+    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
     .footer-col a:hover { color: var(--text); }
-    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
+    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
+    .footer-bottom a:hover { color: var(--text); }
 
-    /* ─── RESPONSIVENESS ─── */
-    @media (max-width: 1200px) {
-      .nav-features { display: none; }
-      .site-header { padding: 1rem 5%; }
-    }
-    @media (max-width: 960px) {
-      .directory-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    }
+    @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
+    @media (max-width: 1024px) { .nav-center { display: none; } .directory-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 768px) {
-      main { padding-top: 100px; }
-      .directory-grid, .footer-grid { grid-template-columns: 1fr; }
-      .directory-card { padding: 2rem 1.5rem; }
+      :root { --nav-h: 58px; }
+      .page-hero { padding: calc(var(--nav-h) + 36px) 5% 0; }
+      .seo-intro { margin: 2.5rem 5%; padding: 1.5rem; }
+      .container { padding: 0 5%; }
+      .directory-grid { grid-template-columns: 1fr; gap: 1rem; }
       .no-results { grid-column: span 1; }
-      .footer-bottom { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
   </style>
+
 </head>
 <body>
 
-  <div class="bg-canvas" id="bg-canvas" aria-hidden="true">
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
   </div>
   <div class="noise" aria-hidden="true"></div>
 
-  <header class="site-header" id="navbar">
-    <div class="header-logo-wrapper">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Concerto Logo" class="header-logo">
+  <!-- ─── NAV ─── -->
+
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
       </a>
     </div>
-    
-    <nav class="nav-features sans">
-      <a href="cityguides.html">City Guides</a>
-      <a href="events.html">Events Near Me</a>
-      <a href="featuredtours.html">Featured Tours</a>
-      <a href="setlists.html" class="active">Setlists</a>
-      <a href="tourinfo.html">Tour Info</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans">Download App</a>
+    <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">
+          Features
+          <svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
+          <div class="dropdown-header">
+            <span class="dropdown-header-label">All Features</span>
+            <span class="dropdown-header-count">9 Tools</span>
+          </div>
+          <div class="dropdown-grid">
+            <a href="cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
+            <a href="events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
+            <a href="featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
+            <a href="setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
+            <a href="tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
+            <a href="rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
+            <a href="bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
+            <a href="parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
+            <a href="concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
     </div>
-  </header>
+    <div class="nav-cta">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="eyebrow">What They&rsquo;re Playing</span>
+    <h1>Tour Setlists.</h1>
+    <p>
+      Track deep cuts, closers, and local start times for the world&rsquo;s biggest tours.
+      View the official setlist and stream every song directly on Apple Music or Spotify.
+    </p>
+  </div>
 
   <main>
-    <div class="container">
-      
-      <section class="directory-hero">
-        <span class="eyebrow sans">The Essentials</span>
-        <h1 class="serif">Tour Setlists</h1>
-        <p class="sans">Track deep cuts, closers, and local start times. Select a tour below to view the official setlist and direct Apple Music & Spotify links.</p>
-        
-        <div class="search-wrapper">
-          <input type="text" id="searchInput" class="search-input" placeholder="Search by artist or tour name..." aria-label="Search setlists">
-        </div>
-      </section>
-
-      <div class="directory-grid" id="directoryGrid">
-        </div>
-      
-      <div class="no-results sans" id="noResults">
-        No tours found matching your search. Try adjusting your terms.
-      </div>
-
+    <div class="seo-intro">
+      <h2>What songs does the artist play on tour in 2026?</h2>
+      <p>
+        Wondering what Demi Lovato, Bruno Mars, or Ed Sheeran is playing on their 2026 tour?
+        Concerto tracks official setlists for every active tour &mdash; every song in order, with
+        local set times and direct Apple Music and Spotify links so you can listen before the show.
+        Setlists are updated after each show as new data comes in. Search your artist below.
+      </p>
     </div>
+
+```
+<div class="container">
+  <div class="search-wrapper">
+    <span class="search-icon" aria-hidden="true">&#128269;</span>
+    <input type="text" id="searchInput" class="search-input"
+           placeholder="Search Demi Lovato, Bruno Mars, BTS..."
+           aria-label="Search setlists by artist or tour" />
+  </div>
+  <p class="search-count" id="searchCount">Showing all 13 tours</p>
+
+  <div class="directory-grid" id="directoryGrid" role="list"></div>
+  <p class="no-results" id="noResults">No tours found matching your search.</p>
+</div>
+```
+
   </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col" style="grid-column: span 2; padding-right: 4rem;">
-        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
-        <p class="sans">The ultimate companion for live music. We pick up where ticketing apps drop off.</p>
-      </div>
-      
-      <div class="footer-col">
-        <h4 class="sans">Company</h4>
-        <a href="about.html" class="sans">About Us</a>
-        <a href="premium.html" class="sans">Premium</a>
-        <a href="shop.html" class="sans">Shop</a>
-        <a href="partners.html" class="sans">Partnerships</a>
-      </div>
+  <!-- ─── FOOTER ─── -->
 
-      <div class="footer-col">
-        <h4 class="sans">Legal & Support</h4>
-        <a href="faq.html" class="sans">FAQ</a>
-        <a href="mailto:support@concertocity.com" class="sans">Contact Support</a>
-        <a href="privacy.html" class="sans">Privacy Policy</a>
-        <a href="terms.html" class="sans">Terms of Service</a>
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
       </div>
-
-      <div class="footer-col">
-        <h4 class="sans">Social</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank" class="sans">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" class="sans">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" class="sans">YouTube</a>
-      </div>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Tools">
+        <h4>Tools</h4>
+        <a href="cityguides.html">City Guides</a>
+        <a href="events.html">Events Near Me</a>
+        <a href="setlists.html">Setlists</a>
+        <a href="bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="concessions.html">Concessions</a>
+        <a href="rideshare.html">Rideshare</a>
+        <a href="tourinfo.html">Tour Info</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Social">
+        <h4>Follow Us</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
     </div>
-    
     <div class="footer-bottom">
-      <span class="sans">&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
-      <span class="sans">Designed in Texas</span>
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
     </div>
   </footer>
 
   <script>
-    // Subdued Parallax
-    const bgCanvas = document.getElementById('bg-canvas');
+    /* Nav dropdown */
+    const featuresBtn = document.getElementById('featuresBtn');
+    const featuresPanel = document.getElementById('featuresPanel');
+    featuresBtn.addEventListener('click', (e) => { e.stopPropagation(); const o = featuresPanel.classList.toggle('open'); featuresBtn.classList.toggle('open', o); featuresBtn.setAttribute('aria-expanded', o); });
+    document.addEventListener('click', () => { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); });
+    featuresPanel.addEventListener('click', e => e.stopPropagation());
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
+
+    /* Parallax */
+    const bgCanvas = document.getElementById('bgCanvas');
     let ticking = false;
     document.addEventListener('mousemove', (e) => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const mouseX = e.clientX / window.innerWidth - 0.5;
-          const mouseY = e.clientY / window.innerHeight - 0.5;
-          bgCanvas.style.transform = `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
-          ticking = false;
-        });
-        ticking = true;
-      }
+      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
     });
 
-    // Setlist Data
+    /* Setlist data */
     const tours = [
       { artist: "Chris Stapleton", tour: "All-American Road Show Tour", url: "https://concerto-setlists.netlify.app/chrisstapletonallamericanroadshowtour" },
       { artist: "RAYE", tour: "This Tour May Contain New Music", url: "https://concerto-setlists.netlify.app/rayethistourmaycontainnewmusictour" },
       { artist: "Olivia Dean", tour: "The Art of Loving Tour", url: "https://concerto-setlists.netlify.app/oliviadeantheartoflovingtour2026" },
-      { artist: "Charlie Puth", tour: "Whatever's Clever! World Tour", url: "https://concerto-setlists.netlify.app/charlieputhwhateversclevertour2026" },
+      { artist: "Charlie Puth", tour: "Whatever\u2019s Clever! World Tour", url: "https://concerto-setlists.netlify.app/charlieputhwhateversclevertour2026" },
       { artist: "Florence + The Machine", tour: "Everybody Scream Tour", url: "https://concerto-setlists.netlify.app/florencethemachineeverybodyscreamtour" },
       { artist: "Journey", tour: "Final Frontier Tour", url: "https://concerto-setlists.netlify.app/journeyfinalfrontiertour" },
       { artist: "Louis Tomlinson", tour: "How Did We Get Here? World Tour", url: "https://concerto-setlists.netlify.app/louistomlinsonhowdidwegethereworldtour" },
-      { artist: "Hayley Williams", tour: "Ego Death at a Bachelorette Party Tour", url: "https://concerto-setlists.netlify.app/hayleywilliamsatabachelorettepartytour" },
+      { artist: "Hayley Williams", tour: "Hayley Williams at a Bachelorette Party Tour", url: "https://concerto-setlists.netlify.app/hayleywilliamsatabachelorettepartytour" },
       { artist: "Alex Warren", tour: "Little Orphan Alex Live", url: "https://concerto-setlists.netlify.app/alexwarrenlittleorphanalexlive" },
       { artist: "Bruno Mars", tour: "The Romantic Tour", url: "https://concerto-setlists.netlify.app/brunomarstheromantictour" },
-      { artist: "Demi Lovato", tour: "It's Not That Deep Tour", url: "https://concerto-setlists.netlify.app/demilovatoitsnotthatdeeptour" },
+      { artist: "Demi Lovato", tour: "It\u2019s Not That Deep Tour", url: "https://concerto-setlists.netlify.app/demilovatoitsnotthatdeeptour" },
       { artist: "BTS", tour: "BTS ARIRANG Tour", url: "https://concerto-setlists.netlify.app/btsworldtour" },
-      { artist: "Ed Sheeran", tour: "Loop Tour", url: "https://concerto-setlists.netlify.app/edsheeranthelooptourna2026" }
+      { artist: "Ed Sheeran", tour: "The Loop Tour", url: "https://concerto-setlists.netlify.app/edsheeranthelooptourna2026" }
     ];
 
     const grid = document.getElementById('directoryGrid');
     const searchInput = document.getElementById('searchInput');
     const noResults = document.getElementById('noResults');
+    const searchCount = document.getElementById('searchCount');
 
-    // Render Function
     function renderCards(data) {
       grid.innerHTML = '';
-      if (data.length === 0) {
+      if (!data.length) {
         noResults.style.display = 'block';
-      } else {
-        noResults.style.display = 'none';
-        data.forEach(item => {
-          const card = document.createElement('a');
-          card.className = 'directory-card';
-          card.href = item.url;
-          card.target = '_blank';
-          card.rel = 'noopener noreferrer';
-          
-          card.innerHTML = `
-            <span class="tour-artist sans">${item.artist}</span>
-            <h3 class="tour-name serif">${item.tour}</h3>
-            <div class="card-footer">
-              <span class="card-link-text sans">View Setlist</span>
-              <span class="card-arrow">&rarr;</span>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
+        searchCount.textContent = '0 results found';
+        return;
       }
+      noResults.style.display = 'none';
+      searchCount.textContent = data.length === tours.length
+        ? `Showing all ${tours.length} tours`
+        : `${data.length} result${data.length !== 1 ? 's' : ''} found`;
+
+      data.forEach(item => {
+        const card = document.createElement('a');
+        card.className = 'directory-card';
+        card.href = item.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.setAttribute('role', 'listitem');
+        card.innerHTML = `
+          <div class="tour-artist">${item.artist}</div>
+          <h2 class="tour-name">${item.tour}</h2>
+          <div class="card-footer">
+            <span class="card-link-text">View Setlist</span>
+            <span class="card-arrow">&rarr;</span>
+          </div>`;
+        grid.appendChild(card);
+      });
     }
 
-    // Initial Load
     renderCards(tours);
-
-    // Live Search
     searchInput.addEventListener('input', (e) => {
-      const searchTerm = e.target.value.toLowerCase();
-      const filtered = tours.filter(item => 
-        item.artist.toLowerCase().includes(searchTerm) || 
-        item.tour.toLowerCase().includes(searchTerm)
-      );
-      renderCards(filtered);
+      const q = e.target.value.toLowerCase();
+      renderCards(q ? tours.filter(i => i.artist.toLowerCase().includes(q) || i.tour.toLowerCase().includes(q)) : tours);
     });
   </script>
+
 </body>
 </html>
