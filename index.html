@@ -5,26 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F8F9F9" />
   
-  <title>Concerto App | The Ultimate Concert & Live Music Companion</title>
-  <meta name="title" content="Concerto App | The Ultimate Concert & Live Music Companion" />
-  <meta name="description" content="Concerto is the ultimate concert companion app. Get verified venue intel, bag policies, tour setlists, and curated city guides for your next live music event." />
+  <title>Concerto | The Ultimate Concert & Live Music Companion</title>
+  <meta name="title" content="Concerto | The Ultimate Concert & Live Music Companion" />
+  <meta name="description" content="Navigate the night flawlessly. Get verified venue intel, bag policies, tour setlists, and curated city guides for your next show." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── EXACT BRAND PALETTE ─── */
+    /* ─── BRAND PALETTE & VARIABLES ─── */
     :root {
       --bg: #F8F9F9;
       --card-bg: #FFFFFF;
       --text: #121E36;
       --text-dim: rgba(18, 30, 54, 0.55);
-      --border: #C0C0C0;
       --border-light: rgba(18, 30, 54, 0.08);
       --premium-gold: #C9A84C;
-      --shadow-sm: 0 4px 20px rgba(18, 30, 54, 0.04);
-      --shadow-hover: 0 12px 32px rgba(18, 30, 54, 0.08);
+      --shadow-soft: 0 8px 30px rgba(18, 30, 54, 0.04);
+      --shadow-hover: 0 20px 40px rgba(18, 30, 54, 0.08);
       --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -35,126 +34,157 @@
       line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
     }
 
-    /* ─── AMBIENT LIGHT BACKGROUND ─── */
+    /* ─── TYPOGRAPHY ─── */
+    .serif { font-family: 'Playfair Display', serif !important; }
+    .sans { font-family: 'DM Sans', sans-serif !important; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--premium-gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+    
+    /* ─── AMBIENT BACKGROUND ─── */
     .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; }
-    .orb-1 { width: 60vw; height: 60vw; background: rgba(192, 192, 192, 0.3); top: -20%; left: -10%; }
-    .orb-2 { width: 50vw; height: 50vw; background: rgba(201, 168, 76, 0.1); bottom: -10%; right: -10%; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
+    .orb-1 { width: 55vw; height: 55vw; background: rgba(192, 192, 192, 0.2); top: -20%; left: -10%; }
+    .orb-2 { width: 45vw; height: 45vw; background: rgba(201, 168, 76, 0.08); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-    /* ─── GHOST MARQUEE ─── */
-    .ghost-marquee { position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1; transform: translateY(-50%); pointer-events: none; overflow: hidden; white-space: nowrap; display: flex; opacity: 0.03; color: var(--text); }
-    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
-    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 15vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    /* Ghost Marquee */
+    .ghost-marquee { position: fixed; top: 35%; left: 0; width: 100vw; z-index: -1; transform: translateY(-50%); pointer-events: none; overflow: hidden; white-space: nowrap; display: flex; opacity: 0.02; color: var(--text); }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 80s linear infinite; }
+    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 14vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
     @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ─── TYPOGRAPHY ─── */
-    h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.01em; }
-    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; display: block; }
-    
-    .btn-primary { 
-      background: var(--text); color: var(--bg); padding: 0.8rem 2rem; border-radius: 99px;
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; 
-      text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-
-    /* ─── CLEAN HEADER ─── */
-    header { 
+    /* ─── NAVIGATION HEADER ─── */
+    .site-header { 
       position: fixed; top: 0; width: 100%; z-index: 1000; transition: var(--transition);
-      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light);
-      display: flex; align-items: center; justify-content: space-between; padding: 1rem 4%; height: 80px;
+      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-light); height: 80px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
     }
     
-    .header-logo { height: 28px; width: auto; object-fit: contain; opacity: 0; transition: opacity 0.4s ease; }
-    header.scrolled .header-logo { opacity: 1; } /* Logo only appears in header after scrolling past hero */
+    /* Logo hidden until scroll */
+    .header-logo-wrapper { flex: 0 0 auto; width: 120px; display: flex; align-items: center; }
+    .header-logo { height: 24px; width: auto; object-fit: contain; opacity: 0; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(10px); }
+    .site-header.scrolled .header-logo { opacity: 1; transform: translateY(0); }
     
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; flex: 1; justify-content: center; }
-    .nav-links a { 
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; 
-      color: var(--text-dim); text-decoration: none; transition: color 0.2s; white-space: nowrap;
+    .nav-features { display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex: 1; }
+    .nav-features a { 
+      font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; 
+      text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-features a:hover { color: var(--premium-gold); }
 
-    /* ─── MASSIVE HERO ─── */
-    main { padding-top: 80px; }
-    .hero { min-height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 5%; }
-    .hero-logo-main { width: 100%; max-width: 700px; height: auto; margin-bottom: 3rem; animation: fadeUp 1s ease forwards; }
+    .nav-actions { flex: 0 0 auto; width: 120px; display: flex; justify-content: flex-end; }
+    .btn-primary { 
+      background: var(--text); color: var(--card-bg) !important; padding: 0.8rem 1.8rem; 
+      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.15); }
+
+    /* ─── MAIN LAYOUT ─── */
+    main { padding-top: 160px; padding-bottom: 80px; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 4%; }
+
+    /* ─── HERO SECTION ─── */
+    .hero { text-align: center; margin-bottom: 8rem; display: flex; flex-direction: column; align-items: center; }
+    .hero-logo-large { height: 120px; width: auto; object-fit: contain; margin-bottom: 2rem; }
+    .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); color: var(--text); line-height: 1.1; margin-bottom: 2.5rem; letter-spacing: -0.02em; }
     
-    .hero-content { max-width: 700px; margin: 0 auto; opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease forwards 0.3s; }
-    .hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--text); margin-bottom: 1.5rem; line-height: 1.1; }
-    
-    /* INSTRUCTIONAL BOX */
-    .instruction-box { background: rgba(18, 30, 54, 0.03); border: 1px solid var(--border-light); border-radius: 16px; padding: 1.5rem 2rem; margin: 0 auto 3rem; text-align: center; }
-    .instruction-box p { font-size: 1.1rem; color: var(--text); line-height: 1.6; margin: 0; }
-    .instruction-box strong { color: var(--premium-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+    .instruction-box {
+      background: rgba(18, 30, 54, 0.02); border: 1px solid var(--border-light); border-radius: 16px;
+      padding: 2rem 3rem; max-width: 700px; margin: 0 auto 3rem; text-align: center;
+    }
+    .instruction-box strong { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); margin-bottom: 0.8rem; }
+    .instruction-box p { font-size: 1.15rem; color: var(--text); line-height: 1.6; margin: 0; }
 
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-    /* ─── UNIFORM GRIDS ─── */
-    .section { padding: 6rem 5%; position: relative; z-index: 10; }
-    .container { max-width: 1200px; margin: 0 auto; }
+    /* ─── SECTION HEADERS ─── */
     .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-title { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; color: var(--text); }
-    
-    /* Perfect 3x3 Grid */
-    .grid-3x3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .section-title { font-size: 2.5rem; font-weight: 700; color: var(--text); line-height: 1.2; letter-spacing: -0.01em; }
+
+    /* ─── THE ESSENTIALS (3x3 Grid) ─── */
+    .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 8rem; }
     
     .feature-card {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 20px; padding: 3rem 2.5rem; 
+      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 24px; padding: 3.5rem 3rem;
       display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
-      box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
     }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--text); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(18, 30, 54, 0.15); }
     
-    .feature-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text); display: flex; justify-content: space-between; align-items: center; }
-    .feature-card h3::after { content: '→'; font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 300; color: var(--border); transition: color 0.3s, transform 0.3s; }
+    .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text); display: flex; justify-content: space-between; align-items: center; }
+    .feature-card h3::after { content: '\2192'; color: rgba(18,30,54,0.15); font-size: 1.5rem; font-family: 'DM Sans', sans-serif; transition: color 0.3s, transform 0.3s; }
     .feature-card:hover h3::after { color: var(--text); transform: translateX(4px); }
-    .feature-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin: 0; }
-
-    /* Perfect 2x2 Grid for Premium */
-    .grid-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
-    .premium-card { background: var(--card-bg); border: 1px solid rgba(201, 168, 76, 0.3); border-radius: 20px; padding: 3rem; text-decoration: none; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; position: relative; }
-    .premium-card:hover { transform: translateY(-4px); background: rgba(201, 168, 76, 0.02); }
-    .premium-card::after { content: '•'; position: absolute; top: 2rem; right: 2rem; color: var(--premium-gold); font-size: 1.5rem; line-height: 1; }
-    .premium-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text); }
-    .premium-card p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin: 0; padding-right: 2rem; }
-
-    /* ─── APP DOWNLOAD TRAP (MODAL) ─── */
-    .premium-modal-overlay {
-      position: fixed; inset: 0; background: rgba(18, 30, 54, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-    }
-    .premium-modal-overlay.active { opacity: 1; pointer-events: auto; }
     
-    .premium-modal {
-      background: var(--card-bg); width: 90%; max-width: 440px; border-radius: 24px; padding: 3rem; 
-      text-align: center; box-shadow: 0 24px 60px rgba(18, 30, 54, 0.2); border: 1px solid var(--premium-gold);
-      transform: translateY(20px) scale(0.98); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
-    }
-    .premium-modal-overlay.active .premium-modal { transform: translateY(0) scale(1); }
+    .feature-card p { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; margin: 0; }
+
+    /* ─── CONCERTO PREMIUM (2x2 Grid) ─── */
+    .premium-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto 8rem; }
     
-    .close-modal { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; line-height: 1; color: var(--text-dim); cursor: pointer; transition: color 0.2s; }
+    .premium-card {
+      background: var(--text); border: 1px solid rgba(201, 168, 76, 0.4); border-radius: 24px; padding: 4rem 3.5rem;
+      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
+      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
+    }
+    .premium-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--premium-gold); }
+    
+    .premium-card h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--card-bg); }
+    .premium-card h3::after { content: ''; display: block; width: 40px; height: 2px; background: var(--premium-gold); margin-top: 1.5rem; }
+    .premium-card p { color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.7; margin-top: 1.5rem; }
+
+    /* ─── PREMIUM MODAL TRAP ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(18, 30, 54, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    
+    .modal-content {
+      background: var(--card-bg); width: 90%; max-width: 500px; border-radius: 24px; padding: 4rem 3rem; 
+      text-align: center; box-shadow: 0 24px 60px rgba(18, 30, 54, 0.2); border: 1px solid var(--border-light);
+      transform: translateY(20px) scale(0.98); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+    
+    .close-modal { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 2rem; color: var(--text-dim); cursor: pointer; transition: color 0.2s; }
     .close-modal:hover { color: var(--text); }
-    .modal-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
-    .modal-desc { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--text-dim); margin-bottom: 2rem; line-height: 1.6; }
+    
+    .modal-content h3 { font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
+    .modal-content p { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 2.5rem; line-height: 1.6; }
 
-    /* ─── FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 5rem 5% 2rem; background: var(--bg); }
-    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-    .footer-col { display: flex; flex-direction: column; gap: 1rem; }
-    .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-bottom: 0.5rem; }
+    /* ─── FOUNDER QUOTE ─── */
+    .founder-quote { text-align: center; max-width: 900px; margin: 0 auto 8rem; padding: 0 5%; }
+    .founder-quote h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; color: var(--text); margin-bottom: 2rem; }
+
+    /* ─── MASSIVE WEB FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 3rem; background: var(--bg); }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-col { display: flex; flex-direction: column; gap: 1.2rem; }
+    
+    .footer-logo { height: 32px; width: auto; object-fit: contain; object-position: left; margin-bottom: 0.5rem; }
+    .footer-col p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; max-width: 320px; }
+    
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 0.5rem; }
     .footer-col a { font-size: 0.95rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
     .footer-col a:hover { color: var(--text); }
-    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
+    
+    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
 
     /* ─── RESPONSIVENESS ─── */
-    @media (max-width: 1200px) { .nav-links { display: none; } .header-logo { opacity: 1; } }
-    @media (max-width: 960px) { .grid-3x3 { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+    @media (max-width: 1200px) {
+      .nav-features { display: none; }
+      .header-logo { opacity: 1; transform: none; }
+      .site-header { padding: 1rem 5%; justify-content: space-between; }
+      .header-logo-wrapper { flex: 1; }
+    }
+    @media (max-width: 960px) {
+      .essentials-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
     @media (max-width: 768px) {
-      .hero { min-height: 70vh; padding: 0 5%; }
-      .grid-3x3, .grid-2x2, .footer-grid { grid-template-columns: 1fr; }
-      .feature-card, .premium-card { padding: 2rem; }
+      main { padding-top: 120px; }
+      .hero { margin-bottom: 5rem; }
+      .instruction-box { padding: 1.5rem; }
+      .essentials-grid, .premium-grid, .footer-grid { grid-template-columns: 1fr; }
+      .feature-card, .premium-card { padding: 2.5rem 2rem; }
       .footer-bottom { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
     }
   </style>
@@ -170,96 +200,99 @@
   <div class="ghost-marquee" aria-hidden="true">
     <div class="marquee-track">
       <span>NOT JUST A SHOW • THE WHOLE NIGHT • NOT JUST A SHOW • THE WHOLE NIGHT • </span>
+      <span>NOT JUST A SHOW • THE WHOLE NIGHT • NOT JUST A SHOW • THE WHOLE NIGHT • </span>
     </div>
   </div>
 
-  <header id="navbar">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Concerto" class="header-logo">
-    </a>
+  <header class="site-header" id="navbar">
+    <div class="header-logo-wrapper">
+      <a href="index.html" class="logo" id="headerLogoLink">
+        <img src="logo.png" alt="Concerto Logo" class="header-logo">
+      </a>
+    </div>
     
-    <div class="nav-links">
+    <nav class="nav-features sans">
       <a href="cityguides.html">City Guides</a>
       <a href="events.html">Events Near Me</a>
       <a href="featuredtours.html">Featured Tours</a>
       <a href="setlists.html">Setlists</a>
       <a href="tourinfo.html">Tour Info</a>
-      <a href="rideshare.html">1-Tap Rideshare</a>
+      <a href="rideshare.html">Rideshare</a>
       <a href="bags.html">Bag Policies</a>
       <a href="parking.html">Parking</a>
       <a href="concessions.html">Concessions</a>
-    </div>
+    </nav>
 
-    <div class="nav-action">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary">Download App</a>
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans">Download App</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <img src="logo.png" alt="CONCERTO" class="hero-logo-main">
+      <img src="logo.png" alt="CONCERTO" class="hero-logo-large" id="mainHeroLogo">
       
-      <div class="hero-content">
-        <h1 class="serif">Navigate the night flawlessly.</h1>
-        <div class="instruction-box">
-          <strong>How to use Concerto</strong>
-          <p>Choose a tool below, select your venue or tour from the directory, and instantly unlock verified logistics and curated guides.</p>
-        </div>
-        <a href="#database" class="btn-primary" style="padding: 1.2rem 3rem; font-size: 0.9rem;">Access The Database</a>
+      <h1 class="serif">Navigate the night flawlessly.</h1>
+      
+      <div class="instruction-box">
+        <strong class="sans">How to use Concerto</strong>
+        <p class="serif">Choose a tool below, select your venue or tour from the directory, and instantly unlock verified logistics and curated guides.</p>
       </div>
+      
+      <a href="#database" class="btn-primary sans" style="padding: 1.2rem 3rem; font-size: 0.85rem;">Access The Database</a>
     </section>
 
     <section class="section" id="database">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">The Foundation</span>
+          <span class="eyebrow sans">The Foundation</span>
           <h2 class="section-title serif">The Essentials</h2>
         </div>
         
-        <div class="grid-3x3">
+        <div class="essentials-grid">
           <a href="cityguides.html" class="feature-card">
             <h3 class="serif">City Guides</h3>
-            <p>Skip the generic Yelp reviews. Curated dining and upscale hotel options anchored physically to your venue's neighborhood.</p>
+            <p class="sans">Skip the generic Yelp reviews. Curated dining and upscale hotel options anchored physically to your venue's neighborhood.</p>
           </a>
 
           <a href="events.html" class="feature-card">
             <h3 class="serif">Events Near Me</h3>
-            <p>Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
+            <p class="sans">Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
           </a>
 
           <a href="featuredtours.html" class="feature-card">
             <h3 class="serif">Featured Tours</h3>
-            <p>Follow the world's biggest artists. Track routing, dates, and highly-specific venue details for the hottest tours on the planet.</p>
+            <p class="sans">Follow the world's biggest artists. Track routing, dates, and highly-specific venue details for the hottest tours on the planet.</p>
           </a>
 
           <a href="setlists.html" class="feature-card">
             <h3 class="serif">Setlists</h3>
-            <p>Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
+            <p class="sans">Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
           </a>
 
           <a href="tourinfo.html" class="feature-card">
             <h3 class="serif">Tour Info</h3>
-            <p>Full logistics for every major tour, including direct ticket links and official routing schedules.</p>
+            <p class="sans">Full logistics for every major tour, including direct ticket links and official routing schedules.</p>
           </a>
 
           <a href="rideshare.html" class="feature-card">
             <h3 class="serif">1-Tap Rideshare</h3>
-            <p>Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
+            <p class="sans">Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
           </a>
 
           <a href="bags.html" class="feature-card">
             <h3 class="serif">Bag Policies</h3>
-            <p>Stop guessing at the gate. Get exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
+            <p class="sans">Stop guessing at the gate. Get exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
           </a>
 
           <a href="parking.html" class="feature-card">
             <h3 class="serif">Parking</h3>
-            <p>Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
+            <p class="sans">Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
           </a>
 
           <a href="concessions.html" class="feature-card">
             <h3 class="serif">Concessions</h3>
-            <p>Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
+            <p class="sans">Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
           </a>
         </div>
       </div>
@@ -268,100 +301,103 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow" style="color: var(--premium-gold);">The Magic</span>
+          <span class="eyebrow sans">The Magic</span>
           <h2 class="section-title serif">Concerto Premium</h2>
         </div>
         
-        <div class="grid-2x2">
-          <a href="javascript:void(0)" class="premium-card premium-trigger">
+        <div class="premium-grid">
+          <div class="premium-card premium-trigger">
             <h3 class="serif">AI Bag Check</h3>
-            <p>Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue.</p>
-          </a>
+            <p class="sans">Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue.</p>
+          </div>
 
-          <a href="javascript:void(0)" class="premium-card premium-trigger">
+          <div class="premium-card premium-trigger">
             <h3 class="serif">Live Mode & Recaps</h3>
-            <p>Once you arrive, the app switches to an in-show experience. Receive a beautifully designed, shareable Story Card documenting your night.</p>
-          </a>
+            <p class="sans">Once you arrive, the app switches to an in-show experience. Receive a beautifully designed, shareable Story Card documenting your night.</p>
+          </div>
 
-          <a href="javascript:void(0)" class="premium-card premium-trigger">
+          <div class="premium-card premium-trigger">
             <h3 class="serif">Concerto+ AI Itinerary</h3>
-            <p>Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks.</p>
-          </a>
+            <p class="sans">Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks.</p>
+          </div>
           
-          <a href="javascript:void(0)" class="premium-card premium-trigger">
+          <div class="premium-card premium-trigger">
             <h3 class="serif">Festivals</h3>
-            <p>Multi-day lineups, survival guides, and stage-to-stage navigation. Never miss a set because you got lost looking for water.</p>
-          </a>
+            <p class="sans">Multi-day lineups, survival guides, and stage-to-stage navigation. Never miss a set because you got lost looking for water.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: 8rem;">
-      <h2 class="serif" style="font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.3;">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single event."</h2>
-      <span class="eyebrow" style="color: var(--text); margin-top: 2rem;">— Jayce Wells, Founder</span>
+    <section class="founder-quote">
+      <h2 class="serif">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single event."</h2>
+      <span class="eyebrow sans" style="color: var(--text); margin-top: 2rem; display: inline-block;">— Jayce Wells, Founder</span>
     </section>
   </main>
 
   <footer>
     <div class="footer-grid">
       <div class="footer-col" style="grid-column: span 2; padding-right: 4rem;">
-        <img src="logo.png" alt="Concerto Logo" style="height: 40px; width: auto; object-fit: contain; margin-bottom: 1rem; opacity: 0.8;">
-        <p style="color: var(--text-dim); line-height: 1.6; font-size: 0.95rem; max-width: 320px;">
-          The ultimate companion for live music. We pick up where ticketing apps drop off.
-        </p>
+        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
+        <p class="sans">The ultimate companion for live music. We pick up where ticketing apps drop off.</p>
       </div>
       
       <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop Merch</a>
-        <a href="partners.html">Partnerships</a>
+        <h4 class="sans">Company</h4>
+        <a href="about.html" class="sans">About Us</a>
+        <a href="premium.html" class="sans">Premium</a>
+        <a href="shop.html" class="sans">Shop</a>
+        <a href="partners.html" class="sans">Partnerships</a>
       </div>
 
       <div class="footer-col">
-        <h4>Legal & Support</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="mailto:support@concertocity.com">Contact Support</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
+        <h4 class="sans">Legal & Support</h4>
+        <a href="faq.html" class="sans">FAQ</a>
+        <a href="mailto:support@concertocity.com" class="sans">Contact Support</a>
+        <a href="privacy.html" class="sans">Privacy Policy</a>
+        <a href="terms.html" class="sans">Terms of Service</a>
       </div>
 
       <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank">YouTube</a>
+        <h4 class="sans">Social</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" class="sans">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" class="sans">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" class="sans">YouTube</a>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <span>&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
-      <span>Designed in Texas</span>
+      <span class="sans">&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
+      <span class="sans">Designed in Texas</span>
     </div>
   </footer>
 
-  <div class="premium-modal-overlay" id="premiumModal">
-    <div class="premium-modal">
+  <div class="modal-overlay" id="premiumModal">
+    <div class="modal-content">
       <button class="close-modal" id="closeModalBtn">&times;</button>
-      <h3 class="modal-title">Unlock the Magic</h3>
-      <p class="modal-desc">Concerto Premium features are tightly integrated with your phone's hardware. Download the app to access them.</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary" style="width: 100%;">Download Now</a>
+      <h3 class="modal-title serif">Unlock the Magic</h3>
+      <p class="modal-desc sans">Concerto Premium features are tightly integrated with your phone's hardware. Download the app to access them.</p>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans" style="width: 100%; padding: 1.2rem;">Download Now</a>
     </div>
   </div>
 
   <script>
-    // Header logic: Show top-left logo only when scrolled past the hero logo
+    // Header Logic: Fade in small logo when large hero logo is scrolled out of view
     const header = document.getElementById('navbar');
+    const heroLogo = document.getElementById('mainHeroLogo');
+    
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
+      if (!heroLogo) return;
+      const heroBottom = heroLogo.getBoundingClientRect().bottom;
+      
+      if (heroBottom < 0) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
     });
 
-    // Optimized Parallax for Background
+    // Subtle Parallax Background
     const bgCanvas = document.getElementById('bg-canvas');
     let ticking = false;
     document.addEventListener('mousemove', (e) => {
@@ -376,7 +412,7 @@
       }
     });
 
-    // Premium Modal Trap Logic
+    // Modal Logic
     const premiumTriggers = document.querySelectorAll('.premium-trigger');
     const premiumModal = document.getElementById('premiumModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
