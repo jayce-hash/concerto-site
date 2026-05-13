@@ -69,9 +69,8 @@
       --radius-sm:   12px;
       --radius-md:   20px;
       --radius-lg:   28px;
-      --nav-top-h:   60px;
-      --nav-bot-h:   44px;
-      --nav-total:   96px;
+      --nav-h:       68px;
+      --nav-total:   68px;
     }
 
     /* ═══════════════════════════════════════════
@@ -132,13 +131,13 @@
     @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ═══════════════════════════════════════════
-       NAVIGATION — TWO ROWS
-       Row 1: logo (hidden until scroll) | secondary links | CTA
-       Row 2: all 9 tools, centered
+       NAVIGATION — SINGLE ROW + FEATURES DROPDOWN
     ═══════════════════════════════════════════ */
     .site-nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
-      display: flex; flex-direction: column;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      justify-content: space-between; padding: 0 3.5%;
       transition: background 0.4s var(--ease-out),
                   border-color 0.4s var(--ease-out),
                   box-shadow 0.4s var(--ease-out);
@@ -151,51 +150,78 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Top row */
-    .nav-top {
-      height: var(--nav-top-h);
-      display: flex; align-items: center;
-      justify-content: space-between; padding: 0 3.5%;
-    }
-    .nav-logo { display: flex; align-items: center; width: 180px; }
+    .nav-logo { display: flex; align-items: center; width: 200px; }
     .nav-logo-img {
       height: 48px; width: auto; object-fit: contain;
       transition: opacity 0.4s var(--ease-out);
     }
     .site-nav.scrolled .nav-logo-img { opacity: 1; }
 
-    .nav-secondary {
-      display: flex; gap: 2rem; align-items: center;
+    /* Center links */
+    .nav-center {
+      display: flex; gap: 0; align-items: center;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .nav-secondary a {
+    .nav-center > a,
+    .nav-dropdown-trigger {
       font-size: 0.68rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--text-xdim); transition: color 0.25s;
+      color: var(--text-dim); transition: color 0.25s;
+      padding: 0 1.2rem; height: var(--nav-h);
+      display: flex; align-items: center; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      white-space: nowrap; font-family: 'DM Sans', sans-serif;
     }
-    .nav-secondary a:hover { color: var(--text-dim); }
+    .nav-center > a:hover,
+    .nav-dropdown-trigger:hover,
+    .nav-dropdown-trigger.open { color: var(--text); }
 
-    .nav-cta { display: flex; justify-content: flex-end; width: 180px; }
-
-    /* Bottom row — tool links */
-    .nav-tools {
-      height: var(--nav-bot-h);
-      display: flex; align-items: center; justify-content: center;
-      gap: 0; border-top: 1px solid var(--border);
-      padding: 0 3.5%; overflow-x: auto;
-      scrollbar-width: none;
+    /* Dropdown chevron */
+    .nav-chevron {
+      width: 10px; height: 10px; display: block; flex-shrink: 0;
+      transition: transform 0.3s var(--ease-out);
     }
-    .nav-tools::-webkit-scrollbar { display: none; }
-    .nav-tools a {
-      font-size: 0.68rem; font-weight: 600;
+    .nav-dropdown-trigger.open .nav-chevron { transform: rotate(180deg); }
+
+    /* Dropdown wrapper */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-panel {
+      position: absolute; top: calc(var(--nav-h) - 1px); left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: rgba(248, 249, 249, 0.98);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(18, 30, 54, 0.12);
+      padding: 1.2rem;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem; width: 640px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .nav-dropdown-panel.open {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-item {
+      display: flex; flex-direction: column;
+      padding: 0.9rem 1rem; border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-dropdown-item:hover { background: rgba(18, 30, 54, 0.04); }
+    .nav-dropdown-item span:first-child {
+      font-size: 0.72rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-dim); transition: color 0.25s, background 0.25s;
-      padding: 0 1rem; height: 100%;
-      display: flex; align-items: center;
-      white-space: nowrap; border-right: 1px solid var(--border);
+      color: var(--text); margin-bottom: 0.2rem;
     }
-    .nav-tools a:first-child { border-left: 1px solid var(--border); }
-    .nav-tools a:hover { color: var(--text); background: rgba(18,30,54,0.03); }
+    .nav-dropdown-item span:last-child {
+      font-size: 0.75rem; color: var(--text-dim); line-height: 1.4;
+    }
+
+    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
 
     /* ═══════════════════════════════════════════
        BUTTONS
@@ -533,16 +559,15 @@
       .footer-brand { grid-column: span 3; }
     }
     @media (max-width: 1024px) {
-      .nav-secondary { display: none; }
-      .nav-tools { justify-content: flex-start; }
-      .nav-tools a { padding: 0 0.8rem; }
+      .nav-center { display: none; }
+      .nav-dropdown-panel { display: none; }
     }
     @media (max-width: 900px) {
       .essentials-grid { grid-template-columns: repeat(2, 1fr); }
       .premium-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      :root { --nav-top-h: 50px; --nav-bot-h: 40px; --nav-total: 90px; }
+      :root { --nav-h: 58px; --nav-total: 58px; }
       .section { padding: 70px 5%; }
       .premium-section { padding: 70px 5%; }
       .hero { padding: calc(var(--nav-total) + 40px) 5% 70px; }
@@ -557,7 +582,6 @@
       .footer-brand { grid-column: span 2; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .scroll-hint { display: none; }
-      .nav-tools a { font-size: 0.6rem; padding: 0 0.65rem; }
       .quote-section { padding: 70px 5%; }
     }
     @media (max-width: 480px) {
@@ -586,40 +610,71 @@
   <!-- ─── NAVIGATION ─── -->
   <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
 
-    <!-- Row 1: logo + company links + CTA -->
-    <div class="nav-top">
-      <div class="nav-logo">
-        <a href="index.html" aria-label="Concerto Home">
-          <img src="logo.png" alt="Concerto" class="nav-logo-img" width="140" height="36" />
-        </a>
-      </div>
-
-      <div class="nav-secondary" aria-label="Company navigation">
-        <a href="features.html">Features</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop</a>
-        <a href="partners.html">Partners</a>
-        <a href="about.html">About</a>
-      </div>
-
-      <div class="nav-cta">
-        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-           target="_blank" rel="noopener noreferrer"
-           class="btn btn-dark">Get Access</a>
-      </div>
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
+      </a>
     </div>
 
-    <!-- Row 2: all 9 tools -->
-    <div class="nav-tools" role="menubar" aria-label="App features">
-      <a href="cityguides.html" role="menuitem">City Guides</a>
-      <a href="events.html" role="menuitem">Events Near Me</a>
-      <a href="tours.html" role="menuitem">Featured Tours</a>
-      <a href="setlists.html" role="menuitem">Setlists</a>
-      <a href="tours.html" role="menuitem">Tour Info</a>
-      <a href="rideshare.html" role="menuitem">Rideshare</a>
-      <a href="bags.html" role="menuitem">Bag Policies</a>
-      <a href="parking.html" role="menuitem">Parking</a>
-      <a href="concessions.html" role="menuitem">Concessions</a>
+    <div class="nav-center">
+      <!-- Features dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">
+          Features
+          <svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
+          <a href="cityguides.html" class="nav-dropdown-item" role="menuitem">
+            <span>City Guides</span>
+            <span>Dining &amp; hotels near your venue</span>
+          </a>
+          <a href="events.html" class="nav-dropdown-item" role="menuitem">
+            <span>Events Near Me</span>
+            <span>Concerts, games &amp; festivals tonight</span>
+          </a>
+          <a href="tours.html" class="nav-dropdown-item" role="menuitem">
+            <span>Featured Tours</span>
+            <span>The biggest tours on the road</span>
+          </a>
+          <a href="setlists.html" class="nav-dropdown-item" role="menuitem">
+            <span>Setlists</span>
+            <span>Songs, set times &amp; music links</span>
+          </a>
+          <a href="tours.html" class="nav-dropdown-item" role="menuitem">
+            <span>Tour Info</span>
+            <span>Routes, dates &amp; ticket links</span>
+          </a>
+          <a href="rideshare.html" class="nav-dropdown-item" role="menuitem">
+            <span>Rideshare</span>
+            <span>Venue drop-off &amp; pickup zones</span>
+          </a>
+          <a href="bags.html" class="nav-dropdown-item" role="menuitem">
+            <span>Bag Policies</span>
+            <span>Exact rules for 300+ venues</span>
+          </a>
+          <a href="parking.html" class="nav-dropdown-item" role="menuitem">
+            <span>Parking</span>
+            <span>Lots, prices &amp; exit strategies</span>
+          </a>
+          <a href="concessions.html" class="nav-dropdown-item" role="menuitem">
+            <span>Concessions</span>
+            <span>Food &amp; drinks inside your venue</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Get Access</a>
     </div>
 
   </nav>
@@ -647,6 +702,11 @@
     </div>
 
     <p class="hero-trust">Verified data for 300+ venues &nbsp;&middot;&nbsp; Concerts, sports &amp; nights out</p>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
   </header>
 
   <main>
@@ -863,7 +923,34 @@
   </div>
 
   <script>
-    /* ── Nav: show logo + tools border once hero logo scrolls past ── */
+    /* ── Features dropdown ── */
+    const featuresBtn   = document.getElementById('featuresBtn');
+    const featuresPanel = document.getElementById('featuresPanel');
+
+    featuresBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = featuresPanel.classList.toggle('open');
+      featuresBtn.classList.toggle('open', isOpen);
+      featuresBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.addEventListener('click', () => {
+      featuresPanel.classList.remove('open');
+      featuresBtn.classList.remove('open');
+      featuresBtn.setAttribute('aria-expanded', false);
+    });
+
+    featuresPanel.addEventListener('click', e => e.stopPropagation());
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        featuresPanel.classList.remove('open');
+        featuresBtn.classList.remove('open');
+        featuresBtn.setAttribute('aria-expanded', false);
+      }
+    });
+
+    /* ── Nav scroll ── */
     const siteNav  = document.getElementById('siteNav');
     const heroLogo = document.getElementById('heroLogo');
 
