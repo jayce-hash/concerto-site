@@ -1,1 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F8F9F9" />
+  
+  <title>Bag Policies | Concerto</title>
+  <meta name="description" content="Stop guessing at the gate. Search for your venue or festival to get exact dimensions, clear-bag requirements, and prohibited items." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
+  <style>
+    /* ─── BRAND PALETTE & VARIABLES ─── */
+    :root {
+      --bg: #F8F9F9;
+      --card-bg: #FFFFFF;
+      --text: #121E36;
+      --text-dim: rgba(18, 30, 54, 0.55);
+      --border-light: rgba(18, 30, 54, 0.08);
+      --premium-gold: #C9A84C;
+      --shadow-soft: 0 8px 30px rgba(18, 30, 54, 0.04);
+      --shadow-hover: 0 20px 40px rgba(18, 30, 54, 0.08);
+      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
+      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    .serif { font-family: 'Playfair Display', serif !important; }
+    .sans { font-family: 'DM Sans', sans-serif !important; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--premium-gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
+    
+    /* ─── AMBIENT BACKGROUND ─── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
+    .orb-1 { width: 55vw; height: 55vw; background: rgba(192, 192, 192, 0.2); top: -20%; left: -10%; }
+    .orb-2 { width: 45vw; height: 45vw; background: rgba(201, 168, 76, 0.08); bottom: -10%; right: -10%; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ─── NAVIGATION HEADER ─── */
+    .site-header { 
+      position: fixed; top: 0; width: 100%; z-index: 1000; transition: var(--transition);
+      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-light); height: 80px;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
+    }
+    
+    .header-logo-wrapper { flex: 0 0 auto; width: 120px; display: flex; align-items: center; }
+    .header-logo { height: 24px; width: auto; object-fit: contain; }
+    
+    .nav-features { display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex: 1; }
+    .nav-features a { 
+      font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; 
+      text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .nav-features a:hover, .nav-features a.active { color: var(--premium-gold); }
+
+    .nav-actions { flex: 0 0 auto; width: 120px; display: flex; justify-content: flex-end; }
+    .btn-primary { 
+      background: var(--text); color: var(--card-bg) !important; padding: 0.8rem 1.8rem; 
+      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.15); }
+
+    /* ─── DIRECTORY LAYOUT ─── */
+    main { padding-top: 140px; padding-bottom: 80px; min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 4%; }
+
+    /* Hero / Search Section */
+    .directory-hero { text-align: center; margin-bottom: 4rem; }
+    .directory-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--text); line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .directory-hero p { font-size: 1.1rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6; }
+
+    .search-wrapper { max-width: 600px; margin: 0 auto; position: relative; }
+    .search-input {
+      width: 100%; background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 99px;
+      padding: 1.2rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--text);
+      box-shadow: var(--shadow-soft); transition: var(--transition); outline: none;
+    }
+    .search-input:focus { border-color: var(--premium-gold); box-shadow: var(--shadow-hover); }
+    .search-input::placeholder { color: rgba(18, 30, 54, 0.3); }
+
+    /* Directory Grid */
+    .directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    
+    .directory-card {
+      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 20px; padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
+      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
+    }
+    .directory-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(18, 30, 54, 0.15); }
+    
+    .venue-name { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text); line-height: 1.2; }
+    
+    .card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(18, 30, 54, 0.04); padding-top: 1.5rem; }
+    .card-link-text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--premium-gold); }
+    .card-arrow { color: var(--text-dim); font-size: 1.2rem; transition: transform 0.3s, color 0.3s; }
+    .directory-card:hover .card-arrow { color: var(--text); transform: translateX(4px); }
+
+    .no-results { grid-column: span 3; text-align: center; padding: 4rem 0; color: var(--text-dim); font-size: 1.1rem; display: none; }
+
+    /* ─── MASSIVE WEB FOOTER ─── */
+    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 3rem; background: var(--bg); margin-top: 6rem; }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-col { display: flex; flex-direction: column; gap: 1.2rem; }
+    .footer-logo { height: 32px; width: auto; object-fit: contain; object-position: left; margin-bottom: 0.5rem; }
+    .footer-col p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; max-width: 320px; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 0.5rem; }
+    .footer-col a { font-size: 0.95rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
+
+    /* ─── RESPONSIVENESS ─── */
+    @media (max-width: 1200px) {
+      .nav-features { display: none; }
+      .site-header { padding: 1rem 5%; }
+    }
+    @media (max-width: 960px) {
+      .directory-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      main { padding-top: 100px; }
+      .directory-grid, .footer-grid { grid-template-columns: 1fr; }
+      .directory-card { padding: 2rem 1.5rem; }
+      .no-results { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="navbar">
+    <div class="header-logo-wrapper">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Concerto Logo" class="header-logo">
+      </a>
+    </div>
+    
+    <nav class="nav-features sans">
+      <a href="cityguides.html">City Guides</a>
+      <a href="events.html">Events Near Me</a>
+      <a href="featuredtours.html">Featured Tours</a>
+      <a href="setlists.html">Setlists</a>
+      <a href="tourinfo.html">Tour Info</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="bags.html" class="active">Bag Policies</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans">Download App</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <section class="directory-hero">
+        <span class="eyebrow sans">The Essentials</span>
+        <h1 class="serif">Bag Policies</h1>
+        <p class="sans">Stop guessing at the gate. Search for your venue or festival below to instantly view exact dimensions, clear-bag requirements, and a list of prohibited items.</p>
+        
+        <div class="search-wrapper">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search for your venue or festival..." aria-label="Search bag policies">
+        </div>
+      </section>
+
+      <div class="directory-grid" id="directoryGrid">
+        </div>
+      
+      <div class="no-results sans" id="noResults">
+        No locations found matching your search. Try adjusting your terms.
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col" style="grid-column: span 2; padding-right: 4rem;">
+        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
+        <p class="sans">The ultimate companion for live music. We pick up where ticketing apps drop off.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4 class="sans">Company</h4>
+        <a href="about.html" class="sans">About Us</a>
+        <a href="premium.html" class="sans">Premium</a>
+        <a href="shop.html" class="sans">Shop</a>
+        <a href="partners.html" class="sans">Partnerships</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="sans">Legal & Support</h4>
+        <a href="faq.html" class="sans">FAQ</a>
+        <a href="mailto:support@concertocity.com" class="sans">Contact Support</a>
+        <a href="privacy.html" class="sans">Privacy Policy</a>
+        <a href="terms.html" class="sans">Terms of Service</a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="sans">Social</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" class="sans">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" class="sans">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" class="sans">YouTube</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <span class="sans">&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
+      <span class="sans">Designed in Texas</span>
+    </div>
+  </footer>
+
+  <script>
+    // Subdued Parallax
+    const bgCanvas = document.getElementById('bg-canvas');
+    let ticking = false;
+    document.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const mouseX = e.clientX / window.innerWidth - 0.5;
+          const mouseY = e.clientY / window.innerHeight - 0.5;
+          bgCanvas.style.transform = `translate(${mouseX * -15}px, ${mouseY * -15}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Bag Policy Data
+    const policies = [
+      { venue: "3Arena", url: "https://concerto-bag-policies.netlify.app/3arena" },
+      { venue: "713 Music Hall", url: "https://concerto-bag-policies.netlify.app/713musichall" },
+      { venue: "Accor Arena", url: "https://concerto-bag-policies.netlify.app/accorarena" },
+      { venue: "ACL Live at The Moody Theater", url: "https://concerto-bag-policies.netlify.app/aclliveatthemoodytheater" },
+      { venue: "Acrisure Arena at Greater Palm Springs", url: "https://concerto-bag-policies.netlify.app/acrisurearenaatgreaterpalmsprings" },
+      { venue: "Acrisure Stadium", url: "https://concerto-bag-policies.netlify.app/acrisurestadium" },
+      { venue: "Addition Financial Arena", url: "https://concerto-bag-policies.netlify.app/additionfinancialarena" },
+      { venue: "Alamodome", url: "https://concerto-bag-policies.netlify.app/alamodome" },
+      { venue: "Albertsons Stadium", url: "https://concerto-bag-policies.netlify.app/albertsonsstadium" },
+      { venue: "Allegiant Stadium", url: "https://concerto-bag-policies.netlify.app/allegiantstadium" },
+      { venue: "Allas Live", url: "https://concerto-bag-policies.netlify.app/allaslive" },
+      { venue: "Allstate Arena", url: "https://concerto-bag-policies.netlify.app/allstatearena" },
+      { venue: "Amerant Bank Arena", url: "https://concerto-bag-policies.netlify.app/amerantbankarena" },
+      { venue: "American Airlines Center", url: "https://concerto-bag-policies.netlify.app/americanairlinescenter" },
+      { venue: "American Family Insurance Amphitheater", url: "https://concerto-bag-policies.netlify.app/americanfamilyinsuranceamphitheater" },
+      { venue: "American Family Field", url: "https://concerto-bag-policies.netlify.app/americanfamilyfield" },
+      { venue: "Amalie Arena", url: "https://concerto-bag-policies.netlify.app/amaliearena" },
+      { venue: "Amica Mutual Pavilion", url: "https://concerto-bag-policies.netlify.app/amicamutualpavilion" },
+      { venue: "Anfiteatro degli Scavi", url: "https://concerto-bag-policies.netlify.app/anfiteatrodegliscavi" },
+      { venue: "Angel Stadium", url: "https://concerto-bag-policies.netlify.app/angelstadium" },
+      { venue: "AO Arena", url: "https://concerto-bag-policies.netlify.app/aoarena" },
+      { venue: "Arizona Financial Theatre", url: "https://concerto-bag-policies.netlify.app/arizonafinancialtheatre" },
+      { venue: "AT&T Stadium", url: "https://concerto-bag-policies.netlify.app/attstadium" },
+      { venue: "BMO Pavilion", url: "https://concerto-bag-policies.netlify.app/bmopavilion" },
+      { venue: "Ball Arena", url: "https://concerto-bag-policies.netlify.app/ballarena" },
+      { venue: "Bank of America Stadium", url: "https://concerto-bag-policies.netlify.app/bankofamericastadium" },
+      { venue: "Barclays Center", url: "https://concerto-bag-policies.netlify.app/barclayscenter" },
+      { venue: "Barclays Arena", url: "https://concerto-bag-policies.netlify.app/barclaysarena" },
+      { venue: "BC Place", url: "https://concerto-bag-policies.netlify.app/bcplace" },
+      { venue: "Bell Centre", url: "https://concerto-bag-policies.netlify.app/bellcentre" },
+      { venue: "Bellco Theatre", url: "https://concerto-bag-policies.netlify.app/bellcotheatre" },
+      { venue: "Benchmark International Arena", url: "https://concerto-bag-policies.netlify.app/benchmarkinternationalarena" },
+      { venue: "Bethel Woods Center for the Arts", url: "https://concerto-bag-policies.netlify.app/bethelwoodscenterforthearts" },
+      { venue: "Bill Graham Civic Auditorium", url: "https://concerto-bag-policies.netlify.app/billgrahamcivicauditorium" },
+      { venue: "BJCC Arena", url: "https://concerto-bag-policies.netlify.app/bjccarena" },
+      { venue: "Blue Cross Arena", url: "https://concerto-bag-policies.netlify.app/bluecrossarena" },
+      { venue: "Bobby Dodd Stadium at Hyundai Field", url: "https://concerto-bag-policies.netlify.app/bobbydoddstadiumathyundaifield" },
+      { venue: "BOK Center", url: "https://concerto-bag-policies.netlify.app/bokcenter" },
+      { venue: "bp pulse Live", url: "https://concerto-bag-policies.netlify.app/bppulselive" },
+      { venue: "Bridgestone Arena", url: "https://concerto-bag-policies.netlify.app/bridgestonearena" },
+      { venue: "Broadview Stage at SPAC", url: "https://concerto-bag-policies.netlify.app/broadviewstageatspac" },
+      { venue: "Brighton Centre", url: "https://concerto-bag-policies.netlify.app/brightoncentre" },
+      { venue: "Busch Stadium", url: "https://concerto-bag-policies.netlify.app/buschstadium" },
+      { venue: "Byline Bank Aragon Ballroom", url: "https://concerto-bag-policies.netlify.app/bylinebankaragonballroom" },
+      { venue: "Cable Dahmer Arena", url: "https://concerto-bag-policies.netlify.app/cabledahmerarena" },
+      { venue: "Caesars Superdome", url: "https://concerto-bag-policies.netlify.app/caesarssuperdome" },
+      { venue: "Camp Randall Stadium", url: "https://concerto-bag-policies.netlify.app/camprandallstadium" },
+      { venue: "Canada Life Centre", url: "https://concerto-bag-policies.netlify.app/canadalifecentre" },
+      { venue: "Canadian Tire Centre", url: "https://concerto-bag-policies.netlify.app/canadiantirecentre" },
+      { venue: "Capital One Arena", url: "https://concerto-bag-policies.netlify.app/capitalonearena" },
+      { venue: "Center Stage Theater", url: "https://concerto-bag-policies.netlify.app/centerstagetheater" },
+      { venue: "CFG Bank Arena", url: "https://concerto-bag-policies.netlify.app/cfgbankarena" },
+      { venue: "Chaifetz Arena", url: "https://concerto-bag-policies.netlify.app/chaifetzarena" },
+      { venue: "Chase Center", url: "https://concerto-bag-policies.netlify.app/chasecenter" },
+      { venue: "Chase Field", url: "https://concerto-bag-policies.netlify.app/chasefield" },
+      { venue: "CHI Health Center", url: "https://concerto-bag-policies.netlify.app/chihealthcenter" },
+      { venue: "Citi Field", url: "https://concerto-bag-policies.netlify.app/citifield" },
+      { venue: "Citizens Bank Park", url: "https://concerto-bag-policies.netlify.app/citizensbankpark" },
+      { venue: "Citizens House of Blues", url: "https://concerto-bag-policies.netlify.app/citizenshouseofblues" },
+      { venue: "Climate Pledge Arena", url: "https://concerto-bag-policies.netlify.app/climatepledgearena" },
+      { venue: "Coca-Cola Coliseum", url: "https://concerto-bag-policies.netlify.app/cocacolacoliseum" },
+      { venue: "Coca-Cola Roxy", url: "https://concerto-bag-policies.netlify.app/cocacolaroxy" },
+      { venue: "Colonial Life Arena", url: "https://concerto-bag-policies.netlify.app/coloniallifearena" },
+      { venue: "Comerica Park", url: "https://concerto-bag-policies.netlify.app/comericapark" },
+      { venue: "Commonwealth Stadium", url: "https://concerto-bag-policies.netlify.app/commonwealthstadium" },
+      { venue: "Co-op Live", url: "https://concerto-bag-policies.netlify.app/cooplive" },
+      { venue: "Coors Field", url: "https://concerto-bag-policies.netlify.app/coorsfield" },
+      { venue: "Credit Union 1 Amphitheatre", url: "https://concerto-bag-policies.netlify.app/creditunion1amphitheatre" },
+      { venue: "Cross Insurance Arena", url: "https://concerto-bag-policies.netlify.app/crossinsurancearena" },
+      { venue: "Cross Insurance Center", url: "https://concerto-bag-policies.netlify.app/crossinsurancecenter" },
+      { venue: "Crypto.com Arena", url: "https://concerto-bag-policies.netlify.app/cryptocomarena" },
+      { venue: "CURE Insurance Arena", url: "https://concerto-bag-policies.netlify.app/cureinsurancearena" },
+      { venue: "Daikin Park", url: "https://concerto-bag-policies.netlify.app/daikinpark" },
+      { venue: "Delta Center", url: "https://concerto-bag-policies.netlify.app/deltacenter" },
+      { venue: "Desert Diamond Arena", url: "https://concerto-bag-policies.netlify.app/desertdiamondarena" },
+      { venue: "Dickies Arena", url: "https://concerto-bag-policies.netlify.app/dickiesarena" },
+      { venue: "Dodger Stadium", url: "https://concerto-bag-policies.netlify.app/dodgerstadium" },
+      { venue: "Dos Equis Pavilion", url: "https://concerto-bag-policies.netlify.app/dosequispavilion" },
+      { venue: "EagleBank Arena", url: "https://concerto-bag-policies.netlify.app/eaglebankarena" },
+      { venue: "Empower Federal Credit Union Amphitheater", url: "https://concerto-bag-policies.netlify.app/empowerfederalcreditunionamphitheater" },
+      { venue: "Empower Field at Mile High", url: "https://concerto-bag-policies.netlify.app/empowerfieldatmilehigh" },
+      { venue: "Enterprise Center", url: "https://concerto-bag-policies.netlify.app/enterprisecenter" },
+      { venue: "Estadio GNP Seguros", url: "https://concerto-bag-policies.netlify.app/estadiognpseguros" },
+      { venue: "Eventim Apollo", url: "https://concerto-bag-policies.netlify.app/eventimapollo" },
+      { venue: "EverBank Stadium", url: "https://concerto-bag-policies.netlify.app/everbankstadium" },
+      { venue: "Falcon Stadium", url: "https://concerto-bag-policies.netlify.app/falconstadium" },
+      { venue: "Fargodome", url: "https://concerto-bag-policies.netlify.app/fargodome" },
+      { venue: "FedExForum", url: "https://concerto-bag-policies.netlify.app/fedexforum" },
+      { venue: "Fenway Park", url: "https://concerto-bag-policies.netlify.app/fenwaypark" },
+      { venue: "Festhalle", url: "https://concerto-bag-policies.netlify.app/festhalle" },
+      { venue: "Fillmore Minneapolis", url: "https://concerto-bag-policies.netlify.app/fillmoreminneapolispresentedbyaffinityplus" },
+      { venue: "Fishers Event Center", url: "https://concerto-bag-policies.netlify.app/fisherseventcenter" },
+      { venue: "FivePoint Amphitheatre", url: "https://concerto-bag-policies.netlify.app/fivepointamphitheatre" },
+      { venue: "Fiserv Forum", url: "https://concerto-bag-policies.netlify.app/fiservforum" },
+      { venue: "Fontainebleau Las Vegas", url: "https://concerto-bag-policies.netlify.app/fontainebleaulasvegas" },
+      { venue: "Food City Center", url: "https://concerto-bag-policies.netlify.app/foodcitycenter" },
+      { venue: "Ford Field", url: "https://concerto-bag-policies.netlify.app/fordfield" },
+      { venue: "Ford Idaho Center Arena", url: "https://concerto-bag-policies.netlify.app/fordidahocenterarena" },
+      { venue: "Forum Karlín", url: "https://concerto-bag-policies.netlify.app/forumkarln" },
+      { venue: "Fox Theatre Detroit", url: "https://concerto-bag-policies.netlify.app/foxtheatredetroit" },
+      { venue: "Fox Theater", url: "https://concerto-bag-policies.netlify.app/foxtheater" },
+      { venue: "Franklin Music Hall", url: "https://concerto-bag-policies.netlify.app/franklinmusichall" },
+      { venue: "Freedom Mortgage Pavilion", url: "https://concerto-bag-policies.netlify.app/freedommortgagepavilion" },
+      { venue: "Frost Bank Center", url: "https://concerto-bag-policies.netlify.app/frostbankcenter" },
+      { venue: "Gainbridge Fieldhouse", url: "https://concerto-bag-policies.netlify.app/gainbridgefieldhouse" },
+      { venue: "Gallagher Square at Petco Park", url: "https://concerto-bag-policies.netlify.app/gallaghersquareatpetcopark" },
+      { venue: "Gas South Arena", url: "https://concerto-bag-policies.netlify.app/gassoutharena" },
+      { venue: "GEHA Field at Arrowhead Stadium", url: "https://concerto-bag-policies.netlify.app/gehafieldatarrowheadstadium" },
+      { venue: "GIANT Center", url: "https://concerto-bag-policies.netlify.app/giantcenter" },
+      { venue: "Gillette Stadium", url: "https://concerto-bag-policies.netlify.app/gillettestadium" },
+      { venue: "Globe Life Field", url: "https://concerto-bag-policies.netlify.app/globelifefield" },
+      { venue: "Golden 1 Center", url: "https://concerto-bag-policies.netlify.app/golden1center" },
+      { venue: "Grand Casino Arena", url: "https://concerto-bag-policies.netlify.app/grandcasinoarena" },
+      { venue: "Great American Ball Park", url: "https://concerto-bag-policies.netlify.app/greatamericanballpark" },
+      { venue: "Hard Rock Stadium", url: "https://concerto-bag-policies.netlify.app/hardrockstadium" },
+      { venue: "Heritage Bank Center", url: "https://concerto-bag-policies.netlify.app/heritagebankcenter" },
+      { venue: "Hersheypark Stadium", url: "https://concerto-bag-policies.netlify.app/hersheyparkstadium" },
+      { venue: "Highmark Stadium", url: "https://concerto-bag-policies.netlify.app/highmarkstadium" },
+      { venue: "History", url: "https://concerto-bag-policies.netlify.app/history" },
+      { venue: "Hollywood Bowl", url: "https://concerto-bag-policies.netlify.app/hollywoodbowl" },
+      { venue: "Honda Center", url: "https://concerto-bag-policies.netlify.app/hondacenter" },
+      { venue: "House of Blues Chicago", url: "https://concerto-bag-policies.netlify.app/houseofblueschicago" },
+      { venue: "House of Blues Las Vegas", url: "https://concerto-bag-policies.netlify.app/houseofblueslasvegas" },
+      { venue: "Howard Theatre", url: "https://concerto-bag-policies.netlify.app/howardtheatre" },
+      { venue: "Huntington Bank Field", url: "https://concerto-bag-policies.netlify.app/huntingtonbankfield" },
+      { venue: "Intuit Dome", url: "https://concerto-bag-policies.netlify.app/intuitdome" },
+      { venue: "Irving Plaza", url: "https://concerto-bag-policies.netlify.app/irvingplaza" },
+      { venue: "Isleta Amphitheater", url: "https://concerto-bag-policies.netlify.app/isletaamphitheater" },
+      { venue: "Iveagh Gardens", url: "https://concerto-bag-policies.netlify.app/iveaghgardens" },
+      { venue: "Jiffy Lube Live", url: "https://concerto-bag-policies.netlify.app/jiffylubelive" },
+      { venue: "JMA Wireless Dome", url: "https://concerto-bag-policies.netlify.app/jmawirelessdome" },
+      { venue: "Johan Cruijff ArenA", url: "https://concerto-bag-policies.netlify.app/johancruijffarena" },
+      { venue: "John Paul Jones Arena", url: "https://concerto-bag-policies.netlify.app/johnpauljonesarena" },
+      { venue: "Kaseya Center", url: "https://concerto-bag-policies.netlify.app/kaseyacenter" },
+      { venue: "Kauffman Stadium", url: "https://concerto-bag-policies.netlify.app/kauffmanstadium" },
+      { venue: "KeyBank Center", url: "https://concerto-bag-policies.netlify.app/keybankcenter" },
+      { venue: "King Baudouin Stadium", url: "https://concerto-bag-policies.netlify.app/kingbaudouinstadium" },
+      { venue: "Kia Center", url: "https://concerto-bag-policies.netlify.app/kiacenter" },
+      { venue: "Kia Forum", url: "https://concerto-bag-policies.netlify.app/kiaforum" },
+      { venue: "LANXESS Arena", url: "https://concerto-bag-policies.netlify.app/lanxessarena" },
+      { venue: "Lambeau Field", url: "https://concerto-bag-policies.netlify.app/lambeaufield" },
+      { venue: "LDLC Arena", url: "https://concerto-bag-policies.netlify.app/ldlcarena" },
+      { venue: "Lenovo Center", url: "https://concerto-bag-policies.netlify.app/lenovocenter" },
+      { venue: "Letnia Scena Progresji", url: "https://concerto-bag-policies.netlify.app/letniascenaprogresji" },
+      { venue: "Levi’s Stadium", url: "https://concerto-bag-policies.netlify.app/levisstadium" },
+      { venue: "Lincoln Financial Field", url: "https://concerto-bag-policies.netlify.app/lincolnfinancialfield" },
+      { venue: "Little Caesars Arena", url: "https://concerto-bag-policies.netlify.app/littlecaesarsarena" },
+      { venue: "LoanDepot Park", url: "https://concerto-bag-policies.netlify.app/loandepotpark" },
+      { venue: "Lotto Arena", url: "https://concerto-bag-policies.netlify.app/lottoarena" },
+      { venue: "Lucas Oil Stadium", url: "https://concerto-bag-policies.netlify.app/lucasoilstadium" },
+      { venue: "Lumen Field", url: "https://concerto-bag-policies.netlify.app/lumenfield" },
+      { venue: "Madison Square Garden", url: "https://concerto-bag-policies.netlify.app/madisonsquaregarden" },
+      { venue: "Manchester Academy", url: "https://concerto-bag-policies.netlify.app/manchesteracademy" },
+      { venue: "Manhattan Center Hammerstein Ballroom", url: "https://concerto-bag-policies.netlify.app/manhattancenterhammersteinballroom" },
+      { venue: "Marx Halle", url: "https://concerto-bag-policies.netlify.app/marxhalle" },
+      { venue: "Maverik Center", url: "https://concerto-bag-policies.netlify.app/maverikcenter" },
+      { venue: "M&T Bank Stadium", url: "https://concerto-bag-policies.netlify.app/mtbankstadium" },
+      { venue: "Mercedes-Benz Stadium", url: "https://concerto-bag-policies.netlify.app/mercedesbenzstadium" },
+      { venue: "Merriweather Post Pavilion", url: "https://concerto-bag-policies.netlify.app/merriweatherpostpavilion" },
+      { venue: "MetLife Stadium", url: "https://concerto-bag-policies.netlify.app/metlifestadium" },
+      { venue: "MGM Grand Garden Arena", url: "https://concerto-bag-policies.netlify.app/mgmgrandgardenarena" },
+      { venue: "MGM Music Hall at Fenway", url: "https://concerto-bag-policies.netlify.app/mgmmusichallatfenway" },
+      { venue: "Moda Center", url: "https://concerto-bag-policies.netlify.app/modacenter" },
+      { venue: "Mohegan Sun Arena", url: "https://concerto-bag-policies.netlify.app/mohegansunarena" },
+      { venue: "Moody Center", url: "https://concerto-bag-policies.netlify.app/moodycenter" },
+      { venue: "Mortgage Matchup Center", url: "https://concerto-bag-policies.netlify.app/mortgagematchupcenter" },
+      { venue: "Movistar Arena", url: "https://concerto-bag-policies.netlify.app/movistararena" },
+      { venue: "MVP Arena", url: "https://concerto-bag-policies.netlify.app/mvparena" },
+      { venue: "myticket Jahrhunderthalle", url: "https://concerto-bag-policies.netlify.app/myticketjahrhunderthalle" },
+      { venue: "Nationals Park", url: "https://concerto-bag-policies.netlify.app/nationalspark" },
+      { venue: "Nationwide Arena", url: "https://concerto-bag-policies.netlify.app/nationwidearena" },
+      { venue: "Nissan Stadium", url: "https://concerto-bag-policies.netlify.app/nissanstadium" },
+      { venue: "North Island Credit Union Amphitheatre", url: "https://concerto-bag-policies.netlify.app/northislandcreditunionamphitheatre" },
+      { venue: "NRG Stadium", url: "https://concerto-bag-policies.netlify.app/nrgstadium" },
+      { venue: "Oakland Arena", url: "https://concerto-bag-policies.netlify.app/oaklandarena" },
+      { venue: "Oracle Park", url: "https://concerto-bag-policies.netlify.app/oraclepark" },
+      { venue: "Oriole Park at Camden Yards", url: "https://concerto-bag-policies.netlify.app/orioleparkatcamdenyards" },
+      { venue: "O2 Academy Birmingham", url: "https://concerto-bag-policies.netlify.app/o2academybirmingham" },
+      { venue: "O2 Arena", url: "https://concerto-bag-policies.netlify.app/o2arena" },
+      { venue: "O2 Shepherds Bush Empire", url: "https://concerto-bag-policies.netlify.app/o2shepherdsbushempire" },
+      { venue: "Ohio Stadium", url: "https://concerto-bag-policies.netlify.app/ohiostadium" },
+      { venue: "Olympiahalle", url: "https://concerto-bag-policies.netlify.app/olympiahalle" },
+      { venue: "Olympiastadion", url: "https://concerto-bag-policies.netlify.app/olympiastadion" },
+      { venue: "OVO Hydro", url: "https://concerto-bag-policies.netlify.app/ovohydro" },
+      { venue: "Palacio de los Deportes", url: "https://concerto-bag-policies.netlify.app/palaciodelosdeportes" },
+      { venue: "Palau Sant Jordi", url: "https://concerto-bag-policies.netlify.app/palausantjordi" },
+      { venue: "Paramount Theatre", url: "https://concerto-bag-policies.netlify.app/paramounttheatre" },
+      { venue: "Patrick Gym", url: "https://concerto-bag-policies.netlify.app/patrickgym" },
+      { venue: "Paycom Center", url: "https://concerto-bag-policies.netlify.app/paycomcenter" },
+      { venue: "Paycor Stadium", url: "https://concerto-bag-policies.netlify.app/paycorstadium" },
+      { venue: "Pechanga Arena", url: "https://concerto-bag-policies.netlify.app/pechangaarena" },
+      { venue: "PeoplesBank Arena", url: "https://concerto-bag-policies.netlify.app/peoplesbankarena" },
+      { venue: "Petco Park", url: "https://concerto-bag-policies.netlify.app/petcopark" },
+      { venue: "Petersen Events Center", url: "https://concerto-bag-policies.netlify.app/peterseneventscenter" },
+      { venue: "PHX Arena", url: "https://concerto-bag-policies.netlify.app/phxarena" },
+      { venue: "PNC Park", url: "https://concerto-bag-policies.netlify.app/pncpark" },
+      { venue: "PNC Arena", url: "https://concerto-bag-policies.netlify.app/pncarena" },
+      { venue: "Pinnacle Bank Arena", url: "https://concerto-bag-policies.netlify.app/pinnaclebankarena" },
+      { venue: "PPG Paints Arena", url: "https://concerto-bag-policies.netlify.app/ppgpaintsarena" },
+      { venue: "Progressive Field", url: "https://concerto-bag-policies.netlify.app/progressivefield" },
+      { venue: "Providence Park", url: "https://concerto-bag-policies.netlify.app/providencepark" },
+      { venue: "Prudential Center", url: "https://concerto-bag-policies.netlify.app/prudentialcenter" },
+      { venue: "Rate Field", url: "https://concerto-bag-policies.netlify.app/ratefield" },
+      { venue: "Raymond James Stadium", url: "https://concerto-bag-policies.netlify.app/raymondjamesstadium" },
+      { venue: "Red Hat Amphitheater", url: "https://concerto-bag-policies.netlify.app/redhatamphitheater" },
+      { venue: "Red Rocks Amphitheatre", url: "https://concerto-bag-policies.netlify.app/redrocksamphitheatre" },
+      { venue: "Riyadh Air Metropolitano", url: "https://concerto-bag-policies.netlify.app/riyadhairmetropolitano" },
+      { venue: "Rocket Mortgage FieldHouse", url: "https://concerto-bag-policies.netlify.app/rocketmortgagefieldhouse" },
+      { venue: "Rocket Arena", url: "https://concerto-bag-policies.netlify.app/rocketarena" },
+      { venue: "Rogers Arena", url: "https://concerto-bag-policies.netlify.app/rogersarena" },
+      { venue: "Rogers Centre", url: "https://concerto-bag-policies.netlify.app/rogerscentre" },
+      { venue: "Rogers Place", url: "https://concerto-bag-policies.netlify.app/rogersplace" },
+      { venue: "Rogers Stadium", url: "https://concerto-bag-policies.netlify.app/rogersstadium" },
+      { venue: "Rosemont Theatre", url: "https://concerto-bag-policies.netlify.app/rosemonttheatre" },
+      { venue: "Rupp Arena", url: "https://concerto-bag-policies.netlify.app/rupparena" },
+      { venue: "Ryman Auditorium", url: "https://concerto-bag-policies.netlify.app/rymanauditorium" },
+      { venue: "SAP Center", url: "https://concerto-bag-policies.netlify.app/sapcenter" },
+      { venue: "Save Mart Center", url: "https://concerto-bag-policies.netlify.app/savemartcenter" },
+      { venue: "Schottenstein Center", url: "https://concerto-bag-policies.netlify.app/schottensteincenter" },
+      { venue: "Scotiabank Arena", url: "https://concerto-bag-policies.netlify.app/scotiabankarena" },
+      { venue: "Scotiabank Saddledome", url: "https://concerto-bag-policies.netlify.app/scotiabanksaddledome" },
+      { venue: "Scottish Gas Murrayfield", url: "https://concerto-bag-policies.netlify.app/scottishgasmurrayfield" },
+      { venue: "Shoreline Amphitheatre", url: "https://concerto-bag-policies.netlify.app/shorelineamphitheatre" },
+      { venue: "Simmons Bank Arena", url: "https://concerto-bag-policies.netlify.app/simmonsbankarena" },
+      { venue: "Skyline Stage at the Mann", url: "https://concerto-bag-policies.netlify.app/skylinestageatthemann" },
+      { venue: "SNHU Arena", url: "https://concerto-bag-policies.netlify.app/snhuarena" },
+      { venue: "Smoothie King Center", url: "https://concerto-bag-policies.netlify.app/smoothiekingcenter" },
+      { venue: "SoFi Stadium", url: "https://concerto-bag-policies.netlify.app/sofistadium" },
+      { venue: "Soldier Field", url: "https://concerto-bag-policies.netlify.app/soldierfield" },
+      { venue: "Spectrum Center", url: "https://concerto-bag-policies.netlify.app/spectrumcenter" },
+      { venue: "Sphere", url: "https://concerto-bag-policies.netlify.app/sphere" },
+      { venue: "SSE Arena Belfast", url: "https://concerto-bag-policies.netlify.app/ssearenabelfast" },
+      { venue: "Stade de France", url: "https://concerto-bag-policies.netlify.app/stadedefrance" },
+      { venue: "Stadio San Siro", url: "https://concerto-bag-policies.netlify.app/stadiosansiro" },
+      { venue: "Stadtpark Open Air", url: "https://concerto-bag-policies.netlify.app/stadtparkopenair" },
+      { venue: "Starlight Theatre", url: "https://concerto-bag-policies.netlify.app/starlighttheatre" },
+      { venue: "Stanford Stadium", url: "https://concerto-bag-policies.netlify.app/stanfordstadium" },
+      { venue: "State Farm Arena", url: "https://concerto-bag-policies.netlify.app/statefarmarena" },
+      { venue: "State Farm Stadium", url: "https://concerto-bag-policies.netlify.app/statefarmstadium" },
+      { venue: "Summit Music Hall", url: "https://concerto-bag-policies.netlify.app/summitmusichall" },
+      { venue: "Sun Bowl Stadium", url: "https://concerto-bag-policies.netlify.app/sunbowlstadium" },
+      { venue: "Synovus Bank Amphitheater at Chastain Park", url: "https://concerto-bag-policies.netlify.app/synovusbankamphitheateratchastainpark" },
+      { venue: "Target Center", url: "https://concerto-bag-policies.netlify.app/targetcenter" },
+      { venue: "Target Field", url: "https://concerto-bag-policies.netlify.app/targetfield" },
+      { venue: "TD Coliseum", url: "https://concerto-bag-policies.netlify.app/tdcoliseum" },
+      { venue: "TD Garden", url: "https://concerto-bag-policies.netlify.app/tdgarden" },
+      { venue: "The Anthem", url: "https://concerto-bag-policies.netlify.app/theanthem" },
+      { venue: "The Armory", url: "https://concerto-bag-policies.netlify.app/thearmory" },
+      { venue: "The Danforth Music Hall", url: "https://concerto-bag-policies.netlify.app/thedanforthmusichall" },
+      { venue: "The Dome at America’s Center", url: "https://concerto-bag-policies.netlify.app/thedomeatamericascenter" },
+      { venue: "The Fillmore Detroit", url: "https://concerto-bag-policies.netlify.app/thefillmoredetroit" },
+      { venue: "The Fillmore Silver Spring", url: "https://concerto-bag-policies.netlify.app/thefillmoresilverspring" },
+      { venue: "The Lyric", url: "https://concerto-bag-policies.netlify.app/thelyric" },
+      { venue: "The Met Presented by Highmark", url: "https://concerto-bag-policies.netlify.app/themetpresentedbyhighmark" },
+      { venue: "The O2", url: "https://concerto-bag-policies.netlify.app/theo2" },
+      { venue: "The Pavilion at Star Lake", url: "https://concerto-bag-policies.netlify.app/thepavilionatstarlake" },
+      { venue: "The Pavilion at Toyota Music Factory", url: "https://concerto-bag-policies.netlify.app/thepavilionattoyotamusicfactory" },
+      { venue: "The Pinnacle", url: "https://concerto-bag-policies.netlify.app/thepinnacle" },
+      { venue: "The Rady Shell at Jacobs Park", url: "https://concerto-bag-policies.netlify.app/theradyshellatjacobspark" },
+      { venue: "The Tabernacle", url: "https://concerto-bag-policies.netlify.app/thetabernacle" },
+      { venue: "The Theatre of Living Arts", url: "https://concerto-bag-policies.netlify.app/thetheatreoflivingarts" },
+      { venue: "The Van Buren", url: "https://concerto-bag-policies.netlify.app/thevanburen" },
+      { venue: "The Wiltern", url: "https://concerto-bag-policies.netlify.app/thewiltern" },
+      { venue: "Thunder Ridge Nature Arena", url: "https://concerto-bag-policies.netlify.app/thunderridgenaturearena" },
+      { venue: "T-Mobile Arena", url: "https://concerto-bag-policies.netlify.app/tmobilearena" },
+      { venue: "T-Mobile Center", url: "https://concerto-bag-policies.netlify.app/tmobilecenter" },
+      { venue: "T-Mobile Park", url: "https://concerto-bag-policies.netlify.app/tmobilepark" },
+      { venue: "Talking Stick Resort Amphitheatre", url: "https://concerto-bag-policies.netlify.app/talkingstickresortamphitheatre" },
+      { venue: "Tottenham Hotspur Stadium", url: "https://concerto-bag-policies.netlify.app/tottenhamhotspurstadium" },
+      { venue: "Toyota Center", url: "https://concerto-bag-policies.netlify.app/toyotacenter" },
+      { venue: "Truist Park", url: "https://concerto-bag-policies.netlify.app/truistpark" },
+      { venue: "UBC – Doug Mitchell Thunderbird Sports Centre", url: "https://concerto-bag-policies.netlify.app/ubcdougmitchellthunderbirdsportscentre" },
+      { venue: "UBS Arena", url: "https://concerto-bag-policies.netlify.app/ubsarena" },
+      { venue: "UC Berkeley Greek Theatre", url: "https://concerto-bag-policies.netlify.app/ucberkeleygreektheatre" },
+      { venue: "U.S. Bank Stadium", url: "https://concerto-bag-policies.netlify.app/usbankstadium" },
+      { venue: "Unipol Arena", url: "https://concerto-bag-policies.netlify.app/unipolarena" },
+      { venue: "Unipol Forum", url: "https://concerto-bag-policies.netlify.app/unipolforum" },
+      { venue: "United Center", url: "https://concerto-bag-policies.netlify.app/unitedcenter" },
+      { venue: "Unity Arena", url: "https://concerto-bag-policies.netlify.app/unityarena" },
+      { venue: "Usher Hall", url: "https://concerto-bag-policies.netlify.app/usherhall" },
+      { venue: "Utah First Credit Union Amphitheatre", url: "https://concerto-bag-policies.netlify.app/utahfirstcreditunionamphitheatre" },
+      { venue: "Utilita Arena Birmingham", url: "https://concerto-bag-policies.netlify.app/utilitaarenabirmingham" },
+      { venue: "Utilita Arena Newcastle", url: "https://concerto-bag-policies.netlify.app/utilitaarenanewcastle" },
+      { venue: "Utilita Arena Sheffield", url: "https://concerto-bag-policies.netlify.app/utilitaarenasheffield" },
+      { venue: "UW – Panther Arena", url: "https://concerto-bag-policies.netlify.app/uwpantherarena" },
+      { venue: "Van Andel Arena", url: "https://concerto-bag-policies.netlify.app/vanandelarena" },
+      { venue: "Veikkaus Arena", url: "https://concerto-bag-policies.netlify.app/veikkausarena" },
+      { venue: "Veterans Memorial Coliseum", url: "https://concerto-bag-policies.netlify.app/veteransmemorialcoliseum" },
+      { venue: "Veterans United Home Loans Amphitheater", url: "https://concerto-bag-policies.netlify.app/veteransunitedhomeloansamphitheater" },
+      { venue: "Videotron Centre", url: "https://concerto-bag-policies.netlify.app/videotroncentre" },
+      { venue: "Viejas Arena", url: "https://concerto-bag-policies.netlify.app/viejasarena" },
+      { venue: "Villa Erba", url: "https://concerto-bag-policies.netlify.app/villaerba" },
+      { venue: "WAMU Theater", url: "https://concerto-bag-policies.netlify.app/wamutheater" },
+      { venue: "Walmart AMP", url: "https://concerto-bag-policies.netlify.app/walmartamp" },
+      { venue: "Wells Fargo Arena", url: "https://concerto-bag-policies.netlify.app/wellsfargoarena" },
+      { venue: "Wells Fargo Center", url: "https://concerto-bag-policies.netlify.app/wellsfargocenter" },
+      { venue: "Wembley Stadium", url: "https://concerto-bag-policies.netlify.app/wembleystadium" },
+      { venue: "WinStar Lucas Oil Live", url: "https://concerto-bag-policies.netlify.app/winstarlucasoillive" },
+      { venue: "Wrigley Field", url: "https://concerto-bag-policies.netlify.app/wrigleyfield" },
+      { venue: "XL Center", url: "https://concerto-bag-policies.netlify.app/xlcenter" },
+      { venue: "Xcel Energy Center", url: "https://concerto-bag-policies.netlify.app/xcelenergycenter" },
+      { venue: "Yankee Stadium", url: "https://concerto-bag-policies.netlify.app/yankeestadium" },
+      { venue: "Coachella Valley Music and Arts Festival", url: "https://concerto-bag-policies.netlify.app/coachellavalleymusicandartsfestival" },
+      { venue: "Stagecoach Festival", url: "https://concerto-bag-policies.netlify.app/stagecoachfestival" },
+      { venue: "Ultra Music Festival", url: "https://concerto-bag-policies.netlify.app/ultramusicfestival" },
+      { venue: "EDC Las Vegas", url: "https://concerto-bag-policies.netlify.app/edclasvegas" },
+      { venue: "Electric Forest", url: "https://concerto-bag-policies.netlify.app/electricforest" },
+      { venue: "Bonnaroo Music & Arts Festival", url: "https://concerto-bag-policies.netlify.app/bonnaroomusicartsfestival" },
+      { venue: "Governors Ball", url: "https://concerto-bag-policies.netlify.app/governorsball" },
+      { venue: "Boston Calling", url: "https://concerto-bag-policies.netlify.app/bostoncalling" },
+      { venue: "BottleRock Napa Valley", url: "https://concerto-bag-policies.netlify.app/bottlerocknapavalley" },
+      { venue: "Hangout Music Festival", url: "https://concerto-bag-policies.netlify.app/hangoutmusicfestival" },
+      { venue: "Outside Lands", url: "https://concerto-bag-policies.netlify.app/outsidelands" },
+      { venue: "Lollapalooza", url: "https://concerto-bag-policies.netlify.app/lollapalooza" },
+      { venue: "Rolling Loud Miami", url: "https://concerto-bag-policies.netlify.app/rollingloudmiami" },
+      { venue: "Rolling Loud Los Angeles", url: "https://concerto-bag-policies.netlify.app/rollingloudlosangeles" },
+      { venue: "Summerfest", url: "https://concerto-bag-policies.netlify.app/summerfest" },
+      { venue: "New Orleans Jazz & Heritage Festival", url: "https://concerto-bag-policies.netlify.app/neworleansjazzandheritagefestival" },
+      { venue: "Newport Folk Festival", url: "https://concerto-bag-policies.netlify.app/newportfolkfestival" },
+      { venue: "Newport Jazz Festival", url: "https://concerto-bag-policies.netlify.app/newportjazzfestival" },
+      { venue: "Austin City Limits Music Festival", url: "https://concerto-bag-policies.netlify.app/austincitylimitsmusicfestival" },
+      { venue: "When We Were Young", url: "https://concerto-bag-policies.netlify.app/whenwewereyoung" },
+      { venue: "Life Is Beautiful", url: "https://concerto-bag-policies.netlify.app/lifeisbeautiful" },
+      { venue: "Lightning in a Bottle", url: "https://concerto-bag-policies.netlify.app/lightninginabottle" },
+      { venue: "Shaky Knees Music Festival", url: "https://concerto-bag-policies.netlify.app/shakykneesmusicfestival" },
+      { venue: "Music Midtown", url: "https://concerto-bag-policies.netlify.app/musicmidtown" },
+      { venue: "III Points", url: "https://concerto-bag-policies.netlify.app/iiipoints" },
+      { venue: "HARD Summer Music Festival", url: "https://concerto-bag-policies.netlify.app/hardsummermusicfestival" },
+      { venue: "Beyond Wonderland SoCal", url: "https://concerto-bag-policies.netlify.app/beyondwonderlandsocal" },
+      { venue: "Moonrise Festival", url: "https://concerto-bag-policies.netlify.app/moonrisefestival" },
+      { venue: "Country Thunder Wisconsin", url: "https://concerto-bag-policies.netlify.app/countrythunderwisconsin" },
+      { venue: "Burning Man", url: "https://concerto-bag-policies.netlify.app/burningman" },
+      { venue: "Electric Zoo", url: "https://concerto-bag-policies.netlify.app/electriczoo" },
+      { venue: "Riot Fest", url: "https://concerto-bag-policies.netlify.app/riotfest" },
+      { venue: "Essence Festival of Culture", url: "https://concerto-bag-policies.netlify.app/essencefestivalofculture" },
+      { venue: "SXSW (Music, Film & Interactive)", url: "https://concerto-bag-policies.netlify.app/sxswmusicfilminteractive" },
+      { venue: "CMA Fest", url: "https://concerto-bag-policies.netlify.app/cmafest" },
+      { venue: "Made in America", url: "https://concerto-bag-policies.netlify.app/madeinamerica" },
+      { venue: "Radio City Music Hall", url: "https://concerto-bag-policies.netlify.app/radiocitymusichall" },
+      { venue: "The Gorge Amphitheatre", url: "https://concerto-bag-policies.netlify.app/thegorgeamphitheatre" }
+    ];
+
+    const grid = document.getElementById('directoryGrid');
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+
+    // Render Function
+    function renderCards(data) {
+      grid.innerHTML = '';
+      if (data.length === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+        data.forEach(item => {
+          const card = document.createElement('a');
+          card.className = 'directory-card';
+          card.href = item.url;
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+          
+          card.innerHTML = `
+            <h3 class="venue-name serif">${item.venue}</h3>
+            <div class="card-footer">
+              <span class="card-link-text sans">View Bag Policy</span>
+              <span class="card-arrow">&rarr;</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    // Initial Load
+    renderCards(policies);
+
+    // Live Search
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      const filtered = policies.filter(item => 
+        item.venue.toLowerCase().includes(searchTerm)
+      );
+      renderCards(filtered);
+    });
+  </script>
+</body>
+</html>
