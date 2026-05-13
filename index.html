@@ -4,435 +4,856 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F8F9F9" />
-  
-  <title>Concerto | The Ultimate Concert & Live Music Companion</title>
-  <meta name="title" content="Concerto | The Ultimate Concert & Live Music Companion" />
-  <meta name="description" content="Navigate the night flawlessly. Get verified venue intel, bag policies, tour setlists, and curated city guides for your next show." />
-  
+
+  <!-- ─── SEO ─── -->
+  <title>Concerto — App for Concerts, Sports & Nights Out | Venue Guide, Bag Policies & More</title>
+  <meta name="title" content="Concerto — App for Concerts, Sports & Nights Out | Venue Guide, Bag Policies & More" />
+  <meta name="description" content="Concerto is the go-to app for concert-goers, sports fans, and anyone planning a night out. Get verified bag policies, setlists, parking, concessions, city guides, and AI itineraries for 300+ venues." />
+  <meta name="keywords" content="concert app, sports venue app, night out app, bag policy app, venue guide, concert city guide, what to bring to a concert, parking near venue, concessions at stadium, live music app, sports fan app, event companion app" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/" />
+
+  <!-- ─── Open Graph ─── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/" />
+  <meta property="og:title" content="Concerto — Everything You Need for the Perfect Night Out" />
+  <meta property="og:description" content="Bag policies, parking, setlists, city guides & AI itineraries for concerts, sports events, and nights out at 300+ venues. One app for the whole night." />
+  <meta property="og:image" content="https://concertocity.com/og-image.jpg" />
+  <meta property="og:site_name" content="Concerto" />
+
+  <!-- ─── Twitter Card ─── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://concertocity.com/" />
+  <meta name="twitter:title" content="Concerto — Everything You Need for the Perfect Night Out" />
+  <meta name="twitter:description" content="Bag policies, parking, setlists, city guides & AI itineraries for concerts, sports events, and nights out at 300+ venues." />
+  <meta name="twitter:image" content="https://concertocity.com/og-image.jpg" />
+
+  <!-- ─── Schema.org ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Concerto",
+    "description": "The go-to app for concert-goers, sports fans, and anyone planning a night out. Verified bag policies, parking, setlists, city guides, and AI itineraries for 300+ venues.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "iOS",
+    "url": "https://concertocity.com",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Concerto LLC", "url": "https://concertocity.com" }
+  }
+  </script>
+
+  <!-- ─── Fonts ─── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── BRAND PALETTE & VARIABLES ─── */
+    /* ═══════════════════════════════════════════
+       BRAND TOKENS
+    ═══════════════════════════════════════════ */
     :root {
-      --bg: #F8F9F9;
-      --card-bg: #FFFFFF;
-      --text: #121E36;
-      --text-dim: rgba(18, 30, 54, 0.55);
-      --border-light: rgba(18, 30, 54, 0.08);
-      --premium-gold: #C9A84C;
-      --shadow-soft: 0 8px 30px rgba(18, 30, 54, 0.04);
-      --shadow-hover: 0 20px 40px rgba(18, 30, 54, 0.08);
-      --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --bg:          #F8F9F9;
+      --card-bg:     #FFFFFF;
+      --text:        #121E36;
+      --text-dim:    rgba(18, 30, 54, 0.52);
+      --text-xdim:   rgba(18, 30, 54, 0.28);
+      --border:      rgba(18, 30, 54, 0.08);
+      --border-mid:  rgba(18, 30, 54, 0.14);
+      --gold:        #C9A84C;
+      --gold-light:  #E5C365;
+      --shadow-sm:   0 2px 12px rgba(18, 30, 54, 0.04);
+      --shadow-md:   0 8px 32px rgba(18, 30, 54, 0.07);
+      --shadow-lg:   0 20px 50px rgba(18, 30, 54, 0.10);
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm:   12px;
+      --radius-md:   20px;
+      --radius-lg:   28px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); }
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
     body {
-      font-family: 'DM Sans', sans-serif; color: var(--text); overflow-x: hidden;
-      line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-    /* ─── TYPOGRAPHY ─── */
-    .serif { font-family: 'Playfair Display', serif !important; }
-    .sans { font-family: 'DM Sans', sans-serif !important; }
-    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--premium-gold); text-transform: uppercase; margin-bottom: 1rem; display: block; }
-    
-    /* ─── AMBIENT BACKGROUND ─── */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.1s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
-    .orb-1 { width: 55vw; height: 55vw; background: rgba(192, 192, 192, 0.2); top: -20%; left: -10%; }
-    .orb-2 { width: 45vw; height: 45vw; background: rgba(201, 168, 76, 0.08); bottom: -10%; right: -10%; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-    /* Ghost Marquee */
-    .ghost-marquee { position: fixed; top: 35%; left: 0; width: 100vw; z-index: -1; transform: translateY(-50%); pointer-events: none; overflow: hidden; white-space: nowrap; display: flex; opacity: 0.02; color: var(--text); }
-    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 80s linear infinite; }
-    .ghost-marquee span { font-family: 'Playfair Display', serif; font-size: 14vw; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; font-weight: 700; }
+    /* ═══════════════════════════════════════════
+       ATMOSPHERE
+    ═══════════════════════════════════════════ */
+    .bg-canvas {
+      position: fixed; inset: 0; z-index: -2;
+      overflow: hidden; pointer-events: none;
+      transition: transform 0.12s linear;
+    }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+    .orb-1 {
+      width: 65vw; height: 65vw;
+      background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%);
+      top: -25%; left: -15%; opacity: 0.9;
+    }
+    .orb-2 {
+      width: 50vw; height: 50vw;
+      background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%);
+      bottom: -15%; right: -10%; opacity: 0.85;
+    }
+    .noise {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .ghost-marquee {
+      position: fixed; top: 38%; left: 0; width: 100vw; z-index: -1;
+      transform: translateY(-50%); pointer-events: none;
+      overflow: hidden; white-space: nowrap; display: flex;
+      opacity: 0.022; color: var(--text);
+    }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 90s linear infinite; }
+    .ghost-marquee span {
+      font-family: 'Playfair Display', serif;
+      font-size: 13vw; text-transform: uppercase;
+      line-height: 1; letter-spacing: 0.02em; font-weight: 700;
+    }
     @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    /* ─── NAVIGATION HEADER ─── */
-    .site-header { 
-      position: fixed; top: 0; width: 100%; z-index: 1000; transition: var(--transition);
-      background: rgba(248, 249, 249, 0.95); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border-light); height: 80px;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 3%;
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    .site-nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      height: 76px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 4%;
+      transition: background 0.4s var(--ease-out),
+                  border-color 0.4s var(--ease-out),
+                  box-shadow 0.4s var(--ease-out);
+      border-bottom: 1px solid transparent;
     }
-    
-    /* Logo hidden until scroll */
-    .header-logo-wrapper { flex: 0 0 auto; width: 120px; display: flex; align-items: center; }
-    .header-logo { height: 24px; width: auto; object-fit: contain; opacity: 0; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(10px); }
-    .site-header.scrolled .header-logo { opacity: 1; transform: translateY(0); }
-    
-    .nav-features { display: flex; gap: 1.5rem; align-items: center; justify-content: center; flex: 1; }
-    .nav-features a { 
-      font-size: 0.75rem; font-weight: 600; color: var(--text); text-decoration: none; 
-      text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s;
+    .site-nav.scrolled {
+      background: rgba(248, 249, 249, 0.96);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-color: var(--border);
+      box-shadow: var(--shadow-sm);
     }
-    .nav-features a:hover { color: var(--premium-gold); }
-
-    .nav-actions { flex: 0 0 auto; width: 120px; display: flex; justify-content: flex-end; }
-    .btn-primary { 
-      background: var(--text); color: var(--card-bg) !important; padding: 0.8rem 1.8rem; 
-      border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
-      letter-spacing: 0.1em; text-decoration: none; transition: all 0.3s; display: inline-block;
+    .nav-logo { display: flex; align-items: center; flex: 0 0 auto; }
+    .nav-logo-img {
+      height: 52px; width: auto; object-fit: contain;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(18, 30, 54, 0.15); }
-
-    /* ─── MAIN LAYOUT ─── */
-    main { padding-top: 160px; padding-bottom: 80px; }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 4%; }
-
-    /* ─── HERO SECTION ─── */
-    .hero { text-align: center; margin-bottom: 8rem; display: flex; flex-direction: column; align-items: center; }
-    .hero-logo-large { height: 120px; width: auto; object-fit: contain; margin-bottom: 2rem; }
-    .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); color: var(--text); line-height: 1.1; margin-bottom: 2.5rem; letter-spacing: -0.02em; }
-    
-    .instruction-box {
-      background: rgba(18, 30, 54, 0.02); border: 1px solid var(--border-light); border-radius: 16px;
-      padding: 2rem 3rem; max-width: 700px; margin: 0 auto 3rem; text-align: center;
+    .site-nav.scrolled .nav-logo-img { opacity: 1; transform: translateY(0); }
+    .nav-links {
+      display: flex; gap: 2.2rem; align-items: center;
+      position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .instruction-box strong { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-dim); margin-bottom: 0.8rem; }
-    .instruction-box p { font-size: 1.15rem; color: var(--text); line-height: 1.6; margin: 0; }
+    .nav-links a {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-dim); transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { flex: 0 0 auto; }
 
-    /* ─── SECTION HEADERS ─── */
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-title { font-size: 2.5rem; font-weight: 700; color: var(--text); line-height: 1.2; letter-spacing: -0.01em; }
+    /* ═══════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.78rem 1.9rem; border-radius: 99px;
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), background 0.3s;
+      cursor: pointer; border: none; text-decoration: none; white-space: nowrap;
+    }
+    .btn-dark {
+      background: var(--text); color: var(--bg);
+      box-shadow: 0 8px 24px rgba(18, 30, 54, 0.18);
+    }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18, 30, 54, 0.24); }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201, 168, 76, 0.45); background: var(--gold-light); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border-mid);
+    }
+    .btn-outline:hover { background: var(--text); color: var(--bg); border-color: var(--text); transform: translateY(-2px); }
 
-    /* ─── THE ESSENTIALS (3x3 Grid) ─── */
-    .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 8rem; }
-    
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      min-height: 100svh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 120px 6% 80px; position: relative;
+    }
+    .hero-logo {
+      height: 160px; width: auto; object-fit: contain; margin-bottom: 2.5rem;
+      opacity: 0; transform: scale(0.94);
+      animation: logoIn 1.1s var(--ease-out) 0.45s forwards;
+    }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    @keyframes logoIn { to { opacity: 1; transform: scale(1); } }
+
+    .hero-eyebrow {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;
+      opacity: 0; transform: translateY(14px);
+      animation: fadeUp 0.9s var(--ease-out) 0.2s forwards;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.025em;
+      color: var(--text); margin-bottom: 1.6rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.55s forwards;
+    }
+    .hero-headline em { font-style: italic; color: var(--text-dim); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--text-dim);
+      max-width: 560px; line-height: 1.65;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.9s var(--ease-out) 0.75s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; align-items: center;
+      justify-content: center; flex-wrap: wrap; margin-top: 2.8rem;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.9s var(--ease-out) 0.9s forwards;
+    }
+    .hero-trust {
+      margin-top: 2.8rem; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim);
+      opacity: 0; animation: fadeUp 0.9s var(--ease-out) 1.1s forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0; animation: fadeUp 0.9s var(--ease-out) 1.5s forwards;
+    }
+    .scroll-hint span {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-xdim);
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--text-xdim), transparent);
+      animation: scrollPulse 2s ease-in-out infinite 2s;
+    }
+    @keyframes scrollPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ═══════════════════════════════════════════
+       SECTIONS & CONTAINERS
+    ═══════════════════════════════════════════ */
+    .section { padding: 110px 4%; position: relative; }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 4.5rem; }
+    .eyebrow {
+      display: block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      color: var(--text); line-height: 1.1;
+    }
+    .section-desc {
+      margin-top: 1.2rem; font-size: 1.05rem; color: var(--text-dim);
+      max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       STAT BAR
+    ═══════════════════════════════════════════ */
+    .stat-bar { padding: 0 4%; }
+    .stat-bar-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--card-bg); overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .stat-item {
+      padding: 2.8rem 2rem; text-align: center;
+      border-right: 1px solid var(--border); transition: background 0.3s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: var(--bg); }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 700; color: var(--text);
+      letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+    }
+
+    /* ═══════════════════════════════════════════
+       ESSENTIALS GRID
+    ═══════════════════════════════════════════ */
+    .essentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
     .feature-card {
-      background: var(--card-bg); border: 1px solid var(--border-light); border-radius: 24px; padding: 3.5rem 3rem;
-      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
-      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; text-decoration: none;
+      box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s;
     }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: rgba(18, 30, 54, 0.15); }
-    
-    .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text); display: flex; justify-content: space-between; align-items: center; }
-    .feature-card h3::after { content: '\2192'; color: rgba(18,30,54,0.15); font-size: 1.5rem; font-family: 'DM Sans', sans-serif; transition: color 0.3s, transform 0.3s; }
-    .feature-card:hover h3::after { color: var(--text); transform: translateX(4px); }
-    
-    .feature-card p { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; margin: 0; }
+    .feature-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
+    .feature-card:hover::before { opacity: 1; }
 
-    /* ─── CONCERTO PREMIUM (2x2 Grid) ─── */
-    .premium-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto 8rem; }
-    
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-arrow {
+      font-size: 1rem; color: var(--text-xdim); font-style: normal;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .feature-card:hover .card-arrow { color: var(--gold); transform: translateX(4px); }
+    .feature-card p { font-size: 0.92rem; color: var(--text-dim); line-height: 1.65; margin: 0; flex: 1; }
+
+    /* ═══════════════════════════════════════════
+       PREMIUM SECTION
+    ═══════════════════════════════════════════ */
+    .premium-section {
+      background: var(--text); padding: 110px 4%;
+      position: relative; overflow: hidden;
+    }
+    .premium-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .premium-section .eyebrow { color: var(--gold); }
+    .premium-section .section-title { color: #fff; }
+    .premium-section .section-desc { color: rgba(255,255,255,0.5); }
+
+    .premium-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
     .premium-card {
-      background: var(--text); border: 1px solid rgba(201, 168, 76, 0.4); border-radius: 24px; padding: 4rem 3.5rem;
-      display: flex; flex-direction: column; text-decoration: none; cursor: pointer;
-      box-shadow: var(--shadow-soft); transition: var(--transition); position: relative;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: var(--radius-lg); padding: 3.5rem 3rem;
+      cursor: pointer; text-decoration: none; text-align: left;
+      transition: transform 0.4s var(--ease-out), border-color 0.3s, background 0.3s;
+      position: relative; overflow: hidden;
     }
-    .premium-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--premium-gold); }
-    
-    .premium-card h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--card-bg); }
-    .premium-card h3::after { content: ''; display: block; width: 40px; height: 2px; background: var(--premium-gold); margin-top: 1.5rem; }
-    .premium-card p { color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.7; margin-top: 1.5rem; }
+    .premium-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      height: 2px; width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.5s var(--ease-out);
+    }
+    .premium-card:hover { transform: translateY(-4px); border-color: rgba(201, 168, 76, 0.5); background: rgba(255,255,255,0.06); }
+    .premium-card:hover::after { width: 100%; }
 
-    /* ─── PREMIUM MODAL TRAP ─── */
+    .premium-badge {
+      display: inline-flex; align-items: center;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
+      padding: 0.35rem 0.8rem; border-radius: 99px; margin-bottom: 1.5rem;
+    }
+    .premium-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem; font-weight: 700; color: #fff;
+      line-height: 1.2; margin-bottom: 1.2rem;
+    }
+    .premium-card p { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════
+       FOUNDER QUOTE
+    ═══════════════════════════════════════════ */
+    .quote-section { padding: 120px 4%; text-align: center; position: relative; }
+    .quote-mark {
+      font-family: 'Playfair Display', serif; font-size: 8rem; line-height: 0;
+      color: var(--gold); opacity: 0.18;
+      position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+      pointer-events: none; user-select: none;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 500; font-style: italic;
+      line-height: 1.4; color: var(--text);
+      max-width: 860px; margin: 0 auto 2.5rem; position: relative;
+    }
+    .quote-attribution {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-xdim);
+    }
+
+    /* ═══════════════════════════════════════════
+       INSTAGRAM STRIP
+    ═══════════════════════════════════════════ */
+    .insta-strip { background: var(--text); padding: 5rem 4%; text-align: center; }
+    .insta-strip a {
+      font-size: clamp(1.1rem, 2.5vw, 1.7rem); font-weight: 400;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      display: inline-flex; align-items: center;
+      justify-content: center; flex-wrap: wrap; gap: 0.5rem;
+      transition: color 0.3s; line-height: 1.5;
+    }
+    .insta-strip a:hover { color: rgba(255,255,255,0.9); }
+    .insta-handle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-weight: 700; color: var(--gold); transition: color 0.3s;
+    }
+    .insta-strip a:hover .insta-handle { color: var(--gold-light); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 4rem; margin-bottom: 4rem;
+    }
+    .footer-brand img { height: 28px; width: auto; object-fit: contain; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.92rem; color: var(--text-dim); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--text); margin-bottom: 1.2rem;
+    }
+    .footer-col a {
+      display: block; font-size: 0.92rem; font-weight: 400;
+      color: var(--text-dim); text-decoration: none;
+      margin-bottom: 0.7rem; transition: color 0.25s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto; padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-xdim);
+    }
+
+    /* ═══════════════════════════════════════════
+       MODAL
+    ═══════════════════════════════════════════ */
     .modal-overlay {
-      position: fixed; inset: 0; background: rgba(18, 30, 54, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      z-index: 2000; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+      position: fixed; inset: 0; background: rgba(12, 20, 40, 0.65);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      z-index: 2000; display: flex; justify-content: center; align-items: center;
+      padding: 2rem; opacity: 0; pointer-events: none;
+      transition: opacity 0.35s var(--ease-out);
     }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    
-    .modal-content {
-      background: var(--card-bg); width: 90%; max-width: 500px; border-radius: 24px; padding: 4rem 3rem; 
-      text-align: center; box-shadow: 0 24px 60px rgba(18, 30, 54, 0.2); border: 1px solid var(--border-light);
-      transform: translateY(20px) scale(0.98); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
+    .modal-box {
+      background: var(--card-bg); width: 100%; max-width: 460px;
+      border-radius: var(--radius-lg); padding: 3.5rem 2.5rem;
+      text-align: center; border: 1px solid var(--gold);
+      box-shadow: 0 32px 80px rgba(18, 30, 54, 0.25);
+      transform: translateY(24px) scale(0.97); position: relative;
+      transition: transform 0.4s var(--ease-out);
     }
-    .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
-    
-    .close-modal { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 2rem; color: var(--text-dim); cursor: pointer; transition: color 0.2s; }
-    .close-modal:hover { color: var(--text); }
-    
-    .modal-content h3 { font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
-    .modal-content p { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 2.5rem; line-height: 1.6; }
-
-    /* ─── FOUNDER QUOTE ─── */
-    .founder-quote { text-align: center; max-width: 900px; margin: 0 auto 8rem; padding: 0 5%; }
-    .founder-quote h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; color: var(--text); margin-bottom: 2rem; }
-
-    /* ─── MASSIVE WEB FOOTER ─── */
-    footer { border-top: 1px solid var(--border-light); padding: 6rem 4% 3rem; background: var(--bg); }
-    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
-    .footer-col { display: flex; flex-direction: column; gap: 1.2rem; }
-    
-    .footer-logo { height: 32px; width: auto; object-fit: contain; object-position: left; margin-bottom: 0.5rem; }
-    .footer-col p { font-size: 1rem; color: var(--text-dim); line-height: 1.6; max-width: 320px; }
-    
-    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 0.5rem; }
-    .footer-col a { font-size: 0.95rem; font-weight: 500; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
-    .footer-col a:hover { color: var(--text); }
-    
-    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); }
-
-    /* ─── RESPONSIVENESS ─── */
-    @media (max-width: 1200px) {
-      .nav-features { display: none; }
-      .header-logo { opacity: 1; transform: none; }
-      .site-header { padding: 1rem 5%; justify-content: space-between; }
-      .header-logo-wrapper { flex: 1; }
+    .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 1.2rem; right: 1.5rem;
+      background: none; border: none; font-size: 1.8rem;
+      color: var(--text-dim); cursor: pointer; transition: color 0.2s;
     }
-    @media (max-width: 960px) {
+    .modal-close:hover { color: var(--text); }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--text); margin-bottom: 0.8rem;
+    }
+    .modal-desc { font-size: 0.98rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 2.2rem; }
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .nav-logo-img { opacity: 1; transform: none; }
       .essentials-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .footer-brand { grid-column: span 2; }
     }
     @media (max-width: 768px) {
-      main { padding-top: 120px; }
-      .hero { margin-bottom: 5rem; }
-      .instruction-box { padding: 1.5rem; }
-      .essentials-grid, .premium-grid, .footer-grid { grid-template-columns: 1fr; }
-      .feature-card, .premium-card { padding: 2.5rem 2rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
+      .section { padding: 80px 5%; }
+      .premium-section { padding: 80px 5%; }
+      .hero { padding: 100px 5% 70px; }
+      .hero-logo { height: 80px; }
+      .stat-bar-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .essentials-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .premium-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .feature-card { padding: 2.2rem 1.8rem; }
+      .premium-card { padding: 2.5rem 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-brand { grid-column: auto; }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .scroll-hint { display: none; }
+      .insta-strip { padding: 4rem 5%; }
+      .quote-section { padding: 80px 5%; }
+    }
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; text-align: center; }
+      .section-title { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-canvas" id="bg-canvas" aria-hidden="true">
+  <!-- Atmosphere -->
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
   </div>
   <div class="noise" aria-hidden="true"></div>
-
   <div class="ghost-marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>NOT JUST A SHOW • THE WHOLE NIGHT • NOT JUST A SHOW • THE WHOLE NIGHT • </span>
-      <span>NOT JUST A SHOW • THE WHOLE NIGHT • NOT JUST A SHOW • THE WHOLE NIGHT • </span>
+      <span>NOT JUST A SHOW &bull; THE WHOLE NIGHT &bull; NOT JUST A SHOW &bull; THE WHOLE NIGHT &bull; </span>
+      <span>NOT JUST A SHOW &bull; THE WHOLE NIGHT &bull; NOT JUST A SHOW &bull; THE WHOLE NIGHT &bull; </span>
     </div>
   </div>
 
-  <header class="site-header" id="navbar">
-    <div class="header-logo-wrapper">
-      <a href="index.html" class="logo" id="headerLogoLink">
-        <img src="logo.png" alt="Concerto Logo" class="header-logo">
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="120" height="40" />
       </a>
     </div>
-    
-    <nav class="nav-features sans">
-      <a href="cityguides.html">City Guides</a>
-      <a href="events.html">Events Near Me</a>
-      <a href="featuredtours.html">Featured Tours</a>
-      <a href="setlists.html">Setlists</a>
-      <a href="tourinfo.html">Tour Info</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
-    </nav>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Get Access</a>
+    </div>
+  </nav>
 
-    <div class="nav-actions">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans">Download App</a>
+  <!-- ─── HERO ─── -->
+  <header class="hero" role="banner">
+    <p class="hero-eyebrow">For Concerts, Sports & Nights Out</p>
+
+    <img src="logo.png" alt="Concerto" class="hero-logo" id="heroLogo"
+         width="220" height="160" fetchpriority="high" />
+
+    <h1 class="sr-only">Concerto — App for Concerts, Sports & Nights Out</h1>
+
+    <p class="hero-sub">
+      Concerto is the app you open the second you buy a ticket &mdash; for concerts,
+      games, festivals, and more. Bag policies, parking, setlists, city guides,
+      and AI itineraries, all in one place.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Download Free on iOS</a>
+      <a href="#essentials" class="btn btn-outline">See What&rsquo;s Inside</a>
+    </div>
+
+    <p class="hero-trust">Verified data for 300+ venues &nbsp;&middot;&nbsp; Concerts, sports & nights out</p>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <img src="logo.png" alt="CONCERTO" class="hero-logo-large" id="mainHeroLogo">
-      
-      <h1 class="serif">Navigate the night flawlessly.</h1>
-      
-      <div class="instruction-box">
-        <strong class="sans">How to use Concerto</strong>
-        <p class="serif">Choose a tool below, select your venue or tour from the directory, and instantly unlock verified logistics and curated guides.</p>
+
+    <!-- ─── STAT BAR ─── -->
+    <section class="stat-bar" aria-label="App statistics">
+      <div class="stat-bar-inner">
+        <div class="stat-item reveal">
+          <div class="stat-number">300<span style="color:var(--gold)">+</span></div>
+          <div class="stat-label">Venues Covered</div>
+        </div>
+        <div class="stat-item reveal" style="transition-delay:0.1s">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Tools in One App</div>
+        </div>
+        <div class="stat-item reveal" style="transition-delay:0.2s">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Extra Apps Needed</div>
+        </div>
       </div>
-      
-      <a href="#database" class="btn-primary sans" style="padding: 1.2rem 3rem; font-size: 0.85rem;">Access The Database</a>
     </section>
 
-    <section class="section" id="database">
+    <!-- ─── THE ESSENTIALS ─── -->
+    <section class="section" id="essentials" aria-labelledby="essentials-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow sans">The Foundation</span>
-          <h2 class="section-title serif">The Essentials</h2>
-        </div>
-        
+        <header class="section-header reveal">
+          <span class="eyebrow">Built for the Whole Night</span>
+          <h2 class="section-title" id="essentials-heading">The Essentials</h2>
+          <p class="section-desc">
+            Eight tools covering everything you actually need &mdash; before, during,
+            and after concerts, games, festivals, and nights out.
+          </p>
+        </header>
+
         <div class="essentials-grid">
-          <a href="cityguides.html" class="feature-card">
-            <h3 class="serif">City Guides</h3>
-            <p class="sans">Skip the generic Yelp reviews. Curated dining and upscale hotel options anchored physically to your venue's neighborhood.</p>
+          <a href="cityguides.html" class="feature-card reveal">
+            <h3>City Guides <em class="card-arrow">&#8594;</em></h3>
+            <p>Curated dining, bars, and hotels anchored to your venue&rsquo;s neighborhood. No generic lists &mdash; only spots worth your time before or after the show.</p>
           </a>
-
-          <a href="events.html" class="feature-card">
-            <h3 class="serif">Events Near Me</h3>
-            <p class="sans">Your starting point. Open the app and instantly see every major concert, comedy show, and festival tonight.</p>
+          <a href="events.html" class="feature-card reveal" style="transition-delay:0.05s">
+            <h3>Events Near Me <em class="card-arrow">&#8594;</em></h3>
+            <p>Open the app and instantly see every major concert, sports game, comedy show, and festival happening near you tonight.</p>
           </a>
-
-          <a href="featuredtours.html" class="feature-card">
-            <h3 class="serif">Featured Tours</h3>
-            <p class="sans">Follow the world's biggest artists. Track routing, dates, and highly-specific venue details for the hottest tours on the planet.</p>
+          <a href="tours.html" class="feature-card reveal" style="transition-delay:0.1s">
+            <h3>Tour Info <em class="card-arrow">&#8594;</em></h3>
+            <p>Full routing schedules, direct ticket links, and venue-specific details for every major tour currently on the road.</p>
           </a>
-
-          <a href="setlists.html" class="feature-card">
-            <h3 class="serif">Setlists</h3>
-            <p class="sans">Track deep cuts, closers, and local start times. Every track links directly to Apple Music and Spotify.</p>
+          <a href="setlists.html" class="feature-card reveal" style="transition-delay:0.05s">
+            <h3>Setlists <em class="card-arrow">&#8594;</em></h3>
+            <p>See what songs an artist is playing on this tour, track local start times, and link every track directly to Apple Music or Spotify.</p>
           </a>
-
-          <a href="tourinfo.html" class="feature-card">
-            <h3 class="serif">Tour Info</h3>
-            <p class="sans">Full logistics for every major tour, including direct ticket links and official routing schedules.</p>
+          <a href="rideshare.html" class="feature-card reveal" style="transition-delay:0.1s">
+            <h3>1-Tap Rideshare <em class="card-arrow">&#8594;</em></h3>
+            <p>Open Uber or Lyft with your venue&rsquo;s exact drop-off and pickup zones already filled in &mdash; no fumbling with addresses after the show.</p>
           </a>
-
-          <a href="rideshare.html" class="feature-card">
-            <h3 class="serif">1-Tap Rideshare</h3>
-            <p class="sans">Direct links to Uber and Lyft with your specific venue drop-off and pickup zones perfectly pre-inputted.</p>
+          <a href="bags.html" class="feature-card reveal" style="transition-delay:0.15s">
+            <h3>Bag Policies <em class="card-arrow">&#8594;</em></h3>
+            <p>Look up the exact bag rules for your venue before you leave the house &mdash; dimensions, clear-bag requirements, and prohibited items for 300+ venues.</p>
           </a>
-
-          <a href="bags.html" class="feature-card">
-            <h3 class="serif">Bag Policies</h3>
-            <p class="sans">Stop guessing at the gate. Get exact dimensions, clear-bag requirements, and prohibited items for over 300 venues.</p>
+          <a href="parking.html" class="feature-card reveal">
+            <h3>Parking <em class="card-arrow">&#8594;</em></h3>
+            <p>Official lots, nearby alternatives, pricing, and insider tips on how to get out fast when 50,000 people are trying to leave at the same time.</p>
           </a>
-
-          <a href="parking.html" class="feature-card">
-            <h3 class="serif">Parking</h3>
-            <p class="sans">Official venue lots, trusted local alternatives, and insider intel on how to avoid the post-show traffic trap.</p>
+          <a href="concessions.html" class="feature-card reveal" style="transition-delay:0.05s">
+            <h3>Concessions <em class="card-arrow">&#8594;</em></h3>
+            <p>Know exactly what food, drinks, and vendors are inside your venue before you arrive &mdash; so you can head straight to the right spot.</p>
           </a>
-
-          <a href="concessions.html" class="feature-card">
-            <h3 class="serif">Concessions</h3>
-            <p class="sans">Know what is available inside before you arrive. Find specific vendors, bars, and food options for your section.</p>
+          <a href="premium.html" class="feature-card reveal" style="transition-delay:0.1s; background:var(--bg); border-style:dashed; justify-content:center; align-items:center; text-align:center;">
+            <h3 style="justify-content:center; font-size:1.1rem; color:var(--text-dim);">And more with Premium</h3>
+            <p style="font-size:0.85rem;">AI Bag Check, Live Mode, personalized AI itineraries, and multi-day festival guides.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ─── PREMIUM ─── -->
+    <section class="premium-section" id="premium" aria-labelledby="premium-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow sans">The Magic</span>
-          <h2 class="section-title serif">Concerto Premium</h2>
-        </div>
-        
+        <header class="section-header reveal">
+          <span class="eyebrow">Go Further</span>
+          <h2 class="section-title" id="premium-heading">Concerto Premium</h2>
+          <p class="section-desc">
+            AI-powered features that turn a good night into a flawless one.
+          </p>
+        </header>
+
         <div class="premium-grid">
-          <div class="premium-card premium-trigger">
-            <h3 class="serif">AI Bag Check</h3>
-            <p class="sans">Hold your actual bag up to your camera, and Concerto's AI will instantly verify if it passes security at your specific venue.</p>
-          </div>
+          <button class="premium-card premium-trigger reveal"
+                  aria-haspopup="dialog" aria-label="Learn about AI Bag Check">
+            <span class="premium-badge">Premium</span>
+            <h3>AI Bag Check</h3>
+            <p>Point your camera at your actual bag. Concerto&rsquo;s AI reads your venue&rsquo;s specific policy and tells you instantly whether it gets in &mdash; before you leave your house.</p>
+          </button>
 
-          <div class="premium-card premium-trigger">
-            <h3 class="serif">Live Mode & Recaps</h3>
-            <p class="sans">Once you arrive, the app switches to an in-show experience. Receive a beautifully designed, shareable Story Card documenting your night.</p>
-          </div>
+          <button class="premium-card premium-trigger reveal" style="transition-delay:0.08s"
+                  aria-haspopup="dialog" aria-label="Learn about Live Mode and Recaps">
+            <span class="premium-badge">Premium</span>
+            <h3>Live Mode &amp; Recaps</h3>
+            <p>When you arrive, the app shifts into an in-show experience. After the final song, you get a shareable Story Card that documents the whole night &mdash; every song, every moment.</p>
+          </button>
 
-          <div class="premium-card premium-trigger">
-            <h3 class="serif">Concerto+ AI Itinerary</h3>
-            <p class="sans">Tell us the show and your vibe. Concerto+ builds a complete timeline: dinner reservations, exact arrival windows, and post-show drinks.</p>
-          </div>
-          
-          <div class="premium-card premium-trigger">
-            <h3 class="serif">Festivals</h3>
-            <p class="sans">Multi-day lineups, survival guides, and stage-to-stage navigation. Never miss a set because you got lost looking for water.</p>
-          </div>
+          <button class="premium-card premium-trigger reveal" style="transition-delay:0.05s"
+                  aria-haspopup="dialog" aria-label="Learn about Concerto+ AI Itinerary">
+            <span class="premium-badge">Premium</span>
+            <h3>Concerto+ AI Itinerary</h3>
+            <p>Tell Concerto your show, your vibe, and your group size. It builds a full evening &mdash; dinner reservation, ideal arrival time, post-show plans &mdash; mapped around your specific venue.</p>
+          </button>
+
+          <button class="premium-card premium-trigger reveal" style="transition-delay:0.13s"
+                  aria-haspopup="dialog" aria-label="Learn about Festivals">
+            <span class="premium-badge">Premium</span>
+            <h3>Festivals</h3>
+            <p>Multi-day schedules, set conflict alerts, stage maps, and survival guides. Built for people who treat a festival weekend like a full operation.</p>
+          </button>
+        </div>
+
+        <div style="text-align:center; margin-top:3.5rem;" class="reveal">
+          <a href="premium.html" class="btn btn-gold">Explore Premium</a>
         </div>
       </div>
     </section>
 
-    <section class="founder-quote">
-      <h2 class="serif">"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like a single event."</h2>
-      <span class="eyebrow sans" style="color: var(--text); margin-top: 2rem; display: inline-block;">— Jayce Wells, Founder</span>
+    <!-- ─── FOUNDER QUOTE ─── -->
+    <section class="quote-section" aria-label="Founder quote">
+      <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+      <blockquote class="reveal">
+        <p class="quote-text">
+          &ldquo;I built Concerto because I was tired of juggling five apps just to figure
+          out where to eat before a show. The entire night should feel like a single event.&rdquo;
+        </p>
+        <footer class="quote-attribution">&mdash; Jayce Wells, Founder</footer>
+      </blockquote>
     </section>
+
+    <!-- ─── INSTAGRAM ─── -->
+    <section class="insta-strip" aria-label="Follow Concerto on Instagram">
+      <div class="container">
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">
+          Follow Concerto on Instagram&nbsp;
+          <span class="insta-handle">@theconcertoapp</span>&nbsp;&amp;&nbsp;
+          <span class="insta-handle">@theconcertocrew</span>
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col" style="grid-column: span 2; padding-right: 4rem;">
-        <img src="logo.png" alt="Concerto Logo" class="footer-logo">
-        <p class="sans">The ultimate companion for live music. We pick up where ticketing apps drop off.</p>
-      </div>
-      
-      <div class="footer-col">
-        <h4 class="sans">Company</h4>
-        <a href="about.html" class="sans">About Us</a>
-        <a href="premium.html" class="sans">Premium</a>
-        <a href="shop.html" class="sans">Shop</a>
-        <a href="partners.html" class="sans">Partnerships</a>
+  <!-- ─── FOOTER ─── -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Concerto" width="100" height="32" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
       </div>
 
-      <div class="footer-col">
-        <h4 class="sans">Legal & Support</h4>
-        <a href="faq.html" class="sans">FAQ</a>
-        <a href="mailto:support@concertocity.com" class="sans">Contact Support</a>
-        <a href="privacy.html" class="sans">Privacy Policy</a>
-        <a href="terms.html" class="sans">Terms of Service</a>
-      </div>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
 
-      <div class="footer-col">
-        <h4 class="sans">Social</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank" class="sans">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" class="sans">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" class="sans">YouTube</a>
-      </div>
+      <nav class="footer-col" aria-label="Tools">
+        <h4>Tools</h4>
+        <a href="cityguides.html">City Guides</a>
+        <a href="setlists.html">Setlists</a>
+        <a href="bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="concessions.html">Concessions</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Social and legal">
+        <h4>Connect</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
     </div>
-    
+
     <div class="footer-bottom">
-      <span class="sans">&copy; 2026 Concerto Technologies Inc. All rights reserved.</span>
-      <span class="sans">Designed in Texas</span>
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer" style="color:var(--text-dim); text-decoration:none; transition:color 0.25s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-dim)'">JW Digital</a></span>
     </div>
   </footer>
 
-  <div class="modal-overlay" id="premiumModal">
-    <div class="modal-content">
-      <button class="close-modal" id="closeModalBtn">&times;</button>
-      <h3 class="modal-title serif">Unlock the Magic</h3>
-      <p class="modal-desc sans">Concerto Premium features are tightly integrated with your phone's hardware. Download the app to access them.</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary sans" style="width: 100%; padding: 1.2rem;">Download Now</a>
+  <!-- ─── PREMIUM MODAL ─── -->
+  <div class="modal-overlay" id="premiumModal" role="dialog"
+       aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h3 class="modal-title" id="modalTitle">Download to Unlock</h3>
+      <p class="modal-desc" id="modalDesc">
+        Concerto Premium features like AI Bag Check and Live Mode use your phone&rsquo;s
+        camera and hardware directly. Download the app to access them.
+      </p>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark" style="width:100%; padding:1.1rem;">Download Now</a>
     </div>
   </div>
 
   <script>
-    // Header Logic: Fade in small logo when large hero logo is scrolled out of view
-    const header = document.getElementById('navbar');
-    const heroLogo = document.getElementById('mainHeroLogo');
-    
-    window.addEventListener('scroll', () => {
-      if (!heroLogo) return;
-      const heroBottom = heroLogo.getBoundingClientRect().bottom;
-      
-      if (heroBottom < 0) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
+    /* ── Nav: show logo once hero logo scrolls out of view ── */
+    const siteNav  = document.getElementById('siteNav');
+    const heroLogo = document.getElementById('heroLogo');
 
-    // Subtle Parallax Background
-    const bgCanvas = document.getElementById('bg-canvas');
+    const checkScroll = () => {
+      const heroBottom = heroLogo ? heroLogo.getBoundingClientRect().bottom : -1;
+      siteNav.classList.toggle('scrolled', heroBottom < 0 || window.scrollY > 60);
+    };
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+
+    /* ── Parallax background ── */
+    const bgCanvas = document.getElementById('bgCanvas');
     let ticking = false;
     document.addEventListener('mousemove', (e) => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const mouseX = e.clientX / window.innerWidth - 0.5;
-          const mouseY = e.clientY / window.innerHeight - 0.5;
-          bgCanvas.style.transform = `translate(${mouseX * -20}px, ${mouseY * -20}px)`;
+        requestAnimationFrame(() => {
+          const x = (e.clientX / window.innerWidth  - 0.5) * -18;
+          const y = (e.clientY / window.innerHeight - 0.5) * -18;
+          bgCanvas.style.transform = `translate(${x}px, ${y}px)`;
           ticking = false;
         });
         ticking = true;
       }
     });
 
-    // Modal Logic
-    const premiumTriggers = document.querySelectorAll('.premium-trigger');
-    const premiumModal = document.getElementById('premiumModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    premiumTriggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        premiumModal.classList.add('active');
-      });
-    });
+    /* ── Premium modal ── */
+    const modal      = document.getElementById('premiumModal');
+    const modalClose = document.getElementById('modalClose');
 
-    closeModalBtn.addEventListener('click', () => {
-      premiumModal.classList.remove('active');
-    });
+    const openModal  = () => { modal.classList.add('active');    document.body.style.overflow = 'hidden'; };
+    const closeModal = () => { modal.classList.remove('active'); document.body.style.overflow = ''; };
 
-    premiumModal.addEventListener('click', (e) => {
-      if (e.target === premiumModal) {
-        premiumModal.classList.remove('active');
-      }
-    });
+    document.querySelectorAll('.premium-trigger').forEach(t => t.addEventListener('click', openModal));
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   </script>
 </body>
 </html>
