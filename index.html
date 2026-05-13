@@ -183,46 +183,106 @@
     /* Dropdown chevron */
     .nav-chevron {
       width: 10px; height: 10px; display: block; flex-shrink: 0;
-      transition: transform 0.3s var(--ease-out);
+      transition: transform 0.35s var(--ease-out);
     }
     .nav-dropdown-trigger.open .nav-chevron { transform: rotate(180deg); }
 
     /* Dropdown wrapper */
-    .nav-dropdown {
-      position: relative;
-    }
+    .nav-dropdown { position: relative; }
+
     .nav-dropdown-panel {
-      position: absolute; top: calc(var(--nav-h) - 1px); left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      background: rgba(248, 249, 249, 0.98);
-      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      position: absolute; top: calc(var(--nav-h) + 8px); left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(248, 249, 249, 0.99);
+      backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      box-shadow: 0 20px 60px rgba(18, 30, 54, 0.12);
-      padding: 1.2rem;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0.4rem; width: 640px;
+      box-shadow: 0 8px 16px rgba(18,30,54,0.04),
+                  0 24px 64px rgba(18,30,54,0.13);
+      padding: 0.6rem;
+      width: 700px;
       opacity: 0; pointer-events: none;
-      transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+      transition: opacity 0.28s var(--ease-out), transform 0.28s var(--ease-out);
     }
     .nav-dropdown-panel.open {
       opacity: 1; pointer-events: auto;
       transform: translateX(-50%) translateY(0);
     }
+
+    /* Header strip inside panel */
+    .dropdown-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.1rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .dropdown-header-label {
+      font-family: var(--body);
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--text-xdim);
+    }
+    .dropdown-header-count {
+      font-family: var(--body);
+      font-size: 0.58rem; font-weight: 600; letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+
+    /* Grid of items */
+    .dropdown-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem; padding: 0 0.25rem 0.25rem;
+    }
+
     .nav-dropdown-item {
       display: flex; flex-direction: column;
-      padding: 0.9rem 1rem; border-radius: var(--radius-md);
-      text-decoration: none;
-      transition: background 0.2s;
+      padding: 1rem 1.1rem 1rem;
+      border-radius: var(--radius-md);
+      text-decoration: none; position: relative;
+      transition: background 0.2s var(--ease-out);
+      border: 1px solid transparent;
     }
-    .nav-dropdown-item:hover { background: rgba(18, 30, 54, 0.04); }
-    .nav-dropdown-item span:first-child {
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text); margin-bottom: 0.2rem;
+    .nav-dropdown-item::after {
+      content: ''; position: absolute;
+      bottom: 0.8rem; right: 1.1rem;
+      font-size: 0.7rem; color: var(--text-xdim);
+      opacity: 0; transform: translateX(-4px);
+      transition: opacity 0.2s, transform 0.2s var(--ease-out);
     }
-    .nav-dropdown-item span:last-child {
-      font-size: 0.75rem; color: var(--text-dim); line-height: 1.4;
+    .nav-dropdown-item:hover {
+      background: var(--card-bg);
+      border-color: var(--border);
+    }
+    .nav-dropdown-item:hover::after {
+      opacity: 1; transform: translateX(0);
+    }
+
+    /* Gold left bar on hover */
+    .nav-dropdown-item::before {
+      content: ''; position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 2px; border-radius: 99px;
+      background: var(--gold);
+      opacity: 0; transform: scaleY(0.4);
+      transition: opacity 0.2s, transform 0.25s var(--ease-out);
+    }
+    .nav-dropdown-item:hover::before {
+      opacity: 1; transform: scaleY(1);
+    }
+
+    .nav-dropdown-item-title {
+      font-family: var(--display);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.3rem;
+      letter-spacing: -0.01em; line-height: 1.2;
+      transition: font-style 0.15s, color 0.2s;
+    }
+    .nav-dropdown-item:hover .nav-dropdown-item-title {
+      font-style: italic; color: var(--text);
+    }
+    .nav-dropdown-item-desc {
+      font-family: var(--body);
+      font-size: 0.75rem; font-weight: 400;
+      color: var(--text-dim); line-height: 1.5;
     }
 
     .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
@@ -652,42 +712,48 @@
           </svg>
         </button>
         <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
-          <a href="cityguides.html" class="nav-dropdown-item" role="menuitem">
-            <span>City Guides</span>
-            <span>Dining &amp; hotels near your venue</span>
-          </a>
-          <a href="events.html" class="nav-dropdown-item" role="menuitem">
-            <span>Events Near Me</span>
-            <span>Concerts, games &amp; festivals tonight</span>
-          </a>
-          <a href="featuredtours.html" class="nav-dropdown-item" role="menuitem">
-            <span>Featured Tours</span>
-            <span>The biggest tours on the road</span>
-          </a>
-          <a href="setlists.html" class="nav-dropdown-item" role="menuitem">
-            <span>Setlists</span>
-            <span>Songs, set times &amp; music links</span>
-          </a>
-          <a href="tourinfo.html" class="nav-dropdown-item" role="menuitem">
-            <span>Tour Info</span>
-            <span>Routes, dates &amp; ticket links</span>
-          </a>
-          <a href="rideshare.html" class="nav-dropdown-item" role="menuitem">
-            <span>Rideshare</span>
-            <span>Venue drop-off &amp; pickup zones</span>
-          </a>
-          <a href="bags.html" class="nav-dropdown-item" role="menuitem">
-            <span>Bag Policies</span>
-            <span>Exact rules for 300+ venues</span>
-          </a>
-          <a href="parking.html" class="nav-dropdown-item" role="menuitem">
-            <span>Parking</span>
-            <span>Lots, prices &amp; exit strategies</span>
-          </a>
-          <a href="concessions.html" class="nav-dropdown-item" role="menuitem">
-            <span>Concessions</span>
-            <span>Food &amp; drinks inside your venue</span>
-          </a>
+          <div class="dropdown-header">
+            <span class="dropdown-header-label">All Features</span>
+            <span class="dropdown-header-count">9 Tools</span>
+          </div>
+          <div class="dropdown-grid">
+            <a href="cityguides.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">City Guides</span>
+              <span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span>
+            </a>
+            <a href="events.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Events Near Me</span>
+              <span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span>
+            </a>
+            <a href="featuredtours.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Featured Tours</span>
+              <span class="nav-dropdown-item-desc">The biggest tours on the road</span>
+            </a>
+            <a href="setlists.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Setlists</span>
+              <span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span>
+            </a>
+            <a href="tourinfo.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Tour Info</span>
+              <span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span>
+            </a>
+            <a href="rideshare.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Rideshare</span>
+              <span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span>
+            </a>
+            <a href="bags.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Bag Policies</span>
+              <span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span>
+            </a>
+            <a href="parking.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Parking</span>
+              <span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span>
+            </a>
+            <a href="concessions.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-item-title">Concessions</span>
+              <span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span>
+            </a>
+          </div>
         </div>
       </div>
 
