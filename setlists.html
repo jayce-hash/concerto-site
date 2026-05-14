@@ -158,6 +158,13 @@
     .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
     @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
     @media (max-width: 640px) { #navAuthLink { display:none; } }
+  
+    .setlist-songs { margin: 0.75rem 0; display: flex; flex-direction: column; gap: 4px; }
+    .setlist-song { font-family: var(--display); font-size: 0.88rem; color: var(--text-dim); padding: 4px 0; border-bottom: 1px solid var(--border); }
+    .setlist-song:last-child { border-bottom: none; }
+    .setlist-more { font-size: 0.72rem; color: var(--text-xdim); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+    .setlist-empty { font-size: 0.8rem; color: var(--text-xdim); font-style: italic; margin: 0.75rem 0; }
+    .card-songs-count { font-size: 0.68rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -292,27 +299,12 @@
       if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
     });
 
-    /* Setlist data */
-    const tours = [
-      { artist: "Chris Stapleton", tour: "All-American Road Show Tour", url: "https://concerto-setlists.netlify.app/chrisstapletonallamericanroadshowtour" },
-      { artist: "RAYE", tour: "This Tour May Contain New Music", url: "https://concerto-setlists.netlify.app/rayethistourmaycontainnewmusictour" },
-      { artist: "Olivia Dean", tour: "The Art of Loving Tour", url: "https://concerto-setlists.netlify.app/oliviadeantheartoflovingtour2026" },
-      { artist: "Charlie Puth", tour: "Whatever\u2019s Clever! World Tour", url: "https://concerto-setlists.netlify.app/charlieputhwhateversclevertour2026" },
-      { artist: "Florence + The Machine", tour: "Everybody Scream Tour", url: "https://concerto-setlists.netlify.app/florencethemachineeverybodyscreamtour" },
-      { artist: "Journey", tour: "Final Frontier Tour", url: "https://concerto-setlists.netlify.app/journeyfinalfrontiertour" },
-      { artist: "Louis Tomlinson", tour: "How Did We Get Here? World Tour", url: "https://concerto-setlists.netlify.app/louistomlinsonhowdidwegethereworldtour" },
-      { artist: "Hayley Williams", tour: "Hayley Williams at a Bachelorette Party Tour", url: "https://concerto-setlists.netlify.app/hayleywilliamsatabachelorettepartytour" },
-      { artist: "Alex Warren", tour: "Little Orphan Alex Live", url: "https://concerto-setlists.netlify.app/alexwarrenlittleorphanalexlive" },
-      { artist: "Bruno Mars", tour: "The Romantic Tour", url: "https://concerto-setlists.netlify.app/brunomarstheromantictour" },
-      { artist: "Demi Lovato", tour: "It\u2019s Not That Deep Tour", url: "https://concerto-setlists.netlify.app/demilovatoitsnotthatdeeptour" },
-      { artist: "BTS", tour: "BTS ARIRANG Tour", url: "https://concerto-setlists.netlify.app/btsworldtour" },
-      { artist: "Ed Sheeran", tour: "The Loop Tour", url: "https://concerto-setlists.netlify.app/edsheeranthelooptourna2026" }
-    ];
-
+    /* Load setlists from setlists.json */
     const grid = document.getElementById('directoryGrid');
     const searchInput = document.getElementById('searchInput');
     const noResults = document.getElementById('noResults');
     const searchCount = document.getElementById('searchCount');
+    let allTours = [];
 
     function renderCards(data) {
       grid.innerHTML = '';
@@ -322,32 +314,48 @@
         return;
       }
       noResults.style.display = 'none';
-      searchCount.textContent = data.length === tours.length
-        ? `Showing all ${tours.length} tours`
+      searchCount.textContent = data.length === allTours.length
+        ? `Showing all ${allTours.length} setlists`
         : `${data.length} result${data.length !== 1 ? 's' : ''} found`;
 
       data.forEach(item => {
-        const card = document.createElement('a');
+        const card = document.createElement('div');
         card.className = 'directory-card';
-        card.href = item.url;
-        card.target = '_blank';
-        card.rel = 'noopener noreferrer';
         card.setAttribute('role', 'listitem');
+        const hasSongs = item.songs && item.songs.length > 0;
         card.innerHTML = `
           <div class="tour-artist">${item.artist}</div>
           <h2 class="tour-name">${item.tour}</h2>
+          ${hasSongs ? `
+          <div class="setlist-songs">
+            ${item.songs.slice(0, 5).map(s => `<div class="setlist-song">${s}</div>`).join('')}
+            ${item.songs.length > 5 ? `<div class="setlist-more">+${item.songs.length - 5} more songs</div>` : ''}
+          </div>` : `<div class="setlist-empty">Setlist coming soon &mdash; check back after the first show</div>`}
           <div class="card-footer">
-            <span class="card-link-text">View Setlist</span>
-            <span class="card-arrow">&rarr;</span>
+            <span class="card-link-text">Updated ${item.updated || 'recently'}</span>
+            <span class="card-songs-count">${hasSongs ? item.songs.length + ' songs' : ''}</span>
           </div>`;
         grid.appendChild(card);
       });
     }
 
-    renderCards(tours);
+    // Fetch from setlists.json
+    fetch('/setlists.json')
+      .then(r => r.json())
+      .then(data => {
+        allTours = Object.values(data).sort((a, b) => a.artist.localeCompare(b.artist));
+        searchCount.textContent = `Showing all ${allTours.length} setlists`;
+        renderCards(allTours);
+      })
+      .catch(() => {
+        searchCount.textContent = 'Could not load setlists';
+      });
+
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase();
-      renderCards(q ? tours.filter(i => i.artist.toLowerCase().includes(q) || i.tour.toLowerCase().includes(q)) : tours);
+      renderCards(q ? allTours.filter(i =>
+        i.artist.toLowerCase().includes(q) || i.tour.toLowerCase().includes(q)
+      ) : allTours);
     });
   </script>
 
