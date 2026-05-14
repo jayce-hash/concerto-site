@@ -317,8 +317,7 @@
 
   <script>
     /* Nav simplified */
-    featuresPanel.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
 
     /* Parallax */
     const bgCanvas = document.getElementById('bgCanvas');
