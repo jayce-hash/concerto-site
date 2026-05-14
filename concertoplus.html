@@ -428,7 +428,8 @@ const SUPABASE_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
 const UPGRADE_URL  = 'https://concertocity.com/premium.html';
 const LOGIN_URL    = 'https://concertocity.com/login.html';
 
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let sb;
+try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) { sb = null; }
 const $  = id => document.getElementById(id);
 
 // ── Auth gate ──
@@ -436,10 +437,11 @@ async function checkAccess() {
   const timeout = setTimeout(() => showGate(), 5000);
   try {
     const { data: { session } } = await sb.auth.getSession();
+    if (!sb) { clearTimeout(timeout); showGate(); return; }
     if (!session) { clearTimeout(timeout); showGate(); return; }
     const { data: profile } = await sb.from('profiles').select('is_premium').eq('id', session.user.id).single();
     clearTimeout(timeout);
-    if (profile?.is_premium) { $('gateSpinner').style.display='none'; goTo(0); }
+    if (profile?.is_premium) { const g=$('s-gate'); if(g) g.style.display='none'; $('gateSpinner').style.display='none'; goTo(0); }
     else showGate();
   } catch(e) { clearTimeout(timeout); showGate(); }
 }
