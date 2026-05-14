@@ -169,7 +169,7 @@
     }
     @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
 /* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
     .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
     .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
@@ -179,8 +179,12 @@
     .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
     .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
-    @media (max-width: 640px) { #navAuthLink { display:none; } }
+    @media (max-width: 1024px) {
+      .nav-hamburger { display:flex; }
+      .nav-center { display:none !important; }
+      #navAuthLink { display:none; }
+      .nav-cta a.btn-dark { display:none; }
+    }
   </style>
 </head>
 <body>
@@ -214,12 +218,11 @@
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-    <!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -238,12 +241,12 @@
       <span class="eyebrow">The Magic</span>
       <h1 class="hero-title">Concerto Premium.</h1>
       <p class="hero-desc">Take the friction out of the live music experience. Premium features built for people who treat going to a show as an event.</p>
-      <p class="hero-price">$7.99 / month &nbsp;&bull;&nbsp; $69.99 / year</p>
+      <p class="hero-price">$7.99 Per Month &nbsp;&bull;&nbsp; $69.99 Per Year</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
         <button onclick="startCheckout('monthly')" class="btn btn-gold">Get Monthly — $7.99/mo</button>
         <button onclick="startCheckout('annual')" class="btn btn-dark">Get Annual — $69.99/yr</button>
       </div>
-      <p style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already subscribed? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign in to access Premium features</a></p>
+      <p style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already a member? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign In to Access Premium Features</a></p>
     </header>
 
     <section class="showcase-container">
@@ -252,7 +255,7 @@
         <a href="bagcheck.html" class="feat-card feat-card-link" id="feat-bagcheck">
           <span class="feat-label">AI Tool</span>
           <h3>AI Bag Check</h3>
-          <p>Hold your bag up to your camera. Our AI estimates dimensions and structure, cross-references the venue&rsquo;s official policy, and gives you an instant Pass, Warn, or Fail verdict &mdash; before you leave the house.</p>
+          <p>Hold your bag up to your camera. Our AI estimates dimensions and structure, cross-references the venue&rsquo;s official policy, and gives you an instant Pass, Warn, or Fail verdict before you leave the house.</p>
           <div class="feat-card-footer">
             <span class="feat-cta" id="cta-bagcheck">Unlock with Premium</span>
             <span class="feat-arrow">&rarr;</span>
@@ -260,9 +263,9 @@
         </a>
 
         <a href="livemode.html" class="feat-card feat-card-link" id="feat-livemode">
-          <span class="feat-label">In-Show</span>
+          <span class="feat-label">In Show</span>
           <h3>Live Mode</h3>
-          <p>Your real-time in-show companion. Once the encore ends, receive a beautifully designed, shareable Story Card documenting your entire night &mdash; a Strava post for your concert.</p>
+          <p>Your real-time in-show companion. Once the encore ends, receive a beautifully designed, shareable Story Card documenting your entire night. Think of it as a Strava post for your concert.</p>
           <div class="feat-card-footer">
             <span class="feat-cta" id="cta-livemode">Unlock with Premium</span>
             <span class="feat-arrow">&rarr;</span>
@@ -272,7 +275,7 @@
         <a href="concertoplus.html" class="feat-card feat-card-link" id="feat-concertoplus">
           <span class="feat-label">AI Itinerary</span>
           <h3>Concerto+</h3>
-          <p>Tell it your show, your city, and your vibe. Concerto+ builds a mathematically mapped timeline &mdash; dinner reservation timing, ideal arrival window, and post-show plans tailored to your exact venue.</p>
+          <p>Tell it your show, your city, and your vibe. Concerto+ builds a complete timeline including dinner reservation timing, ideal arrival window, and post-show plans tailored to your exact venue.</p>
           <div class="feat-card-footer">
             <span class="feat-cta" id="cta-concertoplus">Unlock with Premium</span>
             <span class="feat-arrow">&rarr;</span>
@@ -285,13 +288,13 @@
     <section class="pricing-section">
       <div class="pricing-card">
         <div class="pricing-copy">
-          <h2>Simple pricing. No surprises.</h2>
-          <p>Subscribe on the web and access Premium instantly. Cancel anytime &mdash; no commitments.</p>
+          <h2>Simple Pricing. No Surprises.</h2>
+          <p>Subscribe on the web and access Premium instantly. Cancel anytime with no commitments.</p>
         </div>
         <div class="pricing-options">
-          <div class="price-pill"><strong>$7.99</strong> / month</div>
+          <div class="price-pill"><strong>$7.99</strong> Per Month</div>
           <div class="price-pill" style="opacity:0.35;">&bull;</div>
-          <div class="price-pill"><strong>$69.99</strong> / year</div>
+          <div class="price-pill"><strong>$69.99</strong> Per Year</div>
           <button onclick="startCheckout('monthly')" class="btn btn-gold">Monthly — $7.99</button>
           <button onclick="startCheckout('annual')" class="btn btn-dark">Annual — $69.99</button>
         </div>
