@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,7 +6,6 @@
   <meta name="theme-color" content="#F8F9F9" />
 
   <!-- ─── SEO ─── -->
-
   <title>Concerto Partnerships — For Venues, Restaurants & Artists</title>
   <meta name="title" content="Concerto Partnerships — For Venues, Restaurants & Artists" />
   <meta name="description" content="Partner with Concerto to connect with high-intent concertgoers. We help restaurants, hotels, venues, and artists capture event-night demand before, during, and after the show." />
@@ -45,7 +43,6 @@
   </script>
 
   <!-- ─── Favicon ─── -->
-
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -54,7 +51,6 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- ─── Fonts ─── -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
@@ -95,24 +91,8 @@
     .nav-logo { display: flex; align-items: center; width: 200px; }
     .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
     .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-center > a, .nav-dropdown-trigger { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; white-space: nowrap; }
-    .nav-center > a:hover, .nav-dropdown-trigger:hover, .nav-center > a.active { color: var(--text); }
-    .nav-chevron { width: 10px; height: 10px; display: block; flex-shrink: 0; transition: transform 0.35s var(--ease-out); }
-    .nav-dropdown-trigger.open .nav-chevron { transform: rotate(180deg); }
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-panel { position: absolute; top: calc(var(--nav-h) + 8px); left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(248,249,249,0.99); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: 0 8px 16px rgba(18,30,54,0.04), 0 24px 64px rgba(18,30,54,0.13); padding: 0.6rem; width: 700px; opacity: 0; pointer-events: none; transition: opacity 0.28s var(--ease-out), transform 0.28s var(--ease-out); }
-    .nav-dropdown-panel.open { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-    .dropdown-header { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.1rem 0.8rem; border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
-    .dropdown-header-label { font-family: var(--body); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-xdim); }
-    .dropdown-header-count { font-family: var(--body); font-size: 0.58rem; font-weight: 600; color: var(--gold); }
-    .dropdown-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.25rem; padding: 0 0.25rem 0.25rem; }
-    .nav-dropdown-item { display: flex; flex-direction: column; padding: 1rem 1.1rem; border-radius: var(--radius-md); text-decoration: none; position: relative; transition: background 0.2s var(--ease-out); border: 1px solid transparent; }
-    .nav-dropdown-item::before { content: ''; position: absolute; left: 0; top: 20%; bottom: 20%; width: 2px; border-radius: 99px; background: var(--gold); opacity: 0; transform: scaleY(0.4); transition: opacity 0.2s, transform 0.25s var(--ease-out); }
-    .nav-dropdown-item:hover { background: var(--card-bg); border-color: var(--border); }
-    .nav-dropdown-item:hover::before { opacity: 1; transform: scaleY(1); }
-    .nav-dropdown-item-title { font-family: var(--display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; letter-spacing: -0.01em; transition: font-style 0.15s; }
-    .nav-dropdown-item:hover .nav-dropdown-item-title { font-style: italic; }
-    .nav-dropdown-item-desc { font-family: var(--body); font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; }
+    .nav-center > a,
+    .nav-center > a:hover,
     .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
     .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
@@ -168,8 +148,20 @@
       .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
+/* ── MOBILE NAV ── */
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
+    .nav-mobile-menu.open { display:flex; }
+    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
+    .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
+    .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
+    @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
+    @media (max-width: 640px) { #navAuthLink { display:none; } }
   </style>
-
 </head>
 <body>
 
@@ -186,50 +178,38 @@
   </div>
 
   <!-- ─── NAV ─── -->
-
   <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
     <div class="nav-logo">
       <a href="index.html" aria-label="Concerto Home">
         <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
       </a>
     </div>
-    <div class="nav-center">
+            <div class="nav-center">
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">
-          Features
-          <svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
-          <div class="dropdown-header">
-            <span class="dropdown-header-label">All Features</span>
-            <span class="dropdown-header-count">9 Tools</span>
-          </div>
-          <div class="dropdown-grid">
-            <a href="cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
-            <a href="events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
-            <a href="featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
-            <a href="setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
-            <a href="rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
-            <a href="bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
-            <a href="parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
-            <a href="concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
-          </div>
-        </div>
-      </div>
+      <a href="events.html">Events</a>
       <a href="premium.html">Premium</a>
-      <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-cta">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
     </div>
   </nav>
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <!-- Mobile menu -->
+    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Events</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
+      </div>
+    </div>
 
   <main>
     <header class="hero">
@@ -239,49 +219,45 @@
       <a href="mailto:partners@concertocity.com" class="btn btn-gold">Become a Partner</a>
     </header>
 
-```
-<section class="pitch-section">
-  <h2 class="section-heading">The Ecosystem</h2>
-  <div class="pitch-grid">
+    <section class="pitch-section">
+      <h2 class="section-heading">The Ecosystem</h2>
+      <div class="pitch-grid">
 
-    <div class="pitch-card">
-      <span class="pitch-label">Food &amp; Drink</span>
-      <h3>Restaurants &amp; Bars</h3>
-      <p>&ldquo;Top Picks&rdquo; placement in our City Guides surfaces your venue to fans searching for pre-show dinner or post-show drinks. We convert proximity into guaranteed foot traffic, perfectly timed to the local event schedule.</p>
-    </div>
+        <div class="pitch-card">
+          <span class="pitch-label">Food &amp; Drink</span>
+          <h3>Restaurants &amp; Bars</h3>
+          <p>&ldquo;Top Picks&rdquo; placement in our City Guides surfaces your venue to fans searching for pre-show dinner or post-show drinks. We convert proximity into guaranteed foot traffic, perfectly timed to the local event schedule.</p>
+        </div>
 
-    <div class="pitch-card">
-      <span class="pitch-label">Hospitality</span>
-      <h3>Hotels &amp; Stays</h3>
-      <p>Reach guests actively planning trips around major concerts and festivals. Our venue-centric discovery converts one-night shows into full weekend stays, aligned to known tour routing across 346 venues.</p>
-    </div>
+        <div class="pitch-card">
+          <span class="pitch-label">Hospitality</span>
+          <h3>Hotels &amp; Stays</h3>
+          <p>Reach guests actively planning trips around major concerts and festivals. Our venue-centric discovery converts one-night shows into full weekend stays, aligned to known tour routing across 346 venues.</p>
+        </div>
 
-    <div class="pitch-card">
-      <span class="pitch-label">Music</span>
-      <h3>Artists &amp; Tours</h3>
-      <p>Claim your featured tour placement. Deliver direct ticket links, official setlists, and fan-facing venue logistics directly to your audience. We help artists ensure their fans have a flawless night &mdash; from dinner to encore.</p>
-    </div>
+        <div class="pitch-card">
+          <span class="pitch-label">Music</span>
+          <h3>Artists &amp; Tours</h3>
+          <p>Claim your featured tour placement. Deliver direct ticket links, official setlists, and fan-facing venue logistics directly to your audience. We help artists ensure their fans have a flawless night &mdash; from dinner to encore.</p>
+        </div>
 
-    <div class="pitch-card">
-      <span class="pitch-label">Live Events</span>
-      <h3>Venues &amp; Festivals</h3>
-      <p>Centralize your bag policies, parking maps, and concessions in the Concerto platform. Venues that integrate dramatically reduce day-of operational friction, ease security bottlenecks, and guarantee fans arrive informed.</p>
-    </div>
+        <div class="pitch-card">
+          <span class="pitch-label">Live Events</span>
+          <h3>Venues &amp; Festivals</h3>
+          <p>Centralize your bag policies, parking maps, and concessions in the Concerto platform. Venues that integrate dramatically reduce day-of operational friction, ease security bottlenecks, and guarantee fans arrive informed.</p>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
 
-<section class="cta-section">
-  <h2 class="cta-title">Event-night demand doesn&rsquo;t happen by accident. Own it.</h2>
-  <p class="cta-desc">Join the ecosystem powering the modern live music experience. Get in touch and we&rsquo;ll talk.</p>
-  <a href="mailto:partners@concertocity.com" class="btn btn-dark">Get in Touch</a>
-</section>
-```
-
+    <section class="cta-section">
+      <h2 class="cta-title">Event-night demand doesn&rsquo;t happen by accident. Own it.</h2>
+      <p class="cta-desc">Join the ecosystem powering the modern live music experience. Get in touch and we&rsquo;ll talk.</p>
+      <a href="mailto:partners@concertocity.com" class="btn btn-dark">Get in Touch</a>
+    </section>
   </main>
 
   <!-- ─── FOOTER ─── -->
-
   <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -328,12 +304,7 @@
 
   <script>
     /* Nav dropdown */
-    const featuresBtn = document.getElementById('featuresBtn');
-    const featuresPanel = document.getElementById('featuresPanel');
-    featuresBtn.addEventListener('click', (e) => { e.stopPropagation(); const o = featuresPanel.classList.toggle('open'); featuresBtn.classList.toggle('open', o); featuresBtn.setAttribute('aria-expanded', o); });
-    document.addEventListener('click', () => { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); });
-    featuresPanel.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
 
     /* Parallax */
     const bgCanvas = document.getElementById('bgCanvas');
@@ -343,5 +314,7 @@
     });
   </script>
 
+<script>
+// Nav auth state
 </body>
 </html>
