@@ -224,7 +224,6 @@
             <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
           <div class="dropdown-header">
             <span class="dropdown-header-label">All Features</span>
             <span class="dropdown-header-count">9 Tools</span>
@@ -246,9 +245,11 @@
       <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
     </div>
-    <div class="nav-cta">
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a>
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Get Access</a>
     </div>
   </nav>
 
@@ -437,11 +438,8 @@
   <script>
     /* Nav dropdown */
     const featuresBtn = document.getElementById('featuresBtn');
-    const featuresPanel = document.getElementById('featuresPanel');
-    featuresBtn.addEventListener('click', (e) => { e.stopPropagation(); const o = featuresPanel.classList.toggle('open'); featuresBtn.classList.toggle('open', o); featuresBtn.setAttribute('aria-expanded', o); });
-    document.addEventListener('click', () => { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); });
-    featuresPanel.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+    featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
 
     /* Parallax */
     const bgCanvas = document.getElementById('bgCanvas');
@@ -597,5 +595,23 @@
     locationInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); handleSearch(); } });
     dateInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); handleSearch(); } });
   </script>
+
+<script>
+// Nav auth state
+(function(){
+  const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+  const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+  const el = document.getElementById('navAuthLink');
+  if (!el) return;
+  fetch(SB_URL + '/auth/v1/user', {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '') }
+  }).then(r => r.ok ? r.json() : null).then(user => {
+    if (user && user.id) {
+      el.textContent = 'My Account';
+      el.href = 'account.html';
+    }
+  }).catch(()=>{});
+})();
+</script>
 </body>
 </html>
