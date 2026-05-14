@@ -42,7 +42,10 @@ async function getProfile() {
 async function signUp(email, password, displayName) {
   const { data, error } = await getSupabase().auth.signUp({
     email, password,
-    options: { data: { display_name: displayName } }
+    options: {
+      data: { display_name: displayName },
+      emailRedirectTo: window.location.origin + '/login.html'
+    }
   });
   if (!error && data.user) {
     await getSupabase().from('profiles').update({ display_name: displayName }).eq('id', data.user.id);
