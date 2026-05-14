@@ -187,6 +187,9 @@
     @media (max-width: 1024px) {
       .nav-hamburger { display:flex; }
       .nav-center { display:none !important; }
+      .nav-cta a { display:none; }
+    }
+      .nav-center { display:none !important; }
       #navAuthLink { display:none; }
       .nav-cta a.btn-dark { display:none; }
     }
@@ -231,7 +234,6 @@
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
       </div>
     </div>
 
@@ -415,6 +417,39 @@
       el.style.cssText = 'background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;';
     }
   }).catch(()=>{});
+})();
+</script>
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+  // Auth state in mobile menu
+  const mobileAuth = document.getElementById('navMobileAuthLink');
+  if (mobileAuth) {
+    try {
+      const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+      const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+      const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
+      if (token) fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+        .then(r => r.ok ? r.json() : null)
+        .then(user => { if (user?.id) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; } })
+        .catch(()=>{});
+    } catch(e) {}
+  }
 })();
 </script>
 </body>
