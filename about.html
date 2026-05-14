@@ -160,7 +160,7 @@
     }
     @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
 /* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
     .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
     .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
@@ -170,8 +170,12 @@
     .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
     .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
-    @media (max-width: 640px) { #navAuthLink { display:none; } }
+    @media (max-width: 1024px) {
+      .nav-hamburger { display:flex; }
+      .nav-center { display:none !important; }
+      #navAuthLink { display:none; }
+      .nav-cta a.btn-dark { display:none; }
+    }
   </style>
 </head>
 <body>
@@ -205,12 +209,11 @@
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-    <!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -232,11 +235,11 @@
       <div class="prose">
         <p class="lead">Whether it&rsquo;s your favorite artist taking the stage, or your hometown team hitting the court, the experience starts long before the event.</p>
 
-        <p>It&rsquo;s the dinner before the show, the hotel you stay in, the rush of grabbing merch, and figuring out how to get home when the encore ends. Most apps stop at discovery. They tell you the show exists, and then you&rsquo;re on your own &mdash; bouncing between maps, review sites, and venue pages just to piece the night together.</p>
+        <p>It&rsquo;s the dinner before the show, the hotel you stay in, the rush of grabbing merch, and figuring out how to get home when the encore ends. Most apps stop at discovery. They tell you the show exists, and then you&rsquo;re on your own. Bouncing between maps, review sites, and venue pages just to piece the night together.</p>
 
         <p>At Concerto, we believe every detail of the night matters. That&rsquo;s why we built the app you open <em>after</em> you buy the ticket. A single hub for the entire night out.</p>
 
-        <p>We actively cover over 346 venues globally, providing verified bag policies, parking maps, official setlists, and 1-tap rideshare routing. We skip the generic Yelp reviews to bring you curated City Guides physically anchored to your venue. And with 42 active tour guides on the site &mdash; complete with setlists, show dates, and per-venue logistics &mdash; Concerto is becoming the destination for anyone going to a live event.</p>
+        <p>We actively cover over 346 venues globally, providing verified bag policies, parking maps, official setlists, and 1-tap rideshare routing. We skip the generic Yelp reviews to bring you curated City Guides physically anchored to your venue. With 65 active tour guides on the site, complete with setlists, show dates, and per-venue logistics, Concerto is becoming the destination for anyone going to a live event.</p>
 
         <p>And Concerto isn&rsquo;t just for concerts. If you&rsquo;re heading to a game, a match, or any live event at these same arenas and stadiums, you get the exact same benefits. From grabbing dinner before tip-off to finding the right rideshare zone after the final whistle, we built Concerto to make the entire experience effortless.</p>
 
@@ -249,11 +252,11 @@
             <li><strong>Concerto+ AI Itinerary:</strong> A personalized AI builder that mathematically maps out your dinner timing, arrival windows, and post-show plans around your specific venue.</li>
             
           </ul>
-          <div class="price-tag">Available for $7.99 / month or $69.99 / year.</div>
+          <div class="price-tag">Available for $7.99 Per Month or $69.99 Per Year.</div>
         </div>
 
         <p class="lead" style="text-align:center;margin-top:3.5rem;">With Concerto, planning your night is as easy as enjoying it.</p>
-        <p style="text-align:center;">From the pre-show buzz to the final encore &mdash; or from the opening tip to the last play &mdash; we&rsquo;re here to make every moment smoother.</p>
+        <p style="text-align:center;">From the pre-show buzz to the final encore, we&rsquo;re here to make every moment smoother.</p>
       </div>
 
       <div class="disclaimer">
