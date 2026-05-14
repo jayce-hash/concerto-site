@@ -201,7 +201,8 @@
       <a href="about.html">About</a>
     </div>
 
-    <div class="nav-cta">
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
          target="_blank" rel="noopener noreferrer"
          class="btn btn-dark">Download the App</a>
@@ -681,11 +682,8 @@
 
   <script>
     /* Nav simplified */
-    featuresPanel.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        featuresPanel.classList.remove('open');
-        featuresBtn.classList.remove('open');
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+    featuresBtn.classList.remove('open');
         featuresBtn.setAttribute('aria-expanded', false);
       }
     });
@@ -727,5 +725,23 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth.js"></script>
+
+<script>
+// Nav auth state
+(function(){
+  const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+  const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+  const el = document.getElementById('navAuthLink');
+  if (!el) return;
+  fetch(SB_URL + '/auth/v1/user', {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '') }
+  }).then(r => r.ok ? r.json() : null).then(user => {
+    if (user && user.id) {
+      el.textContent = 'My Account';
+      el.href = 'account.html';
+    }
+  }).catch(()=>{});
+})();
+</script>
 </body>
 </html>
