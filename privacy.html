@@ -106,17 +106,21 @@
     }
     @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
 /* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
     .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
     .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
     .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
+    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
     .nav-mobile-menu.open { display:flex; }
-    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
-    .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
+    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; }
+    .nav-mobile-link:hover { color:var(--text); }
     .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
+    @media (max-width: 1024px) {
+      .nav-hamburger { display:flex; }
+      .nav-center { display:none !important; }
+      .nav-cta a { display:none; }
+    } .nav-center { display:none !important; } }
     @media (max-width: 640px) { #navAuthLink { display:none; } }
   </style>
 </head>
@@ -142,14 +146,13 @@
       <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
-    <div class="nav-cta">
+        <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-    <!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -285,5 +288,25 @@
 
 <script>
 // Nav auth state
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+})();
+</script>
 </body>
 </html>
