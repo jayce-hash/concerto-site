@@ -182,15 +182,13 @@
       <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
-    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+        <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-<!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -568,6 +566,26 @@ function esc(str) {
     console.error(e);
     document.getElementById('resultCount').textContent = 'Could not load setlists';
   }
+})();
+</script>
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
 })();
 </script>
 </body>
