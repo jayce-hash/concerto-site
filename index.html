@@ -89,7 +89,7 @@
       position: relative;
     }
     .hero-eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: block; }
-    .hero-logo { height: 96px; width: auto; margin: 0 auto 2rem; }
+    .hero-logo { height: 160px; width: auto; margin: 0 auto 2rem; }
     .hero-headline {
       font-family: var(--display);
       font-size: clamp(3.2rem, 7vw, 6.5rem);
@@ -235,7 +235,7 @@
   <!-- Hero -->
   <header class="hero" role="banner">
     <span class="hero-eyebrow">The Concert Companion</span>
-    <img src="logo.png" alt="Concerto" class="hero-logo" width="320" height="96" fetchpriority="high" />
+    <img src="logo.png" alt="Concerto" class="hero-logo" width="540" height="160" fetchpriority="high" />
     <h1 class="hero-headline">
       From the Concert<br /><em>to the City.</em>
     </h1>
@@ -408,6 +408,8 @@
     if (user && user.id) {
       el.textContent = 'My Account';
       el.href = 'account.html';
+      el.className = 'btn';
+      el.style.cssText = 'background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;';
     }
   }).catch(()=>{});
 })();
