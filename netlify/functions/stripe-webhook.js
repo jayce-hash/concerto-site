@@ -31,12 +31,18 @@ export default async function handler(req, res) {
       const session = event.data.object;
       const customerId = session.customer;
       const subscriptionId = session.subscription;
-      const userId = session.metadata.supabase_user_id;
+      // client_reference_id is the Supabase user ID passed from startCheckout()
+      const userId = session.client_reference_id || session.metadata?.supabase_user_id;
+
+      if (!userId) {
+        console.error('No user ID in checkout session — cannot upgrade profile');
+        break;
+      }
 
       // Fetch subscription to get tier
       const sub = await stripe.subscriptions.retrieve(subscriptionId);
       const priceId = sub.items.data[0].price.id;
-      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : priceId === process.env.STRIPE_PRICE_MONTHLY ? 'monthly' : 'monthly';
+      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : 'monthly';
       const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
 
       await supabase.from('profiles').update({
