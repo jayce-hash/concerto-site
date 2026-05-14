@@ -100,9 +100,8 @@
     .nav-logo { display: flex; align-items: center; width: 200px; }
     .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
     .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-center > a,
-    .nav-center > a:hover,
-    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
+    .nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
+    .nav-center > a:hover, .nav-center > a.active { color: var(--text); }
     .btn, button.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
     .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid,rgba(18,30,54,.14)); }
     .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
@@ -193,8 +192,8 @@
   <div class="noise" aria-hidden="true"></div>
   <div class="ghost-marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
-      <span>Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
+      <span>AI Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
+      <span>AI Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
     </div>
   </div>
 
@@ -252,7 +251,7 @@
 
         <a href="bagcheck.html" class="feat-card feat-card-link" id="feat-bagcheck">
           <span class="feat-label">AI Tool</span>
-          <h3>Bag Check</h3>
+          <h3>AI Bag Check</h3>
           <p>Hold your bag up to your camera. Our AI estimates dimensions and structure, cross-references the venue&rsquo;s official policy, and gives you an instant Pass, Warn, or Fail verdict &mdash; before you leave the house.</p>
           <div class="feat-card-footer">
             <span class="feat-cta" id="cta-bagcheck">Unlock with Premium</span>
@@ -395,7 +394,7 @@
   fetch(SB_URL + '/auth/v1/user', {
     headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '') }
   }).then(r => r.ok ? r.json() : null).then(user => {
-    if (user && user.id) { el.textContent = 'My Account'; el.href = 'account.html'; }
+    if (user && user.id) { el.textContent = 'My Account'; el.href = 'account.html'; el.style.cssText = 'background:transparent;border:1px solid rgba(18,30,54,.14);color:#121E36;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;'; }
   }).catch(()=>{});
 })();
 </script>
