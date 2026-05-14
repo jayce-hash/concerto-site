@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<meta name="theme-color" content="#121E36"/>
+<title>Concerto — From the Concert to the City</title>
+<meta name="description" content="Bag policies, parking, setlists, city guides, and events near you for 346 venues. Free on iOS."/>
+<link rel="canonical" href="https://concertocity.com/mobile"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #F8F9F9;
+    --navy: #121E36;
+    --gold: #C9A84C;
+    --gold-light: #E5C365;
+    --dim: rgba(18,30,54,0.52);
+    --xdim: rgba(18,30,54,0.28);
+    --border: rgba(18,30,54,0.08);
+    --border-mid: rgba(18,30,54,0.14);
+    --display: 'Playfair Display', Georgia, serif;
+    --body: 'DM Sans', -apple-system, sans-serif;
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { background: var(--navy); }
+  body { font-family: var(--body); background: var(--navy); color: #F8F9F9; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── TOP BAR ── */
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 0; }
+  .topbar-logo { height: 32px; width: auto; }
+  .topbar-signin { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 8px 16px; border: 1px solid rgba(255,255,255,0.15); border-radius: 99px; transition: all 0.2s; }
+  .topbar-signin:hover { color: #F8F9F9; border-color: rgba(255,255,255,0.4); }
+
+  /* ── HERO ── */
+  .hero { padding: 36px 24px 32px; }
+  .hero-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+  .hero-headline { font-family: var(--display); font-size: clamp(2.6rem, 10vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; color: #F8F9F9; margin-bottom: 16px; }
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 28px; max-width: 320px; }
+
+  /* ── CTA BUTTONS ── */
+  .cta-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+  .btn-primary { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 99px; background: #F8F9F9; color: var(--navy); font-family: var(--body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.3s var(--ease), box-shadow 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+  .btn-secondary { display: flex; align-items: center; justify-content: center; padding: 15px 24px; border-radius: 99px; background: transparent; color: rgba(255,255,255,0.65); font-family: var(--body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.18); cursor: pointer; transition: all 0.2s; }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: #F8F9F9; }
+
+  /* ── TRUST STRIP ── */
+  .trust { display: flex; gap: 20px; padding: 0 24px 36px; flex-wrap: wrap; }
+  .trust-item { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.28); display: flex; align-items: center; gap: 6px; }
+  .trust-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+
+  /* ── FEATURE PILLS ── */
+  .pills-section { padding: 0 24px 36px; }
+  .pills-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 14px; display: block; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { padding: 8px 14px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; transition: all 0.2s; cursor: pointer; }
+  .pill:hover { border-color: rgba(255,255,255,0.3); color: #F8F9F9; }
+  .pill.gold { border-color: rgba(201,168,76,0.4); color: var(--gold); }
+
+  /* ── FEATURE CARDS ── */
+  .cards-section { padding: 0 16px 36px; display: flex; flex-direction: column; gap: 10px; }
+  .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 22px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; transition: all 0.25s var(--ease); }
+  .card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); transform: translateY(-2px); }
+  .card-left { flex: 1; }
+  .card-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; display: block; }
+  .card-title { font-family: var(--display); font-size: 1.25rem; font-weight: 700; color: #F8F9F9; line-height: 1.15; }
+  .card-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 4px; line-height: 1.5; }
+  .card-arrow { font-size: 1rem; color: rgba(255,255,255,0.25); flex-shrink: 0; transition: transform 0.2s var(--ease), color 0.2s; }
+  .card:hover .card-arrow { color: var(--gold); transform: translateX(4px); }
+
+  /* ── PREMIUM BLOCK ── */
+  .premium-block { margin: 0 16px 36px; background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 100%); border: 1px solid rgba(201,168,76,0.25); border-radius: 24px; padding: 28px 22px; }
+  .premium-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+  .premium-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: #F8F9F9; line-height: 1.15; margin-bottom: 8px; }
+  .premium-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 20px; }
+  .premium-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+  .pf { display: flex; align-items: flex-start; gap: 10px; }
+  .pf-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 5px; }
+  .pf-text { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .pf-text strong { color: #F8F9F9; font-weight: 600; }
+  .btn-gold { display: flex; align-items: center; justify-content: center; padding: 14px 20px; border-radius: 99px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(201,168,76,0.3); transition: all 0.25s var(--ease); }
+  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(201,168,76,0.45); }
+
+  /* ── QUOTE ── */
+  .quote-block { padding: 0 24px 36px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; margin: 0 16px 36px; }
+  .quote-text { font-family: var(--display); font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); line-height: 1.55; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta { margin: 0 16px 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 28px 22px; text-align: center; }
+  .bottom-cta-title { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: #F8F9F9; margin-bottom: 6px; }
+  .bottom-cta-sub { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+
+  /* ── FOOTER ── */
+  .footer { padding: 32px 24px 48px; margin-top: 36px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+  .footer-link { font-size: 0.72rem; color: rgba(255,255,255,0.25); transition: color 0.2s; }
+  .footer-link:hover { color: rgba(255,255,255,0.6); }
+  .footer-copy { font-size: 0.65rem; color: rgba(255,255,255,0.18); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeUp 0.6s var(--ease) both; }
+  .cta-group { animation: fadeUp 0.6s 0.1s var(--ease) both; }
+  .trust { animation: fadeUp 0.6s 0.15s var(--ease) both; }
+  .pills-section { animation: fadeUp 0.6s 0.2s var(--ease) both; }
+  .cards-section { animation: fadeUp 0.6s 0.25s var(--ease) both; }
+  .premium-block { animation: fadeUp 0.6s 0.3s var(--ease) both; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <img src="logo.png" alt="Concerto" class="topbar-logo"/>
+  <a id="mobileSignIn" href="login.html" class="topbar-signin">Sign In</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-eyebrow">Your Concert Companion</span>
+  <h1 class="hero-headline">From the Concert<br/><em>to the City.</em></h1>
+  <p class="hero-sub">Venues, tours, setlists, parking, city guides &mdash; everything for your night out, in one place.</p>
+</div>
+
+<!-- CTAs -->
+<div class="cta-group" style="padding: 0 24px;">
+  <a href="venues.html" class="btn-primary">Find Your Venue &rarr;</a>
+  <a href="events.html" class="btn-secondary">Events Near Me &rarr;</a>
+</div>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-item"><div class="trust-dot"></div>346 Venues</div>
+  <div class="trust-item"><div class="trust-dot"></div>65 Active Tours</div>
+
+</div>
+
+<!-- PILLS -->
+<div class="pills-section">
+  <span class="pills-label">What's inside</span>
+  <div class="pills">
+    <a href="bags.html" class="pill">Bag Policies</a>
+    <a href="parking.html" class="pill">Parking</a>
+    <a href="setlists.html" class="pill">Setlists</a>
+    <a href="cityguides.html" class="pill">City Guides</a>
+    <a href="rideshare.html" class="pill">Rideshare</a>
+    <a href="events.html" class="pill">Events Near Me</a>
+    <a href="premium.html" class="pill gold">Premium ✦</a>
+  </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="cards-section">
+  <a href="venues.html" class="card">
+    <div class="card-left">
+      <span class="card-eyebrow">Know Before You Go</span>
+      <div class="card-title">Venue Guides</div>
+      <div class="card-sub">346 venues. Bag policies, parking, concessions & more.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+  <a href="tours.html" class="card">
+    <div class="card-left">
+      <span class="card-eyebrow">On the Road</span>
+      <div class="card-title">Tour Guides</div>
+      <div class="card-sub">Setlists, show dates & ticket links for 65 active tours.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+  <a href="events.html" class="card">
+    <div class="card-left">
+      <span class="card-eyebrow">Tonight</span>
+      <div class="card-title">Events Near Me</div>
+      <div class="card-sub">Concerts, games, comedy & festivals near you right now.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+</div>
+
+<!-- PREMIUM -->
+<div class="premium-block">
+  <span class="premium-eyebrow">Concerto Premium</span>
+  <div class="premium-title">The Magic Is in the Details.</div>
+  <p class="premium-sub">$7.99/month or $69.99/year. Cancel anytime.</p>
+  <div class="premium-features">
+    <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>AI Bag Check</strong> &mdash; Scan your bag. Get an instant verdict before you leave.</div></div>
+    <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Live Mode</strong> &mdash; Track the setlist live. Get a Story Card when it's over.</div></div>
+    <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Concerto+ AI Itinerary</strong> &mdash; Your full evening, planned around your show.</div></div>
+  </div>
+  <a href="premium.html" class="btn-gold">Explore Premium &rarr;</a>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-block">
+  <p class="quote-text">&ldquo;I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like one seamless event.&rdquo;</p>
+  <p class="quote-attr">&mdash; Jayce Wells, Founder</p>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <div class="bottom-cta-title">Unlock the Full Night.</div>
+  <p class="bottom-cta-sub">Concerto Premium. $7.99/month or $69.99/year.</p>
+  <a href="premium.html" class="btn-gold" style="max-width:280px;margin:0 auto;">Explore Premium &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-links">
+<a href="about.html" class="footer-link">About</a>
+    <a href="premium.html" class="footer-link">Premium</a>
+    <a href="faq.html" class="footer-link">FAQ</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="terms.html" class="footer-link">Terms</a>
+    <a href="partners.html" class="footer-link">Partners</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Concerto LLC. All rights reserved.</p>
+</div>
+
+<script>
+// Auth — update Sign In to My Account if logged in
+(function(){
+  const el = document.getElementById('mobileSignIn');
+  if (!el) return;
+  try {
+    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
+    if (!token) return;
+    fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+      .then(r => r.ok ? r.json() : null)
+      .then(user => { if (user?.id) { el.textContent = 'My Account'; el.href = 'account.html'; } })
+      .catch(()=>{});
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
