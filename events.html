@@ -182,7 +182,7 @@
     }
     @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
 /* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
     .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
     .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
@@ -192,8 +192,12 @@
     .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
     .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display:flex; } .nav-center { display:none !important; } }
-    @media (max-width: 640px) { #navAuthLink { display:none; } }
+    @media (max-width: 1024px) {
+      .nav-hamburger { display:flex; }
+      .nav-center { display:none !important; }
+      #navAuthLink { display:none; }
+      .nav-cta a.btn-dark { display:none; }
+    }
   </style>
 </head>
 <body>
@@ -221,12 +225,11 @@
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-    <!-- Mobile hamburger -->
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -246,7 +249,7 @@
       <section class="hero-section">
         <span class="eyebrow">Local Discoveries</span>
         <h1>Find Events Right Now.</h1>
-        <p>Concerts, Sports, Comedy, Festivals, Theater, Nightlife, and Family Fun Happening Near You Tonight.</p>
+        <p>Concerts, sports, comedy, festivals, theater, nightlife, and family fun happening near you tonight.</p>
       </section>
 
       <section class="control-dashboard">
@@ -361,7 +364,7 @@
         </div>
 
         <div class="search-actions">
-          <span id="status" class="status-text">Ready to search.</span>
+          <span id="status" class="status-text">Ready to Search.</span>
           <button type="button" id="searchBtn" class="btn btn-dark">Search Events</button>
         </div>
       </section>
@@ -369,7 +372,7 @@
       <section class="results">
         <div class="results-header">
           <h2>Results</h2>
-          <p id="resultsSummary" class="results-summary">Enter a city &amp; state to see what&rsquo;s happening nearby.</p>
+          <p id="resultsSummary" class="results-summary">Enter a city and state to see what&rsquo;s happening nearby.</p>
         </div>
         <div id="events" class="events-grid"></div>
       </section>
