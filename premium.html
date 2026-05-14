@@ -208,7 +208,8 @@
       <a href="about.html">About</a>
     </div>
 
-    <div class="nav-cta">
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a href="login.html" class="btn btn-dark" style="background:transparent;border:1px solid var(--border-mid);color:var(--text);">Sign In</a>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
          target="_blank" rel="noopener noreferrer"
          class="btn btn-dark">Download the App</a>
@@ -221,8 +222,13 @@
       <h1 class="hero-title">Concerto Premium.</h1>
       <p class="hero-desc">Take the friction out of the live music experience. Premium features built for people who treat going to a show as an event.</p>
       <p class="hero-price">$7.99 / month &nbsp;&bull;&nbsp; $69.99 / year</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer" class="btn btn-gold">Unlock Premium on iOS</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <a href="https://buy.stripe.com/14A7sL39K4xA63x3NraAw00"
+           target="_blank" rel="noopener noreferrer" class="btn btn-gold">Get Monthly — $7.99/mo</a>
+        <a href="https://buy.stripe.com/7sY28reSsaVYeA3es5aAw01"
+           target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Annual — $69.99/yr</a>
+      </div>
+      <p style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already subscribed? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign in to access Premium features</a></p>
     </header>
 
     <section class="showcase-container">
@@ -253,14 +259,16 @@
       <div class="pricing-card">
         <div class="pricing-copy">
           <h2>Simple pricing. No surprises.</h2>
-          <p>Download free on iOS. Upgrade to Premium anytime inside the app. Cancel whenever you want &mdash; no commitments.</p>
+          <p>Subscribe on the web and access Premium instantly. Cancel anytime &mdash; no commitments.</p>
         </div>
         <div class="pricing-options">
           <div class="price-pill"><strong>$7.99</strong> / month</div>
           <div class="price-pill" style="opacity:0.35;">&bull;</div>
           <div class="price-pill"><strong>$69.99</strong> / year</div>
-          <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-             target="_blank" rel="noopener noreferrer" class="btn btn-gold">Get Started</a>
+          <a href="https://buy.stripe.com/14A7sL39K4xA63x3NraAw00"
+             target="_blank" rel="noopener noreferrer" class="btn btn-gold">Monthly — $7.99</a>
+          <a href="https://buy.stripe.com/7sY28reSsaVYeA3es5aAw01"
+             target="_blank" rel="noopener noreferrer" class="btn btn-dark">Annual — $69.99</a>
         </div>
       </div>
     </section>
@@ -313,8 +321,8 @@
 
   <script>
     /* Nav simplified */
-    featuresPanel.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { featuresPanel.classList.remove('open'); featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+    featuresBtn.classList.remove('open'); featuresBtn.setAttribute('aria-expanded', false); } });
 
     /* Parallax */
     const bgCanvas = document.getElementById('bgCanvas');
@@ -325,5 +333,19 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth.js"></script>
+
+<script>
+(function(){
+  const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+  const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+  const el = document.getElementById('navAuthLink');
+  if (!el) return;
+  fetch(SB_URL + '/auth/v1/user', {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '') }
+  }).then(r => r.ok ? r.json() : null).then(user => {
+    if (user && user.id) { el.textContent = 'My Account'; el.href = 'account.html'; }
+  }).catch(()=>{});
+})();
+</script>
 </body>
 </html>
