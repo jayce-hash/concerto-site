@@ -112,8 +112,11 @@ async function isFavorite(field, value) {
 
 async function startCheckout(tier) {
   const user = await getCurrentUser();
-  if (!user) { window.location.href = 'login.html?next=premium'; return; }
-  // Pass user ID to Stripe via URL param (your checkout link should include client_reference_id)
+  if (!user) {
+    // Not logged in — send to login, then return to premium page with tier remembered
+    window.location.href = `login.html?next=${encodeURIComponent('premium.html?checkout=' + tier)}`;
+    return;
+  }
   const base = tier === 'annual' ? CONCERTO_CONFIG.stripeAnnualUrl : CONCERTO_CONFIG.stripeMonthlyUrl;
   window.location.href = `${base}?client_reference_id=${user.id}&prefilled_email=${encodeURIComponent(user.email)}`;
 }
