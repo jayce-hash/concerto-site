@@ -135,8 +135,19 @@
     const params = new URLSearchParams(window.location.search);
     const nextUrl = params.get('next') || 'account.html';
 
-    // Redirect if already logged in
-    getCurrentUser().then(user => { if (user) window.location.href = nextUrl; });
+    // Handle email confirmation / OAuth redirect — token arrives in the URL hash
+    if (window.location.hash && window.location.hash.includes('access_token')) {
+      showSuccess('Confirming your account…');
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session) {
+          showSuccess('Account confirmed! Redirecting…');
+          setTimeout(() => window.location.href = nextUrl, 800);
+        }
+      });
+    } else {
+      // Redirect if already logged in
+      getCurrentUser().then(user => { if (user) window.location.href = nextUrl; });
+    }
 
     function showError(msg) {
       const el = document.getElementById('errorMsg');
