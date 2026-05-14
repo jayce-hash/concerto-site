@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       // Fetch subscription to get tier
       const sub = await stripe.subscriptions.retrieve(subscriptionId);
       const priceId = sub.items.data[0].price.id;
-      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : 'monthly';
+      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : priceId === process.env.STRIPE_PRICE_MONTHLY ? 'monthly' : 'monthly';
       const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
 
       await supabase.from('profiles').update({
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
       const isActive = ['active', 'trialing'].includes(sub.status);
       const priceId = sub.items.data[0].price.id;
-      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : 'monthly';
+      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : priceId === process.env.STRIPE_PRICE_MONTHLY ? 'monthly' : 'monthly';
 
       await supabase.from('profiles').update({
         is_premium: isActive,
