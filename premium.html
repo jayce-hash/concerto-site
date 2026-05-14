@@ -197,21 +197,19 @@
         <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
       </a>
     </div>
-    <div class="nav-center">
+            <div class="nav-center">
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
       <a href="events.html">Events</a>
-      <a class="active" href="premium.html">Premium</a>
+      <a href="premium.html" class="active">Premium</a>
       <a href="about.html">About</a>
     </div>
-
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a href="login.html" class="btn btn-dark" style="background:transparent;border:1px solid var(--border-mid);color:var(--text);">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-dark">Download the App</a>
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
     </div>
-  <!-- Mobile hamburger -->
+  </nav>
+    <!-- Mobile hamburger -->
     <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -220,14 +218,13 @@
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
       <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="premium.html" class="nav-mobile-link active">Premium</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
         <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
       </div>
     </div>
-</nav>
 
   <main>
     <header class="hero">
