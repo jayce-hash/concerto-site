@@ -5,10 +5,10 @@
 // ─────────────────────────────────────────
 
 const CONCERTO_CONFIG = {
-  supabaseUrl:  'YOUR_SUPABASE_URL',   // e.g. https://xxxx.supabase.co
-  supabaseKey:  'YOUR_SUPABASE_ANON_KEY',
-  stripeMonthlyUrl: 'YOUR_STRIPE_MONTHLY_CHECKOUT_URL',
-  stripeAnnualUrl:  'YOUR_STRIPE_ANNUAL_CHECKOUT_URL',
+  supabaseUrl:  'https://qgvukssbtfkbvahaiejm.supabase.co',
+  supabaseKey:  'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY',
+  stripeMonthlyUrl: 'https://buy.stripe.com/14A7sL39K4xA63x3NraAw00',
+  stripeAnnualUrl:  'https://buy.stripe.com/7sY28reSsaVYeA3es5aAw01',
 };
 
 // Load Supabase client from CDN (included via script tag on each page)
