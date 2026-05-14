@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account — Concerto</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--display:'Playfair Display',Georgia,serif;--body:'DM Sans',-apple-system,sans-serif;--bg:#F8F9F9;--card-bg:#FFFFFF;--text:#121E36;--text-dim:rgba(18,30,54,0.52);--text-xdim:rgba(18,30,54,0.28);--border:rgba(18,30,54,0.08);--border-mid:rgba(18,30,54,0.14);--gold:#C9A84C;--gold-light:#E5C365;--shadow-sm:0 2px 12px rgba(18,30,54,0.04);--shadow-md:0 8px 32px rgba(18,30,54,0.07);--ease-out:cubic-bezier(0.16,1,0.3,1);--radius-md:20px;--radius-lg:28px;--nav-h:68px;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{background:var(--bg);}
+    body{font-family:var(--body);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;min-height:100svh;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+
+    .bg-canvas{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;}
+    .orb{position:absolute;border-radius:50%;filter:blur(130px);}
+    .orb-1{width:65vw;height:65vw;background:radial-gradient(circle,rgba(192,192,192,0.22) 0%,transparent 70%);top:-25%;left:-15%;opacity:.9;}
+    .orb-2{width:50vw;height:50vw;background:radial-gradient(circle,rgba(201,168,76,0.10) 0%,transparent 70%);bottom:-15%;right:-10%;opacity:.85;}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+    /* Nav */
+    .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);}
+    .nav-logo img{height:44px;width:auto;object-fit:contain;}
+    .nav-center{display:flex;gap:0;align-items:center;position:absolute;left:50%;transform:translateX(-50%);}
+    .nav-center>a{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);transition:color .25s;padding:0 1.2rem;height:var(--nav-h);display:flex;align-items:center;}
+    .nav-center>a:hover,.nav-center>a.active{color:var(--text);}
+    .nav-cta{display:flex;align-items:center;gap:1rem;}
+    .nav-sign-out{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-xdim);cursor:pointer;background:none;border:none;transition:color .25s;padding:0;}
+    .nav-sign-out:hover{color:var(--text);}
+
+    /* Page */
+    .page{max-width:1100px;margin:0 auto;padding:calc(var(--nav-h) + 48px) 4% 80px;}
+
+    /* Profile header */
+    .profile-header{display:flex;align-items:center;gap:2rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+    .profile-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:2rem;font-weight:700;color:var(--text);flex-shrink:0;}
+    .profile-info{flex:1;}
+    .profile-name{font-family:var(--display);font-size:2rem;font-weight:700;letter-spacing:-.025em;color:var(--text);margin-bottom:.25rem;}
+    .profile-email{font-size:.88rem;color:var(--text-dim);}
+    .premium-badge-large{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--text);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .8rem;border-radius:99px;margin-top:.5rem;}
+
+    /* Grid layout */
+    .dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+    .dashboard-grid .full-width{grid-column:span 2;}
+
+    /* Cards */
+    .dash-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem 2.2rem;box-shadow:var(--shadow-sm);}
+    .dash-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
+    .dash-card-title{font-family:var(--display);font-size:1.2rem;font-weight:700;letter-spacing:-.02em;color:var(--text);}
+    .dash-card-label{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+
+    /* Premium card */
+    .premium-card-inner{background:var(--text);border-radius:var(--radius-md);padding:2rem;margin:-0.5rem;}
+    .premium-card-inner .dash-card-label{color:var(--gold);}
+    .premium-card-inner .dash-card-title{color:#fff;}
+    .premium-status-active{font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:1.5rem;line-height:1.6;}
+    .premium-plans{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+    .plan-option{border:1.5px solid rgba(255,255,255,.12);border-radius:var(--radius-md);padding:1.2rem;cursor:pointer;transition:all .25s var(--ease-out);position:relative;}
+    .plan-option:hover{border-color:var(--gold);}
+    .plan-option.selected{border-color:var(--gold);background:rgba(201,168,76,.08);}
+    .plan-option input{position:absolute;opacity:0;pointer-events:none;}
+    .plan-name{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.4rem;}
+    .plan-price{font-family:var(--display);font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:-.02em;}
+    .plan-price span{font-family:var(--body);font-size:.78rem;font-weight:400;color:rgba(255,255,255,.45);}
+    .plan-save{font-size:.68rem;color:var(--gold);font-weight:600;margin-top:.25rem;}
+    .upgrade-btn{width:100%;padding:.9rem;border-radius:99px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--text);font-family:var(--body);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;transition:all .3s var(--ease-out);box-shadow:0 6px 20px rgba(201,168,76,.3);}
+    .upgrade-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,168,76,.4);}
+    .manage-sub-link{display:block;text-align:center;margin-top:.8rem;font-size:.78rem;color:rgba(255,255,255,.4);transition:color .2s;}
+    .manage-sub-link:hover{color:rgba(255,255,255,.7);}
+
+    /* Favorites */
+    .favorites-empty{font-size:.88rem;color:var(--text-xdim);font-style:italic;padding:.5rem 0;}
+    .fav-list{display:flex;flex-direction:column;gap:.5rem;}
+    .fav-item{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--bg);transition:border-color .2s;}
+    .fav-item:hover{border-color:var(--border-mid);}
+    .fav-item-name{font-size:.9rem;font-weight:500;color:var(--text);}
+    .fav-item-remove{font-size:.7rem;color:var(--text-xdim);cursor:pointer;background:none;border:none;padding:.2rem .4rem;border-radius:6px;transition:color .2s;}
+    .fav-item-remove:hover{color:#E53E3E;}
+    .fav-add-input{display:flex;gap:.75rem;margin-top:1rem;}
+    .fav-add-input input{flex:1;padding:.65rem 1rem;border:1.5px solid var(--border);border-radius:99px;font-family:var(--body);font-size:.85rem;color:var(--text);background:var(--bg);outline:none;transition:border-color .25s;}
+    .fav-add-input input:focus{border-color:var(--gold);}
+    .fav-add-input input::placeholder{color:var(--text-xdim);}
+    .fav-add-btn{padding:.65rem 1.2rem;border-radius:99px;border:1px solid var(--border);background:var(--card-bg);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);cursor:pointer;transition:all .25s;white-space:nowrap;}
+    .fav-add-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* Settings */
+    .settings-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border);}
+    .settings-row:last-child{border-bottom:none;}
+    .settings-label{font-size:.9rem;font-weight:500;color:var(--text);}
+    .settings-value{font-size:.85rem;color:var(--text-dim);}
+    .settings-edit{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);cursor:pointer;background:none;border:none;transition:opacity .2s;}
+    .settings-edit:hover{opacity:.7;}
+    .settings-input{padding:.55rem 1rem;border:1.5px solid var(--gold);border-radius:99px;font-family:var(--body);font-size:.88rem;color:var(--text);background:var(--bg);outline:none;width:180px;}
+
+    /* Loading skeleton */
+    .skeleton{background:linear-gradient(90deg,var(--border) 25%,rgba(18,30,54,.04) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;height:1.2rem;}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+    @media(max-width:1024px){.nav-center{display:none;}}
+    @media(max-width:768px){:root{--nav-h:58px;}.page{padding:calc(var(--nav-h)+32px) 5% 60px;}.dashboard-grid{grid-template-columns:1fr;}.dashboard-grid .full-width{grid-column:span 1;}.profile-header{flex-direction:column;text-align:center;gap:1.2rem;}.premium-plans{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <nav class="site-nav" role="navigation">
+    <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Concerto" /></a></div>
+    <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Events</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-cta">
+      <button class="nav-sign-out" id="signOutBtn">Sign Out</button>
+    </div>
+  </nav>
+
+  <main class="page" id="mainPage" style="display:none">
+
+    <!-- Profile header -->
+    <div class="profile-header">
+      <div class="profile-avatar" id="avatarEl">?</div>
+      <div class="profile-info">
+        <div class="profile-name" id="nameEl">Loading…</div>
+        <div class="profile-email" id="emailEl"></div>
+        <div id="premiumBadgeEl" style="display:none">
+          <span class="premium-badge-large">&#10022; Concerto Premium</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+
+      <!-- Premium -->
+      <div class="dash-card full-width" id="premiumCardEl">
+        <div class="premium-card-inner">
+          <div class="dash-card-header" style="margin-bottom:1.2rem">
+            <span class="dash-card-label">Concerto Premium</span>
+          </div>
+          <div id="premiumActiveEl" style="display:none">
+            <p class="premium-status-active" id="premiumStatusText"></p>
+            <a href="#" class="manage-sub-link" id="manageSubLink">Manage subscription &rarr;</a>
+          </div>
+          <div id="premiumUpgradeEl">
+            <h2 class="dash-card-title" style="color:#fff;margin-bottom:.6rem;">Unlock the full night.</h2>
+            <p class="premium-status-active">AI Bag Check, Live Mode, AI Itinerary, and Festivals. $7.99/month or $69.99/year.</p>
+            <div class="premium-plans">
+              <label class="plan-option selected" id="monthlyPlan">
+                <input type="radio" name="plan" value="monthly" checked />
+                <div class="plan-name">Monthly</div>
+                <div class="plan-price">$7.99<span>/mo</span></div>
+              </label>
+              <label class="plan-option" id="annualPlan">
+                <input type="radio" name="plan" value="annual" />
+                <div class="plan-name">Annual</div>
+                <div class="plan-price">$69.99<span>/yr</span></div>
+                <div class="plan-save">Save 27%</div>
+              </label>
+            </div>
+            <button class="upgrade-btn" id="upgradeBtn">Start Premium &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Favorite Artists -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <span class="dash-card-label">Following</span>
+          <span class="dash-card-title">Artists</span>
+        </div>
+        <div class="fav-list" id="artistsList"></div>
+        <div class="fav-add-input">
+          <input type="text" id="artistInput" placeholder="Add an artist…" />
+          <button class="fav-add-btn" id="addArtistBtn">Add</button>
+        </div>
+      </div>
+
+      <!-- Favorite Venues -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <span class="dash-card-label">Saved</span>
+          <span class="dash-card-title">Venues</span>
+        </div>
+        <div class="fav-list" id="venuesList"></div>
+        <div class="fav-add-input">
+          <input type="text" id="venueInput" placeholder="Add a venue…" />
+          <button class="fav-add-btn" id="addVenueBtn">Add</button>
+        </div>
+      </div>
+
+      <!-- Saved Cities -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <span class="dash-card-label">Your Cities</span>
+          <span class="dash-card-title">Cities</span>
+        </div>
+        <div class="fav-list" id="citiesList"></div>
+        <div class="fav-add-input">
+          <input type="text" id="cityInput" placeholder="Add a city…" />
+          <button class="fav-add-btn" id="addCityBtn">Add</button>
+        </div>
+      </div>
+
+      <!-- Favorite Tours -->
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <span class="dash-card-label">On the Road</span>
+          <span class="dash-card-title">Tours</span>
+        </div>
+        <div class="fav-list" id="toursList"></div>
+        <div class="fav-add-input">
+          <input type="text" id="tourInput" placeholder="Add a tour…" />
+          <button class="fav-add-btn" id="addTourBtn">Add</button>
+        </div>
+      </div>
+
+      <!-- Account Settings -->
+      <div class="dash-card full-width">
+        <div class="dash-card-header">
+          <span class="dash-card-label">Account</span>
+          <span class="dash-card-title">Settings</span>
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">Display Name</span>
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <span class="settings-value" id="settingsName"></span>
+            <button class="settings-edit" id="editNameBtn">Edit</button>
+          </div>
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">Email</span>
+          <span class="settings-value" id="settingsEmail"></span>
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">Home City</span>
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <span class="settings-value" id="settingsCity">Not set</span>
+            <button class="settings-edit" id="editCityBtn">Edit</button>
+          </div>
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">Password</span>
+          <button class="settings-edit" id="resetPwBtn">Send Reset Email</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+  <script>
+    let profile = null;
+
+    async function init() {
+      const user = await requireAuth('account.html');
+      if (!user) return;
+      profile = await getProfile();
+      if (!profile) return;
+      renderProfile();
+      document.getElementById('mainPage').style.display = 'block';
+    }
+
+    function renderProfile() {
+      const name = profile.display_name || profile.email.split('@')[0];
+      document.getElementById('avatarEl').textContent = name.charAt(0).toUpperCase();
+      document.getElementById('nameEl').textContent = name;
+      document.getElementById('emailEl').textContent = profile.email;
+      document.getElementById('settingsName').textContent = name;
+      document.getElementById('settingsEmail').textContent = profile.email;
+      document.getElementById('settingsCity').textContent = profile.city || 'Not set';
+
+      // Premium
+      if (profile.is_premium) {
+        document.getElementById('premiumBadgeEl').style.display = 'block';
+        document.getElementById('premiumActiveEl').style.display = 'block';
+        document.getElementById('premiumUpgradeEl').style.display = 'none';
+        const exp = profile.premium_expires_at ? new Date(profile.premium_expires_at).toLocaleDateString(undefined,{month:'long',day:'numeric',year:'numeric'}) : '';
+        document.getElementById('premiumStatusText').textContent = `You're on Concerto Premium${profile.premium_tier === 'annual' ? ' (Annual)' : ' (Monthly)'}. ${exp ? 'Renews ' + exp + '.' : ''}`;
+        if (profile.stripe_customer_id) {
+          document.getElementById('manageSubLink').href = `https://billing.stripe.com/p/login/YOUR_PORTAL_LINK?prefilled_email=${encodeURIComponent(profile.email)}`;
+        }
+      }
+
+      renderFavList('artistsList', profile.favorite_artists, 'favorite_artists');
+      renderFavList('venuesList', profile.favorite_venues, 'favorite_venues');
+      renderFavList('citiesList', profile.saved_cities, 'saved_cities');
+      renderFavList('toursList', profile.favorite_tours, 'favorite_tours');
+    }
+
+    function renderFavList(containerId, items, field) {
+      const el = document.getElementById(containerId);
+      if (!items || !items.length) {
+        el.innerHTML = '<p class="favorites-empty">Nothing saved yet.</p>';
+        return;
+      }
+      el.innerHTML = items.map(item => `
+        <div class="fav-item">
+          <span class="fav-item-name">${item}</span>
+          <button class="fav-item-remove" onclick="removeFav('${field}','${item.replace(/'/g,"\\'")}')">Remove</button>
+        </div>`).join('');
+    }
+
+    async function addFav(field, inputId) {
+      const input = document.getElementById(inputId);
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+      const updated = await toggleFavorite(field, val);
+      profile[field] = updated;
+      renderFavList(field === 'favorite_artists' ? 'artistsList' : field === 'favorite_venues' ? 'venuesList' : field === 'saved_cities' ? 'citiesList' : 'toursList', updated, field);
+    }
+
+    async function removeFav(field, val) {
+      const updated = await toggleFavorite(field, val);
+      profile[field] = updated;
+      const listId = field === 'favorite_artists' ? 'artistsList' : field === 'favorite_venues' ? 'venuesList' : field === 'saved_cities' ? 'citiesList' : 'toursList';
+      renderFavList(listId, updated, field);
+    }
+
+    // Add buttons
+    document.getElementById('addArtistBtn').onclick = () => addFav('favorite_artists','artistInput');
+    document.getElementById('addVenueBtn').onclick  = () => addFav('favorite_venues','venueInput');
+    document.getElementById('addCityBtn').onclick   = () => addFav('saved_cities','cityInput');
+    document.getElementById('addTourBtn').onclick   = () => addFav('favorite_tours','tourInput');
+
+    // Enter key on inputs
+    ['artistInput','venueInput','cityInput','tourInput'].forEach((id,i) => {
+      const fields = ['favorite_artists','favorite_venues','saved_cities','favorite_tours'];
+      document.getElementById(id).addEventListener('keydown', e => { if(e.key==='Enter'){e.preventDefault();addFav(fields[i],id);}});
+    });
+
+    // Premium plan selection
+    document.getElementById('monthlyPlan').addEventListener('click', () => {
+      document.getElementById('monthlyPlan').classList.add('selected');
+      document.getElementById('annualPlan').classList.remove('selected');
+    });
+    document.getElementById('annualPlan').addEventListener('click', () => {
+      document.getElementById('annualPlan').classList.add('selected');
+      document.getElementById('monthlyPlan').classList.remove('selected');
+    });
+    document.getElementById('upgradeBtn').addEventListener('click', () => {
+      const tier = document.getElementById('annualPlan').classList.contains('selected') ? 'annual' : 'monthly';
+      startCheckout(tier);
+    });
+
+    // Settings edits
+    document.getElementById('editNameBtn').addEventListener('click', async () => {
+      const val = prompt('Enter your display name:', profile.display_name || '');
+      if (val === null) return;
+      await updateProfile({ display_name: val.trim() });
+      profile.display_name = val.trim();
+      renderProfile();
+    });
+    document.getElementById('editCityBtn').addEventListener('click', async () => {
+      const val = prompt('Enter your home city:', profile.city || '');
+      if (val === null) return;
+      await updateProfile({ city: val.trim() });
+      profile.city = val.trim();
+      renderProfile();
+    });
+    document.getElementById('resetPwBtn').addEventListener('click', async () => {
+      await resetPassword(profile.email);
+      alert('Password reset email sent!');
+    });
+
+    document.getElementById('signOutBtn').addEventListener('click', signOut);
+
+    init();
+  </script>
+</body>
+</html>
