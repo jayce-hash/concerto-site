@@ -122,6 +122,13 @@
     .features-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; }
     .feat-card { background: var(--card-bg); border: 1px solid rgba(201,168,76,0.35); border-radius: var(--radius-lg); padding: 3rem; display: flex; flex-direction: column; box-shadow: var(--shadow-gold); position: relative; overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); }
     .feat-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 55%); pointer-events: none; }
+
+    .feat-card-link { text-decoration: none; cursor: pointer; }
+    .feat-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .feat-cta { font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+    .feat-cta.active { color: var(--text); }
+    .feat-arrow { color: var(--text-xdim); transition: transform 0.3s var(--ease-out), color 0.3s; }
+    .feat-card:hover .feat-arrow { color: var(--gold); transform: translateX(4px); }
     .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(201,168,76,0.2); }
     .feat-label { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
     .feat-card h3 { font-family: var(--display); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; line-height: 1.1; }
@@ -241,25 +248,37 @@
     </header>
 
     <section class="showcase-container">
-      <div class="features-grid">
+      <div class="features-grid" id="featuresGrid">
 
-        <div class="feat-card">
+        <a href="bagcheck.html" class="feat-card feat-card-link" id="feat-bagcheck">
           <span class="feat-label">AI Tool</span>
           <h3>AI Bag Check</h3>
           <p>Hold your bag up to your camera. Our AI estimates dimensions and structure, cross-references the venue&rsquo;s official policy, and gives you an instant Pass, Warn, or Fail verdict &mdash; before you leave the house.</p>
-        </div>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-bagcheck">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
 
-        <div class="feat-card">
+        <a href="livemode.html" class="feat-card feat-card-link" id="feat-livemode">
           <span class="feat-label">In-Show</span>
           <h3>Live Mode</h3>
           <p>Your real-time in-show companion. Once the encore ends, receive a beautifully designed, shareable Story Card documenting your entire night &mdash; a Strava post for your concert.</p>
-        </div>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-livemode">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
 
-        <div class="feat-card">
+        <a href="concertoplus.html" class="feat-card feat-card-link" id="feat-concertoplus">
           <span class="feat-label">AI Itinerary</span>
           <h3>Concerto+</h3>
           <p>Tell it your show, your city, and your vibe. Concerto+ builds a mathematically mapped timeline &mdash; dinner reservation timing, ideal arrival window, and post-show plans tailored to your exact venue.</p>
-        </div>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-concertoplus">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
 
       </div>
     </section>
@@ -380,5 +399,25 @@
   }).catch(()=>{});
 })();
 </script>
+
+  <script>
+  // Update feature card CTAs based on premium status
+  (async function() {
+    const user = await getCurrentUser();
+    if (!user) return;
+    const profile = await getProfile();
+    if (profile?.is_premium) {
+      document.querySelectorAll('.feat-cta').forEach(el => {
+        el.textContent = 'Open Feature →';
+        el.classList.add('active');
+      });
+      // Also update the checkout buttons
+      document.querySelectorAll('button[onclick^="startCheckout"]').forEach(btn => {
+        btn.textContent = 'Access Premium Features →';
+        btn.onclick = () => window.location.href = 'account.html';
+      });
+    }
+  })();
+  </script>
 </body>
 </html>
