@@ -560,10 +560,10 @@ async function runAnalysis(useAI=false){
 
 // ── SECURE API CALL via Netlify function ──
 async function analyzeWithProxy(imageB64, venue) {
-  const response = await fetch('/.netlify/functions/analyze', {
+  const response = await fetch('/.netlify/functions/claude', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ imageB64, venue })
+    body: JSON.stringify({ service: 'bag_check', imageB64, venue })
   });
   if (!response.ok) throw new Error(`Proxy error ${response.status}`);
   return await response.json();
