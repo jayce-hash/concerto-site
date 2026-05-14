@@ -195,41 +195,16 @@
     </div>
     <div class="nav-center">
       <a href="venues.html">Venues</a>
-      <a href="tours.html">Tours</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">
-          Features
-          <svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
-          <div class="dropdown-header">
-            <span class="dropdown-header-label">All Features</span>
-            <span class="dropdown-header-count">9 Tools</span>
-          </div>
-          <div class="dropdown-grid">
-            <a href="cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
-            <a href="events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
-            <a href="featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
-            <a href="setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
-            <a href="rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
-            <a href="bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
-            <a href="parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
-            <a href="concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
-          </div>
-        </div>
-      </div>
-      <a href="venues.html">Venues</a>
-      <a href="tours.html" class="active">Tours</a>
+      <a class="active" href="tours.html">Tours</a>
+      <a href="events.html">Events</a>
       <a href="premium.html">Premium</a>
-      <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
     </div>
+
     <div class="nav-cta">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a>
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Download the App</a>
     </div>
   </nav>
 
@@ -705,20 +680,7 @@
   </footer>
 
   <script>
-    /* Nav dropdown */
-    const featuresBtn = document.getElementById('featuresBtn');
-    const featuresPanel = document.getElementById('featuresPanel');
-    featuresBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const o = featuresPanel.classList.toggle('open');
-      featuresBtn.classList.toggle('open', o);
-      featuresBtn.setAttribute('aria-expanded', o);
-    });
-    document.addEventListener('click', () => {
-      featuresPanel.classList.remove('open');
-      featuresBtn.classList.remove('open');
-      featuresBtn.setAttribute('aria-expanded', false);
-    });
+    /* Nav simplified */
     featuresPanel.addEventListener('click', e => e.stopPropagation());
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
