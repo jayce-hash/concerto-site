@@ -329,5 +329,7 @@
       if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
