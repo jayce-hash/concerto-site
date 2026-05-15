@@ -441,25 +441,36 @@ function goTo(id){
 
 // ── AUTH GATE ──
 async function checkAccess() {
-  const spinner = $('gateSpinner');
-  const content = $('gateContent');
-  spinner.style.display = 'block';
-  content.style.display = 'none';
-
-  const timeout = setTimeout(() => showGate(), 5000);
+  const timeout = setTimeout(() => showGate(), 6000);
   try {
-    const { data: { session } } = await sb.auth.getSession();
     if (!sb) { clearTimeout(timeout); showGate(); return; }
-    if (!session) { clearTimeout(timeout); showGate(); return; }
+
+    // Try getSession first
+    const { data: { session } } = await sb.auth.getSession();
+
+    if (!session) {
+      // Double-check: try refreshing the session
+      const { data: refreshed } = await sb.auth.refreshSession();
+      if (!refreshed?.session) {
+        clearTimeout(timeout);
+        showGate();
+        return;
+      }
+    }
+
+    const activeSession = session || (await sb.auth.getSession()).data.session;
+    if (!activeSession) { clearTimeout(timeout); showGate(); return; }
 
     const { data: profile } = await sb.from('profiles')
       .select('is_premium')
-      .eq('id', session.user.id)
+      .eq('id', activeSession.user.id)
       .single();
 
     clearTimeout(timeout);
+
     if (profile?.is_premium) {
-      spinner.style.display = 'none';
+      const g = document.getElementById('s-gate');
+      if (g) g.style.display = 'none';
       goTo('s-home');
     } else {
       showGate();
@@ -479,12 +490,8 @@ function showGate() {
   goTo('s-gate');
 }
 
-$('upgradeBtn').addEventListener('click', () => {
-  window.location.href = UPGRADE_URL;
-});
-$('gateSignInBtn').addEventListener('click', () => {
-  window.location.href = LOGIN_URL + '?next=' + encodeURIComponent(window.location.href);
-});
+$('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
+$('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
 
 // ── VENUE DROPDOWN ──
 function setupVenueDropdown(){
@@ -1208,12 +1215,8 @@ function showGate() {
   goTo('s-gate');
 }
 
-$('upgradeBtn').addEventListener('click', () => {
-  window.location.href = UPGRADE_URL;
-});
-$('gateSignInBtn').addEventListener('click', () => {
-  window.location.href = LOGIN_URL + '?next=' + encodeURIComponent(window.location.href);
-});
+$('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
+$('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
 
 // ── VENUE DROPDOWN ──
 function setupVenueDropdown(){
