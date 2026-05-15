@@ -564,12 +564,9 @@ async function checkAccess() {
   }
 }
 function showGate() {
-  const spinner = $('gateSpinner');
-  if (spinner) spinner.style.display = 'none';
-  const c = $('gateContent');
-  if (c) { c.style.display = 'flex'; c.style.flexDirection = 'column'; c.style.alignItems = 'center'; }
-  const gate = $('s-gate');
-  if (gate) { gate.style.display = 'flex'; }
+  $('gateSpinner').style.display='none';
+  const c=$('gateContent'); c.style.display='flex'; c.style.flexDirection='column'; c.style.alignItems='center';
+  goTo(-1);
 }
 $('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
 $('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
@@ -613,9 +610,9 @@ function loadPhotos(artist){try{return JSON.parse(localStorage.getItem(`lm_photo
 
 // ── SCREENS ──
 // -1 = gate, 0 = setup, 1 = live
-const SCREEN_ELS = [$('s-gate'),$('s0'),$('s1')];
+const SCREENS = [$('s-gate'),$('s0'),$('s1')];
 function goTo(idx) {
-  SCREEN_ELS.forEach((s,i)=>{
+  SCREENS.forEach((s,i)=>{
     s.classList.remove('active','exit');
     if(i===idx+1) s.classList.add('active');
     else if(i<idx+1) s.classList.add('exit');
