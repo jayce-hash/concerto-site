@@ -255,11 +255,11 @@
       <h1 class="hero-title">Concerto Premium.</h1>
       <p class="hero-desc">Take the friction out of the live music experience. Premium features built for people who treat going to a show as an event.</p>
       <p class="hero-price">$7.99 Per Month &nbsp;&bull;&nbsp; $69.99 Per Year</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+      <div id="pricingSection" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
         <button onclick="startCheckout('monthly')" class="btn btn-gold">Get Monthly — $7.99/mo</button>
         <button onclick="startCheckout('annual')" class="btn btn-dark">Get Annual — $69.99/yr</button>
       </div>
-      <p style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already a member? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign In to Access Premium Features</a></p>
+      <p id="alreadyMember" style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already a member? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign In to Access Premium Features</a></p>
     </header>
 
     <section class="showcase-container">
@@ -374,13 +374,18 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="auth.js"></script>
   <script>
-    // If already premium, show account link instead of upgrade buttons
-    // If returned from login with ?checkout=tier, auto-resume checkout
     (async function() {
       const params = new URLSearchParams(window.location.search);
       const tier = params.get('checkout');
 
       const user = await getCurrentUser();
+
+      // Hide "Already a member?" if logged in
+      if (user) {
+        const alreadyEl = document.getElementById('alreadyMember');
+        if (alreadyEl) alreadyEl.style.display = 'none';
+      }
+
       if (!user) return;
 
       // Auto-resume checkout after login
@@ -389,13 +394,20 @@
         return;
       }
 
-      // Already premium — swap buttons for account link
       const profile = await getProfile();
       if (profile?.is_premium) {
-        document.querySelectorAll('button[onclick^="startCheckout"]').forEach(btn => {
-          btn.textContent = 'Access Premium Features →';
-          btn.onclick = () => window.location.href = 'account.html';
-          btn.className = 'btn btn-gold';
+        // Hide the entire pricing/checkout section
+        const pricingSection = document.getElementById('pricingSection');
+        if (pricingSection) pricingSection.style.display = 'none';
+
+        // Show the premium features section
+        const featuresSection = document.getElementById('featuresSection');
+        if (featuresSection) featuresSection.style.display = 'block';
+
+        // Update feature card CTAs
+        document.querySelectorAll('.feat-cta').forEach(el => {
+          el.textContent = 'Open Feature →';
+          el.classList.add('active');
         });
       }
     })();
@@ -416,23 +428,7 @@
 </script>
 
   <script>
-  // Update feature card CTAs based on premium status
-  (async function() {
-    const user = await getCurrentUser();
-    if (!user) return;
-    const profile = await getProfile();
-    if (profile?.is_premium) {
-      document.querySelectorAll('.feat-cta').forEach(el => {
-        el.textContent = 'Open Feature →';
-        el.classList.add('active');
-      });
-      // Also update the checkout buttons
-      document.querySelectorAll('button[onclick^="startCheckout"]').forEach(btn => {
-        btn.textContent = 'Access Premium Features →';
-        btn.onclick = () => window.location.href = 'account.html';
-      });
-    }
-  })();
+// Premium state handled above
   </script>
 <script>
 // Mobile nav
