@@ -125,20 +125,58 @@ async function startCheckout(tier) {
 
 async function updateNavForAuth() {
   const user = await getCurrentUser();
-  const ctaEl = document.querySelector('.nav-cta');
-  if (!ctaEl) return;
-  if (user) {
-    const profile = await getProfile();
-    const name = profile?.display_name || user.email.split('@')[0];
-    const isPremium = profile?.is_premium;
-    ctaEl.innerHTML = `
-      <a href="account.html" class="nav-account-btn">
-        <span class="nav-account-avatar">${name.charAt(0).toUpperCase()}</span>
-        <span class="nav-account-name">${name}</span>
-        ${isPremium ? '<span class="nav-premium-badge">Premium</span>' : ''}
-      </a>`;
+  if (!user) return;
+
+  const profile = await getProfile();
+  const name = profile?.display_name || user.email.split('@')[0];
+  const isPremium = profile?.is_premium;
+  const initial = name.charAt(0).toUpperCase();
+
+  // Update desktop Sign In link → styled avatar
+  const authLink = document.getElementById('navAuthLink');
+  if (authLink) {
+    authLink.textContent = '';
+    authLink.href = 'account.html';
+    authLink.setAttribute('aria-label', 'My Account');
+    authLink.style.cssText = [
+      'display:inline-flex',
+      'align-items:center',
+      'justify-content:center',
+      'width:36px',
+      'height:36px',
+      'border-radius:50%',
+      'font-family:var(--body)',
+      'font-size:0.75rem',
+      'font-weight:700',
+      'text-decoration:none',
+      'transition:all 0.2s',
+      isPremium
+        ? 'background:rgba(201,168,76,0.1);border:2px solid #C9A84C;color:#C9A84C;'
+        : 'background:rgba(18,30,54,0.06);border:2px solid #121E36;color:#121E36;'
+    ].join(';');
+    authLink.textContent = initial;
   }
-  // If not logged in, keep "Download the App" button as-is
+
+  // Update mobile auth link
+  const mobileAuth = document.getElementById('navMobileAuthLink');
+  if (mobileAuth) {
+    mobileAuth.textContent = 'My Account';
+    mobileAuth.href = 'account.html';
+  }
+
+  // Update profile icon (mobile)
+  const profileIcon = document.getElementById('navProfileIcon');
+  if (profileIcon) {
+    profileIcon.href = 'account.html';
+    profileIcon.setAttribute('aria-label', 'My Account');
+    if (isPremium) {
+      profileIcon.style.borderColor = '#C9A84C';
+      profileIcon.style.color = '#C9A84C';
+    } else {
+      profileIcon.style.borderColor = '#121E36';
+      profileIcon.style.color = '#121E36';
+    }
+  }
 }
 
 // Auto-run nav update
