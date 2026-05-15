@@ -505,7 +505,9 @@
 <div class="toast" id="toast"></div>
 <canvas id="storyCanvas"></canvas>
 
-<script>
+<script>const $ = id => document.getElementById(id);
+
+
 
 // ── AUTH ──
 const SUPABASE_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
@@ -522,24 +524,29 @@ async function checkAccess() {
     if (!sb) { clearTimeout(timeout); showGate(); return; }
 
     // Try getSession first
-    const { data: { session } } = await sb.auth.getSession();
+    let { data: { session } } = await sb.auth.getSession();
 
+    // If no session, try to get token directly from localStorage
     if (!session) {
-      // Double-check: try refreshing the session
-      const { data: refreshed } = await sb.auth.refreshSession();
-      if (!refreshed?.session) {
-        clearTimeout(timeout);
-        showGate();
-        return;
-      }
+      try {
+        const storageKey = 'sb-' + SUPABASE_URL.split('//')[1].split('.')[0] + '-auth-token';
+        const stored = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        if (stored.access_token) {
+          // Set the session using stored tokens
+          const { data } = await sb.auth.setSession({
+            access_token: stored.access_token,
+            refresh_token: stored.refresh_token
+          });
+          session = data?.session;
+        }
+      } catch(e) {}
     }
 
-    const activeSession = session || (await sb.auth.getSession()).data.session;
-    if (!activeSession) { clearTimeout(timeout); showGate(); return; }
+    if (!session) { clearTimeout(timeout); showGate(); return; }
 
     const { data: profile } = await sb.from('profiles')
       .select('is_premium')
-      .eq('id', activeSession.user.id)
+      .eq('id', session.user.id)
       .single();
 
     clearTimeout(timeout);
@@ -595,7 +602,7 @@ async function loadSetlistCache() {
 }
 
 // ── UTILS ──
-const $ = id => document.getElementById(id);
+
 let _tt;
 function showToast(msg,ms=2400){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),ms);}
 function nowTime(){return new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
