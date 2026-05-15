@@ -167,7 +167,7 @@
     .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
     .footer-bottom a:hover { color: var(--text); }
 
-    @media (max-width: 1024px) { .nav-center { display: none; } }
+     }
     @media (max-width: 768px) {
       :root { --nav-h: 58px; }
       .hero { min-height: 100svh; padding: calc(var(--nav-h) + 32px) 6% 60px; }
@@ -182,8 +182,9 @@
     .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
     .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
     .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
-    /* ── MOBILE NAV ── */
-    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: 4px; }
+    
+  /* ── MOBILE NAV ── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
     .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
@@ -196,20 +197,14 @@
     .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
     .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
+    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
     @media (max-width: 1024px) {
+      .nav-center { display: none !important; }
       .nav-hamburger { display: flex; }
       .nav-profile-btn { display: inline-flex; }
-      .nav-center { display: none !important; }
-      #navAuthLink { display: none !important; }
-      .btn-dark.nav-download { display: none !important; }
-    }
-      .nav-center { display:none !important; }
-      .nav-cta a { display:none; }
-      .nav-profile-btn { display:inline-flex; }
-    }
-      .nav-center { display:none !important; }
-      #navAuthLink { display:none; }
-      .nav-cta a.btn-dark { display:none; }
+      #navAuthLink { display: none; }
+      .nav-download { display: none; }
     }
   </style>
 </head>
