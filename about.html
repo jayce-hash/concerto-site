@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://concertocity.com/about.html" />
   <meta property="og:title" content="About Concerto — The Concert & Live Event Companion" />
   <meta property="og:description" content="The app you open after you buy the ticket. Bag policies, parking, setlists, city guides, and AI itineraries for 346 venues." />
-  <meta property="og:image" content="https://concertocity.com/preview-image.jpg" />
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
   <meta property="og:site_name" content="Concerto" />
 
   <!-- ─── Twitter Card ─── -->
@@ -25,7 +25,7 @@
   <meta name="twitter:url" content="https://concertocity.com/about.html" />
   <meta name="twitter:title" content="About Concerto — The Concert & Live Event Companion" />
   <meta name="twitter:description" content="The app you open after you buy the ticket. 346 venues. Every tour. One place." />
-  <meta name="twitter:image" content="https://concertocity.com/preview-image.jpg" />
+  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 
   <!-- ─── Schema.org ─── -->
   <script type="application/ld+json">
@@ -149,7 +149,7 @@
     .footer-bottom a:hover { color: var(--text); }
 
     @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
-    @media (max-width: 1024px) { .nav-center { display: none; } }
+     }
     @media (max-width: 768px) {
       :root { --nav-h: 58px; }
       .editorial-container { padding: calc(var(--nav-h) + 48px) 5% 72px; }
@@ -163,26 +163,29 @@
     .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
     .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
     .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
-    /* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
-    .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
-    .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
-    .nav-mobile-menu.open { display:flex; }
-    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; letter-spacing:-.01em; }
-    .nav-mobile-link:hover, .nav-mobile-link.active { color:var(--text); }
-    .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
+    
+  /* ── MOBILE NAV ── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
+    .nav-profile-btn:hover { color: var(--text); border-color: var(--text); }
+    .nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
+    .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
+    .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
+    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
     @media (max-width: 1024px) {
-      .nav-hamburger { display:flex; }
-      .nav-center { display:none !important; }
-      .nav-cta a { display:none; }
-      .nav-profile-btn { display:inline-flex; }
-    }
-      .nav-center { display:none !important; }
-      #navAuthLink { display:none; }
-      .nav-cta a.btn-dark { display:none; }
+      .nav-center { display: none !important; }
+      .nav-hamburger { display: flex; }
+      .nav-profile-btn { display: inline-flex; }
+      #navAuthLink { display: none; }
+      .nav-download { display: none; }
     }
   </style>
 </head>
@@ -216,7 +219,7 @@
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
       <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       </a>
