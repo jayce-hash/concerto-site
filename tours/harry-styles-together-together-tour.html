@@ -191,8 +191,23 @@
       <a href="../../shop.html">Shop</a>
       <a href="../../about.html">About</a>
     </div>
-    <div class="nav-cta"><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a></div>
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="../venues.html" class="nav-mobile-link">Venues</a>
+  <a href="../tours.html" class="nav-mobile-link">Tours</a>
+  <a href="../events.html" class="nav-mobile-link">Events</a>
+  <a href="../premium.html" class="nav-mobile-link">Premium</a>
+  <a href="../about.html" class="nav-mobile-link">About</a>
+  <div class="nav-mobile-cta">
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
+  </div>
+</div>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="../../index.html">Home</a><span>&rsaquo;</span>
@@ -305,7 +320,7 @@
     /* Load show dates from JSON */
     async function loadShows() {
       try {
-        const r = await fetch('../../data/harry-styles-together-together-tour.json');
+        const r = await fetch('../data/harry-styles-together-together-tour.json');
         if (!r.ok) throw new Error();
         const data = await r.json();
         const shows = data.shows || [];
@@ -384,7 +399,7 @@
       const setlistUnavail = document.querySelector('#setlist-section .section-unavailable');
       
       try {
-        const r = await fetch('../../setlists.json');
+        const r = await fetch('../setlists.json');
         if (!r.ok) return;
         const data = await r.json();
         
@@ -419,5 +434,23 @@
     }
     window.addEventListener('DOMContentLoaded', loadSetlist);
     </script>
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+  }));
+})();
+</script>
 </body>
 </html>
