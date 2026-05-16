@@ -151,12 +151,15 @@
   
     .setlist-loaded { padding: 0; }
     .setlist-songs { display: flex; flex-direction: column; }
-    .setlist-song { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .setlist-song { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
     .setlist-song:last-child { border-bottom: none; }
-    .setlist-num { font-family: var(--body); font-size: 0.72rem; font-weight: 700; color: var(--text-xdim); width: 24px; flex-shrink: 0; text-align: right; }
-    .setlist-name { font-family: var(--body); font-size: 0.92rem; font-weight: 500; color: var(--text); flex: 1; }
-    .setlist-listen { color: var(--gold); font-size: 1rem; text-decoration: none; flex-shrink: 0; opacity: 0.8; transition: opacity 0.2s; }
-    .setlist-listen:hover { opacity: 1; }
+    .setlist-num { font-size: 0.7rem; font-weight: 700; color: var(--text-xdim); width: 22px; flex-shrink: 0; text-align: right; font-family: var(--body); }
+    .setlist-name { font-size: 0.92rem; font-weight: 500; color: var(--text); flex: 1; font-family: var(--body); }
+    .setlist-listen { color: var(--gold); display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.3); flex-shrink: 0; transition: all 0.2s; text-decoration: none; }
+    .setlist-listen:hover { background: var(--gold); color: var(--bg); }
+    .setlist-listen.loading { opacity: 0.35; pointer-events: none; }
+    .setlist-listen.found { opacity: 1; pointer-events: all; }
+    .setlist-listen.not-found { opacity: 0.15; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -164,7 +167,7 @@
   <div class="noise" aria-hidden="true"></div>
 
   <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo"><a href="../../index.html" aria-label="Concerto Home"><img src="../../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" /></a></div>
+    <div class="nav-logo"><a href="../index.html" aria-label="Concerto Home"><img src="../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" /></a></div>
     <div class="nav-center">
       <div class="nav-dropdown">
         <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">Features
@@ -173,23 +176,23 @@
         <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
           <div class="dropdown-header"><span class="dropdown-header-label">All Features</span><span class="dropdown-header-count">9 Tools</span></div>
           <div class="dropdown-grid">
-            <a href="../../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
-            <a href="../../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
-            <a href="../../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
-            <a href="../../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="../../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
-            <a href="../../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
-            <a href="../../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
-            <a href="../../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
-            <a href="../../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
+            <a href="../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
+            <a href="../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
+            <a href="../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
+            <a href="../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
+            <a href="../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
+            <a href="../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
+            <a href="../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
+            <a href="../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
+            <a href="../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
           </div>
         </div>
       </div>
-      <a href="../../venues.html">Venues</a>
-      <a href="../../tours.html">Tours</a>
-      <a href="../../premium.html">Premium</a>
-      <a href="../../shop.html">Shop</a>
-      <a href="../../about.html">About</a>
+      <a href="../venues.html">Venues</a>
+      <a href="../tours.html">Tours</a>
+      <a href="../premium.html">Premium</a>
+      <a href="../shop.html">Shop</a>
+      <a href="../about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
@@ -210,8 +213,8 @@
 </div>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a><span>&rsaquo;</span>
-    <a href="../../tours.html">Tours</a><span>&rsaquo;</span>
+    <a href="../index.html">Home</a><span>&rsaquo;</span>
+    <a href="../tours.html">Tours</a><span>&rsaquo;</span>
     <span>Harry Styles &mdash; Together, Together Tour</span>
   </nav>
 
@@ -239,116 +242,9 @@
         <div class="section-header-left">
           <span class="section-label">What They&rsquo;re Playing</span>
           <h2 class="section-title" id="setlist-title">Setlist</h2>
-          <p class="section-desc">Setlist information for Harry Styles&rsquo;s Together, Together Tour is not yet available. Download the Concerto app to get notified when it drops.</p>
+          <p class="section-desc">Harry Styles is playing 21 songs on the Together Together Tour. Updated live tonight.</p>
         </div>
       </div>
-      <div class="setlist-loaded"><div class="setlist-songs">
-              <div class="setlist-song">
-                <span class="setlist-num">1</span>
-                <span class="setlist-name">Are You Listening Yet?</span>
-                <a href="https://song.link/s/are-you-listening-yet?-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">2</span>
-                <span class="setlist-name">Golden</span>
-                <a href="https://song.link/s/golden-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">3</span>
-                <span class="setlist-name">Adore You</span>
-                <a href="https://song.link/s/adore-you-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">4</span>
-                <span class="setlist-name">Watermelon Sugar</span>
-                <a href="https://song.link/s/watermelon-sugar-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">5</span>
-                <span class="setlist-name">Music For A Sushi Restaurant</span>
-                <a href="https://song.link/s/music-for-a-sushi-restaurant-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">6</span>
-                <span class="setlist-name">Taste Back</span>
-                <a href="https://song.link/s/taste-back-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">7</span>
-                <span class="setlist-name">Coming Up Roses</span>
-                <a href="https://song.link/s/coming-up-roses-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">8</span>
-                <span class="setlist-name">Fine Line</span>
-                <a href="https://song.link/s/fine-line-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">9</span>
-                <span class="setlist-name">American Girls</span>
-                <a href="https://song.link/s/american-girls-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">10</span>
-                <span class="setlist-name">Keep Driving</span>
-                <a href="https://song.link/s/keep-driving-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">11</span>
-                <span class="setlist-name">Ready, Steady, Go!</span>
-                <a href="https://song.link/s/ready-steady-go!-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">12</span>
-                <span class="setlist-name">Dance No More</span>
-                <a href="https://song.link/s/dance-no-more-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">13</span>
-                <span class="setlist-name">Treat People With Kindness</span>
-                <a href="https://song.link/s/treat-people-with-kindness-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">14</span>
-                <span class="setlist-name">This Must Be The Place</span>
-                <a href="https://song.link/s/this-must-be-the-place-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">15</span>
-                <span class="setlist-name">Pop</span>
-                <a href="https://song.link/s/pop-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">16</span>
-                <span class="setlist-name">Season 2 Weight Loss</span>
-                <a href="https://song.link/s/season-2-weight-loss-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">17</span>
-                <span class="setlist-name">Carla's Song x Satellite</span>
-                <a href="https://song.link/s/carla-s-song-x-satellite-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">18</span>
-                <span class="setlist-name">Aperture</span>
-                <a href="https://song.link/s/aperture-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">19</span>
-                <span class="setlist-name">Matilda</span>
-                <a href="https://song.link/s/matilda-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">20</span>
-                <span class="setlist-name">Sign Of The Times</span>
-                <a href="https://song.link/s/sign-of-the-times-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              <div class="setlist-song">
-                <span class="setlist-num">21</span>
-                <span class="setlist-name">As It Was</span>
-                <a href="https://song.link/s/as-it-was-harry-styles" target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen">♪</a>
-              </div>
-              </div></div>
     </section>
     
     <section class="tour-section" id="tickets" aria-labelledby="tickets-title">
@@ -362,33 +258,291 @@
           Buy Tickets <span class="section-cta-arrow">&nearr;</span>
         </a>
       </div>
-      <div class="section-preview">
-        <div class="preview-item">
-          <div class="preview-item-label">Official Source</div>
-          <div class="preview-item-value">Verified Link</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-label">All Tour Dates</div>
-          <div class="preview-item-value">View Full Schedule</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-label">Ticket Type</div>
-          <div class="preview-item-value">Official Site</div>
-        </div>
-      </div>
-    </section>
+      </section>
     
     <section class="tour-section" id="shows" aria-labelledby="shows-title">
       <div class="section-header">
         <div class="section-header-left">
           <span class="section-label">Show by Show</span>
           <h2 class="section-title" id="shows-title">Tour Dates</h2>
-          <p class="section-desc">Every stop on Harry Styles&rsquo;s Together, Together Tour — with venue-specific bag policies, parking, concessions, and city guides for each date.</p>
+          <p class="section-desc">Every stop on Harry Styles&rsquo;s Together, Together Tour &mdash; with venue-specific bag policies, parking, concessions, and city guides for each date.</p>
         </div>
       </div>
-      <div id="showsContainer" style="padding:0 2.5rem 2rem;">
-        <div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Loading show dates&hellip;</div>
-      </div>
+      <div id="showsContainer"><div style="border-top:1px solid var(--border);">
+        <div class="show-row" id="row-0">
+          <div class="show-row-main" onclick="toggleRow('row-0')">
+            <div class="show-date">May 16, 2026</div>
+            <div class="show-venue">Bridgestone Arena</div>
+            <div class="show-location">Nashville, TN</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-1">
+          <div class="show-row-main" onclick="toggleRow('row-1')">
+            <div class="show-date">May 18, 2026</div>
+            <div class="show-venue">Bridgestone Arena</div>
+            <div class="show-location">Nashville, TN</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-2">
+          <div class="show-row-main" onclick="toggleRow('row-2')">
+            <div class="show-date">May 21, 2026</div>
+            <div class="show-venue">United Center</div>
+            <div class="show-location">Chicago, IL</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-3">
+          <div class="show-row-main" onclick="toggleRow('row-3')">
+            <div class="show-date">May 22, 2026</div>
+            <div class="show-venue">United Center</div>
+            <div class="show-location">Chicago, IL</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-4">
+          <div class="show-row-main" onclick="toggleRow('row-4')">
+            <div class="show-date">May 25, 2026</div>
+            <div class="show-venue">Madison Square Garden</div>
+            <div class="show-location">New York, NY</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-5">
+          <div class="show-row-main" onclick="toggleRow('row-5')">
+            <div class="show-date">May 27, 2026</div>
+            <div class="show-venue">Madison Square Garden</div>
+            <div class="show-location">New York, NY</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-6">
+          <div class="show-row-main" onclick="toggleRow('row-6')">
+            <div class="show-date">May 29, 2026</div>
+            <div class="show-venue">TD Garden</div>
+            <div class="show-location">Boston, MA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-7">
+          <div class="show-row-main" onclick="toggleRow('row-7')">
+            <div class="show-date">Jun 1, 2026</div>
+            <div class="show-venue">Wells Fargo Center</div>
+            <div class="show-location">Philadelphia, PA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-8">
+          <div class="show-row-main" onclick="toggleRow('row-8')">
+            <div class="show-date">Jun 4, 2026</div>
+            <div class="show-venue">Capital One Arena</div>
+            <div class="show-location">Washington, DC</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-9">
+          <div class="show-row-main" onclick="toggleRow('row-9')">
+            <div class="show-date">Jun 7, 2026</div>
+            <div class="show-venue">State Farm Arena</div>
+            <div class="show-location">Atlanta, GA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-10">
+          <div class="show-row-main" onclick="toggleRow('row-10')">
+            <div class="show-date">Jun 10, 2026</div>
+            <div class="show-venue">Kia Center</div>
+            <div class="show-location">Orlando, FL</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-11">
+          <div class="show-row-main" onclick="toggleRow('row-11')">
+            <div class="show-date">Jun 13, 2026</div>
+            <div class="show-venue">Kaseya Center</div>
+            <div class="show-location">Miami, FL</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-12">
+          <div class="show-row-main" onclick="toggleRow('row-12')">
+            <div class="show-date">Jun 17, 2026</div>
+            <div class="show-venue">Toyota Center</div>
+            <div class="show-location">Houston, TX</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-13">
+          <div class="show-row-main" onclick="toggleRow('row-13')">
+            <div class="show-date">Jun 19, 2026</div>
+            <div class="show-venue">American Airlines Center</div>
+            <div class="show-location">Dallas, TX</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-14">
+          <div class="show-row-main" onclick="toggleRow('row-14')">
+            <div class="show-date">Jun 22, 2026</div>
+            <div class="show-venue">Ball Arena</div>
+            <div class="show-location">Denver, CO</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-15">
+          <div class="show-row-main" onclick="toggleRow('row-15')">
+            <div class="show-date">Jun 25, 2026</div>
+            <div class="show-venue">T-Mobile Arena</div>
+            <div class="show-location">Las Vegas, NV</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-16">
+          <div class="show-row-main" onclick="toggleRow('row-16')">
+            <div class="show-date">Jun 28, 2026</div>
+            <div class="show-venue">Kia Forum</div>
+            <div class="show-location">Los Angeles, CA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-17">
+          <div class="show-row-main" onclick="toggleRow('row-17')">
+            <div class="show-date">Jun 29, 2026</div>
+            <div class="show-venue">Kia Forum</div>
+            <div class="show-location">Los Angeles, CA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-18">
+          <div class="show-row-main" onclick="toggleRow('row-18')">
+            <div class="show-date">Jul 2, 2026</div>
+            <div class="show-venue">Chase Center</div>
+            <div class="show-location">San Francisco, CA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-19">
+          <div class="show-row-main" onclick="toggleRow('row-19')">
+            <div class="show-date">Jul 5, 2026</div>
+            <div class="show-venue">Climate Pledge Arena</div>
+            <div class="show-location">Seattle, WA</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+        <div class="show-row" id="row-20">
+          <div class="show-row-main" onclick="toggleRow('row-20')">
+            <div class="show-date">Jul 7, 2026</div>
+            <div class="show-venue">Rogers Arena</div>
+            <div class="show-location">Vancouver, BC</div>
+            <div class="show-chevron">&#9660;</div>
+          </div>
+          <div class="show-links">
+            <div class="show-links-inner">
+              <a href="https://www.hstyles.co.uk/tour/" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>
+            </div>
+          </div>
+        </div>
+      </div></div>
     </section>
   </div>
 
@@ -404,10 +558,10 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../../logo.png" alt="Concerto" width="160" height="44" /><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
-      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="../../about.html">About Us</a><a href="../../premium.html">Premium</a><a href="../../shop.html">Shop</a><a href="../../partners.html">Partnerships</a><a href="../../faq.html">FAQ</a></nav>
-      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../../cityguides.html">City Guides</a><a href="../../events.html">Events Near Me</a><a href="../../setlists.html">Setlists</a><a href="../../bags.html">Bag Policies</a><a href="../../parking.html">Parking</a><a href="../../concessions.html">Concessions</a><a href="../../rideshare.html">Rideshare</a><a href="../../tourinfo.html">Tour Info</a></nav>
-      <nav class="footer-col" aria-label="Legal"><h4>Legal</h4><a href="../../privacy.html">Privacy Policy</a><a href="../../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
+      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44" /><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
+      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a></nav>
+      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a><a href="../tourinfo.html">Tour Info</a></nav>
+      <nav class="footer-col" aria-label="Legal"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
       <nav class="footer-col" aria-label="Social"><h4>Follow Us</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Concerto LLC. All rights reserved.</span><span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span></div>
@@ -556,6 +710,42 @@
     menu.classList.remove('open'); btn.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
   }));
+})();
+</script>
+
+<script>
+// Apple Music links for setlist
+(function() {
+  const cache = {};
+  async function fetchAppleLink(title, artist, btn, idx) {
+    const key = artist + '::' + title;
+    if (cache[key] !== undefined) {
+      applyLink(btn, cache[key]); return;
+    }
+    try {
+      const url = '/.netlify/functions/songlink?artist=' + encodeURIComponent(artist) + '&title=' + encodeURIComponent(title);
+      const res = await fetch(url);
+      const data = await res.json();
+      const appleUrl = data?.appleUrl ? String(data.appleUrl).replace('geo.music.apple.com', 'music.apple.com') : null;
+      cache[key] = appleUrl;
+      applyLink(btn, appleUrl);
+    } catch(e) { btn.classList.remove('loading'); btn.classList.add('not-found'); }
+  }
+  function applyLink(btn, url) {
+    btn.classList.remove('loading');
+    if (url) { btn.href = url; btn.classList.add('found'); }
+    else { btn.classList.add('not-found'); }
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.setlist-song').forEach((row, idx) => {
+      const title = row.dataset.title;
+      const artist = row.dataset.artist;
+      const btn = row.querySelector('.setlist-listen');
+      if (btn && title && artist) {
+        setTimeout(() => fetchAppleLink(title, artist, btn, idx), idx * 120);
+      }
+    });
+  });
 })();
 </script>
 </body>
