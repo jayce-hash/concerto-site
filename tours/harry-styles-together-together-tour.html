@@ -151,12 +151,15 @@
   
     .setlist-loaded { padding: 0; }
     .setlist-songs { display: flex; flex-direction: column; }
-    .setlist-song { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .setlist-song { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
     .setlist-song:last-child { border-bottom: none; }
-    .setlist-num { font-family: var(--body); font-size: 0.72rem; font-weight: 700; color: var(--text-xdim); width: 24px; flex-shrink: 0; text-align: right; }
-    .setlist-name { font-family: var(--body); font-size: 0.92rem; font-weight: 500; color: var(--text); flex: 1; }
-    .setlist-listen { color: var(--gold); font-size: 1rem; text-decoration: none; flex-shrink: 0; opacity: 0.8; transition: opacity 0.2s; }
-    .setlist-listen:hover { opacity: 1; }
+    .setlist-num { font-size: 0.7rem; font-weight: 700; color: var(--text-xdim); width: 22px; flex-shrink: 0; text-align: right; font-family: var(--body); }
+    .setlist-name { font-size: 0.92rem; font-weight: 500; color: var(--text); flex: 1; font-family: var(--body); }
+    .setlist-listen { color: var(--gold); display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.3); flex-shrink: 0; transition: all 0.2s; text-decoration: none; }
+    .setlist-listen:hover { background: var(--gold); color: var(--bg); }
+    .setlist-listen.loading { opacity: 0.35; pointer-events: none; }
+    .setlist-listen.found { opacity: 1; pointer-events: all; }
+    .setlist-listen.not-found { opacity: 0.15; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -164,7 +167,7 @@
   <div class="noise" aria-hidden="true"></div>
 
   <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo"><a href="../../index.html" aria-label="Concerto Home"><img src="../../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" /></a></div>
+    <div class="nav-logo"><a href="../index.html" aria-label="Concerto Home"><img src="../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" /></a></div>
     <div class="nav-center">
       <div class="nav-dropdown">
         <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">Features
@@ -173,23 +176,23 @@
         <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
           <div class="dropdown-header"><span class="dropdown-header-label">All Features</span><span class="dropdown-header-count">9 Tools</span></div>
           <div class="dropdown-grid">
-            <a href="../../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
-            <a href="../../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
-            <a href="../../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
-            <a href="../../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="../../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
-            <a href="../../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
-            <a href="../../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
-            <a href="../../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
-            <a href="../../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
+            <a href="../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
+            <a href="../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
+            <a href="../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
+            <a href="../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
+            <a href="../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
+            <a href="../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
+            <a href="../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
+            <a href="../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
+            <a href="../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
           </div>
         </div>
       </div>
-      <a href="../../venues.html">Venues</a>
-      <a href="../../tours.html">Tours</a>
-      <a href="../../premium.html">Premium</a>
-      <a href="../../shop.html">Shop</a>
-      <a href="../../about.html">About</a>
+      <a href="../venues.html">Venues</a>
+      <a href="../tours.html">Tours</a>
+      <a href="../premium.html">Premium</a>
+      <a href="../shop.html">Shop</a>
+      <a href="../about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
@@ -210,8 +213,8 @@
 </div>
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../../index.html">Home</a><span>&rsaquo;</span>
-    <a href="../../tours.html">Tours</a><span>&rsaquo;</span>
+    <a href="../index.html">Home</a><span>&rsaquo;</span>
+    <a href="../tours.html">Tours</a><span>&rsaquo;</span>
     <span>Harry Styles &mdash; Together, Together Tour</span>
   </nav>
 
@@ -227,22 +230,22 @@
   </div>
 
   <div class="quick-nav" role="navigation" aria-label="Jump to section">
-    <a href="#setlist" class="quick-pill">Setlist</a>
+    <a href="#setlist-section" class="quick-pill">Setlist</a>
     <a href="#tickets" class="quick-pill">Tickets & Dates</a>
     <a href="#shows" class="quick-pill">All Shows</a>
   </div>
 
   <div class="tour-sections">
     
-    <section class="tour-section" id="setlist" aria-labelledby="setlist-title">
+    <section class="tour-section" id="setlist-section" aria-labelledby="setlist-title">
       <div class="section-header">
         <div class="section-header-left">
           <span class="section-label">What They&rsquo;re Playing</span>
           <h2 class="section-title" id="setlist-title">Setlist</h2>
-          <p class="section-desc">Setlist information for Harry Styles&rsquo;s Together, Together Tour is not yet available. Download the Concerto app to get notified when it drops.</p>
+          <p class="section-desc setlist-desc">Loading the latest setlist&hellip;</p>
         </div>
       </div>
-      <div class="section-unavailable"><p class="unavailable-note">Setlist coming soon &mdash; check back after the first show.</p></div>
+      <div id="setlistContainer" class="setlist-unavailable" style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Setlist coming soon.</div>
     </section>
     
     <section class="tour-section" id="tickets" aria-labelledby="tickets-title">
@@ -256,33 +259,17 @@
           Buy Tickets <span class="section-cta-arrow">&nearr;</span>
         </a>
       </div>
-      <div class="section-preview">
-        <div class="preview-item">
-          <div class="preview-item-label">Official Source</div>
-          <div class="preview-item-value">Verified Link</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-label">All Tour Dates</div>
-          <div class="preview-item-value">View Full Schedule</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-label">Ticket Type</div>
-          <div class="preview-item-value">Official Site</div>
-        </div>
-      </div>
-    </section>
+      </section>
     
     <section class="tour-section" id="shows" aria-labelledby="shows-title">
       <div class="section-header">
         <div class="section-header-left">
           <span class="section-label">Show by Show</span>
           <h2 class="section-title" id="shows-title">Tour Dates</h2>
-          <p class="section-desc">Every stop on Harry Styles&rsquo;s Together, Together Tour — with venue-specific bag policies, parking, concessions, and city guides for each date.</p>
+          <p class="section-desc">All 67 dates of Harry Styles&rsquo;s Together, Together Tour &mdash; Amsterdam, London, São Paulo, Mexico City, New York City (30 nights at MSG), Melbourne, and Sydney.</p>
         </div>
       </div>
-      <div id="showsContainer" style="padding:0 2.5rem 2rem;">
-        <div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Loading show dates&hellip;</div>
-      </div>
+      <div id="showsContainer"><div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Loading tour dates&hellip;</div></div>
     </section>
   </div>
 
@@ -298,159 +285,316 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../../logo.png" alt="Concerto" width="160" height="44" /><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
-      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="../../about.html">About Us</a><a href="../../premium.html">Premium</a><a href="../../shop.html">Shop</a><a href="../../partners.html">Partnerships</a><a href="../../faq.html">FAQ</a></nav>
-      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../../cityguides.html">City Guides</a><a href="../../events.html">Events Near Me</a><a href="../../setlists.html">Setlists</a><a href="../../bags.html">Bag Policies</a><a href="../../parking.html">Parking</a><a href="../../concessions.html">Concessions</a><a href="../../rideshare.html">Rideshare</a><a href="../../tourinfo.html">Tour Info</a></nav>
-      <nav class="footer-col" aria-label="Legal"><h4>Legal</h4><a href="../../privacy.html">Privacy Policy</a><a href="../../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
+      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44" /><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
+      <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a></nav>
+      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a><a href="../tourinfo.html">Tour Info</a></nav>
+      <nav class="footer-col" aria-label="Legal"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
       <nav class="footer-col" aria-label="Social"><h4>Follow Us</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
     </div>
     <div class="footer-bottom"><span>&copy; 2026 Concerto LLC. All rights reserved.</span><span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span></div>
   </footer>
 
   <script>
-    const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');
-    featuresBtn.addEventListener('click',(e)=>{e.stopPropagation();const o=featuresPanel.classList.toggle('open');featuresBtn.classList.toggle('open',o);featuresBtn.setAttribute('aria-expanded',o);});
-    document.addEventListener('click',()=>{featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);});
-    featuresPanel.addEventListener('click',e=>e.stopPropagation());
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);}});
-    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}){threshold:0.06});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-    document.querySelectorAll('.quick-pill').forEach(p=>{p.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(p.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
-    
-    /* Load show dates from JSON */
-    async function loadShows() {
-      try {
-        const r = await fetch('../data/harry-styles-together-together-tour.json');
-        if (!r.ok) throw new Error();
-        const data = await r.json();
-        const shows = data.shows || [];
-        const container = document.getElementById('showsContainer');
-        if (!shows.length) {
-          container.innerHTML = '<div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Show dates coming soon.</div>';
-          return;
+    /* ── UI: features dropdown, reveal-on-scroll, smooth jump pills ── */
+    const featuresBtn = document.getElementById('featuresBtn');
+    const featuresPanel = document.getElementById('featuresPanel');
+    if (featuresBtn && featuresPanel) {
+      featuresBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const o = featuresPanel.classList.toggle('open');
+        featuresBtn.classList.toggle('open', o);
+        featuresBtn.setAttribute('aria-expanded', o);
+      });
+      document.addEventListener('click', () => {
+        featuresPanel.classList.remove('open');
+        featuresBtn.classList.remove('open');
+        featuresBtn.setAttribute('aria-expanded', 'false');
+      });
+      featuresPanel.addEventListener('click', e => e.stopPropagation());
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          featuresPanel.classList.remove('open');
+          featuresBtn.classList.remove('open');
+          featuresBtn.setAttribute('aria-expanded', 'false');
         }
-        const isFifa = 'harry-styles-together-together-tour' === 'fifa-world-cup-2026';
+      });
+    }
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.06 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    document.querySelectorAll('.quick-pill').forEach(p => {
+      p.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(p.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* ── Show row expand/collapse ── */
+    function toggleRow(id) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      const isOpen = row.classList.contains('open');
+      document.querySelectorAll('.show-row.open').forEach(r => r.classList.remove('open'));
+      if (!isOpen) row.classList.add('open');
+    }
+
+    /* ── Mobile nav ── */
+    (function () {
+      const btn = document.getElementById('navHamburger');
+      const menu = document.getElementById('navMobileMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }));
+    })();
+  </script>
+
+  <script>
+    /* ──────────────────────────────────────────────────────────────
+       Tour dates: live Ticketmaster Discovery API lookup.
+       Resolves the attractionId by keyword on first call, then pulls
+       every upcoming event for that attraction and renders rows.
+       Falls back to a friendly empty state on any failure.
+       ────────────────────────────────────────────────────────────── */
+    const TM_API_KEY = 'vSyw9gaQsyn8SqMXctOzWZsGJDGt29tB';
+    const TM_BASE = 'https://app.ticketmaster.com/discovery/v2';
+    const ARTIST_NAME = 'Harry Styles';
+    const TOUR_KEYWORD = 'Together, Together';   // narrows results to this tour
+    // Override here if we ever need to pin a specific attractionId:
+    const ATTRACTION_ID_OVERRIDE = null;
+
+    async function resolveAttractionId() {
+      if (ATTRACTION_ID_OVERRIDE) return ATTRACTION_ID_OVERRIDE;
+      const params = new URLSearchParams({
+        apikey: TM_API_KEY,
+        keyword: ARTIST_NAME,
+        classificationName: 'Music',
+        size: '10'
+      });
+      const r = await fetch(`${TM_BASE}/attractions.json?${params}`);
+      if (!r.ok) throw new Error('attraction lookup failed');
+      const data = await r.json();
+      const list = data?._embedded?.attractions || [];
+      // Prefer an exact-name match; fall back to the first result.
+      const exact = list.find(a => (a.name || '').toLowerCase() === ARTIST_NAME.toLowerCase());
+      const pick = exact || list[0];
+      if (!pick) throw new Error('no attraction found');
+      return pick.id;
+    }
+
+    function formatTMDate(localDate, localTime) {
+      if (!localDate) return 'TBA';
+      const m = String(localDate).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) return localDate;
+      const d = new Date(+m[1], +m[2] - 1, +m[3]);
+      const datePart = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      if (!localTime) return datePart;
+      const [hh, mm] = localTime.split(':');
+      let h = +hh, ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return `${datePart} · ${h}:${mm} ${ampm}`;
+    }
+
+    function locationStr(venue) {
+      if (!venue) return '';
+      const city = venue.city?.name || '';
+      const state = venue.state?.stateCode || venue.state?.name || '';
+      const country = venue.country?.countryCode || venue.country?.name || '';
+      // US shows: City, ST  |  International: City, Country
+      if (country === 'US' || country === 'United States Of America') {
+        return [city, state].filter(Boolean).join(', ');
+      }
+      return [city, country].filter(Boolean).join(', ');
+    }
+
+    async function fetchAllEvents(attractionId) {
+      const events = [];
+      let page = 0;
+      const pageSize = 200;
+      // The Discovery API caps page * size at 1000; 67 dates fits in one page,
+      // but loop in case of expansions.
+      for (let i = 0; i < 5; i++) {
+        const params = new URLSearchParams({
+          apikey: TM_API_KEY,
+          attractionId,
+          size: String(pageSize),
+          page: String(page),
+          sort: 'date,asc'
+        });
+        const r = await fetch(`${TM_BASE}/events.json?${params}`);
+        if (!r.ok) break;
+        const data = await r.json();
+        const batch = data?._embedded?.events || [];
+        events.push(...batch);
+        const totalPages = data?.page?.totalPages || 1;
+        page += 1;
+        if (page >= totalPages) break;
+      }
+      return events;
+    }
+
+    function renderEmpty(msg) {
+      document.getElementById('showsContainer').innerHTML =
+        `<div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">${msg}</div>`;
+    }
+
+    async function loadShows() {
+      const container = document.getElementById('showsContainer');
+      if (!container) return;
+      try {
+        const attractionId = await resolveAttractionId();
+        const all = await fetchAllEvents(attractionId);
+
+        // Optional tour-name filter — keeps the page focused on this tour.
+        const kw = TOUR_KEYWORD.toLowerCase();
+        const filtered = kw
+          ? all.filter(ev => (ev.name || '').toLowerCase().includes(kw))
+          : all;
+
+        const shows = (filtered.length ? filtered : all)
+          .filter(ev => ev?.dates?.start?.localDate)
+          .sort((a, b) => a.dates.start.localDate.localeCompare(b.dates.start.localDate));
+
+        if (!shows.length) { renderEmpty('Show dates coming soon.'); return; }
+
         let html = '<div style="border-top:1px solid var(--border);">';
-        shows.forEach(show => {
-          const venue = isFifa ? (show.matchup || show.match || show.title || 'Match') : (show.venueName || 'TBA');
-          const city = isFifa ? (show.city || '') : [show.city, show.state].filter(Boolean).join(', ');
-          const date = formatDate(show.date);
-          const links = show.links || {};
-          const ticketUrl = show.ticketUrl || links.ticketUrl || '';
-          const uid = Math.random().toString(36).slice(2,8);
+        shows.forEach((ev, idx) => {
+          const venue = ev._embedded?.venues?.[0];
+          const venueName = venue?.name || 'TBA';
+          const location = locationStr(venue);
+          const date = formatTMDate(ev.dates.start.localDate, ev.dates.start.localTime);
+          const ticketUrl = ev.url || '';
+          const rowId = `row-${idx}`;
           html += `
-            <div class="show-row" id="row-${uid}">
-              <div class="show-row-main" onclick="toggleRow('row-${uid}')">
+            <div class="show-row" id="${rowId}">
+              <div class="show-row-main" onclick="toggleRow('${rowId}')">
                 <div class="show-date">${date}</div>
-                <div class="show-venue">${venue}</div>
-                <div class="show-location">${city}</div>
+                <div class="show-venue">${venueName}</div>
+                <div class="show-location">${location}</div>
                 <div class="show-chevron">&#9660;</div>
               </div>
               <div class="show-links">
                 <div class="show-links-inner">
-                  ${ticketUrl ? `<a href="${ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>` : '<span class="show-link-btn disabled">Tickets TBA</span>'}
-                  ${links.cityGuide ? `<a href="${links.cityGuide}" class="show-link-btn">City Guide</a>` : ''}
-                  ${links.bagPolicy ? `<a href="${links.bagPolicy}" class="show-link-btn">Bag Policy</a>` : ''}
-                  ${links.parking ? `<a href="${links.parking}" class="show-link-btn">Parking</a>` : ''}
-                  ${links.rideshare ? `<a href="${links.rideshare}" class="show-link-btn">Rideshare</a>` : ''}
+                  ${ticketUrl
+                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>`
+                    : `<span class="show-link-btn disabled">Tickets TBA</span>`}
                 </div>
               </div>
             </div>`;
         });
         html += '</div>';
         container.innerHTML = html;
-      } catch(e) {
-        document.getElementById('showsContainer').innerHTML = '<div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Show dates coming soon.</div>';
+      } catch (err) {
+        console.warn('[Concerto] TM lookup failed:', err);
+        renderEmpty('Show dates coming soon.');
       }
-    }
-    function toggleRow(id) {
-      const row = document.getElementById(id);
-      const isOpen = row.classList.contains('open');
-      document.querySelectorAll('.show-row.open').forEach(r => r.classList.remove('open'));
-      if (!isOpen) row.classList.add('open');
-    }
-    function formatDate(iso) {
-      if (!iso) return '';
-      const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if (!m) return iso;
-      return new Date(+m[1], +m[2]-1, +m[3]).toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'});
     }
     window.addEventListener('DOMContentLoaded', loadShows);
-
   </script>
-<script>
-    /* Load setlist from setlists.json */
-    async function loadSetlist() {
-      const pageSlug = window.location.pathname.split('/').pop().replace('.html','');
-      // Map tour slug to artist key (take first two hyphen-parts as artist slug)
-      const parts = pageSlug.split('-');
-      // Try progressively shorter keys to find a match
-      let artistKey = null;
-      for (let len = parts.length; len >= 1; len--) {
-        const candidate = parts.slice(0, len).join('-');
-        // Will check against setlists.json
-        artistKey = candidate;
-        break;
+
+  <script>
+    /* ──────────────────────────────────────────────────────────────
+       Setlist: pulls songs from /setlists.json, finds the right artist
+       key by walking down the page slug, then renders rows with the
+       data-attributes the Apple Music lookup needs.
+       ────────────────────────────────────────────────────────────── */
+    const APPLE_MUSIC_CACHE = {};
+
+    function applyAppleLink(btn, url) {
+      btn.classList.remove('loading');
+      if (url) { btn.href = url; btn.classList.add('found'); }
+      else { btn.classList.add('not-found'); }
+    }
+
+    async function fetchAppleLink(title, artist, btn) {
+      const key = artist + '::' + title;
+      if (APPLE_MUSIC_CACHE[key] !== undefined) {
+        applyAppleLink(btn, APPLE_MUSIC_CACHE[key]); return;
       }
-      
-      const setlistSection = document.getElementById('setlist-section');
-      const setlistTitle = document.getElementById('setlist-title');
-      const setlistDesc = document.querySelector('.setlist-desc') || document.querySelector('#setlist-section .section-desc');
-      const setlistUnavail = document.querySelector('#setlist-section .section-unavailable');
-      
+      try {
+        const u = `/.netlify/functions/songlink?artist=${encodeURIComponent(artist)}&title=${encodeURIComponent(title)}`;
+        const res = await fetch(u);
+        const data = await res.json();
+        const appleUrl = data?.appleUrl
+          ? String(data.appleUrl).replace('geo.music.apple.com', 'music.apple.com')
+          : null;
+        APPLE_MUSIC_CACHE[key] = appleUrl;
+        applyAppleLink(btn, appleUrl);
+      } catch (e) {
+        applyAppleLink(btn, null);
+      }
+    }
+
+    async function loadSetlist() {
+      const desc = document.querySelector('.setlist-desc');
+      const container = document.getElementById('setlistContainer');
+      if (!container) return;
+
+      const pageSlug = window.location.pathname.split('/').pop().replace('.html', '');
+
       try {
         const r = await fetch('../setlists.json');
-        if (!r.ok) return;
+        if (!r.ok) throw new Error('setlists.json fetch failed');
         const data = await r.json();
-        
-        // Find matching key by trying progressively shorter slugs
+
+        // Walk progressively shorter slug prefixes to find a matching artist key.
+        const parts = pageSlug.split('-');
         let found = null;
-        const slug = pageSlug;
-        for (let len = slug.split('-').length; len >= 1; len--) {
-          const k = slug.split('-').slice(0, len).join('-');
+        for (let len = parts.length; len >= 1; len--) {
+          const k = parts.slice(0, len).join('-');
           if (data[k]) { found = { key: k, ...data[k] }; break; }
         }
-        
-        if (!found || !found.songs || !found.songs.length) return;
-        
-        // Update description
-        if (setlistDesc) {
-          setlistDesc.textContent = found.note || ('Songs ' + found.artist + ' is playing on the ' + found.tour + '.');
+
+        if (!found || !Array.isArray(found.songs) || !found.songs.length) {
+          if (desc) desc.textContent = 'Setlist will appear once the tour is underway.';
+          container.innerHTML = '<div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Setlist coming soon.</div>';
+          return;
         }
-        
-        // Replace unavailable notice with song list
-        if (setlistUnavail) {
-          const songHTML = found.songs.map((song, i) => `
-            <div class="setlist-song">
-              <span class="setlist-num">${i + 1}</span>
-              <span class="setlist-name">${song}</span>
-              <a href="https://songwhip.com/?url=${encodeURIComponent(song + ' ' + found.artist)}" 
-                 target="_blank" rel="noopener noreferrer" class="setlist-listen" title="Listen on Apple Music">♪</a>
-            </div>`).join('');
-          setlistUnavail.innerHTML = `<div class="setlist-songs">${songHTML}</div>`;
-          setlistUnavail.className = 'setlist-loaded';
+
+        if (desc) {
+          desc.textContent = found.note
+            ? found.note
+            : `${found.artist} is playing ${found.songs.length} songs on the ${found.tour}.`;
         }
-      } catch(e) { /* keep static fallback */ }
+
+        const songHTML = found.songs.map((song, i) => `
+          <div class="setlist-song" data-title="${song.replace(/"/g, '&quot;')}" data-artist="${found.artist.replace(/"/g, '&quot;')}">
+            <span class="setlist-num">${i + 1}</span>
+            <span class="setlist-name">${song}</span>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="setlist-listen loading" title="Listen on Apple Music" aria-label="Listen to ${song} on Apple Music">♪</a>
+          </div>`).join('');
+        container.outerHTML = `<div id="setlistContainer" class="setlist-loaded"><div class="setlist-songs">${songHTML}</div></div>`;
+
+        // Kick off Apple Music lookups (staggered so we don't slam the function).
+        document.querySelectorAll('#setlistContainer .setlist-song').forEach((row, idx) => {
+          const title = row.dataset.title;
+          const artist = row.dataset.artist;
+          const btn = row.querySelector('.setlist-listen');
+          if (btn && title && artist) {
+            setTimeout(() => fetchAppleLink(title, artist, btn), idx * 120);
+          }
+        });
+      } catch (e) {
+        console.warn('[Concerto] setlist load failed:', e);
+        if (desc) desc.textContent = 'Setlist will appear once the tour is underway.';
+        container.innerHTML = '<div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Setlist coming soon.</div>';
+      }
     }
     window.addEventListener('DOMContentLoaded', loadSetlist);
-    </script>
-<script>
-// Mobile nav
-(function(){
-  const btn = document.getElementById('navHamburger');
-  const menu = document.getElementById('navMobileMenu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open'); btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-  }));
-})();
-</script>
+  </script>
 </body>
 </html>
