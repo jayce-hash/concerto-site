@@ -1,607 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F8F9F9" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#F8F9F9"/>
+<title>Events Near Me — Concerts, Sports & Nightlife | Concerto</title>
+<meta name="description" content="Find concerts, sports games, comedy shows, and festivals near you. Browse by date, filter by type, and get venue guides for every event."/>
+<link rel="canonical" href="https://concertocity.com/events.html"/>
+<meta property="og:title" content="Events Near Me — Concerto"/>
+<meta property="og:description" content="Concerts, sports, comedy, and festivals near you. Filter by type, browse by date."/>
+<meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --display: 'Playfair Display', Georgia, serif;
+  --body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
+  --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
+  --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
+  --gold: #C9A84C; --gold-light: #E5C365;
+  --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
+  --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
+  --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --radius-md: 16px; --radius-lg: 24px; --nav-h: 68px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
-  <meta name="apple-mobile-web-app-title" content="Concerto" />
-<!-- ─── SEO ─── -->
-  <title>Events Near Me — Concerts, Sports & Nightlife Tonight | Concerto</title>
-  <meta name="title" content="Events Near Me — Concerts, Sports & Nightlife Tonight | Concerto" />
-  <meta name="description" content="Find concerts, sports games, comedy shows, festivals, and nightlife happening near you tonight. Search by city for live events near any major venue." />
-  <meta name="keywords" content="events near me, concerts near me tonight, sports events near me, live music near me, things to do tonight, concerts tonight, events this weekend" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://concertocity.com/events.html" />
+/* Atmosphere */
+.bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+.orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+.orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; }
+.orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; }
+.noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-  <!-- ─── Open Graph ─── -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://concertocity.com/events.html" />
-  <meta property="og:title" content="Events Near Me — Concerts, Sports & Nightlife Tonight" />
-  <meta property="og:description" content="Find concerts, sports, comedy, festivals, and nightlife happening near you tonight." />
-  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
-  <meta property="og:site_name" content="Concerto" />
+/* Nav */
+.site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.nav-logo { display: flex; align-items: center; width: 200px; }
+.nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+.nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+.nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
+.nav-center > a:hover, .nav-center > a.active { color: var(--text); }
+.nav-cta { display: flex; justify-content: flex-end; width: 200px; align-items: center; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s; cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+.btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
+.btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
 
-  <!-- ─── Twitter Card ─── -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://concertocity.com/events.html" />
-  <meta name="twitter:title" content="Events Near Me — Concerts, Sports & Nightlife Tonight" />
-  <meta name="twitter:description" content="Find concerts, sports, comedy, festivals, and nightlife happening near you tonight." />
-  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+/* Mobile nav */
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
+.nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+.nav-mobile-link:hover { color: var(--text); }
+.nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+@media (max-width: 1024px) {
+  .nav-hamburger { display: flex; }
+  .nav-profile-btn { display: inline-flex; }
+  .nav-center { display: none !important; }
+  #navAuthLink { display: none; }
+  .nav-download { display: none; }
+}
 
-  <!-- ─── Schema.org ─── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Events Near Me — Concerts, Sports & Nightlife",
-    "description": "Find concerts, sports games, comedy shows, festivals, and nightlife happening near you tonight.",
-    "url": "https://concertocity.com/events.html",
-    "isPartOf": { "@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com" },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
-        { "@type": "ListItem", "position": 2, "name": "Events Near Me", "item": "https://concertocity.com/events.html" }
-      ]
-    }
-  }
-  </script>
+/* Page hero */
+.page-hero { padding: calc(var(--nav-h) + 48px) 4% 32px; max-width: 1200px; margin: 0 auto; }
+.page-eyebrow { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.page-title { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--text); margin-bottom: 0.75rem; }
+.page-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
 
-  <!-- ─── Fonts ─── -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+/* Main layout */
+.events-layout { max-width: 1200px; margin: 0 auto; padding: 0 4% 80px; display: grid; grid-template-columns: 1fr; gap: 2rem; }
 
-  <style>
-    :root {
-      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      --body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
-      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
-      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
-      --gold: #C9A84C; --gold-light: #E5C365;
-      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
-      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
-      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
-      --ease-out: cubic-bezier(0.16,1,0.3,1);
-      --radius-sm: 12px; --radius-md: 20px; --radius-lg: 28px; --nav-h: 68px;
-    }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
-    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: 'kern' 1, 'liga' 1; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    [hidden] { display: none !important; }
+/* City search */
+.city-bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.city-input-wrap { position: relative; flex: 1; min-width: 200px; max-width: 360px; }
+.city-input { width: 100%; padding: 0.85rem 1rem 0.85rem 2.8rem; border: 1.5px solid var(--border-mid); border-radius: 99px; font-family: var(--body); font-size: 0.88rem; color: var(--text); background: var(--card-bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+.city-input:focus { border-color: var(--text); box-shadow: 0 0 0 3px rgba(18,30,54,0.06); }
+.city-input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); pointer-events: none; }
+.city-search-btn { padding: 0.85rem 1.5rem; border-radius: 99px; background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
+.city-search-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
 
-    /* Atmosphere */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
-    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
-    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* Filter pills */
+.filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-pill { padding: 0.5rem 1rem; border-radius: 99px; border: 1.5px solid var(--border-mid); font-family: var(--body); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); cursor: pointer; background: transparent; transition: all 0.2s; white-space: nowrap; }
+.filter-pill:hover { border-color: var(--text-dim); color: var(--text); }
+.filter-pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.filter-pill.active.music { background: #1a1a2e; border-color: #1a1a2e; }
+.filter-pill.active.sports { background: #1e3a1a; border-color: #1e3a1a; }
+.filter-pill.active.comedy { background: #3a2a1a; border-color: #3a2a1a; }
+.filter-pill.active.festival { background: #2a1a3a; border-color: #2a1a3a; }
+.filter-pill.active.theater { background: #1a2a3a; border-color: #1a2a3a; }
 
-    /* Nav */
-    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-    .nav-logo { display: flex; align-items: center; width: 200px; }
-    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
-    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
-    .nav-center > a:hover, .nav-center > a.active { color: var(--text); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
-    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid,rgba(18,30,54,.14)); }
-    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
-    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
+/* View toggle */
+.view-toggle { display: flex; gap: 0; border: 1.5px solid var(--border-mid); border-radius: 99px; overflow: hidden; }
+.view-btn { padding: 0.5rem 1.1rem; font-family: var(--body); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); cursor: pointer; background: transparent; border: none; transition: all 0.2s; }
+.view-btn.active { background: var(--text); color: var(--bg); }
 
-    /* Page */
-    main { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 80px; min-height: 100vh; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 4%; }
-    .eyebrow { display: block; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
-    .hero-section { text-align: center; margin-bottom: 3rem; }
-    .hero-section h1 { font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.08; margin-bottom: 1rem; }
-    .hero-section p { font-family: var(--body); font-size: 1rem; font-weight: 300; color: var(--text-dim); max-width: 560px; margin: 0 auto; line-height: 1.75; }
+/* Controls row */
+.controls-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
-    /* Control Dashboard */
-    .control-dashboard { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.8rem; box-shadow: var(--shadow-md); margin-bottom: 4rem; }
-    .input-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-    .input-group { display: flex; flex-direction: column; position: relative; }
-    .input-label { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-xdim); margin-bottom: 0.6rem; }
-    .form-control { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.4rem; font-family: var(--body); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
-    .form-control:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); }
-    .form-control::placeholder { color: var(--text-xdim); }
-    input[type="date"].form-control { padding: 0.9rem 1.4rem; }
+/* Calendar */
+.calendar-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.cal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+.cal-month { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+.cal-nav { display: flex; gap: 0.5rem; }
+.cal-nav-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-mid); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: all 0.2s; font-size: 0.9rem; }
+.cal-nav-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-day-header { padding: 0.6rem 0; text-align: center; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim); border-bottom: 1px solid var(--border); }
+.cal-day { min-height: 72px; padding: 0.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; position: relative; }
+.cal-day:nth-child(7n) { border-right: none; }
+.cal-day:hover { background: rgba(18,30,54,0.02); }
+.cal-day.other-month .cal-day-num { color: var(--text-xdim); }
+.cal-day.today .cal-day-num { background: var(--text); color: var(--bg); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+.cal-day.selected { background: rgba(201,168,76,0.06); }
+.cal-day.selected .cal-day-num { color: var(--gold); font-weight: 700; }
+.cal-day.has-events { cursor: pointer; }
+.cal-day-num { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+.cal-dots { display: flex; gap: 2px; flex-wrap: wrap; margin-top: 2px; }
+.cal-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.cal-dot.music { background: #C9A84C; }
+.cal-dot.sports { background: #4CAF50; }
+.cal-dot.comedy { background: #FF9800; }
+.cal-dot.festival { background: #9C27B0; }
+.cal-dot.theater { background: #2196F3; }
+.cal-dot.other { background: var(--text-xdim); }
 
-    /* Autocomplete */
-    .suggest-list { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 100; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); max-height: 240px; overflow-y: auto; }
-    .suggest-item { padding: 0.9rem 1.4rem; font-family: var(--body); font-size: 0.9rem; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.2s; }
-    .suggest-item:last-child { border-bottom: none; }
-    .suggest-item:hover { background: var(--bg); }
+/* Day panel */
+.day-panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+.day-panel-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.day-panel-title { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.day-panel-count { font-size: 0.72rem; font-weight: 600; color: var(--text-xdim); letter-spacing: 0.08em; text-transform: uppercase; }
+.day-panel-empty { padding: 3rem 1.5rem; text-align: center; color: var(--text-xdim); font-size: 0.88rem; }
 
-    /* Pills */
-    .pill-group { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
-    .pill { font-family: var(--body); background: var(--bg); border: 1px solid var(--border); color: var(--text-dim); padding: 0.55rem 1.1rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; transition: all 0.22s var(--ease-out); }
-    .pill:hover { border-color: var(--text-dim); color: var(--text); }
-    .pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+/* Event cards */
+.event-list { display: flex; flex-direction: column; }
+.event-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); text-decoration: none; transition: background 0.15s; cursor: pointer; }
+.event-card:last-child { border-bottom: none; }
+.event-card:hover { background: rgba(18,30,54,0.02); }
+.event-card-date { width: 44px; text-align: center; flex-shrink: 0; }
+.event-card-date-day { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1; }
+.event-card-date-month { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-xdim); }
+.event-card-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+.event-card-info { flex: 1; min-width: 0; }
+.event-card-name { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.event-card-venue { font-size: 0.78rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.event-card-type { flex-shrink: 0; }
+.event-type-badge { padding: 3px 10px; border-radius: 99px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.badge-music { background: rgba(201,168,76,0.12); color: #9a7a2a; }
+.badge-sports { background: rgba(76,175,80,0.12); color: #2e7d32; }
+.badge-comedy { background: rgba(255,152,0,0.12); color: #e65100; }
+.badge-festival { background: rgba(156,39,176,0.12); color: #6a1b9a; }
+.badge-theater { background: rgba(33,150,243,0.12); color: #0d47a1; }
+.badge-other { background: rgba(18,30,54,0.06); color: var(--text-dim); }
+.event-card-arrow { color: var(--text-xdim); font-size: 0.9rem; flex-shrink: 0; }
 
-    /* Filters toggle */
-    .filters-toggle { font-family: var(--body); font-size: 0.68rem; font-weight: 700; color: var(--text-xdim); text-transform: uppercase; letter-spacing: 0.12em; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: color 0.25s; margin-bottom: 1.5rem; }
-    .filters-toggle:hover { color: var(--text-dim); }
-    .filters-panel { padding-top: 1.5rem; border-top: 1px dashed var(--border); margin-bottom: 2rem; }
-    .filters-block { display: none; }
-    .filters-block.active { display: block; }
-    .filter-sub { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-xdim); margin-bottom: 0.75rem; margin-top: 1.2rem; }
+/* List view */
+.list-view { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.list-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.list-title { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.list-count { font-size: 0.72rem; font-weight: 600; color: var(--text-xdim); letter-spacing: 0.08em; text-transform: uppercase; }
 
-    /* Search actions */
-    .search-actions { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 2rem; gap: 1rem; flex-wrap: wrap; }
-    .status-text { font-family: var(--body); font-size: 0.85rem; font-weight: 400; color: var(--text-dim); }
+/* Loading */
+.loading-state { padding: 4rem 1.5rem; text-align: center; }
+.loading-spinner { width: 28px; height: 28px; border: 2px solid var(--border-mid); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 1rem; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 0.85rem; color: var(--text-xdim); }
 
-    /* Results */
-    .results-header { margin-bottom: 2rem; }
-    .results-header h2 { font-family: var(--display); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.4rem; }
-    .results-summary { font-family: var(--body); font-size: 0.9rem; color: var(--text-dim); }
+/* Empty state */
+.empty-state { padding: 4rem 1.5rem; text-align: center; }
+.empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.empty-title { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+.empty-sub { font-size: 0.85rem; color: var(--text-dim); }
 
-    .events-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
-    .event-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem 2rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s; position: relative; overflow: hidden; }
-    .event-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
-    .event-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
-    .event-card:hover::before { opacity: 1; }
-    .e-date { font-family: var(--body); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 0.8rem; }
-    .e-title { font-family: var(--display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1rem; color: var(--text); line-height: 1.2; flex: 1; }
-    .e-venue { font-family: var(--body); font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; display: block; text-decoration: none; }
-    .e-venue:hover { color: var(--gold); }
-    .e-address { font-family: var(--body); font-size: 0.82rem; font-weight: 300; color: var(--text-dim); line-height: 1.4; margin-bottom: 1.5rem; display: block; text-decoration: none; }
-    .e-address:hover { color: var(--text); }
-    .card-footer { margin-top: auto; border-top: 1px solid var(--border); padding-top: 1.2rem; }
-    .ticket-btn { display: flex; align-items: center; justify-content: center; width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text-dim); padding: 0.72rem; border-radius: 99px; font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: all 0.25s var(--ease-out); }
-    .ticket-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+/* Footer */
+footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+.footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
+.footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
+.footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
+.footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
+.footer-col a:hover { color: var(--text); }
+.footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
+.footer-bottom a { color: var(--text-dim); text-decoration: none; }
+.footer-bottom a:hover { color: var(--text); }
 
-    /* Footer */
-    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); margin-top: 6rem; }
-    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
-    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
-    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
-    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
-    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
-    .footer-col a:hover { color: var(--text); }
-    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
-    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
-    .footer-bottom a:hover { color: var(--text); }
-
-    @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
-     .events-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 768px) {
-      :root { --nav-h: 58px; }
-      main { padding-top: calc(var(--nav-h) + 36px); }
-      .control-dashboard { padding: 1.8rem; }
-      .input-grid { grid-template-columns: 1fr; }
-      .events-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .search-actions { flex-direction: column; align-items: stretch; }
-      .status-text { text-align: center; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
-
-    .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
-    .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
-    .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
-    
-  /* ── MOBILE NAV ── */
-    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
-    .nav-profile-btn:hover { color: var(--text); border-color: var(--text); }
-    .nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
-    .nav-mobile-menu.open { display: flex; }
-    .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
-    .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
-    .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
-    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
-    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
-    @media (max-width: 1024px) {
-      .nav-center { display: none !important; }
-      .nav-hamburger { display: flex; }
-      .nav-profile-btn { display: inline-flex; }
-      #navAuthLink { display: none; }
-      .nav-download { display: none; }
-    }
-  </style>
+@media (max-width: 768px) {
+  :root { --nav-h: 58px; }
+  .page-hero { padding: calc(var(--nav-h) + 32px) 5% 24px; }
+  .events-layout { padding: 0 5% 60px; }
+  .cal-day { min-height: 52px; padding: 0.35rem; }
+  .cal-day-num { font-size: 0.7rem; width: 20px; height: 20px; }
+  .city-bar { flex-direction: column; align-items: stretch; }
+  .city-input-wrap { max-width: 100%; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: span 2; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .cal-day { min-height: 44px; padding: 0.25rem; }
+  .cal-dot { width: 4px; height: 4px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+}
+</style>
 </head>
 <body>
 
-  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-  <div class="noise" aria-hidden="true"></div>
+<div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+<div class="noise" aria-hidden="true"></div>
 
-  <!-- ─── NAV ─── -->
-  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo">
-      <a href="index.html" aria-label="Concerto Home">
-        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
-      </a>
+<!-- NAV -->
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <a href="index.html" aria-label="Concerto Home">
+      <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/>
+    </a>
+  </div>
+  <div class="nav-center">
+    <a href="venues.html">Venues</a>
+    <a href="tours.html">Tours</a>
+    <a href="events.html" class="active">Events</a>
+    <a href="premium.html">Premium</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+    <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid);color:var(--text);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+    <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="venues.html" class="nav-mobile-link">Venues</a>
+  <a href="tours.html" class="nav-mobile-link">Tours</a>
+  <a href="events.html" class="nav-mobile-link active">Events</a>
+  <a href="premium.html" class="nav-mobile-link">Premium</a>
+  <a href="about.html" class="nav-mobile-link">About</a>
+  <div class="nav-mobile-cta">
+    <a id="navMobileAuthLink" href="login.html" class="btn" style="background:transparent;border:1.5px solid var(--border-mid);color:var(--text);justify-content:center;">Sign In</a>
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
+  </div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <div class="page-hero">
+    <span class="page-eyebrow">Tonight &amp; Beyond</span>
+    <h1 class="page-title">Events Near You.</h1>
+    <p class="page-sub">Concerts, sports, comedy, festivals — browse by date or search your city.</p>
+  </div>
+
+  <div class="events-layout">
+
+    <!-- CITY SEARCH + FILTERS -->
+    <div>
+      <div class="city-bar">
+        <div class="city-input-wrap">
+          <svg class="city-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <input type="text" class="city-input" id="cityInput" placeholder="Enter your city..." autocomplete="off"/>
+        </div>
+        <button class="city-search-btn" id="searchBtn">Find Events</button>
+        <div class="view-toggle" style="margin-left:auto;">
+          <button class="view-btn active" id="calViewBtn" onclick="setView('calendar')">Calendar</button>
+          <button class="view-btn" id="listViewBtn" onclick="setView('list')">List</button>
+        </div>
+      </div>
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-pill active" data-type="all" onclick="toggleFilter(this)">All</button>
+        <button class="filter-pill music" data-type="music" onclick="toggleFilter(this)">🎵 Music</button>
+        <button class="filter-pill sports" data-type="sports" onclick="toggleFilter(this)">🏟 Sports</button>
+        <button class="filter-pill comedy" data-type="comedy" onclick="toggleFilter(this)">🎤 Comedy</button>
+        <button class="filter-pill festival" data-type="festival" onclick="toggleFilter(this)">🎪 Festivals</button>
+        <button class="filter-pill theater" data-type="theater" onclick="toggleFilter(this)">🎭 Arts &amp; Theater</button>
+      </div>
     </div>
-            <div class="nav-center">
+
+    <!-- CALENDAR VIEW -->
+    <div id="calendarView">
+      <div class="calendar-wrap" id="calendarWrap">
+        <div class="cal-header">
+          <button class="cal-nav-btn" id="prevMonth" onclick="changeMonth(-1)">&#8592;</button>
+          <span class="cal-month" id="calMonthLabel"></span>
+          <button class="cal-nav-btn" id="nextMonth" onclick="changeMonth(1)">&#8594;</button>
+        </div>
+        <div class="cal-grid" id="calGrid">
+          <div class="cal-day-header">Sun</div>
+          <div class="cal-day-header">Mon</div>
+          <div class="cal-day-header">Tue</div>
+          <div class="cal-day-header">Wed</div>
+          <div class="cal-day-header">Thu</div>
+          <div class="cal-day-header">Fri</div>
+          <div class="cal-day-header">Sat</div>
+        </div>
+        <div class="loading-state" id="calLoading" style="display:none;">
+          <div class="loading-spinner"></div>
+          <p class="loading-text">Finding events...</p>
+        </div>
+        <div class="empty-state" id="calEmpty" style="display:none;">
+          <div class="empty-icon">🎟</div>
+          <div class="empty-title">Search a city to see events</div>
+          <p class="empty-sub">Type your city above and hit Find Events</p>
+        </div>
+      </div>
+
+      <!-- Day panel -->
+      <div class="day-panel" id="dayPanel" style="display:none;">
+        <div class="day-panel-header">
+          <span class="day-panel-title" id="dayPanelTitle">Select a date</span>
+          <span class="day-panel-count" id="dayPanelCount"></span>
+        </div>
+        <div id="dayPanelContent">
+          <div class="day-panel-empty">Click a date to see events</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="listView" style="display:none;">
+      <div class="list-view">
+        <div class="list-header">
+          <span class="list-title" id="listTitle">All Events</span>
+          <span class="list-count" id="listCount"></span>
+        </div>
+        <div id="listContent">
+          <div class="empty-state">
+            <div class="empty-icon">🎟</div>
+            <div class="empty-title">Search a city to see events</div>
+            <p class="empty-sub">Type your city above and hit Find Events</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Concerto" width="160" height="44"/>
+      <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides — everything in one place.</p>
+    </div>
+    <nav class="footer-col" aria-label="Company links">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="premium.html">Premium</a>
+      <a href="shop.html">Shop</a>
+      <a href="partners.html">Partnerships</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <nav class="footer-col" aria-label="Tools">
+      <h4>Tools</h4>
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
-      <a href="events.html" class="active">Events</a>
-      <a href="premium.html">Premium</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
-      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-    <!-- Mobile menu -->
-    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
-    </div>
+      <a href="bags.html">Bag Policies</a>
+      <a href="parking.html">Parking</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="setlists.html">Setlists</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="events.html">Events Near Me</a>
+    </nav>
+    <nav class="footer-col" aria-label="Legal">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="mailto:support@concertocity.com">Contact</a>
+    </nav>
+    <nav class="footer-col" aria-label="Social">
+      <h4>Follow Us</h4>
+      <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+    <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
+  </div>
+</footer>
 
-  <main>
-    <div class="container">
+<script>
+const API_KEY = 'vSyw9gaQsyn8SqMXctOzWZsGJDGt29tB';
+const TM_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 
-      <section class="hero-section">
-        <span class="eyebrow">Local Discoveries</span>
-        <h1>Find Events Right Now.</h1>
-        <p>Concerts, sports, comedy, festivals, theater, nightlife, and family fun happening near you tonight.</p>
-      </section>
+let allEvents = [];
+let filteredEvents = [];
+let activeFilter = 'all';
+let currentView = 'calendar';
+let currentDate = new Date();
+let selectedDay = null;
 
-      <section class="control-dashboard">
-        <div class="input-grid">
-          <div class="input-group">
-            <label for="locationInput" class="input-label">City &amp; State</label>
-            <input type="text" id="locationInput" class="form-control" placeholder="e.g. Nashville, TN" autocomplete="off" />
-            <div id="locationSuggestions" class="suggest-list" hidden></div>
-          </div>
-          <div class="input-group">
-            <label for="dateInput" class="input-label">Date (Optional)</label>
-            <input type="date" id="dateInput" class="form-control" />
-          </div>
-        </div>
+// ── City search ──
+document.getElementById('cityInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') fetchEvents();
+});
+document.getElementById('searchBtn').addEventListener('click', fetchEvents);
 
-        <div class="input-group" style="margin-bottom:1.5rem;">
-          <label class="input-label">Category</label>
-          <div class="pill-group" id="categoryFilters">
-            <button type="button" class="pill active" data-cat="music">Live Music</button>
-            <button type="button" class="pill" data-cat="sports">Sports</button>
-            <button type="button" class="pill" data-cat="comedy">Comedy</button>
-            <button type="button" class="pill" data-cat="festivals">Festivals</button>
-            <button type="button" class="pill" data-cat="theater">Theater</button>
-            <button type="button" class="pill" data-cat="nightlife">Nightlife</button>
-            <button type="button" class="pill" data-cat="family">Family + Kids</button>
-          </div>
-        </div>
+async function fetchEvents() {
+  const city = document.getElementById('cityInput').value.trim();
+  if (!city) return;
 
-        <button type="button" id="toggleFilters" class="filters-toggle">
-          <span>Filters &darr;</span>
-        </button>
+  showCalLoading(true);
 
-        <div id="moreFilters" class="filters-panel" hidden>
-          <div class="filters-block category-filters active" data-category="music">
-            <div class="filter-sub">Genre</div>
-            <div class="pill-group" id="musicGenreFilters">
-              <button type="button" class="pill" data-genre="pop">Pop</button>
-              <button type="button" class="pill" data-genre="rock">Rock</button>
-              <button type="button" class="pill" data-genre="hiphop">Rap / Hip-Hop</button>
-              <button type="button" class="pill" data-genre="rnb">R&amp;B / Soul</button>
-              <button type="button" class="pill" data-genre="country">Country</button>
-              <button type="button" class="pill" data-genre="edm">EDM / Electronic</button>
-              <button type="button" class="pill" data-genre="indie">Indie / Alt</button>
-              <button type="button" class="pill" data-genre="jazz">Jazz</button>
-              <button type="button" class="pill" data-genre="latin">Latin</button>
-            </div>
-            <div class="filter-sub">Venue Size</div>
-            <div class="pill-group" id="musicVenueFilters">
-              <button type="button" class="pill active" data-venue-size="any">Any</button>
-              <button type="button" class="pill" data-venue-size="small">Bars &amp; Clubs</button>
-              <button type="button" class="pill" data-venue-size="mid">Theaters</button>
-              <button type="button" class="pill" data-venue-size="big">Arenas</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="sports">
-            <div class="filter-sub">Sport</div>
-            <div class="pill-group" id="sportsTypeFilters">
-              <button type="button" class="pill" data-sport="basketball">Basketball</button>
-              <button type="button" class="pill" data-sport="football">Football</button>
-              <button type="button" class="pill" data-sport="baseball">Baseball</button>
-              <button type="button" class="pill" data-sport="hockey">Hockey</button>
-              <button type="button" class="pill" data-sport="soccer">Soccer</button>
-            </div>
-            <div class="filter-sub">Level</div>
-            <div class="pill-group" id="sportsLevelFilters">
-              <button type="button" class="pill active" data-level="any">Any</button>
-              <button type="button" class="pill" data-level="pro">Pro</button>
-              <button type="button" class="pill" data-level="college">College</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="comedy">
-            <div class="filter-sub">Type</div>
-            <div class="pill-group" id="comedyTypeFilters">
-              <button type="button" class="pill" data-comedy="standup">Stand-up</button>
-              <button type="button" class="pill" data-comedy="improv">Improv</button>
-              <button type="button" class="pill" data-comedy="club">Comedy Club</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="festivals">
-            <div class="filter-sub">Type</div>
-            <div class="pill-group" id="festivalTypeFilters">
-              <button type="button" class="pill" data-fest="music">Music</button>
-              <button type="button" class="pill" data-fest="food">Food &amp; Drink</button>
-              <button type="button" class="pill" data-fest="cultural">Cultural</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="theater">
-            <div class="filter-sub">Type</div>
-            <div class="pill-group" id="theaterTypeFilters">
-              <button type="button" class="pill" data-theater="musical">Musicals</button>
-              <button type="button" class="pill" data-theater="play">Plays</button>
-              <button type="button" class="pill" data-theater="family">Family</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="nightlife">
-            <div class="filter-sub">Type</div>
-            <div class="pill-group" id="nightlifeTypeFilters">
-              <button type="button" class="pill" data-nightlife="bars">Bars</button>
-              <button type="button" class="pill" data-nightlife="clubs">Clubs</button>
-              <button type="button" class="pill" data-nightlife="livemusicbars">Live Music</button>
-              <button type="button" class="pill" data-nightlife="rooftop">Rooftops</button>
-            </div>
-          </div>
-          <div class="filters-block category-filters" data-category="family">
-            <div class="filter-sub">Type</div>
-            <div class="pill-group" id="familyTypeFilters">
-              <button type="button" class="pill" data-family="familyshows">Shows</button>
-              <button type="button" class="pill" data-family="kidsactivities">Activities</button>
-              <button type="button" class="pill" data-family="fairs">Fairs</button>
-            </div>
-          </div>
-        </div>
+  const start = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  const end = new Date(currentDate.getFullYear(), currentDate.getMonth() + 2, 0);
+  const startStr = start.toISOString().split('T')[0] + 'T00:00:00Z';
+  const endStr = end.toISOString().split('T')[0] + 'T23:59:59Z';
 
-        <div class="search-actions">
-          <span id="status" class="status-text">Ready to Search.</span>
-          <button type="button" id="searchBtn" class="btn btn-dark">Search Events</button>
-        </div>
-      </section>
+  const params = new URLSearchParams({
+    apikey: API_KEY,
+    city: city,
+    size: 200,
+    startDateTime: startStr,
+    endDateTime: endStr,
+    sort: 'date,asc'
+  });
 
-      <section class="results">
-        <div class="results-header">
-          <h2>Results</h2>
-          <p id="resultsSummary" class="results-summary">Enter a city and state to see what&rsquo;s happening nearby.</p>
-        </div>
-        <div id="events" class="events-grid"></div>
-      </section>
+  try {
+    const res = await fetch(`${TM_URL}?${params}`);
+    const data = await res.json();
+    allEvents = (data._embedded?.events || []).map(parseEvent);
+    applyFilter();
+    renderCalendar();
+    showCalLoading(false);
+    if (allEvents.length === 0) showCalEmpty(true);
+  } catch(e) {
+    showCalLoading(false);
+    showCalEmpty(true);
+  }
+}
 
-    </div>
-  </main>
+function parseEvent(ev) {
+  const date = ev.dates?.start?.localDate || '';
+  const time = ev.dates?.start?.localTime || '';
+  const seg = ev.classifications?.[0]?.segment?.name?.toLowerCase() || 'other';
+  const genre = ev.classifications?.[0]?.genre?.name?.toLowerCase() || '';
+  
+  let type = 'other';
+  if (seg === 'music') type = 'music';
+  else if (seg === 'sports') type = 'sports';
+  else if (seg === 'arts & theatre' || seg === 'arts & theater') type = 'theater';
+  else if (genre.includes('comedy') || seg === 'comedy') type = 'comedy';
+  else if (genre.includes('festival') || ev.name?.toLowerCase().includes('festival')) type = 'festival';
 
-  <!-- ─── FOOTER ─── -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
-      </div>
-      <nav class="footer-col" aria-label="Company links">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop</a>
-        <a href="partners.html">Partnerships</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="events.html" class="active">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
-        <a href="tourinfo.html">Tour Info</a>
-      </nav>
-      <nav class="footer-col" aria-label="Legal">
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="mailto:support@concertocity.com">Contact</a>
-      </nav>
-      <nav class="footer-col" aria-label="Social">
-        <h4>Follow Us</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
-      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
-    </div>
-  </footer>
+  return {
+    id: ev.id,
+    name: ev.name,
+    date,
+    time,
+    type,
+    venue: ev._embedded?.venues?.[0]?.name || '',
+    url: ev.url || '#',
+    image: ev.images?.[0]?.url || ''
+  };
+}
 
-  <script>
-    /* Nav dropdown */
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+// ── Filters ──
+function toggleFilter(btn) {
+  const type = btn.dataset.type;
+  if (type === 'all') {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = 'all';
+  } else {
+    document.querySelector('[data-type="all"]').classList.remove('active');
+    btn.classList.toggle('active');
+    const active = [...document.querySelectorAll('.filter-pill.active')].map(p => p.dataset.type).filter(t => t !== 'all');
+    activeFilter = active.length > 0 ? active : 'all';
+    if (active.length === 0) {
+      document.querySelector('[data-type="all"]').classList.add('active');
+      activeFilter = 'all';
+    }
+  }
+  applyFilter();
+  renderCalendar();
+  if (selectedDay) renderDayPanel(selectedDay);
+  if (currentView === 'list') renderList();
+}
 
-    /* Parallax */
-    const bgCanvas = document.getElementById('bgCanvas');
-    let ticking = false;
-    document.addEventListener('mousemove', (e) => {
-      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
-    });
+function applyFilter() {
+  if (activeFilter === 'all') {
+    filteredEvents = [...allEvents];
+  } else {
+    const types = Array.isArray(activeFilter) ? activeFilter : [activeFilter];
+    filteredEvents = allEvents.filter(e => types.includes(e.type));
+  }
+}
 
-    /* ─── TICKETMASTER LOGIC (preserved exactly) ─── */
-    const API_KEY = "vSyw9gaQsyn8SqMXctOzWZsGJDGt29tB";
-    const EVENTS_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
-    const VENUES_URL = "https://app.ticketmaster.com/discovery/v2/venues.json";
+// ── View toggle ──
+function setView(v) {
+  currentView = v;
+  document.getElementById('calendarView').style.display = v === 'calendar' ? 'block' : 'none';
+  document.getElementById('listView').style.display = v === 'list' ? 'block' : 'none';
+  document.getElementById('calViewBtn').classList.toggle('active', v === 'calendar');
+  document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
+  if (v === 'list') renderList();
+}
 
-    const locationInput = document.getElementById("locationInput");
-    const locationSuggestions = document.getElementById("locationSuggestions");
-    const dateInput = document.getElementById("dateInput");
-    const searchBtn = document.getElementById("searchBtn");
-    const statusEl = document.getElementById("status");
-    const eventsContainer = document.getElementById("events");
-    const resultsSummary = document.getElementById("resultsSummary");
-    const toggleFiltersBtn = document.getElementById("toggleFilters");
-    const moreFiltersEl = document.getElementById("moreFilters");
-    const categoryFilters = document.getElementById("categoryFilters");
+// ── Calendar ──
+function changeMonth(dir) {
+  currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + dir, 1);
+  renderCalendar();
+  if (allEvents.length > 0) {
+    fetchEvents(); // reload for new month
+  }
+}
 
-    let selectedCategory = "music";
-    const selectedMusicGenres = new Set();
-    let selectedMusicVenueSize = "any";
-    const selectedSports = new Set();
-    let selectedSportsLevel = "any";
-    const selectedComedyTypes = new Set();
-    const selectedFestivalTypes = new Set();
-    const selectedTheaterTypes = new Set();
-    const selectedNightlifeTypes = new Set();
-    const selectedFamilyTypes = new Set();
+function renderCalendar() {
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const today = new Date();
 
-    const CATEGORY_LABELS = { music: "live music", sports: "sports", comedy: "comedy", festivals: "festivals", theater: "theater", nightlife: "nightlife", family: "family & kids" };
-    const GENRE_KEYWORDS = { pop: ["pop"], rock: ["rock"], hiphop: ["hip hop", "hip-hop", "rap"], rnb: ["r&b", "rnb", "soul"], country: ["country"], edm: ["edm", "electronic", "dance"], indie: ["indie", "alternative", "alt rock", "alt-pop"], jazz: ["jazz"], latin: ["latin"] };
-    const SPORT_KEYWORDS = { basketball: ["basketball", "nba", "wnba", "ncaa"], football: ["football", "nfl", "cfb"], baseball: ["baseball", "mlb"], hockey: ["hockey", "nhl"], soccer: ["soccer", "mls", "premier league", "fc"] };
-    const SPORTS_LEVEL_KEYWORDS = { pro: ["nba", "nfl", "mlb", "nhl", "mls", "premier league", "fc"], college: ["ncaa", "college", "university"] };
-    const COMEDY_KEYWORDS = { standup: ["stand-up", "stand up", "standup"], improv: ["improv"], club: ["comedy club", "improv theatre"] };
-    const FESTIVAL_KEYWORDS = { music: ["music festival", "fest"], food: ["food festival", "wine festival", "beer festival", "bbq"], cultural: ["fair", "carnival", "parade"] };
-    const THEATER_KEYWORDS = { musical: ["musical"], play: ["play", "drama"], family: ["family", "kids", "children"] };
-    const NIGHTLIFE_KEYWORDS = { bars: ["bar", "pub", "tavern", "lounge"], clubs: ["club", "nightclub", "dj"], livemusicbars: ["live music", "music hall"], rooftop: ["rooftop", "roof"] };
-    const FAMILY_KEYWORDS = { familyshows: ["family", "kids", "all ages"], kidsactivities: ["kids", "children", "family fun"], fairs: ["fair", "carnival"] };
-    const SMALL_VENUE_KEYWORDS = ["bar", "pub", "club", "lounge", "tavern", "saloon", "taproom", "brewery", "cafe", "music hall"];
-    const BIG_VENUE_KEYWORDS = ["stadium", "arena", "center", "centre", "coliseum", "amphitheatre", "ballpark", "pavilion"];
+  document.getElementById('calMonthLabel').textContent = 
+    new Date(year, month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-    function escapeHtml(str) { if (!str) return ""; return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-    function parseCityState(input) { if (!input) return null; const parts = input.split(",").map(p=>p.trim()).filter(Boolean); if (parts.length < 2) return null; const state = parts[parts.length-1].toUpperCase(); const city = parts.slice(0,parts.length-1).join(", "); if (state.length !== 2) return null; return { city, stateCode: state }; }
-    function getEventLocalDate(event) { if (event.dates?.start) { if (event.dates.start.localDate) return event.dates.start.localDate; if (event.dates.start.dateTime) return event.dates.start.dateTime.slice(0,10); } return null; }
-    function getVenueSizeTag(event) { const venue = event._embedded?.venues?.[0]; if (!venue?.name) return "mid"; const name = venue.name.toLowerCase(); if (SMALL_VENUE_KEYWORDS.some(k=>name.includes(k))) return "small"; if (BIG_VENUE_KEYWORDS.some(k=>name.includes(k))) return "big"; return "mid"; }
-    function debounce(fn, delay=350) { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(()=>fn(...args), delay); }; }
-    function getEventTextBlob(event, includeVenue=false) { const chunks = []; if (event.name) chunks.push(event.name); if (event.info) chunks.push(event.info); if (includeVenue) { const venue = event._embedded?.venues?.[0]; if (venue?.name) chunks.push(venue.name); } return chunks.join(" | ").toLowerCase(); }
-    function getEventGenres(event) { const out = []; if (event.classifications?.length) { const c = event.classifications[0]; if (c.segment?.name) out.push(c.segment.name.toLowerCase()); if (c.genre?.name) out.push(c.genre.name.toLowerCase()); if (c.subGenre?.name) out.push(c.subGenre.name.toLowerCase()); } return out; }
-    function getCategoryParams(category) { switch(category) { case "sports": return { segmentName:"Sports" }; case "comedy": return { segmentName:"Arts & Theatre", keyword:"comedy" }; case "festivals": return { keyword:"festival" }; case "theater": return { segmentName:"Arts & Theatre" }; case "nightlife": return { segmentName:"Music" }; case "family": return {}; case "music": default: return { segmentName:"Music" }; } }
+  // Build event map by date
+  const eventMap = {};
+  filteredEvents.forEach(ev => {
+    if (!eventMap[ev.date]) eventMap[ev.date] = [];
+    eventMap[ev.date].push(ev);
+  });
 
-    async function fetchLocationSuggestions(query) {
-      const params = new URLSearchParams({ apikey: API_KEY, keyword: query, countryCode: "US", size: "20" });
-      const res = await fetch(`${VENUES_URL}?${params.toString()}`);
-      if (!res.ok) return [];
-      const data = await res.json();
-      if (!data._embedded?.venues) return [];
-      const set = new Set(); const suggestions = [];
-      for (const v of data._embedded.venues) { const city = v.city?.name; const state = v.state?.stateCode; if (!city || !state) continue; const label = `${city}, ${state}`; if (!set.has(label)) { set.add(label); suggestions.push({ label }); } if (suggestions.length >= 8) break; }
-      return suggestions;
+  // Get calendar days
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+  const grid = document.getElementById('calGrid');
+  // Remove old day cells (keep headers)
+  const headers = [...grid.querySelectorAll('.cal-day-header')];
+  grid.innerHTML = '';
+  headers.forEach(h => grid.appendChild(h));
+
+  const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+
+  for (let i = 0; i < totalCells; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cal-day';
+
+    let dayNum, dateStr, isOther = false;
+
+    if (i < firstDay) {
+      dayNum = daysInPrevMonth - firstDay + i + 1;
+      dateStr = `${year}-${String(month === 0 ? 12 : month).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
+      isOther = true;
+      cell.classList.add('other-month');
+    } else if (i >= firstDay + daysInMonth) {
+      dayNum = i - firstDay - daysInMonth + 1;
+      dateStr = `${year}-${String(month + 2 > 12 ? 1 : month + 2).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
+      isOther = true;
+      cell.classList.add('other-month');
+    } else {
+      dayNum = i - firstDay + 1;
+      dateStr = `${year}-${String(month + 1).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
     }
 
-    function renderLocationSuggestions(items) { if (!items.length) { locationSuggestions.hidden = true; return; } locationSuggestions.innerHTML = items.map(i=>`<div class="suggest-item" data-value="${escapeHtml(i.label)}">${escapeHtml(i.label)}</div>`).join(""); locationSuggestions.hidden = false; }
-    locationSuggestions.addEventListener("click", (e) => { const target = e.target.closest(".suggest-item"); if (!target) return; locationInput.value = target.getAttribute("data-value"); locationSuggestions.hidden = true; });
-    document.addEventListener("click", (e) => { if (!locationSuggestions.contains(e.target) && e.target !== locationInput) locationSuggestions.hidden = true; });
-    locationInput.addEventListener("input", debounce(async () => { const query = locationInput.value.trim(); if (query.length < 2) { locationSuggestions.hidden = true; return; } try { renderLocationSuggestions(await fetchLocationSuggestions(query)); } catch(err) { locationSuggestions.hidden = true; } }, 380));
+    const numEl = document.createElement('div');
+    numEl.className = 'cal-day-num';
+    numEl.textContent = dayNum;
 
-    toggleFiltersBtn.addEventListener("click", () => { const isHidden = moreFiltersEl.hasAttribute("hidden"); if (isHidden) { moreFiltersEl.removeAttribute("hidden"); toggleFiltersBtn.innerHTML = "<span>Filters &uarr;</span>"; } else { moreFiltersEl.setAttribute("hidden",""); toggleFiltersBtn.innerHTML = "<span>Filters &darr;</span>"; } });
+    // Today highlight
+    if (!isOther && dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+      cell.classList.add('today');
+    }
 
-    function updateCategoryFiltersVisibility() { document.querySelectorAll(".category-filters").forEach(g => { g.classList.toggle("active", g.dataset.category === selectedCategory); }); }
-    categoryFilters.addEventListener("click", (e) => { const pill = e.target.closest(".pill"); if (!pill || !pill.dataset.cat) return; selectedCategory = pill.dataset.cat; categoryFilters.querySelectorAll(".pill").forEach(p=>p.classList.remove("active")); pill.classList.add("active"); updateCategoryFiltersVisibility(); });
+    // Selected
+    if (selectedDay === dateStr) cell.classList.add('selected');
 
-    function bindMultiSelect(groupId, setRef, dataAttr) { const group = document.getElementById(groupId); if (!group) return; group.addEventListener("click", (e) => { const pill = e.target.closest(".pill"); if (!pill || !pill.dataset[dataAttr]) return; const val = pill.dataset[dataAttr]; if (setRef.has(val)) { setRef.delete(val); pill.classList.remove("active"); } else { setRef.add(val); pill.classList.add("active"); } }); }
-    function bindSingleSelect(groupId, updateFn, dataAttr) { const group = document.getElementById(groupId); if (!group) return; group.addEventListener("click", (e) => { const pill = e.target.closest(".pill"); if (!pill || !pill.dataset[dataAttr]) return; updateFn(pill.dataset[dataAttr]); group.querySelectorAll(".pill").forEach(p=>p.classList.remove("active")); pill.classList.add("active"); }); }
+    cell.appendChild(numEl);
 
-    bindMultiSelect("musicGenreFilters", selectedMusicGenres, "genre");
-    bindSingleSelect("musicVenueFilters", val => selectedMusicVenueSize = val, "venueSize");
-    bindMultiSelect("sportsTypeFilters", selectedSports, "sport");
-    bindSingleSelect("sportsLevelFilters", val => selectedSportsLevel = val, "level");
-    bindMultiSelect("comedyTypeFilters", selectedComedyTypes, "comedy");
-    bindMultiSelect("festivalTypeFilters", selectedFestivalTypes, "fest");
-    bindMultiSelect("theaterTypeFilters", selectedTheaterTypes, "theater");
-    bindMultiSelect("nightlifeTypeFilters", selectedNightlifeTypes, "nightlife");
-    bindMultiSelect("familyTypeFilters", selectedFamilyTypes, "family");
+    // Event dots
+    if (eventMap[dateStr] && eventMap[dateStr].length > 0) {
+      cell.classList.add('has-events');
+      const dots = document.createElement('div');
+      dots.className = 'cal-dots';
+      const types = [...new Set(eventMap[dateStr].map(e => e.type))].slice(0, 4);
+      types.forEach(t => {
+        const dot = document.createElement('div');
+        dot.className = `cal-dot ${t}`;
+        dots.appendChild(dot);
+      });
+      cell.appendChild(dots);
 
-    async function fetchEvents(city, stateCode, category) { const params = new URLSearchParams({ apikey: API_KEY, city, stateCode, countryCode: "US", size: "100", sort: "date,asc", ...getCategoryParams(category) }); const res = await fetch(`${EVENTS_URL}?${params.toString()}`); if (!res.ok) throw new Error("Ticketmaster API error."); const data = await res.json(); return data._embedded?.events || []; }
-    function dedupeEvents(events) { const seen = new Set(); const out = []; for (const event of events) { if (!seen.has(event.id)) { seen.add(event.id); out.push(event); } } return out; }
-    function applyMusicFilters(events) { return events.filter(e => { if (selectedMusicVenueSize !== "any" && getVenueSizeTag(e) !== selectedMusicVenueSize) return false; if (selectedMusicGenres.size === 0) return true; const lowered = getEventGenres(e).join(" | "); for (const value of selectedMusicGenres) { for (const kw of (GENRE_KEYWORDS[value] || [])) { if (lowered.includes(kw)) return true; } } return false; }); }
-    function applyTextFilters(events, selectedSet, keywordsMap) { if (selectedSet.size === 0) return events; return events.filter(e => { const text = getEventTextBlob(e, true); for (const [key, arr] of Object.entries(keywordsMap)) { if (selectedSet.has(key) && arr.some(kw=>text.includes(kw))) return true; } return false; }); }
-
-    function renderEvents(events) {
-      eventsContainer.innerHTML = "";
-      events.forEach(event => {
-        const venue = event._embedded?.venues?.[0];
-        const eventName = event.name || "Untitled event";
-        const ticketUrl = event.url || "";
-        let displayDate = "Date TBA";
-        if (event.dates?.start) { const raw = event.dates.start.dateTime || (event.dates.start.localDate && `${event.dates.start.localDate}T${event.dates.start.localTime || "00:00:00"}`); if (raw && !isNaN(new Date(raw))) { displayDate = new Date(raw).toLocaleString(undefined, { weekday:"short", month:"short", day:"numeric", hour:"numeric", minute:"2-digit" }); } }
-        const venueName = venue?.name || "Venue TBA";
-        const addressLine = venue?.address?.line1 || "";
-        const cityStateZip = [venue?.city?.name, venue?.state?.stateCode].filter(Boolean).join(", ");
-        const fullAddress = `${addressLine} ${cityStateZip}`.trim();
-        const mapUrl = fullAddress ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}` : "";
-        const card = document.createElement("div");
-        card.className = "event-card";
-        card.innerHTML = `
-          <div class="e-date">${escapeHtml(displayDate)}</div>
-          <h3 class="e-title">${escapeHtml(eventName)}</h3>
-          ${venue?.url ? `<a class="e-venue" href="${venue.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(venueName)}</a>` : `<span class="e-venue">${escapeHtml(venueName)}</span>`}
-          ${mapUrl ? `<a class="e-address" href="${mapUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(fullAddress)}</a>` : `<span class="e-address">${escapeHtml(fullAddress)}</span>`}
-          <div class="card-footer">
-            ${ticketUrl ? `<a class="ticket-btn" href="${ticketUrl}" target="_blank" rel="noopener noreferrer">Tickets / Info</a>` : `<span class="ticket-btn" style="opacity:0.4;pointer-events:none;">Tickets Unavailable</span>`}
-          </div>`;
-        eventsContainer.appendChild(card);
+      cell.addEventListener('click', () => {
+        selectedDay = dateStr;
+        document.querySelectorAll('.cal-day.selected').forEach(d => d.classList.remove('selected'));
+        cell.classList.add('selected');
+        renderDayPanel(dateStr);
       });
     }
 
-    async function handleSearch() {
-      const parsed = parseCityState(locationInput.value.trim());
-      if (!parsed) { statusEl.textContent = "Please enter a valid City, State (e.g. Austin, TX)."; return; }
-      const { city, stateCode } = parsed;
-      const dateStr = dateInput.value || "";
-      eventsContainer.innerHTML = "";
-      statusEl.textContent = "Searching...";
-      resultsSummary.textContent = "";
-      try {
-        let rawEvents = await fetchEvents(city, stateCode, selectedCategory);
-        let events = dedupeEvents(rawEvents);
-        if (!events.length) { statusEl.textContent = "No events found. Try adjusting filters."; return; }
-        if (dateStr) events = events.filter(e => getEventLocalDate(e) === dateStr);
-        switch (selectedCategory) {
-          case "music": events = applyMusicFilters(events); break;
-          case "sports": events = applyTextFilters(events, selectedSports, SPORT_KEYWORDS); if (selectedSportsLevel === "pro") events = events.filter(e=>SPORTS_LEVEL_KEYWORDS.pro.some(kw=>getEventTextBlob(e).includes(kw))); else if (selectedSportsLevel === "college") events = events.filter(e=>SPORTS_LEVEL_KEYWORDS.college.some(kw=>getEventTextBlob(e).includes(kw))); break;
-          case "comedy": events = applyTextFilters(events, selectedComedyTypes, COMEDY_KEYWORDS); break;
-          case "festivals": events = applyTextFilters(events, selectedFestivalTypes, FESTIVAL_KEYWORDS); break;
-          case "theater": events = applyTextFilters(events, selectedTheaterTypes, THEATER_KEYWORDS); break;
-          case "nightlife": events = applyTextFilters(events, selectedNightlifeTypes, NIGHTLIFE_KEYWORDS); break;
-          case "family": events = applyTextFilters(events, selectedFamilyTypes, FAMILY_KEYWORDS); break;
-        }
-        if (!events.length) { statusEl.textContent = "No events match your current filters."; return; }
-        statusEl.textContent = `Found ${events.length} event(s).`;
-        resultsSummary.textContent = `Showing ${CATEGORY_LABELS[selectedCategory]} for ${city}, ${stateCode}${dateStr ? " on selected date" : ""}.`;
-        renderEvents(events);
-      } catch(err) { statusEl.textContent = "Error contacting Ticketmaster. Please try again."; }
-    }
+    grid.appendChild(cell);
+  }
 
-    searchBtn.addEventListener("click", handleSearch);
-    locationInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); handleSearch(); } });
-    dateInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); handleSearch(); } });
-  </script>
+  // Show empty state if no events loaded yet
+  if (filteredEvents.length === 0 && allEvents.length === 0) {
+    showCalEmpty(true);
+  } else {
+    showCalEmpty(false);
+  }
+}
 
+function renderDayPanel(dateStr) {
+  const panel = document.getElementById('dayPanel');
+  panel.style.display = 'block';
+
+  const events = filteredEvents.filter(e => e.date === dateStr);
+  const date = new Date(dateStr + 'T12:00:00');
+  const label = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+  document.getElementById('dayPanelTitle').textContent = label;
+  document.getElementById('dayPanelCount').textContent = events.length > 0 ? `${events.length} event${events.length !== 1 ? 's' : ''}` : '';
+
+  const content = document.getElementById('dayPanelContent');
+
+  if (events.length === 0) {
+    content.innerHTML = '<div class="day-panel-empty">No events on this date</div>';
+    return;
+  }
+
+  content.innerHTML = '';
+  const list = document.createElement('div');
+  list.className = 'event-list';
+  events.forEach(ev => list.appendChild(buildEventCard(ev)));
+  content.appendChild(list);
+}
+
+// ── List view ──
+function renderList() {
+  const city = document.getElementById('cityInput').value.trim() || 'Your City';
+  document.getElementById('listTitle').textContent = `Events in ${city}`;
+  document.getElementById('listCount').textContent = filteredEvents.length > 0 ? `${filteredEvents.length} events` : '';
+
+  const content = document.getElementById('listContent');
+
+  if (filteredEvents.length === 0) {
+    content.innerHTML = `<div class="empty-state"><div class="empty-icon">🎟</div><div class="empty-title">${allEvents.length === 0 ? 'Search a city to see events' : 'No events match your filters'}</div><p class="empty-sub">${allEvents.length === 0 ? 'Type your city above and hit Find Events' : 'Try selecting different filters'}</p></div>`;
+    return;
+  }
+
+  content.innerHTML = '';
+  const list = document.createElement('div');
+  list.className = 'event-list';
+  filteredEvents.forEach(ev => list.appendChild(buildEventCard(ev)));
+  content.appendChild(list);
+}
+
+// ── Event card builder ──
+function buildEventCard(ev) {
+  const card = document.createElement('a');
+  card.className = 'event-card';
+  card.href = ev.url;
+  card.target = '_blank';
+  card.rel = 'noopener noreferrer';
+
+  const date = new Date(ev.date + 'T12:00:00');
+  const dayNum = date.getDate();
+  const monthStr = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+
+  const typeLabels = { music: 'Music', sports: 'Sports', comedy: 'Comedy', festival: 'Festival', theater: 'Theater', other: 'Event' };
+
+  card.innerHTML = `
+    <div class="event-card-date">
+      <div class="event-card-date-day">${dayNum}</div>
+      <div class="event-card-date-month">${monthStr}</div>
+    </div>
+    <div class="event-card-divider"></div>
+    <div class="event-card-info">
+      <div class="event-card-name">${ev.name}</div>
+      <div class="event-card-venue">${ev.venue}${ev.time ? ' · ' + formatTime(ev.time) : ''}</div>
+    </div>
+    <div class="event-card-type">
+      <span class="event-type-badge badge-${ev.type}">${typeLabels[ev.type] || 'Event'}</span>
+    </div>
+    <span class="event-card-arrow">→</span>`;
+
+  return card;
+}
+
+function formatTime(t) {
+  const [h, m] = t.split(':').map(Number);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const hour = h % 12 || 12;
+  return `${hour}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+// ── UI helpers ──
+function showCalLoading(show) {
+  document.getElementById('calLoading').style.display = show ? 'block' : 'none';
+  document.getElementById('calGrid').style.opacity = show ? '0.3' : '1';
+}
+function showCalEmpty(show) {
+  document.getElementById('calEmpty').style.display = show ? 'block' : 'none';
+}
+
+// ── Init ──
+renderCalendar();
+showCalEmpty(true);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
 
 <script>
 // Mobile nav
@@ -616,31 +738,11 @@
     document.body.style.overflow = open ? 'hidden' : '';
   });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    menu.classList.remove('open'); btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
   }));
-  // Auth state — mobile menu + profile icon
-  const mobileAuth = document.getElementById('navMobileAuthLink');
-  const profileIcon = document.getElementById('navProfileIcon');
-  try {
-    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
-    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
-    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
-    if (token) fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-      .then(r => r.ok ? r.json() : null)
-      .then(user => {
-        if (user?.id) {
-          if (mobileAuth) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; }
-          if (profileIcon) { profileIcon.href = 'account.html'; profileIcon.classList.add('logged-in'); profileIcon.setAttribute('aria-label', 'My Account'); }
-        }
-      })
-      .catch(()=>{});
-  } catch(e) {}
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="auth.js"></script>
+
 </body>
 </html>
