@@ -170,6 +170,23 @@
      }
     @media (max-width: 768px) {
       :root { --nav-h: 58px; }
+      .hero { min-height: 100svh; padding: calc(var(--nav-h) + 24px) 5% 48px; }
+      .hero-logo { height: 100px; }
+      .hero-headline { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { justify-content: center; }
+      .main-cards { grid-template-columns: 1fr; padding: 40px 5% 60px; gap: 1rem; }
+      .main-card { padding: 1.8rem 1.5rem; }
+      .main-card h2 { font-size: 1.6rem; }
+      .premium-strip-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .premium-strip { padding: 60px 5%; }
+      .quote-section { padding: 60px 5%; }
+      .final-cta { padding: 60px 5%; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
       .hero { min-height: 100svh; padding: calc(var(--nav-h) + 32px) 6% 60px; }
       .main-cards { grid-template-columns: 1fr; padding: 60px 6%; gap: 1rem; }
       .premium-strip-inner { grid-template-columns: 1fr; gap: 3rem; }
