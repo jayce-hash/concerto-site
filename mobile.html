@@ -84,31 +84,96 @@
   /* ──────────────────────────────────────────────────────────
      HERO — same headline as desktop, just tighter for app feel.
      ────────────────────────────────────────────────────────── */
-  .hero { padding: 26px 22px 18px; }
+  .hero { padding: 26px 22px 12px; }
   .hero-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
   .hero-headline { font-family: var(--display); font-size: clamp(2.2rem, 8.5vw, 3rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 14px; }
   .hero-headline em { font-style: italic; color: var(--gold); }
   .hero-sub { font-size: 0.92rem; font-weight: 300; color: var(--dim); line-height: 1.55; max-width: 340px; }
 
   /* ──────────────────────────────────────────────────────────
-     SEARCH — primary app affordance.
+     SEARCH — real type-ahead input. Lazy-loads search-index.json
+     on first keystroke, filters venues + tours, shows up to 8
+     results in a dropdown grouped by section.
      ────────────────────────────────────────────────────────── */
-  .search-wrap { padding: 14px 22px 6px; }
+  .search-wrap { padding: 14px 22px 6px; position: relative; }
   .search {
     display: flex; align-items: center; gap: 10px;
     padding: 13px 16px; border-radius: 14px;
     background: var(--bg-elev); border: 1px solid var(--border);
-    color: var(--dim); font-size: 0.92rem;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .search:active { border-color: var(--border-mid); }
-  .search-icon { width: 17px; height: 17px; flex-shrink: 0; opacity: 0.55; }
-  .search-text { flex: 1; }
-  .search-kbd {
-    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--xdim); padding: 3px 7px; border: 1px solid var(--border);
-    border-radius: 6px; text-transform: uppercase;
+  .search:focus-within {
+    border-color: var(--border-mid);
+    box-shadow: 0 0 0 4px rgba(18,30,54,0.04);
   }
+  .search-icon { width: 17px; height: 17px; flex-shrink: 0; color: var(--dim); opacity: 0.7; }
+  .search-input {
+    flex: 1; min-width: 0;
+    border: none; outline: none; background: transparent;
+    font: inherit; font-size: 0.92rem; color: var(--navy);
+    padding: 0;
+  }
+  .search-input::placeholder { color: var(--dim); }
+  .search-clear {
+    display: none;
+    border: none; background: transparent; padding: 2px;
+    color: var(--xdim); cursor: pointer;
+    width: 22px; height: 22px;
+    align-items: center; justify-content: center;
+    border-radius: 50%;
+  }
+  .search-clear.visible { display: flex; }
+  .search-clear:active { background: var(--border); }
+  .search-clear svg { width: 14px; height: 14px; }
+
+  /* Dropdown panel — floats below the search field. */
+  .search-dropdown {
+    display: none;
+    position: absolute; left: 22px; right: 22px; top: calc(100% - 2px);
+    z-index: 40;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 12px 36px rgba(18,30,54,0.12);
+    max-height: 60vh; overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px;
+  }
+  .search-dropdown.open { display: block; }
+  .sd-group-label {
+    font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--xdim); padding: 10px 12px 6px; display: block;
+  }
+  .sd-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; border-radius: 10px;
+    color: var(--navy); cursor: pointer;
+    transition: background 0.15s;
+  }
+  .sd-item:active { background: var(--bg); }
+  .sd-item-icon {
+    width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+  }
+  .sd-item-icon svg { width: 17px; height: 17px; }
+  .sd-item-body { flex: 1; min-width: 0; }
+  .sd-item-title {
+    font-size: 0.88rem; font-weight: 600; color: var(--navy);
+    line-height: 1.2;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sd-item-sub {
+    font-size: 0.7rem; color: var(--dim); margin-top: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sd-item-arrow { color: var(--xdim); flex-shrink: 0; font-size: 0.9rem; }
+  .sd-empty {
+    padding: 16px 12px; font-size: 0.84rem; color: var(--dim); text-align: center;
+  }
+  /* highlight matching substring inside titles */
+  .sd-mark { background: rgba(201,168,76,0.22); color: var(--navy); border-radius: 3px; padding: 0 2px; }
 
   /* ──────────────────────────────────────────────────────────
      QUICK CTA PAIR — Find Venue + Events Near Me.
@@ -137,18 +202,41 @@
   /* ──────────────────────────────────────────────────────────
      TRUST — kept; mirrors desktop "346 Venues · 65 Active Tours".
      ────────────────────────────────────────────────────────── */
-  .trust { display: flex; gap: 18px; padding: 0 22px 22px; flex-wrap: wrap; }
-  .trust-item { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--xdim); display: flex; align-items: center; gap: 6px; }
-  .trust-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+  /* ──────────────────────────────────────────────────────────
+     STATS STRIP — labeled-metric pattern. Two equal cells with
+     a hairline divider. Reads as a designed data row, not as
+     loose marketing copy.
+     ────────────────────────────────────────────────────────── */
+  .stats { display: flex; padding: 0 22px 22px; }
+  .stat { flex: 1; }
+  .stat + .stat { border-left: 1px solid var(--border); padding-left: 18px; }
+  .stat-num {
+    font-family: var(--display); font-size: 1.55rem; font-weight: 700;
+    color: var(--navy); line-height: 1; letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--xdim);
+  }
 
   /* ──────────────────────────────────────────────────────────
-     HORIZONTAL CHIP RAIL — replaces flex-wrap pills with native
-     swipe-able row, snap to edges, hidden scrollbar.
+     HORIZONTAL CHIP RAIL — swipe-able row, snap to edges,
+     hidden scrollbar, soft right-edge fade signals "more →".
      ────────────────────────────────────────────────────────── */
-  .rail-section { padding-bottom: 28px; }
+  .rail-section { padding-bottom: 32px; }
   .rail-label {
     font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--xdim); padding: 0 22px; margin-bottom: 12px; display: block;
+    color: var(--xdim); padding: 0 22px; margin-bottom: 10px; display: block;
+  }
+  .rail-wrap {
+    position: relative;
+  }
+  .rail-wrap::after {
+    /* Right-edge fade hints there's more to scroll. */
+    content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 32px;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(248,249,249,0), var(--bg));
   }
   .rail {
     display: flex; gap: 8px;
@@ -174,8 +262,8 @@
   /* ──────────────────────────────────────────────────────────
      SECTION HEADER (shared)
      ────────────────────────────────────────────────────────── */
-  .section-head { padding: 4px 22px 12px; }
-  .section-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+  .section-head { padding: 0 22px 14px; }
+  .section-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 8px; }
   .section-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1.1; letter-spacing: -0.01em; }
 
   /* ──────────────────────────────────────────────────────────
@@ -291,7 +379,7 @@
   .hero { animation: fadeUp 0.5s var(--ease) both; }
   .search-wrap { animation: fadeUp 0.5s 0.06s var(--ease) both; }
   .quick-ctas { animation: fadeUp 0.5s 0.1s var(--ease) both; }
-  .trust { animation: fadeUp 0.5s 0.14s var(--ease) both; }
+  .trust, .stats { animation: fadeUp 0.5s 0.14s var(--ease) both; }
   .rail-section { animation: fadeUp 0.5s 0.18s var(--ease) both; }
   .cards { animation: fadeUp 0.5s 0.22s var(--ease) both; }
   .premium { animation: fadeUp 0.5s 0.26s var(--ease) both; }
@@ -314,13 +402,21 @@
 
 <!-- ─── SEARCH ───────────────────────────────────────────── -->
 <div class="search-wrap">
-  <a href="venues.html" class="search" aria-label="Search venues">
+  <div class="search" role="search">
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
     </svg>
-    <span class="search-text">Search a venue or tour&hellip;</span>
-    <span class="search-kbd">Go</span>
-  </a>
+    <input type="text" id="searchInput" class="search-input"
+           placeholder="Search a venue or tour&hellip;"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+           aria-label="Search venues and tours" aria-controls="searchDropdown" />
+    <button type="button" id="searchClear" class="search-clear" aria-label="Clear search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div id="searchDropdown" class="search-dropdown" role="listbox" aria-label="Search results"></div>
 </div>
 
 <!-- ─── QUICK CTAs ───────────────────────────────────────── -->
@@ -329,23 +425,31 @@
   <a href="events.html" class="btn-secondary">Events Near Me &rarr;</a>
 </div>
 
-<!-- ─── TRUST ────────────────────────────────────────────── -->
-<div class="trust">
-  <div class="trust-item"><div class="trust-dot"></div>346 Venues</div>
-  <div class="trust-item"><div class="trust-dot"></div>65 Active Tours</div>
+<!-- ─── STATS ────────────────────────────────────────────── -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">346</div>
+    <div class="stat-label">Venues</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">65</div>
+    <div class="stat-label">Active Tours</div>
+  </div>
 </div>
 
 <!-- ─── CHIP RAIL ────────────────────────────────────────── -->
 <section class="rail-section">
   <span class="rail-label">What&rsquo;s inside</span>
-  <div class="rail">
-    <a href="bags.html" class="chip">Bag Policies</a>
-    <a href="parking.html" class="chip">Parking</a>
-    <a href="setlists.html" class="chip">Setlists</a>
-    <a href="cityguides.html" class="chip">City Guides</a>
-    <a href="rideshare.html" class="chip">Rideshare</a>
-    <a href="events.html" class="chip">Events Near Me</a>
-    <a href="premium.html" class="chip gold">Premium ✦</a>
+  <div class="rail-wrap">
+    <div class="rail">
+      <a href="bags.html" class="chip">Bag Policies</a>
+      <a href="parking.html" class="chip">Parking</a>
+      <a href="setlists.html" class="chip">Setlists</a>
+      <a href="cityguides.html" class="chip">City Guides</a>
+      <a href="rideshare.html" class="chip">Rideshare</a>
+      <a href="events.html" class="chip">Events Near Me</a>
+      <a href="premium.html" class="chip gold">Premium ✦</a>
+    </div>
   </div>
 </section>
 
@@ -464,6 +568,162 @@
     const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  /* ──────────────────────────────────────────────────────────
+     TYPE-AHEAD SEARCH
+     Lazy-loads /search-index.json on first keystroke (~32KB),
+     filters venues + tours by case-insensitive substring match,
+     ranks "starts-with" matches above "contains", caps at 8
+     results, groups by section, closes on outside-tap or Esc.
+     ────────────────────────────────────────────────────────── */
+  (function () {
+    const input    = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
+    const dropdown = document.getElementById('searchDropdown');
+    if (!input || !dropdown) return;
+
+    const MAX_RESULTS_PER_GROUP = 4;
+    let indexData = null;       // { venues:[], tours:[] }
+    let indexLoading = null;    // Promise sentinel
+
+    /* SVG icons used in dropdown rows. */
+    const ICON_VENUE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+    const ICON_TOUR  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+
+    function escapeHTML(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      })[c]);
+    }
+    function highlight(text, query) {
+      if (!query) return escapeHTML(text);
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return escapeHTML(text);
+      const before = escapeHTML(text.slice(0, idx));
+      const match  = escapeHTML(text.slice(idx, idx + query.length));
+      const after  = escapeHTML(text.slice(idx + query.length));
+      return `${before}<span class="sd-mark">${match}</span>${after}`;
+    }
+
+    async function loadIndex() {
+      if (indexData) return indexData;
+      if (indexLoading) return indexLoading;
+      indexLoading = fetch('search-index.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { indexData = data; return data; })
+        .catch(() => { indexData = { venues: [], tours: [] }; return indexData; });
+      return indexLoading;
+    }
+
+    function rankAndFilter(list, query, getName) {
+      const q = query.toLowerCase();
+      const starts = [], contains = [];
+      for (const item of list) {
+        const n = getName(item).toLowerCase();
+        const idx = n.indexOf(q);
+        if (idx === 0) starts.push(item);
+        else if (idx > 0) contains.push(item);
+      }
+      return [...starts, ...contains].slice(0, MAX_RESULTS_PER_GROUP);
+    }
+
+    function render(query) {
+      if (!indexData) {
+        dropdown.innerHTML = '<div class="sd-empty">Loading&hellip;</div>';
+        dropdown.classList.add('open');
+        return;
+      }
+      const q = query.trim();
+      if (!q) {
+        dropdown.classList.remove('open');
+        dropdown.innerHTML = '';
+        return;
+      }
+
+      const venueMatches = rankAndFilter(indexData.venues, q, v => v.name);
+      const tourMatches  = rankAndFilter(indexData.tours, q, t => `${t.artist} ${t.name}`);
+
+      if (!venueMatches.length && !tourMatches.length) {
+        dropdown.innerHTML = `<div class="sd-empty">No matches for &ldquo;${escapeHTML(q)}&rdquo;.</div>`;
+        dropdown.classList.add('open');
+        return;
+      }
+
+      let html = '';
+      if (venueMatches.length) {
+        html += '<span class="sd-group-label">Venues</span>';
+        for (const v of venueMatches) {
+          html += `
+            <a class="sd-item" href="venues/${escapeHTML(v.slug)}.html" role="option">
+              <div class="sd-item-icon">${ICON_VENUE}</div>
+              <div class="sd-item-body">
+                <div class="sd-item-title">${highlight(v.name, q)}</div>
+                <div class="sd-item-sub">${escapeHTML(v.type)}</div>
+              </div>
+              <span class="sd-item-arrow">&rarr;</span>
+            </a>`;
+        }
+      }
+      if (tourMatches.length) {
+        html += '<span class="sd-group-label">Tours</span>';
+        for (const t of tourMatches) {
+          // Highlight whichever of artist/name actually contains the query
+          const artistHL = highlight(t.artist, q);
+          const nameHL   = highlight(t.name, q);
+          html += `
+            <a class="sd-item" href="tours/${escapeHTML(t.slug)}.html" role="option">
+              <div class="sd-item-icon">${ICON_TOUR}</div>
+              <div class="sd-item-body">
+                <div class="sd-item-title">${artistHL}</div>
+                <div class="sd-item-sub">${nameHL}</div>
+              </div>
+              <span class="sd-item-arrow">&rarr;</span>
+            </a>`;
+        }
+      }
+      dropdown.innerHTML = html;
+      dropdown.classList.add('open');
+    }
+
+    /* Wire up events. */
+    input.addEventListener('input', async () => {
+      const q = input.value;
+      clearBtn.classList.toggle('visible', q.length > 0);
+      if (!q.trim()) {
+        dropdown.classList.remove('open');
+        return;
+      }
+      // Lazy-load on first real keystroke.
+      if (!indexData) {
+        render(q); // shows "Loading…"
+        await loadIndex();
+      }
+      render(q);
+    });
+
+    input.addEventListener('focus', () => {
+      if (input.value.trim()) dropdown.classList.add('open');
+    });
+
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      clearBtn.classList.remove('visible');
+      dropdown.classList.remove('open');
+      dropdown.innerHTML = '';
+      input.focus();
+    });
+
+    /* Click outside closes; Escape closes + blurs. */
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.search-wrap')) dropdown.classList.remove('open');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        input.blur();
+      }
+    });
   })();
 
   /* Auth: swap Sign In → My Account in the header. The tab is "Account" either way. */
