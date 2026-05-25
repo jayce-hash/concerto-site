@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
+<meta name="apple-mobile-web-app-title" content="Concerto" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="mobile-web-app-capable" content="yes" />
 <title>Concerto — From the Concert to the City</title>
 <meta name="description" content="Bag policies, parking, setlists, city guides, and events near you for 346 venues. Free on iOS."/>
 <link rel="canonical" href="https://concertocity.com/mobile"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+<meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <style>
   :root {
     --bg: #F8F9F9;
+    --bg-elev: #FFFFFF;
     --navy: #121E36;
     --gold: #C9A84C;
     --gold-light: #E5C365;
@@ -21,202 +32,397 @@
     --border: rgba(18,30,54,0.08);
     --border-mid: rgba(18,30,54,0.14);
     --display: 'Playfair Display', Georgia, serif;
-    --body: 'DM Sans', -apple-system, sans-serif;
+    --body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --ease: cubic-bezier(0.16,1,0.3,1);
+
+    --safe-top: env(safe-area-inset-top);
+    --safe-bot: env(safe-area-inset-bottom);
+    --tabbar-h: 56px;
   }
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
   html { background: var(--bg); }
-  body { font-family: var(--body); background: var(--bg); color: var(--navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body {
+    font-family: var(--body); background: var(--bg); color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* Reserve space for the bottom tab bar + iOS home indicator */
+    padding-bottom: calc(var(--tabbar-h) + var(--safe-bot) + 8px);
+    min-height: 100vh;
+    /* Prevent the gold from bleeding into overscroll on iOS */
+    overscroll-behavior-y: none;
+  }
   a { color: inherit; text-decoration: none; }
   img { display: block; max-width: 100%; }
+  button { font: inherit; cursor: pointer; }
 
-  /* ── TOP BAR ── */
-  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 0; }
-  .topbar-logo { height: 32px; width: auto; }
-  .topbar-signin { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); padding: 8px 16px; border: 1px solid var(--border-mid); border-radius: 99px; transition: all 0.2s; }
-  .topbar-signin:hover { color: var(--navy); border-color: var(--navy); }
+  /* ──────────────────────────────────────────────────────────
+     STICKY APP HEADER — replaces marketing nav.
+     Frosted, compact, persists on scroll, respects status bar.
+     ────────────────────────────────────────────────────────── */
+  .appbar {
+    position: sticky; top: 0; z-index: 50;
+    padding: calc(var(--safe-top) + 10px) 20px 12px;
+    background: rgba(248,249,249,0.78);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .appbar.scrolled {
+    border-bottom-color: var(--border);
+    background: rgba(248,249,249,0.92);
+  }
+  .appbar-logo { height: 26px; width: auto; }
+  .appbar-signin {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--dim); padding: 8px 14px;
+    border: 1px solid var(--border-mid); border-radius: 99px;
+  }
 
-  /* ── HERO ── */
-  .hero { padding: 36px 24px 32px; }
-  .hero-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
-  .hero-headline { font-family: var(--display); font-size: clamp(2.6rem, 10vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 16px; }
+  /* ──────────────────────────────────────────────────────────
+     HERO — same headline as desktop, just tighter for app feel.
+     ────────────────────────────────────────────────────────── */
+  .hero { padding: 26px 22px 18px; }
+  .hero-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+  .hero-headline { font-family: var(--display); font-size: clamp(2.2rem, 8.5vw, 3rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 14px; }
   .hero-headline em { font-style: italic; color: var(--gold); }
-  .hero-sub { font-size: 0.95rem; font-weight: 300; color: var(--dim); line-height: 1.65; margin-bottom: 28px; max-width: 320px; }
+  .hero-sub { font-size: 0.92rem; font-weight: 300; color: var(--dim); line-height: 1.55; max-width: 340px; }
 
-  /* ── CTA BUTTONS ── */
-  .cta-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
-  .btn-primary { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 99px; background: var(--navy); color: #F8F9F9; font-family: var(--body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.3s var(--ease), box-shadow 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
-  .btn-secondary { display: flex; align-items: center; justify-content: center; padding: 15px 24px; border-radius: 99px; background: transparent; color: var(--dim); font-family: var(--body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border-mid); cursor: pointer; transition: all 0.2s; }
-  .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
+  /* ──────────────────────────────────────────────────────────
+     SEARCH — primary app affordance.
+     ────────────────────────────────────────────────────────── */
+  .search-wrap { padding: 14px 22px 6px; }
+  .search {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 16px; border-radius: 14px;
+    background: var(--bg-elev); border: 1px solid var(--border);
+    color: var(--dim); font-size: 0.92rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search:active { border-color: var(--border-mid); }
+  .search-icon { width: 17px; height: 17px; flex-shrink: 0; opacity: 0.55; }
+  .search-text { flex: 1; }
+  .search-kbd {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--xdim); padding: 3px 7px; border: 1px solid var(--border);
+    border-radius: 6px; text-transform: uppercase;
+  }
 
-  /* ── TRUST STRIP ── */
-  .trust { display: flex; gap: 20px; padding: 0 24px 36px; flex-wrap: wrap; }
-  .trust-item { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--xdim); display: flex; align-items: center; gap: 6px; }
+  /* ──────────────────────────────────────────────────────────
+     QUICK CTA PAIR — Find Venue + Events Near Me.
+     ────────────────────────────────────────────────────────── */
+  .quick-ctas { padding: 12px 22px 18px; display: flex; flex-direction: column; gap: 9px; }
+  .btn-primary {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 15px 22px; border-radius: 99px;
+    background: var(--navy); color: #F8F9F9;
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(18,30,54,0.18);
+    transition: transform 0.15s var(--ease);
+  }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-secondary {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 22px; border-radius: 99px;
+    background: transparent; color: var(--dim);
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border-mid);
+    transition: transform 0.15s var(--ease);
+  }
+  .btn-secondary:active { transform: scale(0.98); }
+
+  /* ──────────────────────────────────────────────────────────
+     TRUST — kept; mirrors desktop "346 Venues · 65 Active Tours".
+     ────────────────────────────────────────────────────────── */
+  .trust { display: flex; gap: 18px; padding: 0 22px 22px; flex-wrap: wrap; }
+  .trust-item { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--xdim); display: flex; align-items: center; gap: 6px; }
   .trust-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
 
-  /* ── FEATURE PILLS ── */
-  .pills-section { padding: 0 24px 36px; }
-  .pills-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--xdim); margin-bottom: 14px; display: block; }
-  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pill { padding: 8px 14px; border-radius: 99px; border: 1px solid var(--border); font-size: 0.72rem; font-weight: 600; color: var(--dim); letter-spacing: 0.04em; transition: all 0.2s; cursor: pointer; }
-  .pill:hover { border-color: var(--navy); color: var(--navy); }
-  .pill.gold { border-color: rgba(201,168,76,0.4); color: var(--gold); }
-
-  /* ── FEATURE CARDS ── */
-  .cards-section { padding: 0 16px 36px; display: flex; flex-direction: column; gap: 10px; }
-  .card { background: #FFFFFF; border: 1px solid var(--border); border-radius: 20px; padding: 22px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; transition: all 0.25s var(--ease); }
-  .card:hover { background: var(--bg); border-color: var(--border-mid); transform: translateY(-2px); }
-  .card-left { flex: 1; }
-  .card-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; display: block; }
-  .card-title { font-family: var(--display); font-size: 1.25rem; font-weight: 700; color: var(--navy); line-height: 1.15; }
-  .card-sub { font-size: 0.75rem; color: var(--dim); margin-top: 4px; line-height: 1.5; }
-  .card-arrow { font-size: 1rem; color: var(--xdim); flex-shrink: 0; transition: transform 0.2s var(--ease), color 0.2s; }
-  .card:hover .card-arrow { color: var(--gold); transform: translateX(4px); }
-
-  /* ── PREMIUM BLOCK ── */
-  .premium-block { margin: 0 16px 36px; background: var(--navy); border: 1px solid var(--navy); border-radius: 24px; padding: 28px 22px; }
-  .premium-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
-  .premium-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: #F8F9F9; line-height: 1.15; margin-bottom: 8px; }
-  .premium-sub { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 20px; }
-  .premium-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
-  .pf { display: flex; align-items: flex-start; gap: 10px; }
-  .pf-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 5px; }
-  .pf-text { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-  .pf-text strong { color: #F8F9F9; font-weight: 600; }
-  .btn-gold { display: flex; align-items: center; justify-content: center; padding: 14px 20px; border-radius: 99px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(201,168,76,0.3); transition: all 0.25s var(--ease); }
-  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(201,168,76,0.45); }
-
-  /* ── QUOTE ── */
-  .quote-block { padding: 0 24px 36px; border-top: 1px solid var(--border); padding-top: 32px; margin: 0 16px 36px; }
-  .quote-text { font-family: var(--display); font-size: 1.1rem; font-style: italic; color: var(--dim); line-height: 1.55; margin-bottom: 12px; }
-  .quote-attr { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--xdim); }
-
-  /* ── BOTTOM CTA ── */
-  .bottom-cta { margin: 0 16px 0; background: #FFFFFF; border: 1px solid var(--border); border-radius: 24px; padding: 28px 22px; text-align: center; }
-  .bottom-cta-title { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-  .bottom-cta-sub { font-size: 0.8rem; color: var(--dim); margin-bottom: 20px; }
-
-  /* ── FOOTER ── */
-  .footer { padding: 32px 24px 48px; margin-top: 36px; border-top: 1px solid var(--border); }
-  .footer-links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
-  .footer-link { font-size: 0.72rem; color: var(--dim); transition: color 0.2s; }
-  .footer-link:hover { color: var(--navy); }
-  .footer-copy { font-size: 0.65rem; color: var(--xdim); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* ──────────────────────────────────────────────────────────
+     HORIZONTAL CHIP RAIL — replaces flex-wrap pills with native
+     swipe-able row, snap to edges, hidden scrollbar.
+     ────────────────────────────────────────────────────────── */
+  .rail-section { padding-bottom: 28px; }
+  .rail-label {
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--xdim); padding: 0 22px; margin-bottom: 12px; display: block;
   }
-  .hero { animation: fadeUp 0.6s var(--ease) both; }
-  .cta-group { animation: fadeUp 0.6s 0.1s var(--ease) both; }
-  .trust { animation: fadeUp 0.6s 0.15s var(--ease) both; }
-  .pills-section { animation: fadeUp 0.6s 0.2s var(--ease) both; }
-  .cards-section { animation: fadeUp 0.6s 0.25s var(--ease) both; }
-  .premium-block { animation: fadeUp 0.6s 0.3s var(--ease) both; }
+  .rail {
+    display: flex; gap: 8px;
+    padding: 2px 22px 4px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto;
+    padding: 9px 16px; border-radius: 99px;
+    border: 1px solid var(--border);
+    font-size: 0.78rem; font-weight: 600; color: var(--dim);
+    background: var(--bg-elev);
+    scroll-snap-align: start;
+    transition: transform 0.15s var(--ease);
+  }
+  .chip:active { transform: scale(0.96); }
+  .chip.gold { border-color: rgba(201,168,76,0.45); color: var(--gold); }
+
+  /* ──────────────────────────────────────────────────────────
+     SECTION HEADER (shared)
+     ────────────────────────────────────────────────────────── */
+  .section-head { padding: 4px 22px 12px; }
+  .section-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+  .section-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--navy); line-height: 1.1; letter-spacing: -0.01em; }
+
+  /* ──────────────────────────────────────────────────────────
+     FEATURE CARDS — Venue Guides / Tour Guides / Events Near Me.
+     Same content as desktop, app-card styling.
+     ────────────────────────────────────────────────────────── */
+  .cards { padding: 0 16px 32px; display: flex; flex-direction: column; gap: 10px; }
+  .card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: 18px; padding: 20px 18px;
+    display: flex; align-items: center; gap: 14px;
+    transition: transform 0.15s var(--ease), border-color 0.2s;
+  }
+  .card:active { transform: scale(0.985); border-color: var(--border-mid); }
+  .card-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+  }
+  .card-icon svg { width: 22px; height: 22px; }
+  .card-body { flex: 1; min-width: 0; }
+  .card-eyebrow { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; display: block; }
+  .card-title { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--navy); line-height: 1.15; }
+  .card-sub { font-size: 0.78rem; color: var(--dim); margin-top: 3px; line-height: 1.45; }
+  .card-arrow { color: var(--xdim); flex-shrink: 0; font-size: 1rem; }
+
+  /* ──────────────────────────────────────────────────────────
+     PREMIUM — navy block, gold accent, same content as desktop.
+     ────────────────────────────────────────────────────────── */
+  .premium {
+    margin: 0 16px 32px; background: var(--navy); border-radius: 22px;
+    padding: 26px 22px;
+  }
+  .premium-eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+  .premium-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: #F8F9F9; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .premium-sub { font-size: 0.8rem; color: rgba(255,255,255,0.48); line-height: 1.55; margin-bottom: 20px; }
+  .premium-features { display: flex; flex-direction: column; gap: 11px; margin-bottom: 22px; }
+  .pf { display: flex; align-items: flex-start; gap: 11px; }
+  .pf-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
+  .pf-text { font-size: 0.82rem; color: rgba(255,255,255,0.58); line-height: 1.5; }
+  .pf-text strong { color: #F8F9F9; font-weight: 600; }
+  .btn-gold {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 22px; border-radius: 99px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none;
+    box-shadow: 0 6px 20px rgba(201,168,76,0.28);
+    transition: transform 0.15s var(--ease);
+  }
+  .btn-gold:active { transform: scale(0.98); }
+
+  /* ──────────────────────────────────────────────────────────
+     QUOTE & BOTTOM CTA — preserved from desktop tone.
+     ────────────────────────────────────────────────────────── */
+  .quote {
+    padding: 28px 22px 28px;
+    margin: 0 16px 28px;
+    border-top: 1px solid var(--border);
+  }
+  .quote-text { font-family: var(--display); font-size: 1.05rem; font-style: italic; color: var(--dim); line-height: 1.55; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--xdim); }
+
+  .bottom-cta {
+    margin: 0 16px 32px; background: var(--bg-elev);
+    border: 1px solid var(--border); border-radius: 22px;
+    padding: 26px 22px; text-align: center;
+  }
+  .bottom-cta-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .bottom-cta-sub { font-size: 0.8rem; color: var(--dim); margin-bottom: 18px; }
+  .bottom-cta .btn-gold { max-width: 280px; margin: 0 auto; }
+
+  /* ──────────────────────────────────────────────────────────
+     FOOTER — small print only; the tab bar replaces the rest.
+     ────────────────────────────────────────────────────────── */
+  .footer { padding: 8px 22px 16px; text-align: center; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 14px; }
+  .footer-link { font-size: 0.7rem; color: var(--dim); }
+  .footer-copy { font-size: 0.62rem; color: var(--xdim); }
+
+  /* ──────────────────────────────────────────────────────────
+     BOTTOM TAB BAR — the single biggest "app-ifier".
+     Frosted background, safe-area padding, 5 destinations,
+     active state on Home.
+     ────────────────────────────────────────────────────────── */
+  .tabbar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    padding: 6px 4px calc(var(--safe-bot) + 4px);
+    background: rgba(248,249,249,0.88);
+    backdrop-filter: saturate(160%) blur(18px);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    border-top: 1px solid var(--border);
+  }
+  .tab {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 3px; padding: 8px 4px 6px;
+    color: var(--xdim);
+    transition: color 0.15s, transform 0.15s var(--ease);
+  }
+  .tab svg { width: 22px; height: 22px; stroke-width: 1.75; }
+  .tab-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.02em; }
+  .tab.active { color: var(--navy); }
+  .tab.active .tab-label { color: var(--navy); }
+  .tab:active { transform: scale(0.94); }
+
+  /* ──────────────────────────────────────────────────────────
+     FADE-UP — preserved feel.
+     ────────────────────────────────────────────────────────── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .hero { animation: fadeUp 0.5s var(--ease) both; }
+  .search-wrap { animation: fadeUp 0.5s 0.06s var(--ease) both; }
+  .quick-ctas { animation: fadeUp 0.5s 0.1s var(--ease) both; }
+  .trust { animation: fadeUp 0.5s 0.14s var(--ease) both; }
+  .rail-section { animation: fadeUp 0.5s 0.18s var(--ease) both; }
+  .cards { animation: fadeUp 0.5s 0.22s var(--ease) both; }
+  .premium { animation: fadeUp 0.5s 0.26s var(--ease) both; }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <img src="logo.png" alt="Concerto" class="topbar-logo"/>
-  <a id="mobileSignIn" href="login.html" class="topbar-signin">Sign In</a>
-</div>
+<!-- ─── STICKY APP HEADER ─────────────────────────────────── -->
+<header class="appbar" id="appbar">
+  <img src="logo.png" alt="Concerto" class="appbar-logo"/>
+  <a id="mobileSignIn" href="login.html" class="appbar-signin">Sign In</a>
+</header>
 
-<!-- HERO -->
-<div class="hero">
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
   <span class="hero-eyebrow">Your Concert Companion</span>
   <h1 class="hero-headline">From the Concert<br/><em>to the City.</em></h1>
   <p class="hero-sub">Venues, tours, setlists, parking, city guides &mdash; everything for your night out, in one place.</p>
+</section>
+
+<!-- ─── SEARCH ───────────────────────────────────────────── -->
+<div class="search-wrap">
+  <a href="venues.html" class="search" aria-label="Search venues">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span class="search-text">Search a venue or tour&hellip;</span>
+    <span class="search-kbd">Go</span>
+  </a>
 </div>
 
-<!-- CTAs -->
-<div class="cta-group" style="padding: 0 24px;">
+<!-- ─── QUICK CTAs ───────────────────────────────────────── -->
+<div class="quick-ctas">
   <a href="venues.html" class="btn-primary">Find Your Venue &rarr;</a>
   <a href="events.html" class="btn-secondary">Events Near Me &rarr;</a>
 </div>
 
-<!-- TRUST -->
+<!-- ─── TRUST ────────────────────────────────────────────── -->
 <div class="trust">
   <div class="trust-item"><div class="trust-dot"></div>346 Venues</div>
   <div class="trust-item"><div class="trust-dot"></div>65 Active Tours</div>
-
 </div>
 
-<!-- PILLS -->
-<div class="pills-section">
-  <span class="pills-label">What's inside</span>
-  <div class="pills">
-    <a href="bags.html" class="pill">Bag Policies</a>
-    <a href="parking.html" class="pill">Parking</a>
-    <a href="setlists.html" class="pill">Setlists</a>
-    <a href="cityguides.html" class="pill">City Guides</a>
-    <a href="rideshare.html" class="pill">Rideshare</a>
-    <a href="events.html" class="pill">Events Near Me</a>
-    <a href="premium.html" class="pill gold">Premium ✦</a>
+<!-- ─── CHIP RAIL ────────────────────────────────────────── -->
+<section class="rail-section">
+  <span class="rail-label">What&rsquo;s inside</span>
+  <div class="rail">
+    <a href="bags.html" class="chip">Bag Policies</a>
+    <a href="parking.html" class="chip">Parking</a>
+    <a href="setlists.html" class="chip">Setlists</a>
+    <a href="cityguides.html" class="chip">City Guides</a>
+    <a href="rideshare.html" class="chip">Rideshare</a>
+    <a href="events.html" class="chip">Events Near Me</a>
+    <a href="premium.html" class="chip gold">Premium ✦</a>
   </div>
-</div>
+</section>
 
-<!-- FEATURE CARDS -->
-<div class="cards-section">
+<!-- ─── FEATURE CARDS ────────────────────────────────────── -->
+<section class="section-head">
+  <span class="section-label">Know Before You Go</span>
+  <h2 class="section-title">Built for the night.</h2>
+</section>
+
+<div class="cards">
   <a href="venues.html" class="card">
-    <div class="card-left">
-      <span class="card-eyebrow">Know Before You Go</span>
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="card-body">
+      <span class="card-eyebrow">Venues</span>
       <div class="card-title">Venue Guides</div>
-      <div class="card-sub">346 venues. Bag policies, parking, concessions & more.</div>
+      <div class="card-sub">346 venues. Bag policies, parking, concessions &amp; more.</div>
     </div>
     <span class="card-arrow">&rarr;</span>
   </a>
+
   <a href="tours.html" class="card">
-    <div class="card-left">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </div>
+    <div class="card-body">
       <span class="card-eyebrow">On the Road</span>
       <div class="card-title">Tour Guides</div>
-      <div class="card-sub">Setlists, show dates & ticket links for 65 active tours.</div>
+      <div class="card-sub">Setlists, show dates &amp; ticket links for 65 active tours.</div>
     </div>
     <span class="card-arrow">&rarr;</span>
   </a>
+
   <a href="events.html" class="card">
-    <div class="card-left">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </div>
+    <div class="card-body">
       <span class="card-eyebrow">Tonight</span>
       <div class="card-title">Events Near Me</div>
-      <div class="card-sub">Concerts, games, comedy & festivals near you right now.</div>
+      <div class="card-sub">Concerts, games, comedy &amp; festivals near you right now.</div>
     </div>
     <span class="card-arrow">&rarr;</span>
   </a>
 </div>
 
-<!-- PREMIUM -->
-<div class="premium-block">
+<!-- ─── PREMIUM ──────────────────────────────────────────── -->
+<section class="premium">
   <span class="premium-eyebrow">Concerto Premium</span>
   <div class="premium-title">The Magic Is in the Details.</div>
   <p class="premium-sub">$7.99/month or $69.99/year. Cancel anytime.</p>
   <div class="premium-features">
     <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>AI Bag Check</strong> &mdash; Scan your bag. Get an instant verdict before you leave.</div></div>
-    <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Live Mode</strong> &mdash; Track the setlist live. Get a Story Card when it's over.</div></div>
+    <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Live Mode</strong> &mdash; Track the setlist live. Get a Story Card when it&rsquo;s over.</div></div>
     <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Concerto+ AI Itinerary</strong> &mdash; Your full evening, planned around your show.</div></div>
   </div>
   <a href="premium.html" class="btn-gold">Explore Premium &rarr;</a>
-</div>
+</section>
 
-<!-- QUOTE -->
-<div class="quote-block">
+<!-- ─── QUOTE ────────────────────────────────────────────── -->
+<section class="quote">
   <p class="quote-text">&ldquo;I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like one seamless event.&rdquo;</p>
   <p class="quote-attr">&mdash; Jayce Wells, Founder</p>
-</div>
+</section>
 
-<!-- BOTTOM CTA -->
-<div class="bottom-cta">
+<!-- ─── BOTTOM CTA ───────────────────────────────────────── -->
+<section class="bottom-cta">
   <div class="bottom-cta-title">Unlock the Full Night.</div>
-  <p class="bottom-cta-sub">Concerto Premium. $7.99/month or $69.99/year.</p>
-  <a href="premium.html" class="btn-gold" style="max-width:280px;margin:0 auto;">Explore Premium &rarr;</a>
-</div>
+  <p class="bottom-cta-sub">Concerto Premium. $7.99/mo or $69.99/yr.</p>
+  <a href="premium.html" class="btn-gold">Explore Premium &rarr;</a>
+</section>
 
-<!-- FOOTER -->
-<div class="footer">
+<!-- ─── FOOTER ───────────────────────────────────────────── -->
+<footer class="footer">
   <div class="footer-links">
-<a href="about.html" class="footer-link">About</a>
+    <a href="about.html" class="footer-link">About</a>
     <a href="premium.html" class="footer-link">Premium</a>
     <a href="faq.html" class="footer-link">FAQ</a>
     <a href="privacy.html" class="footer-link">Privacy</a>
@@ -224,24 +430,62 @@
     <a href="partners.html" class="footer-link">Partners</a>
   </div>
   <p class="footer-copy">&copy; 2026 Concerto LLC. All rights reserved.</p>
-</div>
+</footer>
+
+<!-- ─── BOTTOM TAB BAR ───────────────────────────────────── -->
+<nav class="tabbar" aria-label="Main">
+  <a href="mobile.html" class="tab active" aria-current="page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+    <span class="tab-label">Home</span>
+  </a>
+  <a href="venues.html" class="tab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span class="tab-label">Venues</span>
+  </a>
+  <a href="tours.html" class="tab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    <span class="tab-label">Tours</span>
+  </a>
+  <a href="events.html" class="tab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+    <span class="tab-label">Near Me</span>
+  </a>
+  <a href="account.html" class="tab" id="tabAccount">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+    <span class="tab-label">Account</span>
+  </a>
+</nav>
 
 <script>
-// Auth — update Sign In to My Account if logged in
-(function(){
-  const el = document.getElementById('mobileSignIn');
-  if (!el) return;
-  try {
-    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
-    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
-    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
-    if (!token) return;
-    fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-      .then(r => r.ok ? r.json() : null)
-      .then(user => { if (user?.id) { el.textContent = 'My Account'; el.href = 'account.html'; } })
-      .catch(()=>{});
-  } catch(e) {}
-})();
+  /* Sticky header gets a subtle border when scrolled. */
+  (function () {
+    const bar = document.getElementById('appbar');
+    if (!bar) return;
+    const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  /* Auth: swap Sign In → My Account in the header. The tab is "Account" either way. */
+  (function () {
+    const headerEl = document.getElementById('mobileSignIn');
+    try {
+      const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+      const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+      const token = JSON.parse(localStorage.getItem(
+        'sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token'
+      ) || '{}').access_token || '';
+      if (!token) return;
+      fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+        .then(r => r.ok ? r.json() : null)
+        .then(user => {
+          if (!user?.id) return;
+          if (headerEl) { headerEl.textContent = 'My Account'; headerEl.href = 'account.html'; }
+        })
+        .catch(() => {});
+    } catch (e) {}
+  })();
 </script>
+
 </body>
 </html>
