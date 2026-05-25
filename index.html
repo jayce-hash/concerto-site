@@ -93,7 +93,7 @@
       text-align: center; padding: calc(var(--nav-h) + 48px) 5% 80px;
       position: relative;
     }
-    .hero-eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: block; }
+    .hero-eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: block; }
     .hero-logo { height: 160px; width: auto; margin: 0 auto 2rem; }
     .hero-headline {
       font-family: var(--display);
@@ -171,7 +171,6 @@
     @media (max-width: 768px) {
       :root { --nav-h: 58px; }
       .hero { min-height: 100svh; padding: calc(var(--nav-h) + 24px) 5% 48px; }
-      .hero-logo { height: 100px; }
       .hero-headline { font-size: clamp(2.4rem, 10vw, 3.5rem); }
       .hero-sub { font-size: 0.9rem; }
       .hero-actions { flex-direction: column; align-items: stretch; }
@@ -273,7 +272,6 @@
   <!-- Hero -->
   <header class="hero" role="banner">
     <span class="hero-eyebrow">The Concert Companion</span>
-    <img src="logo.png" alt="Concerto" class="hero-logo" width="540" height="160" fetchpriority="high" />
     <h1 class="hero-headline">
       From the Concert<br /><em>To the City.</em>
     </h1>
