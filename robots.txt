@@ -1,1 +1,19 @@
+# Concerto — concertocity.com
+# Sitemap: https://concertocity.com/sitemap.xml
+
+User-agent: *
+Allow: /
+
+# Keep private/admin/auth flows out of the index
+Disallow: /login.html
+Disallow: /signup.html
+Disallow: /account.html
+Disallow: /setlist-admin.html
+Disallow: /premium-success.html
+Disallow: /.netlify/
+
+# Don't crawl mobile.html — it duplicates index.html for app users
+# and would otherwise get flagged as a duplicate-content alternate
+Disallow: /mobile.html
+
 Sitemap: https://concertocity.com/sitemap.xml
