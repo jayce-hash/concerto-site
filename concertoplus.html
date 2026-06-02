@@ -430,6 +430,13 @@ const LOGIN_URL    = 'https://concertocity.com/login.html';
 
 let sb;
 try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) { sb = null; }
+
+// Build proxy headers with the current Supabase access token attached.
+async function CONCERTO_PROXY_HEADERS(){
+  const h = {'Content-Type':'application/json'};
+  try { const r = await sb.auth.getSession(); const t = r?.data?.session?.access_token; if(t) h['Authorization'] = 'Bearer ' + t; } catch(e) {}
+  return h;
+}
 const $  = id => document.getElementById(id);
 
 // ── Auth gate ──
@@ -532,7 +539,7 @@ async function doSearch(){
   $('statusLine').textContent='Searching…';$('statusLine').classList.remove('err');
   $('eventList').innerHTML='<div class="shimmer-card"></div><div class="shimmer-card" style="margin-top:10px"></div><div class="shimmer-card" style="margin-top:10px"></div>';
   try{
-    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:'ticketmaster',keyword:kw,size:10})});
+    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:await CONCERTO_PROXY_HEADERS(),body:JSON.stringify({service:'ticketmaster',keyword:kw,size:10})});
     const data=await res.json();
     const raw=data?._embedded?.events||[];
     const seen=new Set();
@@ -652,7 +659,7 @@ function makeBuildPrompt(){
 
 async function claudeCall(messages){
   const sys=`You are the Concerto+ concierge — a lifelong music fan with the precision of a luxury hotel concierge. Build curated night-out plans around concerts. Be specific and opinionated. Name actual dishes. Give real insider tips. Avoid generic filler. Respond ONLY with a raw JSON object — no markdown, no extra text.`;
-  const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:'claude',model:'claude-haiku-4-5-20251001',max_tokens:2400,system:sys,messages})});
+  const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:await CONCERTO_PROXY_HEADERS(),body:JSON.stringify({service:'claude',model:'claude-haiku-4-5-20251001',max_tokens:2400,system:sys,messages})});
   if(!res.ok){const t=await res.text();throw new Error(`Claude API ${res.status}: ${t.slice(0,200)}`);}
   const data=await res.json();
   if(data.error)throw new Error(data.error.message||'API error');
@@ -667,7 +674,7 @@ async function claudeCall(messages){
 
 async function geocode(addr){
   try{
-    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:'geocode',address:addr})});
+    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:await CONCERTO_PROXY_HEADERS(),body:JSON.stringify({service:'geocode',address:addr})});
     const data=await res.json();const loc=data?.results?.[0]?.geometry?.location;
     return loc?{lat:loc.lat,lng:loc.lng}:null;
   }catch{return null;}
@@ -676,7 +683,7 @@ async function geocode(addr){
 async function fetchNearby({loc,type,kw,max=8}){
   if(!loc)return[];
   try{
-    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:'places_nearby',lat:loc.lat,lng:loc.lng,type,keyword:kw,radius:2000})});
+    const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:await CONCERTO_PROXY_HEADERS(),body:JSON.stringify({service:'places_nearby',lat:loc.lat,lng:loc.lng,type,keyword:kw,radius:2000})});
     const data=await res.json();
     if(data?.results?.length)return data.results.slice(0,max).map(p=>({name:p.name||'',placeId:p.place_id||'',lat:p.geometry?.location?.lat??null,lng:p.geometry?.location?.lng??null,rating:typeof p.rating==='number'?p.rating:null,price:typeof p.price_level==='number'?p.price_level:null,address:p.vicinity||'',photos:[]}));
     return[];
