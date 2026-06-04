@@ -386,7 +386,6 @@
 </style>
 </head>
 <body>
-<script>try{if(window.Capacitor)sessionStorage.setItem('concerto-app-session','1');}catch(e){}</script>
 
 <!-- ─── STICKY APP HEADER ─────────────────────────────────── -->
 <header class="appbar" id="appbar">
@@ -543,19 +542,19 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>
     <span class="tab-label">Home</span>
   </a>
-  <a href="venues.html" class="tab">
+  <a href="mobile-venues.html" class="tab">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     <span class="tab-label">Venues</span>
   </a>
-  <a href="tours.html" class="tab">
+  <a href="mobile-tours.html" class="tab">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
     <span class="tab-label">Tours</span>
   </a>
-  <a href="events.html" class="tab">
+  <a href="mobile-events.html" class="tab">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
     <span class="tab-label">Near Me</span>
   </a>
-  <a href="account.html" class="tab" id="tabAccount">
+  <a href="mobile-account.html" class="tab" id="tabAccount">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
     <span class="tab-label">Account</span>
   </a>
@@ -741,7 +740,7 @@
         .then(r => r.ok ? r.json() : null)
         .then(user => {
           if (!user?.id) return;
-          if (headerEl) { headerEl.textContent = 'My Account'; headerEl.href = 'account.html'; }
+          if (headerEl) { headerEl.textContent = 'My Account'; headerEl.href = 'mobile-account.html'; }
         })
         .catch(() => {});
     } catch (e) {}
