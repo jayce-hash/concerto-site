@@ -148,8 +148,8 @@ async function updateNavForAuth() {
       'text-decoration:none',
       'transition:all 0.2s',
       isPremium
-        ? 'background:rgba(201,168,76,0.08);border:1.5px solid #C9A84C;color:#C9A84C;'
-        : 'background:transparent;border:1.5px solid var(--border-mid,rgba(18,30,54,0.14));color:var(--text,#121E36);'
+        ? 'background:var(--text,#121E36);border:1.5px solid #C9A84C;color:#C9A84C;'
+        : 'background:var(--text,#121E36);border:none;color:#FFFFFF;'
     ].join(';');
     authLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>';
   }
