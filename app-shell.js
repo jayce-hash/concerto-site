@@ -3,32 +3,38 @@
 // Drop-in native-app chrome (frosted appbar + bottom tab bar) for any page.
 // Include once per page, after auth.js:  <script src="app-shell.js"></script>
 //
-// Activates ONLY when:
-//   • running inside the native (Capacitor) app, OR
-//   • the URL has ?app=1  (persists for browser preview; ?app=0 turns it off)
+// Activates when ANY of these is true:
+//   • running inside the native (Capacitor) app
+//   • the session was started from the app home (mobile.html sets a session flag)
+//   • the URL has ?app=1   (?app=0 turns the preview off)
 // On normal desktop/mobile web it does nothing, so the existing site is untouched.
 //
-// When active it: hides the marketing nav, shows a frosted top appbar (logo),
-// and a fixed bottom tab bar (Home · Venues · Tours · Near Me · Account) with
-// the active tab auto-detected from the URL. Single source of truth — one line
-// per page, no per-page config, no duplicate "-mobile" files.
+// Header matches mobile.html exactly: logo left, Sign In / My Account pill right.
+// Bottom tab bar: Home · Venues · Tours · Near Me · Account, active tab auto-detected.
 // ─────────────────────────────────────────
 (function () {
+  var SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+  var SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+  var LOGO_H = 38; // keep in sync with mobile.html .appbar-logo height
+
   // ── Activation ───────────────────────────
   var params = new URLSearchParams(location.search);
   if (params.get('app') === '1') localStorage.setItem('concerto-app-mode', '1');
   if (params.get('app') === '0') localStorage.removeItem('concerto-app-mode');
 
-  var inNativeApp = !!(window.Capacitor &&
-    (typeof window.Capacitor.isNativePlatform === 'function'
-      ? window.Capacitor.isNativePlatform() : true));
+  var inNativeApp = !!window.Capacitor;
+  var sessionApp  = false;
+  try { sessionApp = sessionStorage.getItem('concerto-app') === '1'; } catch (e) {}
   var forced = localStorage.getItem('concerto-app-mode') === '1';
-  if (!inNativeApp && !forced) return; // normal web — leave the page alone
+  if (!inNativeApp && !sessionApp && !forced) return; // normal web — leave the page alone
+
+  // Propagate app mode to this session so sub-pages stay in app mode.
+  try { sessionStorage.setItem('concerto-app', '1'); } catch (e) {}
 
   var CSS = [
     'body.app-shell-on{',
       '--nav-h:0px !important;',
-      'padding-top:calc(env(safe-area-inset-top) + 56px) !important;',
+      'padding-top:calc(env(safe-area-inset-top) + ' + (LOGO_H + 22) + 'px) !important;',
       'padding-bottom:calc(env(safe-area-inset-bottom) + 64px) !important;',
     '}',
     'body.app-shell-on .site-nav,',
@@ -36,16 +42,21 @@
 
     '.app-appbar{',
       'position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box;',
-      'display:flex;align-items:center;justify-content:center;',
+      'display:flex;align-items:center;justify-content:space-between;',
       'padding:calc(env(safe-area-inset-top) + 10px) 20px 12px;',
-      'background:rgba(248,249,249,0.82);',
-      'backdrop-filter:saturate(160%) blur(16px);',
-      '-webkit-backdrop-filter:saturate(160%) blur(16px);',
+      'background:rgba(248,249,249,0.78);',
+      'backdrop-filter:saturate(160%) blur(14px);',
+      '-webkit-backdrop-filter:saturate(160%) blur(14px);',
       'border-bottom:1px solid transparent;',
       'transition:border-color .2s, background .2s;',
     '}',
-    '.app-appbar.scrolled{border-bottom-color:rgba(18,30,54,0.08);background:rgba(248,249,249,0.93);}',
-    '.app-appbar img{height:34px;width:auto;display:block;}',
+    '.app-appbar.scrolled{border-bottom-color:rgba(18,30,54,0.08);background:rgba(248,249,249,0.92);}',
+    '.app-appbar-logo{height:' + LOGO_H + 'px;width:auto;display:block;}',
+    '.app-appbar-signin{',
+      'font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;',
+      'color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none;',
+      'border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap;',
+    '}',
 
     '.app-tabbar{',
       'position:fixed;left:0;right:0;bottom:0;z-index:1000;',
@@ -67,7 +78,6 @@
     '.app-tab:active{transform:scale(0.94);}'
   ].join('');
 
-  // SVGs lifted from mobile.html so the tab bar matches exactly.
   var TABS = [
     ['home',    'mobile.html',  'Home',    '<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/>'],
     ['venues',  'venues.html',  'Venues',  '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'],
@@ -100,7 +110,9 @@
     var bar = document.createElement('header');
     bar.className = 'app-appbar';
     bar.id = 'appShellBar';
-    bar.innerHTML = '<a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto"></a>';
+    bar.innerHTML =
+      '<a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>' +
+      '<a id="appShellSignin" href="login.html" class="app-appbar-signin">Sign In</a>';
     document.body.insertBefore(bar, document.body.firstChild);
 
     var key = activeKey();
@@ -121,6 +133,23 @@
     var onScroll = function () { bar.classList.toggle('scrolled', window.scrollY > 4); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // Swap "Sign In" → "My Account" when a session exists (matches mobile.html).
+    try {
+      var key2 = 'sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token';
+      var token = (JSON.parse(localStorage.getItem(key2) || '{}') || {}).access_token || '';
+      if (token) {
+        fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (user) {
+            if (user && user.id) {
+              var el = document.getElementById('appShellSignin');
+              if (el) { el.textContent = 'My Account'; el.href = 'account.html'; }
+            }
+          })
+          .catch(function () {});
+      }
+    } catch (e) {}
   }
 
   if (document.body) build();
