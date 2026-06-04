@@ -179,8 +179,25 @@ async function updateNavForAuth() {
   }
 }
 
+// ─── Nav avatar responsive fix ───────────
+// The desktop avatar (#navAuthLink) is styled with an inline display when logged in,
+// which would otherwise override each page's responsive hide rule. Inject a single
+// !important rule so the desktop avatar is hidden on mobile (≤1024px) everywhere —
+// including pages whose own CSS is missing the hide rule. The mobile profile icon
+// (#navProfileIcon) + hamburger remain the account entry points on small screens.
+function injectNavAvatarCSS() {
+  if (document.getElementById('concerto-nav-avatar-css')) return;
+  const style = document.createElement('style');
+  style.id = 'concerto-nav-avatar-css';
+  style.textContent = '@media (max-width:1024px){#navAuthLink{display:none !important;}}';
+  (document.head || document.documentElement).appendChild(style);
+}
+
 // Auto-run nav update
-document.addEventListener('DOMContentLoaded', updateNavForAuth);
+document.addEventListener('DOMContentLoaded', () => {
+  injectNavAvatarCSS();
+  updateNavForAuth();
+});
 
 // ─── Auth guard (redirect if not logged in) ─────
 
