@@ -132,10 +132,9 @@ async function updateNavForAuth() {
   const isPremium = profile?.is_premium;
   const initial = name.charAt(0).toUpperCase();
 
-  // Update desktop Sign In link → styled avatar
+  // Update desktop Sign In link → standard profile icon (premium = gold accent)
   const authLink = document.getElementById('navAuthLink');
   if (authLink) {
-    authLink.textContent = '';
     authLink.href = 'account.html';
     authLink.setAttribute('aria-label', 'My Account');
     authLink.style.cssText = [
@@ -145,16 +144,14 @@ async function updateNavForAuth() {
       'width:36px',
       'height:36px',
       'border-radius:50%',
-      'font-family:var(--body)',
-      'font-size:0.75rem',
-      'font-weight:700',
+      'padding:0',
       'text-decoration:none',
       'transition:all 0.2s',
       isPremium
-        ? 'background:rgba(201,168,76,0.1);border:2px solid #C9A84C;color:#C9A84C;'
-        : 'background:rgba(18,30,54,0.06);border:2px solid #121E36;color:#121E36;'
+        ? 'background:rgba(201,168,76,0.08);border:1.5px solid #C9A84C;color:#C9A84C;'
+        : 'background:transparent;border:1.5px solid var(--border-mid,rgba(18,30,54,0.14));color:var(--text,#121E36);'
     ].join(';');
-    authLink.textContent = initial;
+    authLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>';
   }
 
   // Update mobile auth link
