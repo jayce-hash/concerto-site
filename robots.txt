@@ -12,8 +12,11 @@ Disallow: /setlist-admin.html
 Disallow: /premium-success.html
 Disallow: /.netlify/
 
-# Don't crawl mobile.html — it duplicates index.html for app users
-# and would otherwise get flagged as a duplicate-content alternate
+# App-only screens — duplicate web content for in-app users (also noindex'd)
 Disallow: /mobile.html
+Disallow: /mobile-venues.html
+Disallow: /mobile-tours.html
+Disallow: /mobile-events.html
+Disallow: /mobile-account.html
 
 Sitemap: https://concertocity.com/sitemap.xml
