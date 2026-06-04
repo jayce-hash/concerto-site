@@ -163,7 +163,32 @@
     .footer-bottom { flex-direction: column; text-align: center; }
   }
   @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } .tab-btn { padding: 1rem 1rem; font-size: 0.6rem; } }
-</style>
+
+  /* ── FEATURED EATS / TOP PICKS ── */
+  .eats-section{ max-width:1180px; margin:0 auto; padding:80px 5%; }
+  .eats-head{ text-align:center; max-width:660px; margin:0 auto 3rem; }
+  .eats-eyebrow{ font-family:var(--body); font-size:0.6rem; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:block; }
+  .eats-title{ font-family:var(--display); font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.025em; color:var(--text); margin-bottom:1rem; line-height:1.08; }
+  .eats-sub{ font-family:var(--body); font-size:0.95rem; font-weight:300; color:var(--text-dim); line-height:1.7; }
+  .eats-venue{ margin-bottom:3rem; }
+  .eats-venue-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:0.9rem; margin-bottom:1.5rem; }
+  .eats-venue-name{ font-family:var(--display); font-size:1.5rem; font-weight:700; letter-spacing:-0.02em; color:var(--text); }
+  .eats-venue-city{ font-family:var(--body); font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-xdim); margin-top:0.35rem; }
+  .eats-venue-cta{ font-family:var(--body); font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+  .eats-venue-cta:hover{ text-decoration:underline; }
+  .eats-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+  .eats-card{ background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem; box-shadow:var(--shadow-sm); transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .3s; display:flex; flex-direction:column; }
+  .eats-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--border-mid); }
+  .eats-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:0.6rem; margin-bottom:0.6rem; }
+  .eats-card-name{ font-family:var(--display); font-size:1.15rem; font-weight:700; color:var(--text); line-height:1.2; }
+  .eats-card-badge{ font-family:var(--body); font-size:0.5rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,168,76,0.35); background:rgba(201,168,76,0.06); padding:0.25rem 0.5rem; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+  .eats-card-notes{ font-family:var(--body); font-size:0.86rem; font-weight:300; color:var(--text-dim); line-height:1.6; margin-bottom:1rem; flex:1; }
+  .eats-card-foot{ display:flex; align-items:center; gap:1rem; border-top:1px solid var(--border); padding-top:0.85rem; margin-top:auto; }
+  .eats-card-link{ font-family:var(--body); font-size:0.68rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-dim); transition:color .2s; }
+  .eats-card-link:hover{ color:var(--text); }
+  @media (max-width:960px){ .eats-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .eats-grid{ grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
@@ -425,6 +450,16 @@
     </div>
   </div>
 
+  <!-- FEATURED EATS / TOP PICKS -->
+  <section class="eats-section" id="eatsSection" aria-labelledby="eats-heading">
+    <div class="eats-head">
+      <span class="eats-eyebrow">Concerto Top Picks</span>
+      <h2 class="eats-title" id="eats-heading">Already on the guide.</h2>
+      <p class="eats-sub">The restaurants Concerto sends fans to before the show &mdash; featured on each venue&rsquo;s City Guide and Best Eats list. This is the exposure every partner gets.</p>
+    </div>
+    <div class="eats-venues" id="eatsVenues"></div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="final-cta">
     <span class="final-cta-eyebrow">Concerto All-Access</span>
@@ -521,5 +556,34 @@ tabBtns.forEach(btn => {
 })();
 </script>
 
+
+<script>
+// Featured Eats — rendered from besteats.json
+(function(){
+  var MAP_BASE='https://concerto-venue-map.netlify.app/';
+  var wrap=document.getElementById('eatsVenues');
+  if(!wrap) return;
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  fetch('besteats.json').then(function(r){return r.json();}).then(function(data){
+    wrap.innerHTML = data.map(function(v){
+      var cards=(v.items||[]).map(function(it){
+        var maps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it.name+' '+(it.address||''));
+        return '<div class="eats-card">'
+          +'<div class="eats-card-top"><div class="eats-card-name">'+esc(it.name)+'</div><span class="eats-card-badge">Top Pick</span></div>'
+          +'<p class="eats-card-notes">'+esc(it.notes)+'</p>'
+          +'<div class="eats-card-foot"><a class="eats-card-link" href="'+maps+'" target="_blank" rel="noopener noreferrer">Map &rarr;</a></div>'
+          +'</div>';
+      }).join('');
+      return '<div class="eats-venue">'
+        +'<div class="eats-venue-head">'
+          +'<div><div class="eats-venue-name">'+esc(v.venueName)+'</div><div class="eats-venue-city">'+esc(v.city)+', '+esc(v.state)+'</div></div>'
+          +'<a class="eats-venue-cta" href="'+MAP_BASE+esc(v.slug||'')+'" target="_blank" rel="noopener noreferrer">Full City Guide &rarr;</a>'
+        +'</div>'
+        +'<div class="eats-grid">'+cards+'</div>'
+      +'</div>';
+    }).join('');
+  }).catch(function(){ wrap.innerHTML='<p style="text-align:center;color:var(--text-dim)">Featured eats coming soon.</p>'; });
+})();
+</script>
 </body>
 </html>
