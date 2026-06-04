@@ -74,7 +74,7 @@
     border-bottom-color: var(--border);
     background: rgba(248,249,249,0.92);
   }
-  .appbar-logo { height: 38px; width: auto; }
+  .appbar-logo { height: 48px; width: auto; }
   .appbar-signin {
     font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--dim); padding: 8px 14px;
@@ -386,7 +386,7 @@
 </style>
 </head>
 <body>
-<script>try{sessionStorage.setItem('concerto-app','1');}catch(e){}</script>
+<script>try{if(window.Capacitor)sessionStorage.setItem('concerto-app-session','1');}catch(e){}</script>
 
 <!-- ─── STICKY APP HEADER ─────────────────────────────────── -->
 <header class="appbar" id="appbar">
