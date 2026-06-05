@@ -82,7 +82,7 @@
     ['venues',  'venues.html',  'Venues',  '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'],
     ['tours',   'tours.html',   'Tours',   '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>'],
     ['events',  'events.html',  'Near Me', '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>'],
-    ['account', 'account.html', 'Account', '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>']
+    ['account', 'mobile-account.html', 'Account', '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>']
   ];
 
   function activeKey() {
