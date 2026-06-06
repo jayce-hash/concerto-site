@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F9F9" />
+  <title>Hangout Music Festival — Bag Policy, Parking, Concessions & City Guide | Concerto</title>
+  <meta name="description" content="Everything you need for Hangout Music Festival — bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/venues/hangout-music-festival" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/venues/hangout-music-festival" />
+  <meta property="og:title" content="Hangout Music Festival — Bag Policy, Parking & City Guide" />
+  <meta property="og:description" content="Know before you go to Hangout Music Festival. Bag policies, parking, concessions, rideshare, and city guides — all in one place." />
+  <meta property="og:site_name" content="Concerto" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CivicStructure",
+    "name": "Hangout Music Festival",
+    "url": "https://concertocity.com/venues/hangout-music-festival",
+    "description": "Venue guide for Hangout Music Festival — bag policies, parking, concessions, rideshare, and city guides for concertgoers."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'DM Sans', -apple-system, sans-serif;
+      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
+      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
+      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
+      --gold: #C9A84C; --gold-light: #E5C365;
+      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
+      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
+      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --radius-lg: 24px; --nav-h: 68px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;background:var(--bg);}
+    body{font-family:var(--body);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    .bg-canvas{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;transition:transform 0.12s linear;}
+    .orb{position:absolute;border-radius:50%;filter:blur(130px);}
+    .orb-1{width:65vw;height:65vw;background:radial-gradient(circle,rgba(192,192,192,0.22) 0%,transparent 70%);top:-25%;left:-15%;opacity:.9;}
+    .orb-2{width:50vw;height:50vw;background:radial-gradient(circle,rgba(201,168,76,0.10) 0%,transparent 70%);bottom:-15%;right:-10%;opacity:.85;}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+    /* Nav */
+    .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);}
+    .nav-logo{display:flex;align-items:center;width:200px;}
+    .nav-logo-img{height:48px;width:auto;object-fit:contain;}
+    .nav-center{display:flex;gap:0;align-items:center;position:absolute;left:50%;transform:translateX(-50%);}
+    .nav-center > a,.nav-dropdown-trigger{font-family:var(--body);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);transition:color .25s;padding:0 1.2rem;height:var(--nav-h);display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;white-space:nowrap;}
+    .nav-center > a:hover,.nav-dropdown-trigger:hover,.nav-center > a.active{color:var(--text);}
+    .nav-chevron{width:10px;height:10px;display:block;flex-shrink:0;transition:transform .35s var(--ease-out);}
+    .nav-dropdown-trigger.open .nav-chevron{transform:rotate(180deg);}
+    .nav-dropdown{position:relative;}
+    .nav-dropdown-panel{position:absolute;top:calc(var(--nav-h) + 8px);left:50%;transform:translateX(-50%) translateY(10px);background:rgba(248,249,249,.99);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid var(--border);border-radius:28px;box-shadow:0 8px 16px rgba(18,30,54,.04),0 24px 64px rgba(18,30,54,.13);padding:.6rem;width:700px;opacity:0;pointer-events:none;transition:opacity .28s var(--ease-out),transform .28s var(--ease-out);}
+    .nav-dropdown-panel.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+    .dropdown-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem .8rem;border-bottom:1px solid var(--border);margin-bottom:.5rem;}
+    .dropdown-header-label{font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text-xdim);}
+    .dropdown-header-count{font-size:.58rem;font-weight:600;color:var(--gold);}
+    .dropdown-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;padding:0 .25rem .25rem;}
+    .nav-dropdown-item{display:flex;flex-direction:column;padding:1rem 1.1rem;border-radius:20px;text-decoration:none;position:relative;transition:background .2s var(--ease-out);border:1px solid transparent;}
+    .nav-dropdown-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:2px;border-radius:99px;background:var(--gold);opacity:0;transform:scaleY(.4);transition:opacity .2s,transform .25s var(--ease-out);}
+    .nav-dropdown-item:hover{background:var(--card-bg);border-color:var(--border);}
+    .nav-dropdown-item:hover::before{opacity:1;transform:scaleY(1);}
+    .nav-dropdown-item-title{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;letter-spacing:-.01em;transition:font-style .15s;}
+    .nav-dropdown-item:hover .nav-dropdown-item-title{font-style:italic;}
+    .nav-dropdown-item-desc{font-size:.75rem;color:var(--text-dim);line-height:1.5;}
+    .nav-cta{display:flex;justify-content:flex-end;width:200px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1.6rem;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);cursor:pointer;border:none;text-decoration:none;white-space:nowrap;}
+    .btn-dark{background:var(--text);color:var(--bg);box-shadow:0 8px 24px rgba(18,30,54,.18);}
+    .btn-dark:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(18,30,54,.24);}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-mid);}
+    .btn-outline:hover{background:var(--card-bg);border-color:var(--text);transform:translateY(-2px);}
+    /* Page */
+    main{padding-top:calc(var(--nav-h) + 48px);padding-bottom:80px;}
+    .container{max-width:1280px;margin:0 auto;padding:0 4%;}
+    .venue-hero{text-align:center;padding:3rem 4% 2rem;max-width:1280px;margin:0 auto;}
+    .eyebrow{display:block;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .venue-name{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-.03em;color:var(--text);line-height:1.05;margin-bottom:1rem;}
+    .breadcrumb{font-size:.75rem;color:var(--text-xdim);margin-bottom:2rem;}
+    .breadcrumb a{color:var(--text-dim);transition:color .2s;}
+    .breadcrumb a:hover{color:var(--text);}
+    /* Tool sections */
+    .tool-section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);box-shadow:var(--shadow-sm);}
+    .tool-section-header{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:2rem;}
+    .tool-section-meta .tool-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block;}
+    .tool-section-title{font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;color:var(--text);margin-bottom:.6rem;}
+    .tool-section-desc{font-size:.9rem;font-weight:300;color:var(--text-dim);line-height:1.75;max-width:520px;}
+    .tool-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--text);color:var(--bg);padding:.75rem 1.5rem;border-radius:99px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);white-space:nowrap;flex-shrink:0;}
+    .tool-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,30,54,.2);}
+    /* Bag policy sub-cards */
+    .bag-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem;}
+    .bag-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.4rem;}
+    .bag-card-label{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-xdim);margin-bottom:.5rem;display:block;}
+    .bag-card-value{font-family:var(--display);font-size:1.1rem;font-weight:700;color:var(--text);}
+    /* Info grid (enhanced venues) */
+    .info-section{margin:0 4% 1.5rem;max-width:calc(1280px - 8%);}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+    .info-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);}
+    .info-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block;}
+    .info-title{font-family:var(--display);font-size:1.1rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin-bottom:.6rem;}
+    .info-body{font-size:.88rem;font-weight:300;color:var(--text-dim);line-height:1.75;}
+    /* Events section */
+    .events-section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);box-shadow:var(--shadow-sm);}
+    .section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2rem;}
+    .section-title{font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;color:var(--text);}
+    .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .events-loading{grid-column:span 3;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:3rem;color:var(--text-dim);font-size:.9rem;}
+    .spinner{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .event-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),border-color .25s;}
+    .event-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-mid);}
+    .event-date{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+    .event-name{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;line-height:1.2;}
+    .event-venue-name{font-size:.78rem;color:var(--text-dim);margin-bottom:1rem;}
+    .event-link{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:auto;}
+    .events-error{grid-column:span 3;text-align:center;padding:2rem;color:var(--text-dim);font-style:italic;}
+    /* Reveal animation */
+    .reveal{opacity:1;}
+    /* App CTA */
+    .app-cta{background:var(--text);border-radius:var(--radius-lg);padding:3rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+    .app-cta-copy h3{font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:.5rem;}
+    .app-cta-copy p{font-size:.9rem;color:rgba(255,255,255,.55);max-width:400px;}
+    /* Footer */
+    footer{padding:5rem 4% 2.5rem;background:var(--bg);border-top:1px solid var(--border);}
+    .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;}
+    .footer-brand img{height:44px;width:auto;object-fit:contain;object-position:left;margin-bottom:1.2rem;}
+    .footer-brand p{font-size:.9rem;color:var(--text-dim);line-height:1.65;max-width:260px;}
+    .footer-col h4{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--text);margin-bottom:1.2rem;}
+    .footer-col a{display:block;font-size:.9rem;color:var(--text-dim);text-decoration:none;margin-bottom:.65rem;transition:color .25s;}
+    .footer-col a:hover{color:var(--text);}
+    .footer-bottom{max-width:1280px;margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:var(--text-xdim);}
+    .footer-bottom a{color:var(--text-dim);text-decoration:none;transition:color .25s;}
+    .footer-bottom a:hover{color:var(--text);}
+    @media(max-width:1024px){.nav-center{display:none;}.bag-cards,.info-grid,.events-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){:root{--nav-h:58px;}.tool-section,.events-section,.info-section,.app-cta{margin:0 5% 1.2rem;}.tool-section-header{flex-direction:column;}.bag-cards,.info-grid,.events-grid{grid-template-columns:1fr;}.events-loading{grid-column:span 1;}.events-error{grid-column:span 1;}.footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}.app-cta{padding:2rem;}}
+    @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}.footer-brand{grid-column:auto;}}
+  </style>
+</head>
+<body>
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <div class="noise" aria-hidden="true"></div>
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo"><a href="../index.html" aria-label="Concerto Home"><img src="../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/></a></div>
+    <div class="nav-center">
+      <a href="../venues.html">Venues</a>
+      <a href="../tours.html">Tours</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">Features<svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
+          <div class="dropdown-header"><span class="dropdown-header-label">All Features</span><span class="dropdown-header-count">9 Tools</span></div>
+          <div class="dropdown-grid">
+            <a href="../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
+            <a href="../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
+            <a href="../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
+            <a href="../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
+            <a href="../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
+            <a href="../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
+            <a href="../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
+            <a href="../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
+            <a href="../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="../premium.html">Premium</a>
+      <a href="../shop.html">Shop</a>
+      <a href="../about.html">About</a>
+    </div>
+    <div class="nav-cta"><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a></div>
+  </nav>
+
+  <main>
+    <div class="venue-hero">
+      <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Hangout Music Festival</p>
+      <span class="eyebrow">Venue Guide</span>
+      <h1 class="venue-name">Hangout Music Festival</h1>
+    </div>
+
+    <!-- City Guide -->
+    <div class="tool-section reveal">
+      <div class="tool-section-header">
+        <div class="tool-section-meta">
+          <span class="tool-eyebrow">Before &amp; After the Show</span>
+          <h2 class="tool-section-title">City Guide</h2>
+          <p class="tool-section-desc">The best restaurants, bars, and hotels near Hangout Music Festival &mdash; curated for concertgoers and sports fans, not tourists.</p>
+        </div>
+        <a href="https://concerto-venue-map.netlify.app/hangoutmusicfestival" target="_blank" rel="noopener noreferrer" class="tool-cta">View City Guide &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
+    <link rel="stylesheet" href="/venue-info/venue-info.css">
+    <div class="venue-info-wrap reveal">
+      <div class="cvi" data-slug="hangout-music-festival" data-features="bag,parking,concessions,rideshare"></div>
+    </div>
+    <script src="/venue-info/venue-info.js" defer></script>
+
+    <!-- ─── UPCOMING EVENTS ─── -->
+    <section class="events-section reveal">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Live at Hangout Music Festival</span>
+          <h2 class="section-title">Upcoming Events</h2>
+        </div>
+      </div>
+      <div class="events-grid" id="eventsGrid">
+        <div class="events-loading">
+          <div class="spinner"></div>
+          <p>Loading upcoming events&hellip;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- App CTA -->
+    <div class="app-cta">
+      <div class="app-cta-copy">
+        <h3>Going to Hangout Music Festival?</h3>
+        <p>Download Concerto for AI Bag Check, Live Mode story cards, and your full event-night itinerary &mdash; all in one tap.</p>
+      </div>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download Free on iOS</a>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
+      <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a></nav>
+      <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a><a href="../tourinfo.html">Tour Info</a></nav>
+      <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
+      <nav class="footer-col"><h4>Follow Us</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Concerto LLC. All rights reserved.</span><span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span></div>
+  </footer>
+
+  <script>
+    const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');
+    featuresBtn.addEventListener('click',e=>{e.stopPropagation();const o=featuresPanel.classList.toggle('open');featuresBtn.classList.toggle('open',o);featuresBtn.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',()=>{featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);});
+    featuresPanel.addEventListener('click',e=>e.stopPropagation());
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);}});
+    const bgCanvas=document.getElementById('bgCanvas');let ticking=false;
+    document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
+
+    // Upcoming Events — Ticketmaster API
+    (async()=>{
+      const API_KEY='vSyw9gaQsyn8SqMXctOzWZsGJDGt29tB';
+      const venueName=encodeURIComponent('Hangout Music Festival');
+      const grid=document.getElementById('eventsGrid');
+      try{
+        // First find Ticketmaster venue ID
+        const vRes=await fetch(`https://app.ticketmaster.com/discovery/v2/venues.json?apikey=${API_KEY}&keyword=${venueName}&size=1`);
+        const vData=await vRes.json();
+        const venues=vData._embedded?.venues;
+        if(!venues?.length)throw new Error('Venue not found');
+        const tmVenueId=venues[0].id;
+        // Fetch upcoming events
+        const eRes=await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${API_KEY}&venueId=${tmVenueId}&size=6&sort=date,asc`);
+        const eData=await eRes.json();
+        const events=eData._embedded?.events;
+        if(!events?.length)throw new Error('No events');
+        grid.innerHTML=events.map(ev=>{
+          const dateStr=ev.dates?.start?.localDate;
+          const d=dateStr?new Date(dateStr+'T12:00:00'):null;
+          const formattedDate=d?d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}):'Date TBA';
+          const name=ev.name||'Event';
+          const url=ev.url||'#';
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="event-card">
+            <div class="event-date">${formattedDate}</div>
+            <div class="event-name">${name}</div>
+            <div class="event-link">Get Tickets &rarr;</div>
+          </a>`;
+        }).join('');
+      }catch(err){
+        grid.innerHTML='<p class="events-error">No upcoming events found. Check the venue website for the latest schedule.</p>';
+      }
+    })();
+  </script>
+<script src="../auth.js"></script>
+<script src="../app-shell.js"></script>
+</body>
+</html>
