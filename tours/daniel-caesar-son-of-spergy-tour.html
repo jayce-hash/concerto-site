@@ -118,7 +118,7 @@
     .show-row:last-child{border-bottom:none;}
     .show-row-main{display:grid;grid-template-columns:160px 1fr 180px 44px;padding:1.3rem 2.5rem;align-items:center;cursor:pointer;transition:background 0.2s;}
     .show-row-main:hover{background:rgba(18,30,54,0.015);}
-    .show-date{font-family:var(--body);font-size:0.88rem;font-weight:700;color:var(--text);}
+    .show-date{font-family:var(--body);font-size:0.88rem;font-weight:700;color:var(--text);}.dt-short{display:none;}
     .show-venue{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);padding-right:1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:font-style 0.15s;}
     .show-row:hover .show-venue{font-style:italic;}
     .show-location{font-family:var(--body);font-size:0.85rem;color:var(--text-dim);}
@@ -146,7 +146,7 @@
     .reveal.visible{opacity:1;transform:translateY(0);}
     @media(max-width:1200px){.footer-inner{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:span 3;}}
     @media(max-width:1024px){.nav-center{display:none;}.section-preview{grid-template-columns:repeat(2,1fr);}.show-row-main{grid-template-columns:120px 1fr 36px;}.show-location{display:none;}}
-    @media(max-width:768px){:root{--nav-h:58px;}.tour-hero{padding:1.5rem 5% 2rem;}.breadcrumb{padding:calc(var(--nav-h) + 16px) 5% 0;}.quick-nav{padding:0 5% 2rem;}.tour-sections{padding:0 5% 4rem;}.section-header{flex-direction:column;align-items:flex-start;gap:1.2rem;padding:1.6rem;}.section-preview{grid-template-columns:1fr;padding:1.2rem 1.6rem;}.section-unavailable{padding:1.2rem 1.6rem;}.show-row-main{grid-template-columns:1fr 32px;padding:1.1rem 1.4rem;}.show-date{display:none;}.show-links{padding:0 1.4rem 1.2rem;}.footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}}
+    @media(max-width:768px){:root{--nav-h:58px;}.tour-hero{padding:1.5rem 5% 2rem;}.breadcrumb{padding:calc(var(--nav-h) + 16px) 5% 0;}.quick-nav{padding:0 5% 2rem;}.tour-sections{padding:0 5% 4rem;}.section-header{flex-direction:column;align-items:flex-start;gap:1.2rem;padding:1.6rem;}.section-preview{grid-template-columns:1fr;padding:1.2rem 1.6rem;}.section-unavailable{padding:1.2rem 1.6rem;}.show-row-main{grid-template-columns:auto 1fr 32px;padding:1.1rem 1.4rem;}.show-date{font-size:0.78rem;white-space:nowrap;padding-right:0.4rem;}.dt-full{display:none;}.dt-short{display:inline;}.show-links{padding:0 1.4rem 1.2rem;}.footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}.footer-brand{grid-column:auto;}}
   
     .setlist-loaded { padding: 0; }
@@ -177,7 +177,6 @@
             <a href="../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
             <a href="../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
             <a href="../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="../tourinfo.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Tour Info</span><span class="nav-dropdown-item-desc">Routes, dates &amp; ticket links</span></a>
             <a href="../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
             <a href="../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
             <a href="../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
@@ -284,7 +283,7 @@
     <div class="footer-inner">
       <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44" /><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
       <nav class="footer-col" aria-label="Company"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a></nav>
-      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a><a href="../tourinfo.html">Tour Info</a></nav>
+      <nav class="footer-col" aria-label="Tools"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col" aria-label="Legal"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
       <nav class="footer-col" aria-label="Social"><h4>Follow Us</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
     </div>
@@ -367,8 +366,8 @@
        every upcoming event for that attraction and renders rows.
        Falls back to a friendly empty state on any failure.
        ────────────────────────────────────────────────────────────── */
-    const TM_API_KEY = 'vSyw9gaQsyn8SqMXctOzWZsGJDGt29tB';
-    const TM_BASE = 'https://app.ticketmaster.com/discovery/v2';
+    const TM_API_KEY = '';
+    const TM_BASE = '/.netlify/functions/tm';
     const ARTIST_NAME = 'Daniel Caesar';
     const TOUR_KEYWORD = 'Son of Spergy';   // narrows results to this tour (substring match, case-insensitive)
     // Override here if a specific attractionId is ever needed:
@@ -475,7 +474,7 @@
           html += `
             <div class="show-row" id="${rowId}">
               <div class="show-row-main" onclick="toggleRow('${rowId}')">
-                <div class="show-date">${date}</div>
+                <div class="show-date"><span class="dt-full">${date}</span><span class="dt-short">${ev.dates.start.localDate?(parseInt(ev.dates.start.localDate.slice(5,7),10)+"/"+parseInt(ev.dates.start.localDate.slice(8,10),10)):date}</span></div>
                 <div class="show-venue">${venueName}</div>
                 <div class="show-location">${location}</div>
                 <div class="show-chevron">&#9660;</div>
