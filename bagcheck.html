@@ -283,6 +283,41 @@
 </style>
 </head>
 <body>
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
+      </a>
+    </div>
+            <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Events</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Events</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
+
 <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
 <div class="noise" aria-hidden="true"></div>
 
@@ -295,7 +330,7 @@
     <p class="gate-desc">Point your camera at any bag and get an instant verdict — checked against your venue's official policy.</p>
     <div class="gate-features">
       <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>AI identifies your bag</strong> — type, structure, and estimated dimensions.</div></div>
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Cross-references 346 venues</strong> — verified policy data, updated regularly.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Cross-references 300+ venues</strong> — verified policy data, updated regularly.</div></div>
       <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Instant verdict</strong> — pass, warn, or fail with specific rules cited.</div></div>
     </div>
     <div class="gate-actions">
@@ -319,7 +354,7 @@
       <p class="app-sub">Scan your bag with your camera &mdash; or look up any venue&rsquo;s policy instantly.</p>
       <span class="field-label">Select Venue</span>
       <div class="dropdown-wrap">
-        <input class="light-input" id="venueInput" type="text" placeholder="Search 346 venues&hellip;" autocomplete="off" autocorrect="off" spellcheck="false"/>
+        <input class="light-input" id="venueInput" type="text" placeholder="Search 300+ venues&hellip;" autocomplete="off" autocorrect="off" spellcheck="false"/>
         <div class="dropdown-list" id="venueDropdown" style="display:none"></div>
       </div>
       <button class="primary-btn" id="scanBtn">Scan My Bag with AI &rarr;</button>
@@ -742,6 +777,59 @@ $('venueInput').value='Madison Square Garden';
 
 </script>
 
+<footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Tools">
+        <h4>Tools</h4>
+        <a href="cityguides.html">City Guides</a>
+        <a href="events.html">Events Near Me</a>
+        <a href="setlists.html">Setlists</a>
+        <a href="bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="concessions.html">Concessions</a>
+        <a href="rideshare.html">Rideshare</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Social">
+        <h4>Follow Us</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
+    </div>
+  </footer>
+<script>(function(){
+const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+})();</script>
 </body>
 </htmlconst ALL_VENUES = ["3Arena", "713 Music Hall", "ACL Live at The Moody Theater", "AO Arena", "AT&T Stadium", "Accor Arena", "Acrisure Arena at Greater Palm Springs", "Acrisure Stadium", "Addition Financial Arena", "Alamodome", "Albertsons Stadium", "Allas Live", "Allegiant Stadium", "Allianz Arena", "Allstate Arena", "Amalie Arena", "Amerant Bank Arena", "American Airlines Center", "American Family Field", "American Family Insurance Amphitheater", "Amica Mutual Pavilion", "Anfiteatro degli Scavi", "Angel Stadium", "Arizona Financial Theatre", "Austin City Limits Music Festival", "BC Place", "BJCC Arena", "BMO Pavilion", "BOK Center", "Ball Arena", "Bank of America Stadium", "Barclays Arena", "Barclays Center", "Bell Centre", "Bellco Theatre", "Benchmark International Arena", "Bethel Woods Center for the Arts", "Beyond Wonderland SoCal", "Bill Graham Civic Auditorium", "Blue Cross Arena", "Bobby Dodd Stadium at Hyundai Field", "Bonnaroo Music & Arts Festival", "Boston Calling", "BottleRock Napa Valley", "Bridgestone Arena", "Brighton Centre", "Broadview Stage at SPAC", "Brooklyn Paramount", "Burning Man", "Busch Stadium", "Byline Bank Aragon Ballroom", "CFG Bank Arena", "CHI Health Center", "CMA Fest", "CURE Insurance Arena", "Cable Dahmer Arena", "Caesars Superdome", "Camp Randall Stadium", "Canada Life Centre", "Canadian Tire Centre", "Capital One Arena", "Center Stage Theater", "Chaifetz Arena", "Chase Center", "Chase Field", "Citi Field", "Citizens Bank Park", "Citizens House of Blues", "Climate Pledge Arena", "Co-op Live", "Coachella Valley Music and Arts Festival", "Coca-Cola Coliseum", "Coca-Cola Roxy", "Colonial Life Arena", "Comerica Park", "Commonwealth Stadium", "Coors Field", "Country Thunder Wisconsin", "Credit Union 1 Amphitheatre", "Cross Insurance Arena", "Cross Insurance Center", "Crypto.com Arena", "Daikin Park", "Delta Center", "Desert Diamond Arena", "Dickies Arena", "Dodger Stadium", "Dolby Live at Park MGM", "Dos Equis Pavilion", "EDC Las Vegas", "EagleBank Arena", "Electric Forest", "Electric Zoo", "Empower Federal Credit Union Amphitheater", "Empower Field at Mile High", "Enterprise Center", "Essence Festival of Culture", "Estadio GNP Seguros", "Eventim Apollo", "EverBank Stadium", "Falcon Stadium", "Fargodome", "FedExForum", "Fenway Park", "Festhalle", "Fillmore Minneapolis presented by Affinity Plus", "Fiserv Forum", "Fishers Event Center", "FivePoint Amphitheatre", "Fontainebleau Las Vegas", "Food City Center", "Ford Field", "Ford Idaho Center Arena", "Forum Karl\u00edn", "Fox Theater", "Fox Theatre Detroit", "Franklin Music Hall", "Freedom Mortgage Pavilion", "Frost Bank Center", "GEHA Field at Arrowhead Stadium", "GIANT Center", "Gainbridge Fieldhouse", "Gallagher Square at Petco Park", "Gas South Arena", "Gillette Stadium", "Globe Life Field", "Golden 1 Center", "Governors Ball", "Grand Casino Arena", "Great American Ball Park", "HARD Summer Music Festival", "Hangout Music Festival", "Hard Rock Stadium", "Heritage Bank Center", "Hersheypark Stadium", "Highmark Stadium", "History", "Hollywood Bowl", "Honda Center", "House of Blues Chicago", "House of Blues Las Vegas", "Howard Theatre", "Huntington Bank Field", "III Points", "Intuit Dome", "Irving Plaza", "Isleta Amphitheater", "Iveagh Gardens", "JMA Wireless Dome", "Jiffy Lube Live", "Johan Cruijff ArenA", "John Paul Jones Arena", "Kaseya Center", "Kauffman Stadium", "KeyBank Center", "Kia Center", "Kia Forum", "King Baudouin Stadium", "LANXESS Arena", "LDLC Arena", "Lambeau Field", "Lenovo Center", "Letnia Scena Progresji", "Levi\u2019s Stadium", "Life Is Beautiful", "Lightning in a Bottle", "Lincoln Financial Field", "Little Caesars Arena", "LoanDepot Park", "Lollapalooza", "Lotto Arena", "Lucas Oil Stadium", "Lumen Field", "M&T Bank Stadium", "MGM Grand Garden Arena", "MGM Music Hall at Fenway", "MVP Arena", "Made in America", "Madison Square Garden", "Manchester Academy", "Manhattan Center Hammerstein Ballroom", "Marx Halle", "Massey Hall", "Maverik Center", "Mercedes-Benz Stadium", "Merriweather Post Pavilion", "MetLife Stadium", "Moda Center", "Mohegan Sun Arena", "Moody Center", "Moonrise Festival", "Mortgage Matchup Center", "Movistar Arena", "Music Midtown", "NRG Stadium", "Nationals Park", "Nationwide Arena", "New Orleans Jazz & Heritage Festival", "Newport Folk Festival", "Newport Jazz Festival", "Nissan Stadium", "North Island Credit Union Amphitheatre", "O2 Academy Birmingham", "O2 Arena", "O2 Shepherds Bush Empire", "OVO Hydro", "Oakland Arena", "Ohio Stadium", "Olympiahalle", "Olympiastadion", "Oracle Park", "Oriole Park at Camden Yards", "Outside Lands", "PHX Arena", "PNC Arena", "PNC Park", "PPG Paints Arena", "Palacio de los Deportes", "Palau Sant Jordi", "Paramount Theatre", "Patrick Gym", "Paycom Center", "Paycor Stadium", "Pechanga Arena", "PeoplesBank Arena", "Petco Park", "Petersen Events Center", "Pinnacle Bank Arena", "Pitchfork Music Festival", "Progressive Field", "Providence Park", "Prudential Center", "Radio City Music Hall", "Rate Field", "Raymond James Stadium", "Red Hat Amphitheater", "Red Rocks Amphitheatre", "Riot Fest", "Riyadh Air Metropolitano", "Rocket Arena", "Rocket Mortgage FieldHouse", "Rogers Arena", "Rogers Centre", "Rogers Place", "Rogers Stadium", "Rolling Loud Los Angeles", "Rolling Loud Miami", "Rosemont Theatre", "Rupp Arena", "Ryman Auditorium", "SAP Center", "SNHU Arena", "SSE Arena Belfast", "SXSW (Music, Film & Interactive)", "Save Mart Center", "Schottenstein Center", "Scotiabank Arena", "Scotiabank Saddledome", "Scottish Gas Murrayfield", "Shaky Knees Music Festival", "Shoreline Amphitheatre", "Simmons Bank Arena", "Skyline Stage at the Mann", "Smoothie King Center", "SoFi Stadium", "Soldier Field", "Spectrum Center", "Sphere", "Stade de France", "Stadio San Siro", "Stadtpark Open Air", "Stagecoach Festival", "Stanford Stadium", "Starlight Theatre", "State Farm Arena", "State Farm Stadium", "Summerfest", "Summit Music Hall", "Sun Bowl Stadium", "Synovus Bank Amphitheater at Chastain Park", "T-Mobile Arena", "T-Mobile Center", "T-Mobile Park", "TD Coliseum", "TD Garden", "Talking Stick Resort Amphitheatre", "Target Center", "Target Field", "The Anthem", "The Armory", "The Danforth Music Hall", "The Dome at America\u2019s Center", "The Fillmore Detroit", "The Fillmore Silver Spring", "The Gorge Amphitheatre", "The Lyric", "The Met Presented by Highmark", "The O2", "The Pavilion at Star Lake", "The Pavilion at Toyota Music Factory", "The Pinnacle", "The Rady Shell at Jacobs Park", "The Star", "The Tabernacle", "The Theatre of Living Arts", "The Van Buren", "The Wiltern", "Thunder Ridge Nature Arena", "Tottenham Hotspur Stadium", "Toyota Center", "Truist Park", "U.S. Bank Stadium", "UBC \u2013 Doug Mitchell Thunderbird Sports Centre", "UBS Arena", "UC Berkeley Greek Theatre", "UW \u2013 Panther Arena", "Ultra Music Festival", "Unipol Arena", "Unipol Forum", "United Center", "Unity Arena", "Usher Hall", "Utah First Credit Union Amphitheatre", "Utilita Arena Birmingham", "Utilita Arena Newcastle", "Utilita Arena Sheffield", "Van Andel Arena", "Veikkaus Arena", "Veterans Memorial Coliseum", "Veterans United Home Loans Amphitheater", "Videotron Centre", "Viejas Arena", "Villa Erba", "WAMU Theater", "Walmart AMP", "Wells Fargo Arena", "Wells Fargo Center", "Wembley Stadium", "When We Were Young", "WinStar Lucas Oil Live", "Wrigley Field", "XL Center", "Xcel Energy Center", "Yankee Stadium", "bp pulse Live", "myticket Jahrhunderthalle"];<!DOCTYPE html>
 <html lang="en">

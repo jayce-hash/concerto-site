@@ -210,11 +210,15 @@
     <a href="about.html">About</a>
   </div>
   <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download the App</a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 </nav>
 
 <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
@@ -224,8 +228,8 @@
   <a href="premium.html" class="nav-mobile-link">Premium</a>
   <a href="about.html" class="nav-mobile-link">About</a>
   <div class="nav-mobile-cta">
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
-  </div>
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
 </div>
 
 <main>
@@ -301,7 +305,7 @@
       <div>
         <span class="tab-label">All-Access for Hotels &amp; Stays</span>
         <h3 class="tab-heading">Concert fans<br/><em>travel.</em></h3>
-        <p class="tab-body">Festival weekends fill hotels for miles. Tour stops bring fans from across the country. All-Access Top Picks placement puts your property in front of people actively planning trips around shows at the 346 venues we cover &mdash; before they ever open a hotel app.</p>
+        <p class="tab-body">Festival weekends fill hotels for miles. Tour stops bring fans from across the country. All-Access Top Picks placement puts your property in front of people actively planning trips around shows at the 300+ venues we cover &mdash; before they ever open a hotel app.</p>
         <div class="tab-includes">
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>Featured City Guide Placement</strong> &mdash; Top of the Stays section for every venue in your area.</div></div>
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>Seasonal Instagram Post</strong> &mdash; A dedicated &ldquo;Best Stays Near [Venue]&rdquo; post published to our audience each season.</div></div>
@@ -497,7 +501,6 @@
       <a href="parking.html">Parking</a>
       <a href="concessions.html">Concessions</a>
       <a href="rideshare.html">Rideshare</a>
-      <a href="tourinfo.html">Tour Info</a>
     </nav>
     <nav class="footer-col" aria-label="Legal">
       <h4>Legal</h4>
@@ -558,13 +561,13 @@ tabBtns.forEach(btn => {
 
 
 <script>
-// Featured Eats — rendered from besteats.json
+// Featured Eats — rendered from the Top Picks source (Google Sheet via /top-picks function)
 (function(){
   var MAP_BASE='https://concerto-venue-map.netlify.app/';
   var wrap=document.getElementById('eatsVenues');
   if(!wrap) return;
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  fetch('besteats.json').then(function(r){return r.json();}).then(function(data){
+  fetch('/.netlify/functions/top-picks').then(function(r){return r.json();}).then(function(data){
     wrap.innerHTML = data.map(function(v){
       var cards=(v.items||[]).map(function(it){
         var maps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it.name+' '+(it.address||''));
