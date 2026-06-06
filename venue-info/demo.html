@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Venue Info — Component Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="venue-info.css"/>
+  <style>
+    body{background:#F8F9F9;margin:0;padding:40px 20px;font-family:'DM Sans',sans-serif;}
+    .wrap{max-width:680px;margin:0 auto;}
+    h1{font-family:'Playfair Display',serif;color:#121E36;font-size:2rem;margin:0 0 4px;}
+    .sub{color:rgba(18,30,54,.5);margin:0 0 28px;font-size:.9rem;}
+    .picker{margin-bottom:24px;}
+    select{font:inherit;padding:8px 12px;border-radius:10px;border:1.5px solid rgba(18,30,54,.14);background:#fff;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Madison Square Garden</h1>
+    <p class="sub">Unified venue-info component — one drop-in rendering all four features inline.</p>
+    <div class="picker">
+      <label>Try a venue:
+        <select id="venuePick">
+          <option value="madison-square-garden">Madison Square Garden</option>
+          <option value="sofi-stadium">SoFi Stadium</option>
+          <option value="3arena">3Arena</option>
+          <option value="moody-center">Moody Center</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- The component: one div. -->
+    <div class="cvi" id="demo" data-slug="madison-square-garden"
+         data-features="bag,parking,concessions,rideshare"></div>
+  </div>
+
+  <script>window.CONCERTO_DATA_BASE = '../data';</script>
+  <script src="venue-info.js"></script>
+  <script>
+    document.getElementById('venuePick').addEventListener('change', e => {
+      const el = document.getElementById('demo');
+      el.setAttribute('data-slug', e.target.value);
+      ConcertoVenueInfo.render(el);
+    });
+  </script>
+</body>
+</html>
