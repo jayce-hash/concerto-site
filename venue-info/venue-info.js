@@ -31,8 +31,9 @@
   }
 
   // ---- building blocks ----
+  const FEAT_ID = { 'Bag Policy':'bag', 'Parking':'parking', 'Concessions':'concessions', 'Rideshare':'rideshare' };
   const feature = (eyebrow, title, body) => !body ? '' :
-    `<section class="cvi-feature"><div class="cvi-feature-head">
+    `<section class="cvi-feature" id="${FEAT_ID[title] || ''}"><div class="cvi-feature-head">
       <span class="cvi-eyebrow">${esc(eyebrow)}</span>
       <h2 class="cvi-title">${esc(title)}</h2></div>${body}</section>`;
   const block = (label, inner, cls='') =>
