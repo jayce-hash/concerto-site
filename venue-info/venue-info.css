@@ -1,0 +1,46 @@
+/* ============================================================
+   Concerto — Unified Venue Info component
+   Replaces the bag / parking / concessions / rideshare microsites.
+   Namespaced under .cvi so it can drop into any venue page safely.
+   Design ported from the standalone "premium" microsites, aligned
+   to the main-site tokens (#121E36 / #F8F9F9 / #C9A84C, Playfair/DM Sans).
+   ============================================================ */
+.cvi {
+  --cvi-bg:#F8F9F9; --cvi-ink:#121E36;
+  --cvi-ink-2:rgba(18,30,54,.55); --cvi-ink-3:rgba(18,30,54,.32);
+  --cvi-line:rgba(18,30,54,.09); --cvi-line-2:rgba(18,30,54,.16);
+  --cvi-card:#FFFFFF; --cvi-gold:#C9A84C; --cvi-green:#27AE60; --cvi-red:#C0392B;
+  --cvi-r:20px; --cvi-r-sm:14px;
+  --cvi-display:'Playfair Display',Georgia,serif;
+  --cvi-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --cvi-spring:cubic-bezier(.16,1,.3,1);
+  font-family:var(--cvi-body); color:var(--cvi-ink);
+}
+.cvi *{box-sizing:border-box;}
+.cvi [hidden]{display:none !important;}
+
+.cvi-section{margin-bottom:22px;}
+.cvi-section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+.cvi-section-title{font-family:var(--cvi-display);font-size:1.35rem;font-weight:700;letter-spacing:-.01em;color:var(--cvi-ink);}
+.cvi-section-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cvi-gold);}
+
+.cvi-card{background:var(--cvi-card);border:1px solid var(--cvi-line);border-radius:var(--cvi-r);
+  padding:18px 20px;box-shadow:0 2px 8px rgba(18,30,54,.05);margin-bottom:10px;}
+.cvi-card-label{font-size:.7rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px;color:var(--cvi-ink);}
+.cvi-card-label.allow{color:var(--cvi-green);}
+.cvi-card-label.deny{color:var(--cvi-red);}
+.cvi-body{font-size:.9rem;color:var(--cvi-ink-2);line-height:1.6;margin:0;}
+.cvi-list{margin:0;padding-left:20px;font-size:.88rem;color:var(--cvi-ink-2);line-height:1.6;}
+.cvi-list li{margin-bottom:6px;}
+
+.cvi-btn{display:block;width:100%;text-align:center;padding:14px 16px;border-radius:var(--cvi-r-sm);
+  font-size:.82rem;font-weight:700;font-family:var(--cvi-body);text-decoration:none;cursor:pointer;
+  background:var(--cvi-card);border:1px solid var(--cvi-line);color:var(--cvi-ink-2);
+  box-shadow:0 2px 8px rgba(18,30,54,.05);transition:all .2s var(--cvi-spring);}
+.cvi-btn:hover{background:var(--cvi-bg);color:var(--cvi-ink);border-color:var(--cvi-line-2);transform:translateY(-1px);}
+.cvi-btn-primary{background:var(--cvi-ink);color:var(--cvi-bg);border-color:var(--cvi-ink);}
+
+.cvi-ride-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+@media(max-width:520px){.cvi-ride-grid{grid-template-columns:1fr;}}
+
+.cvi-empty{font-size:.86rem;color:var(--cvi-ink-3);font-style:italic;padding:6px 0;}
