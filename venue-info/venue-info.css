@@ -1,46 +1,86 @@
 /* ============================================================
    Concerto — Unified Venue Info component
-   Replaces the bag / parking / concessions / rideshare microsites.
-   Namespaced under .cvi so it can drop into any venue page safely.
-   Design ported from the standalone "premium" microsites, aligned
-   to the main-site tokens (#121E36 / #F8F9F9 / #C9A84C, Playfair/DM Sans).
+   Styled to inherit the venue page's own design tokens so each
+   feature renders as a native "tool-section" card.
    ============================================================ */
-.cvi {
-  --cvi-bg:#F8F9F9; --cvi-ink:#121E36;
-  --cvi-ink-2:rgba(18,30,54,.55); --cvi-ink-3:rgba(18,30,54,.32);
-  --cvi-line:rgba(18,30,54,.09); --cvi-line-2:rgba(18,30,54,.16);
-  --cvi-card:#FFFFFF; --cvi-gold:#C9A84C; --cvi-green:#27AE60; --cvi-red:#C0392B;
-  --cvi-r:20px; --cvi-r-sm:14px;
-  --cvi-display:'Playfair Display',Georgia,serif;
-  --cvi-body:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
-  --cvi-spring:cubic-bezier(.16,1,.3,1);
-  font-family:var(--cvi-body); color:var(--cvi-ink);
+.cvi{ font-family:var(--body,'DM Sans',sans-serif); color:var(--text,#121E36); }
+.cvi *{ box-sizing:border-box; }
+.cvi [hidden]{ display:none !important; }
+
+/* one card per feature — mirrors .tool-section */
+.cvi-feature{
+  background:var(--card-bg,#fff);
+  border:1px solid var(--border,rgba(18,30,54,.08));
+  border-radius:var(--radius-lg,24px);
+  padding:2.5rem;
+  margin:0 4% 1.5rem;
+  max-width:calc(1280px - 8%);
+  box-shadow:var(--shadow-sm,0 2px 12px rgba(18,30,54,.04));
 }
-.cvi *{box-sizing:border-box;}
-.cvi [hidden]{display:none !important;}
+.cvi-feature-head{ margin-bottom:1.5rem; }
+.cvi-eyebrow{
+  display:block;font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:.55rem;
+}
+.cvi-title{
+  font-family:var(--display,'Playfair Display',serif);font-size:1.8rem;
+  font-weight:700;letter-spacing:-.02em;color:var(--text,#121E36);line-height:1.1;
+}
+.cvi-desc{
+  font-size:.95rem;font-weight:300;color:var(--text-dim,rgba(18,30,54,.52));
+  line-height:1.75;margin:0 0 1.25rem;
+}
+.cvi-desc:last-child{ margin-bottom:0; }
 
-.cvi-section{margin-bottom:22px;}
-.cvi-section-head{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
-.cvi-section-title{font-family:var(--cvi-display);font-size:1.35rem;font-weight:700;letter-spacing:-.01em;color:var(--cvi-ink);}
-.cvi-section-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cvi-gold);}
+.cvi-block{ margin-top:1.5rem;border-top:1px solid var(--border,rgba(18,30,54,.08));padding-top:1.5rem; }
+.cvi-block-label{
+  display:block;font-size:.58rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text-xdim,rgba(18,30,54,.28));margin-bottom:.85rem;
+}
+.cvi-block-label.allow{ color:#2E7D46; }
+.cvi-block-label.deny{ color:#B23B3B; }
 
-.cvi-card{background:var(--cvi-card);border:1px solid var(--cvi-line);border-radius:var(--cvi-r);
-  padding:18px 20px;box-shadow:0 2px 8px rgba(18,30,54,.05);margin-bottom:10px;}
-.cvi-card-label{font-size:.7rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px;color:var(--cvi-ink);}
-.cvi-card-label.allow{color:var(--cvi-green);}
-.cvi-card-label.deny{color:var(--cvi-red);}
-.cvi-body{font-size:.9rem;color:var(--cvi-ink-2);line-height:1.6;margin:0;}
-.cvi-list{margin:0;padding-left:20px;font-size:.88rem;color:var(--cvi-ink-2);line-height:1.6;}
-.cvi-list li{margin-bottom:6px;}
+.cvi-list{ list-style:none;margin:0;padding:0;display:grid;gap:.55rem; }
+.cvi-list li{
+  position:relative;padding-left:1.1rem;font-size:.9rem;line-height:1.5;
+  color:var(--text-dim,rgba(18,30,54,.52));
+}
+.cvi-list li::before{
+  content:'';position:absolute;left:0;top:.52em;width:5px;height:5px;
+  border-radius:50%;background:var(--gold,#C9A84C);
+}
 
-.cvi-btn{display:block;width:100%;text-align:center;padding:14px 16px;border-radius:var(--cvi-r-sm);
-  font-size:.82rem;font-weight:700;font-family:var(--cvi-body);text-decoration:none;cursor:pointer;
-  background:var(--cvi-card);border:1px solid var(--cvi-line);color:var(--cvi-ink-2);
-  box-shadow:0 2px 8px rgba(18,30,54,.05);transition:all .2s var(--cvi-spring);}
-.cvi-btn:hover{background:var(--cvi-bg);color:var(--cvi-ink);border-color:var(--cvi-line-2);transform:translateY(-1px);}
-.cvi-btn-primary{background:var(--cvi-ink);color:var(--cvi-bg);border-color:var(--cvi-ink);}
+.cvi-subgrid{ display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;
+  border-top:1px solid var(--border,rgba(18,30,54,.08));padding-top:1.5rem; }
+.cvi-subcard{ background:var(--bg,#F8F9F9);border:1px solid var(--border,rgba(18,30,54,.08));
+  border-radius:16px;padding:1.25rem 1.4rem; }
+.cvi-subcard .cvi-list li{ font-size:.86rem; }
 
-.cvi-ride-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
-@media(max-width:520px){.cvi-ride-grid{grid-template-columns:1fr;}}
+/* rideshare buttons */
+.cvi-ride-grid{ display:grid;grid-template-columns:1fr 1fr;gap:.75rem; }
+.cvi-btn{
+  display:block;text-align:center;padding:1rem;border-radius:14px;
+  font-size:.8rem;font-weight:600;text-decoration:none;
+  background:var(--bg,#F8F9F9);border:1px solid var(--border,rgba(18,30,54,.08));
+  color:var(--text,#121E36);
+  transition:transform .25s var(--ease-out,ease),border-color .25s,box-shadow .25s;
+}
+.cvi-btn:hover{ transform:translateY(-2px);border-color:var(--border-mid,rgba(18,30,54,.14));
+  box-shadow:var(--shadow-sm,0 2px 12px rgba(18,30,54,.04)); }
 
-.cvi-empty{font-size:.86rem;color:var(--cvi-ink-3);font-style:italic;padding:6px 0;}
+/* official-guide pill — mirrors .tool-cta */
+.cvi-cta{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;
+  background:var(--text,#121E36);color:var(--card-bg,#fff);
+  padding:.8rem 1.6rem;border-radius:99px;font-size:.68rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;text-decoration:none;
+  transition:transform .3s var(--ease-out,ease),box-shadow .3s;
+}
+.cvi-cta:hover{ transform:translateY(-2px);box-shadow:var(--shadow-md,0 8px 32px rgba(18,30,54,.07)); }
+
+.cvi-empty{ font-size:.9rem;color:var(--text-xdim,rgba(18,30,54,.28));font-style:italic; }
+
+@media(max-width:768px){
+  .cvi-feature{ margin:0 5% 1.2rem;padding:1.75rem; }
+  .cvi-subgrid,.cvi-ride-grid{ grid-template-columns:1fr; }
+}

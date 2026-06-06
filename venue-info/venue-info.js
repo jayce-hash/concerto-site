@@ -58,16 +58,14 @@
     },
     parking(v) {
       if (!v) return '';
-      const pFallback = v.officialParkingUrl ? 'Lots, rates, and directions are in the official parking guide below.' : 'Parking details for this venue are not available yet.';
-      let b = `<p class="cvi-desc">${esc(v.note || pFallback)}</p>`;
+      let b = `<p class="cvi-desc">${esc(v.note || 'Parking details for this venue are not available yet.')}</p>`;
       if (Array.isArray(v.lots) && v.lots.length) b += block('Key Lots', list(v.lots));
       if (v.officialParkingUrl) b += cta(v.officialParkingUrl, 'View Official Parking Guide');
       return feature('Getting There', 'Parking', b);
     },
     concessions(v) {
       if (!v) return '';
-      const cFallback = v.officialConcessionsUrl ? 'See the official food & beverage guide below for stands and menus.' : 'Concessions details for this venue are not available yet.';
-      let b = `<p class="cvi-desc">${esc(v.note || cFallback)}</p>`;
+      let b = `<p class="cvi-desc">${esc(v.note || 'Concessions details for this venue are not available yet.')}</p>`;
       if (Array.isArray(v.stands) && v.stands.length) b += block('Notable Stands', list(v.stands));
       if (v.officialConcessionsUrl) b += cta(v.officialConcessionsUrl, 'View Official Concessions Guide');
       return feature('Inside the Venue', 'Concessions', b);
@@ -108,10 +106,10 @@
     await Promise.all([...need].map(async f => { data[f] = pick(await loadJSON(files[f]), slug); }));
     let html = '';
     for (const f of feats) {
-      if (f === 'rideshare') { if (data.parking || data.rideshare) html += rideshare(data.rideshare, data.parking, venue); }
+      if (f === 'rideshare') html += rideshare(data.rideshare, data.parking, venue);
       else if (RENDER[f]) html += RENDER[f](data[f]);
     }
-    el.innerHTML = html;
+    el.innerHTML = html || `<p class="cvi-empty">Venue info for &ldquo;${esc(slug)}&rdquo; isn't available yet.</p>`;
   }
 
   function init(){ document.querySelectorAll('.cvi[data-slug]').forEach(render); }
