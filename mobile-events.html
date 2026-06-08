@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
 <title>Events Near Me — Concerts, Sports & Nightlife | Concerto</title>
 <meta name="description" content="Find concerts, sports games, comedy shows, and festivals near you. Browse by date, filter by type, and get venue guides for every event."/>
@@ -92,6 +92,11 @@ img { display: block; max-width: 100%; }
 .city-input-wrap { position: relative; flex: 1; min-width: 200px; max-width: 360px; }
 .city-input { width: 100%; padding: 0.85rem 1rem 0.85rem 2.8rem; border: 1.5px solid var(--border-mid); border-radius: 99px; font-family: var(--body); font-size: 16px; color: var(--text); background: var(--card-bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
 .city-input:focus { border-color: var(--text); box-shadow: 0 0 0 3px rgba(18,30,54,0.06); }
+.city-dd { display:none; position:absolute; left:0; right:0; top:calc(100% + 6px); z-index:60; background:var(--card-bg); border:1px solid var(--border); border-radius:14px; box-shadow:0 12px 36px rgba(18,30,54,0.14); max-height:48vh; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:6px; }
+.city-dd.open { display:block; }
+.city-dd-item { display:flex; align-items:center; gap:10px; padding:11px 14px; border-radius:9px; font-size:0.95rem; color:var(--text); cursor:pointer; }
+.city-dd-item:active { background:var(--bg); }
+.city-dd-item svg { width:15px; height:15px; flex-shrink:0; color:var(--text-xdim); }
 .city-input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); pointer-events: none; }
 .city-search-btn { padding: 0.85rem 1.5rem; border-radius: 99px; background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
 .city-search-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
@@ -301,8 +306,8 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
       <div class="city-bar">
         <div class="city-input-wrap">
           <svg class="city-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <input type="text" class="city-input" id="cityInput" placeholder="Enter your city..." autocomplete="off" list="cityList"/>
-          <datalist id="cityList"><option value="New York"></option><option value="Los Angeles"></option><option value="Chicago"></option><option value="Houston"></option><option value="Phoenix"></option><option value="Philadelphia"></option><option value="San Antonio"></option><option value="San Diego"></option><option value="Dallas"></option><option value="Austin"></option><option value="Fort Worth"></option><option value="San Jose"></option><option value="Jacksonville"></option><option value="Columbus"></option><option value="Charlotte"></option><option value="Indianapolis"></option><option value="San Francisco"></option><option value="Seattle"></option><option value="Denver"></option><option value="Washington"></option><option value="Boston"></option><option value="El Paso"></option><option value="Nashville"></option><option value="Oklahoma City"></option><option value="Las Vegas"></option><option value="Detroit"></option><option value="Portland"></option><option value="Memphis"></option><option value="Louisville"></option><option value="Milwaukee"></option><option value="Baltimore"></option><option value="Albuquerque"></option><option value="Tucson"></option><option value="Fresno"></option><option value="Sacramento"></option><option value="Kansas City"></option><option value="Mesa"></option><option value="Atlanta"></option><option value="Omaha"></option><option value="Colorado Springs"></option><option value="Raleigh"></option><option value="Long Beach"></option><option value="Virginia Beach"></option><option value="Miami"></option><option value="Oakland"></option><option value="Minneapolis"></option><option value="Tulsa"></option><option value="Bakersfield"></option><option value="Wichita"></option><option value="Arlington"></option><option value="Aurora"></option><option value="Tampa"></option><option value="New Orleans"></option><option value="Cleveland"></option><option value="Honolulu"></option><option value="Anaheim"></option><option value="Lexington"></option><option value="Stockton"></option><option value="Corpus Christi"></option><option value="Henderson"></option><option value="Riverside"></option><option value="Newark"></option><option value="St. Paul"></option><option value="Santa Ana"></option><option value="Cincinnati"></option><option value="Irvine"></option><option value="Orlando"></option><option value="Pittsburgh"></option><option value="St. Louis"></option><option value="Greensboro"></option><option value="Jersey City"></option><option value="Lincoln"></option><option value="Plano"></option><option value="Durham"></option><option value="Buffalo"></option><option value="Chandler"></option><option value="Madison"></option><option value="Reno"></option><option value="Fort Wayne"></option><option value="St. Petersburg"></option><option value="Lubbock"></option><option value="Irving"></option><option value="Winston-Salem"></option><option value="Glendale"></option><option value="Garland"></option><option value="Scottsdale"></option><option value="Norfolk"></option><option value="Boise"></option><option value="Spokane"></option><option value="Baton Rouge"></option><option value="Richmond"></option><option value="San Bernardino"></option><option value="Tacoma"></option><option value="Huntsville"></option><option value="Des Moines"></option><option value="Rochester"></option><option value="Fayetteville"></option><option value="Salt Lake City"></option><option value="Grand Rapids"></option><option value="Frisco"></option><option value="Amarillo"></option><option value="Knoxville"></option><option value="Providence"></option><option value="Akron"></option><option value="Fort Lauderdale"></option><option value="Chattanooga"></option><option value="Tallahassee"></option><option value="Charleston"></option><option value="Hartford"></option><option value="Savannah"></option><option value="Dayton"></option><option value="Syracuse"></option><option value="Eugene"></option><option value="Columbia"></option><option value="Birmingham"></option><option value="Montgomery"></option><option value="Mobile"></option><option value="Shreveport"></option><option value="Little Rock"></option><option value="Tempe"></option><option value="McKinney"></option><option value="Brooklyn"></option><option value="Brownsville"></option><option value="Allentown"></option><option value="Bridgeport"></option><option value="Green Bay"></option><option value="Ann Arbor"></option><option value="Sarasota"></option><option value="Asheville"></option><option value="Boulder"></option></datalist>
+          <input type="text" class="city-input" id="cityInput" placeholder="Enter your city..." autocomplete="off"/>
+          <div class="city-dd" id="cityDropdown" role="listbox" aria-label="City suggestions"></div>
         </div>
         <button class="city-search-btn" id="searchBtn">Find Events</button>
         <div class="view-toggle" style="margin-left:auto;">
@@ -440,7 +445,38 @@ let selectedDay = null;
 document.getElementById('cityInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') fetchEvents();
 });
+
 document.getElementById('searchBtn').addEventListener('click', fetchEvents);
+
+// ── City autocomplete (custom dropdown — datalist doesn't render in the iOS app) ──
+const CITIES = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "Fort Worth", "San Jose", "Jacksonville", "Columbus", "Charlotte", "Indianapolis", "San Francisco", "Seattle", "Denver", "Washington", "Boston", "El Paso", "Nashville", "Oklahoma City", "Las Vegas", "Detroit", "Portland", "Memphis", "Louisville", "Milwaukee", "Baltimore", "Albuquerque", "Tucson", "Fresno", "Sacramento", "Kansas City", "Mesa", "Atlanta", "Omaha", "Colorado Springs", "Raleigh", "Long Beach", "Virginia Beach", "Miami", "Oakland", "Minneapolis", "Tulsa", "Bakersfield", "Wichita", "Arlington", "Aurora", "Tampa", "New Orleans", "Cleveland", "Honolulu", "Anaheim", "Lexington", "Stockton", "Corpus Christi", "Henderson", "Riverside", "Newark", "St. Paul", "Santa Ana", "Cincinnati", "Irvine", "Orlando", "Pittsburgh", "St. Louis", "Greensboro", "Jersey City", "Lincoln", "Plano", "Durham", "Buffalo", "Chandler", "Madison", "Reno", "Fort Wayne", "St. Petersburg", "Lubbock", "Irving", "Winston-Salem", "Glendale", "Garland", "Scottsdale", "Norfolk", "Boise", "Spokane", "Baton Rouge", "Richmond", "San Bernardino", "Tacoma", "Huntsville", "Des Moines", "Rochester", "Fayetteville", "Salt Lake City", "Grand Rapids", "Frisco", "Amarillo", "Knoxville", "Providence", "Akron", "Fort Lauderdale", "Chattanooga", "Tallahassee", "Charleston", "Hartford", "Savannah", "Dayton", "Syracuse", "Eugene", "Columbia", "Birmingham", "Montgomery", "Mobile", "Shreveport", "Little Rock", "Tempe", "McKinney", "Brooklyn", "Brownsville", "Allentown", "Bridgeport", "Green Bay", "Ann Arbor", "Sarasota", "Asheville", "Boulder"];
+(function(){
+  const input = document.getElementById('cityInput');
+  const dd = document.getElementById('cityDropdown');
+  if (!input || !dd) return;
+  const PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  function render(q){
+    q = (q || '').trim().toLowerCase();
+    if (!q) { dd.classList.remove('open'); dd.innerHTML=''; return; }
+    const starts = CITIES.filter(c => c.toLowerCase().startsWith(q));
+    const has = CITIES.filter(c => !c.toLowerCase().startsWith(q) && c.toLowerCase().includes(q));
+    const matches = starts.concat(has).slice(0, 6);
+    if (!matches.length) { dd.classList.remove('open'); dd.innerHTML=''; return; }
+    dd.innerHTML = matches.map(c => `<div class="city-dd-item" role="option" data-city="${c}">${PIN}<span>${c}</span></div>`).join('');
+    dd.classList.add('open');
+  }
+  input.addEventListener('input', () => render(input.value));
+  input.addEventListener('focus', () => { if (input.value.trim()) render(input.value); });
+  input.addEventListener('keydown', e => { if (e.key === 'Escape' || e.key === 'Enter') dd.classList.remove('open'); });
+  dd.addEventListener('click', e => {
+    const item = e.target.closest('.city-dd-item');
+    if (!item) return;
+    input.value = item.dataset.city;
+    dd.classList.remove('open'); dd.innerHTML = '';
+    if (typeof fetchEvents === 'function') fetchEvents();
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.city-input-wrap')) dd.classList.remove('open'); });
+})();
 
 async function fetchEvents() {
   const city = document.getElementById('cityInput').value.trim();
@@ -468,6 +504,7 @@ async function fetchEvents() {
     allEvents = (data._embedded?.events || []).map(parseEvent);
     applyFilter();
     renderCalendar();
+    renderList();
     showCalLoading(false);
     if (allEvents.length === 0) showCalEmpty(true);
   } catch(e) {
