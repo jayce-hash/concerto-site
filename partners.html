@@ -269,8 +269,7 @@
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>A seasonal feature post.</strong> A dedicated &ldquo;Best Eats Near [Venue]&rdquo; spotlight to our audience each season.</div></div>
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>Every tap tracked.</strong> See exactly how many fans your placement reaches.</div></div>
         </div>
-        <div class="tab-price">$1,000<span> / year</span></div>
-        <p class="tab-price-note">Flat annual placement. No per click fees, no hidden costs.</p>
+        <p class="tab-price-note">Simple flat annual placement &mdash; no per-click fees, no hidden costs. Reach out and we&rsquo;ll walk you through pricing.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;"><a href="mailto:partners@concertocity.com" class="btn btn-gold">Schedule a Call &rarr;</a><a href="decks/concerto-restaurants.pdf" target="_blank" rel="noopener" class="btn btn-outline">View the Deck &rarr;</a></div>
       </div>
       <div class="tab-visual">
@@ -311,8 +310,7 @@
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>A seasonal feature post.</strong> A dedicated &ldquo;Best Stays Near [Venue]&rdquo; spotlight each season.</div></div>
           <div class="tab-include"><div class="tab-include-dot"></div><div class="tab-include-text"><strong>Synced to tour dates.</strong> Your placement activates around confirmed shows nearby.</div></div>
         </div>
-        <div class="tab-price">$1,000<span> / year</span></div>
-        <p class="tab-price-note">Flat annual placement. No per click fees, no hidden costs.</p>
+        <p class="tab-price-note">Simple flat annual placement &mdash; no per-click fees, no hidden costs. Reach out and we&rsquo;ll walk you through pricing.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;"><a href="mailto:partners@concertocity.com" class="btn btn-gold">Schedule a Call &rarr;</a><a href="decks/concerto-hotels.pdf" target="_blank" rel="noopener" class="btn btn-outline">View the Deck &rarr;</a></div>
       </div>
       <div class="tab-visual">
@@ -560,7 +558,7 @@ tabBtns.forEach(btn => {
 <script>
 // Featured Eats — rendered from the Top Picks source (Google Sheet via /top-picks function)
 (function(){
-  var MAP_BASE='https://concerto-venue-map.netlify.app/';
+  var MAP_BASE='/cityguide/';
   var wrap=document.getElementById('eatsVenues');
   if(!wrap) return;
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -577,7 +575,7 @@ tabBtns.forEach(btn => {
       return '<div class="eats-venue">'
         +'<div class="eats-venue-head">'
           +'<div><div class="eats-venue-name">'+esc(v.venueName)+'</div><div class="eats-venue-city">'+esc(v.city)+', '+esc(v.state)+'</div></div>'
-          +'<a class="eats-venue-cta" href="'+MAP_BASE+esc(v.slug||'')+'" target="_blank" rel="noopener noreferrer">Full City Guide &rarr;</a>'
+          +'<a class="eats-venue-cta" href="'+MAP_BASE+esc(v.slug||'')+'">Full City Guide &rarr;</a>'
         +'</div>'
         +'<div class="eats-grid">'+cards+'</div>'
       +'</div>';
