@@ -310,6 +310,9 @@
   .app-topbar { padding-top: calc(env(safe-area-inset-top) + 10px); }
   /* Home screen content clears the notch now that the feature header is gone */
   .screen > .scroll-area:first-child { padding-top: calc(env(safe-area-inset-top) + 16px); }
+  /* In the app, the frosted logo/account header + body padding already clear the notch,
+     so use ONE clean, unified gap below it (no double safe-area inset) */
+  body.app-shell-on .screen > .scroll-area:first-child { padding-top: 8px; }
 </style>
 </head>
 <body>
