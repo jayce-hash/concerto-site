@@ -303,6 +303,12 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   #storyCanvas { display: none; }
 </style>
+<style id="appChrome">
+  /* App version: suppress the website nav so the tool's own header stands alone */
+  .site-nav, .nav-mobile-menu { display: none !important; }
+  /* Pin the tool's header with the same frosted treatment as the browse pages' app bar */
+  .app-topbar { background: rgba(248,249,249,0.86); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); padding-top: calc(env(safe-area-inset-top) + 14px); }
+</style>
 </head>
 <body>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
@@ -315,7 +321,7 @@
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
       <a href="events.html">Events</a>
-      <a href="premium.html">Premium</a>
+      <a href="mobile-premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
@@ -333,7 +339,7 @@
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
       <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
@@ -603,7 +609,7 @@ function showGate() {
   const c=$('gateContent'); c.style.display='flex'; c.style.flexDirection='column'; c.style.alignItems='center';
   goTo(-1);
 }
-$('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
+$('upgradeBtn').addEventListener('click', () => { window.location.href = 'mobile-premium.html'; });
 $('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
 
 // ── STATE ──
@@ -913,7 +919,7 @@ try{if(!localStorage.getItem('lm_ob_seen'))setTimeout(()=>{if(document.getElemen
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
         <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
+        <a href="mobile-premium.html">Premium</a>
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
@@ -923,7 +929,7 @@ try{if(!localStorage.getItem('lm_ob_seen'))setTimeout(()=>{if(document.getElemen
         <a href="cityguides.html">City Guides</a>
         <a href="events.html">Events Near Me</a>
         <a href="setlists.html">Setlists</a>
-        <a href="bags.html">Bag Policies</a>
+        <a href="mobile-bags.html">Bag Policies</a>
         <a href="parking.html">Parking</a>
         <a href="concessions.html">Concessions</a>
         <a href="rideshare.html">Rideshare</a>
