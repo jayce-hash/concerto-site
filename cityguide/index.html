@@ -81,7 +81,21 @@
 
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
   
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEl3Mjr2zQPJySBCD0JJZEVS5xcJPB-2w&libraries=places&callback=initGoogleAPI" async defer></script>
+  <script>
+    /* Load Google Maps JS with the key fetched at runtime from a Netlify function,
+       so the key is never stored in source (passes deploy secret scanning). */
+    (function () {
+      fetch('/.netlify/functions/maps-key')
+        .then(function (r) { return r.text(); })
+        .then(function (key) {
+          var s = document.createElement('script');
+          s.src = 'https://maps.googleapis.com/maps/api/js?key=' + key + '&libraries=places&callback=initGoogleAPI';
+          s.async = true; s.defer = true;
+          document.head.appendChild(s);
+        })
+        .catch(function (e) { console.error('Google Maps failed to load', e); });
+    })();
+  </script>
   
   <script src="app.js"></script>
 </body>
