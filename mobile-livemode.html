@@ -109,9 +109,9 @@
 <style>
   /* ── LIVE MODE APP STYLES ── */
   body { position: fixed; width: 100%; overflow: hidden; }
-  #app { height: 100vh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+  #app { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
 
-  .screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .32s var(--ease-out), transform .32s var(--ease-out); transform: translateY(14px); overflow: hidden; height: 100vh; z-index: 1; }
+  .screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .32s var(--ease-out), transform .32s var(--ease-out); transform: translateY(14px); overflow: hidden; height: 100dvh; z-index: 1; }
   .screen.active { opacity: 1; pointer-events: all; transform: translateY(0); }
   .screen.exit { opacity: 0; transform: translateY(-10px); pointer-events: none; }
 
@@ -867,7 +867,7 @@ function showStoryOverlay(dataUrl){
   const ex=document.getElementById('storyOverlay');if(ex)ex.remove();
   const overlay=document.createElement('div');overlay.id='storyOverlay';
   overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#121E36;display:flex;flex-direction:column;align-items:center;justify-content:center;';
-  overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100vh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
+  overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100dvh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
   document.body.appendChild(overlay);
   document.getElementById('storyOverlayClose').addEventListener('click',()=>overlay.remove());
 }
@@ -888,7 +888,6 @@ function updateDots(){for(let i=0;i<OB_TOTAL;i++){const d=document.getElementByI
 function scrollToSlide(n){obSlide=n;updateDots();document.querySelectorAll('.onboarding-slide').forEach((s,i)=>s.classList.toggle('active',i===n));$('obNext').textContent=n===OB_TOTAL-1?'Get started →':'Next →';}
 $('obNext').addEventListener('click',()=>{if(obSlide<OB_TOTAL-1)scrollToSlide(obSlide+1);else dismissOnboarding();});
 $('obSkip').addEventListener('click',dismissOnboarding);
-$('helpBtn').addEventListener('click',()=>{obSlide=0;scrollToSlide(0);showOnboarding();});
 function dismissOnboarding(){$('onboarding').classList.remove('open');try{localStorage.setItem('lm_ob_seen','1');}catch{}}
 
 // ── INIT ──
