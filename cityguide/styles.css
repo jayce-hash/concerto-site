@@ -198,3 +198,20 @@ h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 .route-btn { display: block; width: 100%; text-align: center; padding: 18px; border-radius: 16px; background: var(--navy); color: #FFF !important; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; box-shadow: var(--shadow-soft); }
 
 .hidden-pill { display: none !important; }
+
+/* Back button in the search header — returns to the previous page (e.g. the venue) */
+.cg-back-btn {
+  flex: 0 0 auto;
+  width: 30px; height: 30px;
+  margin-right: 10px;
+  border: none;
+  background: rgba(18, 30, 54, 0.06);
+  color: var(--navy);
+  border-radius: 50%;
+  font-size: 24px; line-height: 1;
+  padding: 0 0 3px;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: background 0.18s ease;
+}
+.cg-back-btn:hover, .cg-back-btn:active { background: rgba(18, 30, 54, 0.12); }
