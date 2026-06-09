@@ -181,7 +181,7 @@
   .flash { position: absolute; inset: 0; background: white; opacity: 0; pointer-events: none; z-index: 50; }
   .flash.go { animation: flashPop 0.3s ease-out forwards; }
   @keyframes flashPop { 0% { opacity: 0.85; } 100% { opacity: 0; } }
-  #noCamOverlay { display: none; position: absolute; inset: 0; z-index: 30; background: #0E1A2B; flex-direction: column; align-items: center; justify-content: center; padding: 40px 28px; text-align: center; gap: 0; }
+  #noCamOverlay { display: none; position: absolute; inset: 0; z-index: 30; background: #121E36; flex-direction: column; align-items: center; justify-content: center; padding: 40px 28px; text-align: center; gap: 0; }
   .upload-label { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--bg); color: var(--text); padding: 1rem 2rem; border-radius: 99px; font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; box-shadow: 0 8px 28px rgba(0,0,0,0.3); cursor: pointer; width: 100%; margin-bottom: 1rem; }
   .nocam-policy-btn { background: none; border: none; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(248,249,249,0.25); cursor: pointer; padding: 12px 0 0; }
 
@@ -299,7 +299,7 @@
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
       <a href="events.html">Events</a>
-      <a href="mobile-premium.html">Premium</a>
+      <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
@@ -317,7 +317,7 @@
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
       <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
@@ -477,14 +477,14 @@ let _tt;
 function showToast(msg,ms=2400){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(_tt);_tt=setTimeout(()=>el.classList.remove('show'),ms);}
 
 // ── SCREENS ──
-const SCREENS = ['s-gate','s-home','s-camera','s-analyzing','s-result','s-policy'];
-function goTo(id){
-  SCREENS.forEach(sid=>{
-    const el=$(sid);if(!el)return;
-    el.classList.remove('active','exit');
-    if(sid!==id)el.classList.add('exit');
+const SCREENS = [$('s-gate'),$('s-home'),$('s-camera'),$('s-analyzing'),$('s-result'),$('s-policy')];
+function goTo(idx){
+  SCREENS.forEach((s,i)=>{
+    if(!s)return;
+    s.classList.remove('active','exit');
+    if(i===idx+1) s.classList.add('active');
+    else if(i<idx+1) s.classList.add('exit');
   });
-  const t=$(id);if(t){t.classList.remove('exit');t.classList.add('active');}
 }
 
 // ── AUTH GATE ──
@@ -524,7 +524,7 @@ async function checkAccess() {
     if (profile?.is_premium) {
       const g = document.getElementById('s-gate');
       if (g) g.style.display = 'none';
-      goTo('s-home');
+      goTo(0);
     } else {
       showGate();
     }
@@ -535,12 +535,9 @@ async function checkAccess() {
 }
 
 function showGate() {
-  $('gateSpinner').style.display = 'none';
-  const c = $('gateContent');
-  c.style.display = 'flex';
-  c.style.flexDirection = 'column';
-  c.style.alignItems = 'center';
-  goTo('s-gate');
+  $('gateSpinner').style.display='none';
+  const c=$('gateContent'); c.style.display='flex'; c.style.flexDirection='column'; c.style.alignItems='center';
+  goTo(-1);
 }
 
 $('upgradeBtn').addEventListener('click', () => { window.location.href = 'mobile-premium.html'; });
@@ -607,9 +604,9 @@ $('scanBtn').addEventListener('click',()=>{
   if(!currentVenue){showToast('Select a venue first');$('venueInput').focus();return;}
   $('camVenueChip').textContent=currentVenue.n;
   $('stepVenueName').textContent=`${currentVenue.n} · Verified`;
-  goTo('s-camera');startCamera();
+  goTo(1);startCamera();
 });
-$('camBackBtn').addEventListener('click',()=>{stopCamera();goTo('s-home');});
+$('camBackBtn').addEventListener('click',()=>{stopCamera();goTo(0);});
 $('camPolicyBtn').addEventListener('click',()=>{stopCamera();showPolicy();});
 $('noCamPolicyBtn').addEventListener('click',()=>{stopCamera();showPolicy();});
 
@@ -619,7 +616,7 @@ $('photoUploadInput').addEventListener('change',function(){
   reader.onload=(e)=>{
     capturedImageB64=e.target.result.split(',')[1];
     const img=$('detectedImg');img.src=e.target.result;img.classList.add('show');
-    stopCamera();goTo('s-analyzing');runAnalysis(true);
+    stopCamera();goTo(2);runAnalysis(true);
   };
   reader.readAsDataURL(file);this.value='';
 });
@@ -633,7 +630,7 @@ $('shutterBtn').addEventListener('click',()=>{
     capturedImageB64=canvas.toDataURL('image/jpeg',0.85).split(',')[1];
     const img=$('detectedImg');img.src=`data:image/jpeg;base64,${capturedImageB64}`;img.classList.add('show');
   }else{capturedImageB64=null;}
-  stopCamera();setTimeout(()=>{goTo('s-analyzing');runAnalysis(!!capturedImageB64);},280);
+  stopCamera();setTimeout(()=>{goTo(2);runAnalysis(!!capturedImageB64);},280);
 });
 
 async function runAnalysis(useAI=false){
@@ -648,13 +645,13 @@ async function runAnalysis(useAI=false){
   if(useAI&&capturedImageB64&&currentVenue){
     try{
       const result=await analyzeWithProxy(capturedImageB64,currentVenue);
-      setTimeout(()=>{renderAIResult(result);goTo('s-result');},4000);
+      setTimeout(()=>{renderAIResult(result);goTo(3);},4000);
     }catch(err){
       console.error('AI failed:',err);
-      setTimeout(()=>{renderFallbackResult();goTo('s-result');},4000);
+      setTimeout(()=>{renderFallbackResult();goTo(3);},4000);
     }
   }else{
-    setTimeout(()=>{renderFallbackResult();goTo('s-result');},4000);
+    setTimeout(()=>{renderFallbackResult();goTo(3);},4000);
   }
 }
 
@@ -739,11 +736,11 @@ $('policyOnlyBtn').addEventListener('click',()=>{
   if(!currentVenue){showToast('Select a venue first');$('venueInput').focus();return;}
   showPolicy();
 });
-$('policyBackBtn').addEventListener('click',()=>goTo('s-home'));
+$('policyBackBtn').addEventListener('click',()=>goTo(0));
 $('policyThenScanBtn').addEventListener('click',()=>{
   $('camVenueChip').textContent=currentVenue.n;
   $('stepVenueName').textContent=`${currentVenue.n} · Verified`;
-  goTo('s-camera');startCamera();
+  goTo(1);startCamera();
 });
 
 function showPolicy(){
@@ -767,19 +764,18 @@ function showPolicy(){
     <div class="pg-card"><div class="pg-rule-dot" style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-bottom:6px;"></div><div class="pg-title">Parking</div><div class="pg-value">${makeLink(v.park,'Getting here',`${v.n} parking directions`)}</div></div>
     <div class="pg-card"><div class="pg-rule-dot" style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-bottom:6px;"></div><div class="pg-title">Food & Drink</div><div class="pg-value">${makeLink(v.conc,'Concessions',`${v.n} food drink concessions`)}</div></div>
     <div class="pg-card" style="grid-column:1/-1"><div class="pg-rule-dot" style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-bottom:6px;"></div><div class="pg-title">Official Website</div><div class="pg-value">${makeLink(v.web,v.n,`${v.n} official website`)}</div></div>`;
-  goTo('s-policy');
+  goTo(4);
 }
 
 function restartScan(){
   capturedImageB64=null;
   const img=$('detectedImg');img.src='';img.classList.remove('show');
-  if(!currentVenue){goTo('s-home');return;}
+  if(!currentVenue){goTo(0);return;}
   $('camVenueChip').textContent=currentVenue.n;
-  goTo('s-camera');startCamera();
+  goTo(1);startCamera();
 }
 
 // ── INIT ──
-if (typeof supabase !== "undefined") { checkAccess(); } else { window.addEventListener("load", checkAccess); }
 if (typeof supabase !== "undefined") { checkAccess(); } else { window.addEventListener("load", checkAccess); }
 setupVenueDropdown();
 setVenue('Madison Square Garden');
@@ -796,7 +792,7 @@ $('venueInput').value='Madison Square Garden';
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
         <a href="about.html">About Us</a>
-        <a href="mobile-premium.html">Premium</a>
+        <a href="premium.html">Premium</a>
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
@@ -806,7 +802,7 @@ $('venueInput').value='Madison Square Garden';
         <a href="cityguides.html">City Guides</a>
         <a href="events.html">Events Near Me</a>
         <a href="setlists.html">Setlists</a>
-        <a href="mobile-bags.html">Bag Policies</a>
+        <a href="bags.html">Bag Policies</a>
         <a href="parking.html">Parking</a>
         <a href="concessions.html">Concessions</a>
         <a href="rideshare.html">Rideshare</a>
