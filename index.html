@@ -354,8 +354,30 @@
       <div class="picks-cta-wrap"><a href="partners.html" class="btn btn-outline">See all Top Picks</a></div>
     </section>
 
+    <!-- PREMIUM UNLOCKED (premium users only; replaces the promo strip below) -->
+    <div class="main-cards main-cards-3" id="premiumCardsWeb" style="display:none">
+      <a href="bags.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>AI Bag Check</h2>
+        <p>Scan Your Bag with Your Camera and Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy &mdash; Before You Leave the House.</p>
+        <div class="main-card-footer"><span class="main-card-stat">Instant verdict</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
+      <a href="livemode.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>Live Mode</h2>
+        <p>Your Real-Time In-Show Companion. Track the Setlist Live, and When the Encore Ends, Receive a Beautifully Designed Story Card of Your Entire Night.</p>
+        <div class="main-card-footer"><span class="main-card-stat">Live setlist + Story Card</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
+      <a href="concertoplus.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>Concerto+</h2>
+        <p>Tell It Your Show and Your Vibe. It Builds the Full Evening &mdash; Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</p>
+        <div class="main-card-footer"><span class="main-card-stat">AI itinerary</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
+    </div>
+
     <!-- Premium strip -->
-    <section class="premium-strip" aria-labelledby="premium-heading">
+    <section class="premium-strip" id="premiumStripPromo" aria-labelledby="premium-heading">
       <div class="premium-strip-inner">
         <div class="premium-strip-copy reveal">
           <span class="premium-strip-eyebrow">Concerto Premium</span>
@@ -482,15 +504,29 @@
     const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
     const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
     const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
-    if (token) fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-      .then(r => r.ok ? r.json() : null)
-      .then(user => {
-        if (user?.id) {
+    var PREM_CACHE = 'cc_is_premium';
+    function applyPremiumUI(isPrem){
+      var cards = document.getElementById('premiumCardsWeb');
+      var promo = document.getElementById('premiumStripPromo');
+      if (isPrem) { if (cards) cards.style.display = ''; if (promo) promo.style.display = 'none'; }
+      else { if (cards) cards.style.display = 'none'; if (promo) promo.style.display = ''; }
+    }
+    if (!token) { applyPremiumUI(false); try { localStorage.removeItem(PREM_CACHE); } catch(e){} }
+    else {
+      try { if (localStorage.getItem(PREM_CACHE) === '1') applyPremiumUI(true); } catch(e){}
+      fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+        .then(r => r.ok ? r.json() : null)
+        .then(user => {
+          if (!user?.id) { applyPremiumUI(false); try { localStorage.setItem(PREM_CACHE,'0'); } catch(e){} return; }
           if (mobileAuth) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; }
           if (profileIcon) { profileIcon.href = 'account.html'; profileIcon.classList.add('logged-in'); profileIcon.setAttribute('aria-label', 'My Account'); }
-        }
-      })
-      .catch(()=>{});
+          fetch(SB_URL + '/rest/v1/profiles?id=eq.' + user.id + '&select=is_premium', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+            .then(r => r.ok ? r.json() : null)
+            .then(rows => { var isPrem = Array.isArray(rows) && rows[0] && rows[0].is_premium === true; applyPremiumUI(isPrem); try { localStorage.setItem(PREM_CACHE, isPrem ? '1':'0'); } catch(e){} })
+            .catch(()=>{});
+        })
+        .catch(()=>{});
+    }
   } catch(e) {}
 })();
 </script>
@@ -500,12 +536,12 @@
 (function(){
   var sec=document.getElementById('picksStrip'), grid=document.getElementById('picksGrid');
   if(!sec||!grid) return;
-  var MAP_BASE='https://concerto-venue-map.netlify.app/';
+  var MAP_BASE='/cityguide/';
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   fetch('/.netlify/functions/top-picks').then(function(r){return r.json();}).then(function(data){
     var cards=data.map(function(v){
       var it=(v.items||[])[0]; if(!it) return '';
-      return '<a class="pick-card" href="'+MAP_BASE+esc(v.slug||'')+'" target="_blank" rel="noopener noreferrer">'
+      return '<a class="pick-card" href="'+MAP_BASE+esc(v.slug||'')+'" rel="noopener noreferrer">'
         +'<div class="pick-card-name">'+esc(it.name)+'</div>'
         +'<div class="pick-card-venue">'+esc(v.venueName)+' &middot; '+esc(v.city)+'</div>'
       +'</a>';

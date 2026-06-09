@@ -98,7 +98,7 @@ img { display: block; max-width: 100%; }
 .city-dd-item:active { background:var(--bg); }
 .city-dd-item svg { width:15px; height:15px; flex-shrink:0; color:var(--text-xdim); }
 .city-input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); pointer-events: none; }
-.city-search-btn { padding: 0.85rem 1.5rem; border-radius: 99px; background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
+.city-search-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.5rem; border-radius: 99px; background: var(--text); color: #F8F9F9; font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
 .city-search-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
 
 /* Filter pills */
@@ -264,7 +264,7 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
     <a href="mobile-venues.html">Venues</a>
     <a href="mobile-tours.html">Tours</a>
     <a href="mobile-events.html" class="active">Events</a>
-    <a href="premium.html">Premium</a>
+    <a href="mobile-premium.html">Premium</a>
     <a href="about.html">About</a>
   </div>
   <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
@@ -283,7 +283,7 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
   <a href="mobile-venues.html" class="nav-mobile-link">Venues</a>
   <a href="mobile-tours.html" class="nav-mobile-link">Tours</a>
   <a href="mobile-events.html" class="nav-mobile-link active">Events</a>
-  <a href="premium.html" class="nav-mobile-link">Premium</a>
+  <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
   <a href="about.html" class="nav-mobile-link">About</a>
   <div class="nav-mobile-cta">
     <a id="navMobileAuthLink" href="login.html" class="btn" style="background:transparent;border:1.5px solid var(--border-mid);color:var(--text);justify-content:center;">Sign In</a>
@@ -395,7 +395,7 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
     <nav class="footer-col" aria-label="Company links">
       <h4>Company</h4>
       <a href="about.html">About Us</a>
-      <a href="premium.html">Premium</a>
+      <a href="mobile-premium.html">Premium</a>
       <a href="shop.html">Shop</a>
       <a href="partners.html">Partnerships</a>
       <a href="faq.html">FAQ</a>
@@ -404,7 +404,7 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
       <h4>Tools</h4>
       <a href="mobile-venues.html">Venues</a>
       <a href="mobile-tours.html">Tours</a>
-      <a href="bags.html">Bag Policies</a>
+      <a href="mobile-bags.html">Bag Policies</a>
       <a href="parking.html">Parking</a>
       <a href="rideshare.html">Rideshare</a>
       <a href="setlists.html">Setlists</a>
@@ -492,6 +492,7 @@ async function fetchEvents() {
   const params = new URLSearchParams({
     apikey: API_KEY,
     city: city,
+    countryCode: 'US',
     size: 200,
     startDateTime: startStr,
     endDateTime: endStr,
@@ -501,7 +502,7 @@ async function fetchEvents() {
   try {
     const res = await fetch(`${TM_URL}?${params}`);
     const data = await res.json();
-    allEvents = (data._embedded?.events || []).map(parseEvent);
+    allEvents = (data._embedded?.events || []).map(parseEvent).filter(e => e.type !== 'other');
     applyFilter();
     renderCalendar();
     renderList();

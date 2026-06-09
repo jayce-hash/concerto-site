@@ -486,17 +486,56 @@
   <span class="rail-label">What&rsquo;s inside</span>
   <div class="rail-wrap">
     <div class="rail">
-      <a href="bags.html" class="chip">Bag Policies</a>
+      <a href="mobile-bags.html" class="chip">Bag Policies</a>
       <a href="rideshare.html" class="chip">Rideshare</a>
       <a href="parking.html" class="chip">Parking</a>
       <a href="concessions.html" class="chip">Concessions</a>
-      <a href="premium.html" class="chip gold">Premium ✦</a>
+      <a href="mobile-premium.html" class="chip gold">Premium ✦</a>
     </div>
   </div>
 </section>
 
 <!-- ─── PREMIUM ──────────────────────────────────────────── -->
-<section class="premium">
+<!-- ─── PREMIUM UNLOCKED (premium users only; replaces the promo below) ─── -->
+<div class="cards" id="premiumCards" style="display:none;">
+  <a href="mobile-bags.html" class="card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+    </div>
+    <div class="card-body">
+      <span class="card-eyebrow">Premium</span>
+      <div class="card-title">AI Bag Check</div>
+      <div class="card-sub">Scan your bag. Instant verdict before you go.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+
+  <a href="mobile-livemode.html" class="card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+    </div>
+    <div class="card-body">
+      <span class="card-eyebrow">Premium</span>
+      <div class="card-title">Live Mode</div>
+      <div class="card-sub">Track the setlist live. Story Card when it&rsquo;s over.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+
+  <a href="mobile-concertoplus.html" class="card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"/></svg>
+    </div>
+    <div class="card-body">
+      <span class="card-eyebrow">Premium</span>
+      <div class="card-title">Concerto+</div>
+      <div class="card-sub">Your full evening, planned around your show.</div>
+    </div>
+    <span class="card-arrow">&rarr;</span>
+  </a>
+</div>
+
+<section class="premium" id="premiumPromo">
   <span class="premium-eyebrow">Concerto Premium</span>
   <div class="premium-title">The Magic Is in the Details.</div>
   <p class="premium-sub">$7.99/month or $69.99/year. Cancel anytime.</p>
@@ -505,7 +544,7 @@
     <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Live Mode</strong> &mdash; Track the setlist live. Get a Story Card when it&rsquo;s over.</div></div>
     <div class="pf"><div class="pf-dot"></div><div class="pf-text"><strong>Concerto+ AI Itinerary</strong> &mdash; Your full evening, planned around your show.</div></div>
   </div>
-  <a href="premium.html" class="btn-gold">Explore Premium &rarr;</a>
+  <a href="mobile-premium.html" class="btn-gold">Explore Premium &rarr;</a>
 </section>
 
 <!-- ─── QUOTE ────────────────────────────────────────────── -->
@@ -515,17 +554,17 @@
 </section>
 
 <!-- ─── BOTTOM CTA ───────────────────────────────────────── -->
-<section class="bottom-cta">
+<section class="bottom-cta" id="premiumBottomCta">
   <div class="bottom-cta-title">Unlock the Full Night.</div>
   <p class="bottom-cta-sub">Concerto Premium. $7.99/mo or $69.99/yr.</p>
-  <a href="premium.html" class="btn-gold">Explore Premium &rarr;</a>
+  <a href="mobile-premium.html" class="btn-gold">Explore Premium &rarr;</a>
 </section>
 
 <!-- ─── FOOTER ───────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-links">
     <a href="about.html" class="footer-link">About</a>
-    <a href="premium.html" class="footer-link">Premium</a>
+    <a href="mobile-premium.html" class="footer-link">Premium</a>
     <a href="faq.html" class="footer-link">FAQ</a>
     <a href="privacy.html" class="footer-link">Privacy</a>
     <a href="terms.html" class="footer-link">Terms</a>
@@ -733,12 +772,36 @@
       const token = JSON.parse(localStorage.getItem(
         'sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token'
       ) || '{}').access_token || '';
-      if (!token) return;
+      var PREM_CACHE = 'cc_is_premium';
+      function applyPremiumUI(isPrem) {
+        var cards = document.getElementById('premiumCards');
+        var promo = document.getElementById('premiumPromo');
+        var cta = document.getElementById('premiumBottomCta');
+        if (isPrem) {
+          if (cards) cards.style.display = '';
+          if (promo) promo.style.display = 'none';
+          if (cta) cta.style.display = 'none';
+        } else {
+          if (cards) cards.style.display = 'none';
+          if (promo) promo.style.display = '';
+          if (cta) cta.style.display = '';
+        }
+      }
+      if (!token) { applyPremiumUI(false); try { localStorage.removeItem(PREM_CACHE); } catch (e) {} return; }
+      try { if (localStorage.getItem(PREM_CACHE) === '1') applyPremiumUI(true); } catch (e) {}
       fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
         .then(r => r.ok ? r.json() : null)
         .then(user => {
-          if (!user?.id) return;
+          if (!user?.id) { applyPremiumUI(false); try { localStorage.setItem(PREM_CACHE, '0'); } catch (e) {} return; }
           if (headerEl) { headerEl.textContent = 'My Account'; headerEl.href = 'mobile-account.html'; }
+          fetch(SB_URL + '/rest/v1/profiles?id=eq.' + user.id + '&select=is_premium', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+            .then(r => r.ok ? r.json() : null)
+            .then(rows => {
+              var isPrem = Array.isArray(rows) && rows[0] && rows[0].is_premium === true;
+              applyPremiumUI(isPrem);
+              try { localStorage.setItem(PREM_CACHE, isPrem ? '1' : '0'); } catch (e) {}
+            })
+            .catch(() => {});
         })
         .catch(() => {});
     } catch (e) {}

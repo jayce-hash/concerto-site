@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F9F9" />
+
+  <!-- ─── SEO ─── -->
+  <title>Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries</title>
+  <meta name="title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <meta name="description" content="Upgrade your night out with Concerto Premium. AI Bag Check, Live Mode story cards, and Concerto+ AI itineraries. $7.99/month or $69.99/year." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/premium.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/premium.html" />
+  <meta property="og:title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <meta property="og:description" content="Take the friction out of the live music experience. $7.99/month or $69.99/year." />
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+  <meta property="og:site_name" content="Concerto" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://concertocity.com/premium.html" />
+  <meta name="twitter:title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <meta name="twitter:description" content="Take the friction out of the live music experience. $7.99/month or $69.99/year." />
+  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Concerto",
+    "operatingSystem": "iOS",
+    "applicationCategory": "EntertainmentApplication",
+    "offers": { "@type": "Offer", "price": "7.99", "priceCurrency": "USD" },
+    "description": "Take the friction out of the live music experience with Concerto Premium. AI Bag Check, Live Mode, and Concerto+ AI Itineraries.",
+    "url": "https://concertocity.com",
+    "image": "https://concertocity.com/logo.png",
+    "sameAs": [
+      "https://instagram.com/theconcertoapp",
+      "https://www.tiktok.com/@theconcertoapp",
+      "https://www.youtube.com/@theconcertoapp"
+    ],
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
+        { "@type": "ListItem", "position": 2, "name": "Premium", "item": "https://concertocity.com/premium.html" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ─── Favicon ─── -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Concerto" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- ─── Fonts ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
+      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
+      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
+      --gold: #C9A84C; --gold-light: #E5C365;
+      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
+      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
+      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
+      --shadow-gold: 0 12px 40px rgba(201,168,76,0.14);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --radius-sm: 12px; --radius-md: 20px; --radius-lg: 28px; --nav-h: 68px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
+    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: 'kern' 1, 'liga' 1; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* Atmosphere — gold-tinted for premium */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(201,168,76,0.14) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
+    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .ghost-marquee { position: fixed; top: 40%; left: 0; width: 100vw; z-index: -1; transform: translateY(-50%); pointer-events: none; overflow: hidden; white-space: nowrap; display: flex; opacity: 0.022; color: var(--text); }
+    .marquee-track { display: flex; gap: 4rem; animation: ghostScroll 60s linear infinite; }
+    .ghost-marquee span { font-family: var(--display); font-size: 15vw; text-transform: uppercase; line-height: 1; font-weight: 700; }
+    @keyframes ghostScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* Nav */
+    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; width: 200px; }
+    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
+    .nav-center > a:hover, .nav-center > a.active { color: var(--text); }
+    .btn, button.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid,rgba(18,30,54,.14)); }
+    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text); box-shadow: 0 8px 24px rgba(201,168,76,0.3); font-weight: 700; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,168,76,0.4); }
+
+    /* Hero */
+    .hero { min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: calc(var(--nav-h) + 60px) 4% 60px; }
+    .eyebrow { display: block; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+    .hero-title { font-family: var(--display); font-size: clamp(3rem, 6vw, 5.2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--text); margin-bottom: 1.4rem; }
+    .hero-desc { font-family: var(--body); font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: var(--text-dim); max-width: 560px; margin: 0 auto 2rem; line-height: 1.75; }
+    .hero-price { font-family: var(--body); font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 2.4rem; }
+
+    /* Features grid */
+    .showcase-container { max-width: 1280px; margin: 0 auto; padding: 40px 4% 100px; }
+    .features-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; }
+    .feat-card { background: var(--card-bg); border: 1px solid rgba(201,168,76,0.35); border-radius: var(--radius-lg); padding: 3rem; display: flex; flex-direction: column; box-shadow: var(--shadow-gold); position: relative; overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); }
+    .feat-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 55%); pointer-events: none; }
+
+    .feat-card-link { text-decoration: none; cursor: pointer; }
+    .feat-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .feat-cta { font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+    .feat-cta.active { color: var(--text); }
+    .feat-arrow { color: var(--text-xdim); transition: transform 0.3s var(--ease-out), color 0.3s; }
+    .feat-card:hover .feat-arrow { color: var(--gold); transform: translateX(4px); }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(201,168,76,0.2); }
+    .feat-label { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .feat-card h3 { font-family: var(--display); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; line-height: 1.1; }
+    .feat-card p { font-family: var(--body); font-size: 0.95rem; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
+
+    /* Pricing row */
+    .pricing-section { max-width: 1280px; margin: 0 auto; padding: 0 4% 80px; }
+    .pricing-card { background: var(--text); border-radius: var(--radius-lg); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .pricing-copy h2 { font-family: var(--display); font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-bottom: 0.5rem; }
+    .pricing-copy p { font-family: var(--body); font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 440px; }
+    .pricing-options { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .price-pill { font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); }
+    .price-pill strong { color: var(--gold-light); }
+
+    /* Footer */
+    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
+    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
+    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
+    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
+    .footer-bottom a:hover { color: var(--text); }
+
+    @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
+     .features-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      :root { --nav-h: 58px; }
+      .hero { padding: calc(var(--nav-h) + 36px) 5% 48px; }
+      .showcase-container { padding: 32px 5% 72px; }
+      .feat-card { padding: 2rem 1.6rem; }
+      .pricing-section { padding: 0 5% 60px; }
+      .pricing-card { flex-direction: column; align-items: flex-start; padding: 2rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
+
+    .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
+    .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
+    .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
+    
+  /* ── MOBILE NAV ── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
+    .nav-profile-btn:hover { color: var(--text); border-color: var(--text); }
+    .nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
+    .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
+    .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
+    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
+    @media (max-width: 1024px) {
+      .nav-center { display: none !important; }
+      .nav-hamburger { display: flex; }
+      .nav-profile-btn { display: inline-flex; }
+      #navAuthLink { display: none; }
+      .nav-download { display: none; }
+    }
+  </style>
+<style id="appChrome">
+  body{ --nav-h:0px !important; padding-top:calc(env(safe-area-inset-top) + 70px) !important; padding-bottom:calc(env(safe-area-inset-bottom) + 64px) !important; }
+  .site-nav,.nav-mobile-menu{ display:none !important; }
+  .app-appbar{ position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box; display:flex;align-items:center;justify-content:space-between; padding:calc(env(safe-area-inset-top) + 10px) 20px 12px; background:rgba(248,249,249,0.82); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid transparent; transition:border-color .2s, background .2s; }
+  .app-appbar.scrolled{ border-bottom-color:rgba(18,30,54,0.08); background:rgba(248,249,249,0.93); }
+  .app-appbar-logo{ height:48px;width:auto;display:block; }
+  .app-appbar-signin{ font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase; color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none; border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap; }
+  .app-tabbar{ position:fixed;left:0;right:0;bottom:0;z-index:1000; display:grid;grid-template-columns:repeat(5,1fr); padding:6px 4px calc(env(safe-area-inset-bottom) + 4px); background:rgba(248,249,249,0.88); backdrop-filter:saturate(160%) blur(18px); -webkit-backdrop-filter:saturate(160%) blur(18px); border-top:1px solid rgba(18,30,54,0.08); }
+  .app-tab{ display:flex;flex-direction:column;align-items:center;justify-content:center; gap:3px;padding:8px 4px 6px;text-decoration:none;color:rgba(18,30,54,0.28); transition:color .15s, transform .15s cubic-bezier(0.16,1,0.3,1); }
+  .app-tab svg{ width:22px;height:22px;stroke-width:1.75; }
+  .app-tab-label{ font-size:0.62rem;font-weight:600;letter-spacing:0.02em; }
+  .app-tab.active{ color:#121E36; }
+  .app-tab:active{ transform:scale(0.94); }
+</style>
+</head>
+<body>
+
+<header class="app-appbar" id="appbar">
+  <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
+  <a id="appShellSignin" href="login.html" class="app-appbar-signin">Sign In</a>
+</header>
+
+
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ghost-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>AI Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
+      <span>AI Bag Check &bull; Live Mode &bull; Concerto+ AI Itinerary &bull; </span>
+    </div>
+  </div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
+      </a>
+    </div>
+            <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Events</a>
+      <a href="mobile-premium.html" class="active">Premium</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+    <!-- Mobile menu -->
+    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Events</a>
+      <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
+
+  <main>
+    <header class="hero">
+      <span class="eyebrow">The Magic</span>
+      <h1 class="hero-title">Concerto Premium.</h1>
+      <p class="hero-desc">Take the friction out of the live music experience. Premium features built for people who treat going to a show as an event.</p>
+      <p class="hero-price">$7.99 Per Month &nbsp;&bull;&nbsp; $69.99 Per Year</p>
+      <div id="pricingSection" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+        <button onclick="startCheckout('monthly')" class="btn btn-gold">Get Monthly — $7.99/mo</button>
+        <button onclick="startCheckout('annual')" class="btn btn-dark">Get Annual — $69.99/yr</button>
+      </div>
+      <p id="alreadyMember" style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already a member? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign In to Access Premium Features</a></p>
+    </header>
+
+    <section class="showcase-container">
+      <div class="features-grid" id="featuresGrid">
+
+        <a href="mobile-bags.html" class="feat-card feat-card-link" id="feat-bagcheck">
+          <span class="feat-label">AI Tool</span>
+          <h3>AI Bag Check</h3>
+          <p>Hold your bag up to your camera. Our AI estimates dimensions and structure, cross-references the venue&rsquo;s official policy, and gives you an instant Pass, Warn, or Fail verdict before you leave the house.</p>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-bagcheck">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a href="mobile-livemode.html" class="feat-card feat-card-link" id="feat-livemode">
+          <span class="feat-label">In Show</span>
+          <h3>Live Mode</h3>
+          <p>Your real-time in-show companion. Once the encore ends, receive a beautifully designed, shareable Story Card documenting your entire night. Think of it as a Strava post for your concert.</p>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-livemode">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <a href="mobile-concertoplus.html" class="feat-card feat-card-link" id="feat-concertoplus">
+          <span class="feat-label">AI Itinerary</span>
+          <h3>Concerto+</h3>
+          <p>Tell it your show, your city, and your vibe. Concerto+ builds a complete timeline including dinner reservation timing, ideal arrival window, and post-show plans tailored to your exact venue.</p>
+          <div class="feat-card-footer">
+            <span class="feat-cta" id="cta-concertoplus">Unlock with Premium</span>
+            <span class="feat-arrow">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="pricing-section">
+      <div class="pricing-card">
+        <div class="pricing-copy">
+          <h2>Simple Pricing. No Surprises.</h2>
+          <p>Subscribe on the web and access Premium instantly. Cancel anytime with no commitments.</p>
+        </div>
+        <div class="pricing-options">
+          <div class="price-pill"><strong>$7.99</strong> Per Month</div>
+          <div class="price-pill" style="opacity:0.35;">&bull;</div>
+          <div class="price-pill"><strong>$69.99</strong> Per Year</div>
+          <button onclick="startCheckout('monthly')" class="btn btn-gold">Monthly — $7.99</button>
+          <button onclick="startCheckout('annual')" class="btn btn-dark">Annual — $69.99</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="mobile-premium.html" class="active">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Tools">
+        <h4>Tools</h4>
+        <a href="cityguides.html">City Guides</a>
+        <a href="events.html">Events Near Me</a>
+        <a href="setlists.html">Setlists</a>
+        <a href="mobile-bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="concessions.html">Concessions</a>
+        <a href="rideshare.html">Rideshare</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Social">
+        <h4>Follow Us</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
+    </div>
+  </footer>
+
+  <script>
+    /* Nav simplified */
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+
+    /* Parallax */
+    const bgCanvas = document.getElementById('bgCanvas');
+    let ticking = false;
+    document.addEventListener('mousemove', (e) => {
+      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+  <script>
+    (async function() {
+      const params = new URLSearchParams(window.location.search);
+      const tier = params.get('checkout');
+
+      const user = await getCurrentUser();
+
+      // Hide "Already a member?" if logged in
+      if (user) {
+        const alreadyEl = document.getElementById('alreadyMember');
+        if (alreadyEl) alreadyEl.style.display = 'none';
+      }
+
+      if (!user) return;
+
+      // Auto-resume checkout after login
+      if (tier === 'monthly' || tier === 'annual') {
+        startCheckout(tier);
+        return;
+      }
+
+      const profile = await getProfile();
+      if (profile?.is_premium) {
+        // Hide the entire pricing/checkout section
+        const pricingSection = document.getElementById('pricingSection');
+        if (pricingSection) pricingSection.style.display = 'none';
+
+        // Show the premium features section
+        const featuresSection = document.getElementById('featuresSection');
+        if (featuresSection) featuresSection.style.display = 'block';
+
+        // Update feature card CTAs
+        document.querySelectorAll('.feat-cta').forEach(el => {
+          el.textContent = 'Open Feature →';
+          el.classList.add('active');
+        });
+      }
+    })();
+  </script>
+
+<script>
+(function(){
+  const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+  const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+  const el = document.getElementById('navAuthLink');
+  if (!el) return;
+  fetch(SB_URL + '/auth/v1/user', {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + (JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '') }
+  }).then(r => r.ok ? r.json() : null).then(user => {
+    if (user && user.id) { el.textContent = 'My Account'; el.href = 'account.html'; el.style.cssText = 'background:transparent;border:1px solid rgba(18,30,54,.14);color:#121E36;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;'; }
+  }).catch(()=>{});
+})();
+</script>
+
+  <script>
+// Premium state handled above
+  </script>
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+  // Auth state — mobile menu + profile icon
+  const mobileAuth = document.getElementById('navMobileAuthLink');
+  const profileIcon = document.getElementById('navProfileIcon');
+  try {
+    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
+    if (token) fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+      .then(r => r.ok ? r.json() : null)
+      .then(user => {
+        if (user?.id) {
+          if (mobileAuth) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; }
+          if (profileIcon) { profileIcon.href = 'account.html'; profileIcon.classList.add('logged-in'); profileIcon.setAttribute('aria-label', 'My Account'); }
+        }
+      })
+      .catch(()=>{});
+  } catch(e) {}
+})();
+</script>
+
+  <script src="auth.js"></script>
+  <script src="app-shell.js"></script>
+
+<nav class="app-tabbar" aria-label="Main">
+  <a href="mobile.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg><span class="app-tab-label">Home</span></a>
+  <a href="mobile-venues.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="app-tab-label">Venues</span></a>
+  <a href="mobile-tours.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="app-tab-label">Tours</span></a>
+  <a href="mobile-events.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span class="app-tab-label">Near Me</span></a>
+  <a href="mobile-account.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span class="app-tab-label">Account</span></a>
+</nav>
+
+<script>
+(function(){
+  try{
+    var SB_URL='https://qgvukssbtfkbvahaiejm.supabase.co', SB_KEY='sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+    var k='sb-'+SB_URL.split('//')[1].split('.')[0]+'-auth-token';
+    var token=(JSON.parse(localStorage.getItem(k)||'{}')||{}).access_token||'';
+    if(token) fetch(SB_URL+'/auth/v1/user',{headers:{apikey:SB_KEY,Authorization:'Bearer '+token}})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(u){ if(u&&u.id){ var el=document.getElementById('appShellSignin'); if(el){el.textContent='My Account';el.href='mobile-account.html';} } })
+      .catch(function(){});
+  }catch(e){}
+  var bar=document.getElementById('appbar');
+  if(bar){ var onS=function(){bar.classList.toggle('scrolled',window.scrollY>4);}; window.addEventListener('scroll',onS,{passive:true}); onS(); }
+})();
+</script>
+</body>
+</html>
