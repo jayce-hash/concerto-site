@@ -303,12 +303,6 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   #storyCanvas { display: none; }
 </style>
-<style id="appChrome">
-  /* App version: suppress the website nav so the tool's own header stands alone */
-  .site-nav, .nav-mobile-menu { display: none !important; }
-  /* Pin the tool's header with the same frosted treatment as the browse pages' app bar */
-  .app-topbar { background: rgba(248,249,249,0.86); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); padding-top: calc(env(safe-area-inset-top) + 14px); }
-</style>
 </head>
 <body>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
@@ -321,7 +315,7 @@
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
       <a href="events.html">Events</a>
-      <a href="mobile-premium.html">Premium</a>
+      <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
@@ -339,7 +333,7 @@
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
       <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
@@ -609,7 +603,7 @@ function showGate() {
   const c=$('gateContent'); c.style.display='flex'; c.style.flexDirection='column'; c.style.alignItems='center';
   goTo(-1);
 }
-$('upgradeBtn').addEventListener('click', () => { window.location.href = 'mobile-premium.html'; });
+$('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
 $('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
 
 // ── STATE ──
@@ -825,7 +819,7 @@ async function generateStoryCard(){
   const allSongs=S.songs.length?S.songs:[];const trackedPlayed=allSongs.filter(s=>s.played);
   const played=trackedPlayed.length>0?trackedPlayed:allSongs;
   const dateStr=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  const SNOW='#F8F9F9',NAVY='#0E1A2B';
+  const SNOW='#F8F9F9',NAVY='#121E36';
   const hasPhoto=S.photos.length>0;
   if(hasPhoto){
     await new Promise(resolve=>{const img=new Image();img.onload=()=>{const ph=H*0.58;const scale=Math.max(W/img.width,ph/img.height);const sw=img.width*scale,sh=img.height*scale;ctx.drawImage(img,(W-sw)/2,0,sw,sh);resolve();};img.onerror=resolve;img.src=S.photos[0].dataUrl;});
@@ -871,7 +865,7 @@ async function generateStoryCard(){
 function showStoryOverlay(dataUrl){
   const ex=document.getElementById('storyOverlay');if(ex)ex.remove();
   const overlay=document.createElement('div');overlay.id='storyOverlay';
-  overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#0E1A2B;display:flex;flex-direction:column;align-items:center;justify-content:center;';
+  overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#121E36;display:flex;flex-direction:column;align-items:center;justify-content:center;';
   overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100vh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
   document.body.appendChild(overlay);
   document.getElementById('storyOverlayClose').addEventListener('click',()=>overlay.remove());
@@ -919,7 +913,7 @@ try{if(!localStorage.getItem('lm_ob_seen'))setTimeout(()=>{if(document.getElemen
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
         <a href="about.html">About Us</a>
-        <a href="mobile-premium.html">Premium</a>
+        <a href="premium.html">Premium</a>
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
@@ -929,7 +923,7 @@ try{if(!localStorage.getItem('lm_ob_seen'))setTimeout(()=>{if(document.getElemen
         <a href="cityguides.html">City Guides</a>
         <a href="events.html">Events Near Me</a>
         <a href="setlists.html">Setlists</a>
-        <a href="mobile-bags.html">Bag Policies</a>
+        <a href="bags.html">Bag Policies</a>
         <a href="parking.html">Parking</a>
         <a href="concessions.html">Concessions</a>
         <a href="rideshare.html">Rideshare</a>
