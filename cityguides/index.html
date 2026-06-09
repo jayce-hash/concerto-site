@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Concerto City Guides</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    
+    <header class="search-header">
+  <div class="search-wrapper">
+    <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+      <div class="brand-monogram">C</div>
+    </a>
+    <input id="venueSearch" type="text" placeholder="Search a venue..." autocomplete="off" />
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</header>
+
+    <div id="map" class="map-canvas"></div>
+    
+    <div id="googlePlacesBrain" style="display: none;"></div>
+
+    <section id="guidePanel" class="bottom-sheet hidden">
+      <div class="drag-handle"></div>
+      
+      <header class="sheet-header">
+        <div class="sheet-title-group">
+          <span class="eyebrow">The Guide</span>
+          <h2 id="guideVenueName">Venue Name</h2>
+          <p id="guideVenueLocation">City, State</p>
+        </div>
+        <button id="closePanelBtn" class="close-btn">✕</button>
+      </header>
+
+      <div class="timeline-scroller">
+        <button class="timeline-pill hidden-pill" id="pill-toppicks" data-cat="toppicks">★ Top Picks</button>
+        <button class="timeline-pill" id="pill-pregame" data-cat="pregame">🍸 Pre-Game</button>
+        <button class="timeline-pill" id="pill-quickbites" data-cat="quickbites">🍔 Quick Bites</button>
+        <button class="timeline-pill" id="pill-recovery" data-cat="recovery">☕ Recovery</button>
+        <button class="timeline-pill" id="pill-afterglow" data-cat="afterglow">🍕 Afterglow</button>
+        <button class="timeline-pill" id="pill-photoops" data-cat="photoops">📸 Photo Ops</button>
+        <button class="timeline-pill" id="pill-getready" data-cat="getready">💅 Get Ready</button>
+        <button class="timeline-pill" id="pill-parking" data-cat="parking">🅿️ Parking</button>
+        <button class="timeline-pill" id="pill-transit" data-cat="transit">🚇 Transit</button>
+        <button class="timeline-pill" id="pill-stay" data-cat="stay">🏨 Stay</button>
+      </div>
+
+      <div id="guideResults" class="results-scroll-area"></div>
+    </section>
+
+    <div id="placeDetails" class="details-overlay hidden">
+      <div class="details-card">
+        <div class="drag-handle details-drag-handle"></div> 
+        
+        <button id="placeDetailsClose" class="close-btn details-close">✕</button>
+        
+        <h3 id="detailsName" class="details-name">Place Name</h3>
+        <p id="detailsMeta" class="details-meta">Meta Info</p>
+        <p id="detailsAddress" class="details-address">Address</p>
+        
+        <div class="details-actions">
+          <a id="detailsPhoneBtn" class="action-btn" href="#" hidden>Call</a>
+          <a id="detailsWebsiteBtn" class="action-btn" href="#" hidden target="_blank">Website</a>
+        </div>
+        
+        <a id="detailsMapsLink" class="route-btn" href="#" target="_blank">OPEN IN MAPS</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEl3Mjr2zQPJySBCD0JJZEVS5xcJPB-2w&libraries=places&callback=initGoogleAPI" async defer></script>
+  
+  <script src="app.js"></script>
+</body>
+</html>
