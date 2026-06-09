@@ -282,10 +282,12 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 <style id="appChrome">
-  /* App version: suppress the website nav so the tool's own header stands alone */
+  /* App version: suppress the website nav */
   .site-nav, .nav-mobile-menu { display: none !important; }
-  /* Pin the tool's header with the same frosted treatment as the browse pages' app bar */
-  .app-topbar { background: rgba(248,249,249,0.86); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); padding-top: calc(env(safe-area-inset-top) + 14px); }
+  /* Any remaining in-tool nav bars (back / reset) clear the notch */
+  .app-topbar { padding-top: calc(env(safe-area-inset-top) + 10px); }
+  /* Home screen content clears the notch now that the feature header is gone */
+  .screen > .scroll-area:first-child { padding-top: calc(env(safe-area-inset-top) + 16px); }
 </style>
 </head>
 <body>
@@ -351,13 +353,6 @@
 
   <!-- SCREEN 0: SEARCH -->
   <div id="s0" class="screen active">
-    <div class="app-topbar">
-      <div><div class="app-topbar-title">Concerto+</div><div class="app-topbar-sub">Premium &middot; AI Itinerary</div></div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span class="premium-badge">Premium</span>
-        <button class="btn" id="helpBtn" style="padding:6px 12px;font-size:0.65rem;border:1px solid var(--border-mid);border-radius:99px;">?</button>
-      </div>
-    </div>
     <div class="scroll-area">
       <span class="app-eyebrow">Your night, curated</span>
       <h1 class="app-headline">What show are<br>you going <em>to?</em></h1>
