@@ -89,7 +89,7 @@
         ['Lyft from Venue', `https://ride.lyft.com/?pickup[latitude]=${lat}&pickup[longitude]=${lng}`],
       ];
       const btns = links.map(([t,h]) => `<a class="cvi-btn" href="${h}" target="_blank" rel="noopener noreferrer">${t}</a>`).join('');
-      b += block('Click to Open Rideshare Apps', `<div class="cvi-ride-grid">${btns}</div>`);
+      b += block('Use Rideshare Apps', `<div class="cvi-ride-grid">${btns}</div>`);
     }
     return feature('Uber & Lyft', 'Rideshare', b);
   }
