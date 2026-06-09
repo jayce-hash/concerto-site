@@ -4,7 +4,7 @@
 // Falls back to the static top_picks.json if the sheet isn't configured or is unreachable,
 // so the site always has data.
 
-const FALLBACK_URL = 'https://concerto-venue-map.netlify.app/data/top_picks.json';
+const FALLBACK_URL = 'https://concertocity.com/data/top_picks.json';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
