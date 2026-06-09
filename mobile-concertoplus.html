@@ -108,7 +108,7 @@
 <style>
   /* ── CONCERTO+ APP STYLES ── */
   body { position: fixed; width: 100%; overflow: hidden; }
-  #app { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+  #app { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
 
   .screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .38s var(--ease-out), transform .38s var(--ease-out); transform: translateY(18px); overflow: hidden; height: 100dvh; }
   .screen.active { opacity: 1; pointer-events: all; transform: translateY(0); }
