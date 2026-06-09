@@ -1,0 +1,5 @@
+# City Guide deep links → SPA (MUST come before the catch-all)
+/cityguide/*   /cityguide/index.html   200
+
+# Site-wide fallback for unknown paths
+/*             /index.html             200
