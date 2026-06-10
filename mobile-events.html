@@ -34,8 +34,8 @@
   --radius-md: 16px; --radius-lg: 24px; --nav-h: 68px;
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--bg); overflow-x: hidden; width: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; background: var(--bg); overflow-x: hidden; width: 100%; max-width: 100vw; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; width: 100%; max-width: 100vw; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
@@ -85,7 +85,12 @@ img { display: block; max-width: 100%; }
 .page-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
 
 /* Main layout */
-.events-layout { max-width: 1200px; margin: 0 auto; padding: 0 4% 80px; display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.events-layout { max-width: 1200px; margin: 0 auto; padding: 0 4% 80px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+/* Overflow containment — flex/grid children default to min-width:auto and refuse to
+   shrink below their content, which inflates the whole mobile layout viewport.
+   These rules let every track shrink so nothing can drag the page wide. */
+.events-layout > *, #calendarView, #listView, .calendar-wrap, .cal-grid, .list-view, .day-panel, #dayPanelContent, #dayPanelContent > *, .city-bar, .filter-bar, .controls-row { min-width: 0; max-width: 100%; }
+.event-list, .event-card, .event-card-info { min-width: 0; }
 
 /* City search */
 .city-bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
@@ -127,7 +132,7 @@ img { display: block; max-width: 100%; }
 .cal-nav { display: flex; gap: 0.5rem; }
 .cal-nav-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-mid); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: all 0.2s; font-size: 0.9rem; }
 .cal-nav-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
-.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
 .cal-day-header { padding: 0.6rem 0; text-align: center; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim); border-bottom: 1px solid var(--border); }
 .cal-day { min-height: 72px; padding: 0.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; position: relative; }
 .cal-day:nth-child(7n) { border-right: none; }
@@ -167,7 +172,7 @@ img { display: block; max-width: 100%; }
 .event-card-name { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .event-card-venue { font-size: 0.78rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .event-card-type { flex-shrink: 0; }
-.event-type-badge { padding: 3px 10px; border-radius: 99px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.event-type-badge { padding: 3px 10px; border-radius: 99px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 .badge-music { background: rgba(201,168,76,0.12); color: #9a7a2a; }
 .badge-sports { background: rgba(76,175,80,0.12); color: #2e7d32; }
 .badge-comedy { background: rgba(255,152,0,0.12); color: #e65100; }
@@ -197,6 +202,7 @@ img { display: block; max-width: 100%; }
 /* Footer */
 footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+.footer-inner > *, .footer-col, .footer-brand { min-width: 0; }
 .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
 .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
 .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
