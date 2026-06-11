@@ -496,9 +496,9 @@ async function fetchEvents() {
   const endStr = end.toISOString().split('T')[0] + 'T23:59:59Z';
 
   const params = new URLSearchParams({
-    apikey: API_KEY,
     city: city,
     countryCode: 'US',
+    source: 'ticketmaster',
     size: 200,
     startDateTime: startStr,
     endDateTime: endStr,
@@ -508,7 +508,9 @@ async function fetchEvents() {
   try {
     const res = await fetch(`${TM_URL}?${params}`);
     const data = await res.json();
-    allEvents = (data._embedded?.events || []).map(parseEvent).filter(e => e.type !== 'other');
+    allEvents = (data._embedded?.events || [])
+      .map(parseEvent)
+      .filter(e => e.type !== 'other' && e.venueCountry === 'US');
     applyFilter();
     renderCalendar();
     renderList();
@@ -525,7 +527,8 @@ function parseEvent(ev) {
   const time = ev.dates?.start?.localTime || '';
   const seg = ev.classifications?.[0]?.segment?.name?.toLowerCase() || 'other';
   const genre = ev.classifications?.[0]?.genre?.name?.toLowerCase() || '';
-  
+  const v = ev._embedded?.venues?.[0] || {};
+
   let type = 'other';
   if (seg === 'music') type = 'music';
   else if (seg === 'sports') type = 'sports';
@@ -539,7 +542,9 @@ function parseEvent(ev) {
     date,
     time,
     type,
-    venue: ev._embedded?.venues?.[0]?.name || '',
+    venue: v.name || '',
+    venueCity: v.city?.name || '',
+    venueCountry: v.country?.countryCode || '',
     url: ev.url || '#',
     image: ev.images?.[0]?.url || ''
   };
