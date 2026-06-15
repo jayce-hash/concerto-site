@@ -1,571 +1,600 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F9F9" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
+  <meta name="apple-mobile-web-app-title" content="Concerto" />
 <title>Concerto — From the Concert to the City</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --display:'Playfair Display',Georgia,serif;
-    --body:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
-    --bg:#F8F9F9; --card-bg:#FFFFFF; --text:#121E36;
-    --text-dim:rgba(18,30,54,0.55); --text-xdim:rgba(18,30,54,0.32);
-    --border:rgba(18,30,54,0.08); --border-mid:rgba(18,30,54,0.14);
-    --gold:#C9A84C; --gold-light:#E5C365;
-    --on-dark:rgba(255,255,255,0.62); --on-dark-dim:rgba(255,255,255,0.40);
-    --shadow-sm:0 2px 12px rgba(18,30,54,0.04);
-    --shadow-md:0 8px 32px rgba(18,30,54,0.08);
-    --shadow-lg:0 24px 60px rgba(18,30,54,0.12);
-    --shadow-xl:0 50px 110px rgba(18,30,54,0.30);
-    --ease:cubic-bezier(0.22,1,0.36,1);
-    --nav-h:70px;
-    --section-pad:clamp(84px,13vh,168px);
+  <meta name="description" content="Bag policies, parking, setlists, city guides, and events near you for 300+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out. Free on iOS." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/" />
+  <meta property="og:title" content="Concerto — From the Concert to the City" />
+  <meta property="og:description" content="Bag policies, parking, setlists, city guides, and events near you for 300+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out." />
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+  <meta property="og:site_name" content="Concerto" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Concerto — From the Concert to the City" />
+  <meta name="twitter:description" content="The one-stop shop for concerts, sports, and nights out. 300+ venues, 71 active tours. Free on iOS." />
+  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Concerto",
+    "description": "From the Concert to the City. Bag policies, parking, setlists, city guides, and AI itineraries for concerts, sports, and nights out at 300+ venues.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "iOS",
+    "url": "https://concertocity.com",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Concerto LLC", "url": "https://concertocity.com" }
   }
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-  body{font-family:var(--body);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.6;}
-  a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--gold);color:#fff;}
+  </script>
 
-  /* ── ATMOSPHERE ── */
-  .bg-canvas{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;}
-  .orb{position:absolute;border-radius:50%;filter:blur(130px);will-change:transform;}
-  .orb-1{width:60vw;height:60vw;background:radial-gradient(circle,rgba(192,192,192,0.20) 0%,transparent 70%);top:-22%;left:-12%;}
-  .orb-2{width:46vw;height:46vw;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 70%);top:6%;right:-10%;}
-  .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-  .spot{position:fixed;width:560px;height:560px;border-radius:50%;left:0;top:0;margin:-280px 0 0 -280px;z-index:-1;pointer-events:none;background:radial-gradient(circle,rgba(201,168,76,0.13) 0%,rgba(201,168,76,0.04) 40%,transparent 68%);opacity:0;transition:opacity .6s ease;will-change:transform;}
-  .spot.lit{opacity:1;}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
 
-  .wrap{max-width:1240px;margin:0 auto;padding:0 5%;}
+  <style>
+    :root {
+      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
+      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
+      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
+      --gold: #C9A84C; --gold-light: #E5C365;
+      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
+      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
+      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --radius-md: 20px; --radius-lg: 28px; --nav-h: 68px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
+    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-  /* ── REVEAL ── */
-  .reveal{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);}
-  .reveal.in{opacity:1;transform:none;filter:none;}
+    /* Atmosphere */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
+    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-  /* ── NAV ── */
-  .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
-  .site-nav.scrolled{border-bottom-color:var(--border);background:rgba(248,249,249,0.95);box-shadow:var(--shadow-sm);}
-  .nav-logo{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.02em;}
-  .nav-logo svg{width:26px;height:26px;color:var(--text);}
-  .nav-center{display:flex;align-items:center;position:absolute;left:50%;transform:translateX(-50%);}
-  .nav-center a{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);transition:color .25s;padding:0 1.15rem;}
-  .nav-center a:hover{color:var(--text);}
-  .nav-cta{display:flex;gap:.6rem;align-items:center;}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:0.75rem 1.55rem;border-radius:99px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;border:none;white-space:nowrap;position:relative;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),color .3s;}
-  .btn > span{position:relative;z-index:1;}
-  .btn::after{content:'';position:absolute;inset:0;transform:translateX(-101%);transition:transform .55s var(--ease);z-index:0;}
-  .btn-dark{background:var(--text);color:var(--bg);box-shadow:0 8px 24px rgba(18,30,54,0.18);}
-  .btn-dark::after{background:linear-gradient(120deg,var(--gold),var(--gold-light));}
-  .btn-dark:hover{color:var(--text);box-shadow:0 14px 32px rgba(201,168,76,.32);}
-  .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-mid);}
-  .btn-outline::after{background:var(--text);}
-  .btn-outline:hover{color:var(--bg);border-color:var(--text);}
-  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--text);box-shadow:0 8px 24px rgba(201,168,76,.3);}
-  .btn-gold::after{background:var(--text);}
-  .btn-gold:hover{color:#fff;}
-  .btn-light{background:#fff;color:var(--text);}
-  .btn-light::after{background:linear-gradient(120deg,var(--gold),var(--gold-light));}
-  .btn:hover::after{transform:translateX(0);}
-  .nav-auth{background:transparent;border:1px solid var(--border-mid);color:var(--text);padding:.72rem 1.3rem;border-radius:99px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
-  .nav-profile,.nav-burger{display:none;}
-  @media (max-width:1024px){
-    .nav-center{display:none;}
-    .nav-auth,.nav-download{display:none;}
-    .nav-profile{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--border-mid);color:var(--text-dim);}
-    .nav-burger{display:flex;flex-direction:column;gap:5px;width:38px;height:38px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;}
-    .nav-burger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
-    .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .nav-burger.open span:nth-child(2){opacity:0;}
-    .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  }
-  .nav-mobile{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;}
-  .nav-mobile.open{display:flex;}
-  .nav-mobile a{font-family:var(--display);font-size:1.6rem;font-weight:600;color:var(--text-dim);padding:1rem 0;border-bottom:1px solid var(--border);}
-  .nav-mobile a:hover{color:var(--text);}
+    /* Nav */
+    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; width: 200px; }
+    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
+    .nav-center > a:hover { color: var(--text); }
+    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
+    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid); }
+    .btn-outline:hover { border-color: var(--text); transform: translateY(-2px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,168,76,0.4); }
 
-  /* ════════ HERO ════════ */
-  .hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(var(--nav-h) + 46px) 5% 0;}
-  .hero-glow{position:absolute;bottom:0;left:0;right:0;height:44%;z-index:0;pointer-events:none;background:radial-gradient(120% 100% at 50% 130%,rgba(201,168,76,0.17) 0%,rgba(201,168,76,0.05) 30%,transparent 60%);}
-  .halo{position:absolute;top:55%;left:50%;width:min(98vh,920px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:0;animation:haloIn 1.8s var(--ease) .2s forwards;will-change:transform;}
-  .halo svg{width:100%;height:100%;}
-  .halo .rot{transform-origin:center;animation:spin 120s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg);}}
-  @keyframes haloIn{to{opacity:1;}}
+    /* Hero */
+    .hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: calc(var(--nav-h) + 48px) 5% 80px;
+      position: relative;
+    }
+    .hero-eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: block; }
+    .hero-logo { height: 160px; width: auto; margin: 0 auto 2rem; }
+    .hero-headline {
+      font-family: var(--display);
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.0;
+      color: var(--text); margin-bottom: 1.6rem;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-family: var(--body); font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: var(--text-dim); max-width: 520px; margin: 0 auto 2.8rem; line-height: 1.75; }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-trust { font-family: var(--body); font-size: 0.72rem; color: var(--text-xdim); letter-spacing: 0.08em; }
+    .hero-trust span { color: var(--text-dim); }
 
-  .hero-inner{position:relative;z-index:2;width:100%;max-width:780px;display:flex;flex-direction:column;align-items:center;margin-top:clamp(4px,2vh,22px);}
-  .eyebrow{font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.7rem;}
-  .eyebrow::before,.eyebrow::after{content:'';width:24px;height:1px;background:var(--gold);opacity:.5;}
-  .hero .eyebrow{margin-bottom:1.4rem;opacity:0;animation:up .8s var(--ease) .45s forwards;}
-  .hero-headline{font-family:var(--display);font-size:clamp(2.9rem,7.5vw,6.8rem);font-weight:700;letter-spacing:-0.03em;line-height:0.97;}
-  .line{display:block;overflow:hidden;padding-bottom:.05em;}
-  .line > span{display:block;transform:translateY(112%);will-change:transform;}
-  .line.a > span{animation:lineUp 1s var(--ease) .5s forwards;}
-  .line.b > span{animation:lineUp 1s var(--ease) .62s forwards;}
-  @keyframes lineUp{to{transform:translateY(0);}}
-  .hero-headline em{font-style:italic;color:var(--gold);}
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .hero-search{margin-top:1.9rem;width:100%;max-width:560px;opacity:0;animation:up .9s var(--ease) .9s forwards;}
-  .search-pill{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border-mid);border-radius:99px;padding:.4rem .4rem .4rem 1.3rem;box-shadow:var(--shadow-lg);transition:border-color .3s,box-shadow .3s;}
-  .search-pill:focus-within{border-color:var(--gold);box-shadow:0 16px 44px rgba(201,168,76,.2);}
-  .search-pill svg{flex-shrink:0;color:var(--text-xdim);}
-  .search-pill input{flex:1;background:transparent;border:none;outline:none;font-family:var(--body);font-size:.95rem;color:var(--text);padding:.6rem 0;}
-  .search-pill input::placeholder{color:var(--text-dim);}
-  .search-go{width:42px;height:42px;border-radius:50%;background:var(--text);color:var(--bg);border:none;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:transform .2s var(--ease);}
-  .search-go:hover{transform:scale(1.06);}
-  .search-meta{margin-top:.9rem;font-size:.72rem;color:var(--text-xdim);letter-spacing:.04em;}
-  .search-meta b{color:var(--text-dim);font-weight:600;}
-  .hero-actions{margin-top:1.6rem;display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;opacity:0;animation:up .9s var(--ease) 1.15s forwards;}
-  .hero .btn{will-change:transform;}
+    /* ── STATS BAND (count-up) ── */
+    .stats { max-width: 1280px; margin: 0 auto; padding: 8px 5% 8px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .stat { background: var(--card-bg); padding: 2.6rem 1.4rem; text-align: center; }
+    .stat-num { font-family: var(--display); font-size: clamp(2.3rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--text); }
+    .stat-num.gold { color: var(--gold); }
+    .stat-label { margin-top: 0.7rem; font-family: var(--body); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-xdim); }
+    @media (max-width: 768px) { .stat { padding: 1.9rem 0.8rem; } }
+    @media (max-width: 480px) { .stat-label { font-size: 0.56rem; letter-spacing: 0.1em; } }
 
-  .device-area{position:relative;width:100%;flex:1 1 auto;min-height:200px;}
-  .hero .device{position:absolute;left:50%;bottom:0;transform:translateX(-50%) translateY(34%) scale(1);opacity:0;animation:rise 1.25s var(--ease) 1.35s both;}
-  @keyframes rise{from{opacity:0;transform:translateX(-50%) translateY(calc(34% + 72px)) scale(.96);}to{opacity:1;transform:translateX(-50%) translateY(34%) scale(1);}}
-  @keyframes up{from{opacity:0;transform:translateY(22px);filter:blur(6px);}to{opacity:1;transform:none;filter:none;}}
+    /* Two main cards */
+    .main-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; max-width: 1280px; margin: 0 auto; padding: 80px 5% 80px; }
+    .main-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 3rem 2.8rem; display: flex; flex-direction: column;
+      text-decoration: none; box-shadow: var(--shadow-sm);
+      transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .main-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+    .main-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
+    .main-card:hover::before { opacity: 1; }
+    .main-card-eyebrow { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .main-card h2 { font-family: var(--display); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1rem; line-height: 1.05; transition: font-style 0.15s; }
+    .main-card:hover h2 { font-style: italic; }
+    .main-card p { font-family: var(--body); font-size: 0.92rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; margin-bottom: 2rem; flex: 1; }
+    .main-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.2rem; margin-top: auto; }
+    .main-card-stat { font-family: var(--body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-xdim); }
+    .main-card-arrow { color: var(--text-xdim); transition: transform 0.3s var(--ease-out), color 0.3s; font-size: 1.1rem; }
+    .main-card:hover .main-card-arrow { color: var(--gold); transform: translateX(4px); }
 
-  /* ── PHONE (shared) ── */
-  .device{width:min(300px,72vw);aspect-ratio:300/610;border-radius:46px;background:#0c1322;padding:11px;box-shadow:var(--shadow-xl),inset 0 0 0 2px rgba(255,255,255,.06);will-change:transform;}
-  .screen{width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--bg);position:relative;text-align:left;display:flex;flex-direction:column;}
-  .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:34%;height:18px;background:#0c1322;border-radius:0 0 12px 12px;z-index:6;}
-  .apptop{background:var(--text);color:#fff;padding:1.7rem 1rem .9rem;flex-shrink:0;}
-  .apptop .r{display:flex;align-items:center;justify-content:space-between;font-size:.6rem;color:rgba(255,255,255,.55);}
-  .apptop h3{font-family:var(--display);font-size:1.18rem;font-weight:700;margin-top:.5rem;line-height:1.1;}
-  .apptop .loc{font-size:.62rem;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;margin-top:.15rem;}
-  .chips{display:flex;gap:.4rem;padding:.8rem .8rem .3rem;flex-wrap:wrap;flex-shrink:0;}
-  .chip{font-size:.58rem;font-weight:600;padding:.34rem .62rem;border-radius:99px;background:#fff;border:1px solid var(--border);color:var(--text-dim);transition:background .35s,color .35s,border-color .35s;}
-  .chip.on{background:var(--text);color:#fff;border-color:var(--text);}
-  .sviews{position:relative;flex:1;overflow:hidden;}
-  .sv{position:absolute;inset:0;padding:.5rem .8rem;display:flex;flex-direction:column;gap:.55rem;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none;}
-  .sv.on{opacity:1;transform:none;pointer-events:auto;}
-  .scard{background:#fff;border:1px solid var(--border);border-radius:14px;padding:.7rem .75rem;box-shadow:var(--shadow-sm);}
-  .scard .lbl{font-size:.5rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
-  .scard .ttl{font-family:var(--display);font-size:.92rem;font-weight:700;margin-top:.15rem;}
-  .scard .sub{font-size:.62rem;color:var(--text-dim);margin-top:.12rem;line-height:1.45;}
-  .scard .pillbtn{margin-top:.5rem;font-size:.54rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--text);color:#fff;border-radius:99px;padding:.4rem .7rem;display:inline-block;}
-  .scard.gold{background:linear-gradient(135deg,rgba(201,168,76,.14),rgba(229,195,101,.06));border-color:rgba(201,168,76,.3);}
-  .srow{display:flex;justify-content:space-between;align-items:center;font-size:.66rem;color:var(--text);padding:.5rem .15rem;border-bottom:1px solid var(--border);}
-  .srow:last-child{border-bottom:none;}
-  .srow b{font-weight:600;}
-  .srow .price{color:var(--gold);font-weight:700;}
+    /* Premium strip */
+    .premium-strip { background: var(--text); padding: 80px 5%; }
+    .premium-strip-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .premium-strip-copy { }
+    .premium-strip-eyebrow { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+    .premium-strip-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; letter-spacing: -0.025em; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
+    .premium-strip-sub { font-family: var(--body); font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 2.2rem; max-width: 420px; }
+    .premium-features { display: flex; flex-direction: column; gap: 1rem; }
+    .premium-feature { display: flex; align-items: flex-start; gap: 1rem; }
+    .premium-feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.55rem; }
+    .premium-feature-text { font-family: var(--body); font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .premium-feature-text strong { color: #fff; font-weight: 600; }
 
-  /* ════════ MARQUEE ════════ */
-  .marquee{padding:clamp(48px,7vh,80px) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.4);}
-  .marquee-label{text-align:center;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text-xdim);margin-bottom:1.8rem;}
-  .marquee-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
-  .marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollx 42s linear infinite;}
-  .marquee-track span{font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.7rem);font-weight:600;font-style:italic;color:var(--text-dim);white-space:nowrap;display:inline-flex;align-items:center;gap:3rem;}
-  .marquee-track span::after{content:'◆';font-size:.5em;color:var(--gold);font-style:normal;}
-  @keyframes scrollx{to{transform:translateX(-50%);}}
+    /* Quote */
+    .quote-section { padding: 80px 5%; text-align: center; border-top: 1px solid var(--border); }
+    .quote-text { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.5; max-width: 700px; margin: 0 auto 1.2rem; letter-spacing: -0.01em; }
+    .quote-attr { font-family: var(--body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim); }
 
-  /* ════════ STATS ════════ */
-  .stats{padding:var(--section-pad) 0;}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:24px;overflow:hidden;}
-  .stat{background:var(--bg);padding:2.4rem 1.5rem;text-align:center;}
-  .stat .num{font-family:var(--display);font-size:clamp(2.4rem,4.6vw,3.8rem);font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--text);}
-  .stat .num em{color:var(--gold);font-style:normal;}
-  .stat .lbl{margin-top:.7rem;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-xdim);}
-  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+    /* Final CTA */
+    .final-cta { padding: 80px 5%; text-align: center; }
+    .final-cta h2 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1rem; }
+    .final-cta p { font-family: var(--body); font-size: 0.95rem; font-weight: 300; color: var(--text-dim); margin-bottom: 2.5rem; }
 
-  /* ════════ SECTION HEAD ════════ */
-  .sec-head{max-width:680px;margin:0 auto clamp(48px,7vh,84px);text-align:center;}
-  .sec-head .eyebrow{margin-bottom:1.2rem;}
-  .sec-head h2{font-family:var(--display);font-size:clamp(2.2rem,4.6vw,3.7rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;}
-  .sec-head h2 em{font-style:italic;color:var(--gold);}
-  .sec-head p{margin-top:1.1rem;font-size:clamp(.95rem,1.6vw,1.12rem);font-weight:300;color:var(--text-dim);line-height:1.7;}
+    /* Footer */
+    footer { padding: 5rem 5% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
+    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
+    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
+    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
+    .footer-bottom a:hover { color: var(--text); }
 
-  /* ════════ PILLARS ════════ */
-  .pillars{padding:var(--section-pad) 0 clamp(40px,6vh,80px);}
-  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
-  .pillar{background:var(--card-bg);border:1px solid var(--border);border-radius:28px;padding:2.8rem 2.5rem;box-shadow:var(--shadow-sm);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s;position:relative;overflow:hidden;}
-  .pillar::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.05),transparent 60%);opacity:0;transition:opacity .4s;}
-  .pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--border-mid);}
-  .pillar:hover::before{opacity:1;}
-  .pillar-ico{width:44px;height:44px;border-radius:12px;background:rgba(201,168,76,.12);color:var(--gold);display:grid;place-items:center;margin-bottom:1.4rem;}
-  .pillar h3{font-family:var(--display);font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.8rem;transition:font-style .15s;}
-  .pillar:hover h3{font-style:italic;}
-  .pillar p{font-size:.92rem;font-weight:300;color:var(--text-dim);line-height:1.7;margin-bottom:1.8rem;}
-  .pillar .more{display:inline-flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-xdim);transition:color .3s,gap .3s;}
-  .pillar:hover .more{color:var(--gold);gap:.7rem;}
-  @media (max-width:860px){.pillar-grid{grid-template-columns:1fr;}}
+     }
+    @media (max-width: 768px) {
+      :root { --nav-h: 58px; }
+      .hero { min-height: 100svh; padding: calc(var(--nav-h) + 24px) 5% 48px; }
+      .hero-headline { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+      .hero-sub { font-size: 0.9rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { justify-content: center; }
+      .main-cards { grid-template-columns: 1fr; padding: 40px 5% 60px; gap: 1rem; }
+      .main-card { padding: 1.8rem 1.5rem; }
+      .main-card h2 { font-size: 1.6rem; }
+      .premium-strip-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .premium-strip { padding: 60px 5%; }
+      .quote-section { padding: 60px 5%; }
+      .final-cta { padding: 60px 5%; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+      .hero { min-height: 100svh; padding: calc(var(--nav-h) + 32px) 6% 60px; }
+      .main-cards { grid-template-columns: 1fr; padding: 60px 6%; gap: 1rem; }
+      .premium-strip-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
 
-  /* ════════ SHOWCASE (pinned phone scroll) ════════ */
-  .showcase{padding:var(--section-pad) 0;}
-  .showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-  .showcase-phone{position:sticky;top:calc(var(--nav-h) + 8vh);display:flex;justify-content:center;}
-  .showcase-phone .device{width:min(310px,78vw);}
-  .steps{display:flex;flex-direction:column;}
-  .step{min-height:78vh;display:flex;flex-direction:column;justify-content:center;}
-  .step .num{font-family:var(--display);font-size:1rem;color:var(--gold);font-style:italic;margin-bottom:.8rem;}
-  .step h3{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.08;color:var(--text);transition:opacity .4s;}
-  .step p{margin-top:1rem;font-size:clamp(.95rem,1.5vw,1.1rem);font-weight:300;color:var(--text-dim);line-height:1.75;max-width:440px;}
-  .step{opacity:.34;transition:opacity .5s var(--ease);}
-  .step.active{opacity:1;}
-  @media (max-width:900px){
-    .showcase-grid{grid-template-columns:1fr;gap:0;}
-    .showcase-phone{position:sticky;top:calc(var(--nav-h) + 12px);margin-bottom:2rem;}
-    .showcase-phone .device{width:min(240px,60vw);}
-    .step{min-height:62vh;}
-  }
-
-  /* ════════ PREMIUM (dark) ════════ */
-  .premium{background:var(--text);color:#fff;padding:var(--section-pad) 0;position:relative;overflow:hidden;}
-  .premium::before{content:'';position:absolute;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.14),transparent 65%);top:-20%;right:-15%;filter:blur(40px);pointer-events:none;}
-  .premium .eyebrow{color:var(--gold);}
-  .premium .sec-head h2{color:#fff;}
-  .premium .sec-head p{color:var(--on-dark);}
-  .prem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;}
-  .prem-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:2.4rem 2.1rem;transition:transform .45s var(--ease),background .4s,border-color .4s;}
-  .prem-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);border-color:rgba(201,168,76,.4);}
-  .prem-card .tag{font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
-  .prem-card h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin:.7rem 0 .7rem;color:#fff;}
-  .prem-card p{font-size:.88rem;font-weight:300;color:var(--on-dark);line-height:1.7;}
-  .prem-foot{max-width:680px;margin:clamp(40px,6vh,72px) auto 0;text-align:center;}
-  .prem-price{font-family:var(--display);font-size:1.3rem;color:#fff;margin-bottom:1.5rem;}
-  .prem-price em{color:var(--gold);font-style:normal;}
-  @media (max-width:860px){.prem-grid{grid-template-columns:1fr;}}
-
-  /* ════════ QUOTE ════════ */
-  .quote{padding:var(--section-pad) 0;text-align:center;}
-  .quote blockquote{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.4rem);font-style:italic;font-weight:400;line-height:1.4;letter-spacing:-.01em;max-width:840px;margin:0 auto 1.6rem;}
-  .quote blockquote span{color:var(--gold);}
-  .quote .attr{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-xdim);}
-
-  /* ════════ FINAL CTA ════════ */
-  .final{padding:var(--section-pad) 0;text-align:center;position:relative;overflow:hidden;}
-  .final h2{font-family:var(--display);font-size:clamp(2.4rem,5.5vw,4.6rem);font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:1rem;}
-  .final h2 em{font-style:italic;color:var(--gold);}
-  .final p{font-size:1rem;font-weight:300;color:var(--text-dim);margin-bottom:2.4rem;}
-
-  /* ════════ FOOTER ════════ */
-  footer{padding:5rem 5% 2.5rem;border-top:1px solid var(--border);}
-  .footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3.5rem;}
-  .footer-brand{display:flex;flex-direction:column;gap:1rem;max-width:280px;}
-  .footer-brand .nav-logo{font-size:1.5rem;}
-  .footer-brand p{font-size:.88rem;color:var(--text-dim);line-height:1.65;}
-  .footer-col h4{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--text);margin-bottom:1.2rem;}
-  .footer-col a{display:block;font-size:.88rem;color:var(--text-dim);margin-bottom:.65rem;transition:color .25s;}
-  .footer-col a:hover{color:var(--text);}
-  .footer-bottom{max-width:1240px;margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:var(--text-xdim);}
-  .footer-bottom a{color:var(--text-dim);}
-  @media (max-width:760px){.footer-inner{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}}
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation-duration:.001s !important;transition:none !important;}
-    .reveal{opacity:1;transform:none;filter:none;}
-    .line > span{transform:none;}
-    .marquee-track{animation:none;}
-    .hero .device{opacity:1;transform:translateX(-50%) translateY(34%);}
-  }
-</style>
+    .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
+    .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
+    .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
+    
+  /* ── MOBILE NAV ── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
+    .nav-profile-btn:hover { color: var(--text); border-color: var(--text); }
+    .nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
+    .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
+    .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
+    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
+    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
+    @media (max-width: 1024px) {
+      .nav-center { display: none !important; }
+      .nav-hamburger { display: flex; }
+      .nav-profile-btn { display: inline-flex; }
+      #navAuthLink { display: none; }
+      .nav-download { display: none; }
+    }
+  
+    /* ── TOP PICKS STRIP ── */
+    .picks-strip{ max-width:1280px; margin:0 auto; padding:20px 5% 80px; }
+    .picks-head{ text-align:center; max-width:600px; margin:0 auto 2.5rem; }
+    .picks-eyebrow{ font-family:var(--body); font-size:0.6rem; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:block; }
+    .picks-title{ font-family:var(--display); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:700; letter-spacing:-0.025em; color:var(--text); margin-bottom:0.9rem; line-height:1.1; }
+    .picks-sub{ font-family:var(--body); font-size:0.92rem; font-weight:300; color:var(--text-dim); line-height:1.7; }
+    .picks-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2.5rem; }
+    .pick-card{ background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.4rem; box-shadow:var(--shadow-sm); text-decoration:none; display:flex; flex-direction:column; gap:0.4rem; transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .3s; }
+    .pick-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--border-mid); }
+    .pick-card-name{ font-family:var(--display); font-size:1.15rem; font-weight:700; color:var(--text); line-height:1.2; }
+    .pick-card-venue{ font-family:var(--body); font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-xdim); }
+    .picks-cta-wrap{ text-align:center; }
+    @media (max-width:960px){ .picks-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px){ .picks-grid{ grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 
-  <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1" data-depth="0.4"></div><div class="orb orb-2" data-depth="0.6"></div></div>
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
   <div class="noise" aria-hidden="true"></div>
-  <div class="spot" id="spot" aria-hidden="true"></div>
 
-  <!-- ══ NAV (auth hooks preserved: navAuthLink / navProfileIcon / navHamburger / navMobileMenu / navMobileAuthLink) ══ -->
-  <nav class="site-nav" id="siteNav">
-    <a href="index.html" class="nav-logo" aria-label="Concerto home">
-      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="5" fill="currentColor" stroke="none"/></svg>
-      Concerto
-    </a>
-    <div class="nav-center">
-      <a href="venues.html">Venues</a><a href="tours.html">Tours</a><a href="events.html">Events</a><a href="premium.html">Premium</a><a href="about.html">About</a>
+  <!-- Nav -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
+      </a>
     </div>
-    <div class="nav-cta">
-      <a id="navAuthLink" href="login.html" class="nav-auth">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download"><span>Download the App</span></a>
-      <a id="navProfileIcon" href="login.html" class="nav-profile" aria-label="Account"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></a>
-      <button class="nav-burger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Events</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  <div class="nav-mobile" id="navMobileMenu">
-    <a href="venues.html">Venues</a><a href="tours.html">Tours</a><a href="events.html">Events</a><a href="premium.html">Premium</a><a href="about.html">About</a>
-    <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="margin-top:1.5rem;justify-content:center;font-family:var(--body);font-size:.7rem;"><span>Sign In</span></a>
-  </div>
+    <!-- Mobile menu -->
+    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Events</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
 
-  <!-- ══ HERO ══ -->
+  <!-- Hero -->
   <header class="hero" role="banner">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="halo" aria-hidden="true" data-depth="0.7">
-      <svg viewBox="0 0 900 900" fill="none">
-        <g class="rot">
-          <circle cx="450" cy="450" r="436" stroke="rgba(18,30,54,0.05)" stroke-width="1"/>
-          <circle cx="450" cy="450" r="350" stroke="rgba(201,168,76,0.18)" stroke-width="1" stroke-dasharray="2 12"/>
-        </g>
-        <circle cx="450" cy="450" r="270" stroke="rgba(18,30,54,0.04)" stroke-width="1"/>
-      </svg>
+    <span class="hero-eyebrow">The Concert Companion</span>
+    <h1 class="hero-headline">
+      From the Concert<br /><em>To the City.</em>
+    </h1>
+    <p class="hero-sub">
+      You Bought the Ticket. Now Know Your Venue, Your Neighborhood,
+      and Your Whole Night &mdash; Before You Leave the House.
+    </p>
+    <div class="hero-actions">
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Download Free on iOS</a>
+      <a href="venues.html" class="btn btn-outline">Find Your Venue</a>
     </div>
-    <div class="hero-inner">
-      <span class="eyebrow">The Concert Companion</span>
-      <h1 class="hero-headline">
-        <span class="line a"><span>From the Concert</span></span>
-        <span class="line b"><span><em>To the City.</em></span></span>
-      </h1>
-      <form class="hero-search" onsubmit="return false;">
-        <div class="search-pill">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-          <input type="text" placeholder="Search any venue, arena, or stadium…" aria-label="Search venues" />
-          <button class="search-go" aria-label="Search" type="submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        </div>
-        <div class="search-meta"><b>300+ venues</b> · <b>75+ active tours</b> · Free on iOS</div>
-      </form>
-      <div class="hero-actions">
-        <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark"><span>Download Free on iOS</span></a>
-        <a href="venues.html" class="btn btn-outline"><span>Find Your Venue</span></a>
-      </div>
-    </div>
-    <div class="device-area">
-      <div class="device">
-        <div class="notch"></div>
-        <div class="screen">
-          <div class="apptop"><div class="r"><span>9:41</span><span>▲ ◀ ●●●</span></div><h3>Moody Center</h3><div class="loc">Austin, TX</div></div>
-          <div class="chips"><span class="chip on">Bags</span><span class="chip">Parking</span><span class="chip">Tonight</span></div>
-          <div class="sviews">
-            <div class="sv on">
-              <div class="scard"><div class="lbl">Bag Policy</div><div class="ttl">Clear bags only · 12"×6"×12"</div><div class="sub">Small clutch (4.5"×6.5") also allowed. No backpacks.</div></div>
-              <div class="scard gold"><div class="lbl">Tonight · 8:00 PM</div><div class="ttl">Hozier — Unreal Unearth</div><div class="sub">Doors 6:30 · setlist tracked live</div><span class="pillbtn">Get Tickets</span></div>
-              <div class="scard"><div class="lbl">Top Pick · Before the show</div><div class="ttl">Comedor</div><div class="sub">4-min walk · modern Mexican</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p class="hero-trust">
+      <span>300+ venues</span> &nbsp;&middot;&nbsp;
+      <span>75+ active tours</span> &nbsp;&middot;&nbsp;
+      <span>Free on iOS</span>
+    </p>
   </header>
 
-  <!-- ══ MARQUEE ══ -->
-  <section class="marquee" aria-label="Venues covered">
-    <div class="marquee-label">Covering the country's biggest stages</div>
-    <div class="marquee-mask">
-      <div class="marquee-track" id="mq">
-        <span>Madison Square Garden</span><span>The Sphere</span><span>Red Rocks</span><span>Moody Center</span><span>Hollywood Bowl</span><span>Crypto.com Arena</span><span>Fenway Park</span><span>United Center</span><span>The Gorge</span><span>Kia Forum</span>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- ══ STATS ══ -->
-  <section class="stats"><div class="wrap">
-    <div class="stats-grid reveal">
-      <div class="stat"><div class="num" data-count="300" data-suffix="+">0</div><div class="lbl">Venues mapped</div></div>
-      <div class="stat"><div class="num" data-count="75" data-suffix="+">0</div><div class="lbl">Active tours</div></div>
-      <div class="stat"><div class="num" data-count="64" data-suffix="+">0</div><div class="lbl">Live setlists</div></div>
-      <div class="stat"><div class="num"><em>Free</em></div><div class="lbl">On iOS</div></div>
-    </div>
-  </div></section>
-
-  <!-- ══ PILLARS ══ -->
-  <section class="pillars"><div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">One app, the whole night</span>
-      <h2>Everything you need, <em>before you leave.</em></h2>
-      <p>Stop juggling five tabs to plan one evening. Concerto pulls the whole night into a single place.</p>
-    </div>
-    <div class="pillar-grid">
-      <a href="venues.html" class="pillar reveal">
-        <div class="pillar-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11H3z"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3>Venue Guides</h3>
-        <p>Bag policies, parking, concessions, rideshare zones, and a curated city guide for every major venue, arena, and stadium.</p>
-        <span class="more">300+ venues →</span>
-      </a>
-      <a href="tours.html" class="pillar reveal" style="transition-delay:.08s">
-        <div class="pillar-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <h3>Tour Guides</h3>
-        <p>Setlists, show dates, and official ticket links for every active tour. Each stop links straight to that venue's full guide.</p>
-        <span class="more">75+ active tours →</span>
-      </a>
-      <a href="events.html" class="pillar reveal" style="transition-delay:.16s">
-        <div class="pillar-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
-        <h3>Events Near Me</h3>
-        <p>Open the app and instantly see every concert, game, comedy show, and festival happening near you tonight.</p>
-        <span class="more">Powered by location →</span>
-      </a>
-    </div>
-  </div></section>
-
-  <!-- ══ SHOWCASE: pinned phone, screen swaps on scroll ══ -->
-  <section class="showcase"><div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Know before you go</span>
-      <h2>The answers, <em>before the questions.</em></h2>
-    </div>
-    <div class="showcase-grid">
-      <div class="showcase-phone">
-        <div class="device" id="scDevice">
-          <div class="notch"></div>
-          <div class="screen">
-            <div class="apptop"><div class="r"><span>9:41</span><span>▲ ◀ ●●●</span></div><h3>Moody Center</h3><div class="loc">Austin, TX</div></div>
-            <div class="chips" id="scChips"><span class="chip on">Bags</span><span class="chip">Parking</span><span class="chip">Tonight</span></div>
-            <div class="sviews" id="scViews">
-              <div class="sv on" data-view="0">
-                <div class="scard"><div class="lbl">Allowed</div><div class="ttl">Clear bags · 12"×6"×12"</div><div class="sub">Plus a small clutch (4.5"×6.5"). Tags scanned at the door.</div></div>
-                <div class="scard"><div class="lbl">Not allowed</div><div class="ttl">Backpacks · totes · camera bags</div><div class="sub">No bag valet on site — leave it in the car.</div></div>
-              </div>
-              <div class="sv" data-view="1">
-                <div class="scard gold"><div class="lbl">Closest · official</div><div class="ttl">Garage A</div><div class="sub">$25 · 3-min walk · pre-pay in app</div></div>
-                <div class="scard"><div class="lbl">Cheaper</div><div class="ttl">Lot 40</div><div class="sub">$15 · 8-min walk</div></div>
-                <div class="scard"><div class="lbl">Rideshare</div><div class="ttl">Robert Dedman Dr</div><div class="sub">Pickup zone opens 15 min before doors</div></div>
-              </div>
-              <div class="sv" data-view="2">
-                <div class="scard gold"><div class="lbl">Tonight · 8:00 PM</div><div class="ttl">Hozier — Unreal Unearth</div><div class="sub">Doors 6:30 · 18-song set · encore tracked live</div><span class="pillbtn">Get Tickets</span></div>
-                <div class="scard"><div class="lbl">Top Pick · Before the show</div><div class="ttl">Comedor</div><div class="sub">4-min walk · reserve 6:15</div></div>
-              </div>
-            </div>
-          </div>
+    <!-- Stats band (count-up) -->
+    <section class="stats reveal" aria-label="Concerto by the numbers">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-num"><span data-count="300" data-suffix="+">0</span></div>
+          <div class="stat-label">Venues covered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num"><span data-count="75" data-suffix="+">0</span></div>
+          <div class="stat-label">Active tours</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num gold">Free</div>
+          <div class="stat-label">On iOS</div>
         </div>
       </div>
-      <div class="steps" id="scSteps">
-        <div class="step active" data-step="0"><div class="num">01</div><h3>Know what gets in.</h3><p>Every venue's exact bag policy in plain language — sizes, what's banned, whether there's a valet. No more turning around at the gate.</p></div>
-        <div class="step" data-step="1"><div class="num">02</div><h3>Park without the panic.</h3><p>Official lots ranked by price and walk time, pre-pay where you can, and the exact rideshare pickup zone for the night.</p></div>
-        <div class="step" data-step="2"><div class="num">03</div><h3>See tonight's show, live.</h3><p>Set times, doors, the setlist tracked in real time, and a hand-picked place to eat four minutes away. The whole night, handled.</p></div>
+    </section>
+
+    <!-- Two main cards -->
+    <div class="main-cards main-cards-3">
+
+      <a href="venues.html" class="main-card reveal">
+        <span class="main-card-eyebrow">Know Before You Go</span>
+        <h2>Venue Guides</h2>
+        <p>Bag Policies, Parking, Concessions, Rideshare Zones, and a Curated City Guide for Every Major Venue, Arena, and Stadium. Search Any Venue and Get Everything in One Place.</p>
+        <div class="main-card-footer">
+          <span class="main-card-stat">300+ venues covered</span>
+          <span class="main-card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a href="tours.html" class="main-card reveal" style="transition-delay:0.06s">
+        <span class="main-card-eyebrow">On the Road</span>
+        <h2>Tour Guides</h2>
+        <p>Setlists, Show Dates, and Official Ticket Links for Every Active Tour in 2026. Every Stop Links Directly to That Venue&rsquo;s Full Guide &mdash; So You&rsquo;re Ready Wherever the Tour Takes You.</p>
+        <div class="main-card-footer">
+          <span class="main-card-stat">71 active tours</span>
+          <span class="main-card-arrow">&rarr;</span>
+        </div>
+      </a>
+      <a href="events.html" class="main-card reveal" style="transition-delay:0.12s">
+        <span class="main-card-eyebrow">Tonight</span>
+        <h2>Events Near Me</h2>
+        <p>Open the App and Instantly See Every Major Concert, Sports Game, Comedy Show, and Festival Happening Near You. No Searching &mdash; Just What&rsquo;s On Tonight.</p>
+        <div class="main-card-footer">
+          <span class="main-card-stat">Powered by location</span>
+          <span class="main-card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Top Picks strip -->
+    <section class="picks-strip" id="picksStrip" aria-labelledby="picks-heading" style="display:none">
+      <div class="picks-head">
+        <span class="picks-eyebrow">Concerto Top Picks</span>
+        <h2 class="picks-title" id="picks-heading">Where to eat before the show.</h2>
+        <p class="picks-sub">Curated restaurants near the country&rsquo;s biggest venues &mdash; featured for fans heading to the show.</p>
       </div>
+      <div class="picks-grid" id="picksGrid"></div>
+      <div class="picks-cta-wrap"><a href="partners.html" class="btn btn-outline">See all Top Picks</a></div>
+    </section>
+
+    <!-- PREMIUM UNLOCKED (premium users only; replaces the promo strip below) -->
+    <div class="main-cards main-cards-3" id="premiumCardsWeb" style="display:none">
+      <a href="bagcheck.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>AI Bag Check</h2>
+        <p>Scan Your Bag with Your Camera and Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy &mdash; Before You Leave the House.</p>
+        <div class="main-card-footer"><span class="main-card-stat">Instant verdict</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
+      <a href="livemode.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>Live Mode</h2>
+        <p>Your Real-Time In-Show Companion. Track the Setlist Live, and When the Encore Ends, Receive a Beautifully Designed Story Card of Your Entire Night.</p>
+        <div class="main-card-footer"><span class="main-card-stat">Live setlist + Story Card</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
+      <a href="concertoplus.html" class="main-card">
+        <span class="main-card-eyebrow">Premium</span>
+        <h2>Concerto+</h2>
+        <p>Tell It Your Show and Your Vibe. It Builds the Full Evening &mdash; Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</p>
+        <div class="main-card-footer"><span class="main-card-stat">AI itinerary</span><span class="main-card-arrow">&rarr;</span></div>
+      </a>
     </div>
-  </div></section>
 
-  <!-- ══ PREMIUM (dark) — hooks preserved: premiumStripPromo / premiumCardsWeb ══ -->
-  <section class="premium" id="premiumStripPromo"><div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Concerto Premium</span>
-      <h2>The magic is in <em>the details.</em></h2>
-      <p>The features that turn a good night into a flawless one.</p>
-    </div>
-    <div class="prem-grid">
-      <div class="prem-card reveal"><div class="tag">Premium</div><h3>AI Bag Check</h3><p>Point your camera at your bag. Get an instant pass, warn, or fail against your venue's exact policy — before you leave the house.</p></div>
-      <div class="prem-card reveal" style="transition-delay:.08s"><div class="tag">Premium</div><h3>Live Mode</h3><p>Your real-time in-show companion. When the encore ends, receive a beautifully designed story card of your entire night.</p></div>
-      <div class="prem-card reveal" style="transition-delay:.16s"><div class="tag">Premium</div><h3>Concerto+</h3><p>Tell it your show and your vibe. It builds the full evening — dinner timing, ideal arrival, and post-show plans mapped to your venue.</p></div>
-    </div>
-    <div class="prem-foot reveal">
-      <div class="prem-price"><em>$7.99</em>/month or <em>$69.99</em>/year</div>
-      <a href="premium.html" class="btn btn-gold"><span>Explore Premium</span></a>
-    </div>
-  </div></section>
+    <!-- Premium strip -->
+    <section class="premium-strip" id="premiumStripPromo" aria-labelledby="premium-heading">
+      <div class="premium-strip-inner">
+        <div class="premium-strip-copy reveal">
+          <span class="premium-strip-eyebrow">Concerto Premium</span>
+          <h2 class="premium-strip-title" id="premium-heading">The Magic Is in the Details.</h2>
+          <p class="premium-strip-sub">Premium Unlocks the Features That Turn a Good Night Into a Flawless One. $7.99/Month or $69.99/Year.</p>
+          <a href="premium.html" class="btn btn-gold">Explore Premium</a>
+        </div>
+        <div class="premium-features reveal" style="transition-delay:0.1s">
+          <div class="premium-feature">
+            <div class="premium-feature-dot"></div>
+            <div class="premium-feature-text"><strong>AI Bag Check</strong> &mdash; Point Your Camera at Your Bag. Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy Before You Leave the House.</div>
+          </div>
+          <div class="premium-feature">
+            <div class="premium-feature-dot"></div>
+            <div class="premium-feature-text"><strong>Live Mode</strong> &mdash; Your Real-Time In-Show Companion. When the Encore Ends, Receive a Beautifully Designed Story Card Documenting Your Entire Night.</div>
+          </div>
+          <div class="premium-feature">
+            <div class="premium-feature-dot"></div>
+            <div class="premium-feature-text"><strong>Concerto+ AI Itinerary</strong> &mdash; Tell It Your Show and Your Vibe. It Builds the Full Evening &mdash; Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
 
-  <!-- premium users' tools (your auth.js toggles this on) -->
-  <section id="premiumCardsWeb" style="display:none"></section>
+    <!-- Quote -->
+    <section class="quote-section">
+      <p class="quote-text reveal">
+        &ldquo;I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like one seamless event.&rdquo;
+      </p>
+      <p class="quote-attr reveal" style="transition-delay:0.1s">&mdash; Jayce Wells, Founder</p>
+    </section>
 
-  <!-- ══ QUOTE ══ -->
-  <section class="quote"><div class="wrap reveal">
-    <blockquote>"I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. <span>The whole night should feel like one event.</span>"</blockquote>
-    <div class="attr">— Jayce Wells, Founder</div>
-  </div></section>
+    <!-- Final CTA -->
+    <section class="final-cta reveal">
+      <h2>Your Show Starts Now.</h2>
+      <p>Free on iOS. No Account Required.</p>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
+         target="_blank" rel="noopener noreferrer"
+         class="btn btn-dark">Download Concerto</a>
+    </section>
 
-  <!-- ══ FINAL CTA ══ -->
-  <section class="final"><div class="wrap reveal">
-    <div class="hero-glow" aria-hidden="true" style="height:60%;"></div>
-    <h2>Your show <em>starts now.</em></h2>
-    <p>Free on iOS. No account required.</p>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark"><span>Download Concerto</span></a>
-  </div></section>
+  </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer>
+  <!-- Footer -->
+  <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="5" fill="currentColor" stroke="none"/></svg>Concerto</a>
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides — everything you need, in one place.</p>
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
       </div>
-      <nav class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="premium.html">Premium</a><a href="shop.html">Shop</a><a href="partners.html">Partnerships</a><a href="faq.html">FAQ</a></nav>
-      <nav class="footer-col"><h4>Tools</h4><a href="cityguides.html">City Guides</a><a href="events.html">Events Near Me</a><a href="setlists.html">Setlists</a><a href="bags.html">Bag Policies</a><a href="parking.html">Parking</a></nav>
-      <nav class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
-      <nav class="footer-col"><h4>Follow</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Tools">
+        <h4>Tools</h4>
+        <a href="cityguides.html">City Guides</a>
+        <a href="events.html">Events Near Me</a>
+        <a href="setlists.html">Setlists</a>
+        <a href="bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="concessions.html">Concessions</a>
+        <a href="rideshare.html">Rideshare</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Social">
+        <h4>Follow Us</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Concerto LLC. All rights reserved.</span>
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
       <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
     </div>
   </footer>
 
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* nav scrolled state */
-  var nav = document.getElementById('siteNav');
-  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 20); }, {passive:true});
-
-  /* mobile menu */
-  var burger = document.getElementById('navHamburger'), menu = document.getElementById('navMobileMenu');
-  if (burger && menu){
-    burger.addEventListener('click', function(){
-      var open = menu.classList.toggle('open');
-      burger.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+  <script>
+    const bgCanvas = document.getElementById('bgCanvas');
+    let ticking = false;
+    document.addEventListener('mousemove', (e) => {
+      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-18}px,${(e.clientY/window.innerHeight-0.5)*-18}px)`; ticking = false; }); ticking = true; }
     });
-    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow=''; }); });
-  }
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  /* marquee duplicate */
-  var mq = document.getElementById('mq'); if (mq) mq.innerHTML += mq.innerHTML;
-
-  /* reveals */
-  var revs = document.querySelectorAll('.reveal');
-  if (reduce){ revs.forEach(function(r){ r.classList.add('in'); }); }
-  else {
-    var ro = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }); }, {threshold:.14});
-    revs.forEach(function(r){ ro.observe(r); });
-  }
-
-  /* count-up */
-  function countUp(el){
-    var target = +el.dataset.count, suf = el.dataset.suffix || '', dur = 1400, t0 = null;
-    function frame(t){ if(!t0) t0=t; var p = Math.min((t-t0)/dur,1); var e = 1-Math.pow(1-p,3); el.textContent = Math.round(target*e) + suf; if(p<1) requestAnimationFrame(frame); }
-    requestAnimationFrame(frame);
-  }
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    if (reduce){ el.textContent = el.dataset.count + (el.dataset.suffix||''); return; }
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(el); io.unobserve(el); } }); }, {threshold:.6});
-    io.observe(el);
-  });
-
-  /* showcase: swap phone screen as each step enters center */
-  var steps = document.querySelectorAll('#scSteps .step');
-  var views = document.querySelectorAll('#scViews .sv');
-  var chips = document.querySelectorAll('#scChips .chip');
-  if (steps.length){
-    var so = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting){
-          var i = +e.target.dataset.step;
-          steps.forEach(function(s){ s.classList.toggle('active', s===e.target); });
-          views.forEach(function(v){ v.classList.toggle('on', +v.dataset.view===i); });
-          chips.forEach(function(c,ci){ c.classList.toggle('on', ci===i); });
-        }
+    // Count-up stats — animates each number once when it scrolls into view
+    (function(){
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function animateCount(el){
+        var target = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', dur = 1400, start = null;
+        function frame(ts){ if(!start) start = ts; var p = Math.min((ts-start)/dur, 1); var eased = 1 - Math.pow(1-p, 3); el.textContent = Math.round(target*eased) + suf; if(p < 1) requestAnimationFrame(frame); }
+        requestAnimationFrame(frame);
+      }
+      document.querySelectorAll('[data-count]').forEach(function(el){
+        if (prefersReduced) { el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); return; }
+        var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ animateCount(el); io.unobserve(el); } }); }, { threshold: 0.6 });
+        io.observe(el);
       });
-    }, {threshold:.6, rootMargin:'-20% 0px -20% 0px'});
-    steps.forEach(function(s){ so.observe(s); });
-  }
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
 
-  if (reduce) return;
-  /* hero parallax + follow-spot + magnetic buttons */
-  var spot = document.getElementById('spot'), layers = document.querySelectorAll('[data-depth]');
-  var tx=0,ty=0,sx=0,sy=0,raf=false;
-  function loop(){
-    sx+=(tx-sx)*.08; sy+=(ty-sy)*.08;
-    if(spot) spot.style.transform='translate('+sx+'px,'+sy+'px)';
-    var ox=(sx/innerWidth-.5), oy=(sy/innerHeight-.5);
-    layers.forEach(function(el){ var d=parseFloat(el.getAttribute('data-depth'))||0; var b=el.classList.contains('halo')?'translate(-50%,-50%) ':''; el.style.transform=b+'translate('+(ox*-22*d)+'px,'+(oy*-22*d)+'px)'; });
-    raf=false;
-  }
-  addEventListener('mousemove', function(e){ tx=e.clientX; ty=e.clientY; if(spot) spot.classList.add('lit'); if(!raf){ requestAnimationFrame(loop); raf=true; } });
-  document.querySelectorAll('.hero .btn').forEach(function(b){
-    b.addEventListener('mousemove', function(e){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'; });
-    b.addEventListener('mouseleave', function(){ b.style.transform=''; });
+
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+  // Auth state — mobile menu + profile icon
+  const mobileAuth = document.getElementById('navMobileAuthLink');
+  const profileIcon = document.getElementById('navProfileIcon');
+  try {
+    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
+    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
+    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
+    var PREM_CACHE = 'cc_is_premium';
+    function applyPremiumUI(isPrem){
+      var cards = document.getElementById('premiumCardsWeb');
+      var promo = document.getElementById('premiumStripPromo');
+      if (isPrem) { if (cards) cards.style.display = ''; if (promo) promo.style.display = 'none'; }
+      else { if (cards) cards.style.display = 'none'; if (promo) promo.style.display = ''; }
+    }
+    if (!token) { applyPremiumUI(false); try { localStorage.removeItem(PREM_CACHE); } catch(e){} }
+    else {
+      try { if (localStorage.getItem(PREM_CACHE) === '1') applyPremiumUI(true); } catch(e){}
+      fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+        .then(r => r.ok ? r.json() : null)
+        .then(user => {
+          if (!user?.id) { applyPremiumUI(false); try { localStorage.setItem(PREM_CACHE,'0'); } catch(e){} return; }
+          if (mobileAuth) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; }
+          if (profileIcon) { profileIcon.href = 'account.html'; profileIcon.classList.add('logged-in'); profileIcon.setAttribute('aria-label', 'My Account'); }
+          fetch(SB_URL + '/rest/v1/profiles?id=eq.' + user.id + '&select=is_premium', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
+            .then(r => r.ok ? r.json() : null)
+            .then(rows => { var isPrem = Array.isArray(rows) && rows[0] && rows[0].is_premium === true; applyPremiumUI(isPrem); try { localStorage.setItem(PREM_CACHE, isPrem ? '1':'0'); } catch(e){} })
+            .catch(()=>{});
+        })
+        .catch(()=>{});
+    }
+  } catch(e) {}
 })();
 </script>
 
-<!-- ════════════════════════════════════════════════════════════
-  INTEGRATION NOTE (delete before deploy):
-  Re-paste your existing backend scripts from your current index.html so
-  functionality is preserved — none of it conflicts with the markup above:
-    1. The Supabase auth + premium toggle script (wires #navAuthLink,
-       #navProfileIcon, #navMobileAuthLink, #premiumCardsWeb, #premiumStripPromo)
-    2. The /top-picks fetch script (if you add a #picksStrip/#picksGrid section back in)
-    3. <script src="auth.js"></script> and <script src="app-shell.js"></script>
-  All the IDs those scripts target already exist in this file.
-═════════════════════════════════════════════════════════════ -->
+<script>
+// Top Picks strip — one standout per venue from the Top Picks source (Google Sheet via /top-picks function); hides itself if unavailable
+(function(){
+  var sec=document.getElementById('picksStrip'), grid=document.getElementById('picksGrid');
+  if(!sec||!grid) return;
+  var MAP_BASE='/cityguide/';
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  fetch('/.netlify/functions/top-picks').then(function(r){return r.json();}).then(function(data){
+    var cards=data.map(function(v){
+      var it=(v.items||[])[0]; if(!it) return '';
+      return '<a class="pick-card" href="'+MAP_BASE+esc(v.slug||'')+'" rel="noopener noreferrer">'
+        +'<div class="pick-card-name">'+esc(it.name)+'</div>'
+        +'<div class="pick-card-venue">'+esc(v.venueName)+' &middot; '+esc(v.city)+'</div>'
+      +'</a>';
+    }).join('');
+    if(cards.replace(/\s/g,'')){ grid.innerHTML=cards; sec.style.display=''; }
+  }).catch(function(){});
+})();
+</script>
+
+  <script src="auth.js"></script>
+  <script src="app-shell.js"></script>
 </body>
 </html>
