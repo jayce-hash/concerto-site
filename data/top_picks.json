@@ -326,7 +326,7 @@
         "trackingId": "madison-square-garden:pennsylvania-6"
       },
       {
-        "name": "Roberta's",
+        "name": "Roberta’s",
         "address": "1 Penn Plaza, New York, NY 10119",
         "placeId": null,
         "notes": "Cult-favorite pizzeria serving wood-fired pizzas with inventive toppings near MSG.",
@@ -520,6 +520,74 @@
         "partnerId": null,
         "term": null,
         "trackingId": "kia-forum:sunday-gravy"
+      }
+    ]
+  },
+  {
+    "venueName": "Mercedes-Benz Stadium",
+    "slug": "mercedes-benz-stadium",
+    "city": "Atlanta",
+    "state": "GA",
+    "items": [
+      {
+        "name": "Capolinea",
+        "address": "159 Northside Dr NW, Atlanta, GA 30313",
+        "placeId": null,
+        "notes": "Upscale Italian inside Signia by Hilton with handmade pastas and tableside martini service, steps from the stadium.",
+        "tier": "editorial",
+        "badge": "Concerto Top Pick",
+        "sponsored": false,
+        "partnerId": null,
+        "term": null,
+        "trackingId": "mercedes-benz-stadium:capolinea"
+      },
+      {
+        "name": "Cuts Steakhouse",
+        "address": "60 Andrew Young International Blvd NE, Atlanta, GA 30303",
+        "placeId": null,
+        "notes": "Upscale downtown steakhouse known for premium cuts and a lively, see-and-be-seen atmosphere.",
+        "tier": "editorial",
+        "badge": "Concerto Top Pick",
+        "sponsored": false,
+        "partnerId": null,
+        "term": null,
+        "trackingId": "mercedes-benz-stadium:cuts-steakhouse"
+      },
+      {
+        "name": "White Oak",
+        "address": "270 Peachtree St NW, Atlanta, GA 30303",
+        "placeId": null,
+        "notes": "Chic New American spot serving elevated plates in a sleek, modern room.",
+        "tier": "editorial",
+        "badge": "Concerto Top Pick",
+        "sponsored": false,
+        "partnerId": null,
+        "term": null,
+        "trackingId": "mercedes-benz-stadium:white-oak"
+      },
+      {
+        "name": "Zephyr Southern Brasserie",
+        "address": "70 Centennial Olympic Park Dr NW, Atlanta, GA 30303",
+        "placeId": null,
+        "notes": "Chef-driven Southern brasserie blending French technique with Lowcountry flavor in the Gulch.",
+        "tier": "editorial",
+        "badge": "Concerto Top Pick",
+        "sponsored": false,
+        "partnerId": null,
+        "term": null,
+        "trackingId": "mercedes-benz-stadium:zephyr-southern-brasserie"
+      },
+      {
+        "name": "Atlantucky Brewing",
+        "address": "170 Northside Dr SW Ste 96, Atlanta, GA 30313",
+        "placeId": null,
+        "notes": "Laid-back Castleberry Hill brewery pouring house-made beers alongside wood-fired pizzas and shareable bites.",
+        "tier": "editorial",
+        "badge": "Concerto Top Pick",
+        "sponsored": false,
+        "partnerId": null,
+        "term": null,
+        "trackingId": "mercedes-benz-stadium:atlantucky-brewing"
       }
     ]
   }
