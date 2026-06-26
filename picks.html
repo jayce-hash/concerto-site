@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concerto Picks — Where to Eat & Stay Near Your Venue | Concerto</title>
+<meta name="description" content="The curated short list of where to eat, drink, and stay near your venue, ordered by how concert night actually runs. Chosen for people going to the show, not for tourists." />
+<meta property="og:title" content="Concerto Picks — Your Night Out, Curated" />
+<meta property="og:description" content="The handful of places worth your time near every venue, ordered by the night: dinner, a quick bite, after the encore, where to stay." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Playfair Display',Georgia,'Times New Roman',serif;
+    --body:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --bg:#F8F9F9; --card-bg:#FFFFFF; --text:#121E36;
+    --text-dim:rgba(18,30,54,0.52); --text-xdim:rgba(18,30,54,0.28);
+    --border:rgba(18,30,54,0.08); --border-mid:rgba(18,30,54,0.14);
+    --gold:#C9A84C; --gold-light:#E5C365;
+    --shadow-sm:0 2px 12px rgba(18,30,54,0.04);
+    --shadow-md:0 8px 32px rgba(18,30,54,0.07);
+    --shadow-lg:0 20px 50px rgba(18,30,54,0.10);
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+    --radius-md:20px; --radius-lg:28px; --nav-h:68px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .serif{font-family:var(--display)}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 5%}
+
+  /* ---- nav (matches site) ---- */
+  .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm)}
+  .nav-logo{display:flex;align-items:center;width:200px}
+  .nav-logo-img{height:48px;width:auto;object-fit:contain}
+  .nav-center{display:flex;gap:0;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-center>a{font-family:var(--body);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);transition:color .25s;padding:0 1.2rem;height:var(--nav-h);display:flex;align-items:center;text-decoration:none}
+  .nav-center>a:hover,.nav-center>a.active{color:var(--text)}
+  .nav-center>a.active{color:var(--gold)}
+  .nav-cta{display:flex;justify-content:flex-end;align-items:center;gap:10px;width:200px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:0.72rem 1.6rem;border-radius:99px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);cursor:pointer;border:none;text-decoration:none;white-space:nowrap}
+  .btn-dark{background:var(--text);color:var(--bg);box-shadow:0 8px 24px rgba(18,30,54,0.18)}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(18,30,54,0.24)}
+  .nav-profile-btn{display:none;width:36px;height:36px;border-radius:50%;background:transparent;border:1px solid var(--border-mid);align-items:center;justify-content:center;color:var(--text-dim);text-decoration:none}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease;transform-origin:center}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;border-top:1px solid var(--border)}
+  .nav-mobile-menu.open{display:flex}
+  .nav-mobile-link{font-family:var(--body);font-size:1.5rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);letter-spacing:-.01em}
+  .nav-mobile-link.active{color:var(--gold)}
+  @media(max-width:900px){.nav-center{display:none!important}.nav-hamburger{display:flex}.nav-download{display:none}.nav-cta{width:auto}}
+
+  /* ---- hero ---- */
+  .hero{text-align:center;padding:calc(var(--nav-h) + 64px) 5% 40px;max-width:880px;margin:0 auto}
+  .hero-eyebrow{font-family:var(--body);font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block}
+  .hero-headline{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.04;letter-spacing:-.02em}
+  .hero-headline em{font-style:italic;color:var(--gold)}
+  .hero-sub{margin:1.4rem auto 0;max-width:54ch;color:var(--text-dim);font-size:1.05rem}
+  .hero-sub b{color:var(--text);font-weight:600}
+
+  /* ---- chooser ---- */
+  .chooser{max-width:1180px;margin:8px auto 0;padding:24px 5% 32px;border-bottom:1px solid var(--border)}
+  .chooser-label{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:var(--text-dim);margin-bottom:14px;text-align:center}
+  .pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .pill{font-family:var(--body);font-size:0.9rem;font-weight:600;color:var(--text);background:#fff;border:1px solid var(--border-mid);border-radius:99px;padding:9px 18px;cursor:pointer;transition:.18s;display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.25}
+  .pill small{font-size:0.64rem;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em}
+  .pill:hover{border-color:var(--text)}
+  .pill.active{background:var(--text);color:#fff;border-color:var(--text)}
+  .pill.active small{color:rgba(255,255,255,.6)}
+  .pill:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* ---- guide ---- */
+  .guide{padding:42px 0 10px}
+  .guide-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .guide-head h2{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.01em;line-height:1.05}
+  .guide-head .loc{color:var(--text-dim);font-size:.95rem;margin-top:3px}
+  .trust{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--text);background:rgba(18,30,54,.05);padding:7px 13px;border-radius:99px}
+  .trust b{color:var(--gold)}
+
+  .timeline{margin-top:34px;position:relative}
+  .timeline:before{content:"";position:absolute;left:11px;top:6px;bottom:30px;width:2px;background:linear-gradient(var(--gold),var(--border));opacity:.5}
+  .moment{position:relative;padding-left:46px;margin-bottom:40px}
+  .moment-dot{position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--gold);display:grid;place-items:center;font-size:12px}
+  .moment-eyebrow{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text-dim)}
+  .moment-title{font-family:var(--display);font-size:1.4rem;font-weight:700;line-height:1.1;margin-top:1px}
+  .moment-sub{color:var(--text-dim);font-size:.86rem;margin-top:2px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:16px}
+
+  .card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px;display:flex;flex-direction:column;gap:7px;transition:.2s var(--ease-out);text-decoration:none;color:inherit}
+  .card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .card .name{font-family:var(--display);font-size:1.16rem;font-weight:700;line-height:1.15}
+  .card .note{color:var(--text-dim);font-size:.85rem;line-height:1.45}
+  .card .addr{font-size:.74rem;color:var(--text-xdim);margin-top:auto;padding-top:6px}
+  .card.is-partner{background:var(--text);border:1px solid var(--gold)}
+  .card.is-partner .name{color:#fff}
+  .card.is-partner .note{color:rgba(255,255,255,.66)}
+  .card.is-partner .addr{color:rgba(255,255,255,.4)}
+  .pbadge{align-self:flex-start;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--text);background:var(--gold);padding:4px 8px;border-radius:6px}
+
+  .stay-empty{border:1px dashed var(--border-mid);border-radius:var(--radius-md);padding:20px;color:var(--text-dim);font-size:.9rem}
+  .stay-empty b{color:var(--text)}
+
+  .venue-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:6px 0 4px;padding-top:18px;border-top:1px solid var(--border)}
+  .guide-cta{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px}
+  .biz-line{font-size:.78rem;color:var(--text-dim)}
+  .biz-line a{color:var(--text);font-weight:600;text-decoration:none;border-bottom:1px solid var(--border-mid)}
+
+  .loading{padding:60px 0;text-align:center;color:var(--text-dim)}
+
+  footer{border-top:1px solid var(--border);margin-top:48px;padding:34px 0 70px;color:var(--text-dim);font-size:.82rem;text-align:center}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo"><a href="index.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" /></a></div>
+  <div class="nav-center">
+    <a href="venues.html">Venues</a>
+    <a href="tours.html">Tours</a>
+    <a href="picks.html" class="active">Picks</a>
+    <a href="events.html">Events</a>
+    <a href="premium.html">Premium</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="nav-cta">
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="venues.html" class="nav-mobile-link">Venues</a>
+  <a href="tours.html" class="nav-mobile-link">Tours</a>
+  <a href="picks.html" class="nav-mobile-link active">Picks</a>
+  <a href="events.html" class="nav-mobile-link">Events</a>
+  <a href="premium.html" class="nav-mobile-link">Premium</a>
+  <a href="about.html" class="nav-mobile-link">About</a>
+</div>
+
+<header class="hero">
+  <span class="hero-eyebrow">The Short List for Your Night</span>
+  <h1 class="hero-headline serif">Where to go<br /><em>before the lights drop.</em></h1>
+  <p class="hero-sub">Not a list of everything nearby. The handful of places worth your time near every venue, <b>ordered by how concert night actually runs</b>: dinner, a quick bite, after the encore, where to stay.</p>
+</header>
+
+<section class="chooser">
+  <div class="chooser-label">Where are you headed?</div>
+  <div class="pills" id="pills"><div class="loading">Loading venues...</div></div>
+</section>
+
+<section class="wrap guide" id="guide" hidden>
+  <div class="guide-head">
+    <div><h2 class="serif" id="gName">—</h2><div class="loc" id="gLoc">—</div></div>
+    <div class="trust">★ Curated for the show, <b>not for tourists</b></div>
+  </div>
+  <div class="timeline" id="timeline"></div>
+  <div class="venue-foot">
+    <a class="guide-cta" id="fullGuide" href="#">Open the full guide: map + walking directions →</a>
+    <span class="biz-line">Run a spot near here? <a href="partners.html" id="bizLink">Become a featured pick →</a></span>
+  </div>
+</section>
+
+<footer class="wrap">Concerto Picks. Curated for people going to the show.</footer>
+
+<script>
+/* ---- nav ---- */
+const ham=document.getElementById('navHamburger'),mob=document.getElementById('navMobileMenu');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);ham.setAttribute('aria-expanded',o)});
+
+/* ---- night-moment model ---- */
+const MOMENTS=[
+  {key:"before",icon:"🍽",eyebrow:"First",title:"Before the show",sub:"Sit-down spots that feed you and get you out before doors."},
+  {key:"quick", icon:"⚡",eyebrow:"Then", title:"Quick bite",      sub:"Fast, close, and you're still on time."},
+  {key:"after", icon:"🍸",eyebrow:"After",title:"After the encore", sub:"Where the night keeps going once the house lights come up."},
+  {key:"stay",  icon:"🏨",eyebrow:"Last", title:"Stay the night",   sub:"Make a trip of it. Walkable rooms near the venue."},
+];
+// classify a pick into a moment: explicit item.moment wins, else infer from text
+function momentFor(item){
+  if(item.moment) return item.moment;
+  const t=((item.category||"")+" "+(item.name||"")+" "+(item.notes||"")).toLowerCase();
+  if(/hotel|inn|suites|stay|resort|lodg/.test(t)) return "stay";
+  if(/bar|brewery|brewing|pub|cocktail|late|lounge|tavern|beer garden|nightcap|speakeasy/.test(t)) return "after";
+  if(/taco|burger|quick|fast|street|grab|counter|deli|sandwich|slice|food hall|bakery|cafe|café|to-go/.test(t)) return "quick";
+  return "before"; // dinner default
+}
+const dashless=s=>String(s||"").replace(/-/g,"");
+
+/* ---- tap tracking (reuses your existing /track + trackingId) ---- */
+function trackTap(trackingId,ev){
+  if(!trackingId||!navigator.sendBeacon)return;
+  try{navigator.sendBeacon('https://concertocity.com/.netlify/functions/track',JSON.stringify({trackingId,event:ev,ts:Date.now()}));}catch(e){}
+}
+
+/* ---- data (live function -> static file -> embedded) ---- */
+let VENUES=[];
+function load(){
+  return fetch("https://concertocity.com/.netlify/functions/top-picks")
+    .then(r=>r.ok?r.json():Promise.reject(0))
+    .catch(()=>fetch("/data/top_picks.json").then(r=>r.ok?r.json():Promise.reject(0)))
+    .catch(()=>EMBEDDED_FALLBACK);
+}
+/* EMBEDDED_FALLBACK: last-resort so the page never renders empty. Live data overrides it.
+   Safe to delete once /data/top_picks.json is reliably reachable. */
+const EMBEDDED_FALLBACK=[
+{venueName:"Moody Center",slug:"moody-center",city:"Austin",state:"TX",items:[
+ {name:"El Chile Café Y Cantina",address:"1900 Manor Rd",notes:"Tex-Mex favorite: margaritas, fajitas, mezcal ceviche.",trackingId:"moody-center:el-chile"},
+ {name:"Salty Sow",address:"1917 Manor Rd",notes:"Gastropub with elevated comfort food and whiskey.",trackingId:"moody-center:salty-sow"},
+ {name:"Cuantos Tacos",address:"1108 E 12th St",notes:"Mexico City-style street tacos, handmade tortillas.",trackingId:"moody-center:cuantos"},
+ {name:"Scholz Garten",address:"1607 San Jacinto Blvd",notes:"Historic Austin beer garden, lively pre-and-post crowd.",trackingId:"moody-center:scholz"}]},
+{venueName:"Dickies Arena",slug:"dickies-arena",city:"Fort Worth",state:"TX",items:[
+ {name:"Joe T. Garcia's",address:"2201 N Commerce St",notes:"The Fort Worth Tex-Mex institution, sprawling patio.",trackingId:"dickies:joet"},
+ {name:"Blue Sushi Sake Grill",address:"513 W 7th St",notes:"Creative rolls, sashimi, deep sake list.",trackingId:"dickies:blue-sushi"},
+ {name:"Rodeo Goat",address:"2836 Bledsoe St",notes:"Award-winning inventive burgers and craft beer.",trackingId:"dickies:rodeo-goat"},
+ {name:"Heim Barbecue",address:"1109 W Magnolia Ave",notes:"Bacon burnt ends and proper Texas smoke.",trackingId:"dickies:heim"}]},
+{venueName:"Madison Square Garden",slug:"madison-square-garden",city:"New York",state:"NY",items:[
+ {name:"Bar Primi",address:"349 W 33rd St",notes:"Housemade pasta steps from Penn Station.",trackingId:"msg:bar-primi"},
+ {name:"Shukette",address:"230 9th Ave",notes:"Levantine sharing plates and tahini soft serve.",trackingId:"msg:shukette"},
+ {name:"Los Tacos No.1",address:"75 9th Ave",notes:"Fresh tortillas, grilled meats, in and out fast.",trackingId:"msg:los-tacos"},
+ {name:"Pennsylvania 6",address:"132 W 31st St",notes:"Oysters and scratch comfort food half a block away.",trackingId:"msg:penn6"}]},
+{venueName:"Kia Forum",slug:"kia-forum",city:"Inglewood",state:"CA",items:[
+ {name:"The Meeting Spot",address:"1231 District Dr",notes:"Built for pre-show: fresh plates, cocktails, atmosphere.",trackingId:"kia:meeting-spot"},
+ {name:"Coni'Seafood",address:"3544 W Imperial Hwy",notes:"Renowned Nayarit-style Mexican seafood.",trackingId:"kia:coni"},
+ {name:"The Serving Spoon",address:"1403 Centinela Ave",notes:"Southern breakfast and the best waffles around.",trackingId:"kia:serving-spoon"},
+ {name:"Cork & Batter",address:"3900 W Manchester Blvd",notes:"Cocktails and shareable plates to close the night.",trackingId:"kia:cork-batter"}]}
+];
+load().then(data=>{
+  VENUES=(data||[]).filter(v=>v.items&&v.items.length);
+  if(!VENUES.length){document.getElementById('pills').innerHTML='<div class="loading">No picks available yet.</div>';return;}
+  const pillsEl=document.getElementById('pills');pillsEl.innerHTML="";
+  VENUES.forEach((v,i)=>{
+    const b=document.createElement('button');
+    b.className='pill'+(i===0?' active':'');
+    b.innerHTML=`${v.venueName}<small>${v.city||""}${v.state?", "+v.state:""}</small>`;
+    b.onclick=()=>{document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');render(i);window.scrollTo({top:document.getElementById('chooserAnchor')?.offsetTop||0});};
+    pillsEl.appendChild(b);
+  });
+  render(0);
+  document.getElementById('guide').hidden=false;
+}).catch(()=>{document.getElementById('pills').innerHTML='<div class="loading">Could not load picks.</div>';});
+
+function cardHTML(item){
+  const partner=item.tier==="partner";
+  const badge=partner?`<span class="pbadge">★ ${item.badge||"Featured Partner"}</span>`:"";
+  return `<a class="card${partner?' is-partner':''}" href="https://maps.google.com/maps?q=${encodeURIComponent((item.name||"")+" "+(item.address||""))}" target="_blank" rel="noopener" data-tid="${item.trackingId||""}">
+    ${badge}
+    <div class="name serif">${item.name||""}</div>
+    <div class="note">${item.notes||""}</div>
+    <div class="addr">${item.address||""}</div>
+  </a>`;
+}
+function render(i){
+  const v=VENUES[i];
+  document.getElementById('gName').textContent=v.venueName;
+  document.getElementById('gLoc').textContent=(v.city||"")+(v.state?", "+v.state:"");
+  const byMoment={before:[],quick:[],after:[],stay:[]};
+  (v.items||[]).forEach(it=>{(byMoment[momentFor(it)]||byMoment.before).push(it);});
+  let html="";
+  MOMENTS.forEach(mo=>{
+    const list=byMoment[mo.key]||[];
+    let inner;
+    if(mo.key==="stay"&&!list.length){
+      inner=`<div class="stay-empty"><b>Hotels are coming to this guide.</b> A walkable room near ${v.venueName} that fans book to make a night of it.</div>`;
+    }else if(!list.length){return;}
+    else{inner=`<div class="cards">${list.map(cardHTML).join("")}</div>`;}
+    html+=`<div class="moment"><div class="moment-dot">${mo.icon}</div><div class="moment-eyebrow">${mo.eyebrow}</div><div class="moment-title serif">${mo.title}</div><div class="moment-sub">${mo.sub}</div>${inner}</div>`;
+  });
+  document.getElementById('timeline').innerHTML=html;
+  // wire tap tracking on outbound card clicks
+  document.querySelectorAll('#timeline .card').forEach(a=>{const tid=a.getAttribute('data-tid');if(tid)a.addEventListener('click',()=>trackTap(tid,'picks-maps'));});
+  // full guide deep link (existing city-guide engine: map + walking routes)
+  document.getElementById('fullGuide').href=`/cityguide/${dashless(v.slug)}`;
+  document.getElementById('bizLink').href=`partners.html`;
+}
+</script>
+</body>
+</html>
