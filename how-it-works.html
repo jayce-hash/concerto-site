@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F9F9" />
+<title>How Concerto Works — Your Night Out, Start to Finish</title>
+<meta name="description" content="How to use Concerto: find your venue, get curated City Guides for where to eat and stay, sort the logistics (bag policy, parking, rideshare), see setlists, and let Concerto+ plan the night." />
+<link rel="canonical" href="https://concertocity.com/how-it-works.html" />
+<meta property="og:title" content="How Concerto Works" />
+<meta property="og:description" content="Everything for your night out in one place. Here's how to use it, start to finish." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --display:'Playfair Display',Georgia,serif; --body:'DM Sans',-apple-system,sans-serif;
+    --bg:#F8F9F9; --card-bg:#FFFFFF; --text:#121E36;
+    --text-dim:rgba(18,30,54,0.52); --text-xdim:rgba(18,30,54,0.28);
+    --border:rgba(18,30,54,0.08); --border-mid:rgba(18,30,54,0.14);
+    --gold:#C9A84C; --shadow-sm:0 2px 12px rgba(18,30,54,0.04); --shadow-md:0 8px 32px rgba(18,30,54,0.07);
+    --ease-out:cubic-bezier(0.16,1,0.3,1); --radius-md:20px; --radius-lg:28px; --nav-h:68px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .serif{font-family:var(--display)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:0 5%}
+  /* nav */
+  .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+  .nav-logo img{height:48px;width:auto}
+  .nav-center{display:flex;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
+  .nav-center>a{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);padding:0 1.2rem;height:var(--nav-h);display:flex;align-items:center;transition:color .25s}
+  .nav-center>a:hover{color:var(--text)}
+  .nav-cta{display:flex;justify-content:flex-end;align-items:center;gap:10px;width:200px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:0.72rem 1.6rem;border-radius:99px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;border:none;white-space:nowrap;transition:transform .3s var(--ease-out)}
+  .btn-dark{background:var(--text);color:var(--bg)}
+  .btn-dark:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--gold);color:var(--text)}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto}
+  .nav-mobile-menu.open{display:flex}
+  .nav-mobile-link{font-size:1.5rem;font-weight:600;color:var(--text-dim);padding:1rem 0;border-bottom:1px solid var(--border)}
+  @media(max-width:900px){.nav-center{display:none}.nav-hamburger{display:flex}.nav-download{display:none}.nav-cta{width:auto}}
+  /* hero */
+  .hero{text-align:center;padding:calc(var(--nav-h) + 64px) 5% 30px;max-width:760px;margin:0 auto}
+  .hero .eyebrow{font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;letter-spacing:-.02em}
+  .hero p{margin:1.2rem auto 0;max-width:52ch;color:var(--text-dim);font-size:1.05rem}
+  /* steps */
+  .steps{padding:36px 0 10px;position:relative}
+  .steps:before{content:"";position:absolute;left:calc(5% + 21px);top:30px;bottom:80px;width:2px;background:linear-gradient(var(--gold),var(--border));opacity:.4}
+  .step{position:relative;padding-left:64px;margin-bottom:34px}
+  .step-num{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--text);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.1rem}
+  .step h2{font-family:var(--display);font-size:1.5rem;font-weight:700;line-height:1.1}
+  .step .lead{color:var(--text-dim);margin-top:4px}
+  .step .detail{margin-top:12px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm)}
+  .step .detail b{font-weight:700}
+  .step .detail .row{display:flex;gap:10px;padding:6px 0;font-size:.93rem;color:var(--text-dim)}
+  .step .detail .row b{color:var(--text);min-width:120px;flex-shrink:0}
+  .step a.inline{color:var(--text);font-weight:600;border-bottom:2px solid var(--gold)}
+  /* free vs premium */
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 10px}
+  @media(max-width:640px){.tiers{grid-template-columns:1fr}}
+  .tier{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px}
+  .tier.premium{background:var(--text);color:#fff;border-color:var(--gold)}
+  .tier h3{font-family:var(--display);font-size:1.3rem;margin-bottom:4px}
+  .tier .price{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:12px}
+  .tier ul{list-style:none;font-size:.92rem;line-height:1.9}
+  .tier.premium ul{color:rgba(255,255,255,.8)}
+  .cta{text-align:center;padding:40px 5% 10px}
+  .cta h2{font-family:var(--display);font-size:1.8rem;font-weight:700;margin-bottom:18px}
+  footer{border-top:1px solid var(--border);margin-top:40px;padding:30px 0 70px;color:var(--text-dim);font-size:.82rem;text-align:center}
+  footer a{color:var(--text);font-weight:600}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Concerto" width="160" height="48" /></a></div>
+  <div class="nav-center">
+    <a href="venues.html">Venues</a><a href="tours.html">Tours</a><a href="cityguides.html">City Guides</a><a href="events.html">Events</a><a href="premium.html">Premium</a><a href="about.html">About</a>
+  </div>
+  <div class="nav-cta">
+    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener" class="btn btn-dark nav-download">Download the App</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="venues.html" class="nav-mobile-link">Venues</a><a href="tours.html" class="nav-mobile-link">Tours</a><a href="cityguides.html" class="nav-mobile-link">City Guides</a><a href="events.html" class="nav-mobile-link">Events</a><a href="premium.html" class="nav-mobile-link">Premium</a><a href="about.html" class="nav-mobile-link">About</a>
+</div>
+
+<header class="hero">
+  <span class="eyebrow">How It Works</span>
+  <h1 class="serif">Everything for your night out, in one place.</h1>
+  <p>Concerto is the app you open after you buy the ticket. Here is the whole thing, from picking a show to walking out after the encore.</p>
+</header>
+
+<section class="wrap steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <h2 class="serif">Find your venue</h2>
+    <p class="lead">Search any of 300+ venues, or let Events Near Me show what is coming up around you.</p>
+    <div class="detail">
+      <div class="row"><b>Venues</b><span>Every arena, stadium, theater, and festival Concerto covers, each with its own guide.</span></div>
+      <div class="row"><b>Events Near Me</b><span>Shows happening close to you, sorted by date.</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <h2 class="serif">Plan the meal and the stay</h2>
+    <p class="lead">Your <a href="cityguides.html" class="inline">City Guide</a> is a short, curated list of where to eat, drink, and stay near the venue, picked for people going to the show, not pulled from a generic review site.</p>
+    <div class="detail">
+      <div class="row"><b>Before the show</b><span>Sit-down spots that feed you and get you out before doors.</span></div>
+      <div class="row"><b>Quick bite</b><span>Fast and close when you are racing the clock.</span></div>
+      <div class="row"><b>After the encore</b><span>Where the night keeps going once the lights come up.</span></div>
+      <div class="row"><b>Stay the night</b><span>Walkable rooms if you are making a trip of it.</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <h2 class="serif">Sort the logistics</h2>
+    <p class="lead">The stuff that usually trips people up, answered for your exact venue before you leave the house.</p>
+    <div class="detail">
+      <div class="row"><b>Bag policy</b><span>The exact rules, plus AI Bag Check on Premium: hold your bag to the camera for a Pass, Warn, or Fail.</span></div>
+      <div class="row"><b>Parking</b><span>Where to park and what it runs.</span></div>
+      <div class="row"><b>Rideshare</b><span>The right Uber and Lyft drop and pickup zones.</span></div>
+      <div class="row"><b>Concessions</b><span>What food and drink is inside.</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <h2 class="serif">Know the show</h2>
+    <p class="lead">Walk in knowing what you are about to hear and where to buy safely.</p>
+    <div class="detail">
+      <div class="row"><b>Setlists</b><span>What the artist has been playing on this tour.</span></div>
+      <div class="row"><b>Tours</b><span>Every stop on a tour, with official ticket links. Concerto never sells tickets itself.</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <h2 class="serif">Let Concerto run the night</h2>
+    <p class="lead">Premium ties it together: tell Concerto+ your show and your vibe and it builds the evening, with dinner timing and arrival window mapped to your venue. Live Mode turns the app into your in-show companion and hands you a shareable Story Card at the end.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="tiers">
+    <div class="tier">
+      <h3 class="serif">Free</h3>
+      <div class="price">Always</div>
+      <ul><li>City Guides</li><li>Events Near Me</li><li>Setlists and Tours</li><li>Bag policies, parking, rideshare</li></ul>
+    </div>
+    <div class="tier premium">
+      <h3 class="serif">Premium</h3>
+      <div class="price">$7.99 / month</div>
+      <ul><li>AI Bag Check</li><li>Live Mode and Story Cards</li><li>Concerto+ itineraries</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="serif">That is the whole thing.</h2>
+  <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener" class="btn btn-gold">Download the App &rarr;</a>
+</section>
+
+<footer class="wrap">Still have a question? See the <a href="faq.html">FAQ</a><a href="how-it-works.html">How It Works</a> or email support@concertocity.com</footer>
+
+<script>
+  const ham=document.getElementById('navHamburger'),mob=document.getElementById('navMobileMenu');
+  ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);ham.setAttribute('aria-expanded',o)});
+</script>
+</body>
+</html>
