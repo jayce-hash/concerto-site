@@ -82,21 +82,8 @@
 
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
   
-  <script>
-    /* Load Google Maps JS with the key fetched at runtime from a Netlify function,
-       so the key is never stored in source (passes deploy secret scanning). */
-    (function () {
-      fetch('/.netlify/functions/maps-key')
-        .then(function (r) { return r.text(); })
-        .then(function (key) {
-          var s = document.createElement('script');
-          s.src = 'https://maps.googleapis.com/maps/api/js?key=' + key + '&libraries=places&callback=initGoogleAPI';
-          s.async = true; s.defer = true;
-          document.head.appendChild(s);
-        })
-        .catch(function (e) { console.error('Google Maps failed to load', e); });
-    })();
-  </script>
+  <!-- City Guides runs entirely on Mapbox (map, Top Picks, and discovery search).
+       No Google Maps key required. -->
   
   <script src="app.js"></script>
 </body>

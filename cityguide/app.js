@@ -10,15 +10,15 @@ let currentCategory = "pregame";
 
 // NEW EXTENDED CONFIG (Broader radii, new categories mapped to Google APIs)
 const TIMELINE_CONFIG = {
-  pregame: { type: "restaurant", radius: 3000 },
-  quickbites: { keyword: "pizza casual fast food", radius: 3000 },
-  recovery: { type: "cafe", radius: 5000 },
-  afterglow: { type: "bar", radius: 4000 },
-  photoops: { type: "tourist_attraction", radius: 3000 },
-  getready: { keyword: "salon pharmacy clothing", radius: 3000 },
-  parking: { type: "parking", radius: 2500 },
-  transit: { type: "transit_station", radius: 3000 },
-  stay: { type: "lodging", radius: 8000 }
+  pregame:    { radius: 3000, mbcat: "restaurant",         mbtext: "restaurant" },
+  quickbites: { radius: 3000, mbcat: "fast_food",          mbtext: "fast food" },
+  recovery:   { radius: 5000, mbcat: "coffee",             mbtext: "coffee shop" },
+  afterglow:  { radius: 4000, mbcat: "bar",                mbtext: "bar" },
+  photoops:   { radius: 3000, mbcat: "tourist_attraction", mbtext: "tourist attraction" },
+  getready:   { radius: 3000, mbcat: "pharmacy",           mbtext: "pharmacy" },
+  parking:    { radius: 2500, mbcat: "parking_lot",        mbtext: "parking" },
+  transit:    { radius: 3000, mbcat: "train_station",      mbtext: "train station" },
+  stay:       { radius: 8000, mbcat: "hotel",              mbtext: "hotel" }
 };
 
 // --- MATH & UTILS ---
@@ -291,61 +291,70 @@ function loadPlacesForTimeline(catKey) {
     return;
   }
 
-  // 2. STANDARD GOOGLE PLACES RENDERING
-  if (!placesService) return;
+  // 2. STANDARD PLACES RENDERING — Mapbox Search Box (no Google key required).
+  //    The map and Top Picks already run on Mapbox; discovery now does too.
   const config = TIMELINE_CONFIG[catKey];
-  
-  placesService.nearbySearch({
-    location: new google.maps.LatLng(selectedVenue.lat, selectedVenue.lng),
-    radius: config.radius,
-    type: config.type,
-    keyword: config.keyword
-  }, (results, status) => {
-    resultsEl.innerHTML = "";
-    if (status !== google.maps.places.PlacesServiceStatus.OK || !results || results.length === 0) {
-      resultsEl.innerHTML = '<div style="padding: 20px; color: #5E6B86; font-size: 14px;">No immediate recommendations found. Expand map to view more.</div>';
-      return;
-    }
+  resultsEl.innerHTML = '<div style="padding: 20px; color: #5E6B86; font-size: 14px;">Finding spots nearby…</div>';
 
-    // Sort results by distance so closest places show first
-    results.sort((a, b) => {
-      const distA = distanceMeters(selectedVenue.lat, selectedVenue.lng, a.geometry.location.lat(), a.geometry.location.lng());
-      const distB = distanceMeters(selectedVenue.lat, selectedVenue.lng, b.geometry.location.lat(), b.geometry.location.lng());
-      return distA - distB;
-    });
+  const _token = mapboxgl.accessToken;
+  const _prox = selectedVenue.lng + "," + selectedVenue.lat;
+  const _km = (config.radius || 3000) / 1000;
+  const _dLat = _km / 111;
+  const _dLng = _km / (111 * Math.cos(selectedVenue.lat * Math.PI / 180));
+  const _bbox = [selectedVenue.lng - _dLng, selectedVenue.lat - _dLat, selectedVenue.lng + _dLng, selectedVenue.lat + _dLat].join(",");
+  const _catUrl = `https://api.mapbox.com/search/searchbox/v1/category/${config.mbcat}?access_token=${_token}&proximity=${_prox}&bbox=${_bbox}&limit=10&language=en`;
+  const _fwdUrl = `https://api.mapbox.com/search/searchbox/v1/forward?q=${encodeURIComponent(config.mbtext)}&access_token=${_token}&proximity=${_prox}&types=poi&limit=10&language=en`;
 
-    results.forEach(place => {
-      const card = document.createElement("div");
-      card.className = "place-card";
+  const _norm = (f) => {
+    const c = (f.geometry && f.geometry.coordinates) || [];
+    const p = f.properties || {};
+    return { name: p.name || "Place", address: p.full_address || p.place_formatted || p.address || "", lng: c[0], lat: c[1] };
+  };
 
-      let walkHTML = "";
-      if (place.geometry && place.geometry.location) {
-        const plat = place.geometry.location.lat();
-        const plng = place.geometry.location.lng();
-        walkHTML = `<span class="walk-badge">${getWalkScore(distanceMeters(selectedVenue.lat, selectedVenue.lng, plat, plng))}</span>`;
-        
-        const el = document.createElement('div'); el.className = 'place-marker';
-        
-        // Make standard map markers clickable
-        el.addEventListener('click', () => showPlaceDetails(place, false));
-        
-        const m = new mapboxgl.Marker(el).setLngLat([plng, plat]).addTo(map);
-        currentPlaceMarkers.push(m);
+  fetch(_catUrl)
+    .then(r => r.json())
+    .then(data => {
+      const feats = (data && data.features) || [];
+      if (feats.length) return feats;
+      // Category returned nothing — fall back to a text search so the tab still fills.
+      return fetch(_fwdUrl).then(r => r.json()).then(d2 => (d2 && d2.features) || []);
+    })
+    .then(feats => {
+      resultsEl.innerHTML = "";
+      const places = feats.map(_norm).filter(p => p.lat != null && p.lng != null);
+      if (!places.length) {
+        resultsEl.innerHTML = '<div style="padding: 20px; color: #5E6B86; font-size: 14px;">No spots found in range. Try another category or zoom the map.</div>';
+        return;
       }
-      
-      const ratingStr = place.rating ? `${Number(place.rating).toFixed(1)}★` : "";
+      places.sort((a, b) =>
+        distanceMeters(selectedVenue.lat, selectedVenue.lng, a.lat, a.lng) -
+        distanceMeters(selectedVenue.lat, selectedVenue.lng, b.lat, b.lng)
+      );
+      places.forEach(place => {
+        const card = document.createElement("div");
+        card.className = "place-card";
 
-      // Clean metadata rendering (no open/closed logic)
-      card.innerHTML = `
+        let walkHTML = "";
+        if (place.lat != null && place.lng != null) {
+          walkHTML = `<span class="walk-badge">${getWalkScore(distanceMeters(selectedVenue.lat, selectedVenue.lng, place.lat, place.lng))}</span>`;
+          const el = document.createElement('div'); el.className = 'place-marker';
+          el.addEventListener('click', () => showPlaceDetails(place, false));
+          const m = new mapboxgl.Marker(el).setLngLat([place.lng, place.lat]).addTo(map);
+          currentPlaceMarkers.push(m);
+        }
+
+        card.innerHTML = `
         <h3 class="place-name">${place.name}</h3>
-        <p class="place-meta">${walkHTML} ${ratingStr} • ${place.vicinity}</p>
+        <p class="place-meta">${walkHTML} ${place.address || ""}</p>
       `;
-      
-      // Pass FALSE to signify this is a standard place
-      card.addEventListener("click", () => showPlaceDetails(place, false));
-      resultsEl.appendChild(card);
+        card.addEventListener("click", () => showPlaceDetails(place, false));
+        resultsEl.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error("[CityGuide] Mapbox places error:", err);
+      resultsEl.innerHTML = '<div style="padding: 20px; color: #5E6B86; font-size: 14px;">Could not load recommendations right now. Please try again.</div>';
     });
-  });
 }
 
 // --- Placement tap tracking (fire-and-forget; only Top Picks carry a trackingId) ---
@@ -392,23 +401,21 @@ function showPlaceDetails(place, isTopPick) {
     if(phoneBtn) phoneBtn.hidden = true; 
     if(webBtn) webBtn.hidden = true;
 
-    // 4. THE MAGIC: Routing & Rich Details Fetching
-    if (isTopPick && (!place.lat || !place.lng) && selectedVenue && placesService) {
-      // Background Geocode for Top Picks missing Lat/Lng
-      placesService.findPlaceFromQuery({ query: place.name + " " + address, fields: ['geometry', 'place_id'] }, (res, status) => {
-        if (status === 'OK' && res[0]) {
-          const geom = res[0].geometry.location;
-          drawRoute(selectedVenue.lng, selectedVenue.lat, geom.lng(), geom.lat());
-          fetchRichDetails(res[0].place_id);
+    // 4. Routing (Mapbox). Geocode only if a Top Pick is missing coordinates.
+    if (isTopPick && (!place.lat || !place.lng) && selectedVenue) {
+      const _q = encodeURIComponent((place.name || "") + " " + address);
+      const _u = `https://api.mapbox.com/search/searchbox/v1/forward?q=${_q}&access_token=${mapboxgl.accessToken}&proximity=${selectedVenue.lng},${selectedVenue.lat}&limit=1&language=en`;
+      fetch(_u).then(r => r.json()).then(d => {
+        const f = d && d.features && d.features[0];
+        if (f && f.geometry && f.geometry.coordinates) {
+          drawRoute(selectedVenue.lng, selectedVenue.lat, f.geometry.coordinates[0], f.geometry.coordinates[1]);
         }
-      });
+      }).catch(() => {});
     } else if (selectedVenue) {
-      // Standard Place or Top Pick with coordinates
+      // Standard place or Top Pick with coordinates
       let pLat = place.lat || (place.geometry ? place.geometry.location.lat() : null);
       let pLng = place.lng || (place.geometry ? place.geometry.location.lng() : null);
       if (pLat && pLng) drawRoute(selectedVenue.lng, selectedVenue.lat, pLng, pLat);
-      
-      if(place.place_id) fetchRichDetails(place.place_id);
     }
 
     // --- Helper to fetch Price, Categories, Phone, Web (Removed opening_hours) ---
