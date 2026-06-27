@@ -217,6 +217,11 @@
     .pp-list li:before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700;}
     .pp-fine{font-family:var(--body);font-size:.82rem;color:var(--text-xdim);margin:0 auto 1.6rem;max-width:42ch;line-height:1.6;}
     .pp-fans{text-align:center;background:var(--card-bg);border-top:1px solid var(--border);border-radius:0;}
+    .eyebrow{display:block;font-family:var(--body);font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);}
+    .pp-switch{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;max-width:600px;margin:0 auto;padding:0 4% 1.4rem;}
+    .pp-switch button{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);background:var(--card-bg);border:1px solid var(--border-mid);border-radius:99px;padding:.7rem 1.4rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+    .pp-switch button:hover{border-color:var(--text);color:var(--text);}
+    .pp-switch button.active{background:var(--text);color:var(--bg);border-color:var(--text);}
     .btn-outline{background:transparent;border:1px solid var(--border-mid);color:var(--text);}
     .btn-outline:hover{border-color:var(--text);}
 
@@ -224,6 +229,7 @@
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
+<style id="navfix">@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
 </head>
 <body>
 
@@ -281,34 +287,41 @@
 
   <header class="pp-hero">
     <span class="eyebrow">Concerto Partners</span>
-    <h1>Be the spot Concerto<br/>sends fans to</h1>
-    <p>Get featured in front of fans planning their night out around your venue, with a deal they redeem at your table. We promote it. You count the covers.</p>
+    <h1 id="ppHeroH1">Be the spot Concerto<br/>sends fans to</h1>
+    <p id="ppHeroP">Get featured in front of fans planning their night out around your venue, with a deal they redeem at your table. We promote it. You count the covers.</p>
     <div class="pp-hero-ctas">
       <a href="mailto:partners@concertocity.com?subject=Concerto%20Partner" class="btn btn-dark">Become a partner</a>
       <a href="top-picks.html" class="btn btn-outline">See the showcase</a>
     </div>
   </header>
 
+  <div class="pp-switch" role="tablist" aria-label="Partner type">
+    <button class="active" data-type="restaurants" role="tab">Restaurants</button>
+    <button data-type="hotels" role="tab">Hotels</button>
+    <button data-type="venues" role="tab">Venues</button>
+    <button data-type="artists" role="tab">Artists</button>
+  </div>
+
   <section class="pp-sec">
     <div class="pp-head"><span class="eyebrow">What you get</span><h2>A featured spot, an offer, and real promotion</h2></div>
     <div class="pp-grid">
-      <div class="pp-card"><span class="pp-num">01</span><h3>Featured placement</h3><p>The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on your venue&rsquo;s guide. One featured restaurant and one hotel per venue, so you are never buried in a list.</p></div>
-      <div class="pp-card"><span class="pp-num">02</span><h3>A ticket-holder deal</h3><p>We build a simple offer with you. Show a concert or game ticket, get a free item or a discount. Fans see it the moment they are planning their night.</p></div>
-      <div class="pp-card"><span class="pp-num">03</span><h3>Promotion that moves</h3><p>You are featured across our city guides, our Instagram Best Eats series, and our fan ambassadors. We promote the deal, not just list you.</p></div>
+      <div class="pp-card"><span class="pp-num">01</span><h3>Featured placement</h3><p id="wyg1">The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on your venue&rsquo;s guide. One featured restaurant and one hotel per venue, so you are never buried in a list.</p></div>
+      <div class="pp-card"><span class="pp-num">02</span><h3>A ticket-holder deal</h3><p id="wyg2">We build a simple offer with you. Show a concert or game ticket, get a free item or a discount. Fans see it the moment they are planning their night.</p></div>
+      <div class="pp-card"><span class="pp-num">03</span><h3>Promotion that moves</h3><p id="wyg3">You are featured across our city guides, our Instagram Best Eats series, and our fan ambassadors. We promote the deal, not just list you.</p></div>
     </div>
   </section>
 
   <section class="pp-sec pp-proof">
     <div class="pp-head"><span class="eyebrow">Why it works</span><h2>You count the proof at your own register</h2></div>
-    <p class="pp-lead">We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows a ticket for the deal is a redemption you count yourself. That number is the return, and it is yours.</p>
+    <p class="pp-lead" id="proofLead">We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows a ticket for the deal is a redemption you count yourself. That number is the return, and it is yours.</p>
   </section>
 
   <section class="pp-sec">
     <div class="pp-head"><span class="eyebrow">How it works</span><h2>Three steps to live</h2></div>
     <div class="pp-grid">
-      <div class="pp-card"><span class="pp-num">1</span><h3>Pick your deal</h3><p>We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.</p></div>
-      <div class="pp-card"><span class="pp-num">2</span><h3>We feature and promote</h3><p>Your spot goes to the top of the guide with your photo and the offer, and we push it across our channels.</p></div>
-      <div class="pp-card"><span class="pp-num">3</span><h3>You count redemptions</h3><p>Tickets show up at your table. You watch the number. Renew when it is working.</p></div>
+      <div class="pp-card"><span class="pp-num">1</span><h3>Pick your deal</h3><p id="hiw1">We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.</p></div>
+      <div class="pp-card"><span class="pp-num">2</span><h3>We feature and promote</h3><p id="hiw2">Your spot goes to the top of the guide with your photo and the offer, and we push it across our channels.</p></div>
+      <div class="pp-card"><span class="pp-num">3</span><h3>You count redemptions</h3><p id="hiw3">Tickets show up at your table. You watch the number. Renew when it is working.</p></div>
     </div>
   </section>
 
@@ -317,7 +330,7 @@
     <div class="pp-price-card">
       <div class="pp-price">$1,000<span>/year</span></div>
       <p class="pp-price-or">or $99 / month</p>
-      <ul class="pp-list">
+      <ul class="pp-list" id="ppList">
         <li>First 90 days free</li>
         <li>One featured restaurant and one hotel per venue</li>
         <li>Your deal promoted across guides, Instagram, and ambassadors</li>
@@ -440,5 +453,72 @@ tabBtns.forEach(btn => {
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
+<script>
+(function(){
+  var P={
+    restaurants:{
+      h1:'Be the spot Concerto<br/>sends fans to',
+      p:'Get featured in front of fans planning their night out around your venue, with a deal they redeem at your table. We promote it. You count the covers.',
+      wyg1:'The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on your venue&rsquo;s guide. One featured restaurant per venue, so you are never buried in a list.',
+      wyg2:'We build a simple offer with you. Show a concert or game ticket, get a free starter or a discount. Fans see it the moment they are planning their night.',
+      wyg3:'You are featured across our city guides, our Instagram Best Eats series, and our fan ambassadors. We promote the deal, not just list you.',
+      proof:'We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows a ticket for the deal is a redemption you count yourself. That number is the return, and it is yours.',
+      hiw1:'We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.',
+      hiw2:'Your spot goes to the top of the guide with your photo and the offer, and we push it across our channels.',
+      hiw3:'Tickets show up at your table. You watch the number. Renew when it is working.',
+      list:['First 90 days free','One featured restaurant per venue','Your deal promoted across guides, Instagram, and ambassadors','Walk away anytime']
+    },
+    hotels:{
+      h1:'Be the stay Concerto<br/>sends fans to',
+      p:'Get in front of fans booking a room around the show, with a rate or perk they claim with their ticket. We promote it. You count the bookings.',
+      wyg1:'The top slot on Concerto&rsquo;s Top Picks, plus the featured stay on your venue&rsquo;s guide. One featured hotel per venue, so you are never buried in a list.',
+      wyg2:'We build a simple offer with you. Show a concert or game ticket, get a better rate, a late checkout, or a welcome perk. Fans see it while they are booking the night.',
+      wyg3:'You are featured across our city guides, our Instagram, and our fan ambassadors. We promote the offer, not just list you.',
+      proof:'We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who books with their ticket is a stay you count yourself. That number is the return, and it is yours.',
+      hiw1:'We help you land on a perk that is a clean hook for fans and easy on your front desk. A welcome touch often beats a steep discount.',
+      hiw2:'Your property goes to the top of the guide with your photo and the offer, and we push it across our channels.',
+      hiw3:'Ticket-holders check in. You watch the number. Renew when it is working.',
+      list:['First 90 days free','One featured hotel per venue','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+    },
+    venues:{
+      h1:'Put your venue in<br/>every fan&rsquo;s plan',
+      p:'Your guide, your events, and your offers in front of every fan headed your way. We promote the night around your building. You fill more seats.',
+      wyg1:'Your venue&rsquo;s guide gets the full treatment and top placement, so fans plan their whole night around your building, not around it.',
+      wyg2:'We build a simple offer with you. Early entry, a concession deal, a merch perk. Fans see it the moment they are planning the show.',
+      wyg3:'Your venue is featured across our city guides, our Instagram, and our fan ambassadors. We promote the experience, not just list you.',
+      proof:'We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows up for the deal is a visit you count yourself. That number is the return, and it is yours.',
+      hiw1:'We help you land on an offer that gets fans in earlier and spending more, and is easy on your staff.',
+      hiw2:'Your guide goes to the top with your photos and the offer, and we push it across our channels.',
+      hiw3:'Fans arrive for the deal. You watch the number. Renew when it is working.',
+      list:['First 90 days free','Featured guide and placement for your venue','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+    },
+    artists:{
+      h1:'Put your tour in front<br/>of the fans going',
+      p:'Your tour, your setlists, and a fan offer in front of everyone planning the show. We promote the night around your dates. You move more tickets and merch.',
+      wyg1:'Your tour gets the top slot and a full guide with setlists, dates, and ticket links, so fans plan the night around your show.',
+      wyg2:'We build a simple offer with you. A merch deal, a presale, a meet-and-greet drop. Fans see it while they are planning the show.',
+      wyg3:'Your tour is featured across our city guides, our Instagram, and our fan ambassadors. We promote the night, not just list you.',
+      proof:'We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who claims the deal is one you count yourself. That number is the return, and it is yours.',
+      hiw1:'We help you land on an offer that gets fans excited and is easy on your team. A merch drop usually beats a discount.',
+      hiw2:'Your tour goes to the top with your art and the offer, and we push it across our channels.',
+      hiw3:'Fans claim the deal. You watch the number. Renew when it is working.',
+      list:['First 90 days free','Featured tour guide and placement','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+    }
+  };
+  function byId(id){return document.getElementById(id);}
+  function set(t){
+    var d=P[t]; if(!d) return;
+    byId('ppHeroH1').innerHTML=d.h1; byId('ppHeroP').innerHTML=d.p;
+    ['wyg1','wyg2','wyg3','hiw1','hiw2','hiw3'].forEach(function(k){var e=byId(k);if(e)e.innerHTML=d[k];});
+    byId('proofLead').innerHTML=d.proof;
+    byId('ppList').innerHTML=d.list.map(function(x){return '<li>'+x+'</li>';}).join('');
+  }
+  var btns=document.querySelectorAll('.pp-switch button');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active'); set(b.dataset.type);
+  });});
+})();
+</script>
 </body>
 </html>
