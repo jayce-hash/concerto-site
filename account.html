@@ -104,7 +104,20 @@
     @media(max-width:768px){:root{--nav-h:58px;}.page{padding:calc(var(--nav-h)+32px) 5% 60px;}.dashboard-grid{grid-template-columns:1fr;}.dashboard-grid .full-width{grid-column:span 1;}.profile-header{flex-direction:column;text-align:center;gap:1.2rem;}.premium-plans{grid-template-columns:1fr;}}
   </style>
 
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
+  <style id="navmob10">
+  html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;border-top:1px solid var(--border);}
+  .nav-mobile-menu.open{display:flex;}
+  .nav-mobile-link{font-family:var(--body);font-size:1.5rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s;letter-spacing:-.01em;}
+  .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
+  .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
+  </style>
 </head>
 <body>
   <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
@@ -124,10 +137,27 @@
       <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
-    <div class="nav-cta">
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
       <button class="nav-sign-out" id="signOutBtn">Sign Out</button>
+    
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="parking.html" class="nav-mobile-link">Parking</a>
+      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
 
   <main class="page" id="mainPage" style="display:none">
 
@@ -385,5 +415,6 @@
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
+  <script id="navmob10-js">(function(){var btn=document.getElementById("navHamburger"),menu=document.getElementById("navMobileMenu");if(!btn||!menu)return;function set(o){btn.classList.toggle("open",o);menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}btn.addEventListener("click",function(){set(!menu.classList.contains("open"));});menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>
 </html>

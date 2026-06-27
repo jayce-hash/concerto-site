@@ -6,16 +6,16 @@
   <meta name="theme-color" content="#F8F9F9" />
 
   <!-- ─── SEO ─── -->
-  <title>Concerto's Top Picks, Restaurant &amp; Hotel Deals Near Venues</title>
+  <title>Concerto's Top Picks</title>
   <meta name="title" content="Best Restaurants & Hotels Near Concert Venues, Concerto City Guides" />
   <meta name="description" content="Where to Eat Before a Concert or Game? Concerto's city guides give you curated restaurants, bars, and hotels anchored to your venue, not generic Yelp lists. SoFi Stadium, MSG, Chase Center & 300+ more." />
   <meta name="keywords" content="best restaurants near concert venue, where to eat before a concert, pre-show dining, best eats near SoFi Stadium, restaurants near MSG, where to eat before a game, hotels near arena, concert city guide, pre-game dining" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://concertocity.com/top-picks.html" />
+  <link rel="canonical" href="https://concertocity.com/mobile-top-picks.html" />
 
   <!-- ─── Open Graph ─── -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://concertocity.com/top-picks.html" />
+  <meta property="og:url" content="https://concertocity.com/mobile-top-picks.html" />
   <meta property="og:title" content="Concerto's Top Picks, Deals Near Your Venue" />
   <meta property="og:description" content="Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood, not generic lists. 300+ venues covered." />
   <meta property="og:image" content="https://concertocity.com/og-image.jpg" />
@@ -23,7 +23,7 @@
 
   <!-- ─── Twitter Card ─── -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://concertocity.com/top-picks.html" />
+  <meta name="twitter:url" content="https://concertocity.com/mobile-top-picks.html" />
   <meta name="twitter:title" content="Concerto's Top Picks, Deals Near Your Venue" />
   <meta name="twitter:description" content="Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood. 300+ venues covered." />
   <meta name="twitter:image" content="https://concertocity.com/og-image.jpg" />
@@ -35,13 +35,13 @@
     "@type": "WebPage",
     "name": "Concert City Guides, Best Restaurants & Hotels Near Venues",
     "description": "Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood for 300+ concert venues, stadiums, and festivals.",
-    "url": "https://concertocity.com/top-picks.html",
+    "url": "https://concertocity.com/mobile-top-picks.html",
     "isPartOf": { "@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
-        { "@type": "ListItem", "position": 2, "name": "City Guides", "item": "https://concertocity.com/top-picks.html" }
+        { "@type": "ListItem", "position": 2, "name": "City Guides", "item": "https://concertocity.com/mobile-top-picks.html" }
       ]
     }
   }
@@ -247,8 +247,43 @@
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
+  <style id="appchrome">
+  .app-appbar{ position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box; display:flex;align-items:center;justify-content:space-between; padding:calc(env(safe-area-inset-top) + 10px) 20px 12px; background:rgba(248,249,249,0.82); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid transparent; transition:border-color .2s, background .2s; }
+  .app-appbar.scrolled{ border-bottom-color:rgba(18,30,54,0.08); background:rgba(248,249,249,0.93); }
+  .app-appbar-logo{ height:48px;width:auto;display:block; }
+  .app-appbar-signin{ font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase; color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none; border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap; }
+  .app-tabbar{ position:fixed;left:0;right:0;bottom:0;z-index:1000; display:grid;grid-template-columns:repeat(5,1fr); padding:6px 4px calc(env(safe-area-inset-bottom) + 4px); background:rgba(248,249,249,0.88); backdrop-filter:saturate(160%) blur(18px); -webkit-backdrop-filter:saturate(160%) blur(18px); border-top:1px solid rgba(18,30,54,0.08); }
+  .app-tab{ display:flex;flex-direction:column;align-items:center;justify-content:center; gap:3px;padding:8px 4px 6px;text-decoration:none;color:rgba(18,30,54,0.28); transition:color .15s, transform .15s cubic-bezier(0.16,1,0.3,1); }
+  .app-tab svg{ width:22px;height:22px;stroke-width:1.75; }
+  .app-tab-label{ font-size:0.62rem;font-weight:600;letter-spacing:0.02em; }
+  .app-tab.active{ color:#121E36; }
+  .app-tab:active{ transform:scale(0.94); }
+  .app-appbar-menu{background:none;border:none;color:var(--text,#121E36);padding:6px;cursor:pointer;display:flex;align-items:center;}
+  .app-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .app-menu-overlay.open{opacity:1;pointer-events:auto;}
+  .app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:var(--bg,#F8F9F9);box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;}
+  .app-menu-overlay.open .app-menu{transform:translateX(0);}
+  .app-menu a{font-family:var(--display,'Playfair Display',serif);font-size:1.35rem;font-weight:600;color:var(--text,#121E36);text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}
+  .app-menu a:last-child{border-bottom:none;}
+  .app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:var(--text,#121E36);cursor:pointer;line-height:1;}
+  </style>
+  <style id="mtp-overrides">
+  .site-nav{display:none !important;}
+  body{padding-bottom:calc(env(safe-area-inset-bottom) + 64px) !important;}
+  .page-hero{text-align:left !important;max-width:1280px;margin:0 auto;padding:calc(var(--nav-h) + 60px) 6% 36px !important;}
+  .container{box-sizing:border-box;padding-left:6%;padding-right:6%;}
+  .cc-sec-head{text-align:left !important;max-width:none;margin:0 0 1.5rem !important;}
+  .cc-search{margin-left:0 !important;margin-right:0 !important;max-width:none;}
+  .cc-partner{text-align:left !important;}
+  .cc-partner h2,.cc-partner p{margin-left:0 !important;margin-right:0 !important;}
+  .app-menu a.active{color:var(--gold,#C9A84C);}
+  </style>
 </head>
 <body>
+<header class="app-appbar" id="appbar">
+  <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
+  <button id="appMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</header>
 
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
     <div class="orb orb-1"></div>
@@ -479,5 +514,28 @@
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
+<div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+    <nav class="app-menu" aria-label="Menu">
+      <button class="app-menu-close" id="appMenuClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="mobile-top-picks.html" class="active">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+  <script>(function(){var b=document.getElementById("appMenuBtn"),o=document.getElementById("appMenuOverlay"),c=document.getElementById("appMenuClose");if(!b||!o)return;function op(){o.classList.add("open");b.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}function cl(){o.classList.remove("open");b.setAttribute("aria-expanded","false");document.body.style.overflow="";}b.addEventListener("click",op);if(c)c.addEventListener("click",cl);o.addEventListener("click",function(e){if(e.target===o)cl();});})();</script>
+<nav class="app-tabbar" aria-label="Main">
+  <a href="mobile.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg><span class="app-tab-label">Home</span></a>
+  <a href="mobile-venues.html" class="app-tab active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="app-tab-label">Venues</span></a>
+  <a href="mobile-tours.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="app-tab-label">Tours</span></a>
+  <a href="mobile-events.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span class="app-tab-label">Near Me</span></a>
+  <a href="mobile-account.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span class="app-tab-label">Account</span></a>
+</nav>
 </body>
 </html>

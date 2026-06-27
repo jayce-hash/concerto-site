@@ -101,7 +101,21 @@
     }
   </style>
 
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
+  <style id="featmenu-css">
+  .feat-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;margin-left:14px;}
+  .feat-burger span{display:block;width:22px;height:2px;background:var(--text,#121E36);border-radius:2px;transition:all .3s ease;}
+  .feat-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .feat-burger.open span:nth-child(2){opacity:0;}
+  .feat-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .feat-menu{display:none;position:fixed;inset:0;z-index:1500;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-direction:column;padding:5.5rem 8% 2rem;overflow-y:auto;}
+  .feat-menu.open{display:flex;}
+  .feat-menu a{font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:600;color:var(--text-dim,#5b647a);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border,rgba(18,30,54,.08));}
+  .feat-menu a:hover{color:var(--text,#121E36);}
+  .feat-close{position:absolute;top:1.4rem;right:7%;background:none;border:none;font-size:2rem;line-height:1;color:var(--text,#121E36);cursor:pointer;}
+  @media(max-width:960px){.feat-burger{display:flex;}}
+  </style>
+  <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
 </head>
 <body>
   
@@ -121,8 +135,23 @@
     </div>
     <div class="nav-action">
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" class="btn-primary btn-nav">Get Access</a>
+    
+      <button class="feat-burger" id="featBurger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
+<div class="feat-menu" id="featMenu" role="dialog" aria-label="Menu">
+      <button class="feat-close" id="featClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
 
   <main>
     <header class="hero">
@@ -245,5 +274,6 @@
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
+  <script id="featmenu-js">(function(){var b=document.getElementById("featBurger"),m=document.getElementById("featMenu"),c=document.getElementById("featClose");if(!b||!m)return;function set(o){b.classList.toggle("open",o);m.classList.toggle("open",o);b.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}b.addEventListener("click",function(){set(!m.classList.contains("open"));});if(c)c.addEventListener("click",function(){set(false);});m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>
 </html>
