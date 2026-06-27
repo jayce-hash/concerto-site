@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Kauffman Stadium — Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Kauffman Stadium — bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Kauffman Stadium, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
+  <meta name="description" content="Everything you need for Kauffman Stadium, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/kauffman-stadium" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://concertocity.com/venues/kauffman-stadium" />
-  <meta property="og:title" content="Kauffman Stadium — Bag Policy, Parking & City Guide" />
-  <meta property="og:description" content="Know before you go to Kauffman Stadium. Bag policies, parking, concessions, rideshare, and city guides — all in one place." />
+  <meta property="og:title" content="Kauffman Stadium, Bag Policy, Parking & City Guide" />
+  <meta property="og:description" content="Know before you go to Kauffman Stadium. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
   {
@@ -19,7 +19,7 @@
     "@type": "CivicStructure",
     "name": "Kauffman Stadium",
     "url": "https://concertocity.com/venues/kauffman-stadium",
-    "description": "Venue guide for Kauffman Stadium — bag policies, parking, concessions, rideshare, and city guides for concertgoers."
+    "description": "Venue guide for Kauffman Stadium, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -143,6 +143,21 @@
     @media(max-width:768px){:root{--nav-h:58px;}.tool-section,.events-section,.info-section,.app-cta{margin:0 5% 1.2rem;}.tool-section-header{flex-direction:column;}.bag-cards,.info-grid,.events-grid{grid-template-columns:1fr;}.events-loading{grid-column:span 1;}.events-error{grid-column:span 1;}.footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}.app-cta{padding:2rem;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}.footer-brand{grid-column:auto;}}
   </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
+  <style id="navmob10">
+  html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease;transform-origin:center;}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;border-top:1px solid var(--border);}
+  .nav-mobile-menu.open{display:flex;}
+  .nav-mobile-link{font-family:var(--body);font-size:1.5rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s;letter-spacing:-.01em;}
+  .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
+  .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
+  </style>
 </head>
 <body>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
@@ -150,30 +165,36 @@
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-logo"><a href="../index.html" aria-label="Concerto Home"><img src="../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/></a></div>
     <div class="nav-center">
-      <a href="../venues.html">Venues</a>
+      <a href="../venues.html" class="active">Venues</a>
       <a href="../tours.html">Tours</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" id="featuresBtn" aria-haspopup="true" aria-expanded="false">Features<svg class="nav-chevron" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-dropdown-panel" id="featuresPanel" role="menu">
-          <div class="dropdown-header"><span class="dropdown-header-label">All Features</span><span class="dropdown-header-count">9 Tools</span></div>
-          <div class="dropdown-grid">
-            <a href="../cityguides.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">City Guides</span><span class="nav-dropdown-item-desc">Dining &amp; hotels near your venue</span></a>
-            <a href="../events.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Events Near Me</span><span class="nav-dropdown-item-desc">Concerts, games &amp; festivals tonight</span></a>
-            <a href="../featuredtours.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Featured Tours</span><span class="nav-dropdown-item-desc">The biggest tours on the road</span></a>
-            <a href="../setlists.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Setlists</span><span class="nav-dropdown-item-desc">Songs, set times &amp; music links</span></a>
-            <a href="../rideshare.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Rideshare</span><span class="nav-dropdown-item-desc">Venue drop-off &amp; pickup zones</span></a>
-            <a href="../bags.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Bag Policies</span><span class="nav-dropdown-item-desc">Exact rules for 300+ venues</span></a>
-            <a href="../parking.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Parking</span><span class="nav-dropdown-item-desc">Lots, prices &amp; exit strategies</span></a>
-            <a href="../concessions.html" class="nav-dropdown-item" role="menuitem"><span class="nav-dropdown-item-title">Concessions</span><span class="nav-dropdown-item-desc">Food &amp; drinks inside your venue</span></a>
-          </div>
-        </div>
-      </div>
+      <a href="../events.html">Near Me</a>
+      <a href="../top-picks.html">Top Picks</a>
+      <a href="../bags.html">Bag Policies</a>
+      <a href="../rideshare.html">Rideshare</a>
+      <a href="../parking.html">Parking</a>
+      <a href="../concessions.html">Concessions</a>
       <a href="../premium.html">Premium</a>
-      <a href="../shop.html">Shop</a>
       <a href="../about.html">About</a>
     </div>
-    <div class="nav-cta"><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a></div>
+    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;"><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Get Access</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </nav>
+<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="../venues.html" class="nav-mobile-link">Venues</a>
+      <a href="../tours.html" class="nav-mobile-link">Tours</a>
+      <a href="../events.html" class="nav-mobile-link">Near Me</a>
+      <a href="../top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="../bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="../rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="../parking.html" class="nav-mobile-link">Parking</a>
+      <a href="../concessions.html" class="nav-mobile-link">Concessions</a>
+      <a href="../premium.html" class="nav-mobile-link">Premium</a>
+      <a href="../about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="../login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
 
   <main>
     <div class="venue-hero">
@@ -188,7 +209,7 @@
         <div class="tool-section-meta">
           <span class="tool-eyebrow">Before &amp; After the Show</span>
           <h2 class="tool-section-title">City Guide</h2>
-          <p class="tool-section-desc">The best restaurants, bars, and hotels near Kauffman Stadium &mdash; curated for concertgoers and sports fans, not tourists.</p>
+          <p class="tool-section-desc">The best restaurants, bars, and hotels near Kauffman Stadium, curated for concertgoers and sports fans, not tourists.</p>
         </div>
         <a href="/cityguide/kauffmanstadium" rel="noopener noreferrer" class="tool-cta">View City Guide &rarr;</a>
       </div>
@@ -221,7 +242,7 @@
     <div class="app-cta">
       <div class="app-cta-copy">
         <h3>Going to Kauffman Stadium?</h3>
-        <p>Download Concerto for AI Bag Check, Live Mode story cards, and your full event-night itinerary &mdash; all in one tap.</p>
+        <p>Download Concerto for AI Bag Check, Live Mode story cards, and your full event-night itinerary, all in one tap.</p>
       </div>
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download Free on iOS</a>
     </div>
@@ -229,7 +250,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p></div>
+      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
@@ -247,7 +268,7 @@
     const bgCanvas=document.getElementById('bgCanvas');let ticking=false;
     document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
 
-    // Upcoming Events — Ticketmaster API
+    // Upcoming Events, Ticketmaster API
     (async()=>{
       const API_KEY='';
       const venueName=encodeURIComponent('Kauffman Stadium');
@@ -283,5 +304,6 @@
   </script>
 <script src="../auth.js"></script>
 <script src="../app-shell.js"></script>
+  <script id="navmob10-js">(function(){var btn=document.getElementById("navHamburger"),menu=document.getElementById("navMobileMenu");if(!btn||!menu)return;function set(o){btn.classList.toggle("open",o);menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}btn.addEventListener("click",function(){set(!menu.classList.contains("open"));});menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
 </body>
 </html>
