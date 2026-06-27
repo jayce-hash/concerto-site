@@ -6,21 +6,21 @@
   <meta name="theme-color" content="#F8F9F9" />
 
   <!-- ─── SEO ─── -->
-  <title>Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries</title>
-  <meta name="title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <title>Concerto Premium, AI Bag Check, Live Mode & Concert Itineraries</title>
+  <meta name="title" content="Concerto Premium, AI Bag Check, Live Mode & Concert Itineraries" />
   <meta name="description" content="Upgrade your night out with Concerto Premium. AI Bag Check, Live Mode story cards, and Concerto+ AI itineraries. $7.99/month or $69.99/year." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/premium.html" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://concertocity.com/premium.html" />
-  <meta property="og:title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <meta property="og:title" content="Concerto Premium, AI Bag Check, Live Mode & Concert Itineraries" />
   <meta property="og:description" content="Take the friction out of the live music experience. $7.99/month or $69.99/year." />
   <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
   <meta property="og:site_name" content="Concerto" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://concertocity.com/premium.html" />
-  <meta name="twitter:title" content="Concerto Premium — AI Bag Check, Live Mode & Concert Itineraries" />
+  <meta name="twitter:title" content="Concerto Premium, AI Bag Check, Live Mode & Concert Itineraries" />
   <meta name="twitter:description" content="Take the friction out of the live music experience. $7.99/month or $69.99/year." />
   <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 
@@ -84,7 +84,7 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    /* Atmosphere — gold-tinted for premium */
+    /* Atmosphere, gold-tinted for premium */
     .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
     .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
     .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(201,168,76,0.14) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
@@ -211,12 +211,22 @@
   .app-tab.active{ color:#121E36; }
   .app-tab:active{ transform:scale(0.94); }
 </style>
+  <style id="appmenu-css">
+  .app-appbar-menu{background:none;border:none;color:var(--text,#121E36);padding:6px;cursor:pointer;display:flex;align-items:center;}
+  .app-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .app-menu-overlay.open{opacity:1;pointer-events:auto;}
+  .app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:var(--bg,#F8F9F9);box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;}
+  .app-menu-overlay.open .app-menu{transform:translateX(0);}
+  .app-menu a{font-family:var(--display,'Playfair Display',serif);font-size:1.35rem;font-weight:600;color:var(--text,#121E36);text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}
+  .app-menu a:last-child{border-bottom:none;}
+  .app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:var(--text,#121E36);cursor:pointer;line-height:1;}
+  </style>
 </head>
 <body>
 
 <header class="app-appbar" id="appbar">
   <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
-  <a id="appShellSignin" href="login.html" class="app-appbar-signin">Sign In</a>
+  <button id="appMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 </header>
 
 
@@ -276,8 +286,8 @@
       <p class="hero-desc">Take the friction out of the live music experience. Premium features built for people who treat going to a show as an event.</p>
       <p class="hero-price">$7.99 Per Month &nbsp;&bull;&nbsp; $69.99 Per Year</p>
       <div id="pricingSection" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-        <button onclick="startCheckout('monthly')" class="btn btn-gold">Get Monthly — $7.99/mo</button>
-        <button onclick="startCheckout('annual')" class="btn btn-dark">Get Annual — $69.99/yr</button>
+        <button onclick="startCheckout('monthly')" class="btn btn-gold">Get Monthly, $7.99/mo</button>
+        <button onclick="startCheckout('annual')" class="btn btn-dark">Get Annual, $69.99/yr</button>
       </div>
       <p id="alreadyMember" style="margin-top:14px;font-size:0.85rem;color:rgba(14,26,43,0.45);">Already a member? <a href="login.html" style="color:var(--gold);text-decoration:underline;">Sign In to Access Premium Features</a></p>
     </header>
@@ -328,8 +338,8 @@
           <div class="price-pill"><strong>$7.99</strong> Per Month</div>
           <div class="price-pill" style="opacity:0.35;">&bull;</div>
           <div class="price-pill"><strong>$69.99</strong> Per Year</div>
-          <button onclick="startCheckout('monthly')" class="btn btn-gold">Monthly — $7.99</button>
-          <button onclick="startCheckout('annual')" class="btn btn-dark">Annual — $69.99</button>
+          <button onclick="startCheckout('monthly')" class="btn btn-gold">Monthly, $7.99</button>
+          <button onclick="startCheckout('annual')" class="btn btn-dark">Annual, $69.99</button>
         </div>
       </div>
     </section>
@@ -340,7 +350,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides ,  everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
@@ -349,16 +359,6 @@
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="events.html">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="mobile-bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
       </nav>
       <nav class="footer-col" aria-label="Legal">
         <h4>Legal</h4>
@@ -467,7 +467,7 @@
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
-  // Auth state — mobile menu + profile icon
+  // Auth state, mobile menu + profile icon
   const mobileAuth = document.getElementById('navMobileAuthLink');
   const profileIcon = document.getElementById('navProfileIcon');
   try {
@@ -513,5 +513,21 @@
   if(bar){ var onS=function(){bar.classList.toggle('scrolled',window.scrollY>4);}; window.addEventListener('scroll',onS,{passive:true}); onS(); }
 })();
 </script>
+  <div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+    <nav class="app-menu" aria-label="Menu">
+      <button class="app-menu-close" id="appMenuClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+  <script>(function(){var b=document.getElementById("appMenuBtn"),o=document.getElementById("appMenuOverlay"),c=document.getElementById("appMenuClose");if(!b||!o)return;function op(){o.classList.add("open");b.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}function cl(){o.classList.remove("open");b.setAttribute("aria-expanded","false");document.body.style.overflow="";}b.addEventListener("click",op);if(c)c.addEventListener("click",cl);o.addEventListener("click",function(e){if(e.target===o)cl();});})();</script>
 </body>
 </html>

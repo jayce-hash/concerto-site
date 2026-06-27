@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
-<title>Concerto+ AI Itinerary &mdash; Concerto Premium</title>
+<title>Concerto+ AI Itinerary, Concerto Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
@@ -292,6 +292,8 @@
      so use ONE clean, unified gap below it (no double safe-area inset) */
   body.app-shell-on .screen > .scroll-area:first-child { padding-top: 8px; }
 </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
 </head>
 <body>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
@@ -303,8 +305,13 @@
             <div class="nav-center">
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
-      <a href="events.html">Events</a>
-      <a href="mobile-premium.html">Premium</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
@@ -321,8 +328,13 @@
 <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Events</a>
-      <a href="mobile-premium.html" class="nav-mobile-link">Premium</a>
+      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="parking.html" class="nav-mobile-link">Parking</a>
+      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
         <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
@@ -338,14 +350,14 @@
   <div class="gate-content" id="gateContent">
     <span class="gate-eyebrow">Concerto Premium</span>
     <h1 class="gate-title">Concerto+<br><em>AI Itinerary.</em></h1>
-    <p class="gate-desc">Search your show, pick your vibe, and get a full curated night &mdash; from first coffee to last call.</p>
+    <p class="gate-desc">Search your show, pick your vibe, and get a full curated night, from first coffee to last call.</p>
     <div class="gate-features">
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Search any show</strong> &mdash; pulls from Ticketmaster in real time.</div></div>
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Curated picks</strong> &mdash; dinner, drinks, after-party, and more around your venue.</div></div>
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>AI concierge chat</strong> &mdash; adjust anything after the plan is built.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Search any show</strong>, pulls from Ticketmaster in real time.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Curated picks</strong>, dinner, drinks, after-party, and more around your venue.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>AI concierge chat</strong>, adjust anything after the plan is built.</div></div>
     </div>
     <div class="gate-actions">
-      <button class="btn btn-gold" id="upgradeBtn" style="width:100%;padding:1rem;">Unlock with Premium &mdash; $7.99/mo</button>
+      <button class="btn btn-gold" id="upgradeBtn" style="width:100%;padding:1rem;">Unlock with Premium, $7.99/mo</button>
       <div class="gate-divider">or</div>
       <button class="btn btn-outline" id="gateSignInBtn" style="width:100%;padding:1rem;border-color:rgba(248,249,249,0.2);color:rgba(248,249,249,0.6);">Already have Premium? Sign In</button>
     </div>
@@ -359,7 +371,7 @@
     <div class="scroll-area">
       <span class="app-eyebrow">Your night, curated</span>
       <h1 class="app-headline">What show are<br>you going <em>to?</em></h1>
-      <p class="app-sub">Search your event and we&rsquo;ll build the perfect day around it &mdash; from first coffee to last call.</p>
+      <p class="app-sub">Search your event and we&rsquo;ll build the perfect day around it, from first coffee to last call.</p>
       <div class="search-wrap">
         <input id="kwInput" class="search-input" type="text" placeholder="Artist, band, venue, city&hellip;" autocomplete="off" autocorrect="off" spellcheck="false"/>
         <button class="search-go" id="searchBtn">&rarr;</button>
@@ -392,9 +404,9 @@
     <div class="scroll-area">
       <div class="show-summary-card">
         <span class="show-sum-eyebrow">Your show</span>
-        <div class="show-sum-artist" id="sumArtist">&mdash;</div>
-        <div class="show-sum-meta" id="sumMeta">&mdash;</div>
-        <div class="show-sum-time"><div class="show-sum-time-dot"></div><span id="sumTimeText">&mdash;</span></div>
+        <div class="show-sum-artist" id="sumArtist">, </div>
+        <div class="show-sum-meta" id="sumMeta">, </div>
+        <div class="show-sum-time"><div class="show-sum-time-dot"></div><span id="sumTimeText">, </span></div>
       </div>
       <span class="section-label">What&rsquo;s the vibe?</span>
       <div class="vibe-grid" id="vibeGrid">
@@ -417,7 +429,7 @@
         <button class="opt-pill on" data-m="60">1 hr early</button>
         <button class="opt-pill" data-m="90">90 min early</button>
       </div>
-      <span class="section-label">Hotel / starting point <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-xdim);font-size:0.72rem;">&mdash; optional</span></span>
+      <span class="section-label">Hotel / starting point <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-xdim);font-size:0.72rem;">,  optional</span></span>
       <input id="hotelInp" class="optional-input" type="text" placeholder="e.g. The Standard, High Line" autocomplete="off"/>
       <button id="buildBtn" class="primary-btn gold" disabled>Build my night &rarr;</button>
     </div>
@@ -437,8 +449,8 @@
     </div>
     <div class="plan-header" id="planHeader">
       <span class="plan-eyebrow">Your Concerto+ plan</span>
-      <div class="plan-artist" id="planArtist">&mdash;</div>
-      <div class="plan-meta" id="planMeta">&mdash;</div>
+      <div class="plan-artist" id="planArtist">, </div>
+      <div class="plan-meta" id="planMeta">, </div>
       <div class="plan-action-row">
         <button class="ghost-btn" id="editBtn">&larr; Edit</button>
         <button class="ghost-btn accent" id="shareBtn">Share plan &uarr;</button>
@@ -595,17 +607,17 @@ async function doSearch(){
       addr:[e._embedded?.venues?.[0]?.address?.line1,e._embedded?.venues?.[0]?.city?.name].filter(Boolean).join(', '),
     }));
     renderEvents(events);
-  }catch(err){ $('eventList').innerHTML='';$('statusLine').textContent='Search failed — check your connection';$('statusLine').classList.add('err'); }
+  }catch(err){ $('eventList').innerHTML='';$('statusLine').textContent='Search failed, check your connection';$('statusLine').classList.add('err'); }
 }
 
 function renderEvents(events){
-  if(!events.length){ $('eventList').innerHTML='';$('statusLine').textContent='No events found — try a broader search';return; }
+  if(!events.length){ $('eventList').innerHTML='';$('statusLine').textContent='No events found, try a broader search';return; }
   $('statusLine').textContent=`${events.length} event${events.length===1?'':'s'} found`;
   $('manualEntryWrap').style.display='block';
   $('eventList').innerHTML=events.map(ev=>{
     const dt=toDate(ev.dateTime);
     const mon=dt?dt.toLocaleString('en-US',{month:'short'}).toUpperCase():'';
-    const day=dt?dt.getDate():'—';
+    const day=dt?dt.getDate():', ';
     return`<div class="event-card" data-eid="${ev.id}">
       <div class="event-date-block"><div class="event-date-mon">${mon}</div><div class="event-date-day">${day}</div></div>
       <div class="event-info"><div class="event-artist">${ev.artist||ev.name}</div><div class="event-venue">${ev.venue}${ev.city?` · ${ev.city}`:''}</div><div class="event-time">${dt?fmtT(dt):'TBA'}</div></div>
@@ -693,11 +705,11 @@ function makeBuildPrompt(){
   const sum={};const hasPlaces=Object.values(S.byVibe).some(a=>a.length>0);
   if(hasPlaces){ for(const[v,ps]of Object.entries(S.byVibe)){ sum[v]=ps.slice(0,6).map(p=>({name:p.name,address:p.address,rating:p.rating,price:p.price,distMi:(p.lat&&p.lng&&S.loc)?+hav(S.loc.lat,S.loc.lng,p.lat,p.lng).toFixed(2):null})); } }
   const placesBlock=hasPlaces?`NEARBY PLACES (prefer these):\n${JSON.stringify(sum,null,2)}`:`NEARBY PLACES: API returned none. Draw on your knowledge of dining/bars near ${ev.venue}, ${ev.city}.`;
-  return`Build a complete night-out itinerary for a concert.\n\nSHOW: ${ev.artist||ev.name}\nVENUE: ${ev.venue}, ${ev.city}\nDATE/TIME: ${dt?`${fmtD(dt)} at ${fmtT(dt)}`:'TBA'}\nPACE: ${S.pace} — chill=2 stops, balanced=3-4 stops, packed=5-6 stops\nARRIVE AT VENUE: ${S.arrival} min before show start\nHOTEL/START: ${S.hotel||'not specified'}\nSELECTED VIBES: ${S.vibes.join(', ')}\n\n${placesBlock}\n\nRULES:\n1. "timeline" — ordered array from first activity to last. Always include the show entry (isShow:true).\n2. If hotel is given, open with a departure entry from the hotel.\n3. Schedule pre-show stops to wrap up ${S.arrival} min before show. Post-show: first stop starts 20 min after show ends (assume 2.5 hr show).\n4. Each "note": 1-2 sentences — what to order, a local tip, what makes it worth it. Zero generic phrases.\n5. "picks": 2-3 best options per vibe. Each "why": one sharp, specific sentence.\n6. Use real place names. Never invent a place name that clearly doesn't exist.\n\nRESPOND WITH ONLY THIS JSON — no markdown fences, no explanation:\n{"timeline":[{"time":"6:00 PM","label":"Dinner at Carbone","note":"Order the rigatoni vodka.","placeName":"Carbone","vibe":"dinner","isShow":false},{"time":"8:30 PM","label":"Harry Styles at MSG","note":"","placeName":"Madison Square Garden","vibe":"show","isShow":true}],"picks":{"dinner":[{"name":"Carbone","why":"The best pre-show power dinner in the city."}]}}`;
+  return`Build a complete night-out itinerary for a concert.\n\nSHOW: ${ev.artist||ev.name}\nVENUE: ${ev.venue}, ${ev.city}\nDATE/TIME: ${dt?`${fmtD(dt)} at ${fmtT(dt)}`:'TBA'}\nPACE: ${S.pace}, chill=2 stops, balanced=3-4 stops, packed=5-6 stops\nARRIVE AT VENUE: ${S.arrival} min before show start\nHOTEL/START: ${S.hotel||'not specified'}\nSELECTED VIBES: ${S.vibes.join(', ')}\n\n${placesBlock}\n\nRULES:\n1. "timeline", ordered array from first activity to last. Always include the show entry (isShow:true).\n2. If hotel is given, open with a departure entry from the hotel.\n3. Schedule pre-show stops to wrap up ${S.arrival} min before show. Post-show: first stop starts 20 min after show ends (assume 2.5 hr show).\n4. Each "note": 1-2 sentences, what to order, a local tip, what makes it worth it. Zero generic phrases.\n5. "picks": 2-3 best options per vibe. Each "why": one sharp, specific sentence.\n6. Use real place names. Never invent a place name that clearly doesn't exist.\n\nRESPOND WITH ONLY THIS JSON, no markdown fences, no explanation:\n{"timeline":[{"time":"6:00 PM","label":"Dinner at Carbone","note":"Order the rigatoni vodka.","placeName":"Carbone","vibe":"dinner","isShow":false},{"time":"8:30 PM","label":"Harry Styles at MSG","note":"","placeName":"Madison Square Garden","vibe":"show","isShow":true}],"picks":{"dinner":[{"name":"Carbone","why":"The best pre-show power dinner in the city."}]}}`;
 }
 
 async function claudeCall(messages){
-  const sys=`You are the Concerto+ concierge — a lifelong music fan with the precision of a luxury hotel concierge. Build curated night-out plans around concerts. Be specific and opinionated. Name actual dishes. Give real insider tips. Avoid generic filler. Respond ONLY with a raw JSON object — no markdown, no extra text.`;
+  const sys=`You are the Concerto+ concierge, a lifelong music fan with the precision of a luxury hotel concierge. Build curated night-out plans around concerts. Be specific and opinionated. Name actual dishes. Give real insider tips. Avoid generic filler. Respond ONLY with a raw JSON object, no markdown, no extra text.`;
   const res=await fetch('/.netlify/functions/claude',{method:'POST',headers:await CONCERTO_PROXY_HEADERS(),body:JSON.stringify({service:'claude',model:'claude-haiku-4-5-20251001',max_tokens:2400,system:sys,messages})});
   if(!res.ok){const t=await res.text();throw new Error(`Claude API ${res.status}: ${t.slice(0,200)}`);}
   const data=await res.json();
@@ -736,7 +748,7 @@ function renderPlan(plan){
   const tlList=$('tlList');tlList.innerHTML='';
   const allPlaces=Object.values(S.byVibe).flat();
   if(!plan.timeline?.length){
-    tlList.innerHTML='<div style="padding:20px 0;font-size:14px;color:var(--ink-2);font-style:italic">No plan returned — try rebuilding.</div>';
+    tlList.innerHTML='<div style="padding:20px 0;font-size:14px;color:var(--ink-2);font-style:italic">No plan returned, try rebuilding.</div>';
   }else{
     plan.timeline.forEach((item,i)=>{
       const place=allPlaces.find(p=>p.name===item.placeName);
@@ -773,7 +785,7 @@ function renderPlan(plan){
 $('shareBtn').addEventListener('click',async()=>{
   if(!S.ev||!S.plan)return;
   const dt=toDate(S.ev.dateTime);
-  const lines=(S.plan.timeline||[]).map(t=>`${t.time} — ${t.label}`).join('\n');
+  const lines=(S.plan.timeline||[]).map(t=>`${t.time}, ${t.label}`).join('\n');
   const text=`My Concerto+ plan\n${S.ev.artist||S.ev.name} at ${S.ev.venue}\n${dt?fmtD(dt):''}\n\n${lines}\n\nBuilt with Concerto+`;
   try{ if(navigator.share)await navigator.share({title:'Concerto+ Plan',text});else{await navigator.clipboard.writeText(text);showToast('Plan copied to clipboard');} }catch{showToast('Share canceled');}
 });
@@ -792,7 +804,7 @@ async function sendChat(){
     const plan=await claudeCall(messages);S.plan=plan;
     S.chatHistory.push({role:'user',content:`Update the plan: ${msg}. Return the full updated plan in the exact same JSON format.`},{role:'assistant',content:JSON.stringify(plan)});
     typing.remove();renderPlan(plan);addBubble('Updated ','ai');$('planScroll').scrollTop=0;
-  }catch(err){ console.error('Chat error:',err);typing.remove();addBubble("Couldn't update — try again.",'ai'); }
+  }catch(err){ console.error('Chat error:',err);typing.remove();addBubble("Couldn't update, try again.",'ai'); }
 }
 
 function addBubble(text,role,typing=false){
@@ -814,7 +826,7 @@ if (typeof supabase !== "undefined") { checkAccess(); } else { window.addEventLi
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
@@ -823,16 +835,6 @@ if (typeof supabase !== "undefined") { checkAccess(); } else { window.addEventLi
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="events.html">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="mobile-bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
       </nav>
       <nav class="footer-col" aria-label="Legal">
         <h4>Legal</h4>

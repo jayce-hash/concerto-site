@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
-<title>AI Bag Check — Concerto Premium</title>
+<title>AI Bag Check, Concerto Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
@@ -281,6 +281,8 @@
   .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.8rem; font-weight: 600; padding: 10px 20px; border-radius: 99px; white-space: nowrap; opacity: 0; transition: opacity 0.25s, transform 0.25s var(--ease-out); z-index: 400; pointer-events: none; box-shadow: var(--shadow-lg); }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
 </head>
 <body>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
@@ -292,7 +294,12 @@
             <div class="nav-center">
       <a href="venues.html">Venues</a>
       <a href="tours.html">Tours</a>
-      <a href="events.html">Events</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
       <a href="premium.html">Premium</a>
       <a href="about.html">About</a>
     </div>
@@ -310,7 +317,12 @@
 <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Events</a>
+      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="parking.html" class="nav-mobile-link">Parking</a>
+      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
       <a href="premium.html" class="nav-mobile-link">Premium</a>
       <a href="about.html" class="nav-mobile-link">About</a>
       <div class="nav-mobile-cta">
@@ -327,14 +339,14 @@
   <div class="gate-content" id="gateContent">
     <span class="gate-eyebrow">Concerto Premium</span>
     <h1 class="gate-title">AI Bag<br><em>Check.</em></h1>
-    <p class="gate-desc">Point your camera at any bag and get an instant verdict — checked against your venue's official policy.</p>
+    <p class="gate-desc">Point your camera at any bag and get an instant verdict, checked against your venue's official policy.</p>
     <div class="gate-features">
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>AI identifies your bag</strong> — type, structure, and estimated dimensions.</div></div>
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Cross-references 300+ venues</strong> — verified policy data, updated regularly.</div></div>
-      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Instant verdict</strong> — pass, warn, or fail with specific rules cited.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>AI identifies your bag</strong>, type, structure, and estimated dimensions.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Cross-references 300+ venues</strong>, verified policy data, updated regularly.</div></div>
+      <div class="gate-feature"><div class="gate-feature-mark"></div><div class="gate-feature-text"><strong>Instant verdict</strong>, pass, warn, or fail with specific rules cited.</div></div>
     </div>
     <div class="gate-actions">
-      <button class="btn btn-gold" id="upgradeBtn" style="width:100%;padding:1rem;">Unlock with Premium &mdash; $7.99/mo</button>
+      <button class="btn btn-gold" id="upgradeBtn" style="width:100%;padding:1rem;">Unlock with Premium, $7.99/mo</button>
       <div class="gate-divider">or</div>
       <button class="btn btn-outline" id="gateSignInBtn" style="width:100%;padding:1rem;border-color:rgba(248,249,249,0.2);color:rgba(248,249,249,0.6);">Already have Premium? Sign In</button>
     </div>
@@ -351,7 +363,7 @@
     <div class="scroll-area">
       <span class="app-eyebrow">Don&rsquo;t guess. Double check.</span>
       <h1 class="app-headline">Will your bag<br><em>get in?</em></h1>
-      <p class="app-sub">Scan your bag with your camera &mdash; or look up any venue&rsquo;s policy instantly.</p>
+      <p class="app-sub">Scan your bag with your camera, or look up any venue&rsquo;s policy instantly.</p>
       <span class="field-label">Select Venue</span>
       <div class="dropdown-wrap">
         <input class="light-input" id="venueInput" type="text" placeholder="Search 300+ venues&hellip;" autocomplete="off" autocorrect="off" spellcheck="false"/>
@@ -362,7 +374,7 @@
       <div class="explainer-row">
         <div class="explainer-card"><div class="explainer-mark"><div class="explainer-mark-inner"></div></div><div class="explainer-text"><div class="et-title">AI identifies your bag</div><div class="et-sub">Computer vision detects bag type, structure, and estimated dimensions from your camera.</div></div></div>
         <div class="explainer-card"><div class="explainer-mark"><div class="explainer-mark-inner"></div></div><div class="explainer-text"><div class="et-title">Cross-references venue policy</div><div class="et-sub">Your result is checked against our verified database of 346 venue bag policies.</div></div></div>
-        <div class="explainer-card"><div class="explainer-mark"><div class="explainer-mark-inner"></div></div><div class="explainer-text"><div class="et-title">Instant verdict</div><div class="et-sub">Get a clear pass, warning, or fail &mdash; with the specific policy rules cited.</div></div></div>
+        <div class="explainer-card"><div class="explainer-mark"><div class="explainer-mark-inner"></div></div><div class="explainer-text"><div class="et-title">Instant verdict</div><div class="et-sub">Get a clear pass, warning, or fail, with the specific policy rules cited.</div></div></div>
       </div>
     </div>
   </div>
@@ -409,10 +421,10 @@
     <div class="analyze-title">Checking Your Bag</div>
     <div class="analyze-sub" id="analyzeSub">Matching against venue policy database&hellip;</div>
     <div class="step-list" id="stepList">
-      <div class="step-item active" id="step-1"><div class="step-dot"></div><div class="step-text"><div class="st-name">Identifying bag type</div><div class="st-sub">Computer vision analysis</div></div><div class="step-status">&mdash;</div></div>
-      <div class="step-item" id="step-2"><div class="step-dot"></div><div class="step-text"><div class="st-name">Estimating dimensions</div><div class="st-sub">Depth + proportional sizing</div></div><div class="step-status">&mdash;</div></div>
-      <div class="step-item" id="step-3"><div class="step-dot"></div><div class="step-text"><div class="st-name">Cross-referencing policy</div><div class="st-sub" id="stepVenueName">Venue policy &middot; Verified</div></div><div class="step-status">&mdash;</div></div>
-      <div class="step-item" id="step-4"><div class="step-dot"></div><div class="step-text"><div class="st-name">Generating verdict</div><div class="st-sub">Final assessment</div></div><div class="step-status">&mdash;</div></div>
+      <div class="step-item active" id="step-1"><div class="step-dot"></div><div class="step-text"><div class="st-name">Identifying bag type</div><div class="st-sub">Computer vision analysis</div></div><div class="step-status">, </div></div>
+      <div class="step-item" id="step-2"><div class="step-dot"></div><div class="step-text"><div class="st-name">Estimating dimensions</div><div class="st-sub">Depth + proportional sizing</div></div><div class="step-status">, </div></div>
+      <div class="step-item" id="step-3"><div class="step-dot"></div><div class="step-text"><div class="st-name">Cross-referencing policy</div><div class="st-sub" id="stepVenueName">Venue policy &middot; Verified</div></div><div class="step-status">, </div></div>
+      <div class="step-item" id="step-4"><div class="step-dot"></div><div class="step-text"><div class="st-name">Generating verdict</div><div class="st-sub">Final assessment</div></div><div class="step-status">, </div></div>
     </div>
   </div>
 
@@ -426,11 +438,11 @@
     <div class="scroll-area" style="padding:0 0 40px">
       <div class="policy-hero">
         <div class="ph-eyebrow">Venue Policy</div>
-        <div class="ph-name" id="policyVenueName">&mdash;</div>
-        <div class="ph-addr" id="policyVenueAddr">&mdash;</div>
+        <div class="ph-name" id="policyVenueName">, </div>
+        <div class="ph-addr" id="policyVenueAddr">, </div>
       </div>
       <div class="policy-grid" id="policyGrid"></div>
-      <div style="padding:1rem 1.25rem 0"><div class="data-caveat"><div class="data-caveat-text">Policy data sourced from official venue websites. Always confirm at the gate &mdash; policies can change.</div></div></div>
+      <div style="padding:1rem 1.25rem 0"><div class="data-caveat"><div class="data-caveat-text">Policy data sourced from official venue websites. Always confirm at the gate, policies can change.</div></div></div>
       <button class="policy-back-btn" id="policyBackBtn">&larr; Back to Bag Check</button>
       <button class="policy-then-scan" id="policyThenScanBtn">Scan My Bag for This Venue &rarr;</button>
     </div>
@@ -666,7 +678,7 @@ function renderAIResult(r){
   const LABELS={pass:"You're Good to Go",warn:'May Cause Issues',fail:'Not Permitted'};
   const venue=currentVenue?currentVenue.n:'Selected Venue';
   const allows=currentVenue?.allows||[];const denies=currentVenue?.denies||[];
-  const thumbHtml=capturedImageB64?`<img src="data:image/jpeg;base64,${capturedImageB64}" style="width:100%;height:100%;object-fit:cover;"/>`:(type==='fail'?'&mdash;':type==='warn'?'&mdash;':'&mdash;');
+  const thumbHtml=capturedImageB64?`<img src="data:image/jpeg;base64,${capturedImageB64}" style="width:100%;height:100%;object-fit:cover;"/>`:(type==='fail'?', ':type==='warn'?', ':', ');
   $('resultInner').innerHTML=`
     <div class="result-verdict-bar">
       <div class="verdict-row">
@@ -676,7 +688,7 @@ function renderAIResult(r){
       <div class="bag-id-card">
         <div class="bag-id-thumb">${thumbHtml}</div>
         <div class="bag-id-info"><div class="bi-type">${r.bag_type||'Bag detected'}</div><div class="bi-dims">${r.dims||''}</div></div>
-        <div class="bag-confidence"><div class="bc-num">${r.confidence||'—'}%</div><div class="bc-label">Confidence</div></div>
+        <div class="bag-confidence"><div class="bc-num">${r.confidence||', '}%</div><div class="bc-label">Confidence</div></div>
       </div>
     </div>
     <div class="findings-section">
@@ -781,7 +793,7 @@ $('venueInput').value='Madison Square Garden';
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
@@ -790,16 +802,6 @@ $('venueInput').value='Madison Square Garden';
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="events.html">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
       </nav>
       <nav class="footer-col" aria-label="Legal">
         <h4>Legal</h4>
@@ -837,7 +839,7 @@ const btn = document.getElementById('navHamburger');
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
-<title>AI Bag Check — Concerto Premium</title>
+<title>AI Bag Check, Concerto Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>

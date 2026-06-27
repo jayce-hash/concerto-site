@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Create Account — Concerto</title>
+  <title>Create Account, Concerto</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,6 +47,8 @@
     .terms-note a{color:var(--text-dim);}
     @media(max-width:480px){.auth-card{padding:2.2rem 1.8rem;}}
   </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
 </head>
 <body>
   <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
@@ -85,7 +87,7 @@
         <label class="form-label" for="password">Password</label>
         <input class="form-input" type="password" id="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password" />
       </div>
-      <button type="submit" class="submit-btn" id="submitBtn">Create Account — Free</button>
+      <button type="submit" class="submit-btn" id="submitBtn">Create Account, Free</button>
     </form>
 
     <p class="terms-note">By creating an account you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
@@ -109,7 +111,7 @@
         document.getElementById('password').value,
         document.getElementById('name').value.trim()
       );
-      if (error) { showError(error.message); btn.disabled=false; btn.textContent='Create Account — Free'; }
+      if (error) { showError(error.message); btn.disabled=false; btn.textContent='Create Account, Free'; }
       else if (data.user && !data.session) {
         showSuccess('Check your email to confirm your account, then sign in.');
         btn.textContent = 'Email sent!';

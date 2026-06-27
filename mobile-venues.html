@@ -11,9 +11,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
   <meta name="apple-mobile-web-app-title" content="Concerto" />
 <!-- ─── SEO ─── -->
-  <title>Concert Venue Guide — Bag Policies, Parking, Food & More | Concerto</title>
-  <meta name="title" content="Concert Venue Guide — Bag Policies, Parking, Food & More | Concerto" />
-  <meta name="description" content="The complete guide to 346 concert venues, stadiums, and festivals. Bag policies, parking, concessions, city guides, and rideshare zones — all in one place. Madison Square Garden, SoFi Stadium, Chase Center, and more." />
+  <title>Concert Venue Guide, Bag Policies, Parking, Food & More | Concerto</title>
+  <meta name="title" content="Concert Venue Guide, Bag Policies, Parking, Food & More | Concerto" />
+  <meta name="description" content="The complete guide to 346 concert venues, stadiums, and festivals. Bag policies, parking, concessions, city guides, and rideshare zones, all in one place. Madison Square Garden, SoFi Stadium, Chase Center, and more." />
   <meta name="keywords" content="concert venue guide, stadium guide, arena guide, bag policy, parking near venue, best restaurants near arena, concert venue database, festival guide, concertgoer guide" />
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="https://concertocity.com/venues" />
@@ -21,7 +21,7 @@
   <!-- ─── Open Graph ─── -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://concertocity.com/venues" />
-  <meta property="og:title" content="346 Venue Guides — Bag Policies, Parking, Food & More" />
+  <meta property="og:title" content="346 Venue Guides, Bag Policies, Parking, Food & More" />
   <meta property="og:description" content="The complete concertgoer database. Bag policies, parking, concessions, city guides, and rideshare zones for 300+ venues and festivals." />
   <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
   <meta property="og:site_name" content="Concerto" />
@@ -29,7 +29,7 @@
   <!-- ─── Twitter Card ─── -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://concertocity.com/venues" />
-  <meta name="twitter:title" content="346 Venue Guides — Bag Policies, Parking, Food & More" />
+  <meta name="twitter:title" content="346 Venue Guides, Bag Policies, Parking, Food & More" />
   <meta name="twitter:description" content="The complete concertgoer database. Bag policies, parking, concessions, and more for 300+ venues." />
   <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 
@@ -38,7 +38,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Concert Venue Guide — 346 Venues, Stadiums & Festivals",
+    "name": "Concert Venue Guide, 346 Venues, Stadiums & Festivals",
     "description": "The complete concertgoer database. Bag policies, parking, concessions, city guides, and rideshare zones for 300+ venues and festivals.",
     "url": "https://concertocity.com/venues",
     "isPartOf": {"@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com"},
@@ -218,12 +218,22 @@
   .app-tab.active{ color:#121E36; }
   .app-tab:active{ transform:scale(0.94); }
 </style>
+  <style id="appmenu-css">
+  .app-appbar-menu{background:none;border:none;color:var(--text,#121E36);padding:6px;cursor:pointer;display:flex;align-items:center;}
+  .app-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .app-menu-overlay.open{opacity:1;pointer-events:auto;}
+  .app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:var(--bg,#F8F9F9);box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;}
+  .app-menu-overlay.open .app-menu{transform:translateX(0);}
+  .app-menu a{font-family:var(--display,'Playfair Display',serif);font-size:1.35rem;font-weight:600;color:var(--text,#121E36);text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}
+  .app-menu a:last-child{border-bottom:none;}
+  .app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:var(--text,#121E36);cursor:pointer;line-height:1;}
+  </style>
 </head>
 <body>
 
 <header class="app-appbar" id="appbar">
   <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
-  <a id="appShellSignin" href="login.html" class="app-appbar-signin">Sign In</a>
+  <button id="appMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 </header>
 
 
@@ -328,7 +338,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides ,  everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
@@ -337,16 +347,6 @@
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="mobile-events.html">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="mobile-bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
       </nav>
       <nav class="footer-col" aria-label="Legal">
         <h4>Legal</h4>
@@ -479,7 +479,7 @@
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }));
-  // Auth state — mobile menu + profile icon
+  // Auth state, mobile menu + profile icon
   const mobileAuth = document.getElementById('navMobileAuthLink');
   const profileIcon = document.getElementById('navProfileIcon');
   try {
@@ -522,5 +522,21 @@
 })();
 </script>
 
+  <div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+    <nav class="app-menu" aria-label="Menu">
+      <button class="app-menu-close" id="appMenuClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+  <script>(function(){var b=document.getElementById("appMenuBtn"),o=document.getElementById("appMenuOverlay"),c=document.getElementById("appMenuClose");if(!b||!o)return;function op(){o.classList.add("open");b.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}function cl(){o.classList.remove("open");b.setAttribute("aria-expanded","false");document.body.style.overflow="";}b.addEventListener("click",op);if(c)c.addEventListener("click",cl);o.addEventListener("click",function(e){if(e.target===o)cl();});})();</script>
 </body>
 </html>

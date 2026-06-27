@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Sign In — Concerto</title>
+  <title>Sign In, Concerto</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,6 +75,8 @@
 
     @media(max-width:480px){.auth-card{padding:2.2rem 1.8rem;}}
   </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
 </head>
 <body>
   <div class="bg-canvas" aria-hidden="true">
@@ -135,7 +137,7 @@
     const params = new URLSearchParams(window.location.search);
     const nextUrl = params.get('next') || 'account.html';
 
-    // Handle email confirmation / OAuth redirect — token arrives in the URL hash
+    // Handle email confirmation / OAuth redirect, token arrives in the URL hash
     if (window.location.hash && window.location.hash.includes('access_token')) {
       showSuccess('Confirming your account…');
       sb.auth.onAuthStateChange((event, session) => {
@@ -181,7 +183,7 @@
       if (!email) { showError('Enter your email address first.'); return; }
       const { error } = await resetPassword(email);
       if (error) showError(error.message);
-      else showSuccess('Password reset email sent — check your inbox.');
+      else showSuccess('Password reset email sent, check your inbox.');
     });
   </script>
 

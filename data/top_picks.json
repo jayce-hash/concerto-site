@@ -10,12 +10,16 @@
         "address": "1900 Manor Rd, Austin, TX 78722",
         "placeId": null,
         "notes": "An Austin Tex-Mex favorite known for margaritas, fajitas, and standout grilled pineapple salmon ceviche with smokey mezcal.",
-        "tier": "editorial",
-        "badge": "Concerto Top Pick",
-        "sponsored": false,
-        "partnerId": null,
-        "term": null,
-        "trackingId": "moody-center:el-chile-caf-y-cantina"
+        "tier": "partner",
+        "badge": "Featured Partner",
+        "sponsored": true,
+        "partnerId": "austin-el-chile",
+        "term": "2026-02-01/2026-04-30",
+        "trackingId": "moody-center:el-chile-caf-y-cantina",
+        "photo": "img/cityguides/moody-center/el-chile-caf-y-cantina.jpg",
+        "cuisine": "Tex-Mex · $$",
+        "walk": "8 min walk to the doors",
+        "offer": "Show your ticket and the first margarita is on the table."
       },
       {
         "name": "Scholz Garten",
@@ -27,7 +31,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "moody-center:scholz-garten"
+        "trackingId": "moody-center:scholz-garten",
+        "photo": "img/cityguides/moody-center/scholz-garten.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Cuantos Tacos",
@@ -39,7 +47,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "moody-center:cuantos-tacos"
+        "trackingId": "moody-center:cuantos-tacos",
+        "photo": "img/cityguides/moody-center/cuantos-tacos.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Salty Sow",
@@ -51,7 +63,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "moody-center:salty-sow"
+        "trackingId": "moody-center:salty-sow",
+        "photo": "img/cityguides/moody-center/salty-sow.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Sour Duck Market",
@@ -63,7 +79,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "moody-center:sour-duck-market"
+        "trackingId": "moody-center:sour-duck-market",
+        "photo": "img/cityguides/moody-center/sour-duck-market.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Swim Club",
@@ -75,7 +95,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "moody-center:swim-club"
+        "trackingId": "moody-center:swim-club",
+        "photo": "img/cityguides/moody-center/swim-club.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -95,7 +119,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "dickies-arena:the-social-house"
+        "trackingId": "dickies-arena:the-social-house",
+        "photo": "img/cityguides/dickies-arena/the-social-house.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Rodeo Goat",
@@ -107,7 +135,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "dickies-arena:rodeo-goat"
+        "trackingId": "dickies-arena:rodeo-goat",
+        "photo": "img/cityguides/dickies-arena/rodeo-goat.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Blue Sushi Sake Grill",
@@ -119,7 +151,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "dickies-arena:blue-sushi-sake-grill"
+        "trackingId": "dickies-arena:blue-sushi-sake-grill",
+        "photo": "img/cityguides/dickies-arena/blue-sushi-sake-grill.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Heim Barbecue",
@@ -131,7 +167,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "dickies-arena:heim-barbecue"
+        "trackingId": "dickies-arena:heim-barbecue",
+        "photo": "img/cityguides/dickies-arena/heim-barbecue.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Joe T. Garcia’s",
@@ -143,7 +183,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "dickies-arena:joe-t-garcia-s"
+        "trackingId": "dickies-arena:joe-t-garcia-s",
+        "photo": "img/cityguides/dickies-arena/joe-t-garcia-s.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -163,7 +207,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "bridgestone-arena:harper-s"
+        "trackingId": "bridgestone-arena:harper-s",
+        "photo": "img/cityguides/bridgestone-arena/harper-s.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "etch",
@@ -175,7 +223,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "bridgestone-arena:etch"
+        "trackingId": "bridgestone-arena:etch",
+        "photo": "img/cityguides/bridgestone-arena/etch.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Bakersfield",
@@ -187,7 +239,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "bridgestone-arena:bakersfield"
+        "trackingId": "bridgestone-arena:bakersfield",
+        "photo": "img/cityguides/bridgestone-arena/bakersfield.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "The Finch",
@@ -199,7 +255,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "bridgestone-arena:the-finch"
+        "trackingId": "bridgestone-arena:the-finch",
+        "photo": "img/cityguides/bridgestone-arena/the-finch.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -219,7 +279,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "td-garden:alcove"
+        "trackingId": "td-garden:alcove",
+        "photo": "img/cityguides/td-garden/alcove.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Scampo",
@@ -231,7 +295,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "td-garden:scampo"
+        "trackingId": "td-garden:scampo",
+        "photo": "img/cityguides/td-garden/scampo.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Banners Kitchen & Tap",
@@ -243,7 +311,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "td-garden:banners-kitchen-tap"
+        "trackingId": "td-garden:banners-kitchen-tap",
+        "photo": "img/cityguides/td-garden/banners-kitchen-and-tap.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "The Tip Tap Room",
@@ -255,7 +327,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "td-garden:the-tip-tap-room"
+        "trackingId": "td-garden:the-tip-tap-room",
+        "photo": "img/cityguides/td-garden/the-tip-tap-room.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Night Shift Brewing",
@@ -267,7 +343,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "td-garden:night-shift-brewing"
+        "trackingId": "td-garden:night-shift-brewing",
+        "photo": "img/cityguides/td-garden/night-shift-brewing.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -287,7 +367,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:bar-primi"
+        "trackingId": "madison-square-garden:bar-primi",
+        "photo": "img/cityguides/madison-square-garden/bar-primi.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Versa",
@@ -299,7 +383,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:versa"
+        "trackingId": "madison-square-garden:versa",
+        "photo": "img/cityguides/madison-square-garden/versa.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Shukette",
@@ -311,7 +399,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:shukette"
+        "trackingId": "madison-square-garden:shukette",
+        "photo": "img/cityguides/madison-square-garden/shukette.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Pennsylvania 6",
@@ -323,7 +415,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:pennsylvania-6"
+        "trackingId": "madison-square-garden:pennsylvania-6",
+        "photo": "img/cityguides/madison-square-garden/pennsylvania-6.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Roberta's",
@@ -335,7 +431,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:roberta-s"
+        "trackingId": "madison-square-garden:roberta-s",
+        "photo": "img/cityguides/madison-square-garden/roberta-s.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Los Tacos No.1",
@@ -347,7 +447,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:los-tacos-no-1"
+        "trackingId": "madison-square-garden:los-tacos-no-1",
+        "photo": "img/cityguides/madison-square-garden/los-tacos-no-1.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Sea",
@@ -359,7 +463,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:sea"
+        "trackingId": "madison-square-garden:sea",
+        "photo": "img/cityguides/madison-square-garden/sea.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "The Dynamo Room",
@@ -371,7 +479,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "madison-square-garden:the-dynamo-room"
+        "trackingId": "madison-square-garden:the-dynamo-room",
+        "photo": "img/cityguides/madison-square-garden/the-dynamo-room.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -391,7 +503,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "sphere:via-via-food-hall"
+        "trackingId": "sphere:via-via-food-hall",
+        "photo": "img/cityguides/sphere/via-via-food-hall.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Estiatorio Milos",
@@ -403,7 +519,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "sphere:estiatorio-milos"
+        "trackingId": "sphere:estiatorio-milos",
+        "photo": "img/cityguides/sphere/estiatorio-milos.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Yardbird Southern Table & Bar",
@@ -415,7 +535,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "sphere:yardbird-southern-table-bar"
+        "trackingId": "sphere:yardbird-southern-table-bar",
+        "photo": "img/cityguides/sphere/yardbird-southern-table-and-bar.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "SUSHISAMBA",
@@ -427,7 +551,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "sphere:sushisamba"
+        "trackingId": "sphere:sushisamba",
+        "photo": "img/cityguides/sphere/sushisamba.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "CHICA",
@@ -439,7 +567,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "sphere:chica"
+        "trackingId": "sphere:chica",
+        "photo": "img/cityguides/sphere/chica.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   },
@@ -459,7 +591,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:the-serving-spoon"
+        "trackingId": "kia-forum:the-serving-spoon",
+        "photo": "img/cityguides/kia-forum/the-serving-spoon.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Coni'Seafood",
@@ -471,7 +607,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:coni-seafood"
+        "trackingId": "kia-forum:coni-seafood",
+        "photo": "img/cityguides/kia-forum/coni-seafood.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "The Meeting Spot",
@@ -483,7 +623,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:the-meeting-spot"
+        "trackingId": "kia-forum:the-meeting-spot",
+        "photo": "img/cityguides/kia-forum/the-meeting-spot.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Cork & Batter",
@@ -495,7 +639,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:cork-batter"
+        "trackingId": "kia-forum:cork-batter",
+        "photo": "img/cityguides/kia-forum/cork-and-batter.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Dulan's Soul Food Kitchen",
@@ -507,7 +655,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:dulan-s-soul-food-kitchen"
+        "trackingId": "kia-forum:dulan-s-soul-food-kitchen",
+        "photo": "img/cityguides/kia-forum/dulan-s-soul-food-kitchen.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       },
       {
         "name": "Sunday Gravy",
@@ -519,7 +671,11 @@
         "sponsored": false,
         "partnerId": null,
         "term": null,
-        "trackingId": "kia-forum:sunday-gravy"
+        "trackingId": "kia-forum:sunday-gravy",
+        "photo": "img/cityguides/kia-forum/sunday-gravy.jpg",
+        "cuisine": null,
+        "walk": null,
+        "offer": null
       }
     ]
   }

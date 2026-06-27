@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F9F9" />
+
+  <!-- ─── SEO ─── -->
+  <title>Concerto's Top Picks, Restaurant &amp; Hotel Deals Near Venues</title>
+  <meta name="title" content="Best Restaurants & Hotels Near Concert Venues, Concerto City Guides" />
+  <meta name="description" content="Where to Eat Before a Concert or Game? Concerto's city guides give you curated restaurants, bars, and hotels anchored to your venue, not generic Yelp lists. SoFi Stadium, MSG, Chase Center & 300+ more." />
+  <meta name="keywords" content="best restaurants near concert venue, where to eat before a concert, pre-show dining, best eats near SoFi Stadium, restaurants near MSG, where to eat before a game, hotels near arena, concert city guide, pre-game dining" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/top-picks.html" />
+
+  <!-- ─── Open Graph ─── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://concertocity.com/top-picks.html" />
+  <meta property="og:title" content="Concerto's Top Picks, Deals Near Your Venue" />
+  <meta property="og:description" content="Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood, not generic lists. 300+ venues covered." />
+  <meta property="og:image" content="https://concertocity.com/og-image.jpg" />
+  <meta property="og:site_name" content="Concerto" />
+
+  <!-- ─── Twitter Card ─── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://concertocity.com/top-picks.html" />
+  <meta name="twitter:title" content="Concerto's Top Picks, Deals Near Your Venue" />
+  <meta name="twitter:description" content="Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood. 300+ venues covered." />
+  <meta name="twitter:image" content="https://concertocity.com/og-image.jpg" />
+
+  <!-- ─── Schema.org ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Concert City Guides, Best Restaurants & Hotels Near Venues",
+    "description": "Curated pre-show dining, bars, and hotels anchored to your venue's neighborhood for 300+ concert venues, stadiums, and festivals.",
+    "url": "https://concertocity.com/top-picks.html",
+    "isPartOf": { "@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
+        { "@type": "ListItem", "position": 2, "name": "City Guides", "item": "https://concertocity.com/top-picks.html" }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ─── Fonts ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --display:     'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body:        'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      --bg:          #F8F9F9;
+      --card-bg:     #FFFFFF;
+      --text:        #121E36;
+      --text-dim:    rgba(18, 30, 54, 0.52);
+      --text-xdim:   rgba(18, 30, 54, 0.28);
+      --border:      rgba(18, 30, 54, 0.08);
+      --border-mid:  rgba(18, 30, 54, 0.14);
+      --gold:        #C9A84C;
+      --gold-light:  #E5C365;
+      --shadow-sm:   0 2px 12px rgba(18, 30, 54, 0.04);
+      --shadow-md:   0 8px 32px rgba(18, 30, 54, 0.07);
+      --shadow-lg:   0 20px 50px rgba(18, 30, 54, 0.10);
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm:   12px;
+      --radius-md:   20px;
+      --radius-lg:   28px;
+      --nav-h:       68px;
+      --nav-total:   68px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
+    body {
+      font-family: var(--body); color: var(--text); background: var(--bg);
+      overflow-x: hidden; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'kern' 1, 'liga' 1;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ── Atmosphere ── */
+    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
+    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
+    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
+    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
+    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      height: var(--nav-h); display: flex; align-items: center;
+      justify-content: space-between; padding: 0 3.5%;
+      transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav.scrolled { background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-color: var(--border); box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; width: 200px; }
+    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-center > a,
+    .nav-center > a:hover,
+    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
+
+    /* ── Page Hero ── */
+    .page-hero { padding: calc(var(--nav-total) + 60px) 4% 60px; text-align: center; max-width: 860px; margin: 0 auto; }
+    .eyebrow { display: block; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+    .page-hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.08; margin-bottom: 1.2rem; }
+    .page-hero p { font-family: var(--body); font-size: 1.05rem; font-weight: 300; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.75; letter-spacing: 0.01em; }
+
+    /* ── SEO intro ── */
+    .seo-intro { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; max-width: 860px; margin: 0 auto 3rem; box-shadow: var(--shadow-sm); }
+    .seo-intro h2 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .seo-intro p { font-family: var(--body); font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
+
+    /* ── Search ── */
+    main { min-height: 100vh; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 4%; }
+    .search-wrapper { max-width: 640px; margin: 0 auto 2rem; position: relative; }
+    .search-input { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 99px; padding: 1.1rem 2rem 1.1rem 3.2rem; font-family: var(--body); font-size: 0.95rem; color: var(--text); box-shadow: var(--shadow-md); outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+    .search-input:focus { border-color: var(--gold); box-shadow: var(--shadow-lg); }
+    .search-input::placeholder { color: var(--text-xdim); }
+    .search-icon { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); font-size: 1rem; pointer-events: none; }
+    .search-count { text-align: center; font-family: var(--body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-xdim); margin-bottom: 2rem; }
+
+    /* ── Directory Grid ── */
+    .directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 5rem; }
+    .directory-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem 2rem; display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s; }
+    .directory-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+    .directory-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
+    .directory-card:hover::before { opacity: 1; }
+    .venue-name { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 1.2rem; letter-spacing: -0.01em; flex: 1; transition: font-style 0.15s; }
+    .directory-card:hover .venue-name { font-style: italic; }
+    .card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.2rem; }
+    .card-link-text { font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+    .card-arrow { color: var(--text-xdim); font-size: 1rem; transition: transform 0.3s var(--ease-out), color 0.3s; }
+    .directory-card:hover .card-arrow { color: var(--text); transform: translateX(4px); }
+    .no-results { grid-column: span 3; text-align: center; padding: 5rem 0; color: var(--text-dim); font-family: var(--display); font-size: 1.4rem; font-style: italic; display: none; }
+
+    /* ── Footer ── */
+    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
+    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
+    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
+    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; font-weight: 400; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
+    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
+    .footer-bottom a:hover { color: var(--text); }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
+    @media (max-width: 1024px) { .nav-center { display: none; } .directory-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      :root { --nav-h: 58px; --nav-total: 58px; }
+      .page-hero { padding: calc(var(--nav-total) + 40px) 5% 40px; }
+      .directory-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+      .no-results { grid-column: span 1; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .seo-intro { padding: 1.5rem; }
+    }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
+/* ── MOBILE NAV ── */
+    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
+    .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
+    .nav-mobile-menu.open { display:flex; }
+    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; }
+    .nav-mobile-link:hover { color:var(--text); }
+    .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
+    @media (max-width: 1024px) {
+      .nav-hamburger { display:flex; }
+      .nav-center { display:none !important; }
+      .nav-cta a { display:none; }
+    } .nav-center { display:none !important; } }
+    @media (max-width: 640px) { #navAuthLink { display:none; } }
+  
+    /* ── Top Picks showcase ── */
+    .cc-sec-head{text-align:center;max-width:640px;margin:0 auto 2.6rem;}
+    .cc-sec-head .eyebrow{margin-bottom:.7rem;}
+    .cc-sec-title{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.025em;color:var(--text);line-height:1.1;}
+    .cc-feat-sec{margin-bottom:4.5rem;}
+    .cc-near{font-family:var(--body);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-xdim);}
+    .cc-note{font-family:var(--body);font-size:.9rem;font-weight:300;line-height:1.7;color:var(--text-dim);}
+    .mono{font-family:var(--display);font-style:italic;color:rgba(18,30,54,.14);}
+    .cc-featured{display:grid;grid-template-columns:1.02fr 1fr;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);}
+    .cc-feat-photo{position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(18,30,54,.04));}
+    .cc-feat-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .cc-feat-photo .mono{font-size:5.5rem;}
+    .cc-feat-body{padding:clamp(2rem,3.2vw,3rem);display:flex;flex-direction:column;}
+    .cc-feat-body .eyebrow{margin-bottom:.9rem;}
+    .cc-feat-body h3{font-family:var(--display);font-size:clamp(1.7rem,2.6vw,2.2rem);font-weight:700;letter-spacing:-.025em;color:var(--text);line-height:1.1;margin:.55rem 0 .4rem;}
+    .cc-cuisine{font-family:var(--body);font-size:.84rem;font-weight:600;color:var(--text-dim);margin-bottom:1rem;}
+    .cc-feat-body .cc-note{font-size:1rem;margin-bottom:1.5rem;}
+    .cc-offer{border:1px solid var(--border-mid);border-left:3px solid var(--gold);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.6rem;}
+    .cc-offer .ot{font-family:var(--body);font-size:.9rem;font-weight:600;color:var(--text);line-height:1.4;}
+    .cc-offer .os{display:block;font-family:var(--body);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-xdim);margin-top:.35rem;}
+    .cc-feat-cta{margin-top:auto;align-self:flex-start;}
+    @media(max-width:760px){.cc-featured{grid-template-columns:1fr;}.cc-feat-photo{min-height:220px;}}
+    .cc-pick{padding:0;}
+    .cc-photo{height:172px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(18,30,54,.04));}
+    .cc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .cc-photo .mono{font-size:2.6rem;}
+    .cc-pick-body{padding:1.7rem 1.8rem 1.5rem;display:flex;flex-direction:column;flex:1;}
+    .cc-pick-body .cc-near{margin-bottom:.6rem;}
+    .cc-pick .venue-name{margin-bottom:.6rem;}
+    .cc-pick .cc-note{flex:1;margin-bottom:1rem;}
+    .cc-dealline{font-family:var(--body);font-size:.8rem;font-weight:600;color:var(--text);background:rgba(201,168,76,.10);border:1px solid rgba(201,168,76,.30);border-radius:7px;padding:.5rem .7rem;margin:0 0 1.1rem;display:flex;gap:.4rem;align-items:flex-start;line-height:1.35;}
+    .cc-pick .card-footer{margin-top:0;}
+    .cc-partner{text-align:center;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:clamp(2.6rem,5vw,3.8rem);margin-bottom:5rem;}
+    .cc-partner .eyebrow{margin-bottom:.8rem;}
+    .cc-partner h2{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;letter-spacing:-.025em;color:var(--text);margin:0 auto .9rem;max-width:20ch;line-height:1.12;}
+    .cc-partner p{font-family:var(--body);font-size:1rem;font-weight:300;color:var(--text-dim);max-width:48ch;margin:0 auto 1.9rem;line-height:1.75;}
+    .cc-partner p b{color:var(--text);font-weight:600;}
+
+  </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
+</head>
+<body>
+
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo">
+      <a href="index.html" aria-label="Concerto Home">
+        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
+      </a>
+    </div>
+            <div class="nav-center">
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html" class="active">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
+        <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
+      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
+      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
+      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+    <!-- Mobile menu -->
+    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="parking.html" class="nav-mobile-link">Parking</a>
+      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
+
+  <!-- ─── HERO ─── -->
+  <div class="page-hero">
+    <span class="eyebrow">Concerto&rsquo;s Top Picks</span>
+    <h1>Where to go before<br />the show</h1>
+    <p>
+      The restaurants and hotels we send fans to, near the venues you&rsquo;re
+      headed to. Show your concert or game ticket at a featured partner and the
+      deal is yours.
+    </p>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <section class="cc-feat-sec" id="featSec" hidden>
+        <div class="cc-sec-head"><span class="eyebrow">Featured Partner</span>
+          <h2 class="cc-sec-title">Show your ticket, get the deal</h2></div>
+        <div id="cgFeatured"></div>
+      </section>
+
+      <section id="picksSec" hidden>
+        <div class="cc-sec-head"><span class="eyebrow">Concerto Top Picks</span>
+          <h2 class="cc-sec-title">More of where we&rsquo;d go</h2></div>
+        <div class="directory-grid" id="cgPicks"></div>
+      </section>
+
+      <section class="cc-partner reveal">
+        <span class="eyebrow">For Partners</span>
+        <h2>Be the spot Concerto sends fans to</h2>
+        <p>One featured restaurant and one hotel per venue. Your spot at the top, a ticket-holder deal we promote across our guides, Instagram, and ambassadors, and Concerto&rsquo;s recommendation in front of fans planning their night. <b>Founding partners lock the early rate.</b></p>
+        <a class="btn btn-dark" href="partners.html">Become a partner</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="premium.html">Premium</a>
+        <a href="shop.html">Shop</a>
+        <a href="partners.html">Partnerships</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:support@concertocity.com">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Social">
+        <h4>Follow Us</h4>
+        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
+      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav ── */
+    const siteNav = document.getElementById('siteNav');
+    siteNav.classList.add('scrolled');
+    window.addEventListener('scroll', () => siteNav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
+
+    /* ── Parallax ── */
+    const bgCanvas = document.getElementById('bgCanvas');
+    let ticking = false;
+    document.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Venue Data ── */
+  </script>
+
+<script>
+// Nav auth state
+<script>
+// Mobile nav
+(function(){
+  const btn = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMobileMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+})();
+</script>
+
+  <script>
+  /* Top Picks showcase, rendered from data/top_picks.json */
+  (function(){
+    function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function mono(n){return esc((n||'?').trim().charAt(0).toUpperCase());}
+    function flat(d){var a=[];(d||[]).forEach(function(v){(v.items||[]).forEach(function(it){a.push(Object.assign({},it,{venueName:v.venueName,slug:v.slug,city:v.city,state:v.state}));});});return a;}
+    function pickFeatured(d){var all=flat(d);var s=all.filter(function(it){return it.sponsored===true;});return s.length?{mode:'partner',items:s}:{mode:'open',items:all.length?[all[0]]:[]};}
+    function pickEditorial(d,ex){var o=[];(d||[]).forEach(function(v){var it=(v.items||[]).find(function(x){return x.sponsored!==true&&ex.indexOf(x.trackingId)===-1;});if(it)o.push(Object.assign({},it,{venueName:v.venueName,slug:v.slug,city:v.city,state:v.state}));});return o;}
+    function img(it){return it.photo?'<img src="'+esc(it.photo)+'" alt="'+esc(it.name)+'" onerror="this.remove()"/>':'<span class="mono">'+mono(it.name)+'</span>';}
+    function featured(it,mode){
+      var href='/cityguide/'+esc(it.slug);
+      var label=mode==='partner'?'Featured Partner':'Featured spot open';
+      var offer=(mode==='partner'&&it.offer)
+        ?'<div class="cc-offer"><span class="ot">&#127915; '+esc(it.offer)+'</span><span class="os">Show your ticket</span></div>'
+        :'<div class="cc-offer"><span class="ot">This slot is open near '+esc(it.venueName)+'.</span><span class="os">Get featured here</span></div>';
+      var cta=mode==='partner'?'<a class="btn btn-dark cc-feat-cta" href="'+href+'">See it on the '+esc(it.city)+' guide</a>':'<a class="btn btn-dark cc-feat-cta" href="partners.html">Become a partner</a>';
+      return '<article class="cc-featured"><div class="cc-feat-photo">'+img(it)+'</div>'
+        +'<div class="cc-feat-body"><span class="eyebrow">'+label+'</span>'
+        +'<span class="cc-near">Near '+esc(it.venueName)+' &middot; '+esc(it.city)+'</span><h3>'+esc(it.name)+'</h3>'
+        +(it.cuisine?'<p class="cc-cuisine">'+esc(it.cuisine)+(it.walk?' &middot; '+esc(it.walk):'')+'</p>':'')
+        +'<p class="cc-note">'+esc(it.notes||'')+'</p>'+offer+cta+'</div></article>';
+    }
+    function pick(it){
+      var href='/cityguide/'+esc(it.slug);
+      var deal=it.offer?'<p class="cc-dealline">&#127915; <span>'+esc(it.offer)+'</span></p>':'';
+      return '<a class="directory-card cc-pick" href="'+href+'"><div class="cc-photo">'+img(it)+'</div>'
+        +'<div class="cc-pick-body"><span class="cc-near">Near '+esc(it.venueName)+' &middot; '+esc(it.city)+'</span>'
+        +'<h3 class="venue-name">'+esc(it.name)+'</h3><p class="cc-note">'+esc(it.notes||'')+'</p>'+deal
+        +'<div class="card-footer"><span class="card-link-text">View Guide</span><span class="card-arrow">&rarr;</span></div></div></a>';
+    }
+    fetch('data/top_picks.json').then(function(r){return r.json();}).then(function(d){
+      var f=pickFeatured(d);
+      if(f.items.length){document.getElementById('cgFeatured').innerHTML=f.items.map(function(it){return featured(it,f.mode);}).join('');document.getElementById('featSec').hidden=false;}
+      var ex=f.mode==='partner'?f.items.map(function(i){return i.trackingId;}):[];
+      var eds=pickEditorial(d,ex);
+      if(eds.length){document.getElementById('cgPicks').innerHTML=eds.map(pick).join('');document.getElementById('picksSec').hidden=false;}
+    }).catch(function(){});
+  })();
+  </script>
+
+  <script src="auth.js"></script>
+  <script src="app-shell.js"></script>
+</body>
+</html>

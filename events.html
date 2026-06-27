@@ -4,10 +4,10 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
-<title>Events Near Me — Concerts, Sports & Nightlife | Concerto</title>
+<title>Events Near Me, Concerts, Sports & Nightlife | Concerto</title>
 <meta name="description" content="Find concerts, sports games, comedy shows, and festivals near you. Browse by date, filter by type, and get venue guides for every event."/>
 <link rel="canonical" href="https://concertocity.com/events.html"/>
-<meta property="og:title" content="Events Near Me — Concerto"/>
+<meta property="og:title" content="Events Near Me, Concerto"/>
 <meta property="og:description" content="Concerts, sports, comedy, and festivals near you. Filter by type, browse by date."/>
 <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -220,6 +220,8 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
   .footer-brand { grid-column: auto; }
 }
 </style>
+
+  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}}</style>
 </head>
 <body>
 
@@ -234,12 +236,17 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
     </a>
   </div>
   <div class="nav-center">
-    <a href="venues.html">Venues</a>
-    <a href="tours.html">Tours</a>
-    <a href="events.html" class="active">Events</a>
-    <a href="premium.html">Premium</a>
-    <a href="about.html">About</a>
-  </div>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html" class="active">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </div>
   <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
     <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid);color:var(--text);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
     <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
@@ -253,23 +260,27 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
 </nav>
 
 <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-  <a href="venues.html" class="nav-mobile-link">Venues</a>
-  <a href="tours.html" class="nav-mobile-link">Tours</a>
-  <a href="events.html" class="nav-mobile-link active">Events</a>
-  <a href="premium.html" class="nav-mobile-link">Premium</a>
-  <a href="about.html" class="nav-mobile-link">About</a>
-  <div class="nav-mobile-cta">
-    <a id="navMobileAuthLink" href="login.html" class="btn" style="background:transparent;border:1.5px solid var(--border-mid);color:var(--text);justify-content:center;">Sign In</a>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="justify-content:center;">Download the App</a>
-  </div>
-</div>
+      <a href="venues.html" class="nav-mobile-link">Venues</a>
+      <a href="tours.html" class="nav-mobile-link">Tours</a>
+      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
+      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
+      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
+      <a href="parking.html" class="nav-mobile-link">Parking</a>
+      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
+      <a href="premium.html" class="nav-mobile-link">Premium</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <div class="nav-mobile-cta">
+        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+      </div>
+    </div>
 
 <main>
   <!-- HERO -->
   <div class="page-hero">
     <span class="page-eyebrow">Tonight &amp; Beyond</span>
     <h1 class="page-title">Events Near You.</h1>
-    <p class="page-sub">Concerts, sports, comedy, festivals — browse by date or search your city.</p>
+    <p class="page-sub">Concerts, sports, comedy, festivals, browse by date or search your city.</p>
   </div>
 
   <div class="events-layout">
@@ -362,7 +373,7 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides &mdash; everything you need, in one place.</p>
+        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
         <h4>Company</h4>
@@ -371,16 +382,6 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
         <a href="shop.html">Shop</a>
         <a href="partners.html">Partnerships</a>
         <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Tools">
-        <h4>Tools</h4>
-        <a href="cityguides.html">City Guides</a>
-        <a href="events.html">Events Near Me</a>
-        <a href="setlists.html">Setlists</a>
-        <a href="bags.html">Bag Policies</a>
-        <a href="parking.html">Parking</a>
-        <a href="concessions.html">Concessions</a>
-        <a href="rideshare.html">Rideshare</a>
       </nav>
       <nav class="footer-col" aria-label="Legal">
         <h4>Legal</h4>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
-  <title>My Account — Concerto</title>
+  <title>My Account, Concerto</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,12 +118,22 @@
   .app-tab.active{ color:#121E36; }
   .app-tab:active{ transform:scale(0.94); }
 </style>
+  <style id="appmenu-css">
+  .app-appbar-menu{background:none;border:none;color:var(--text,#121E36);padding:6px;cursor:pointer;display:flex;align-items:center;}
+  .app-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .app-menu-overlay.open{opacity:1;pointer-events:auto;}
+  .app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:var(--bg,#F8F9F9);box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;}
+  .app-menu-overlay.open .app-menu{transform:translateX(0);}
+  .app-menu a{font-family:var(--display,'Playfair Display',serif);font-size:1.35rem;font-weight:600;color:var(--text,#121E36);text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}
+  .app-menu a:last-child{border-bottom:none;}
+  .app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:var(--text,#121E36);cursor:pointer;line-height:1;}
+  </style>
 </head>
 <body>
 
 <header class="app-appbar" id="appbar">
   <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
-  <a id="appShellSignin" href="login.html" class="app-appbar-signin">Sign In</a>
+  <button id="appMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 </header>
 
   <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
@@ -420,5 +430,21 @@
 })();
 </script>
 
+  <div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+    <nav class="app-menu" aria-label="Menu">
+      <button class="app-menu-close" id="appMenuClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+  <script>(function(){var b=document.getElementById("appMenuBtn"),o=document.getElementById("appMenuOverlay"),c=document.getElementById("appMenuClose");if(!b||!o)return;function op(){o.classList.add("open");b.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}function cl(){o.classList.remove("open");b.setAttribute("aria-expanded","false");document.body.style.overflow="";}b.addEventListener("click",op);if(c)c.addEventListener("click",cl);o.addEventListener("click",function(e){if(e.target===o)cl();});})();</script>
 </body>
 </html>
