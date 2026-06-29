@@ -1,20 +1,23 @@
 // ─────────────────────────────────────────
 // CONCERTO APP SHELL
-// Drop-in native-app chrome (frosted appbar + bottom tab bar) for any page.
+// Drop-in native-app chrome (frosted appbar with hamburger menu + bottom tab bar)
+// for any page that does not already ship its own app bar.
 // Include once per page, after auth.js:  <script src="app-shell.js"></script>
 //
 // Activates ONLY when:
 //   • running inside the native (Capacitor) app, OR
 //   • the session was started from the app home (mobile.html marks it, app-only), OR
-//   • the URL has ?app=1  (per-page preview — never persisted, never leaks)
+//   • the URL has ?app=1  (per-page preview , never persisted, never leaks)
 // On normal desktop/mobile web it does nothing. ?app=0 clears a preview/session flag.
 //
-// Header matches mobile.html: logo left, Sign In / My Account pill right.
+// Header: logo left, hamburger right. Tapping the hamburger opens a slide-out menu
+// with every section (matches the hand-built mobile-*.html pages).
 // Bottom tab bar: Home · Venues · Tours · Near Me · Account, active tab auto-detected.
+//
+// If the page ALREADY has an app bar (.app-appbar), this script does nothing , the
+// page's own hamburger wins, so there is never a double bar.
 // ─────────────────────────────────────────
 (function () {
-  var SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
-  var SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
   var LOGO_H = 48; // keep in sync with mobile.html .appbar-logo height
   var APP_KEY = 'concerto-app-session';
 
@@ -27,7 +30,7 @@
   var sessionApp = false;
   try { sessionApp = sessionStorage.getItem(APP_KEY) === '1'; } catch (e) {}
 
-  if (!inNativeApp && !sessionApp && !preview) return; // normal web — leave the page alone
+  if (!inNativeApp && !sessionApp && !preview) return; // normal web , leave the page alone
   var usingPreview = !inNativeApp && !sessionApp && preview;
 
   var CSS = [
@@ -51,11 +54,18 @@
     '}',
     '.app-appbar.scrolled{border-bottom-color:rgba(18,30,54,0.08);background:rgba(248,249,249,0.92);}',
     '.app-appbar-logo{height:' + LOGO_H + 'px;width:auto;display:block;}',
-    '.app-appbar-signin{',
-      'font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;',
-      'color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none;',
-      'border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap;',
-    '}',
+
+    // hamburger button
+    '.app-appbar-menu{background:none;border:none;color:#121E36;padding:6px;cursor:pointer;display:flex;align-items:center;}',
+
+    // slide-out menu (matches mobile-*.html appmenu-css)
+    '.app-menu-overlay{position:fixed;inset:0;z-index:1001;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}',
+    '.app-menu-overlay.open{opacity:1;pointer-events:auto;}',
+    '.app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:#F8F9F9;box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;box-sizing:border-box;}',
+    '.app-menu-overlay.open .app-menu{transform:translateX(0);}',
+    ".app-menu a{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:600;color:#121E36;text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}",
+    '.app-menu a:last-child{border-bottom:none;}',
+    '.app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:#121E36;cursor:pointer;line-height:1;}',
 
     '.app-tabbar{',
       'position:fixed;left:0;right:0;bottom:0;z-index:1000;',
@@ -78,11 +88,25 @@
   ].join('');
 
   var TABS = [
-    ['home',    '/mobile.html',         'Home',    '<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/>'],
-    ['venues',  '/mobile-venues.html',  'Venues',  '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'],
-    ['tours',   '/mobile-tours.html',   'Tours',   '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>'],
-    ['events',  '/mobile-events.html',  'Near Me', '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>'],
+    ['home',   '/mobile.html',        'Home',   '<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/>'],
+    ['venues', '/mobile-venues.html', 'Venues', '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'],
+    ['tours',  '/mobile-tours.html',  'Tours',  '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>'],
+    ['events', '/mobile-events.html', 'Near Me', '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>'],
     ['account', '/mobile-account.html', 'Account', '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>']
+  ];
+
+  // Slide-out menu links (mirrors the hand-built mobile-*.html menu).
+  var MENU = [
+    ['Venues',      '/venues.html'],
+    ['Tours',       '/tours.html'],
+    ['Near Me',     '/events.html'],
+    ['Top Picks',   '/mobile-top-picks.html'],
+    ['Bag Policies', '/bags.html'],
+    ['Rideshare',   '/rideshare.html'],
+    ['Parking',     '/parking.html'],
+    ['Concessions', '/concessions.html'],
+    ['Premium',     '/premium.html'],
+    ['About',       '/about.html']
   ];
 
   function activeKey() {
@@ -96,7 +120,8 @@
   }
 
   function build() {
-    if (document.querySelector('.tabbar') || document.getElementById('appShellStyle')) return;
+    // If the page already ships its own app bar, or we've already run, do nothing.
+    if (document.querySelector('.app-appbar') || document.getElementById('appShellStyle')) return;
 
     document.body.classList.add('app-shell-on');
 
@@ -105,16 +130,34 @@
     style.textContent = CSS;
     document.head.appendChild(style);
 
+    var q = usingPreview ? '?app=1' : '';
+
+    // ── Top app bar: logo + hamburger ──
     var bar = document.createElement('header');
     bar.className = 'app-appbar';
     bar.id = 'appShellBar';
     bar.innerHTML =
       '<a href="/mobile.html" aria-label="Concerto Home"><img src="/logo.png" alt="Concerto" class="app-appbar-logo"></a>' +
-      '<a id="appShellSignin" href="/login.html" class="app-appbar-signin">Sign In</a>';
+      '<button id="appShellMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false">' +
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>' +
+      '</button>';
     document.body.insertBefore(bar, document.body.firstChild);
 
+    // ── Slide-out menu ──
+    var overlay = document.createElement('div');
+    overlay.className = 'app-menu-overlay';
+    overlay.id = 'appShellMenuOverlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    var links = MENU.map(function (m) { return '<a href="' + m[1] + q + '">' + m[0] + '</a>'; }).join('');
+    overlay.innerHTML =
+      '<nav class="app-menu" aria-label="Menu">' +
+        '<button class="app-menu-close" id="appShellMenuClose" aria-label="Close menu">&times;</button>' +
+        links +
+      '</nav>';
+    document.body.appendChild(overlay);
+
+    // ── Bottom tab bar ──
     var key = activeKey();
-    var q = usingPreview ? '?app=1' : '';
     var tabsHtml = TABS.map(function (t) {
       var cls = 'app-tab' + (t[0] === key ? ' active' : '');
       var cur = t[0] === key ? ' aria-current="page"' : '';
@@ -129,26 +172,23 @@
     nav.innerHTML = tabsHtml;
     document.body.appendChild(nav);
 
+    // ── Appbar scroll state ──
     var onScroll = function () { bar.classList.toggle('scrolled', window.scrollY > 4); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Swap "Sign In" → "My Account" when a session exists (matches mobile.html).
-    try {
-      var k = 'sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token';
-      var token = (JSON.parse(localStorage.getItem(k) || '{}') || {}).access_token || '';
-      if (token) {
-        fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .then(function (user) {
-            if (user && user.id) {
-              var el = document.getElementById('appShellSignin');
-              if (el) { el.textContent = 'My Account'; el.href = '/mobile-account.html' + q; }
-            }
-          })
-          .catch(function () {});
-      }
-    } catch (e) {}
+    // ── Hamburger open/close ──
+    (function () {
+      var b = document.getElementById('appShellMenuBtn');
+      var o = overlay;
+      var c = document.getElementById('appShellMenuClose');
+      if (!b || !o) return;
+      function op() { o.classList.add('open'); b.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+      function cl() { o.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+      b.addEventListener('click', op);
+      if (c) c.addEventListener('click', cl);
+      o.addEventListener('click', function (e) { if (e.target === o) cl(); });
+    })();
   }
 
   if (document.body) build();
