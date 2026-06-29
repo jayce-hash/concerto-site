@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
 <title>Become a Concerto Partner, Featured Placement &amp; Ticket Deals</title>
-<meta name="description" content="Partner with Concerto: featured placement on our Top Picks, a ticket-holder deal we promote, and a founding rate from $1,000/year. One restaurant and one hotel per venue."/>
+<meta name="description" content="Partner with Concerto: featured placement on Top Picks, a ticket-holder deal we promote, and tiered plans from $500 a year. One Featured Partner per venue."/>
 <link rel="canonical" href="https://concertocity.com/partners.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -223,13 +223,24 @@
     .pp-switch button:hover{border-color:var(--text);color:var(--text);}
     .pp-switch button.active{background:var(--text);color:var(--bg);border-color:var(--text);}
     .btn-outline{background:transparent;border:1px solid var(--border-mid);color:var(--text);}
+    .pp-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;max-width:1000px;margin:0 auto;}
+    .pp-tier{position:relative;background:var(--card-bg);border:1px solid var(--border-mid);border-radius:20px;padding:2.1rem 1.6rem;display:flex;flex-direction:column;text-align:left;}
+    .pp-tier.is-feat{border-color:var(--gold);box-shadow:0 14px 44px rgba(18,30,54,0.10);}
+    .pp-tier-badge{position:absolute;top:-11px;left:1.6rem;background:var(--gold);color:#fff;font-family:var(--body);font-size:0.56rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:0.34rem 0.72rem;border-radius:99px;}
+    .pp-tier-name{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--text);letter-spacing:-0.01em;}
+    .pp-tier-price{font-family:var(--display);font-weight:700;font-size:2.15rem;color:var(--gold);margin:0.45rem 0 1.1rem;line-height:1;}
+    .pp-tier-price span{font-family:var(--body);font-size:0.8rem;font-weight:500;color:var(--text-dim);letter-spacing:0.02em;margin-left:0.15rem;}
+    .pp-tier-desc{font-family:var(--body);font-size:0.86rem;line-height:1.6;color:var(--text-dim);}
+    .pp-tier-note{text-align:center;font-family:var(--body);font-size:0.78rem;color:var(--text-xdim);margin:1.6rem auto 0;}
+    .pp-cta-row{text-align:center;margin-top:1.8rem;}
+    @media(max-width:760px){.pp-tiers{grid-template-columns:1fr;max-width:380px;}}
     .btn-outline:hover{border-color:var(--text);}
 
   </style>
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
+<style id="navfix">.site-nav{background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,0.08) !important;box-shadow:0 2px 12px rgba(18,30,54,0.04) !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
 </head>
 <body>
 
@@ -326,19 +337,10 @@
   </section>
 
   <section class="pp-sec pp-pricing">
-    <div class="pp-head"><span class="eyebrow">Founding rate</span><h2>Lock the early price</h2></div>
-    <div class="pp-price-card">
-      <div class="pp-price">$1,000<span>/year</span></div>
-      <p class="pp-price-or">or $99 / month</p>
-      <ul class="pp-list" id="ppList">
-        <li>First 90 days free</li>
-        <li>One featured restaurant and one hotel per venue</li>
-        <li>Your deal promoted across guides, Instagram, and ambassadors</li>
-        <li>Walk away anytime</li>
-      </ul>
-      <p class="pp-fine">Founding partners lock $1,000 a year for good. The rate rises to $1,500 for partners who come after.</p>
-      <a href="mailto:partners@concertocity.com?subject=Concerto%20Founding%20Partner" class="btn btn-dark">Become a founding partner</a>
-    </div>
+    <div class="pp-head"><span class="eyebrow">The partnership</span><h2>Three ways to partner</h2></div>
+    <div class="pp-tiers" id="ppTiers"></div>
+    <p class="pp-tier-note">Billed annually. One Featured Partner per venue. Listed and Spotlight stay open to more.</p>
+    <div class="pp-cta-row"><a href="mailto:partners@concertocity.com?subject=Concerto%20Partnership" class="btn btn-dark">Become a partner</a></div>
   </section>
 
   <section class="pp-sec pp-fans">
@@ -466,7 +468,11 @@ tabBtns.forEach(btn => {
       hiw1:'We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.',
       hiw2:'Your spot goes to the top of the guide with your photo and the offer, and we push it across our channels.',
       hiw3:'Tickets show up at your table. You watch the number. Renew when it is working.',
-      list:['First 90 days free','One featured restaurant per venue','Your deal promoted across guides, Instagram, and ambassadors','Walk away anytime']
+      tiers:[
+        {name:'Listed',price:'$500',per:'/year',desc:'Your spot on the app and website, with your ticket-holder offer.'},
+        {name:'Spotlight',price:'$1,000',per:'/year',desc:'Everything in Listed, plus a Best Eats Near [Your Venue] social post.',feat:true},
+        {name:'Featured Partner',price:'$2,000',per:'/year',desc:'Everything in Spotlight, plus the named Featured Partner slot and a custom Instagram reel. One per venue.'}
+      ]
     },
     hotels:{
       h1:'Be the stay Concerto<br/>sends fans to',
@@ -478,7 +484,11 @@ tabBtns.forEach(btn => {
       hiw1:'We help you land on a perk that is a clean hook for fans and easy on your front desk. A welcome touch often beats a steep discount.',
       hiw2:'Your property goes to the top of the guide with your photo and the offer, and we push it across our channels.',
       hiw3:'Ticket-holders check in. You watch the number. Renew when it is working.',
-      list:['First 90 days free','One featured hotel per venue','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+      tiers:[
+        {name:'Listed',price:'$1,000',per:'/year',desc:'Your stay on the app and website, with your ticket-holder offer.'},
+        {name:'Spotlight',price:'$2,000',per:'/year',desc:'Everything in Listed, plus a Where to Stay Near [Your Venue] social post.',feat:true},
+        {name:'Featured Partner',price:'$4,000',per:'/year',desc:'Everything in Spotlight, plus the named Featured Partner slot and a custom Instagram reel. One per venue.'}
+      ]
     },
     venues:{
       h1:'Put your venue in<br/>every fan&rsquo;s plan',
@@ -490,7 +500,11 @@ tabBtns.forEach(btn => {
       hiw1:'We help you land on an offer that gets fans in earlier and spending more, and is easy on your staff.',
       hiw2:'Your guide goes to the top with your photos and the offer, and we push it across our channels.',
       hiw3:'Fans arrive for the deal. You watch the number. Renew when it is working.',
-      list:['First 90 days free','Featured guide and placement for your venue','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+      tiers:[
+        {name:'Listed',price:'Custom',per:'',desc:'Your venue guide, featured and promoted to every fan headed your way.'},
+        {name:'Spotlight',price:'Custom',per:'',desc:'Everything in Listed, plus a dedicated social feature for your venue.',feat:true},
+        {name:'Featured Partner',price:'Custom',per:'',desc:'Everything in Spotlight, plus a custom reel and top billing. Priced per partnership.'}
+      ]
     },
     artists:{
       h1:'Put your tour in front<br/>of the fans going',
@@ -502,22 +516,28 @@ tabBtns.forEach(btn => {
       hiw1:'We help you land on an offer that gets fans excited and is easy on your team. A merch drop usually beats a discount.',
       hiw2:'Your tour goes to the top with your art and the offer, and we push it across our channels.',
       hiw3:'Fans claim the deal. You watch the number. Renew when it is working.',
-      list:['First 90 days free','Featured tour guide and placement','Your offer promoted across guides, Instagram, and ambassadors','Walk away anytime']
+      tiers:[
+        {name:'Listed',price:'Custom',per:'',desc:'Your tour guide, featured with setlists, dates, and ticket links.'},
+        {name:'Spotlight',price:'Custom',per:'',desc:'Everything in Listed, plus a dedicated social feature for your tour.',feat:true},
+        {name:'Featured Partner',price:'Custom',per:'',desc:'Everything in Spotlight, plus a custom reel and top billing. Priced per partnership.'}
+      ]
     }
   };
   function byId(id){return document.getElementById(id);}
+  function tierCard(t){return '<div class="pp-tier'+(t.feat?' is-feat':'')+'">'+(t.feat?'<span class="pp-tier-badge">Most chosen</span>':'')+'<div class="pp-tier-name">'+t.name+'</div><div class="pp-tier-price">'+t.price+(t.per?'<span>'+t.per+'</span>':'')+'</div><div class="pp-tier-desc">'+t.desc+'</div></div>';}
   function set(t){
     var d=P[t]; if(!d) return;
     byId('ppHeroH1').innerHTML=d.h1; byId('ppHeroP').innerHTML=d.p;
     ['wyg1','wyg2','wyg3','hiw1','hiw2','hiw3'].forEach(function(k){var e=byId(k);if(e)e.innerHTML=d[k];});
     byId('proofLead').innerHTML=d.proof;
-    byId('ppList').innerHTML=d.list.map(function(x){return '<li>'+x+'</li>';}).join('');
+    if(byId('ppTiers')) byId('ppTiers').innerHTML=(d.tiers||[]).map(tierCard).join('');
   }
   var btns=document.querySelectorAll('.pp-switch button');
   btns.forEach(function(b){b.addEventListener('click',function(){
     btns.forEach(function(x){x.classList.remove('active');});
     b.classList.add('active'); set(b.dataset.type);
   });});
+  set('restaurants');
 })();
 </script>
 </body>
