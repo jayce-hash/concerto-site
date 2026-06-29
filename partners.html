@@ -431,7 +431,7 @@ tabBtns.forEach(btn => {
   var wrap=document.getElementById('eatsVenues');
   if(!wrap) return;
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  fetch('/.netlify/functions/top-picks').then(function(r){return r.json();}).then(function(data){
+  fetch('/data/top_picks.json').then(function(r){return r.json();}).then(function(data){
     wrap.innerHTML = data.map(function(v){
       var cards=(v.items||[]).map(function(it){
         var maps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it.name+' '+(it.address||''));

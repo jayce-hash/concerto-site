@@ -63,7 +63,7 @@
     .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
     .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display: flex; } .nav-center { display: none !important; } }
+    @media (max-width: 1024px) { .nav-hamburger { display: flex; }
     @media (max-width: 640px) { #navAuthLink { display: none; } }
 
     /* Gate screen */
@@ -284,7 +284,7 @@
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
+<style id="navfix">.site-nav{background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,0.08) !important;box-shadow:0 2px 12px rgba(18,30,54,0.04) !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
 </head>
 <body>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">

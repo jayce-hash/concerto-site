@@ -196,7 +196,7 @@
       .nav-hamburger { display:flex; }
       .nav-center { display:none !important; }
       .nav-cta a { display:none; }
-    } .nav-center { display:none !important; } }
+    }
     @media (max-width: 640px) { #navAuthLink { display:none; } }
   
     /* ── Top Picks showcase ── */
@@ -247,7 +247,7 @@
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
+<style id="navfix">.site-nav{background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,0.08) !important;box-shadow:0 2px 12px rgba(18,30,54,0.04) !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
 </head>
 <body>
 
@@ -435,7 +435,7 @@
     function flat(d){var a=[];(d||[]).forEach(function(v){(v.items||[]).forEach(function(it){a.push(Object.assign({},it,{venueName:v.venueName,slug:v.slug,city:v.city,state:v.state}));});});return a;}
     function pickFeatured(d){var all=flat(d);var s=all.filter(function(it){return it.sponsored===true;});return s.length?{mode:'partner',items:s}:{mode:'open',items:all.length?[all[0]]:[]};}
     function pickEditorial(d,ex){var o=[];(d||[]).forEach(function(v){var it=(v.items||[]).find(function(x){return x.sponsored!==true&&ex.indexOf(x.trackingId)===-1;});if(it)o.push(Object.assign({},it,{venueName:v.venueName,slug:v.slug,city:v.city,state:v.state}));});return o;}
-    function img(it){return it.photo?'<img src="'+esc(it.photo)+'" alt="'+esc(it.name)+'" onerror="this.remove()"/>':'<span class="mono">'+mono(it.name)+'</span>';}
+    function img(it){var m='<span class="mono">'+mono(it.name)+'</span>';return it.photo?m+'<img src="'+esc(it.photo)+'" alt="'+esc(it.name)+'" onerror="this.remove()"/>':m;}
     function featured(it,mode){
       var href='/cityguide/'+esc(it.slug);
       var label=mode==='partner'?'Featured Partner':'Featured spot open';

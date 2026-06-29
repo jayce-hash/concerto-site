@@ -120,7 +120,7 @@
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
+<style id="navfix">.site-nav{background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,0.08) !important;box-shadow:0 2px 12px rgba(18,30,54,0.04) !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
 </head>
 <body>
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -212,12 +212,11 @@ function trackTap(trackingId,ev){
   try{navigator.sendBeacon('https://concertocity.com/.netlify/functions/track',JSON.stringify({trackingId,event:ev,ts:Date.now()}));}catch(e){}
 }
 
-/* ---- data (live function -> static file -> embedded) ---- */
+/* ---- data (static file -> embedded last-resort) ---- */
 let VENUES=[];
 function load(){
-  return fetch("https://concertocity.com/.netlify/functions/top-picks")
+  return fetch("/data/top_picks.json")
     .then(r=>r.ok?r.json():Promise.reject(0))
-    .catch(()=>fetch("/data/top_picks.json").then(r=>r.ok?r.json():Promise.reject(0)))
     .catch(()=>EMBEDDED_FALLBACK);
 }
 /* EMBEDDED_FALLBACK: last-resort so the page never renders empty. Live data overrides it.

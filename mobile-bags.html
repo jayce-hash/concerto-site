@@ -282,15 +282,18 @@
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 <style id="appChrome">
-  /* App version: suppress the website nav */
-  .site-nav, .nav-mobile-menu { display: none !important; }
-  /* Any remaining in-tool nav bars (back / reset) clear the notch */
-  .app-topbar { padding-top: calc(env(safe-area-inset-top) + 10px); }
-  /* Home screen content clears the notch now that the feature header is gone */
-  .screen > .scroll-area:first-child { padding-top: calc(env(safe-area-inset-top) + 16px); }
-  /* In the app, the frosted logo/account header + body padding already clear the notch,
-     so use ONE clean, unified gap below it (no double safe-area inset) */
-  body.app-shell-on .screen > .scroll-area:first-child { padding-top: 8px; }
+  body{ --nav-h:0px !important; padding-top:calc(env(safe-area-inset-top) + 70px) !important; padding-bottom:calc(env(safe-area-inset-bottom) + 64px) !important; }
+  .site-nav,.nav-mobile-menu{ display:none !important; }
+  .app-appbar{ position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box; display:flex;align-items:center;justify-content:space-between; padding:calc(env(safe-area-inset-top) + 10px) 20px 12px; background:rgba(248,249,249,0.82); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid transparent; transition:border-color .2s, background .2s; }
+  .app-appbar.scrolled{ border-bottom-color:rgba(18,30,54,0.08); background:rgba(248,249,249,0.93); }
+  .app-appbar-logo{ height:48px;width:auto;display:block; }
+  .app-appbar-signin{ font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase; color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none; border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap; }
+  .app-tabbar{ position:fixed;left:0;right:0;bottom:0;z-index:1000; display:grid;grid-template-columns:repeat(5,1fr); padding:6px 4px calc(env(safe-area-inset-bottom) + 4px); background:rgba(248,249,249,0.88); backdrop-filter:saturate(160%) blur(18px); -webkit-backdrop-filter:saturate(160%) blur(18px); border-top:1px solid rgba(18,30,54,0.08); }
+  .app-tab{ display:flex;flex-direction:column;align-items:center;justify-content:center; gap:3px;padding:8px 4px 6px;text-decoration:none;color:rgba(18,30,54,0.28); transition:color .15s, transform .15s cubic-bezier(0.16,1,0.3,1); }
+  .app-tab svg{ width:22px;height:22px;stroke-width:1.75; }
+  .app-tab-label{ font-size:0.62rem;font-weight:600;letter-spacing:0.02em; }
+  .app-tab.active{ color:#121E36; }
+  .app-tab:active{ transform:scale(0.94); }
 </style>
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>

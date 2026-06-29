@@ -115,7 +115,7 @@ function loadData() {
         
         venueMapboxMarkers.push(marker);
       });
-      return fetch("https://concertocity.com/.netlify/functions/top-picks").then(r => r.ok ? r : Promise.reject(0)).catch(() => fetch("/data/top_picks.json"));
+      return fetch("/data/top_picks.json");
     })
     .then(res => res.json())
     .then(tpData => {
