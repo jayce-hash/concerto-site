@@ -235,6 +235,11 @@
     .pp-cta-row{text-align:center;margin-top:1.8rem;}
     @media(max-width:760px){.pp-tiers{grid-template-columns:1fr;max-width:380px;}}
     .btn-outline:hover{border-color:var(--text);}
+    .pp-soon{display:inline-block;font-size:0.5rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.4);border-radius:99px;padding:2px 6px;margin-left:5px;vertical-align:middle;}
+    .pp-coming .pp-coming-card{max-width:560px;margin:0 auto;text-align:center;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:clamp(2.4rem,5vw,3.4rem);}
+    .pp-coming .eyebrow{margin-bottom:0.9rem;}
+    .pp-coming h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.025em;color:var(--text);line-height:1.12;margin-bottom:0.9rem;}
+    .pp-coming p{font-family:var(--body);font-size:0.98rem;font-weight:300;color:var(--text-dim);line-height:1.7;max-width:46ch;margin:0 auto 1.7rem;}
 
   </style>
 
@@ -244,7 +249,7 @@
 </head>
 <body>
 
-<div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+<div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
 <div class="noise" aria-hidden="true"></div>
 
 <!-- NAV -->
@@ -298,7 +303,7 @@
 
   <header class="pp-hero">
     <span class="eyebrow">Concerto Partners</span>
-    <h1 id="ppHeroH1">Be the spot Concerto<br/>sends fans to</h1>
+    <h1 id="ppHeroH1">Put Your Spot in Front<br/>of Every Fan</h1>
     <p id="ppHeroP">Get featured in front of fans planning their night out around your venue, with a deal they redeem at your table. We promote it. You count the covers.</p>
     <div class="pp-hero-ctas">
       <a href="mailto:partners@concertocity.com?subject=Concerto%20Partner" class="btn btn-dark">Become a partner</a>
@@ -308,12 +313,12 @@
 
   <div class="pp-switch" role="tablist" aria-label="Partner type">
     <button class="active" data-type="restaurants" role="tab">Restaurants</button>
-    <button data-type="hotels" role="tab">Hotels</button>
-    <button data-type="venues" role="tab">Venues</button>
-    <button data-type="artists" role="tab">Artists</button>
+    <button data-type="hotels" role="tab">Hotels <span class="pp-soon">Soon</span></button>
+    <button data-type="venues" role="tab">Venues <span class="pp-soon">Soon</span></button>
+    <button data-type="artists" role="tab">Artists <span class="pp-soon">Soon</span></button>
   </div>
 
-  <section class="pp-sec">
+  <section class="pp-sec pp-live">
     <div class="pp-head"><span class="eyebrow">What you get</span><h2>A featured spot, an offer, and real promotion</h2></div>
     <div class="pp-grid">
       <div class="pp-card"><span class="pp-num">01</span><h3>Featured placement</h3><p id="wyg1">The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on your venue&rsquo;s guide. One featured restaurant and one hotel per venue, so you are never buried in a list.</p></div>
@@ -322,12 +327,12 @@
     </div>
   </section>
 
-  <section class="pp-sec pp-proof">
+  <section class="pp-sec pp-proof pp-live">
     <div class="pp-head"><span class="eyebrow">Why it works</span><h2>You count the proof at your own register</h2></div>
     <p class="pp-lead" id="proofLead">We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows a ticket for the deal is a redemption you count yourself. That number is the return, and it is yours.</p>
   </section>
 
-  <section class="pp-sec">
+  <section class="pp-sec pp-live">
     <div class="pp-head"><span class="eyebrow">How it works</span><h2>Three steps to live</h2></div>
     <div class="pp-grid">
       <div class="pp-card"><span class="pp-num">1</span><h3>Pick your deal</h3><p id="hiw1">We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.</p></div>
@@ -336,11 +341,20 @@
     </div>
   </section>
 
-  <section class="pp-sec pp-pricing">
+  <section class="pp-sec pp-pricing pp-live">
     <div class="pp-head"><span class="eyebrow">The partnership</span><h2>Three ways to partner</h2></div>
     <div class="pp-tiers" id="ppTiers"></div>
     <p class="pp-tier-note">Billed annually. One Featured Partner per venue. Listed and Spotlight stay open to more.</p>
     <div class="pp-cta-row"><a href="mailto:partners@concertocity.com?subject=Concerto%20Partnership" class="btn btn-dark">Become a partner</a></div>
+  </section>
+
+  <section class="pp-sec pp-coming" id="ppComing" hidden>
+    <div class="pp-coming-card">
+      <span class="eyebrow">Coming soon</span>
+      <h2 id="ppComingTitle">Coming soon</h2>
+      <p id="ppComingText">Restaurants are live now, and this group is next up. Want first access when it opens? Let&rsquo;s talk.</p>
+      <a class="btn btn-dark" href="mailto:partners@concertocity.com?subject=Concerto%20Partner%20Early%20Access">Get early access</a>
+    </div>
   </section>
 
   <section class="pp-sec pp-fans">
@@ -393,18 +407,6 @@ document.addEventListener('mousemove', (e) => {
   if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px,${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
 });
 
-// Tabs
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabBtns.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-  });
-});
-
 // Mobile nav
 (function(){
   const btn = document.getElementById('navHamburger');
@@ -424,36 +426,7 @@ tabBtns.forEach(btn => {
 </script>
 
 
-<script>
-// Featured Eats, rendered from the Top Picks source (Google Sheet via /top-picks function)
-(function(){
-  var MAP_BASE='/cityguide/';
-  var wrap=document.getElementById('eatsVenues');
-  if(!wrap) return;
-  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  fetch('/data/top_picks.json').then(function(r){return r.json();}).then(function(data){
-    wrap.innerHTML = data.map(function(v){
-      var cards=(v.items||[]).map(function(it){
-        var maps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(it.name+' '+(it.address||''));
-        return '<div class="eats-card">'
-          +'<div class="eats-card-top"><div class="eats-card-name">'+esc(it.name)+'</div><span class="eats-card-badge">Top Pick</span></div>'
-          +'<p class="eats-card-notes">'+esc(it.notes)+'</p>'
-          +'<div class="eats-card-foot"><a class="eats-card-link" href="'+maps+'" target="_blank" rel="noopener noreferrer">Map &rarr;</a></div>'
-          +'</div>';
-      }).join('');
-      return '<div class="eats-venue">'
-        +'<div class="eats-venue-head">'
-          +'<div><div class="eats-venue-name">'+esc(v.venueName)+'</div><div class="eats-venue-city">'+esc(v.city)+', '+esc(v.state)+'</div></div>'
-          +'<a class="eats-venue-cta" href="'+MAP_BASE+esc(v.slug||'')+'">Full City Guide &rarr;</a>'
-        +'</div>'
-        +'<div class="eats-grid">'+cards+'</div>'
-      +'</div>';
-    }).join('');
-  }).catch(function(){ wrap.innerHTML='<p style="text-align:center;color:var(--text-dim)">Featured eats coming soon.</p>'; });
-})();
-</script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
@@ -461,10 +434,10 @@ tabBtns.forEach(btn => {
 (function(){
   var P={
     restaurants:{
-      h1:'Be the spot Concerto<br/>sends fans to',
+      h1:'Put Your Spot in Front<br/>of Every Fan',
       p:'Get featured in front of fans planning their night out around your venue, with a deal they redeem at your table. We promote it. You count the covers.',
       wyg1:'The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on your venue&rsquo;s guide. One featured restaurant per venue, so you are never buried in a list.',
-      wyg2:'We build a simple offer with you. Show a concert or game ticket, get a free starter or a discount. Fans see it the moment they are planning their night.',
+      wyg2:'We build a simple offer with you. Show a concert or game ticket, get a free starter or a discount. It is open to every Concerto user with a ticket, not just paid subscribers, so your redemptions are never capped.',
       wyg3:'You are featured across our city guides, our Instagram Best Eats series, and our fan ambassadors. We promote the deal, not just list you.',
       proof:'We are not selling you clicks. We are selling a promotion and an offer you can measure. Every fan who shows a ticket for the deal is a redemption you count yourself. That number is the return, and it is yours.',
       hiw1:'We help you land on an offer that is a clean hook for fans and easy on your kitchen. A free starter usually beats a percentage off.',
@@ -477,7 +450,7 @@ tabBtns.forEach(btn => {
       ]
     },
     hotels:{
-      h1:'Be the stay Concerto<br/>sends fans to',
+      h1:'Put Your Rooms in Front<br/>of Every Fan',
       p:'Get in front of fans booking a room around the show, with a rate or perk they claim with their ticket. We promote it. You count the bookings.',
       wyg1:'The top slot on Concerto&rsquo;s Top Picks, plus the featured stay on your venue&rsquo;s guide. One featured hotel per venue, so you are never buried in a list.',
       wyg2:'We build a simple offer with you. Show a concert or game ticket, get a better rate, a late checkout, or a welcome perk. Fans see it while they are booking the night.',
@@ -530,9 +503,22 @@ tabBtns.forEach(btn => {
   function set(t){
     var d=P[t]; if(!d) return;
     byId('ppHeroH1').innerHTML=d.h1; byId('ppHeroP').innerHTML=d.p;
-    ['wyg1','wyg2','wyg3','hiw1','hiw2','hiw3'].forEach(function(k){var e=byId(k);if(e)e.innerHTML=d[k];});
-    byId('proofLead').innerHTML=d.proof;
-    if(byId('ppTiers')) byId('ppTiers').innerHTML=(d.tiers||[]).map(tierCard).join('');
+    var soon=(t!=='restaurants');
+    var live=document.querySelectorAll('.pp-live');
+    for(var i=0;i<live.length;i++){live[i].hidden=soon;}
+    var coming=byId('ppComing');
+    if(coming){
+      coming.hidden=!soon;
+      if(soon){
+        var titles={hotels:'Hotel partnerships are coming soon',venues:'Venue partnerships are coming soon',artists:'Artist and tour partnerships are coming soon'};
+        byId('ppComingTitle').textContent=titles[t]||'Coming soon';
+      }
+    }
+    if(!soon){
+      ['wyg1','wyg2','wyg3','hiw1','hiw2','hiw3'].forEach(function(k){var e=byId(k);if(e)e.innerHTML=d[k];});
+      byId('proofLead').innerHTML=d.proof;
+      if(byId('ppTiers')) byId('ppTiers').innerHTML=(d.tiers||[]).map(tierCard).join('');
+    }
   }
   var btns=document.querySelectorAll('.pp-switch button');
   btns.forEach(function(b){b.addEventListener('click',function(){
