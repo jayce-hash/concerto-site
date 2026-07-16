@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found | Concerto</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="That page could not be found. Search 300+ concert venues and tours on Concerto." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#F8F9F9; --navy:#121E36; --gold:#C9A84C; --gold-light:#E5C365;
+      --card-bg:#FFFFFF; --border:rgba(18,30,54,0.08); --border-mid:rgba(18,30,54,0.14);
+      --display:'Playfair Display', Georgia,'Times New Roman',serif;
+      --body:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+      --ease-out:cubic-bezier(0.16,1,0.3,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:var(--bg); color:var(--navy); font-family:var(--body);
+      min-height:100vh; display:flex; flex-direction:column;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{
+      flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:5rem 4% 6rem; max-width:860px; margin:0 auto;
+    }
+    .logo{ margin-bottom:3rem; }
+    .logo img{ width:170px; height:auto; display:block; }
+    .eyebrow{
+      font-size:0.7rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:1.1rem;
+    }
+    h1{
+      font-family:var(--display); font-weight:600; line-height:1.08;
+      font-size:clamp(2.4rem,5vw,4rem); letter-spacing:-0.02em; margin-bottom:1.1rem;
+    }
+    .lede{
+      font-size:1.05rem; line-height:1.7; color:rgba(18,30,54,0.66);
+      max-width:34rem; margin:0 auto 2.6rem;
+    }
+    .links{ display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; }
+    .btn{
+      font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      padding:0.85rem 1.6rem; border-radius:99px; text-decoration:none;
+      border:1px solid var(--border-mid); color:var(--navy); background:var(--card-bg);
+      transition:transform .4s var(--ease-out), border-color .4s var(--ease-out);
+      white-space:nowrap;
+    }
+    .btn:hover{ transform:translateY(-2px); border-color:var(--gold); }
+    .btn-primary{
+      background:var(--navy); color:#fff; border-color:var(--navy);
+    }
+    .btn-primary:hover{ background:#1b2c4f; border-color:#1b2c4f; }
+    .foot{
+      text-align:center; padding:2rem 4% 3rem; font-size:0.82rem;
+      color:rgba(18,30,54,0.5); border-top:1px solid var(--border);
+    }
+    .foot a{ color:rgba(18,30,54,0.7); text-decoration:none; }
+    .foot a:hover{ color:var(--gold); }
+    @media (max-width:600px){
+      .wrap{ padding:3.5rem 6% 4rem; }
+      .logo img{ width:140px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">
+      <a href="/" aria-label="Concerto Home">
+        <img src="/logo.png" alt="Concerto" width="170" height="51" />
+      </a>
+    </div>
+
+    <p class="eyebrow">Error 404</p>
+    <h1>This page left before the encore.</h1>
+    <p class="lede">
+      The page you are looking for does not exist or has moved. Everything else is
+      still here: bag policies, parking, setlists, and city guides for 300+ venues.
+    </p>
+
+    <div class="links">
+      <a class="btn btn-primary" href="/">Back to Home</a>
+      <a class="btn" href="/venues.html">Browse Venues</a>
+      <a class="btn" href="/tours.html">Browse Tours</a>
+      <a class="btn" href="/bags.html">Bag Policies</a>
+      <a class="btn" href="/top-picks.html">Top Picks</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    Looking for a specific venue? <a href="/venues.html">Search all 300+ venues</a>.
+  </div>
+</body>
+</html>

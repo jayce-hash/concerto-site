@@ -1,5 +1,10 @@
-# City Guide deep links → SPA (MUST come before the catch-all)
+# City Guide deep links -> SPA (MUST come before the catch-all)
 /cityguide/*   /cityguide/index.html   200
 
-# Site-wide fallback for unknown paths
-/*             /index.html             200
+# Real 404 for unknown paths.
+# Was previously:  /*  /index.html  200
+# That returned the full homepage with an HTTP 200 status for every unknown URL,
+# so Google logged each dead link and typo as an alternate/duplicate of the
+# homepage instead of dropping it. All in-app routing is hash based
+# (#venue-id, #tour-slug), so no path-based route relies on this fallback.
+/*             /404.html               404
