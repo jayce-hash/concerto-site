@@ -1,22 +1,16 @@
-# Concerto — concertocity.com
-# Sitemap: https://concertocity.com/sitemap.xml
+# Concerto | concertocity.com
 
 User-agent: *
 Allow: /
 
-# Keep private/admin/auth flows out of the index
-Disallow: /login.html
-Disallow: /signup.html
-Disallow: /account.html
-Disallow: /setlist-admin.html
-Disallow: /premium-success.html
+# Serverless function endpoints, not pages
 Disallow: /.netlify/
 
-# App-only screens — duplicate web content for in-app users (also noindex'd)
-Disallow: /mobile.html
-Disallow: /mobile-venues.html
-Disallow: /mobile-tours.html
-Disallow: /mobile-events.html
-Disallow: /mobile-account.html
+# NOTE ON INDEXING
+# Pages that should stay out of Google (auth screens and the in-app mobile
+# shells) use a "noindex" meta tag rather than a Disallow here.
+# A Disallow blocks crawling, which prevents Google from ever reading the
+# noindex, so the URL can still be indexed without its content. Allowing the
+# crawl is what lets the noindex actually take effect.
 
 Sitemap: https://concertocity.com/sitemap.xml
