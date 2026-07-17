@@ -25,6 +25,7 @@
   --hero-bottom:  60px;   /* hero block -> first section */
   --measure:      860px;  /* hero / prose column */
   --container:    1280px; /* full content column */
+  --gutter-m:   20px;
   --gutter:       4%;     /* page side padding */
   --rhythm:       1.1rem; /* eyebrow / breadcrumb bottom margin */
 }
@@ -246,4 +247,210 @@ body.page-tour .tour-meta {
     --gutter:      5%;
   }
   body.page-content .editorial-container { padding-bottom: 64px; }
+}
+
+/* ============================================================
+   PART 2: BELOW-HERO ALIGNMENT
+   Part 1 normalised the hero. Everything below it still ran on
+   each page's own inline stylesheet, which is why the content
+   column was 980 / 1100 / 1180 / 1200 / 1280 depending on the
+   page, with a 4% gutter on some and 5% on others.
+   ============================================================ */
+
+/* ---- 9. ONE container token ------------------------------------
+   Every page-level wrapper is doing the same job, so they all get
+   the same measurements as .container on the reference page.
+   This is what makes the left edge of content land in the same
+   place as you move page to page.                                */
+body.page-content .container,
+body.page-content .wrap,
+body.page-content .pp-sec,
+body.page-content .chooser,
+body.page-content .events-layout,
+body.page-content .showcase-container,
+body.page-content .stats-strip,
+body.page-content .controls,
+body.page-content .result-count {
+  max-width: var(--container);      /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);      /* 4% */
+  padding-right: var(--gutter);
+}
+
+/* ---- 10. Centre what sits under a centred hero ------------------
+   .stats-strip and .controls are flex containers with no
+   justify-content, so their children pinned to the left edge of a
+   1280px box while the hero above was an 860px centred box. That
+   is the jump between the headline and the "75 / 38 / 300+" row. */
+body.page-content .stats-strip,
+body.page-content .controls {
+  justify-content: center;
+}
+body.page-content .result-count {
+  text-align: center;
+}
+body.page-content .pp-switch {
+  justify-content: center;
+}
+
+/* ---- 11. Prose stays at the measure ----------------------------
+   Widening every container to 1280 would have pushed some body
+   copy to ~1165px lines, which is far past a comfortable reading
+   width. Long-form text keeps the 860px measure and centres
+   inside the wide container, matching .seo-intro.               */
+body.page-content .wrap.steps > p,
+body.page-content .wrap.steps > ul,
+body.page-content .pp-sec > p,
+body.page-content .showcase-container > p {
+  max-width: var(--measure);        /* 860px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- 12. ONE gutter, every archetype ---------------------------
+   The same section role used 4%, 5%, 6% and fixed values across
+   pages. At 390px those resolve to 15.59 / 19.5 / 23.39 / 22px, so
+   text edges shifted a few pixels per section while scrolling.
+   One token instead. Padding only: max-width is deliberately NOT
+   set here, because .footer and .hero are full-bleed by design and
+   constraining them would break their backgrounds.
+   .auth-card is excluded: its padding is card interior, not a page
+   gutter. Elements already at 0 (full-bleed) are left alone.     */
+@media (max-width: 768px) {
+  body.page-content .container,
+  body.page-content .wrap,
+  body.page-content .pp-sec,
+  body.page-content .chooser,
+  body.page-content .events-layout,
+  body.page-content .showcase-container,
+  body.page-content .stats-strip,
+  body.page-content .controls,
+  body.page-content .result-count,
+  body.page-content .seo-intro,
+  body.page-content .editorial-container,
+  body.page-content .hero,
+  body.page-content .page-hero,
+  body.page-content .pp-hero,
+  body.page-content footer,
+  body.page-content .footer,
+  body.page-content .foot,
+  body.page-content .cta,
+  body.page-content .final-cta,
+  body.page-content .bottom-cta,
+  body.page-content .cards,
+  body.page-content .main-cards,
+  body.page-content .coming-soon-section,
+  body.page-content .pricing-section,
+  body.page-content .premium,
+  body.page-content .premium-strip,
+  body.page-content .quick-ctas,
+  body.page-content .quote,
+  body.page-content .quote-section,
+  body.page-content .search-wrap,
+  body.page-content .section-head,
+  body.page-content .stats,
+  body.page-content .pp-switch,
+  body.page-venue .container,
+  body.page-venue .wrap,
+  body.page-venue .pp-sec,
+  body.page-venue .chooser,
+  body.page-venue .events-layout,
+  body.page-venue .showcase-container,
+  body.page-venue .stats-strip,
+  body.page-venue .controls,
+  body.page-venue .result-count,
+  body.page-venue .seo-intro,
+  body.page-venue .editorial-container,
+  body.page-venue .hero,
+  body.page-venue .page-hero,
+  body.page-venue .pp-hero,
+  body.page-venue footer,
+  body.page-venue .footer,
+  body.page-venue .foot,
+  body.page-venue .cta,
+  body.page-venue .final-cta,
+  body.page-venue .bottom-cta,
+  body.page-venue .cards,
+  body.page-venue .main-cards,
+  body.page-venue .coming-soon-section,
+  body.page-venue .pricing-section,
+  body.page-venue .premium,
+  body.page-venue .premium-strip,
+  body.page-venue .quick-ctas,
+  body.page-venue .quote,
+  body.page-venue .quote-section,
+  body.page-venue .search-wrap,
+  body.page-venue .section-head,
+  body.page-venue .stats,
+  body.page-venue .pp-switch,
+  body.page-tour .container,
+  body.page-tour .wrap,
+  body.page-tour .pp-sec,
+  body.page-tour .chooser,
+  body.page-tour .events-layout,
+  body.page-tour .showcase-container,
+  body.page-tour .stats-strip,
+  body.page-tour .controls,
+  body.page-tour .result-count,
+  body.page-tour .seo-intro,
+  body.page-tour .editorial-container,
+  body.page-tour .hero,
+  body.page-tour .page-hero,
+  body.page-tour .pp-hero,
+  body.page-tour footer,
+  body.page-tour .footer,
+  body.page-tour .foot,
+  body.page-tour .cta,
+  body.page-tour .final-cta,
+  body.page-tour .bottom-cta,
+  body.page-tour .cards,
+  body.page-tour .main-cards,
+  body.page-tour .coming-soon-section,
+  body.page-tour .pricing-section,
+  body.page-tour .premium,
+  body.page-tour .premium-strip,
+  body.page-tour .quick-ctas,
+  body.page-tour .quote,
+  body.page-tour .quote-section,
+  body.page-tour .search-wrap,
+  body.page-tour .section-head,
+  body.page-tour .stats,
+  body.page-tour .pp-switch,
+  body.page-app .container,
+  body.page-app .wrap,
+  body.page-app .pp-sec,
+  body.page-app .chooser,
+  body.page-app .events-layout,
+  body.page-app .showcase-container,
+  body.page-app .stats-strip,
+  body.page-app .controls,
+  body.page-app .result-count,
+  body.page-app .seo-intro,
+  body.page-app .editorial-container,
+  body.page-app .hero,
+  body.page-app .page-hero,
+  body.page-app .pp-hero,
+  body.page-app footer,
+  body.page-app .footer,
+  body.page-app .foot,
+  body.page-app .cta,
+  body.page-app .final-cta,
+  body.page-app .bottom-cta,
+  body.page-app .cards,
+  body.page-app .main-cards,
+  body.page-app .coming-soon-section,
+  body.page-app .pricing-section,
+  body.page-app .premium,
+  body.page-app .premium-strip,
+  body.page-app .quick-ctas,
+  body.page-app .quote,
+  body.page-app .quote-section,
+  body.page-app .search-wrap,
+  body.page-app .section-head,
+  body.page-app .stats,
+  body.page-app .pp-switch {
+    padding-left: var(--gutter-m);
+    padding-right: var(--gutter-m);
+  }
 }
