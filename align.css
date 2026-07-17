@@ -454,3 +454,90 @@ body.page-content .showcase-container > p {
     padding-right: var(--gutter-m);
   }
 }
+
+/* ============================================================
+   PART 3: DETAIL PAGES (346 venues + 77 tours)
+   The templates are internally consistent: every section
+   measured 1 distinct variant across all 423 pages. So the
+   drift is systematic, and one rule per symptom fixes all of it.
+   ============================================================ */
+
+/* ---- 13. Venue cards: centre the container ---------------------
+   The template used `margin: 0 4%` rather than `margin: 0 auto`
+   alongside `max-width: calc(1280px - 8%)`. At 1440 the max-width
+   caps the card at 1165px while the left margin is only 57.6px, so
+   the 160px of slack all landed on the right and every card sat
+   80px left of centre. The width was already correct: 1165px is
+   the same content column the grid pages use (left 138). Only the
+   centring was wrong.                                            */
+body.page-venue .tool-section,
+body.page-venue .events-section,
+body.page-venue .app-cta,
+body.page-venue .info-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile: auto margins would collapse to 0 here, because the
+   max-width (1248px) exceeds the viewport, and the cards would go
+   full-bleed. Restore an explicit gutter on the same token.      */
+@media (max-width: 768px) {
+  body.page-venue .tool-section,
+  body.page-venue .events-section,
+  body.page-venue .app-cta,
+  body.page-venue .info-section {
+    margin-left: var(--gutter-m);
+    margin-right: var(--gutter-m);
+  }
+}
+
+/* ---- 14. Tour quick-nav: centre the pills ----------------------
+   Same defect as .stats-strip on the grid pages: a centred flex
+   container with no justify-content, so the pills pinned to the
+   left edge of a 1280px box under an 860px centred hero.
+   .app-cta is deliberately excluded: its space-between is doing
+   real work (logo left, button right).                           */
+body.page-tour .quick-nav {
+  justify-content: center;
+}
+
+
+/* ---- 15. Detail-page gutters on the same token ------------------
+   .venue-hero / .tour-hero / .breadcrumb / .quick-nav /
+   .tour-sections were still resolving the old percentage gutters
+   (15.59px and 19.5px at 390). This block is last in the file, so
+   it settles the cascade whichever inline rule was winning.
+   The venue cards are deliberately NOT here: their gutter is the
+   margin set in section 13, and their padding is card interior. */
+@media (max-width: 768px) {
+  body.page-venue .venue-hero,
+  body.page-venue .tour-hero,
+  body.page-venue .breadcrumb,
+  body.page-venue .quick-nav,
+  body.page-venue .tour-sections,
+  body.page-tour .venue-hero,
+  body.page-tour .tour-hero,
+  body.page-tour .breadcrumb,
+  body.page-tour .quick-nav,
+  body.page-tour .tour-sections {
+    padding-left: var(--gutter-m);
+    padding-right: var(--gutter-m);
+  }
+}
+
+/* ---- 16. Tour shows wrapper -----------------------------------
+   This div carried its gutter in an inline style (padding:0 4%),
+   which outranks any stylesheet, so sections 12 and 15 could not
+   reach it and it sat 4.4px off the other sections on mobile.
+   The inline padding was moved here onto the shared tokens; the
+   inline max-width and margin are untouched.                    */
+body.page-tour .tour-shows {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+@media (max-width: 768px) {
+  body.page-tour .tour-shows {
+    padding-left: var(--gutter-m);
+    padding-right: var(--gutter-m);
+  }
+}
