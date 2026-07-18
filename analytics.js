@@ -2,7 +2,7 @@
    To activate: create a GA4 property at analytics.google.com,
    then replace the placeholder ID below with your G- ID. One file, whole site. */
 (function () {
-  var ID = 'G-XXXXXXXXXX';
+  var ID = 'G-GBM2Z91QJX';
   if (ID.indexOf('XXXXXXXX') !== -1) return; // not configured yet, do nothing
   var s = document.createElement('script');
   s.async = true;
