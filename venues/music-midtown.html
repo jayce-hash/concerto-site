@@ -12,6 +12,9 @@
   <meta property="og:url" content="https://concertocity.com/venues/music-midtown" />
   <meta property="og:title" content="Music Midtown, Bag Policy, Parking & City Guide" />
   <meta property="og:description" content="Know before you go to Music Midtown. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png">
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
 {
@@ -337,12 +340,14 @@
 
   <script>
     const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');
+    if(featuresBtn&&featuresPanel){
     featuresBtn.addEventListener('click',e=>{e.stopPropagation();const o=featuresPanel.classList.toggle('open');featuresBtn.classList.toggle('open',o);featuresBtn.setAttribute('aria-expanded',o);});
     document.addEventListener('click',()=>{featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);});
     featuresPanel.addEventListener('click',e=>e.stopPropagation());
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);}});
+    }
     const bgCanvas=document.getElementById('bgCanvas');let ticking=false;
-    document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
+    if(bgCanvas)document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
 
     // Upcoming Events, Ticketmaster API
     (async()=>{
@@ -378,6 +383,7 @@
       }
     })();
   </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../auth.js"></script>
 <script src="../app-shell.js"></script>
   <script id="navmob10-js">(function(){var btn=document.getElementById("navHamburger"),menu=document.getElementById("navMobileMenu");if(!btn||!menu)return;function set(o){btn.classList.toggle("open",o);menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}btn.addEventListener("click",function(){set(!menu.classList.contains("open"));});menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
