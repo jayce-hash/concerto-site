@@ -177,7 +177,7 @@
   .scrapbook-artist { font-family: var(--display); font-size: 1rem; font-style: italic; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .scrapbook-meta { font-size: 0.72rem; color: var(--text-xdim); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .scrapbook-del { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--text-xdim); font-size: 10px; display: grid; place-items: center; cursor: pointer; transition: all 0.15s; }
-  .scrapbook-del:hover { background: #C0392B; color: white; border-color: #C0392B; }
+  .scrapbook-del:hover { background: #B3402E; color: white; border-color: #B3402E; }
 
   /* Live screen */
   .show-header { padding: 14px 20px 16px; border-bottom: 1px solid var(--border); background: var(--bg); flex-shrink: 0; }
@@ -854,7 +854,7 @@ async function generateStoryCard(){
   const allSongs=S.songs.length?S.songs:[];const trackedPlayed=allSongs.filter(s=>s.played);
   const played=trackedPlayed.length>0?trackedPlayed:allSongs;
   const dateStr=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  const SNOW='#F8F9F9',NAVY='#0E1A2B';
+  const SNOW='#F8F9F9',NAVY='#121E36';
   const hasPhoto=S.photos.length>0;
   if(hasPhoto){
     await new Promise(resolve=>{const img=new Image();img.onload=()=>{const ph=H*0.58;const scale=Math.max(W/img.width,ph/img.height);const sw=img.width*scale,sh=img.height*scale;ctx.drawImage(img,(W-sw)/2,0,sw,sh);resolve();};img.onerror=resolve;img.src=S.photos[0].dataUrl;});
@@ -900,7 +900,7 @@ async function generateStoryCard(){
 function showStoryOverlay(dataUrl){
   const ex=document.getElementById('storyOverlay');if(ex)ex.remove();
   const overlay=document.createElement('div');overlay.id='storyOverlay';
-  overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#0E1A2B;display:flex;flex-direction:column;align-items:center;justify-content:center;';
+  overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#121E36;display:flex;flex-direction:column;align-items:center;justify-content:center;';
   overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img loading="lazy" decoding="async" src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100vh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
   document.body.appendChild(overlay);
   document.getElementById('storyOverlayClose').addEventListener('click',()=>overlay.remove());

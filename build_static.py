@@ -15,6 +15,79 @@ def rp(*p): return os.path.join(ROOT, *p)
 def read(p):  return open(rp(p), encoding='utf-8').read()
 def write(p, s): open(rp(p), 'w', encoding='utf-8').write(s)
 
+# ================= STAGE 0 (opt-in): sync data from the master sheet =================
+# Run as:  python3 build_static.py --from-sheet            (fetches the published Google Sheet)
+#          python3 build_static.py --from-sheet local.csv  (reads a local CSV export instead)
+# Merge-based: only fields managed by the sheet are updated; unknown fields
+# (isFestival, legacy guideUrl formats, etc.) are preserved, and entries not in
+# the sheet are left untouched. Backs up current JSONs first.
+MASTER_SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT39Vf8zB5l1Vnpyi2qVacwp_3ddGcdU-0yXGWN2VypxDhCtC0XgcXZ8t7Hz1X-iBCQdPsCcrT0Y-7r/pub?output=csv'
+if '--from-sheet' in sys.argv:
+    import csv as _csv, datetime as _dt, shutil as _sh, io as _io, urllib.request as _rq
+    _arg = sys.argv[sys.argv.index('--from-sheet') + 1] if len(sys.argv) > sys.argv.index('--from-sheet') + 1 else None
+    if _arg and os.path.exists(_arg):
+        _raw = open(_arg, encoding='utf-8-sig').read()
+    else:
+        _raw = _rq.urlopen(MASTER_SHEET_CSV, timeout=30).read().decode('utf-8-sig')
+    _rows = list(_csv.DictReader(_io.StringIO(_raw)))
+    _req = {'slug','name','bag_summary','parking_note','concessions_note'}
+    assert len(_rows) >= 300, f'sheet sanity check failed: only {len(_rows)} rows'
+    assert _req.issubset(_rows[0].keys()), f'sheet missing columns: {_req - set(_rows[0].keys())}'
+    _bk = rp('data', 'backup-' + _dt.date.today().isoformat())
+    os.makedirs(_bk, exist_ok=True)
+    for _f in ['venues.json','bag_policies.json','parking.json','concessions.json']:
+        _sh.copy2(rp('data', _f), os.path.join(_bk, _f))
+    _V = json.load(open(rp('data/venues.json')))
+    _B = json.load(open(rp('data/bag_policies.json')))
+    _P = json.load(open(rp('data/parking.json')))
+    _C = json.load(open(rp('data/concessions.json')))
+    _vmap = {v['id']: v for v in _V}
+    def _n(s): return re.sub(r'[^a-z0-9]', '', str(s or '').lower())
+    def _key(d, slug):
+        if slug in d: return slug
+        n = _n(slug)
+        for k in d:
+            if _n(k) == n: return k
+        return slug
+    def _split(s): return [x.strip() for x in (s or '').split('|') if x.strip()]
+    def _num(s):
+        try: return float(s)
+        except (TypeError, ValueError): return None
+    _order = []
+    for r in _rows:
+        sl = r['slug'].strip()
+        if not sl: continue
+        _order.append(sl)
+        if r.get('status','').strip() != 'no-page':
+            ve = dict(_vmap.get(sl, {'guideUrl': '/cityguide/' + sl}))
+            ve.update({'id': sl, 'name': r.get('name',''), 'city': r.get('city',''), 'state': r.get('state',''),
+                       'country': r.get('country',''), 'lat': _num(r.get('lat')), 'lng': _num(r.get('lng'))})
+            _vmap[sl] = ve
+        if any((r.get(k) or '').strip() for k in ['bag_summary','bag_allowed','bag_not_allowed','bag_note','bag_official_link']):
+            k = _key(_B, sl); e = dict(_B.get(k, {}))
+            e.update({'summary': r.get('bag_summary',''), 'fullLink': r.get('bag_official_link',''),
+                      'updated': r.get('bag_verified',''), 'allowed': _split(r.get('bag_allowed')),
+                      'notAllowed': _split(r.get('bag_not_allowed')), 'note': r.get('bag_note',''),
+                      'venueName': r.get('name',''), 'city': r.get('city',''), 'state': r.get('state','')})
+            e.setdefault('guideUrl',''); _B[k] = e
+        if any((r.get(k) or '').strip() for k in ['parking_note','parking_lots','parking_official_link','rideshare_note']):
+            k = _key(_P, sl); e = dict(_P.get(k, {}))
+            e.update({'note': r.get('parking_note',''), 'officialParkingUrl': r.get('parking_official_link',''),
+                      'rideshare': r.get('rideshare_note',''), 'lots': _split(r.get('parking_lots'))})
+            _P[k] = e
+        if any((r.get(k) or '').strip() for k in ['concessions_note','concessions_stands','concessions_official_link']):
+            k = _key(_C, sl); e = dict(_C.get(k, {}))
+            e.update({'note': r.get('concessions_note',''), 'officialConcessionsUrl': r.get('concessions_official_link',''),
+                      'stands': _split(r.get('concessions_stands'))})
+            _C[k] = e
+    _sheet_slugs = set(_order)
+    _new_venues = [_vmap[s] for s in _order if s in _vmap] + [v for v in _V if v['id'] not in _sheet_slugs]
+    json.dump(_new_venues, open(rp('data/venues.json'),'w'), indent=2, ensure_ascii=False)
+    json.dump(_B, open(rp('data/bag_policies.json'),'w'), indent=2, ensure_ascii=False)
+    json.dump(_P, open(rp('data/parking.json'),'w'), indent=2, ensure_ascii=False)
+    json.dump(_C, open(rp('data/concessions.json'),'w'), indent=2, ensure_ascii=False)
+    print(f'sheet sync (merge): {len(_new_venues)} venues, {len(_B)} bag, {len(_P)} parking, {len(_C)} concessions (backup in {_bk})')
+
 # ---------- data ----------
 venues      = json.load(open(rp('data/venues.json')))
 bag         = json.load(open(rp('data/bag_policies.json')))
@@ -856,3 +929,44 @@ if 'hero-search' not in idx9:
     idx9 = idx9.replace('      <a href="venues.html" class="btn btn-outline">Find Your Venue</a>\n', '')
     print('hero search installed')
 write('index.html', idx9)
+
+# ================= STAGE 10: premium feature visual harmonization =================
+# Brand-tune the premium pages' rogue colors (see mapping) and canonicalize
+# mobile-bags.html -> mobile-bagcheck.html with redirects for shipped app builds.
+PREMIUM_PAGES = ['concertoplus.html','mobile-concertoplus.html','bagcheck.html',
+                 'livemode.html','mobile-livemode.html','mobile-bags.html','mobile-bagcheck.html']
+COLOR_MAP = [
+    # camera backdrop: cold blue-blacks -> brand-navy family (preserves gradient flow)
+    ('#0c1820', '#0f1930'), ('#0C1820', '#0F1930'),
+    ('#0e1d2e', '#121e36'), ('#0E1D2E', '#121E36'),
+    ('#09131f', '#0b1322'), ('#09131F', '#0B1322'),
+    # story card + overlay navy -> true brand navy
+    ('#0E1A2B', '#121E36'), ('#0e1a2b', '#121e36'),
+    # ad-hoc hover navy -> brand-hue lightened navy
+    ('#1a2d47', '#1b2b4e'), ('#1A2D47', '#1B2B4E'),
+    # verdict/status trio: stock flat-UI -> brand-tuned (pass uses site's existing green)
+    ('#27AE60', '#128269'), ('#27ae60', '#128269'), ('rgba(39,174,96', 'rgba(18,130,105'),
+    ('#D4820A', '#C07E1F'), ('#d4820a', '#c07e1f'), ('rgba(212,130,10', 'rgba(192,126,31'),
+    ('#C0392B', '#B3402E'), ('#c0392b', '#b3402e'), ('rgba(192,57,43', 'rgba(179,64,46'),
+]
+for p in PREMIUM_PAGES:
+    if not os.path.exists(rp(p)): continue
+    s = read(p); orig = s
+    for old, new in COLOR_MAP:
+        s = s.replace(old, new)
+    if s != orig:
+        write(p, s); print(p, 'colors harmonized')
+
+# canonical rename: mobile-bags.html -> mobile-bagcheck.html
+if os.path.exists(rp('mobile-bags.html')) and not os.path.exists(rp('mobile-bagcheck.html')):
+    os.rename(rp('mobile-bags.html'), rp('mobile-bagcheck.html'))
+    print('mobile-bags.html renamed to mobile-bagcheck.html')
+for p in ['mobile.html', 'mobile-premium.html', 'mobile-bagcheck.html']:
+    if not os.path.exists(rp(p)): continue
+    s = read(p)
+    n = s.replace('mobile-bags.html', 'mobile-bagcheck.html')
+    if n != s: write(p, n); print(p, 'references updated')
+_rd = read('_redirects')
+if 'mobile-bagcheck' not in _rd:
+    write('_redirects', '/mobile-bags.html  /mobile-bagcheck.html  301\n/mobile-bags  /mobile-bagcheck  301\n' + _rd)
+    print('redirects added for old mobile-bags path')

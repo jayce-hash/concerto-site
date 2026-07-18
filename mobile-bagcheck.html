@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F9F9"/>
 <title>AI Bag Check, Concerto Premium</title>
-<link rel="canonical" href="https://concertocity.com/bagcheck.html"/>
-<meta name="description" content="AI Bag Check tells you instantly whether your bag is allowed at any venue, with the exact policy and clear-bag rules. Included with Concerto Premium."/>
+  <meta name="robots" content="noindex, follow" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://concertocity.com/bagcheck.html" />
+<meta property="og:url" content="https://concertocity.com/mobile-bagcheck.html" />
 <meta property="og:title" content="AI Bag Check, Concerto Premium" />
-<meta property="og:description" content="AI Bag Check tells you instantly whether your bag is allowed at any venue, with the exact policy and clear-bag rules. Included with Concerto Premium." />
+<meta property="og:description" content="" />
 <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <meta property="og:image:secure_url" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <meta property="og:image:type" content="image/png" />
@@ -19,7 +18,7 @@
 <meta property="og:image:alt" content="Concerto, from the concert to the city" />
 <meta property="og:site_name" content="Concerto" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://concertocity.com/bagcheck.html" />
+<meta name="twitter:url" content="https://concertocity.com/mobile-bagcheck.html" />
 <meta name="twitter:title" content="AI Bag Check, Concerto Premium" />
 <meta name="twitter:description" content="" />
 <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
@@ -63,7 +62,7 @@
     .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-center > a { font-family: var(--body); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); padding: 0.5rem 1rem; text-decoration: none; transition: color 0.2s; }
     .nav-center > a:hover, .nav-center > a.active { color: var(--text); }
-    .nav-cta { display: flex; justify-content: flex-end; align-items:center; gap:10px; }
+    .nav-cta { display: flex; justify-content: flex-end; width: 200px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
     .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid); }
     .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
@@ -82,7 +81,7 @@
     .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
     .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
     .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-    @media (max-width: 1024px) { .nav-hamburger { display: flex; }
+    @media (max-width: 1024px) { .nav-hamburger { display: flex; } .nav-center { display: none !important; } }
     @media (max-width: 640px) { #navAuthLink { display: none; } }
 
     /* Gate screen */
@@ -127,7 +126,7 @@
 <style>
   /* ── BAG CHECK APP STYLES ── */
   body { position: fixed; width: 100%; overflow: hidden; }
-  #app { height: 100vh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+  #app { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
 
   /* Screens */
   .screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .32s var(--ease-out), transform .32s var(--ease-out); transform: translateY(14px); overflow: hidden; z-index: 1; }
@@ -300,14 +299,40 @@
   .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.8rem; font-weight: 600; padding: 10px 20px; border-radius: 99px; white-space: nowrap; opacity: 0; transition: opacity 0.25s, transform 0.25s var(--ease-out); z-index: 400; pointer-events: none; box-shadow: var(--shadow-lg); }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
+<style id="appChrome">
+  body{ --nav-h:0px !important; padding-top:calc(env(safe-area-inset-top) + 70px) !important; padding-bottom:calc(env(safe-area-inset-bottom) + 64px) !important; }
+  .site-nav,.nav-mobile-menu{ display:none !important; }
+  .app-appbar{ position:fixed;top:0;left:0;right:0;z-index:1000;box-sizing:border-box; display:flex;align-items:center;justify-content:space-between; padding:calc(env(safe-area-inset-top) + 10px) 20px 12px; background:rgba(248,249,249,0.82); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid transparent; transition:border-color .2s, background .2s; }
+  .app-appbar.scrolled{ border-bottom-color:rgba(18,30,54,0.08); background:rgba(248,249,249,0.93); }
+  .app-appbar-logo{ height:48px;width:auto;display:block; }
+  .app-appbar-signin{ font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase; color:rgba(18,30,54,0.52);padding:8px 14px;text-decoration:none; border:1px solid rgba(18,30,54,0.14);border-radius:99px;white-space:nowrap; }
+  .app-tabbar{ position:fixed;left:0;right:0;bottom:0;z-index:1000; display:grid;grid-template-columns:repeat(5,1fr); padding:6px 4px calc(env(safe-area-inset-bottom) + 4px); background:rgba(248,249,249,0.88); backdrop-filter:saturate(160%) blur(18px); -webkit-backdrop-filter:saturate(160%) blur(18px); border-top:1px solid rgba(18,30,54,0.08); }
+  .app-tab{ display:flex;flex-direction:column;align-items:center;justify-content:center; gap:3px;padding:8px 4px 6px;text-decoration:none;color:rgba(18,30,54,0.28); transition:color .15s, transform .15s cubic-bezier(0.16,1,0.3,1); }
+  .app-tab svg{ width:22px;height:22px;stroke-width:1.75; }
+  .app-tab-label{ font-size:0.62rem;font-weight:600;letter-spacing:0.02em; }
+  .app-tab.active{ color:#121E36; }
+  .app-tab:active{ transform:scale(0.94); }
+</style>
 
   <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
+<style id="appmenu-css">
+  .app-appbar-menu{background:none;border:none;color:var(--text,#121E36);padding:6px;cursor:pointer;display:flex;align-items:center;}
+  .app-menu-overlay{position:fixed;inset:0;z-index:1000;background:rgba(12,20,36,.45);opacity:0;pointer-events:none;transition:opacity .25s;}
+  .app-menu-overlay.open{opacity:1;pointer-events:auto;}
+  .app-menu{position:fixed;top:0;right:0;height:100%;width:80%;max-width:320px;background:var(--bg,#F8F9F9);box-shadow:-16px 0 50px rgba(18,30,54,.2);transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:4.6rem 1.6rem 2rem;overflow-y:auto;}
+  .app-menu-overlay.open .app-menu{transform:translateX(0);}
+  .app-menu a{font-family:var(--display,'Playfair Display',serif);font-size:1.35rem;font-weight:600;color:var(--text,#121E36);text-decoration:none;padding:.8rem 0;border-bottom:1px solid rgba(18,30,54,.08);}
+  .app-menu a:last-child{border-bottom:none;}
+  .app-menu-close{position:absolute;top:1rem;right:1.3rem;background:none;border:none;font-size:1.7rem;color:var(--text,#121E36);cursor:pointer;line-height:1;}
+  </style>
   <link rel="stylesheet" href="align.css" />
-  <script defer src="/analytics.js"></script>
 </head>
 <body class="page-app">
+<header class="app-appbar" id="appbar">
+  <a href="mobile.html" aria-label="Concerto Home"><img src="logo.png" alt="Concerto" class="app-appbar-logo"></a>
+  <button id="appMenuBtn" class="app-appbar-menu" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</header>
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
     <div class="nav-logo">
       <a href="index.html" aria-label="Concerto Home">
@@ -379,10 +404,6 @@
 <div id="app">
   <!-- Home -->
   <div id="s-home" class="screen active">
-    <div class="app-topbar">
-      <div><div class="app-topbar-title">Concerto</div><div class="app-topbar-sub">Premium &middot; AI Bag Check</div></div>
-      <span class="premium-badge">Premium</span>
-    </div>
     <div class="scroll-area">
       <span class="app-eyebrow">Don&rsquo;t guess. Double check.</span>
       <h1 class="app-headline">Will your bag<br><em>get in?</em></h1>
@@ -438,7 +459,7 @@
     <div class="analyze-photo" id="analyzePhoto">
       <div class="pulse-ring"></div><div class="pulse-ring"></div><div class="pulse-ring"></div>
       <div class="analyze-photo-placeholder"></div>
-      <img loading="lazy" decoding="async" class="detected-img" id="detectedImg" src="" alt=""/>
+      <img class="detected-img" id="detectedImg" src="" alt=""/>
     </div>
     <div class="analyze-eyebrow">Analyzing</div>
     <div class="analyze-title">Checking Your Bag</div>
@@ -569,7 +590,7 @@ function showGate() {
   goTo(-1);
 }
 
-$('upgradeBtn').addEventListener('click', () => { window.location.href = 'premium.html'; });
+$('upgradeBtn').addEventListener('click', () => { window.location.href = 'mobile-premium.html'; });
 $('gateSignInBtn').addEventListener('click', () => { window.location.href = 'login.html?next=' + encodeURIComponent(window.location.pathname); });
 
 // ── VENUE DROPDOWN ──
@@ -701,7 +722,7 @@ function renderAIResult(r){
   const LABELS={pass:"You're Good to Go",warn:'May Cause Issues',fail:'Not Permitted'};
   const venue=currentVenue?currentVenue.n:'Selected Venue';
   const allows=currentVenue?.allows||[];const denies=currentVenue?.denies||[];
-  const thumbHtml=capturedImageB64?`<img loading="lazy" decoding="async" src="data:image/jpeg;base64,${capturedImageB64}" style="width:100%;height:100%;object-fit:cover;"/>`:(type==='fail'?', ':type==='warn'?', ':', ');
+  const thumbHtml=capturedImageB64?`<img src="data:image/jpeg;base64,${capturedImageB64}" style="width:100%;height:100%;object-fit:cover;"/>`:(type==='fail'?', ':type==='warn'?', ':', ');
   $('resultInner').innerHTML=`
     <div class="result-verdict-bar">
       <div class="verdict-row">
@@ -815,7 +836,7 @@ $('venueInput').value='Madison Square Garden';
 <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44" />
+        <img src="logo.png" alt="Concerto" width="160" height="44" />
         <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
@@ -855,6 +876,29 @@ const btn = document.getElementById('navHamburger');
     document.body.style.overflow = open ? 'hidden' : '';
   });
 })();</script>
+<div class="app-menu-overlay" id="appMenuOverlay" aria-hidden="true">
+    <nav class="app-menu" aria-label="Menu">
+      <button class="app-menu-close" id="appMenuClose" aria-label="Close menu">&times;</button>
+      <a href="venues.html">Venues</a>
+      <a href="tours.html">Tours</a>
+      <a href="events.html">Near Me</a>
+      <a href="mobile-top-picks.html">Top Picks</a>
+      <a href="bags.html">Bag Policies</a>
+      <a href="rideshare.html">Rideshare</a>
+      <a href="parking.html">Parking</a>
+      <a href="concessions.html">Concessions</a>
+      <a href="premium.html">Premium</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+  <script>(function(){var b=document.getElementById("appMenuBtn"),o=document.getElementById("appMenuOverlay"),c=document.getElementById("appMenuClose");if(!b||!o)return;function op(){o.classList.add("open");b.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";}function cl(){o.classList.remove("open");b.setAttribute("aria-expanded","false");document.body.style.overflow="";}b.addEventListener("click",op);if(c)c.addEventListener("click",cl);o.addEventListener("click",function(e){if(e.target===o)cl();});})();</script>
+<nav class="app-tabbar" aria-label="Main">
+  <a href="mobile.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg><span class="app-tab-label">Home</span></a>
+  <a href="mobile-venues.html" class="app-tab active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="app-tab-label">Venues</span></a>
+  <a href="mobile-tours.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="app-tab-label">Tours</span></a>
+  <a href="mobile-events.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span class="app-tab-label">Near Me</span></a>
+  <a href="mobile-account.html" class="app-tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span class="app-tab-label">Account</span></a>
+</nav>
 <script src="auth.js"></script>
 <script src="app-shell.js"></script>
 </body>

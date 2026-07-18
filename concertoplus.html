@@ -157,7 +157,7 @@
   .search-go { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: var(--text); color: var(--bg); display: grid; place-items: center; font-size: 0.85rem; border: none; cursor: pointer; transition: background 0.18s, transform 0.18s var(--ease-out); }
   .search-go:hover { background: var(--gold); transform: translateY(-50%) scale(1.08); }
   .status-line { font-size: 0.75rem; color: var(--text-xdim); text-align: center; margin-bottom: 1.1rem; min-height: 16px; }
-  .status-line.err { color: #C0392B; }
+  .status-line.err { color: #B3402E; }
 
   /* Event cards */
   .event-list { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -208,7 +208,7 @@
   .optional-input::placeholder { color: var(--text-xdim); }
   .optional-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
   .primary-btn { width: 100%; padding: 1rem; border-radius: 99px; background: var(--text); color: var(--bg); font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s var(--ease-out), box-shadow 0.2s; box-shadow: 0 8px 28px rgba(18,30,54,0.18); }
-  .primary-btn:hover { background: #1a2d47; transform: translateY(-1px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
+  .primary-btn:hover { background: #1b2b4e; transform: translateY(-1px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
   .primary-btn:active { transform: translateY(0) scale(0.99); }
   .primary-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .primary-btn.gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text); box-shadow: 0 8px 28px rgba(201,168,76,0.25); }
@@ -714,7 +714,7 @@ async function buildPlan(){
     S.plan=plan;renderPlan(plan);showGen(false);
   }catch(err){
     showGen(false);
-    $('tlList').innerHTML=`<div style="padding:20px 4px"><div style="font-size:13px;font-weight:600;color:#C0392B;margin-bottom:6px">Build failed</div><div style="font-size:12px;color:var(--ink-2);line-height:1.6">${err.message||String(err)}</div></div>`;
+    $('tlList').innerHTML=`<div style="padding:20px 4px"><div style="font-size:13px;font-weight:600;color:#B3402E;margin-bottom:6px">Build failed</div><div style="font-size:12px;color:var(--ink-2);line-height:1.6">${err.message||String(err)}</div></div>`;
     $('planArtist').textContent=S.ev?.artist||S.ev?.name||'Error';$('planMeta').textContent='Check the error below';
   }
 }
