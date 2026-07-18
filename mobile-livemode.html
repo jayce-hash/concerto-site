@@ -604,7 +604,7 @@ const UPGRADE_URL  = 'https://concertocity.com/premium.html';
 const LOGIN_URL    = 'https://concertocity.com/login.html';
 
 let sb;
-try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) { sb = null; }
+try { sb = window._supabaseClient || (window._supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)); } catch(e) { sb = null; }
 
 async function checkAccess() {
   const timeout = setTimeout(() => showGate(), 6000);

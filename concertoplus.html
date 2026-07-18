@@ -499,7 +499,7 @@ const UPGRADE_URL  = 'https://concertocity.com/premium.html';
 const LOGIN_URL    = 'https://concertocity.com/login.html';
 
 let sb;
-try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) { sb = null; }
+try { sb = window._supabaseClient || (window._supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)); } catch(e) { sb = null; }
 
 // Build proxy headers with the current Supabase access token attached.
 async function CONCERTO_PROXY_HEADERS(){

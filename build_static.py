@@ -1029,3 +1029,21 @@ ac11 = read('align.css')
 if '14. Premium app screens' not in ac11:
     write('align.css', ac11 + APP_COMPOSITION)
     print('align.css: premium composition contract appended')
+
+# ================= STAGE 12: single shared Supabase client =================
+# The premium pages each created a rival GoTrueClient alongside auth.js's,
+# racing on the same storage key (the "Multiple GoTrueClient instances"
+# console warning, and prime suspect for silent 401s on paid features).
+# Every page now registers/reuses one shared client via window._supabaseClient,
+# the same pattern auth.js already implements.
+OLD_CLIENT = 'try { sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) { sb = null; }'
+NEW_CLIENT = ("try { sb = window._supabaseClient || (window._supabaseClient = "
+              "supabase.createClient(SUPABASE_URL, SUPABASE_KEY)); } catch(e) { sb = null; }")
+shared = 0
+for p in PREMIUM_PAGES:
+    if not os.path.exists(rp(p)): continue
+    s = read(p)
+    if OLD_CLIENT in s:
+        write(p, s.replace(OLD_CLIENT, NEW_CLIENT))
+        shared += 1
+print('shared supabase client on', shared, 'pages')
