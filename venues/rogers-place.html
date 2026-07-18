@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Rogers Place, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Rogers Place, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Rogers Place Bag Policy, Parking &amp; City Guide | Edmonton | Concerto</title>
+  <meta name="description" content="Everything you need for Rogers Place in Edmonton, AB: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/rogers-place" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Rogers Place. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Rogers Place",
-    "url": "https://concertocity.com/venues/rogers-place",
-    "description": "Venue guide for Rogers Place, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicVenue",
+      "name": "Rogers Place",
+      "url": "https://concertocity.com/venues/rogers-place",
+      "description": "Venue guide for Rogers Place, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Edmonton",
+        "addressRegion": "AB",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.5469,
+        "longitude": -113.4978
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rogers Place",
+          "item": "https://concertocity.com/venues/rogers-place"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Rogers Place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only bags and purses smaller than 12″ x 12″ x 6″ are permitted inside Rogers Place after physical inspection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Rogers Place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Event parking is available through online reservations in surrounding lots and parkades. For more information, email transportation@rogersplace.com. Consider using transit or ride-share options for convenience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Rogers Place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rogers Place offers a diverse range of food and drink options across its main and upper concourses. Highlights include Butcher's Cuts, Market Perogies, and various bars such as the Truly Bar and Sipp Vodka Bar. Special offerings include the Molson Fan Deck and Mott's Caesar House."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -158,8 +225,10 @@
   .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
+  <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body>
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -196,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Rogers Place</p>
       <span class="eyebrow">Venue Guide</span>
@@ -218,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="rogers-place" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="rogers-place" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">Only bags and purses smaller than 12″ x 12″ x 6″ are permitted inside Rogers Place after physical inspection.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>bags and purses smaller than 12″ x 12″ x 6″</li></ul></div></div><div class="cvi-block"><span class="cvi-block-label ">Extra Notes</span><p class="cvi-desc">To assist with entry into Rogers Place with a medically necessary bag, please contact the Ticketing &amp; Customer Services Team in advance.</p></div><a class="cvi-cta" href="https://www.rogersplace.com/arena-guide/safety-and-security/" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">Event parking is available through online reservations in surrounding lots and parkades. For more information, email transportation@rogersplace.com. Consider using transit or ride-share options for convenience.</p><a class="cvi-cta" href="https://www.rogersplace.com/getting-to-the-arena/" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">Rogers Place offers a diverse range of food and drink options across its main and upper concourses. Highlights include Butcher's Cuts, Market Perogies, and various bars such as the Truly Bar and Sipp Vodka Bar. Special offerings include the Molson Fan Deck and Mott's Caesar House.</p><div class="cvi-block"><span class="cvi-block-label ">Notable Stands</span><ul class="cvi-list"><li>104th Nacho and Carvery Bar</li><li>Butcher's Cuts</li><li>Caesar</li><li>Craft Draught</li><li>Downtown Grill</li><li>Draught</li><li>High Level</li><li>Ice Cafe</li><li>Market Perogies</li><li>Molson Fan Deck</li><li>Mott's Caesar House</li><li>Pepsi Float</li><li>Pizza 73</li><li>QuickTap</li><li>Truly Bar</li><li>Whyte Ave Bar</li><li>Whyte Ave Bistro</li><li>Wine Bar</li><li>Wrapped</li><li>Coors Seltzer Bar</li><li>Grab + Go</li><li>Jasper Ave Eatery</li><li>Sipp Vodka Bar</li><li>Whitemud Kitchen</li><li>Capital City Market</li><li>River City Market</li></ul></div><a class="cvi-cta" href="https://www.rogersplace.com/food-finder/locations/" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><p class="cvi-desc">Rogers Place has several designated drop-off and pick-up locations for the general public and ride-share.</p><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=53.5469&dropoff[longitude]=-113.4978&dropoff[nickname]=Rogers%20Place" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=53.5469&pickup[longitude]=-113.4978&pickup[nickname]=Rogers%20Place" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=53.5469&destination[longitude]=-113.4978" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=53.5469&pickup[longitude]=-113.4978" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -238,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/commonwealth-stadium"><span class="nearby-name">Commonwealth Stadium</span><span class="nearby-city">Edmonton, AB</span><span class="nearby-dist">2.2 km away</span></a><a class="nearby-card" href="/venues/scotiabank-saddledome"><span class="nearby-name">Scotiabank Saddledome</span><span class="nearby-city">Calgary, AB</span><span class="nearby-dist">281.6 km away</span></a><a class="nearby-card" href="/venues/rogers-arena"><span class="nearby-name">Rogers Arena</span><span class="nearby-city">Vancouver, BC</span><span class="nearby-dist">817.2 km away</span></a><a class="nearby-card" href="/venues/bc-place"><span class="nearby-name">BC Place</span><span class="nearby-city">Vancouver, BC</span><span class="nearby-dist">817.5 km away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -250,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>

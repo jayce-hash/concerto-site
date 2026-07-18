@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Shoreline Amphitheatre, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Shoreline Amphitheatre, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Shoreline Amphitheatre Bag Policy, Parking &amp; City Guide | Mountain View | Concerto</title>
+  <meta name="description" content="Everything you need for Shoreline Amphitheatre in Mountain View, CA: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/shoreline-amphitheatre" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Shoreline Amphitheatre. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Shoreline Amphitheatre",
-    "url": "https://concertocity.com/venues/shoreline-amphitheatre",
-    "description": "Venue guide for Shoreline Amphitheatre, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "PerformingArtsTheater",
+      "name": "Shoreline Amphitheatre",
+      "url": "https://concertocity.com/venues/shoreline-amphitheatre",
+      "description": "Venue guide for Shoreline Amphitheatre, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mountain View",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.4269,
+        "longitude": -122.0806
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Shoreline Amphitheatre",
+          "item": "https://concertocity.com/venues/shoreline-amphitheatre"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Shoreline Amphitheatre?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bags must be clear and no larger than 12\" x 12\" x 6\". Small clutches up to 6\" x 9\" are allowed. Not allowed: Large or oversized bags, Any bag larger than 12\" x 12\" x 6\", Chairs / Lawn Chairs, Aerosol products/cans, Alcohol or beverages other than a sealed bottle of water, Animals (except service animals)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Shoreline Amphitheatre?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "General admission parking is included with your ticket. For a shorter walk, easier exit, or oversized parking, consider upgrading to Premier Parking options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Shoreline Amphitheatre?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shoreline Amphitheatre offers a variety of food and drink options, including Mosh Burger's hormone-free beef burgers, Rebel Hen's crispy chicken tenders, and Ziggy's Magic Pizza Shop's NY-inspired pizzas. Koko's Bavarian provides German-inspired sausages and pretzels, while general concessions offer popcorn, nachos, and a selection of beverages. CVT Premium Soft Serve Ice Cream is also available in convenient pouches."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -158,8 +225,10 @@
   .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
+  <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body>
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -196,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Shoreline Amphitheatre</p>
       <span class="eyebrow">Venue Guide</span>
@@ -218,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="shoreline-amphitheatre" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="shoreline-amphitheatre" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">Bags must be clear and no larger than 12&quot; x 12&quot; x 6&quot;. Small clutches up to 6&quot; x 9&quot; are allowed.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>Small clutch (6&quot; x 9&quot;)</li><li>Clear, plastic, or PVC tote bag no larger than 12&quot; x 12&quot; x 6&quot;</li></ul></div><div class="cvi-subcard"><span class="cvi-block-label deny">Not Allowed</span><ul class="cvi-list"><li>Large or oversized bags</li><li>Any bag larger than 12&quot; x 12&quot; x 6&quot;</li><li>Chairs / Lawn Chairs</li><li>Aerosol products/cans</li><li>Alcohol or beverages other than a sealed bottle of water</li><li>Animals (except service animals)</li><li>Balloons</li><li>Balls or Frisbees</li><li>Banners</li><li>Blankets larger than 6’x 6’</li><li>Bota bags</li><li>Coolers</li><li>Costumes resembling public safety uniforms</li><li>Drones</li><li>Eye drops</li><li>Fireworks</li><li>Gang activity</li><li>Gas masks</li><li>Glass containers</li><li>Glow sticks</li><li>Illegal drugs/substances</li><li>Large chains or spiked jewelry</li><li>Laptops/tablets</li><li>Laser pointers and air horns</li><li>LED gloves or LED microlights</li><li>Liquid makeup</li><li>Markers, pens or spray paint</li><li>Massagers</li><li>Musical instruments</li><li>Offensive clothing</li><li>Over-the-counter medication not in original packaging</li><li>Pacifiers</li><li>Professional photo, video, or audio recording equipment</li><li>Selfie sticks</li><li>Signs larger than 8.5”x11”</li><li>Stickers, flyers</li><li>Strollers, baby carriers or wagons</li><li>Stuffed animals or dolls</li><li>Tents</li><li>Umbrellas</li><li>Unsealed tampons or pads</li><li>Weapons, sharp objects or weapon accessories</li><li>Wind chairs, inflatable furniture</li></ul></div></div><div class="cvi-block"><span class="cvi-block-label ">Extra Notes</span><p class="cvi-desc">Service animals are permitted.</p></div><a class="cvi-cta" href="https://www.shorelineamphitheatre.com/faq" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">General admission parking is included with your ticket. For a shorter walk, easier exit, or oversized parking, consider upgrading to Premier Parking options.</p><a class="cvi-cta" href="https://www.shorelineamphitheatre.com/visit" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">Shoreline Amphitheatre offers a variety of food and drink options, including Mosh Burger's hormone-free beef burgers, Rebel Hen's crispy chicken tenders, and Ziggy's Magic Pizza Shop's NY-inspired pizzas. Koko's Bavarian provides German-inspired sausages and pretzels, while general concessions offer popcorn, nachos, and a selection of beverages. CVT Premium Soft Serve Ice Cream is also available in convenient pouches.</p><div class="cvi-block"><span class="cvi-block-label ">Notable Stands</span><ul class="cvi-list"><li>Mosh Burger</li><li>Rebel Hen</li><li>Ziggy's Magic Pizza Shop</li><li>Koko's</li><li>CVT Premium Soft Serve Ice Cream</li></ul></div><a class="cvi-cta" href="https://www.shorelineamphitheatre.com/bites" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=37.4269&dropoff[longitude]=-122.0806&dropoff[nickname]=Shoreline%20Amphitheatre" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=37.4269&pickup[longitude]=-122.0806&pickup[nickname]=Shoreline%20Amphitheatre" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=37.4269&destination[longitude]=-122.0806" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=37.4269&pickup[longitude]=-122.0806" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -238,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/stanford-stadium"><span class="nearby-name">Stanford Stadium</span><span class="nearby-city">Stanford, CA</span><span class="nearby-dist">4.5 mi away</span></a><a class="nearby-card" href="/venues/levis-stadium"><span class="nearby-name">Levi’s Stadium</span><span class="nearby-city">Santa Clara, CA</span><span class="nearby-dist">6.2 mi away</span></a><a class="nearby-card" href="/venues/sap-center"><span class="nearby-name">SAP Center</span><span class="nearby-city">San Jose, CA</span><span class="nearby-dist">11.8 mi away</span></a><a class="nearby-card" href="/venues/oakland-arena"><span class="nearby-name">Oakland Arena</span><span class="nearby-city">Oakland, CA</span><span class="nearby-dist">23.3 mi away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -250,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
