@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Moody Center, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Moody Center, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Moody Center Bag Policy, Parking &amp; City Guide | Austin | Concerto</title>
+  <meta name="description" content="Everything you need for Moody Center in Austin, TX: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/moody-center" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Moody Center. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Moody Center",
-    "url": "https://concertocity.com/venues/moody-center",
-    "description": "Venue guide for Moody Center, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "StadiumOrArena",
+      "name": "Moody Center",
+      "url": "https://concertocity.com/venues/moody-center",
+      "description": "Venue guide for Moody Center, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.28,
+        "longitude": -97.73
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Moody Center",
+          "item": "https://concertocity.com/venues/moody-center"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Moody Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guests are allowed to bring one clear bag not exceeding 14″ x 14″ x 6″ or one non-clear small clutch/purse/wallet not exceeding 5″ x 9″ x 1.5″. Not allowed: Professional cameras, Detachable lenses, External flash units, Recording equipment, Weapons, Noisemaking devices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Moody Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parking is available at various garages near Moody Center, with pre-purchase options recommended. Manor Garage is pre-pay only and closest to ADA parking, while Trinity Garage is a short walk away. Expect traffic disruptions due to construction and plan accordingly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Moody Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Moody Center offers a diverse range of food and beverage options, including market-style outlets with Austin favorites. Highlights include Shaq's hand-breaded chicken sandwich, build-your-own nachos, and New York style pizza. Various beverages and snacks are available throughout the venue."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -158,8 +225,10 @@
   .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
+  <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body>
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -196,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Moody Center</p>
       <span class="eyebrow">Venue Guide</span>
@@ -218,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="moody-center" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="moody-center" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">Guests are allowed to bring one clear bag not exceeding 14″ x 14″ x 6″ or one non-clear small clutch/purse/wallet not exceeding 5″ x 9″ x 1.5″.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>One clear bag not exceeding 14″ x 14″ x 6″</li><li>One non-clear small clutch/purse/wallet not exceeding 5″ x 9″ x 1.5″</li></ul></div><div class="cvi-subcard"><span class="cvi-block-label deny">Not Allowed</span><ul class="cvi-list"><li>Professional cameras</li><li>Detachable lenses</li><li>External flash units</li><li>Recording equipment</li><li>Weapons</li><li>Noisemaking devices</li><li>Laptops and tablets</li><li>Bottles or cans</li></ul></div></div><a class="cvi-cta" href="https://moodycenteratx.com/arena-guide/" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">Parking is available at various garages near Moody Center, with pre-purchase options recommended. Manor Garage is pre-pay only and closest to ADA parking, while Trinity Garage is a short walk away. Expect traffic disruptions due to construction and plan accordingly.</p><div class="cvi-block"><span class="cvi-block-label ">Key Lots</span><ul class="cvi-list"><li>Manor Garage</li><li>Trinity Garage</li></ul></div><a class="cvi-cta" href="https://moodycenteratx.com/parking/" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">Moody Center offers a diverse range of food and beverage options, including market-style outlets with Austin favorites. Highlights include Shaq's hand-breaded chicken sandwich, build-your-own nachos, and New York style pizza. Various beverages and snacks are available throughout the venue.</p><div class="cvi-block"><span class="cvi-block-label ">Notable Stands</span><ul class="cvi-list"><li>MDE</li><li>Big Chicken</li><li>Chick-fil-A</li><li>Indeed Club</li><li>Dell Technologies Club</li></ul></div><a class="cvi-cta" href="https://moodycenteratx.com/food-beverage/" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><p class="cvi-desc">A passenger drop-off/pick-up point is available on the northwest side of the venue on Robert Dedman Dr.</p><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=30.28&dropoff[longitude]=-97.73&dropoff[nickname]=Moody%20Center" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=30.28&pickup[longitude]=-97.73&pickup[nickname]=Moody%20Center" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=30.28&destination[longitude]=-97.73" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=30.28&pickup[longitude]=-97.73" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -238,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/acl-live-at-the-moody-theater"><span class="nearby-name">ACL Live at The Moody Theater</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">1.1 mi away</span></a><a class="nearby-card" href="/venues/sxsw-music-film-interactive"><span class="nearby-name">SXSW (Music, Film &amp; Interactive)</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">1.3 mi away</span></a><a class="nearby-card" href="/venues/austin-city-limits-music-festival"><span class="nearby-name">Austin City Limits Music Festival</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">2.7 mi away</span></a><a class="nearby-card" href="/venues/frost-bank-center"><span class="nearby-name">Frost Bank Center</span><span class="nearby-city">San Antonio, TX</span><span class="nearby-dist">72.6 mi away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -250,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
