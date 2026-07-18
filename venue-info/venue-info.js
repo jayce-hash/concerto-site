@@ -95,6 +95,7 @@
   }
 
   async function render(el) {
+    if (el.getAttribute('data-static') === '1') return; // pre-rendered by build_static.py
     const slug = el.getAttribute('data-slug');
     const feats = (el.getAttribute('data-features') || 'bag,parking,concessions,rideshare')
       .split(',').map(s => s.trim()).filter(Boolean);
