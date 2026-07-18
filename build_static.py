@@ -948,6 +948,9 @@ COLOR_MAP = [
     ('#27AE60', '#128269'), ('#27ae60', '#128269'), ('rgba(39,174,96', 'rgba(18,130,105'),
     ('#D4820A', '#C07E1F'), ('#d4820a', '#c07e1f'), ('rgba(212,130,10', 'rgba(192,126,31'),
     ('#C0392B', '#B3402E'), ('#c0392b', '#b3402e'), ('rgba(192,57,43', 'rgba(179,64,46'),
+    # placeholder tile gradients: stock -> brand family
+    ('linear-gradient(135deg,#667eea,#764ba2)', 'linear-gradient(135deg,#121E36,#1B2B4E)'),
+    ('linear-gradient(135deg,#f093fb,#f5576c)', 'linear-gradient(135deg,#C9A84C,#E5C365)'),
 ]
 for p in PREMIUM_PAGES:
     if not os.path.exists(rp(p)): continue
