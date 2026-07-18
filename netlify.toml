@@ -4,7 +4,7 @@
 [build.environment]
   # Google Maps browser keys are referrer-restricted and must ship to the client,
   # so they are not real secrets. Tell Netlify's scanner to skip them.
-  SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY"
+  SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY,SUPABASE_URL"
 
 [[redirects]]
   from = "/cityguide/*"
