@@ -798,12 +798,24 @@ SEARCH_JS = '''
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function load(){ if(IDX) return Promise.resolve(IDX);
     return fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){IDX=d;return d;}).catch(function(){return {venues:[],tours:[]};}); }
+  function scoreOf(hay,q){ hay=hay.toLowerCase();
+    if(hay.indexOf(q)===-1) return -1;
+    if(hay.indexOf(q)===0) return 0;                      // starts with query
+    if(hay.indexOf(' '+q)>-1) return 1;                   // word boundary
+    return 2; }                                           // substring
   function match(q){ q=q.toLowerCase();
-    var vs=(IDX.venues||[]).filter(function(v){return v.name.toLowerCase().indexOf(q)>-1;}).slice(0,5)
-      .map(function(v){return {name:v.name, sub:v.type||'', href:'/venues/'+v.slug, type:'Venue'};});
-    var ts=(IDX.tours||[]).filter(function(t){return (t.name+' '+(t.artist||'')).toLowerCase().indexOf(q)>-1;}).slice(0,3)
-      .map(function(t){return {name:t.artist?t.artist:t.name, sub:t.artist?t.name:'', href:'/tours/'+t.slug, type:'Tour'};});
-    return vs.concat(ts).slice(0,8); }
+    var out=[];
+    (IDX.tours||[]).forEach(function(t){
+      var sA=scoreOf(t.artist||'',q), sN=scoreOf(t.name||'',q);
+      var s=Math.min(sA===-1?9:sA, sN===-1?9:sN);
+      if(s<9) out.push({s:s, name:t.artist?t.artist:t.name, sub:t.artist?t.name:'', href:'/tours/'+t.slug, type:'Tour'});
+    });
+    (IDX.venues||[]).forEach(function(v){
+      var s=scoreOf(v.name,q);
+      if(s>-1) out.push({s:s+0.5, name:v.name, sub:v.type||'', href:'/venues/'+v.slug, type:'Venue'});
+    });
+    out.sort(function(a,b){return a.s-b.s;});
+    return out.slice(0,8); }
   function render(items){ sel=-1;
     if(!items.length){ box.hidden=true; inp.setAttribute('aria-expanded','false'); return; }
     box.innerHTML=items.map(function(it){
