@@ -12,6 +12,9 @@
   <meta property="og:url" content="https://concertocity.com/venues/beyond-wonderland-socal" />
   <meta property="og:title" content="Beyond Wonderland SoCal, Bag Policy, Parking & City Guide" />
   <meta property="og:description" content="Know before you go to Beyond Wonderland SoCal. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png">
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
 {
@@ -337,7 +340,7 @@
     }
     const bgCanvas=document.getElementById('bgCanvas');let ticking=false;
     if(bgCanvas){
-      document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
+      if(bgCanvas)document.addEventListener('mousemove',e=>{if(!ticking){requestAnimationFrame(()=>{bgCanvas.style.transform=`translate(${(e.clientX/window.innerWidth-.5)*-15}px,${(e.clientY/window.innerHeight-.5)*-15}px)`;ticking=false;});ticking=true;}});
     }
 
     // Upcoming Events, Ticketmaster API
