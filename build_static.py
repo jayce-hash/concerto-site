@@ -758,6 +758,10 @@ if 'data.slice(0,6).map' in idx2 and 'photo?0:1' not in idx2:
 # ================= STAGE 9: hero venue/tour search + trust numbers =================
 idx9 = read('index.html')
 
+# See all Top Picks button: point at top-picks.html, not partners.html
+idx9 = idx9.replace('<a href="partners.html" class="btn btn-outline">See all Top Picks</a>',
+                    '<a href="top-picks.html" class="btn btn-outline">See all Top Picks</a>', 1)
+
 # numbers: 300+ -> 340+ (hero trust line + stats band + meta description)
 if 'data-count="300"' in idx9:
     idx9 = idx9.replace('data-count="300"', 'data-count="340"')
