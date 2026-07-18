@@ -647,26 +647,8 @@ async function doSearch(){
   }catch(err){ $('eventList').innerHTML='';$('statusLine').textContent='Search failed, check your connection';$('statusLine').classList.add('err'); }
 }
 
-async function tourFallback(){
-      const kw=$('kwInput').value.trim().toLowerCase();
-      try{
-        const idx=await fetch('/search-index.json').then(r=>r.json());
-        const hits=(idx.tours||[]).filter(t=>((t.artist||'')+' '+(t.name||'')).toLowerCase().includes(kw)).slice(0,3);
-        if(hits.length){
-          $('statusLine').textContent='Not in Ticketmaster\u2019s listings, but Concerto has the tour:';
-          $('statusLine').classList.remove('err');
-          $('eventList').innerHTML=hits.map(t=>'<a class="event-card" href="/tours/'+t.slug+'" style="text-decoration:none;color:inherit">'
-            +'<div style="flex:1"><div style="font-weight:600">'+(t.artist||t.name)+'</div>'
-            +'<div style="font-size:.78rem;color:var(--text-xdim)">'+(t.artist?t.name:'')+' \u00b7 Concerto Tour Guide</div></div>'
-            +'<span style="color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.06em;white-space:nowrap">VIEW TOUR \u2192</span></a>').join('');
-          return;
-        }
-      }catch(e){}
-      $('eventList').innerHTML='';
-      $('statusLine').textContent='No upcoming shows found, try another artist, a venue, or a city.';
-    }
-    function renderEvents(events){
-  if(!events.length){ tourFallback(); return; }
+function renderEvents(events){
+  if(!events.length){ $('eventList').innerHTML='';$('statusLine').textContent='No upcoming shows found, try another artist, a venue, or a city.';return; }
   $('statusLine').textContent=`${events.length} event${events.length===1?'':'s'} found`;
   $('manualEntryWrap').style.display='block';
   $('eventList').innerHTML=events.map(ev=>{
