@@ -185,11 +185,13 @@ Include 3-5 findings citing specific policy rules.`;
       const tmKey = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
       if (!tmKey) return { statusCode: 500, headers, body: JSON.stringify({ error: 'TM key not configured' }) };
       const { keyword, size = 10 } = body;
+      console.log('[TM DIAG]', JSON.stringify({ gotKeyword: keyword, keyLast4: (tmKey||'').slice(-4), bodyKeys: Object.keys(body) }));
       const url = `${TM}/events.json?apikey=${tmKey}`
         + `&keyword=${encodeURIComponent(keyword || '')}`
         + `&size=${Math.min(Number(size) || 10, 50)}&sort=date,asc&classificationName=music`;
       const response = await fetch(url);
       const data = await response.json();
+      console.log('[TM DIAG] status', response.status, 'total', data?.page?.totalElements, 'fault', JSON.stringify(data?.fault || data?.errors || null));
       return { statusCode: response.status, headers, body: JSON.stringify(data) };
     }
 
