@@ -327,6 +327,7 @@
   <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
 <style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
   <link rel="stylesheet" href="align.css" />
+  <script defer src="/analytics.js"></script>
 </head>
 <body class="page-app">
 <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
@@ -523,7 +524,7 @@
 <div class="caption-modal-overlay" id="captionModal">
   <div class="caption-sheet">
     <div class="caption-title">Add a caption (optional)</div>
-    <img class="caption-preview" id="captionPreview" src="" alt=""/>
+    <img loading="lazy" decoding="async" class="caption-preview" id="captionPreview" src="" alt=""/>
     <textarea class="caption-input" id="captionInput" rows="2" placeholder="What&rsquo;s happening here&hellip;" maxlength="120"></textarea>
     <div class="caption-actions">
       <button class="caption-btn skip" id="captionSkip">Skip</button>
@@ -721,7 +722,7 @@ function renderRecent() {
     const date=new Date(h.ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
     const badge=photos.length?` · ${photos.length} photo${photos.length!==1?'s':''}`:'';
     return`<div class="scrapbook-card" onclick="loadRecent(${i})">
-      <div class="scrapbook-thumb">${thumb?`<img src="${thumb}" alt=""/>`:'<span></span>'}</div>
+      <div class="scrapbook-thumb">${thumb?`<img loading="lazy" decoding="async" src="${thumb}" alt=""/>`:'<span></span>'}</div>
       <div class="scrapbook-info"><div class="scrapbook-artist">${h.artist}</div><div class="scrapbook-meta">${h.venue} · ${date}${badge}</div></div>
       <button class="scrapbook-del" onclick="event.stopPropagation();deleteShow(${i})" title="Remove"></button>
     </div>`;
@@ -794,7 +795,7 @@ function renderPhotoWall(){
   const wall=$('photoWall'),empty=$('momentsEmpty');
   if(!S.photos.length){wall.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
-  wall.innerHTML=S.photos.map((p,i)=>`<div class="photo-card"><img src="${p.dataUrl}" alt=""/><div class="photo-card-footer"><div class="photo-card-time">${p.time}</div>${p.caption?`<div class="photo-card-caption">${p.caption}</div>`:''}</div><button class="photo-card-del" onclick="deletePhoto(${i})"></button></div>`).join('');
+  wall.innerHTML=S.photos.map((p,i)=>`<div class="photo-card"><img loading="lazy" decoding="async" src="${p.dataUrl}" alt=""/><div class="photo-card-footer"><div class="photo-card-time">${p.time}</div>${p.caption?`<div class="photo-card-caption">${p.caption}</div>`:''}</div><button class="photo-card-del" onclick="deletePhoto(${i})"></button></div>`).join('');
 }
 function deletePhoto(i){S.photos.splice(i,1);savePhotos(S.artist);renderPhotoWall();showToast('Photo removed');}
 
@@ -833,7 +834,7 @@ function renderKeepsake(){
   else{heroImg.style.backgroundImage='';$('keepsakeHero').insertAdjacentHTML('afterbegin',`<div id="ksNoPhotoOverlay" style="position:absolute;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;"><div style="text-align:center"><div style="font-size:32px;opacity:.2;margin-bottom:8px"></div><div style="font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:rgba(248,249,249,.5)">${S.artist}</div></div></div>`);}
   $('ksStats').innerHTML=`<div class="keepsake-stat"><div class="keepsake-stat-num">${played.length}</div><div class="keepsake-stat-label">Songs</div></div><div class="keepsake-stat"><div class="keepsake-stat-num">${S.photos.length}</div><div class="keepsake-stat-label">Photos</div></div>`;
   const extras=S.photos.slice(1);
-  if(extras.length){$('ksPhotosWrap').style.display='block';$('ksPhotoGrid').innerHTML=extras.map(p=>`<div><img class="kp-img" src="${p.dataUrl}" alt=""/>${p.caption?`<div class="keepsake-photo-caption">${p.caption}</div>`:''}</div>`).join('');}
+  if(extras.length){$('ksPhotosWrap').style.display='block';$('ksPhotoGrid').innerHTML=extras.map(p=>`<div><img loading="lazy" decoding="async" class="kp-img" src="${p.dataUrl}" alt=""/>${p.caption?`<div class="keepsake-photo-caption">${p.caption}</div>`:''}</div>`).join('');}
   else{$('ksPhotosWrap').style.display='none';}
   if(played.length){$('ksSetlistWrap').style.display='block';$('ksSetlist').innerHTML=played.map((s,i)=>`<div class="keepsake-song"><div class="keepsake-song-num">${i+1}</div><div class="keepsake-song-name">${s.name}</div></div>`).join('');}
   else{$('ksSetlistWrap').style.display='none';}
@@ -900,7 +901,7 @@ function showStoryOverlay(dataUrl){
   const ex=document.getElementById('storyOverlay');if(ex)ex.remove();
   const overlay=document.createElement('div');overlay.id='storyOverlay';
   overlay.style.cssText='position:fixed;inset:0;z-index:600;background:#0E1A2B;display:flex;flex-direction:column;align-items:center;justify-content:center;';
-  overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100vh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
+  overlay.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(to bottom,rgba(14,26,43,1) 0%,transparent 100%);z-index:2;"><div style="font-family:'Playfair Display',serif;font-size:16px;color:rgba(248,249,249,.7)">Your Story Card</div><button id="storyOverlayClose" style="width:36px;height:36px;border-radius:50%;background:rgba(248,249,249,.12);border:1px solid rgba(248,249,249,.18);color:#F8F9F9;font-size:16px;display:grid;place-items:center;cursor:pointer;"></button></div><img loading="lazy" decoding="async" src="${dataUrl}" style="width:100%;max-width:420px;max-height:calc(100vh - 120px);object-fit:contain;display:block;"/><div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px 36px;background:linear-gradient(to top,rgba(14,26,43,1) 0%,transparent 100%);text-align:center;z-index:2;"><div style="font-size:13px;color:rgba(248,249,249,.5);line-height:1.7;">Press &amp; hold the image to save it,<br>then share to your Instagram Story.</div></div>`;
   document.body.appendChild(overlay);
   document.getElementById('storyOverlayClose').addEventListener('click',()=>overlay.remove());
 }
@@ -941,7 +942,7 @@ try{if(!localStorage.getItem('lm_ob_seen'))setTimeout(()=>{if(document.getElemen
 <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="logo.png" alt="Concerto" width="160" height="44" />
+        <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44" />
         <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
       </div>
       <nav class="footer-col" aria-label="Company links">
