@@ -182,8 +182,10 @@ Include 3-5 findings citing specific policy rules.`;
 
     // ── Ticketmaster (authenticated keyword search — used by Concerto+) ──
     if (service === 'ticketmaster') {
+      const tmKey = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
+      if (!tmKey) return { statusCode: 500, headers, body: JSON.stringify({ error: 'TM key not configured' }) };
       const { keyword, size = 10 } = body;
-      const url = `${TM}/events.json?apikey=${process.env.TICKETMASTER_API_KEY}`
+      const url = `${TM}/events.json?apikey=${tmKey}`
         + `&keyword=${encodeURIComponent(keyword || '')}`
         + `&size=${Math.min(Number(size) || 10, 50)}&sort=date,asc&classificationName=music`;
       const response = await fetch(url);
