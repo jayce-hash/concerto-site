@@ -290,10 +290,12 @@
 
   <script>
     const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');
+    if(featuresBtn&&featuresPanel){
     featuresBtn.addEventListener('click',(e)=>{e.stopPropagation();const o=featuresPanel.classList.toggle('open');featuresBtn.classList.toggle('open',o);featuresBtn.setAttribute('aria-expanded',o);});
     document.addEventListener('click',()=>{featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);});
     featuresPanel.addEventListener('click',e=>e.stopPropagation());
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){featuresPanel.classList.remove('open');featuresBtn.classList.remove('open');featuresBtn.setAttribute('aria-expanded',false);}});
+    }
     const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}){threshold:0.06});
     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     document.querySelectorAll('.quick-pill').forEach(p=>{p.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(p.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
@@ -433,7 +435,8 @@
   }));
 })();
 </script>
-  <script src="../auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../auth.js"></script>
   <script src="../app-shell.js"></script>
 </body>
 </html>
