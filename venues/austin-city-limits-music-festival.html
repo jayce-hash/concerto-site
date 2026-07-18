@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Austin City Limits Music Festival, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Austin City Limits Music Festival, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Austin City Limits Music Festival Bag Policy, Parking &amp; City Guide | Austin | Concerto</title>
+  <meta name="description" content="Everything you need for Austin City Limits Music Festival in Austin, TX: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/austin-city-limits-music-festival" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Austin City Limits Music Festival. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Austin City Limits Music Festival",
-    "url": "https://concertocity.com/venues/austin-city-limits-music-festival",
-    "description": "Venue guide for Austin City Limits Music Festival, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicVenue",
+      "name": "Austin City Limits Music Festival",
+      "url": "https://concertocity.com/venues/austin-city-limits-music-festival",
+      "description": "Venue guide for Austin City Limits Music Festival, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "addressCountry": "USA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.2667,
+        "longitude": -97.7729
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Austin City Limits Music Festival",
+          "item": "https://concertocity.com/venues/austin-city-limits-music-festival"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Austin City Limits Music Festival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No backpacks or large bags over 11”x17” are allowed. Diaper and medical bags are permitted. Not allowed: Backpacks, Large bags over 11”x17”."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Austin City Limits Music Festival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no official parking garage affiliated with the venue, but nearby options are available. Limited valet parking is offered at the W Hotel for ACL Live ticketholders on a first-come, first-served basis. Metered parking starts at $2 per hour and varies by time and day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Austin City Limits Music Festival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The venue is cashless, and all concessions, bars, and merchandise stands accept credit/debit cards and mobile payments only. No specific food or drink options are detailed on the page."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -159,8 +226,9 @@
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
   <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body class="page-venue">
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -197,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Austin City Limits Music Festival</p>
       <span class="eyebrow">Venue Guide</span>
@@ -219,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="austin-city-limits-music-festival" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="austin-city-limits-music-festival" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">No backpacks or large bags over 11”x17” are allowed. Diaper and medical bags are permitted.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>Diaper bags</li><li>Medical bags</li></ul></div><div class="cvi-subcard"><span class="cvi-block-label deny">Not Allowed</span><ul class="cvi-list"><li>Backpacks</li><li>Large bags over 11”x17”</li></ul></div></div><div class="cvi-block"><span class="cvi-block-label ">Extra Notes</span><p class="cvi-desc">Diaper and medical bags are permitted.</p></div><a class="cvi-cta" href="https://www.acllive.com/plan-your-visit/know-before-you-go" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">There is no official parking garage affiliated with the venue, but nearby options are available. Limited valet parking is offered at the W Hotel for ACL Live ticketholders on a first-come, first-served basis. Metered parking starts at $2 per hour and varies by time and day.</p><a class="cvi-cta" href="https://www.acllive.com/plan-your-visit/know-before-you-go/directions-parking-transportation" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">The venue is cashless, and all concessions, bars, and merchandise stands accept credit/debit cards and mobile payments only. No specific food or drink options are detailed on the page.</p><a class="cvi-cta" href="https://www.acllive.com/plan-your-visit/know-before-you-go" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><p class="cvi-desc">Let Lyft be your ride to the action! Use code ACLLIVELYFT for 50% off your first 2 rides (up to $10/ride).</p><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=30.2667&dropoff[longitude]=-97.7729&dropoff[nickname]=Austin%20City%20Limits%20Music%20Festival" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=30.2667&pickup[longitude]=-97.7729&pickup[nickname]=Austin%20City%20Limits%20Music%20Festival" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=30.2667&destination[longitude]=-97.7729" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=30.2667&pickup[longitude]=-97.7729" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -239,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/acl-live-at-the-moody-theater"><span class="nearby-name">ACL Live at The Moody Theater</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">2.8 km away</span></a><a class="nearby-card" href="/venues/sxsw-music-film-interactive"><span class="nearby-name">SXSW (Music, Film &amp; Interactive)</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">3.2 km away</span></a><a class="nearby-card" href="/venues/moody-center"><span class="nearby-name">Moody Center</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">4.4 km away</span></a><a class="nearby-card" href="/venues/frost-bank-center"><span class="nearby-name">Frost Bank Center</span><span class="nearby-city">San Antonio, TX</span><span class="nearby-dist">113.3 km away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -251,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
