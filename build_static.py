@@ -1047,3 +1047,26 @@ for p in PREMIUM_PAGES:
         write(p, s.replace(OLD_CLIENT, NEW_CLIENT))
         shared += 1
 print('shared supabase client on', shared, 'pages')
+
+# ================= STAGE 13: account page repair =================
+# account.html wired a signOutBtn that no longer existed (crash killed init(),
+# blank page) and loaded auth.js twice (const redeclaration SyntaxError).
+acct = read('account.html')
+ch13 = False
+if 'id="signOutBtn"' not in acct and 'id="resetPwBtn"' in acct:
+    acct = re.sub(
+        r'(<div class="settings-row">\s*<span class="settings-label">Password</span>\s*<button class="settings-edit" id="resetPwBtn">[^<]*</button>\s*</div>)',
+        r'''\1
+          <div class="settings-row">
+            <span class="settings-label">Session</span>
+            <button class="settings-edit" id="signOutBtn">Sign Out</button>
+          </div>''', acct, count=1)
+    ch13 = 'id="signOutBtn"' in acct
+# drop the duplicate trailing auth.js include (keep the one before the inline app script)
+if acct.count('<script src="auth.js"></script>') > 1:
+    i = acct.rfind('<script src="auth.js"></script>')
+    acct = acct[:i] + acct[i:].replace('<script src="auth.js"></script>', '', 1)
+    ch13 = True
+if ch13:
+    write('account.html', acct)
+    print('account.html repaired (sign-out row + duplicate auth.js removed)')
