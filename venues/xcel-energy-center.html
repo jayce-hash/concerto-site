@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Xcel Energy Center, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Xcel Energy Center, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Xcel Energy Center Bag Policy, Parking &amp; City Guide | St. Paul | Concerto</title>
+  <meta name="description" content="Everything you need for Xcel Energy Center in St. Paul, MN: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/xcel-energy-center" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Xcel Energy Center. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Xcel Energy Center",
-    "url": "https://concertocity.com/venues/xcel-energy-center",
-    "description": "Venue guide for Xcel Energy Center, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "StadiumOrArena",
+      "name": "Xcel Energy Center",
+      "url": "https://concertocity.com/venues/xcel-energy-center",
+      "description": "Venue guide for Xcel Energy Center, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "St. Paul",
+        "addressRegion": "MN",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.9442,
+        "longitude": -93.1017
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Xcel Energy Center",
+          "item": "https://concertocity.com/venues/xcel-energy-center"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Xcel Energy Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For safety and speed of entry, bags are discouraged at events. Purses up to 12” x 12” x 6” are allowed at designated X-ray entry points. Wristlets, clutches, or wallets 4” x 6” x 1.5” or smaller are permitted at all entrances. Not allowed: Backpacks, Coolers, Large totes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Xcel Energy Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parking is available at RiverCentre and Kellogg Parking Ramps, both connected to the arena. Event day parking is first come, first served, and ParkWhiz reservations are not available for these ramps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Xcel Energy Center?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Xcel Energy Center offers a variety of food and drink options including traditional sausages, craft beers, pizza, burgers, and more. Special offerings include the Wild $6 Happy Hour and the Wild Market with Amazon’s Just Walk Out technology. Alcohol sales end during the third period of Minnesota Wild games or one hour before the end of other events."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -158,8 +225,10 @@
   .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
+  <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body>
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -196,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Xcel Energy Center</p>
       <span class="eyebrow">Venue Guide</span>
@@ -218,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="xcel-energy-center" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="xcel-energy-center" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">For safety and speed of entry, bags are discouraged at events. Purses up to 12” x 12” x 6” are allowed at designated X-ray entry points. Wristlets, clutches, or wallets 4” x 6” x 1.5” or smaller are permitted at all entrances.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>Purses no larger than 12” x 12” x 6”</li><li>Wristlet, clutch or wallets 4” x 6” x 1.5” or smaller</li></ul></div><div class="cvi-subcard"><span class="cvi-block-label deny">Not Allowed</span><ul class="cvi-list"><li>Backpacks</li><li>Coolers</li><li>Large totes</li></ul></div></div><div class="cvi-block"><span class="cvi-block-label ">Extra Notes</span><p class="cvi-desc">Medical and parenting bags are permitted and subject to X-ray screening.</p></div><a class="cvi-cta" href="https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">Parking is available at RiverCentre and Kellogg Parking Ramps, both connected to the arena. Event day parking is first come, first served, and ParkWhiz reservations are not available for these ramps.</p><div class="cvi-block"><span class="cvi-block-label ">Key Lots</span><ul class="cvi-list"><li>RiverCentre Parking Ramp</li><li>Kellogg Parking Ramp</li></ul></div><a class="cvi-cta" href="https://www.grandcasinoarena.com/plan-your-visit/parking" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">Xcel Energy Center offers a variety of food and drink options including traditional sausages, craft beers, pizza, burgers, and more. Special offerings include the Wild $6 Happy Hour and the Wild Market with Amazon’s Just Walk Out technology. Alcohol sales end during the third period of Minnesota Wild games or one hour before the end of other events.</p><div class="cvi-block"><span class="cvi-block-label ">Notable Stands</span><ul class="cvi-list"><li>Wild Market</li><li>Sausage Haus</li><li>Craft Beers</li><li>Red Baron Pizza</li><li>J&amp;Rs Dough Shop</li><li>Market House Sausage Cart</li><li>City Burger</li><li>Philly Post</li><li>Grab &amp; Go</li><li>Soft-Serve Ice Cream</li><li>Food Court</li><li>Wild Greens</li><li>The Still by Cutwater Spirits</li><li>Wild Grill</li></ul></div><a class="cvi-cta" href="https://www.grandcasinoarena.com/plan-your-visit/dine-with-us/concessions" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><p class="cvi-desc">Gate 4 on 5th Street is the official pick-up and drop-off location for ride share services.</p><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=44.9442&dropoff[longitude]=-93.1017&dropoff[nickname]=Xcel%20Energy%20Center" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=44.9442&pickup[longitude]=-93.1017&pickup[nickname]=Xcel%20Energy%20Center" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=44.9442&destination[longitude]=-93.1017" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=44.9442&pickup[longitude]=-93.1017" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -238,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/grand-casino-arena"><span class="nearby-name">Grand Casino Arena</span><span class="nearby-city">Saint Paul, MN</span><span class="nearby-dist">0.3 mi away</span></a><a class="nearby-card" href="/venues/the-armory"><span class="nearby-name">The Armory</span><span class="nearby-city">Minneapolis, MN</span><span class="nearby-dist">7.7 mi away</span></a><a class="nearby-card" href="/venues/us-bank-stadium"><span class="nearby-name">U.S. Bank Stadium</span><span class="nearby-city">Minneapolis, MN</span><span class="nearby-dist">7.9 mi away</span></a><a class="nearby-card" href="/venues/fillmore-minneapolis-presented-by-affinity-plus"><span class="nearby-name">Fillmore Minneapolis presented by Affinity Plus</span><span class="nearby-city">Minneapolis, MN</span><span class="nearby-dist">8.8 mi away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -250,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
