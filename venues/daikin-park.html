@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
-  <title>Daikin Park, Bag Policy, Parking, Concessions & City Guide | Concerto</title>
-  <meta name="description" content="Everything you need for Daikin Park, bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
+  <title>Daikin Park Bag Policy, Parking &amp; City Guide | Houston | Concerto</title>
+  <meta name="description" content="Everything you need for Daikin Park in Houston, TX: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://concertocity.com/venues/daikin-park" />
   <meta property="og:type" content="website" />
@@ -14,13 +14,80 @@
   <meta property="og:description" content="Know before you go to Daikin Park. Bag policies, parking, concessions, rideshare, and city guides, all in one place." />
   <meta property="og:site_name" content="Concerto" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CivicStructure",
-    "name": "Daikin Park",
-    "url": "https://concertocity.com/venues/daikin-park",
-    "description": "Venue guide for Daikin Park, bag policies, parking, concessions, rideshare, and city guides for concertgoers."
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicVenue",
+      "name": "Daikin Park",
+      "url": "https://concertocity.com/venues/daikin-park",
+      "description": "Venue guide for Daikin Park, bag policies, parking, concessions, rideshare, and city guides for concertgoers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.7573,
+        "longitude": -95.3555
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://concertocity.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Venues",
+          "item": "https://concertocity.com/venues.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Daikin Park",
+          "item": "https://concertocity.com/venues/daikin-park"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the bag policy at Daikin Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daikin Park enforces a clear bag policy to ensure fan safety and expedite entry. Approved bags include clear bags up to 12” x 6” x 12” and small clutches no larger than 6.5” x 4.5”. Not allowed: Backpacks, Bags and wallets exceeding 6.5\" x 4.5\", Non-approved seat cushions, Luggage, Computer bags, Camera bags."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I park at Daikin Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daikin Park is in downtown Houston with roughly 25,000 parking spaces in nearby garages and lots within walking distance. The Astros operate Lots A, B, C and H near the gates; Lot C passes (about $15) can be pre-purchased via Ticketmaster, while city garages a short walk away are often cheaper. The METRORail Red Line's Convention District stop is about five minutes away."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What food and drink options are at Daikin Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daikin Park offers a variety of food and drink options, including classic comfort foods with modern twists and indulgent ballpark classics. Highlights include specialty items like the Bacon Wrapped Hot Dog, Pastrami Fry, and a selection of local and popular beers. Sweet treats like Soft Serve and Milkshakes are also available."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -158,8 +225,10 @@
   .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
   .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
   </style>
+  <link rel="stylesheet" href="../align.css">
+  <script defer src="/analytics.js"></script>
 </head>
-<body>
+<body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
   <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
@@ -196,7 +265,7 @@
       </div>
     </div>
 
-  <main>
+  <main id="main-content">
     <div class="venue-hero">
       <p class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../venues.html">Venues</a> &rsaquo; Daikin Park</p>
       <span class="eyebrow">Venue Guide</span>
@@ -218,7 +287,15 @@
     <!-- Venue Info (unified: bag, parking, concessions, rideshare) -->
     <link rel="stylesheet" href="/venue-info/venue-info.css">
     <div class="venue-info-wrap reveal">
-      <div class="cvi" data-slug="daikin-park" data-features="bag,parking,concessions,rideshare"></div>
+      <div class="cvi" data-slug="daikin-park" data-features="bag,parking,concessions,rideshare" data-static="1"><section class="cvi-feature" id="bag"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Know Before You Go</span>
+      <h2 class="cvi-title">Bag Policy</h2></div><p class="cvi-desc">Daikin Park enforces a clear bag policy to ensure fan safety and expedite entry. Approved bags include clear bags up to 12” x 6” x 12” and small clutches no larger than 6.5” x 4.5”.</p><div class="cvi-subgrid"><div class="cvi-subcard"><span class="cvi-block-label allow">Allowed</span><ul class="cvi-list"><li>Clear Bags (Plastic, vinyl or PVC) up to 12” x 6” x 12”</li><li>Plastic Storage Bag 1 Gallon</li><li>Small Clutch Bags/Wallets no larger than 6.5” x 4.5”</li><li>Seat cushions without pockets, zippers or concealable areas up to 18” wide</li></ul></div><div class="cvi-subcard"><span class="cvi-block-label deny">Not Allowed</span><ul class="cvi-list"><li>Backpacks</li><li>Bags and wallets exceeding 6.5&quot; x 4.5&quot;</li><li>Non-approved seat cushions</li><li>Luggage</li><li>Computer bags</li><li>Camera bags</li><li>Briefcases</li><li>Fanny packs</li><li>Cinch bags</li></ul></div></div><div class="cvi-block"><span class="cvi-block-label ">Extra Notes</span><p class="cvi-desc">Diaper bags and medical bags are exceptions.</p></div><a class="cvi-cta" href="https://www.mlb.com/astros/ballpark/information/guide#p-content" target="_blank" rel="noopener noreferrer">View Full Policy &rarr;</a></section><section class="cvi-feature" id="parking"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Getting There</span>
+      <h2 class="cvi-title">Parking</h2></div><p class="cvi-desc">Daikin Park is in downtown Houston with roughly 25,000 parking spaces in nearby garages and lots within walking distance. The Astros operate Lots A, B, C and H near the gates; Lot C passes (about $15) can be pre-purchased via Ticketmaster, while city garages a short walk away are often cheaper. The METRORail Red Line's Convention District stop is about five minutes away.</p><div class="cvi-block"><span class="cvi-block-label ">Key Lots</span><ul class="cvi-list"><li>Lot A</li><li>Lot B</li><li>Lot C</li><li>Lot H</li><li>Downtown Houston garages</li></ul></div><a class="cvi-cta" href="https://www.mlb.com/astros/ballpark/parking" target="_blank" rel="noopener noreferrer">View Official Parking Guide &rarr;</a></section><section class="cvi-feature" id="concessions"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Inside the Venue</span>
+      <h2 class="cvi-title">Concessions</h2></div><p class="cvi-desc">Daikin Park offers a variety of food and drink options, including classic comfort foods with modern twists and indulgent ballpark classics. Highlights include specialty items like the Bacon Wrapped Hot Dog, Pastrami Fry, and a selection of local and popular beers. Sweet treats like Soft Serve and Milkshakes are also available.</p><div class="cvi-block"><span class="cvi-block-label ">Notable Stands</span><ul class="cvi-list"><li>Beer Garden</li><li>Bridges Grille</li><li>Cadillac Diner</li><li>Coop &amp; Kennel Pub</li><li>Golden Spike Chophouse</li></ul></div><a class="cvi-cta" href="https://www.mlb.com/astros/ballpark/information/concessions" target="_blank" rel="noopener noreferrer">View Official Concessions Guide &rarr;</a></section><section class="cvi-feature" id="rideshare"><div class="cvi-feature-head">
+      <span class="cvi-eyebrow">Uber &amp; Lyft</span>
+      <h2 class="cvi-title">Rideshare</h2></div><div class="cvi-block"><span class="cvi-block-label ">Use Rideshare Apps</span><div class="cvi-ride-grid"><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=29.7573&dropoff[longitude]=-95.3555&dropoff[nickname]=Daikin%20Park" target="_blank" rel="noopener noreferrer">Uber to Venue</a><a class="cvi-btn" href="https://m.uber.com/ul/?action=setPickup&pickup[latitude]=29.7573&pickup[longitude]=-95.3555&pickup[nickname]=Daikin%20Park" target="_blank" rel="noopener noreferrer">Uber from Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?destination[latitude]=29.7573&destination[longitude]=-95.3555" target="_blank" rel="noopener noreferrer">Lyft to Venue</a><a class="cvi-btn" href="https://ride.lyft.com/?pickup[latitude]=29.7573&pickup[longitude]=-95.3555" target="_blank" rel="noopener noreferrer">Lyft from Venue</a></div></div></section></div>
     </div>
     <script src="/venue-info/venue-info.js" defer></script>
 
@@ -238,6 +315,13 @@
       </div>
     </section>
 
+    
+    <!-- Nearby Venues (generated by build_static.py) -->
+    <section class="nearby-section reveal">
+      <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
+      <div class="nearby-grid"><a class="nearby-card" href="/venues/toyota-center"><span class="nearby-name">Toyota Center</span><span class="nearby-city">Houston, TX</span><span class="nearby-dist">0.6 mi away</span></a><a class="nearby-card" href="/venues/713-music-hall"><span class="nearby-name">713 Music Hall</span><span class="nearby-city">Houston, TX</span><span class="nearby-dist">0.6 mi away</span></a><a class="nearby-card" href="/venues/nrg-stadium"><span class="nearby-name">NRG Stadium</span><span class="nearby-city">Houston, TX</span><span class="nearby-dist">6.0 mi away</span></a><a class="nearby-card" href="/venues/moody-center"><span class="nearby-name">Moody Center</span><span class="nearby-city">Austin, TX</span><span class="nearby-dist">146.6 mi away</span></a></div>
+    </section>
+
     <!-- App CTA -->
     <div class="app-cta">
       <div class="app-cta-copy">
@@ -250,7 +334,7 @@
 
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand"><img src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
+      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
       <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
       <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
       <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
