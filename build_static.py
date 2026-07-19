@@ -7,7 +7,7 @@ skip links, analytics hook, and generates static city guide pages.
 Idempotent: safe to re-run after data/*.json changes.
 Run from the site root:  python3 build_static.py
 """
-import json, math, os, re, sys, html.parser
+import json, math, os, re, sys, glob, urllib.parse, html.parser
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 def rp(*p): return os.path.join(ROOT, *p)
@@ -1231,3 +1231,126 @@ if _leaks:
     for _l in _leaks: print('  ', _l)
 else:
     print('link hygiene: no leaked internal hosts')
+
+# ================= STAGE 18: "Near the Venue" tabs (restaurants/hotels/more) =================
+# Bakes nearby.json into each venue page as a tabbed section (data inlined, no
+# runtime fetch, no per-view API cost). Hotels route through affiliate.js;
+# restaurants/attractions get directions links. Placed before the app CTA.
+# Intact insertion: we ADD a section, we do not dissect existing markup.
+import json as _json18, html as _html18
+_NB = _json18.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
+
+def _price18(p):
+    return '$' * p if isinstance(p, int) and p > 0 else ''
+
+def _stars18(it):
+    if it.get('rating'):
+        rev = it.get('reviews') or 0
+        return f"&#9733; {it['rating']} ({rev:,})"
+    return ''
+
+def _card18(it, tab):
+    name = _html18.escape(str(it.get('name') or ''))
+    dist = f"{it['distance_mi']} mi" if it.get('distance_mi') is not None else ''
+    meta = '  &middot;  '.join(x for x in [dist, _stars18(it), _price18(it.get('price'))] if x)
+    q = urllib.parse.quote(f"{it.get('name','')} {it.get('address','')}")
+    if tab == 'hotels':
+        # affiliate.js turns this into a Booking link with venue coords when an id is set;
+        # data-aff marks it for the affiliate layer + disclosure note.
+        cta = f'<a class="nv-cta" data-aff="hotel" data-lat="{it.get("lat","")}" data-lng="{it.get("lng","")}" data-name="{name}" href="https://www.google.com/maps/search/?api=1&amp;query={q}" target="_blank" rel="noopener">Book &rarr;</a>'
+    else:
+        cta = f'<a class="nv-cta nv-dir" href="https://www.google.com/maps/search/?api=1&amp;query={q}" target="_blank" rel="noopener">Directions &rarr;</a>'
+    return (f'<div class="nv-item"><div class="nv-item-main"><div class="nv-item-name">{name}</div>'
+            f'<div class="nv-item-meta">{meta}</div></div>{cta}</div>')
+
+def _section18(slug, venue_name):
+    data = _NB.get(slug, {})
+    tabs = data.get('tabs', {})
+    order = [('restaurants', 'Restaurants'), ('hotels', 'Hotels'), ('more', 'More')]
+    btns, panels = [], []
+    for i, (key, label) in enumerate(order):
+        items = tabs.get(key, {}).get('items', [])
+        # keep lodging out of the restaurants tab (Google double-tags some)
+        if key == 'restaurants':
+            items = [it for it in items if 'lodging' not in (it.get('types') or [])]
+        active = ' nv-on' if i == 0 else ''
+        btns.append(f'<button class="nv-tab{active}" data-nv="{key}">{label} near {_html18.escape(venue_name)}</button>')
+        if items:
+            body = ''.join(_card18(it, key) for it in items)
+        else:
+            body = ('<div class="nv-empty">This is a destination venue &mdash; '
+                    'plan to travel in. Nothing notable within range.</div>')
+        panels.append(f'<div class="nv-panel{active}" data-nv-panel="{key}">{body}</div>')
+    return (
+        '<section class="nv-section reveal" aria-label="Near the venue">'
+        f'<div class="nv-head"><span class="eyebrow">The Neighborhood</span>'
+        f'<h2>Near {_html18.escape(venue_name)}</h2></div>'
+        f'<div class="nv-tabs">{"".join(btns)}</div>'
+        f'<div class="nv-panels">{"".join(panels)}</div>'
+        '<p class="nv-note">Distances from the venue &middot; ratings via Google &middot; '
+        'Concerto may earn a commission on hotel bookings.</p>'
+        '<script>(function(){var s=document.currentScript.closest(".nv-section");'
+        's.querySelectorAll(".nv-tab").forEach(function(b){b.addEventListener("click",function(){'
+        'var k=b.dataset.nv;s.querySelectorAll(".nv-tab").forEach(function(x){x.classList.toggle("nv-on",x===b)});'
+        's.querySelectorAll(".nv-panel").forEach(function(p){p.classList.toggle("nv-on",p.dataset.nvPanel===k)});'
+        '});});})();</script>'
+        '</section>'
+    )
+
+_nv_count = 0
+for _vf in glob.glob(rp('venues', '*.html')):
+    _slug = os.path.basename(_vf)[:-5]
+    _s = read(os.path.join('venues', os.path.basename(_vf)))
+    if 'nv-section' in _s:
+        # idempotent: replace existing block
+        _s = re.sub(r'<section class="nv-section reveal".*?</section>', '', _s, flags=re.S)
+    _vn = _NB.get(_slug, {}).get('venueName') or _slug.replace('-', ' ').title()
+    _sec = _section18(_slug, _vn)
+    # insert before the app-cta div
+    _anchor = '<div class="app-cta">'
+    if _anchor in _s:
+        _s = _s.replace(_anchor, _sec + '\n      ' + _anchor, 1)
+        write(os.path.join('venues', os.path.basename(_vf)), _s)
+        _nv_count += 1
+print(f'near-venue tabs baked into {_nv_count} pages')
+
+# ================= STAGE 19: near-venue section styling =================
+NV_CSS = '''
+/* ---- 17. Near the Venue tabs (generated by build_static.py) ---- */
+.nv-section { max-width: 1280px; margin: 0 auto; padding: 3.5rem 4% 1rem; }
+.nv-head { margin-bottom: 1.5rem; }
+.nv-head h2 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0.3rem 0 0; }
+.nv-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.nv-tab { padding: 0.6rem 1.1rem; border-radius: 99px; border: 1px solid var(--border-mid);
+  background: transparent; color: var(--text-dim); font-family: var(--body);
+  font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.18s; white-space: nowrap; }
+.nv-tab:hover { border-color: var(--text); color: var(--text); }
+.nv-tab.nv-on { background: var(--text); color: var(--bg); border-color: var(--text); }
+.nv-panel { display: none; }
+.nv-panel.nv-on { display: block; }
+.nv-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; background: var(--card-bg, #fff); border: 1px solid var(--border-light, #eee);
+  border-radius: 14px; margin-bottom: 0.6rem; }
+.nv-item-name { font-family: var(--body); font-size: 0.98rem; font-weight: 600; color: var(--text); }
+.nv-item-meta { font-family: var(--body); font-size: 0.82rem; color: var(--text-dim); margin-top: 0.15rem; }
+.nv-cta { font-family: var(--body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
+  text-decoration: none; white-space: nowrap; color: var(--gold); }
+.nv-cta.nv-dir { color: var(--text-dim); }
+.nv-cta:hover { color: var(--text); }
+.nv-empty { padding: 1.5rem 1.25rem; font-family: var(--body); font-size: 0.92rem;
+  color: var(--text-dim); background: var(--card-bg, #fafafa); border: 1px dashed var(--border-mid);
+  border-radius: 14px; line-height: 1.6; }
+.nv-note { font-family: var(--body); font-size: 0.72rem; color: var(--text-dim);
+  margin-top: 1rem; opacity: 0.8; }
+@media (max-width: 600px) {
+  .nv-section { padding: 2.5rem 5% 1rem; }
+  .nv-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .nv-tabs::-webkit-scrollbar { display: none; }
+  .nv-item { padding: 0.85rem 1rem; }
+}
+'''
+_ac19 = read('align.css')
+if '17. Near the Venue tabs' not in _ac19:
+    write('align.css', _ac19 + NV_CSS)
+    print('align.css: near-venue styling appended')
