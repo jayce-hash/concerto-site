@@ -1392,63 +1392,97 @@ if '17. Near the Venue tabs + filters' not in _ac:
     write('align.css', _ac + NV_CSS)
     print('align.css: near-venue styling (w/ filters) appended')
 
-# ================= STAGE 20: sticky jump-nav (all modules stay visible) =================
-# NON-DESTRUCTIVE: adds id anchors to existing sections (in place, no extraction)
-# and injects a sticky nav bar that smooth-scrolls to each module + scroll-spies
-# the active tab. All content stays on the page as stacked modules.
-_JN = [
-    ('vg-guide',  'City Guide',          'class="nv-section reveal"'),
-    ('vg-live',   'Live at {vn}',        'class="events-section reveal"'),
-    ('vg-know',   'Know Before You Go',  'class="venue-info-wrap'),
-    ('vg-explore','Explore More',        'class="nearby-section reveal"'),
-]
-_jn=0
+# ================= STAGE 20: sticky jump-nav + module ordering =================
+# Reorders the intact module blocks to match the nav (City Guide, Live, Know,
+# Explore), adds id anchors, and injects a sticky scroll-spy nav. Reorder makes
+# DOM order == nav order so scrolling and clicking agree. Non-destructive to
+# block internals; validates div-balance before writing.
+def _bal2(html, marker):
+    i=html.find(marker)
+    if i<0: return None
+    o=html.rfind('<',0,i+1)
+    t=re.match(r'<(\w+)',html[o:]).group(1)
+    depth=0; j=o
+    while j<len(html):
+        if html[j:j+len(t)+1]=='<'+t: depth+=1; j+=len(t)+1; continue
+        if html[j:j+len(t)+3]=='</'+t+'>':
+            depth-=1; j+=len(t)+3
+            if depth==0: return (o,j)
+            continue
+        j+=1
+    return None
+
+_jn=0; _jnskip=0
 for _vf in glob.glob(rp('venues','*.html')):
     _fn=os.path.basename(_vf)
     _s=read(os.path.join('venues',_fn))
-    if 'vg-nav' in _s:  # idempotent: strip prior nav + ids, rebuild
-        _s=re.sub(r'<nav class="vg-nav".*?</nav>','',_s,flags=re.S)
-        _s=re.sub(r'\s+id="vg-(?:guide|live|know|explore)"','',_s)
-    vn=_NB.get(_fn[:-5],{}).get('venueName') or _fn[:-5].replace('-',' ').title()
-    # attach id anchors to the existing section open-tags (in place)
-    present=[]
-    for aid,label,marker in _JN:
-        i=_s.find(marker)
-        if i<0: continue
-        tag_open=_s.rfind('<',0,i+1)
-        # insert id right after the tag name
-        m=re.match(r'(<\w+)',_s[tag_open:])
-        _s=_s[:tag_open]+m.group(1)+f' id="{aid}"'+_s[tag_open+len(m.group(1)):]
-        present.append((aid,label.format(vn=_h18.escape(vn))))
-    if not present: continue
-    # build sticky nav, insert right after venue-hero
-    links=''.join(f'<a class="vg-navlink" data-vg="{aid}" href="#{aid}">{label}</a>' for aid,label in present)
-    nav=(f'<nav class="vg-nav" aria-label="Venue sections"><div class="vg-nav-inner">{links}</div>'
-         '<script>(function(){var n=document.currentScript.closest(".vg-nav");'
-         'var links=[].slice.call(n.querySelectorAll(".vg-navlink"));'
-         'var secs=links.map(function(l){return document.getElementById(l.dataset.vg)});'
-         'links.forEach(function(l){l.addEventListener("click",function(e){e.preventDefault();'
-         'var t=document.getElementById(l.dataset.vg);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"});});});'
-         'function spy(){var y=window.pageYOffset+90;var act=links[0];'
-         'secs.forEach(function(s,i){if(s&&s.offsetTop<=y)act=links[i]});'
-         'links.forEach(function(l){l.classList.toggle("vg-on",l===act)});}'
-         'window.addEventListener("scroll",spy,{passive:true});spy();})();</script></nav>')
-    hb=_bal(_s,'class="venue-hero"') if '_bal' in dir() else None
-    # insert after venue-hero close
-    hi=_s.find('class="venue-hero"')
-    ho=_s.rfind('<',0,hi+1)
-    # balanced close of venue-hero
-    depth=0; j=ho; tag='div' if _s[ho:ho+4]=='<div' else 'section'
+    # hard reset any prior jump-nav artifacts
+    _s=re.sub(r'<nav class="vg-nav".*?</nav>','',_s,flags=re.S)
+    _s=re.sub(r'\s+id="vg-(?:guide|live|know|explore)"','',_s)
+    # extract the four modules in NAV order
+    _order=[('vg-guide','City Guide','class="nv-section reveal"'),
+            ('vg-live','Live at {vn}','class="events-section reveal"'),
+            ('vg-know','Know Before You Go','class="venue-info-wrap'),
+            ('vg-explore','Explore More','class="nearby-section reveal"')]
+    _mods={}; _spans=[]; _okbal=True
+    for aid,label,mk in _order:
+        # take the FIRST occurrence only (dedupe safety)
+        bnd=_bal2(_s,mk)
+        if bnd:
+            seg=_s[bnd[0]:bnd[1]]
+            if seg.count('<div')!=seg.count('</div>'): _okbal=False; break
+            _mods[aid]=(label,seg); _spans.append(bnd)
+    # also strip any DUPLICATE nv-section beyond the first
+    _all_nv=[m.start() for m in re.finditer(r'class="nv-section reveal"',_s)]
+    if not _okbal or 'vg-guide' not in _mods or 'vg-know' not in _mods:
+        _jnskip+=1; continue
+    # remove all extracted spans (back to front)
+    for bnd in sorted(_spans,reverse=True):
+        _s=_s[:bnd[0]]+_s[bnd[1]:]
+    # remove any leftover duplicate nv-section blocks
+    while True:
+        d=_bal2(_s,'class="nv-section reveal"')
+        if not d: break
+        _s=_s[:d[0]]+_s[d[1]:]
+    # find insert point: right after venue-hero
+    hi=_s.find('class="venue-hero"'); ho=_s.rfind('<',0,hi+1)
+    t='div' if _s[ho:ho+4]=='<div' else 'section'
+    depth=0; j=ho
     while j<len(_s):
-        if _s[j:j+len(tag)+1]=='<'+tag: depth+=1; j+=len(tag)+1; continue
-        if _s[j:j+len(tag)+3]=='</'+tag+'>':
-            depth-=1; j+=len(tag)+3
+        if _s[j:j+len(t)+1]=='<'+t: depth+=1; j+=len(t)+1; continue
+        if _s[j:j+len(t)+3]=='</'+t+'>':
+            depth-=1; j+=len(t)+3
             if depth==0: break
             continue
         j+=1
-    _s=_s[:j]+nav+_s[j:]
-    write(os.path.join('venues',_fn),_s); _jn+=1
-print(f'sticky jump-nav added to {_jn} pages')
+    vn=_NB.get(_fn[:-5],{}).get('venueName') or _fn[:-5].replace('-',' ').title()
+    # reassemble modules in nav order, each tagged with its id
+    modules_html=''
+    navlinks=''
+    for aid,label,mk in _order:
+        if aid not in _mods: continue
+        lbl,seg=_mods[aid]
+        # inject id on the block's opening tag
+        m2=re.match(r'(<\w+)',seg)
+        seg=seg[:len(m2.group(1))]+f' id="{aid}"'+seg[len(m2.group(1)):]
+        modules_html+=seg
+        navlinks+=f'<a class="vg-navlink" data-vg="{aid}" href="#{aid}">{_h18.escape(lbl.format(vn=vn))}</a>'
+    nav=(f'<nav class="vg-nav" aria-label="Venue sections"><div class="vg-nav-inner">{navlinks}</div>'
+         '<script>(function(){var n=document.currentScript.closest(".vg-nav");'
+         'var links=[].slice.call(n.querySelectorAll(".vg-navlink"));'
+         'links.forEach(function(l){l.addEventListener("click",function(e){e.preventDefault();'
+         'var t=document.getElementById(l.dataset.vg);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"});});});'
+         'function spy(){var y=window.pageYOffset+90,act=links[0];'
+         'links.forEach(function(l){var s=document.getElementById(l.dataset.vg);if(s&&s.offsetTop<=y)act=l});'
+         'links.forEach(function(l){l.classList.toggle("vg-on",l===act)});}'
+         'window.addEventListener("scroll",spy,{passive:true});spy();})();</script></nav>')
+    _cand=_s[:j]+nav+modules_html+_s[j:]
+    body=_cand[_cand.find('</nav>'):_cand.find('<footer') if '<footer' in _cand else len(_cand)]
+    if body.count('<div')==body.count('</div>'):
+        write(os.path.join('venues',_fn),_cand); _jn+=1
+    else:
+        _jnskip+=1
+print(f'jump-nav + ordering: {_jn} pages, {_jnskip} skipped')
 
 # ================= STAGE 21: sticky jump-nav styling =================
 JN_CSS = '''
