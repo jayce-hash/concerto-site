@@ -43,9 +43,9 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers, body: JSON.stringify({ error: 'lat/lng required' }) };
   }
 
-  const token = process.env.MAPBOX_TOKEN || process.env.MAPBOX_ACCESS_TOKEN;
+  const token = process.env.MAPBOX_TOKEN || process.env.MAPBOX_ACCESS_TOKEN || process.env.MAPBOX_API_KEY;
   if (!token) {
-    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Mapbox token not configured' }) };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Mapbox token not configured', diag: 'no_token' }) };
   }
 
   // pick categories: a specific one if requested + allowed, else the tab's set
@@ -56,30 +56,40 @@ exports.handler = async (event) => {
     // query each category, merge + dedupe by name
     const seen = new Set();
     const results = [];
+    let lastStatus = null;
+    let lastRaw = null;
     for (const cat of cats) {
       const url = `${MAPBOX_CATEGORY}/${encodeURIComponent(cat)}`
         + `?access_token=${token}`
         + `&proximity=${lng},${lat}`
         + `&limit=10&language=en`;
       const r = await fetch(url);
-      if (!r.ok) continue;
+      lastStatus = r.status;
       const data = await r.json();
+      lastRaw = data;
+      if (!r.ok) continue;
       for (const f of (data.features || [])) {
-        const name = f.properties?.name;
+        const name = f.properties?.name || f.properties?.name_preferred;
         if (!name || seen.has(name)) continue;
         seen.add(name);
         const coord = f.geometry?.coordinates || [];
         results.push({
           name,
-          address: f.properties?.full_address || f.properties?.address || '',
+          address: f.properties?.full_address || f.properties?.place_formatted || f.properties?.address || '',
           category: cat,
           lat: coord[1], lng: coord[0],
-          maki: f.properties?.maki || null,
         });
       }
     }
+    // if nothing came back, surface why (mapbox status + any error message)
+    if (!results.length) {
+      return { statusCode: 200, headers, body: JSON.stringify({
+        results: [],
+        diag: { mapboxStatus: lastStatus, mapboxMessage: lastRaw && (lastRaw.message || lastRaw.error) || null }
+      }) };
+    }
     return { statusCode: 200, headers, body: JSON.stringify({ results }) };
   } catch (e) {
-    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Mapbox request failed' }) };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Mapbox request failed', diag: String(e).slice(0,120) }) };
   }
 };
