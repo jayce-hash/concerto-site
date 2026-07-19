@@ -1,0 +1,120 @@
+/* cityguide.css — Concerto City Guide + Essentials.
+   Concierge-editorial: playbill leader dots, tasting-menu picks, hairline rules.
+   Navy/gold/cream, Playfair display, quiet luxury. Own file by design. */
+
+/* ================= Shared section shell ================= */
+.es-section, .cgx-section { max-width: 1280px; margin: 0 auto 1.75rem; padding: 0 4%; }
+.es-inner, .cgx-inner { background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 2.75rem 3rem 2.5rem; }
+.es-headr, .cgx-headr { margin-bottom: 2rem; }
+.es-headr .section-title, .cgx-headr .section-title { margin: 0.45rem 0 0;
+  font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.cgx-headr .section-desc { margin-top: 0.6rem; }
+
+/* ================= Zone 1: The Essentials ================= */
+.es-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; }
+.es-row { border-bottom: 1px solid var(--border); }
+.es-head { width: 100%; display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; padding: 1.15rem 0.15rem; background: transparent; border: none; cursor: pointer;
+  text-align: left; }
+.es-label { display: block; font-family: var(--body); font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+.es-title { display: block; font-family: var(--display); font-size: 1.22rem; font-weight: 700;
+  color: var(--text); letter-spacing: -0.01em; }
+.es-arrow { font-size: 0.8rem; color: var(--text-dim); transition: transform 0.28s ease; }
+.es-row.open .es-arrow { transform: rotate(180deg); color: var(--gold); }
+.es-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.es-row.open .es-body { max-height: 900px; padding-bottom: 1.35rem; }
+.es-body p { font-family: var(--body); font-size: 0.88rem; font-weight: 300; color: var(--text-dim);
+  line-height: 1.75; margin: 0 0 0.9rem; }
+.es-body ul { margin: 0 0 1rem; padding-left: 1.1rem; }
+.es-body li { font-family: var(--body); font-size: 0.85rem; font-weight: 300; color: var(--text-dim);
+  line-height: 1.75; }
+.es-listlabel { font-family: var(--body); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 0.4rem; }
+.es-ok { color: #2e7d4f; } .es-no { color: #b3423a; }
+.es-fine { font-size: 0.78rem !important; opacity: 0.85; }
+.es-cta { display: inline-block; font-family: var(--body); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+.es-cta:hover { color: var(--text); }
+.es-btnrow { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.es-btn { font-family: var(--body); font-size: 0.7rem; font-weight: 600; padding: 0.55rem 1.05rem;
+  border: 1px solid var(--border-mid); border-radius: 99px; color: var(--text-dim);
+  text-decoration: none; transition: all 0.15s; }
+.es-btn:hover { border-color: var(--gold); color: var(--text); }
+
+/* ================= Zone 2: City Guide ================= */
+/* Eat / Stay / Do — editorial text tabs, gold rule under active */
+.cgx-tabs { display: flex; gap: 2.25rem; border-bottom: 1px solid var(--border);
+  margin-bottom: 1.6rem; }
+.cgx-tab { background: transparent; border: none; cursor: pointer; padding: 0 0 0.85rem;
+  font-family: var(--display); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--text-dim); border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: color 0.18s, border-color 0.18s; }
+.cgx-tab:hover { color: var(--text); }
+.cgx-tab.on { color: var(--text); border-bottom-color: var(--gold); }
+.cgx-panel { display: none; } .cgx-panel.on { display: block; }
+
+/* Chips — quiet small-caps text links separated by dots */
+.cgx-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 0.15rem;
+  margin-bottom: 1.75rem; font-size: 0.7rem; color: var(--border-mid); }
+.cgx-chip { background: transparent; border: none; cursor: pointer; padding: 0.25rem 0.35rem;
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s; }
+.cgx-chip:hover { color: var(--text); }
+.cgx-chip.on { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* Top Picks — numbered tasting-menu entries */
+.tm-wrap { margin-bottom: 2.25rem; }
+.tm-title { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+.tm-entry { display: flex; gap: 1.4rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
+.tm-entry:first-of-type { border-top: 1px solid var(--border); }
+.tm-num { font-family: var(--display); font-size: 1.35rem; font-weight: 400; font-style: italic;
+  color: var(--gold); line-height: 1.25; min-width: 2.1rem; }
+.tm-name { font-family: var(--display); font-size: 1.35rem; font-weight: 700; color: var(--text);
+  letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 0.35rem; }
+.tm-note { font-family: var(--body); font-size: 0.87rem; font-weight: 300; font-style: italic;
+  color: var(--text-dim); line-height: 1.7; max-width: 620px; margin-bottom: 0.55rem; }
+.tm-link { font-family: var(--body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); text-decoration: none; }
+.tm-link:hover { color: var(--text); }
+
+/* Directory — playbill rows with leader dots */
+.dir-list { }
+.dir-row { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.95rem 0.1rem;
+  text-decoration: none; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.dir-row:hover { background: rgba(0,0,0,0.015); }
+.dir-name { font-family: var(--body); font-size: 0.97rem; font-weight: 600; color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 55%; }
+.dir-dots { flex: 1; border-bottom: 1px dotted var(--border-mid); transform: translateY(-0.28em);
+  min-width: 1.5rem; }
+.dir-meta { font-family: var(--body); font-size: 0.78rem; font-weight: 300; color: var(--text-dim);
+  white-space: nowrap; }
+.dir-addr { max-width: 34%; overflow: hidden; text-overflow: ellipsis; }
+.dir-cta { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.dir-row:hover .dir-cta { color: var(--text); }
+
+.cgx-results { display: none; }
+.cgx-loading { padding: 1.2rem 0.1rem; font-family: var(--body); font-size: 0.88rem;
+  font-style: italic; color: var(--text-dim); }
+.cgx-empty { padding: 1.4rem 0.1rem; font-family: var(--body); font-size: 0.9rem; font-weight: 300;
+  font-style: italic; color: var(--text-dim); }
+.cgx-note { font-family: var(--body); font-size: 0.64rem; font-weight: 300; color: var(--text-dim);
+  margin-top: 1.5rem; opacity: 0.65; }
+
+/* ================= Mobile ================= */
+@media (max-width: 760px) {
+  .es-inner, .cgx-inner { padding: 1.9rem 1.35rem 1.7rem; }
+  .es-grid { grid-template-columns: 1fr; column-gap: 0; }
+  .cgx-tabs { gap: 1.5rem; }
+  .cgx-tab { font-size: 1.1rem; }
+  .cgx-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 0.6rem; }
+  .cgx-chips::-webkit-scrollbar { display: none; }
+  .tm-name { font-size: 1.18rem; }
+  .tm-num { font-size: 1.15rem; min-width: 1.8rem; }
+  .dir-name { max-width: 48%; }
+  .dir-meta { font-size: 0.72rem; }
+}
