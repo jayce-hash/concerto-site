@@ -1213,3 +1213,21 @@ ac16 = read('align.css')
 if '16. Mobile app-shell' not in ac16:
     write('align.css', ac16 + MOBILE_FIX)
     print('align.css: mobile app-shell spacing appended')
+
+# ================= STAGE 17: link hygiene guard =================
+# Catch leaked internal/staging hosts in official links before they ship
+# (MSG's bag link once pointed at production1.msg.com, an internal host).
+import re as _re17
+_bad_host = _re17.compile(r'production\d|staging\.|\.internal|localhost|preview\.')
+_leaks = []
+for _f in ['bag_policies.json', 'parking.json', 'concessions.json']:
+    _d = json.load(open(rp('data', _f)))
+    for _k, _v in _d.items():
+        for _field, _val in (_v.items() if isinstance(_v, dict) else []):
+            if isinstance(_val, str) and _bad_host.search(_val):
+                _leaks.append(f'{_f}:{_k}:{_field} -> {_val}')
+if _leaks:
+    print('WARNING leaked internal hosts in links:')
+    for _l in _leaks: print('  ', _l)
+else:
+    print('link hygiene: no leaked internal hosts')
