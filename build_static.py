@@ -1232,96 +1232,129 @@ if _leaks:
 else:
     print('link hygiene: no leaked internal hosts')
 
-# ================= STAGE 18: "Near the Venue" tabs (restaurants/hotels/more) =================
-# Bakes nearby.json into each venue page as a tabbed section (data inlined, no
-# runtime fetch, no per-view API cost). Hotels route through affiliate.js;
-# restaurants/attractions get directions links. Placed before the app CTA.
-# Intact insertion: we ADD a section, we do not dissect existing markup.
-import json as _json18, html as _html18
-_NB = _json18.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
+# ================= STAGE 18: "Near the Venue" tabs w/ filters (replaces City Guide card) =================
+import json as _j18, html as _h18
+_NB = _j18.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
 
-def _price18(p):
-    return '$' * p if isinstance(p, int) and p > 0 else ''
+# Map raw Google types -> friendly filter labels, per tab. Only filters that
+# actually match items on a given venue are shown (built from that venue's data).
+_FILTERS = {
+    'restaurants': [('bar','Bars'),('cafe','Cafés'),('bakery','Bakeries'),
+                    ('meal_takeaway','Takeout'),('night_club','Nightlife')],
+    'hotels': [('spa','With spa'),('casino','Casino'),('gym','With gym')],
+    'more': [('museum','Museums'),('park','Parks'),('art_gallery','Galleries'),
+             ('place_of_worship','Landmarks'),('stadium','Stadiums'),('aquarium','Aquariums')],
+}
 
+def _price18(p): return '$'*p if isinstance(p,int) and p>0 else ''
 def _stars18(it):
     if it.get('rating'):
-        rev = it.get('reviews') or 0
-        return f"&#9733; {it['rating']} ({rev:,})"
+        return f"&#9733; {it['rating']} ({(it.get('reviews') or 0):,})"
     return ''
 
 def _card18(it, tab):
-    name = _html18.escape(str(it.get('name') or ''))
-    dist = f"{it['distance_mi']} mi" if it.get('distance_mi') is not None else ''
-    meta = '  &middot;  '.join(x for x in [dist, _stars18(it), _price18(it.get('price'))] if x)
-    q = urllib.parse.quote(f"{it.get('name','')} {it.get('address','')}")
-    if tab == 'hotels':
-        # affiliate.js turns this into a Booking link with venue coords when an id is set;
-        # data-aff marks it for the affiliate layer + disclosure note.
-        cta = f'<a class="nv-cta" data-aff="hotel" data-lat="{it.get("lat","")}" data-lng="{it.get("lng","")}" data-name="{name}" href="https://www.google.com/maps/search/?api=1&amp;query={q}" target="_blank" rel="noopener">Book &rarr;</a>'
+    name=_h18.escape(str(it.get('name') or ''))
+    dist=f"{it['distance_mi']} mi" if it.get('distance_mi') is not None else ''
+    meta='  &middot;  '.join(x for x in [dist,_stars18(it),_price18(it.get('price'))] if x)
+    q=urllib.parse.quote(f"{it.get('name','')} {it.get('address','')}")
+    types=' '.join(it.get('types') or [])
+    if tab=='hotels':
+        cta=(f'<a class="nv-cta" data-aff="hotel" data-lat="{it.get("lat","")}" '
+             f'data-lng="{it.get("lng","")}" data-name="{name}" '
+             f'href="https://www.google.com/maps/search/?api=1&amp;query={q}" '
+             f'target="_blank" rel="noopener">Book &rarr;</a>')
     else:
-        cta = f'<a class="nv-cta nv-dir" href="https://www.google.com/maps/search/?api=1&amp;query={q}" target="_blank" rel="noopener">Directions &rarr;</a>'
-    return (f'<div class="nv-item"><div class="nv-item-main"><div class="nv-item-name">{name}</div>'
-            f'<div class="nv-item-meta">{meta}</div></div>{cta}</div>')
+        cta=(f'<a class="nv-cta nv-dir" href="https://www.google.com/maps/search/?api=1&amp;query={q}" '
+             f'target="_blank" rel="noopener">Directions &rarr;</a>')
+    return (f'<div class="nv-item" data-types="{_h18.escape(types)}"><div class="nv-item-main">'
+            f'<div class="nv-item-name">{name}</div><div class="nv-item-meta">{meta}</div></div>{cta}</div>')
+
+def _filters_for(tab, items):
+    # only show a filter chip if >=2 items on THIS venue match it
+    present=[]
+    for gtype,label in _FILTERS.get(tab,[]):
+        n=sum(1 for it in items if gtype in (it.get('types') or []))
+        if n>=2: present.append((gtype,label))
+    if not present: return ''
+    chips=['<button class="nv-filter nv-fon" data-f="all">All</button>']
+    for gtype,label in present:
+        chips.append(f'<button class="nv-filter" data-f="{gtype}">{label}</button>')
+    return '<div class="nv-filters">'+''.join(chips)+'</div>'
 
 def _section18(slug, venue_name):
-    data = _NB.get(slug, {})
-    tabs = data.get('tabs', {})
-    order = [('restaurants', 'Restaurants'), ('hotels', 'Hotels'), ('more', 'More')]
-    btns, panels = [], []
-    for i, (key, label) in enumerate(order):
-        items = tabs.get(key, {}).get('items', [])
-        # keep lodging out of the restaurants tab (Google double-tags some)
-        if key == 'restaurants':
-            items = [it for it in items if 'lodging' not in (it.get('types') or [])]
-        active = ' nv-on' if i == 0 else ''
-        btns.append(f'<button class="nv-tab{active}" data-nv="{key}">{label} near {_html18.escape(venue_name)}</button>')
+    tabs=_NB.get(slug,{}).get('tabs',{})
+    order=[('restaurants','Restaurants'),('hotels','Hotels'),('more','More')]
+    btns,panels=[],[]
+    for i,(key,label) in enumerate(order):
+        items=tabs.get(key,{}).get('items',[])
+        if key=='restaurants':
+            items=[it for it in items if 'lodging' not in (it.get('types') or [])]
+        on=' nv-on' if i==0 else ''
+        btns.append(f'<button class="nv-tab{on}" data-nv="{key}">{label} near {_h18.escape(venue_name)}</button>')
         if items:
-            body = ''.join(_card18(it, key) for it in items)
+            body=_filters_for(key,items)+''.join(_card18(it,key) for it in items)
         else:
-            body = ('<div class="nv-empty">This is a destination venue &mdash; '
-                    'plan to travel in. Nothing notable within range.</div>')
-        panels.append(f'<div class="nv-panel{active}" data-nv-panel="{key}">{body}</div>')
+            body=('<div class="nv-empty">This is a destination venue &mdash; plan to travel in. '
+                  'Nothing notable within range.</div>')
+        panels.append(f'<div class="nv-panel{on}" data-nv-panel="{key}">{body}</div>')
     return (
         '<section class="nv-section reveal" aria-label="Near the venue">'
-        f'<div class="nv-head"><span class="eyebrow">The Neighborhood</span>'
-        f'<h2>Near {_html18.escape(venue_name)}</h2></div>'
+        f'<div class="nv-head"><span class="tool-eyebrow">City Guide</span>'
+        f'<h2 class="tool-section-title">Near {_h18.escape(venue_name)}</h2>'
+        f'<p class="tool-section-desc">The best restaurants, hotels, and more near '
+        f'{_h18.escape(venue_name)} &mdash; for concertgoers and sports fans, not tourists.</p></div>'
         f'<div class="nv-tabs">{"".join(btns)}</div>'
         f'<div class="nv-panels">{"".join(panels)}</div>'
         '<p class="nv-note">Distances from the venue &middot; ratings via Google &middot; '
         'Concerto may earn a commission on hotel bookings.</p>'
         '<script>(function(){var s=document.currentScript.closest(".nv-section");'
+        'function filt(p){var f=p.dataset.f||"all";var pan=p.closest(".nv-panel");'
+        'pan.querySelectorAll(".nv-filter").forEach(function(x){x.classList.toggle("nv-fon",x===p)});'
+        'pan.querySelectorAll(".nv-item").forEach(function(it){'
+        'it.style.display=(f==="all"||(it.dataset.types||"").indexOf(f)>-1)?"":"none"});}'
         's.querySelectorAll(".nv-tab").forEach(function(b){b.addEventListener("click",function(){'
         'var k=b.dataset.nv;s.querySelectorAll(".nv-tab").forEach(function(x){x.classList.toggle("nv-on",x===b)});'
         's.querySelectorAll(".nv-panel").forEach(function(p){p.classList.toggle("nv-on",p.dataset.nvPanel===k)});'
-        '});});})();</script>'
-        '</section>'
+        '});});'
+        's.querySelectorAll(".nv-filter").forEach(function(f){f.addEventListener("click",function(){filt(f)});});'
+        '})();</script></section>'
     )
 
-_nv_count = 0
-for _vf in glob.glob(rp('venues', '*.html')):
-    _slug = os.path.basename(_vf)[:-5]
-    _s = read(os.path.join('venues', os.path.basename(_vf)))
-    if 'nv-section' in _s:
-        # idempotent: replace existing block
-        _s = re.sub(r'<section class="nv-section reveal".*?</section>', '', _s, flags=re.S)
-    _vn = _NB.get(_slug, {}).get('venueName') or _slug.replace('-', ' ').title()
-    _sec = _section18(_slug, _vn)
-    # insert before the app-cta div
-    _anchor = '<div class="app-cta">'
-    if _anchor in _s:
-        _s = _s.replace(_anchor, _sec + '\n      ' + _anchor, 1)
-        write(os.path.join('venues', os.path.basename(_vf)), _s)
-        _nv_count += 1
-print(f'near-venue tabs baked into {_nv_count} pages')
+_nv=0
+for _vf in glob.glob(rp('venues','*.html')):
+    _fn=os.path.basename(_vf); _slug=_fn[:-5]
+    _s=read(os.path.join('venues',_fn))
+    # remove any prior nv-section (idempotent)
+    _s=re.sub(r'<section class="nv-section reveal".*?</section>','',_s,flags=re.S)
+    _vn=_NB.get(_slug,{}).get('venueName') or _slug.replace('-',' ').title()
+    _sec=_section18(_slug,_vn)
+    # REPLACE the City Guide tool-section card with our section (balanced div scan)
+    _i=_s.find('<div class="tool-section reveal">')
+    if _i>=0:
+        _depth=0; _j=_i
+        while _j<len(_s):
+            if _s[_j:_j+4]=='<div': _depth+=1; _j+=4; continue
+            if _s[_j:_j+6]=='</div>':
+                _depth-=1; _j+=6
+                if _depth==0: break
+                continue
+            _j+=1
+        _s=_s[:_i]+_sec+_s[_j:]
+        write(os.path.join('venues',_fn),_s); _nv+=1
+    else:
+        # fallback: insert before app-cta if no city guide card found
+        if '<div class="app-cta">' in _s:
+            _s=_s.replace('<div class="app-cta">',_sec+'\n      <div class="app-cta">',1)
+            write(os.path.join('venues',_fn),_s); _nv+=1
+print(f'near-venue tabs (w/ filters) placed in City Guide slot on {_nv} pages')
 
-# ================= STAGE 19: near-venue section styling =================
+# ================= STAGE 19: near-venue styling (tabs + filters) =================
 NV_CSS = '''
-/* ---- 17. Near the Venue tabs (generated by build_static.py) ---- */
-.nv-section { max-width: 1280px; margin: 0 auto; padding: 3.5rem 4% 1rem; }
+/* ---- 17. Near the Venue tabs + filters (generated by build_static.py) ---- */
+.nv-section { max-width: 1280px; margin: 0 auto; padding: 0 4% 1rem; }
 .nv-head { margin-bottom: 1.5rem; }
-.nv-head h2 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0.3rem 0 0; }
-.nv-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.nv-head .tool-section-title { margin: 0.3rem 0 0.5rem; }
+.nv-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 .nv-tab { padding: 0.6rem 1.1rem; border-radius: 99px; border: 1px solid var(--border-mid);
   background: transparent; color: var(--text-dim); font-family: var(--body);
   font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.18s; white-space: nowrap; }
@@ -1329,6 +1362,12 @@ NV_CSS = '''
 .nv-tab.nv-on { background: var(--text); color: var(--bg); border-color: var(--text); }
 .nv-panel { display: none; }
 .nv-panel.nv-on { display: block; }
+.nv-filters { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.nv-filter { padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light, #e5e5e5);
+  background: transparent; color: var(--text-dim); font-family: var(--body); font-size: 0.72rem;
+  font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: all 0.15s; }
+.nv-filter:hover { border-color: var(--text-dim); color: var(--text); }
+.nv-filter.nv-fon { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
 .nv-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
   padding: 1rem 1.25rem; background: var(--card-bg, #fff); border: 1px solid var(--border-light, #eee);
   border-radius: 14px; margin-bottom: 0.6rem; }
@@ -1341,16 +1380,94 @@ NV_CSS = '''
 .nv-empty { padding: 1.5rem 1.25rem; font-family: var(--body); font-size: 0.92rem;
   color: var(--text-dim); background: var(--card-bg, #fafafa); border: 1px dashed var(--border-mid);
   border-radius: 14px; line-height: 1.6; }
-.nv-note { font-family: var(--body); font-size: 0.72rem; color: var(--text-dim);
-  margin-top: 1rem; opacity: 0.8; }
+.nv-note { font-family: var(--body); font-size: 0.72rem; color: var(--text-dim); margin-top: 1rem; opacity: 0.8; }
 @media (max-width: 600px) {
-  .nv-section { padding: 2.5rem 5% 1rem; }
-  .nv-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
-  .nv-tabs::-webkit-scrollbar { display: none; }
+  .nv-tabs, .nv-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .nv-tabs::-webkit-scrollbar, .nv-filters::-webkit-scrollbar { display: none; }
   .nv-item { padding: 0.85rem 1rem; }
 }
 '''
-_ac19 = read('align.css')
-if '17. Near the Venue tabs' not in _ac19:
-    write('align.css', _ac19 + NV_CSS)
-    print('align.css: near-venue styling appended')
+_ac=read('align.css')
+if '17. Near the Venue tabs + filters' not in _ac:
+    write('align.css', _ac + NV_CSS)
+    print('align.css: near-venue styling (w/ filters) appended')
+
+# ================= STAGE 20: sticky jump-nav (all modules stay visible) =================
+# NON-DESTRUCTIVE: adds id anchors to existing sections (in place, no extraction)
+# and injects a sticky nav bar that smooth-scrolls to each module + scroll-spies
+# the active tab. All content stays on the page as stacked modules.
+_JN = [
+    ('vg-guide',  'City Guide',          'class="nv-section reveal"'),
+    ('vg-live',   'Live at {vn}',        'class="events-section reveal"'),
+    ('vg-know',   'Know Before You Go',  'class="venue-info-wrap'),
+    ('vg-explore','Explore More',        'class="nearby-section reveal"'),
+]
+_jn=0
+for _vf in glob.glob(rp('venues','*.html')):
+    _fn=os.path.basename(_vf)
+    _s=read(os.path.join('venues',_fn))
+    if 'vg-nav' in _s:  # idempotent: strip prior nav + ids, rebuild
+        _s=re.sub(r'<nav class="vg-nav".*?</nav>','',_s,flags=re.S)
+        _s=re.sub(r'\s+id="vg-(?:guide|live|know|explore)"','',_s)
+    vn=_NB.get(_fn[:-5],{}).get('venueName') or _fn[:-5].replace('-',' ').title()
+    # attach id anchors to the existing section open-tags (in place)
+    present=[]
+    for aid,label,marker in _JN:
+        i=_s.find(marker)
+        if i<0: continue
+        tag_open=_s.rfind('<',0,i+1)
+        # insert id right after the tag name
+        m=re.match(r'(<\w+)',_s[tag_open:])
+        _s=_s[:tag_open]+m.group(1)+f' id="{aid}"'+_s[tag_open+len(m.group(1)):]
+        present.append((aid,label.format(vn=_h18.escape(vn))))
+    if not present: continue
+    # build sticky nav, insert right after venue-hero
+    links=''.join(f'<a class="vg-navlink" data-vg="{aid}" href="#{aid}">{label}</a>' for aid,label in present)
+    nav=(f'<nav class="vg-nav" aria-label="Venue sections"><div class="vg-nav-inner">{links}</div>'
+         '<script>(function(){var n=document.currentScript.closest(".vg-nav");'
+         'var links=[].slice.call(n.querySelectorAll(".vg-navlink"));'
+         'var secs=links.map(function(l){return document.getElementById(l.dataset.vg)});'
+         'links.forEach(function(l){l.addEventListener("click",function(e){e.preventDefault();'
+         'var t=document.getElementById(l.dataset.vg);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"});});});'
+         'function spy(){var y=window.pageYOffset+90;var act=links[0];'
+         'secs.forEach(function(s,i){if(s&&s.offsetTop<=y)act=links[i]});'
+         'links.forEach(function(l){l.classList.toggle("vg-on",l===act)});}'
+         'window.addEventListener("scroll",spy,{passive:true});spy();})();</script></nav>')
+    hb=_bal(_s,'class="venue-hero"') if '_bal' in dir() else None
+    # insert after venue-hero close
+    hi=_s.find('class="venue-hero"')
+    ho=_s.rfind('<',0,hi+1)
+    # balanced close of venue-hero
+    depth=0; j=ho; tag='div' if _s[ho:ho+4]=='<div' else 'section'
+    while j<len(_s):
+        if _s[j:j+len(tag)+1]=='<'+tag: depth+=1; j+=len(tag)+1; continue
+        if _s[j:j+len(tag)+3]=='</'+tag+'>':
+            depth-=1; j+=len(tag)+3
+            if depth==0: break
+            continue
+        j+=1
+    _s=_s[:j]+nav+_s[j:]
+    write(os.path.join('venues',_fn),_s); _jn+=1
+print(f'sticky jump-nav added to {_jn} pages')
+
+# ================= STAGE 21: sticky jump-nav styling =================
+JN_CSS = '''
+/* ---- 18. Sticky venue jump-nav (generated by build_static.py) ---- */
+.vg-nav { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-light, #eee); margin-bottom: 1rem; }
+.vg-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 4%; display: flex; gap: 0.4rem;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.vg-nav-inner::-webkit-scrollbar { display: none; }
+.vg-navlink { flex: 0 0 auto; padding: 0.9rem 1.1rem; font-family: var(--body); font-size: 0.82rem;
+  font-weight: 600; letter-spacing: 0.01em; color: var(--text-dim); text-decoration: none;
+  border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
+.vg-navlink:hover { color: var(--text); }
+.vg-navlink.vg-on { color: var(--text); border-bottom-color: var(--gold); }
+/* offset anchor jumps so sticky nav doesn't cover section tops */
+#vg-guide, #vg-live, #vg-know, #vg-explore { scroll-margin-top: 70px; }
+'''
+_ac=read('align.css')
+if '18. Sticky venue jump-nav' not in _ac:
+    write('align.css', _ac + JN_CSS)
+    print('align.css: sticky jump-nav styling appended')
