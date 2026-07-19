@@ -7,8 +7,9 @@
 .es-inner, .cgx-inner { background: var(--card-bg); border: 1px solid var(--border);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 2.75rem 3rem 2.5rem; }
 .es-headr, .cgx-headr { margin-bottom: 2rem; }
-.es-headr .section-title, .cgx-headr .section-title { margin: 0.45rem 0 0;
-  font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.es-headr .section-title, .cgx-headr .section-title { margin: 0; }
+.cgx-headr .section-desc { font-family: var(--body); font-size: 0.88rem; font-weight: 300;
+  color: var(--text-dim); line-height: 1.7; max-width: 560px; }
 .cgx-headr .section-desc { margin-top: 0.6rem; }
 
 /* ================= Zone 1: The Essentials ================= */
