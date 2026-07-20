@@ -6,7 +6,13 @@
   # so they are not real secrets. Tell Netlify's scanner to skip them.
   SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY,SUPABASE_URL"
 
+# City guide SPA retired — venue pages carry the guide now
 [[redirects]]
   from = "/cityguide/*"
-  to = "/cityguide/index.html"
-  status = 200
+  to = "/venues/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/cityguides"
+  to = "/venues"
+  status = 301

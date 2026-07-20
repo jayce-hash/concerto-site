@@ -514,7 +514,7 @@
     function pickEditorial(d,ex){var o=[];(d||[]).forEach(function(v){var it=(v.items||[]).find(function(x){return x.sponsored!==true&&ex.indexOf(x.trackingId)===-1;});if(it)o.push(Object.assign({},it,{venueName:v.venueName,slug:v.slug,city:v.city,state:v.state}));});return o;}
     function img(it){var m='<span class="mono">'+mono(it.name)+'</span>';return it.photo?m+'<img src="'+esc(it.photo)+'" alt="'+esc(it.name)+'" onerror="this.remove()"/>':m;}
     function featured(it,mode){
-      var href='/cityguide/'+esc(it.slug);
+      var href='/venues/'+esc(it.slug);
       var label=mode==='partner'?'Featured Partner':'Featured spot open';
       
       var cta=mode==='partner'?'<a class="btn btn-dark cc-feat-cta" href="'+href+'">See it on the '+esc(it.city)+' guide</a>':'<a class="btn btn-dark cc-feat-cta" href="partners.html">Become a partner</a>';
@@ -525,7 +525,7 @@
         +'<p class="cc-note">'+esc(it.notes||'')+'</p>'+cta+'</div></article>';
     }
     function pick(it){
-      var href='/cityguide/'+esc(it.slug);
+      var href='/venues/'+esc(it.slug);
       
       return '<a class="directory-card cc-pick" href="'+href+'"><div class="cc-photo">'+img(it)+starEl(it)+'</div>'
         +'<div class="cc-pick-body"><span class="cc-near">Near '+esc(it.venueName)+' &middot; '+esc(it.city)+'</span>'

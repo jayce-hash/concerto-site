@@ -311,7 +311,7 @@ function render(i){
   // wire tap tracking on outbound card clicks
   document.querySelectorAll('#timeline .card').forEach(a=>{const tid=a.getAttribute('data-tid');if(tid)a.addEventListener('click',()=>trackTap(tid,'picks-maps'));});
   // full guide deep link (existing city-guide engine: map + walking routes)
-  document.getElementById('fullGuide').href=`/cityguide/${dashless(v.slug)}`;
+  document.getElementById('fullGuide').href=`/venues/${v.slug}`;
   document.getElementById('bizLink').href=`partners.html`;
 }
 </script>

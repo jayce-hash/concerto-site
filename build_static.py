@@ -1232,276 +1232,247 @@ if _leaks:
 else:
     print('link hygiene: no leaked internal hosts')
 
-# ================= STAGE 18: "Near the Venue" tabs w/ filters (replaces City Guide card) =================
-import json as _j18, html as _h18
-_NB = _j18.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
+# ================= STAGE 18: full venue template (the MSG design, per venue) =================
+# Generates the complete two-zone venue page for every venue from data:
+#   venue_info.json (Venue Info accordion) + nearby.json (City Guide) + top_picks.json
+# Replaces: City Guide card, venue-info runtime block, info-section, and adds:
+#   hero facts bar + favorite, contents nav, trust line, affiliate wiring,
+#   supabase CDN before auth.js, featuresBtn guard. Idempotent by full-region rebuild.
+import json as _J, html as _H, urllib.parse as _U, math as _M
 
-# Map raw Google types -> friendly filter labels, per tab. Only filters that
-# actually match items on a given venue are shown (built from that venue's data).
-_FILTERS = {
-    'restaurants': [('bar','Bars'),('cafe','Cafés'),('bakery','Bakeries'),
-                    ('meal_takeaway','Takeout'),('night_club','Nightlife')],
-    'hotels': [('spa','With spa'),('casino','Casino'),('gym','With gym')],
-    'more': [('museum','Museums'),('park','Parks'),('art_gallery','Galleries'),
-             ('place_of_worship','Landmarks'),('stadium','Stadiums'),('aquarium','Aquariums')],
-}
+_VI=_J.load(open(rp('data/venue_info.json')))
+_NBD=_J.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
+_TP={x.get('slug'):x for x in _J.load(open(rp('data/top_picks.json')))}
+_TOKEN=re.search(r"accessToken\s*=\s*'(pk\.[^']+)'",read('cityguide/app.js')).group(1)
 
-def _price18(p): return '$'*p if isinstance(p,int) and p>0 else ''
-def _stars18(it):
-    if it.get('rating'):
-        return f"&#9733; {it['rating']} ({(it.get('reviews') or 0):,})"
-    return ''
+def _esc(x): return _H.escape(str(x or ''))
+def _q(n,a): return _U.quote(f"{n or ''} {a or ''}")
+def _score(it):
+    r=it.get('rating') or 0; n=it.get('reviews') or 0
+    return r*_M.log10(n+10)
+def _price(p): return '$'*p if isinstance(p,int) and p>0 else ''
+def _stars(it): return f"&#9733; {it['rating']} ({(it.get('reviews') or 0):,})" if it.get('rating') else ''
 
-def _card18(it, tab):
-    name=_h18.escape(str(it.get('name') or ''))
-    dist=f"{it['distance_mi']} mi" if it.get('distance_mi') is not None else ''
-    meta='  &middot;  '.join(x for x in [dist,_stars18(it),_price18(it.get('price'))] if x)
-    q=urllib.parse.quote(f"{it.get('name','')} {it.get('address','')}")
-    types=' '.join(it.get('types') or [])
-    if tab=='hotels':
-        cta=(f'<a class="nv-cta" data-aff="hotel" data-lat="{it.get("lat","")}" '
-             f'data-lng="{it.get("lng","")}" data-name="{name}" '
-             f'href="https://www.google.com/maps/search/?api=1&amp;query={q}" '
-             f'target="_blank" rel="noopener">Book &rarr;</a>')
-    else:
-        cta=(f'<a class="nv-cta nv-dir" href="https://www.google.com/maps/search/?api=1&amp;query={q}" '
-             f'target="_blank" rel="noopener">Directions &rarr;</a>')
-    return (f'<div class="nv-item" data-types="{_h18.escape(types)}"><div class="nv-item-main">'
-            f'<div class="nv-item-name">{name}</div><div class="nv-item-meta">{meta}</div></div>{cta}</div>')
+def _esrow(label,title,body):
+    return (f'<div class="es-row"><button class="es-head" aria-expanded="false">'
+      f'<span class="es-meta"><span class="es-label">{label}</span>'
+      f'<span class="es-title">{title}</span></span><span class="es-arrow">&#8595;</span></button>'
+      f'<div class="es-body">{body}</div></div>')
 
-def _filters_for(tab, items):
-    # only show a filter chip if >=2 items on THIS venue match it
-    present=[]
-    for gtype,label in _FILTERS.get(tab,[]):
-        n=sum(1 for it in items if gtype in (it.get('types') or []))
-        if n>=2: present.append((gtype,label))
-    if not present: return ''
-    chips=['<button class="nv-filter nv-fon" data-f="all">All</button>']
-    for gtype,label in present:
-        chips.append(f'<button class="nv-filter" data-f="{gtype}">{label}</button>')
-    return '<div class="nv-filters">'+''.join(chips)+'</div>'
+def _zone1(slug,d):
+    rows=[]
+    bp=d.get('bagPolicy',{})
+    if bp.get('summary') or bp.get('officialLink'):
+        b=f'<p>{_esc(bp.get("summary"))}</p>' if bp.get('summary') else ''
+        if bp.get('allowed'): b+='<div class="es-listlabel es-ok">Allowed</div><ul>'+''.join(f'<li>{_esc(x)}</li>' for x in bp['allowed'][:8])+'</ul>'
+        if bp.get('prohibited'): b+='<div class="es-listlabel es-no">Not allowed</div><ul>'+''.join(f'<li>{_esc(x)}</li>' for x in bp['prohibited'][:8])+'</ul>'
+        if bp.get('note'): b+=f'<p class="es-fine">{_esc(bp["note"])}</p>'
+        if bp.get('officialLink'): b+=f'<a class="es-cta" href="{_esc(bp["officialLink"])}" target="_blank" rel="noopener">View full policy &rarr;</a>'
+        rows.append(_esrow('Venue Guide','Bag Policy',b))
+    pk=d.get('parking',{})
+    if pk.get('note') or pk.get('officialLink') or pk.get('lots'):
+        b=f'<p>{_esc(pk.get("note"))}</p>' if pk.get('note') else ''
+        if pk.get('lots'): b+='<ul>'+''.join(f'<li>{_esc(x if isinstance(x,str) else x.get("name",""))}</li>' for x in pk['lots'][:6])+'</ul>'
+        if pk.get('officialLink'): b+=f'<a class="es-cta" href="{_esc(pk["officialLink"])}" target="_blank" rel="noopener">Official parking guide &rarr;</a>'
+        rows.append(_esrow('Getting There','Parking',b))
+    cn=d.get('concessions',{})
+    if cn.get('note') or cn.get('officialLink') or cn.get('stands'):
+        b=f'<p>{_esc(cn.get("note"))}</p>' if cn.get('note') else ''
+        if cn.get('stands'): b+='<ul>'+''.join(f'<li>{_esc(x if isinstance(x,str) else x.get("name",""))}</li>' for x in cn['stands'][:6])+'</ul>'
+        if cn.get('officialLink'): b+=f'<a class="es-cta" href="{_esc(cn["officialLink"])}" target="_blank" rel="noopener">Concessions guide &rarr;</a>'
+        rows.append(_esrow('Inside the Venue','Concessions',b))
+    lat,lng=d.get('lat'),d.get('lng')
+    rd=d.get('rideshare',{})
+    rb=f'<p>{_esc(rd.get("note"))}</p>' if rd.get('note') else '<p>Set pickup and drop-off ahead of time and skip the post-show scramble.</p>'
+    if lat and lng:
+        vq=_U.quote(d.get('name') or slug)
+        rb+=(f'<div class="es-btnrow">'
+          f'<a class="es-btn" href="https://m.uber.com/ul/?action=setPickup&amp;pickup=my_location&amp;dropoff[latitude]={lat}&amp;dropoff[longitude]={lng}&amp;dropoff[nickname]={vq}" target="_blank" rel="noopener">Uber to venue</a>'
+          f'<a class="es-btn" href="https://m.uber.com/ul/?action=setPickup&amp;pickup[latitude]={lat}&amp;pickup[longitude]={lng}&amp;pickup[nickname]={vq}" target="_blank" rel="noopener">Uber from venue</a>'
+          f'<a class="es-btn" href="https://ride.lyft.com/?destination[latitude]={lat}&amp;destination[longitude]={lng}" target="_blank" rel="noopener">Lyft to venue</a>'
+          f'<a class="es-btn" href="https://ride.lyft.com/?pickup[latitude]={lat}&amp;pickup[longitude]={lng}" target="_blank" rel="noopener">Lyft from venue</a></div>')
+    rows.append(_esrow('Uber &amp; Lyft','Rideshare',rb))
+    for key,label in [('accessibility','Accessibility'),('reEntry','Entry &amp; Exit'),('ticketPickup','Ticket Pickup'),('gates','Getting In')]:
+        f=d.get(key,{})
+        if f.get('body'):
+            rows.append(_esrow(label,f.get('title') or label,f'<p>{f["body"]}</p>'))
+    ver=bp.get('verified') or pk.get('verified') or ''
+    trust=(f'<p class="es-trust">{"Verified "+_esc(ver)+" &middot; " if ver else ""}Spot something off? '
+      f'<a href="mailto:hello@concertocity.com?subject=Venue%20correction:%20{_U.quote(d.get("name") or slug)}">Report it</a> and we&rsquo;ll fix it fast.</p>')
+    return ('<section class="es-section reveal" id="sec-essentials"><div class="es-inner">'
+      '<div class="es-headr"><span class="eyebrow">Know Before You Go</span>'
+      '<h2 class="section-title">Venue Info</h2></div>'
+      f'<div class="es-grid">{"".join(rows)}</div>{trust}</div></section>')
 
-def _section18(slug, venue_name):
-    tabs=_NB.get(slug,{}).get('tabs',{})
-    order=[('restaurants','Restaurants'),('hotels','Hotels'),('more','More')]
-    btns,panels=[],[]
-    for i,(key,label) in enumerate(order):
-        items=tabs.get(key,{}).get('items',[])
-        if key=='restaurants':
-            items=[it for it in items if 'lodging' not in (it.get('types') or [])]
-        on=' nv-on' if i==0 else ''
-        btns.append(f'<button class="nv-tab{on}" data-nv="{key}">{label} near {_h18.escape(venue_name)}</button>')
-        if items:
-            body=_filters_for(key,items)+''.join(_card18(it,key) for it in items)
-        else:
-            body=('<div class="nv-empty">This is a destination venue &mdash; plan to travel in. '
-                  'Nothing notable within range.</div>')
-        panels.append(f'<div class="nv-panel{on}" data-nv-panel="{key}">{body}</div>')
-    return (
-        '<section class="nv-section reveal" aria-label="Near the venue">'
-        f'<div class="nv-head"><span class="tool-eyebrow">City Guide</span>'
-        f'<h2 class="tool-section-title">Near {_h18.escape(venue_name)}</h2>'
-        f'<p class="tool-section-desc">The best restaurants, hotels, and more near '
-        f'{_h18.escape(venue_name)} &mdash; for concertgoers and sports fans, not tourists.</p></div>'
-        f'<div class="nv-tabs">{"".join(btns)}</div>'
-        f'<div class="nv-panels">{"".join(panels)}</div>'
-        '<p class="nv-note">Distances from the venue &middot; ratings via Google &middot; '
-        'Concerto may earn a commission on hotel bookings.</p>'
-        '<script>(function(){var s=document.currentScript.closest(".nv-section");'
-        'function filt(p){var f=p.dataset.f||"all";var pan=p.closest(".nv-panel");'
-        'pan.querySelectorAll(".nv-filter").forEach(function(x){x.classList.toggle("nv-fon",x===p)});'
-        'pan.querySelectorAll(".nv-item").forEach(function(it){'
-        'it.style.display=(f==="all"||(it.dataset.types||"").indexOf(f)>-1)?"":"none"});}'
-        's.querySelectorAll(".nv-tab").forEach(function(b){b.addEventListener("click",function(){'
-        'var k=b.dataset.nv;s.querySelectorAll(".nv-tab").forEach(function(x){x.classList.toggle("nv-on",x===b)});'
-        's.querySelectorAll(".nv-panel").forEach(function(p){p.classList.toggle("nv-on",p.dataset.nvPanel===k)});'
-        '});});'
-        's.querySelectorAll(".nv-filter").forEach(function(f){f.addEventListener("click",function(){filt(f)});});'
-        '})();</script></section>'
-    )
+def _zone2(slug,d):
+    vn=_esc(d.get('name') or slug); lat,lng=d.get('lat'),d.get('lng')
+    nb=_NBD.get(slug,{}).get('tabs',{})
+    tp=_TP.get(slug,{})
+    picks=''
+    if tp.get('items'):
+        e=''
+        for i,it in enumerate(tp['items'][:6],1):
+            ph=it.get('photo') or ''
+            img=f'<img class="tm-thumb" src="/{_esc(ph)}" alt="" loading="lazy">' if ph and os.path.exists(rp(ph)) else ''
+            e+=(f'<div class="tm-entry"><span class="tm-num">{i:02d}</span>'
+              f'<div class="tm-body"><div class="tm-name">{_esc(it.get("name"))}</div>'
+              f'<div class="tm-note">{_esc(it.get("notes"))}</div>'
+              f'<a class="tm-link" href="https://www.google.com/maps/search/?api=1&amp;query={_q(it.get("name"),it.get("address"))}" target="_blank" rel="noopener">Directions &rarr;</a></div>{img}</div>')
+        picks=f'<div class="tm-wrap"><div class="tm-title">Concerto Top Picks</div>{e}</div>'
+    def drow(it,tab):
+        dist=f"{it['distance_mi']} mi" if it.get('distance_mi') is not None else ''
+        right='&ensp;&middot;&ensp;'.join(x for x in [dist,_stars(it),_price(it.get('price'))] if x)
+        cta='Book' if tab=='stay' else 'Map'
+        return (f'<a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query={_q(it.get("name"),it.get("address"))}" target="_blank" rel="noopener">'
+          f'<span class="dir-name">{_esc(it.get("name"))}</span><span class="dir-dots"></span>'
+          f'<span class="dir-meta">{right}</span><span class="dir-cta">{cta}&nbsp;&rarr;</span></a>')
+    TABS=[('eat','Eat','restaurants',[('featured','Featured'),('restaurant','Restaurants'),('bar','Bars'),('coffee','Caf&eacute;s'),('fast_food','Fast Food')]),
+          ('stay','Stay','hotels',[('featured','Featured'),('hotel','Hotels')]),
+          ('do','Do','more',[('featured','Featured'),('tourist_attraction','Attractions')])]
+    btns=[];pans=[]
+    for i,(tid,tl,nk,chips) in enumerate(TABS):
+        items=nb.get(nk,{}).get('items',[])
+        if nk=='restaurants': items=[x for x in items if 'lodging' not in (x.get('types') or [])]
+        items=sorted(items,key=_score,reverse=True)
+        on=' on' if i==0 else ''
+        btns.append(f'<button class="cgx-tab{on}" data-cg="{tid}">{tl}</button>')
+        ch='&thinsp;&middot;&thinsp;'.join(f'<button class="cgx-chip{" on" if ck=="featured" else ""}" data-chip="{ck}">{cl}</button>' for ck,cl in chips)
+        p=picks if tid=='eat' else ''
+        dirr=''.join(drow(x,tid) for x in items) if items else '<div class="cgx-empty">Nothing within range &mdash; this is a destination venue.</div>'
+        pans.append(f'<div class="cgx-panel{on}" data-cg-panel="{tid}"><div class="cgx-chips">{ch}</div>'
+          f'<div class="cgx-baked">{p}<div class="dir-list">{dirr}</div></div><div class="cgx-results"></div></div>')
+    js=('<script>(function(){var s=document.getElementById("cgx");var TK="'+_TOKEN+'";var LAT='+str(lat)+',LNG='+str(lng)+';'
+      'function show(pan,m){pan.querySelector(".cgx-baked").style.display=(m==="featured")?"block":"none";pan.querySelector(".cgx-results").style.display=(m==="featured")?"none":"block";}'
+      'function live(pan,cat){var box=pan.querySelector(".cgx-results");box.innerHTML="<div class=\\"cgx-loading\\">Searching&hellip;</div>";'
+      'var u="https://api.mapbox.com/search/searchbox/v1/category/"+encodeURIComponent(cat)+"?access_token="+TK+"&proximity="+LNG+","+LAT+"&limit=15&language=en";'
+      'fetch(u).then(function(r){return r.json()}).then(function(d){var fs=(d&&d.features)||[];'
+      'if(!fs.length){box.innerHTML="<div class=\\"cgx-empty\\">No results nearby.</div>";return}'
+      'box.innerHTML="<div class=\\"dir-list\\">"+fs.map(function(f){var p=f.properties||{},nm=p.name||"",ad=p.full_address||p.place_formatted||"";var q=encodeURIComponent(nm+" "+ad);'
+      'return "<a class=\\"dir-row\\" href=\\"https://www.google.com/maps/search/?api=1&query="+q+"\\" target=\\"_blank\\" rel=\\"noopener\\"><span class=\\"dir-name\\">"+nm+"</span><span class=\\"dir-dots\\"></span><span class=\\"dir-meta dir-addr\\">"+ad.split(",")[0]+"</span><span class=\\"dir-cta\\">Map&nbsp;&rarr;</span></a>"}).join("")+"</div>"})'
+      '.catch(function(){box.innerHTML="<div class=\\"cgx-empty\\">Search unavailable.</div>"})}'
+      's.querySelectorAll(".cgx-tab").forEach(function(b){b.addEventListener("click",function(){var k=b.dataset.cg;'
+      's.querySelectorAll(".cgx-tab").forEach(function(x){x.classList.toggle("on",x===b)});'
+      's.querySelectorAll(".cgx-panel").forEach(function(p){p.classList.toggle("on",p.dataset.cgPanel===k)})})});'
+      's.querySelectorAll(".cgx-chip").forEach(function(c){c.addEventListener("click",function(){var pan=c.closest(".cgx-panel");'
+      'pan.querySelectorAll(".cgx-chip").forEach(function(x){x.classList.toggle("on",x===c)});'
+      'var cat=c.dataset.chip;if(cat==="featured"){show(pan,"featured")}else{show(pan,"live");live(pan,cat)}})});'
+      'document.querySelectorAll(".es-head").forEach(function(h){h.addEventListener("click",function(){'
+      'var c=h.closest(".es-row");var open=c.classList.toggle("open");h.setAttribute("aria-expanded",open?"true":"false");})});'
+      '})();</script>')
+    return ('<section class="cgx-section reveal" id="cgx"><div class="cgx-inner">'
+      '<div class="cgx-headr"><span class="eyebrow">City Guide</span>'
+      '<h2 class="section-title">Make a Night of It</h2>'
+      f'<p class="section-desc">Where to eat, stay, and wander near {vn} &mdash; chosen for concertgoers, not tourists.</p></div>'
+      f'<div class="cgx-tabs">{"".join(btns)}</div>{"".join(pans)}'
+      '<p class="cgx-note">Distances via Google &middot; live search via Mapbox &middot; Concerto may earn a commission on hotel bookings.</p></div>'+js+'</section>')
 
-_nv=0
-for _vf in glob.glob(rp('venues','*.html')):
-    _fn=os.path.basename(_vf); _slug=_fn[:-5]
-    _s=read(os.path.join('venues',_fn))
-    # remove any prior nv-section (idempotent)
-    _s=re.sub(r'<section class="nv-section reveal".*?</section>','',_s,flags=re.S)
-    _vn=_NB.get(_slug,{}).get('venueName') or _slug.replace('-',' ').title()
-    _sec=_section18(_slug,_vn)
-    # REPLACE the City Guide tool-section card with our section (balanced div scan)
-    _i=_s.find('<div class="tool-section reveal">')
-    if _i>=0:
-        _depth=0; _j=_i
-        while _j<len(_s):
-            if _s[_j:_j+4]=='<div': _depth+=1; _j+=4; continue
-            if _s[_j:_j+6]=='</div>':
-                _depth-=1; _j+=6
-                if _depth==0: break
-                continue
-            _j+=1
-        _s=_s[:_i]+_sec+_s[_j:]
-        write(os.path.join('venues',_fn),_s); _nv+=1
-    else:
-        # fallback: insert before app-cta if no city guide card found
-        if '<div class="app-cta">' in _s:
-            _s=_s.replace('<div class="app-cta">',_sec+'\n      <div class="app-cta">',1)
-            write(os.path.join('venues',_fn),_s); _nv+=1
-print(f'near-venue tabs (w/ filters) placed in City Guide slot on {_nv} pages')
+print('venue template functions loaded')
 
-# ================= STAGE 19: near-venue styling (tabs + filters) =================
-NV_CSS = '''
-/* ---- 17. Near the Venue tabs + filters (generated by build_static.py) ---- */
-.nv-section { max-width: 1280px; margin: 0 auto; padding: 0 4% 1rem; }
-.nv-head { margin-bottom: 1.5rem; }
-.nv-head .tool-section-title { margin: 0.3rem 0 0.5rem; }
-.nv-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.nv-tab { padding: 0.6rem 1.1rem; border-radius: 99px; border: 1px solid var(--border-mid);
-  background: transparent; color: var(--text-dim); font-family: var(--body);
-  font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.18s; white-space: nowrap; }
-.nv-tab:hover { border-color: var(--text); color: var(--text); }
-.nv-tab.nv-on { background: var(--text); color: var(--bg); border-color: var(--text); }
-.nv-panel { display: none; }
-.nv-panel.nv-on { display: block; }
-.nv-filters { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.nv-filter { padding: 0.35rem 0.85rem; border-radius: 99px; border: 1px solid var(--border-light, #e5e5e5);
-  background: transparent; color: var(--text-dim); font-family: var(--body); font-size: 0.72rem;
-  font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: all 0.15s; }
-.nv-filter:hover { border-color: var(--text-dim); color: var(--text); }
-.nv-filter.nv-fon { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
-.nv-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-  padding: 1rem 1.25rem; background: var(--card-bg, #fff); border: 1px solid var(--border-light, #eee);
-  border-radius: 14px; margin-bottom: 0.6rem; }
-.nv-item-name { font-family: var(--body); font-size: 0.98rem; font-weight: 600; color: var(--text); }
-.nv-item-meta { font-family: var(--body); font-size: 0.82rem; color: var(--text-dim); margin-top: 0.15rem; }
-.nv-cta { font-family: var(--body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em;
-  text-decoration: none; white-space: nowrap; color: var(--gold); }
-.nv-cta.nv-dir { color: var(--text-dim); }
-.nv-cta:hover { color: var(--text); }
-.nv-empty { padding: 1.5rem 1.25rem; font-family: var(--body); font-size: 0.92rem;
-  color: var(--text-dim); background: var(--card-bg, #fafafa); border: 1px dashed var(--border-mid);
-  border-radius: 14px; line-height: 1.6; }
-.nv-note { font-family: var(--body); font-size: 0.72rem; color: var(--text-dim); margin-top: 1rem; opacity: 0.8; }
-@media (max-width: 600px) {
-  .nv-tabs, .nv-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
-  .nv-tabs::-webkit-scrollbar, .nv-filters::-webkit-scrollbar { display: none; }
-  .nv-item { padding: 0.85rem 1rem; }
-}
-'''
-_ac=read('align.css')
-if '17. Near the Venue tabs + filters' not in _ac:
-    write('align.css', _ac + NV_CSS)
-    print('align.css: near-venue styling (w/ filters) appended')
+# ---- stage 18 executor: rebuild every venue page from pristine-equivalent state ----
+_NAVT=('<nav class="pg-toc" aria-label="On this page"><div class="pg-toc-inner">'
+ '<a class="pg-toc-link on" href="#sec-essentials" data-sec="sec-essentials">Venue Info</a>'
+ '<span class="pg-toc-dot">&middot;</span><a class="pg-toc-link" href="#cgx" data-sec="cgx">City Guide</a>'
+ '<span class="pg-toc-dot">&middot;</span><a class="pg-toc-link" href="#sec-events" data-sec="sec-events">Upcoming Events</a>'
+ '<span class="pg-toc-dot">&middot;</span><a class="pg-toc-link" href="#sec-nearby" data-sec="sec-nearby">Nearby Venues</a></div>'
+ '<script>(function(){var n=document.currentScript.closest(".pg-toc");var links=[].slice.call(n.querySelectorAll(".pg-toc-link"));'
+ 'links.forEach(function(l){l.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(l.dataset.sec);'
+ 'if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-64,behavior:"smooth"});});});'
+ 'function spy(){var y=window.pageYOffset+110,act=links[0];links.forEach(function(l){var t=document.getElementById(l.dataset.sec);'
+ 'if(t&&t.offsetTop<=y)act=l;});links.forEach(function(l){l.classList.toggle("on",l===act);});}'
+ 'window.addEventListener("scroll",spy,{passive:true});spy();})();</script></nav>')
 
-# ================= STAGE 20: sticky jump-nav + module ordering =================
-# Reorders the intact module blocks to match the nav (City Guide, Live, Know,
-# Explore), adds id anchors, and injects a sticky scroll-spy nav. Reorder makes
-# DOM order == nav order so scrolling and clicking agree. Non-destructive to
-# block internals; validates div-balance before writing.
-def _bal2(html, marker):
+def _bal18(html,marker):
     i=html.find(marker)
     if i<0: return None
-    o=html.rfind('<',0,i+1)
+    o=html.rfind('<',0,i)
     t=re.match(r'<(\w+)',html[o:]).group(1)
-    depth=0; j=o
+    depth=0;j=o
     while j<len(html):
-        if html[j:j+len(t)+1]=='<'+t: depth+=1; j+=len(t)+1; continue
+        if html[j:j+len(t)+1]=='<'+t: depth+=1;j+=len(t)+1;continue
         if html[j:j+len(t)+3]=='</'+t+'>':
-            depth-=1; j+=len(t)+3
+            depth-=1;j+=len(t)+3
             if depth==0: return (o,j)
             continue
         j+=1
     return None
 
-_jn=0; _jnskip=0
-for _vf in glob.glob(rp('venues','*.html')):
-    _fn=os.path.basename(_vf)
+_done=0;_skip=[]
+_CDN='<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>'
+for _vf in sorted(glob.glob(rp('venues','*.html'))):
+    _fn=os.path.basename(_vf);_slug=_fn[:-5]
+    _d=_VI.get(_slug)
+    if not _d: _skip.append((_slug,'no venue_info')); continue
     _s=read(os.path.join('venues',_fn))
-    # hard reset any prior jump-nav artifacts
-    _s=re.sub(r'<nav class="vg-nav".*?</nav>','',_s,flags=re.S)
-    _s=re.sub(r'\s+id="vg-(?:guide|live|know|explore)"','',_s)
-    # extract the four modules in NAV order
-    _order=[('vg-guide','City Guide','class="nv-section reveal"'),
-            ('vg-live','Live at {vn}','class="events-section reveal"'),
-            ('vg-know','Know Before You Go','class="venue-info-wrap'),
-            ('vg-explore','Explore More','class="nearby-section reveal"')]
-    _mods={}; _spans=[]; _okbal=True
-    for aid,label,mk in _order:
-        # take the FIRST occurrence only (dedupe safety)
-        bnd=_bal2(_s,mk)
-        if bnd:
-            seg=_s[bnd[0]:bnd[1]]
-            if seg.count('<div')!=seg.count('</div>'): _okbal=False; break
-            _mods[aid]=(label,seg); _spans.append(bnd)
-    # also strip any DUPLICATE nv-section beyond the first
-    _all_nv=[m.start() for m in re.finditer(r'class="nv-section reveal"',_s)]
-    if not _okbal or 'vg-guide' not in _mods or 'vg-know' not in _mods:
-        _jnskip+=1; continue
-    # remove all extracted spans (back to front)
-    for bnd in sorted(_spans,reverse=True):
-        _s=_s[:bnd[0]]+_s[bnd[1]:]
-    # remove any leftover duplicate nv-section blocks
-    while True:
-        d=_bal2(_s,'class="nv-section reveal"')
-        if not d: break
-        _s=_s[:d[0]]+_s[d[1]:]
-    # find insert point: right after venue-hero
-    hi=_s.find('class="venue-hero"'); ho=_s.rfind('<',0,hi+1)
-    t='div' if _s[ho:ho+4]=='<div' else 'section'
-    depth=0; j=ho
-    while j<len(_s):
-        if _s[j:j+len(t)+1]=='<'+t: depth+=1; j+=len(t)+1; continue
-        if _s[j:j+len(t)+3]=='</'+t+'>':
-            depth-=1; j+=len(t)+3
-            if depth==0: break
-            continue
-        j+=1
-    vn=_NB.get(_fn[:-5],{}).get('venueName') or _fn[:-5].replace('-',' ').title()
-    # reassemble modules in nav order, each tagged with its id
-    modules_html=''
-    navlinks=''
-    for aid,label,mk in _order:
-        if aid not in _mods: continue
-        lbl,seg=_mods[aid]
-        # inject id on the block's opening tag
-        m2=re.match(r'(<\w+)',seg)
-        seg=seg[:len(m2.group(1))]+f' id="{aid}"'+seg[len(m2.group(1)):]
-        modules_html+=seg
-        navlinks+=f'<a class="vg-navlink" data-vg="{aid}" href="#{aid}">{_h18.escape(lbl.format(vn=vn))}</a>'
-    nav=(f'<nav class="vg-nav" aria-label="Venue sections"><div class="vg-nav-inner">{navlinks}</div>'
-         '<script>(function(){var n=document.currentScript.closest(".vg-nav");'
-         'var links=[].slice.call(n.querySelectorAll(".vg-navlink"));'
-         'links.forEach(function(l){l.addEventListener("click",function(e){e.preventDefault();'
-         'var t=document.getElementById(l.dataset.vg);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-70,behavior:"smooth"});});});'
-         'function spy(){var y=window.pageYOffset+90,act=links[0];'
-         'links.forEach(function(l){var s=document.getElementById(l.dataset.vg);if(s&&s.offsetTop<=y)act=l});'
-         'links.forEach(function(l){l.classList.toggle("vg-on",l===act)});}'
-         'window.addEventListener("scroll",spy,{passive:true});spy();})();</script></nav>')
-    _cand=_s[:j]+nav+modules_html+_s[j:]
-    body=_cand[_cand.find('</nav>'):_cand.find('<footer') if '<footer' in _cand else len(_cand)]
-    if body.count('<div')==body.count('</div>'):
-        write(os.path.join('venues',_fn),_cand); _jn+=1
-    else:
-        _jnskip+=1
-print(f'jump-nav + ordering: {_jn} pages, {_jnskip} skipped')
-
-# ================= STAGE 21: sticky jump-nav styling =================
-JN_CSS = '''
-/* ---- 18. Sticky venue jump-nav (generated by build_static.py) ---- */
-.vg-nav { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.92);
-  backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--border-light, #eee); margin-bottom: 1rem; }
-.vg-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 4%; display: flex; gap: 0.4rem;
-  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-.vg-nav-inner::-webkit-scrollbar { display: none; }
-.vg-navlink { flex: 0 0 auto; padding: 0.9rem 1.1rem; font-family: var(--body); font-size: 0.82rem;
-  font-weight: 600; letter-spacing: 0.01em; color: var(--text-dim); text-decoration: none;
-  border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
-.vg-navlink:hover { color: var(--text); }
-.vg-navlink.vg-on { color: var(--text); border-bottom-color: var(--gold); }
-/* offset anchor jumps so sticky nav doesn't cover section tops */
-#vg-guide, #vg-live, #vg-know, #vg-explore { scroll-margin-top: 70px; }
-'''
-_ac=read('align.css')
-if '18. Sticky venue jump-nav' not in _ac:
-    write('align.css', _ac + JN_CSS)
-    print('align.css: sticky jump-nav styling appended')
+    # region start: City Guide card OR prior es-section (idempotent)
+    _start=None
+    for mk in ['<section class="es-section','<div class="tool-section reveal">']:
+        i=_s.find(mk)
+        if i>=0: _start=i; break
+    if _start is None: _skip.append((_slug,'no anchor')); continue
+    # region end: end of info-section if present, else end of venue-info-wrap, else prior cgx close
+    _end=None
+    for mk in ['class="info-section','class="venue-info-wrap','id="cgx"']:
+        b=_bal18(_s,mk)
+        if b and b[1]>_start: _end=max(_end or 0,b[1])
+    if not _end: _skip.append((_slug,'no end')); continue
+    _region=_zone1(_slug,_d)+_zone2(_slug,_d)
+    _s=_s[:_start]+_region+_s[_end:]
+    # nav strip after hero (remove prior)
+    _s=re.sub(r'<nav class="pg-toc".*?</nav>','',_s,flags=re.S)
+    hb=_bal18(_s,'class="venue-hero"')
+    if hb: _s=_s[:hb[1]]+_NAVT+_s[hb[1]:]
+    # hero facts bar (remove prior, rebuild)
+    _s=re.sub(r'<div class="vh-facts">.*?</div>\s*</div>','</div>',_s,flags=re.S) if 'vh-facts' in _s else _s
+    if 'vh-facts' not in _s and _d.get('lat'):
+        loc=', '.join(x for x in [_d.get('city'),_d.get('state') or _d.get('country')] if x)
+        facts=(f'<div class="vh-facts"><span class="vh-loc">{_esc(loc)}</span><span class="vh-dot">&middot;</span>'
+          f'<a class="vh-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination={_d["lat"]},{_d["lng"]}" target="_blank" rel="noopener">Get directions &rarr;</a>'
+          f'<button class="vh-fav" id="favVenueBtn" data-name="{_esc(_d.get("name") or _slug)}" aria-pressed="false" title="Save this venue">'
+          f'<span class="vh-fav-heart">&#9825;</span><span class="vh-fav-txt">Save venue</span></button></div>')
+        h1e=_s.find('</h1>',_s.find('class="venue-hero"'))+5
+        _s=_s[:h1e]+facts+_s[h1e:]
+    # section ids on events + nearby
+    for cls,sid in [('events-section','sec-events'),('nearby-section','sec-nearby')]:
+        i=_s.find('class="'+cls)
+        if i>0:
+            o=_s.rfind('<',0,i)
+            if 'id=' not in _s[o:_s.find('>',o)]:
+                _s=_s[:o]+_s[o:].replace('class="'+cls,'id="'+sid+'" class="'+cls,1)
+    # supabase CDN before auth.js
+    if 'supabase-js' not in _s:
+        m=re.search(r'<script[^>]*src="[^"]*auth\.js"[^>]*>\s*</script>',_s)
+        if m: _s=_s.replace(m.group(0),_CDN+m.group(0),1)
+    # drop the dead venue-info.js tag (content now baked)
+    _s=re.sub(r'<script[^>]*src="/venue-info/venue-info\.js"[^>]*>\s*</script>','',_s)
+    _s=re.sub(r'<link[^>]*href="/venue-info/venue-info\.css"[^>]*>','',_s)
+    # cityguide.css link
+    if '/cityguide.css' not in _s:
+        _s=_s.replace('</head>','<link rel="stylesheet" href="/cityguide.css"></head>',1)
+    # featuresBtn guard
+    if 'if(featuresBtn&&featuresPanel){' not in _s and 'const featuresBtn' in _s:
+        i=_s.find('const featuresBtn')
+        k=_s.find('keydown',i); e=_s.find('});',k)+3
+        seg=_s[i:e]
+        gd=("const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');\n    if(featuresBtn&&featuresPanel){"+seg[seg.find(';')+1:]+'}')
+        _s=_s[:i]+gd+_s[e:]
+    # affiliate + favorite scripts (idempotent by marker)
+    if 'ConcertoAffiliate.hotelNear' not in _s and _d.get('lat'):
+        _s=_s.replace('</head>','<script src="/affiliate.js" defer></script></head>',1)
+        aff=('<script>document.addEventListener("DOMContentLoaded",function(){function wire(){if(!window.ConcertoAffiliate)return;'
+          'document.querySelectorAll(\'[data-cg-panel="stay"] .dir-row\').forEach(function(a){var nm=a.querySelector(".dir-name");'
+          'var r=window.ConcertoAffiliate.hotelNear('+str(_d['lat'])+','+str(_d['lng'])+',nm?nm.textContent:"");if(r&&r.href){a.href=r.href;}});'
+          'var grid=document.getElementById("eventsGrid");if(grid){new MutationObserver(function(){'
+          'grid.querySelectorAll(\'a[href*="ticketmaster."]\').forEach(function(a){if(a.dataset.aff)return;'
+          'var r=window.ConcertoAffiliate.ticket(a.href,"ticketmaster");a.href=r.href;a.dataset.aff="1";});}).observe(grid,{childList:true,subtree:true});}}'
+          'wire();setTimeout(wire,1200);});</script>')
+        fav=('<script>document.addEventListener("DOMContentLoaded",async function(){var b=document.getElementById("favVenueBtn");if(!b)return;'
+          'var name=b.dataset.name;var heart=b.querySelector(".vh-fav-heart");var txt=b.querySelector(".vh-fav-txt");'
+          'function paint(on){heart.innerHTML=on?"&#9829;":"&#9825;";txt.textContent=on?"Saved":"Save venue";b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");}'
+          'try{if(typeof isFavorite==="function"){var on=await isFavorite("favorite_venues",name);paint(!!on);}}catch(e){}'
+          'b.addEventListener("click",async function(){try{'
+          'var sess=window._supabaseClient?(await window._supabaseClient.auth.getSession()).data.session:null;'
+          'if(!sess){window.location.href="/login.html?next="+encodeURIComponent(location.pathname);return;}'
+          'var updated=await toggleFavorite("favorite_venues",name);paint(updated&&updated.includes(name));}catch(e){}});});</script>')
+        _s=_s.replace('</body>',aff+fav+'</body>',1)
+    write(os.path.join('venues',_fn),_s);_done+=1
+print(f'venue template: {_done} pages generated, {len(_skip)} skipped {_skip[:4]}')

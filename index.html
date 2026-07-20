@@ -624,7 +624,7 @@
 (function(){
   var sec=document.getElementById('picksStrip'), grid=document.getElementById('picksGrid');
   if(!sec||!grid) return;
-  var MAP_BASE='/cityguide/';
+  var MAP_BASE='/venues/';
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   fetch('/data/top_picks.json').then(function(r){return r.json();}).then(function(data){
     data=data.slice().sort(function(a,b){var pa=((a.items||[])[0]||{}).photo?0:1,pb=((b.items||[])[0]||{}).photo?0:1;return pa-pb;});
