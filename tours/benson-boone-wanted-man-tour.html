@@ -164,7 +164,7 @@
 <style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
   <link rel="stylesheet" href="../align.css">
   <script defer src="/analytics.js"></script>
-</head>
+<script src="/affiliate.js" defer></script><link rel="stylesheet" href="/cityguide.css"></head>
 <body class="page-tour">
   <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
   <div class="noise" aria-hidden="true"></div>
@@ -224,7 +224,7 @@
       <span class="tour-meta-item">2026</span>
       
       
-    </div>
+    </div><div id="nextShow" class="tour-next" hidden></div><div class="vh-facts"><button class="vh-fav" id="favTourBtn" data-name="Wanted Man Tour" aria-pressed="false" title="Save this tour"><span class="vh-fav-heart">&#9825;</span><span class="vh-fav-txt">Save tour</span></button></div>
   </div>
 
   <div class="quick-nav" role="navigation" aria-label="Jump to section">
@@ -266,7 +266,7 @@
         </div>
       </div>
       <div id="showsContainer"><div style="padding:1.5rem 0;font-family:var(--body);font-size:0.85rem;color:var(--text-xdim);text-align:center;font-style:italic;">Loading tour dates&hellip;</div></div>
-    </section>
+    <p class="tour-trust">Spot a wrong date or detail? <a href="mailto:hello@concertocity.com?subject=Tour%20correction:%20Wanted Man Tour">Report it</a> and we&rsquo;ll fix it fast.</p></section>
   </div>
 
   <div class="tour-shows" style="max-width:1280px;margin:0 auto 5rem;">
@@ -474,21 +474,21 @@
             <div class="show-row" id="${rowId}">
               <div class="show-row-main" onclick="toggleRow('${rowId}')">
                 <div class="show-date"><span class="dt-full">${date}</span><span class="dt-short">${ev.dates.start.localDate?(parseInt(ev.dates.start.localDate.slice(5,7),10)+"/"+parseInt(ev.dates.start.localDate.slice(8,10),10)):date}</span></div>
-                <div class="show-venue">${venueName}</div>
+                <div class="show-venue">${window._vslug&&window._vslug(venueName)?`<a href="/venues/${window._vslug(venueName)}" class="show-venue-link">${venueName}</a>`:venueName}</div>
                 <div class="show-location">${location}</div>
                 <div class="show-chevron">&#9660;</div>
               </div>
               <div class="show-links">
                 <div class="show-links-inner">
                   ${ticketUrl
-                    ? `<a href="${ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>`
+                    ? `<a href="${window.ConcertoAffiliate?window.ConcertoAffiliate.ticket(ticketUrl).href:ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary">Buy Tickets</a>`
                     : `<span class="show-link-btn disabled">Tickets TBA</span>`}
                 </div>
               </div>
             </div>`;
         });
         html += '</div>';
-        container.innerHTML = html;
+        container.innerHTML = html; try{var _ns=document.getElementById("nextShow");if(_ns&&shows&&shows.length){var _f=shows[0];var _v=_f.venueName||_f.matchup||_f.title||"";var _d=formatDate(_f.date);if(_v){_ns.textContent="Next show: "+_v+(_d?(" \u00b7 "+_d):"");_ns.hidden=false;}}}catch(_e){}
       } catch (err) {
         console.warn('[Concerto] TM lookup failed:', err);
         renderEmpty('Show dates coming soon.');
@@ -589,5 +589,5 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../auth.js"></script>
   <script src="../app-shell.js"></script>
-</body>
+<script>document.addEventListener("DOMContentLoaded",async function(){var b=document.getElementById("favTourBtn");if(!b)return;var name=b.dataset.name;var heart=b.querySelector(".vh-fav-heart");var txt=b.querySelector(".vh-fav-txt");function paint(on){heart.innerHTML=on?"&#9829;":"&#9825;";txt.textContent=on?"Saved":"Save tour";b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");}try{if(typeof isFavorite==="function"){var on=await isFavorite("favorite_tours",name);paint(!!on);}}catch(e){}b.addEventListener("click",async function(){try{var sess=window._supabaseClient?(await window._supabaseClient.auth.getSession()).data.session:null;if(!sess){window.location.href="/login.html?next="+encodeURIComponent(location.pathname);return;}var updated=await toggleFavorite("favorite_tours",name);paint(updated&&updated.includes(name));}catch(e){}});});</script></body>
 </html>
