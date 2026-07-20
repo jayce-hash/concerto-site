@@ -1476,3 +1476,92 @@ for _vf in sorted(glob.glob(rp('venues','*.html'))):
         _s=_s.replace('</body>',aff+fav+'</body>',1)
     write(os.path.join('venues',_fn),_s);_done+=1
 print(f'venue template: {_done} pages generated, {len(_skip)} skipped {_skip[:4]}')
+
+# ================= STAGE 19: tour page facelift =================
+# Adds: ♥ Save tour (favorite_tours), affiliate-routed ticket links,
+# venue-name auto-linking to /venues/{slug} via runtime venues.json match.
+_t19=0
+_P_VENUE='<div class="show-venue">${venueName}</div>'
+_P_VENUE_NEW='<div class="show-venue">${window._vslug&&window._vslug(venueName)?`<a href="/venues/${window._vslug(venueName)}" class="show-venue-link">${venueName}</a>`:venueName}</div>'
+_P_TIX='href="${ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary"'
+_P_TIX_NEW='href="${window.ConcertoAffiliate?window.ConcertoAffiliate.ticket(ticketUrl).href:ticketUrl}" target="_blank" rel="noopener noreferrer" class="show-link-btn primary"'
+_VSLUG_JS=('<script>fetch("/data/venues.json").then(function(r){return r.json()}).then(function(vs){'
+ 'var M={};vs.forEach(function(v){M[(v.name||"").toLowerCase().replace(/[^a-z0-9]/g,"")]=v.id});'
+ 'window._vslug=function(n){return M[(n||"").toLowerCase().replace(/[^a-z0-9]/g,"")]||null};}).catch(function(){window._vslug=function(){return null}});</script>')
+for _tf in sorted(glob.glob(rp('tours','*.html'))):
+    _fn=os.path.basename(_tf)
+    _s=read(os.path.join('tours',_fn))
+    _ch=False
+    if _P_VENUE in _s:
+        _s=_s.replace(_P_VENUE,_P_VENUE_NEW); _ch=True
+    if _P_TIX in _s and 'ConcertoAffiliate.ticket' not in _s:
+        _s=_s.replace(_P_TIX,_P_TIX_NEW); _ch=True
+    if 'window._vslug' not in _s:
+        _s=_s.replace('</body>',_VSLUG_JS+'</body>',1); _ch=True
+    if '/affiliate.js' not in _s:
+        _s=_s.replace('</head>','<script src="/affiliate.js" defer></script></head>',1); _ch=True
+    if 'favTourBtn' not in _s:
+        _m=re.search(r'<h1 class="tour-title">([^<]+)</h1>',_s)
+        if _m:
+            _tn=_m.group(1)
+            _btn=('<div class="vh-facts"><button class="vh-fav" id="favTourBtn" data-name="'+_H.escape(_tn)+'" aria-pressed="false" title="Save this tour">'
+              '<span class="vh-fav-heart">&#9825;</span><span class="vh-fav-txt">Save tour</span></button></div>')
+            # insert after the tour-meta div closes
+            _i=_s.find('class="tour-meta"')
+            if _i>0:
+                _o=_s.rfind('<',0,_i);_d2=0;_j=_o
+                while _j<len(_s):
+                    if _s[_j:_j+4]=='<div':_d2+=1;_j+=4;continue
+                    if _s[_j:_j+6]=='</div>':
+                        _d2-=1;_j+=6
+                        if _d2==0:break
+                        continue
+                    _j+=1
+                _s=_s[:_j]+_btn+_s[_j:]
+            _favjs=('<script>document.addEventListener("DOMContentLoaded",async function(){var b=document.getElementById("favTourBtn");if(!b)return;'
+              'var name=b.dataset.name;var heart=b.querySelector(".vh-fav-heart");var txt=b.querySelector(".vh-fav-txt");'
+              'function paint(on){heart.innerHTML=on?"&#9829;":"&#9825;";txt.textContent=on?"Saved":"Save tour";b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");}'
+              'try{if(typeof isFavorite==="function"){var on=await isFavorite("favorite_tours",name);paint(!!on);}}catch(e){}'
+              'b.addEventListener("click",async function(){try{'
+              'var sess=window._supabaseClient?(await window._supabaseClient.auth.getSession()).data.session:null;'
+              'if(!sess){window.location.href="/login.html?next="+encodeURIComponent(location.pathname);return;}'
+              'var updated=await toggleFavorite("favorite_tours",name);paint(updated&&updated.includes(name));}catch(e){}});});</script>')
+            _s=_s.replace('</body>',_favjs+'</body>',1)
+            _ch=True
+    if '/cityguide.css' not in _s:
+        _s=_s.replace('</head>','<link rel="stylesheet" href="/cityguide.css"></head>',1); _ch=True
+    if _ch: write(os.path.join('tours',_fn),_s);_t19+=1
+print(f'tour facelift: {_t19} pages updated')
+
+# ================= STAGE 20: standardize venue-page header CTA =================
+# Venue pages shipped with the old "Get Access" CTA and no navAuthLink, so
+# auth.js could not reflect signed-in state. Replace with the current sitewide
+# standard (Sign In + Download the App + profile icon + hamburger).
+_NEWCTA=('<div class="nav-cta" style="display:flex;gap:10px;align-items:center;">'
+ '<a id="navAuthLink" href="../login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>'
+ '<a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>'
+ '<a id="navProfileIcon" href="../login.html" class="nav-profile-btn" aria-label="Account">'
+ '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></a>'
+ '<button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">'
+ '<span></span><span></span><span></span></button></div>')
+_PROFILE_CSS='.nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }.nav-profile-btn:hover { color:var(--text); border-color:var(--text); }.nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }.nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }.nav-profile-btn:hover { color: var(--text); border-color: var(--text); }.nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }.nav-profile-btn { display: inline-flex; }.nav-download { display: none; }.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}'
+_h20=0
+for _vf in sorted(glob.glob(rp('venues','*.html'))):
+    _fn=os.path.basename(_vf)
+    _s=read(os.path.join('venues',_fn))
+    if 'navAuthLink' in _s: continue  # already standardized
+    i=_s.find('class="nav-cta"')
+    if i<0: continue
+    o=_s.rfind('<',0,i);d=0;j=o
+    while j<len(_s):
+        if _s[j:j+4]=='<div':d+=1;j+=4;continue
+        if _s[j:j+6]=='</div>':
+            d-=1;j+=6
+            if d==0:break
+            continue
+        j+=1
+    _s=_s[:o]+_NEWCTA+_s[j:]
+    if '.nav-profile-btn{' not in _s:
+        _s=_s.replace('</style>',_PROFILE_CSS+'</style>',1)
+    write(os.path.join('venues',_fn),_s);_h20+=1
+print(f'header standardized on {_h20} venue pages')

@@ -16,3 +16,8 @@
   from = "/cityguides"
   to = "/venues"
   status = 301
+
+[[redirects]]
+  from = "/tours/fifa-world-cup-2026"
+  to = "/tours"
+  status = 301

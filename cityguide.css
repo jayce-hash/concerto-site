@@ -170,3 +170,16 @@
   .pg-toc-inner { justify-content: flex-start; gap: 0.7rem; }
   .pg-toc-link { font-size: 0.6rem; letter-spacing: 0.12em; }
 }
+
+/* ---- Tour page: venue links in date rows + save button spacing ---- */
+.show-venue-link { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--border-mid); transition: color 0.15s, border-color 0.15s; }
+.show-venue-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.tour-hero .vh-facts { margin-top: 1.4rem; }
+
+/* ---- Tour page: trust + next show ---- */
+.tour-trust { font-family: var(--body); font-size: 0.7rem; font-weight: 300; color: var(--text-dim);
+  margin-top: 1.4rem; opacity: 0.8; }
+.tour-trust a { color: var(--gold); text-decoration: none; font-weight: 600; }
+.tour-trust a:hover { color: var(--text); }
+.tour-next { font-family: var(--body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--gold); margin-top: 1rem; }
