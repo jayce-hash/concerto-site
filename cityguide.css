@@ -149,3 +149,24 @@
   margin-top: 1.4rem; opacity: 0.8; }
 .es-trust a { color: var(--gold); text-decoration: none; font-weight: 600; }
 .es-trust a:hover { color: var(--text); }
+
+/* ---- On-page contents strip (playbill voice, sticky) ---- */
+.pg-toc { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px) saturate(160%); -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border-bottom: 1px solid var(--border); margin: 0 0 1.75rem; }
+.pg-toc-inner { max-width: 1280px; margin: 0 auto; padding: 0 4%; display: flex; align-items: center;
+  justify-content: center; gap: 0.9rem; overflow-x: auto; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch; }
+.pg-toc-inner::-webkit-scrollbar { display: none; }
+.pg-toc-link { flex: 0 0 auto; padding: 0.95rem 0.1rem calc(0.95rem - 2px); font-family: var(--body);
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-dim); text-decoration: none; border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s; white-space: nowrap; }
+.pg-toc-link:hover { color: var(--text); }
+.pg-toc-link.on { color: var(--text); border-bottom-color: var(--gold); }
+.pg-toc-dot { color: var(--border-mid); flex: 0 0 auto; }
+#sec-essentials, #cgx, #sec-events, #sec-nearby { scroll-margin-top: 64px; }
+@media (max-width: 640px) {
+  .pg-toc-inner { justify-content: flex-start; gap: 0.7rem; }
+  .pg-toc-link { font-size: 0.6rem; letter-spacing: 0.12em; }
+}
