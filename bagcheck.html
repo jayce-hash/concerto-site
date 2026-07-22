@@ -128,6 +128,11 @@
   /* ── BAG CHECK APP STYLES ── */
   body { position: fixed; width: 100%; overflow: hidden; }
   #app { height: 100vh; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+  /* Inside the Capacitor app shell: fit the app between the fixed bars */
+  body.app-shell-on #app {
+    height: calc(100dvh - env(safe-area-inset-top, 0px) - 70px - env(safe-area-inset-bottom, 0px) - 64px);
+  }
+
 
   /* Screens */
   .screen { position: absolute; inset: 0; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity .32s var(--ease-out), transform .32s var(--ease-out); transform: translateY(14px); overflow: hidden; z-index: 1; }
