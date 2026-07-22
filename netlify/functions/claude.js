@@ -150,15 +150,17 @@ exports.handler = async function (event) {
       const policy = `Venue: ${venue.n} (${venue.loc})
 Policy: ${venue.policy_text || ''}
 Allowed: ${(venue.allows || []).join('; ')}
-Prohibited: ${(venue.denies || []).join('; ')}`;
+Prohibited: ${(venue.denies || []).join('; ')}
+Parking context: ${venue.park_note || 'unknown'}
+Rideshare context: ${venue.ride_note || 'unknown'}`;
       const prompt = `You are Concerto's Bag Check AI. Analyze the bag in this photo for entry to ${venue.n}.
 
 ${policy}
 
 Respond ONLY with valid JSON, no markdown:
-{"verdict":"pass"|"warn"|"fail","bag_type":"e.g. Small Leather Clutch","dims":"e.g. Est. 6\\" × 4\\" · Leather · Metal clasp","confidence":<60-98>,"label":"2-4 word headline","findings":[{"s":"pass"|"warn"|"fail","rule":"Short rule","detail":"1-2 sentence explanation"}]}
+{"verdict":"pass"|"warn"|"fail","bag_type":"e.g. Small Leather Clutch","dims":"e.g. Est. 6\\" × 4\\" · Leather · Metal clasp","confidence":<60-98>,"label":"2-4 word headline","findings":[{"s":"pass"|"warn"|"fail","rule":"Short rule","detail":"1-2 sentence explanation"}],"next_steps":[{"title":"Short action","detail":"1-2 sentences"}]}
 
-Include 3-5 findings citing specific policy rules.`;
+Include 3-5 findings citing specific policy rules. Include next_steps ONLY when verdict is warn or fail: 1-3 concrete, venue-specific alternatives (use the parking/rideshare context if it mentions lockers, storage, lots, or leave-in-car options; otherwise suggest practical options like returning the bag to a car, using a nearby bag storage service, or swapping to an allowed clear bag). Never leave a fail without a path forward. Omit next_steps entirely on pass.`;
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
@@ -185,13 +187,11 @@ Include 3-5 findings citing specific policy rules.`;
       const tmKey = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
       if (!tmKey) return { statusCode: 500, headers, body: JSON.stringify({ error: 'TM key not configured' }) };
       const { keyword, size = 10 } = body;
-      console.log('[TM DIAG]', JSON.stringify({ gotKeyword: keyword, keyLast4: (tmKey||'').slice(-4), bodyKeys: Object.keys(body) }));
       const url = `${TM}/events.json?apikey=${tmKey}`
         + `&keyword=${encodeURIComponent(keyword || '')}`
         + `&size=${Math.min(Number(size) || 10, 50)}&sort=date,asc&classificationName=music`;
       const response = await fetch(url);
       const data = await response.json();
-      console.log('[TM DIAG] status', response.status, 'total', data?.page?.totalElements, 'fault', JSON.stringify(data?.fault || data?.errors || null));
       return { statusCode: response.status, headers, body: JSON.stringify(data) };
     }
 

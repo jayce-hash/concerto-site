@@ -502,6 +502,26 @@ let sb;
 try { sb = window._supabaseClient || (window._supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)); } catch(e) { sb = null; }
 
 // Build proxy headers with the current Supabase access token attached.
+// ── Concerto venue intel (bag policy, parking, gates, top picks) ──
+let VENUE_INTEL={}, TOP_PICKS={};
+const INTEL_READY=Promise.all([
+  fetch('/data/venue_info.json').then(r=>r.json()).then(d=>{VENUE_INTEL=d;}),
+  fetch('/data/top_picks.json').then(r=>r.json()).then(a=>{(a||[]).forEach(x=>{TOP_PICKS[x.slug]=x;});})
+]).catch(()=>{});
+function intelFor(venueName){
+  if(!venueName)return null;
+  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const key=norm(venueName);
+  for(const [slug,d] of Object.entries(VENUE_INTEL)){
+    if(norm(d.name)===key||slug.replace(/-/g,'')===key) return {slug,d,picks:TOP_PICKS[slug]||null};
+  }
+  for(const [slug,d] of Object.entries(VENUE_INTEL)){
+    const n=norm(d.name);
+    if(n&&(n.includes(key)||key.includes(n))) return {slug,d,picks:TOP_PICKS[slug]||null};
+  }
+  return null;
+}
+
 async function CONCERTO_PROXY_HEADERS(){
   const h = {'Content-Type':'application/json'};
   try { const r = await sb.auth.getSession(); const t = r?.data?.session?.access_token; if(t) h['Authorization'] = 'Bearer ' + t; } catch(e) {}
@@ -721,10 +741,23 @@ async function buildPlan(){
 
 function makeBuildPrompt(){
   const ev=S.ev,dt=toDate(ev.dateTime);
+  const intel=intelFor(ev.venue);
+  let intelBlock='';
+  if(intel){
+    const d=intel.d,bp=d.bagPolicy||{},pk=d.parking||{},rs=d.rideshare||{},gt=d.gates||{};
+    const picks=intel.picks?intel.picks.items.slice(0,5).map(p=>`${p.name}: ${p.notes||''}`).join('\n'):'';
+    intelBlock=`\nCONCERTO VENUE INTEL (authoritative, use it):\n`
+      +(bp.summary?`Bag policy: ${bp.summary} Prohibited: ${(bp.prohibited||[]).slice(0,5).join(', ')}\n`:'')
+      +(pk.note?`Parking: ${pk.note}\n`:'')
+      +(rs.note?`Rideshare: ${rs.note}\n`:'')
+      +(gt.body?`Entry: ${gt.body}\n`:'')
+      +(picks?`CONCERTO TOP PICKS (editors' choices, prefer these for dinner/drinks picks):\n${picks}\n`:'');
+  }
+
   const sum={};const hasPlaces=Object.values(S.byVibe).some(a=>a.length>0);
   if(hasPlaces){ for(const[v,ps]of Object.entries(S.byVibe)){ sum[v]=ps.slice(0,6).map(p=>({name:p.name,address:p.address,rating:p.rating,price:p.price,distMi:(p.lat&&p.lng&&S.loc)?+hav(S.loc.lat,S.loc.lng,p.lat,p.lng).toFixed(2):null})); } }
   const placesBlock=hasPlaces?`NEARBY PLACES (prefer these):\n${JSON.stringify(sum,null,2)}`:`NEARBY PLACES: API returned none. Draw on your knowledge of dining/bars near ${ev.venue}, ${ev.city}.`;
-  return`Build a complete night-out itinerary for a concert.\n\nSHOW: ${ev.artist||ev.name}\nVENUE: ${ev.venue}, ${ev.city}\nDATE/TIME: ${dt?`${fmtD(dt)} at ${fmtT(dt)}`:'TBA'}\nPACE: ${S.pace}, chill=2 stops, balanced=3-4 stops, packed=5-6 stops\nARRIVE AT VENUE: ${S.arrival} min before show start\nHOTEL/START: ${S.hotel||'not specified'}\nSELECTED VIBES: ${S.vibes.join(', ')}\n\n${placesBlock}\n\nRULES:\n1. "timeline", ordered array from first activity to last. Always include the show entry (isShow:true).\n2. If hotel is given, open with a departure entry from the hotel.\n3. Schedule pre-show stops to wrap up ${S.arrival} min before show. Post-show: first stop starts 20 min after show ends (assume 2.5 hr show).\n4. Each "note": 1-2 sentences, what to order, a local tip, what makes it worth it. Zero generic phrases.\n5. "picks": 2-3 best options per vibe. Each "why": one sharp, specific sentence.\n6. Use real place names. Never invent a place name that clearly doesn't exist.\n\nRESPOND WITH ONLY THIS JSON, no markdown fences, no explanation:\n{"timeline":[{"time":"6:00 PM","label":"Dinner at Carbone","note":"Order the rigatoni vodka.","placeName":"Carbone","vibe":"dinner","isShow":false},{"time":"8:30 PM","label":"Harry Styles at MSG","note":"","placeName":"Madison Square Garden","vibe":"show","isShow":true}],"picks":{"dinner":[{"name":"Carbone","why":"The best pre-show power dinner in the city."}]}}`;
+  return`Build a complete night-out itinerary for a concert.\n\nSHOW: ${ev.artist||ev.name}\nVENUE: ${ev.venue}, ${ev.city}\nDATE/TIME: ${dt?`${fmtD(dt)} at ${fmtT(dt)}`:'TBA'}\nPACE: ${S.pace}, chill=2 stops, balanced=3-4 stops, packed=5-6 stops\nARRIVE AT VENUE: ${S.arrival} min before show start\nHOTEL/START: ${S.hotel||'not specified'}\nSELECTED VIBES: ${S.vibes.join(', ')}${intelBlock}\n\n${placesBlock}\n\nRULES:\n1. "timeline", ordered array from first activity to last. Always include the show entry (isShow:true).\n2. If hotel is given, open with a departure entry from the hotel.\n3. Schedule pre-show stops to wrap up ${S.arrival} min before show. Post-show: first stop starts 20 min after show ends (assume 2.5 hr show).\n4. Each "note": 1-2 sentences, what to order, a local tip, what makes it worth it. Zero generic phrases.\n5. "picks": 2-3 best options per vibe. Each "why": one sharp, specific sentence.\n6. Use real place names. Never invent a place name that clearly doesn't exist.\n7. "knowBeforeYouGo": 2-4 entries from the CONCERTO VENUE INTEL only (bag, parking, rideshare, entry). Skip if no intel given. These prevent ruined nights, be specific.\n\nRESPOND WITH ONLY THIS JSON, no markdown fences, no explanation:\n{"timeline":[{"time":"6:00 PM","label":"Dinner at Carbone","note":"Order the rigatoni vodka.","placeName":"Carbone","vibe":"dinner","isShow":false},{"time":"8:30 PM","label":"Harry Styles at MSG","note":"","placeName":"Madison Square Garden","vibe":"show","isShow":true}],"picks":{"dinner":[{"name":"Carbone","why":"The best pre-show power dinner in the city."}]},"knowBeforeYouGo":[{"title":"Bag policy","detail":"One sharp sentence."}]}`;
 }
 
 async function claudeCall(messages){
@@ -765,6 +798,18 @@ function renderPlan(plan){
   $('planArtist').textContent=ev.artist||ev.name;
   $('planMeta').textContent=[ev.venue,ev.city,dt?fmtD(dt):''].filter(Boolean).join(' · ');
   const tlList=$('tlList');tlList.innerHTML='';
+  // Know Before You Go (from venue intel)
+  try{
+    const old=document.getElementById('kbygSec'); if(old) old.remove();
+    if(plan.knowBeforeYouGo&&plan.knowBeforeYouGo.length){
+      const sec=document.createElement('div'); sec.id='kbygSec';
+      sec.style.cssText='margin:18px 0 4px;padding:14px 16px;background:rgba(192,126,31,0.06);border:1px solid rgba(192,126,31,0.25);border-radius:14px;';
+      sec.innerHTML='<div style="font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold,#C07E1F);margin-bottom:8px;">Know Before You Go</div>'
+        +plan.knowBeforeYouGo.map(k=>'<div style="display:flex;gap:8px;margin-bottom:6px;"><div style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--gold,#C07E1F);margin-top:7px;"></div><div style="font-size:13px;line-height:1.55;"><b>'+(k.title||'')+':</b> '+(k.detail||'')+'</div></div>').join('');
+      tlList.parentNode.insertBefore(sec, tlList);
+    }
+  }catch(e){}
+
   const allPlaces=Object.values(S.byVibe).flat();
   if(!plan.timeline?.length){
     tlList.innerHTML='<div style="padding:20px 0;font-size:14px;color:var(--ink-2);font-style:italic">No plan returned, try rebuilding.</div>';

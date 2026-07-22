@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>My Account, Concerto</title>
+  <title>Passport, Concerto</title>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://concertocity.com/account.html" />
   <meta property="og:title" content="My Account, Concerto" />
@@ -142,12 +142,63 @@
 .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
 .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
 </style>
-</head>
-<body><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-  <div class="noise" aria-hidden="true"></div>
 
-  <nav class="site-nav" role="navigation">
+<style>
+  .pp-wrap { max-width: 1080px; margin: 0 auto; padding: 110px 4% 80px; }
+  .pp-head { text-align: center; margin-bottom: 2.5rem; }
+  .pp-head .eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+  .pp-title { font-family: var(--display); font-size: clamp(2.2rem,5vw,3.2rem); font-weight: 700; color: var(--text); margin: 0.5rem 0 0.4rem; letter-spacing: -0.02em; }
+  .pp-sub { font-family: var(--body); font-size: 0.92rem; font-weight: 300; color: var(--text-dim); }
+  .pp-statsrow { display: flex; justify-content: center; gap: 2.5rem; margin: 1.6rem 0 0; flex-wrap: wrap; }
+  .pp-stat { text-align: center; }
+  .pp-stat-num { font-family: var(--display); font-size: 1.9rem; font-weight: 700; color: var(--text); }
+  .pp-stat-label { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+  .pp-addbar { display: flex; justify-content: center; margin: 2rem 0 2.5rem; }
+  .pp-addbtn { font-family: var(--body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.85rem 1.8rem; border-radius: 99px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; transition: all 0.18s; }
+  .pp-addbtn:hover { background: var(--gold); color: #1a1a1a; }
+  .pp-yearlabel { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin: 2.2rem 0 1.2rem; text-align: center; }
+  .pp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.2rem; }
+  .pp-stamp { aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--gold); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 1.2rem; background: var(--card-bg);
+    box-shadow: var(--shadow-sm); position: relative; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+  .pp-stamp:hover { transform: rotate(-2deg) scale(1.03); box-shadow: 0 8px 24px rgba(18,30,54,0.12); }
+  .pp-stamp::before { content: ''; position: absolute; inset: 6px; border: 1px dashed var(--border-mid); border-radius: 50%; }
+  .pp-stamp.verified { border-color: var(--text); }
+  .pp-stamp-venue { font-family: var(--display); font-size: 0.98rem; font-weight: 700; color: var(--text); line-height: 1.15; letter-spacing: -0.01em; }
+  .pp-stamp-city { font-family: var(--body); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-top: 0.35rem; }
+  .pp-stamp-date { font-family: var(--body); font-size: 0.62rem; font-weight: 300; color: var(--text-dim); margin-top: 0.3rem; }
+  .pp-stamp-artist { font-family: var(--body); font-size: 0.66rem; font-style: italic; color: var(--text-dim); margin-top: 0.2rem; max-width: 90%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pp-stamp-verified { position: absolute; bottom: 10%; font-size: 0.5rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text); }
+  .pp-empty { text-align: center; padding: 4rem 1rem; }
+  .pp-empty-title { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+  .pp-empty-sub { font-family: var(--body); font-size: 0.9rem; font-weight: 300; color: var(--text-dim); max-width: 400px; margin: 0 auto 1.6rem; line-height: 1.7; }
+  .pp-modal-bg { position: fixed; inset: 0; background: rgba(18,30,54,0.45); backdrop-filter: blur(4px); z-index: 90; display: none; align-items: center; justify-content: center; padding: 1rem; }
+  .pp-modal-bg.open { display: flex; }
+  .pp-modal { background: var(--bg); border-radius: 20px; padding: 2rem; width: 100%; max-width: 440px; box-shadow: 0 24px 64px rgba(18,30,54,0.25); }
+  .pp-modal h3 { font-family: var(--display); font-size: 1.4rem; margin: 0 0 1.2rem; color: var(--text); }
+  .pp-field { margin-bottom: 1rem; position: relative; }
+  .pp-field label { display: block; font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem; }
+  .pp-field input { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border-mid); border-radius: 12px; font-family: var(--body); font-size: 0.9rem; background: var(--card-bg); color: var(--text); }
+  .pp-field input:focus { outline: none; border-color: var(--gold); }
+  .pp-vdrop { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; max-height: 220px; overflow-y: auto; z-index: 5; display: none; box-shadow: var(--shadow-sm); }
+  .pp-vdrop-item { padding: 0.7rem 1rem; font-family: var(--body); font-size: 0.88rem; cursor: pointer; }
+  .pp-vdrop-item:hover { background: rgba(192,126,31,0.08); }
+  .pp-vdrop-sub { font-size: 0.7rem; color: var(--text-dim); }
+  .pp-modal-actions { display: flex; gap: 0.7rem; margin-top: 1.4rem; }
+  .pp-btn { flex: 1; padding: 0.85rem; border-radius: 99px; font-family: var(--body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.18s; }
+  .pp-btn.primary { background: var(--text); color: var(--bg); border: 1px solid var(--text); }
+  .pp-btn.primary:hover { background: var(--gold); border-color: var(--gold); color: #1a1a1a; }
+  .pp-btn.ghost { background: transparent; color: var(--text-dim); border: 1px solid var(--border-mid); }
+  .pp-btn.ghost:hover { color: var(--text); border-color: var(--text); }
+  .pp-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--text); color: var(--bg);
+    padding: 0.8rem 1.5rem; border-radius: 99px; font-family: var(--body); font-size: 0.82rem; opacity: 0; transition: all 0.3s; z-index: 99; }
+  .pp-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  @media (max-width: 560px) { .pp-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; } .pp-statsrow { gap: 1.4rem; } }
+</style>
+</head>
+<body class="bg-canvas">
+<nav class="site-nav" role="navigation">
     <div class="nav-logo"><a href="index.html"><img loading="lazy" decoding="async" src="logo.png" alt="Concerto" /></a></div>
     <div class="nav-center">
       <a href="venues.html">Venues</a>
@@ -172,287 +223,136 @@
       </button>
     </div>
   </nav>
-<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Near Me</a>
-      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="parking.html" class="nav-mobile-link">Parking</a>
-      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
+<main class="pp-wrap">
+  <div class="pp-head">
+    <span class="eyebrow">Concerto Passport</span>
+    <h1 class="pp-title">Every show, stamped.</h1>
+    <p class="pp-sub">Your live music history, collected. Log a night, earn the venue&rsquo;s stamp, keep it forever.</p>
+    <div class="pp-statsrow">
+      <div class="pp-stat"><div class="pp-stat-num" id="statShows">0</div><div class="pp-stat-label">Shows</div></div>
+      <div class="pp-stat"><div class="pp-stat-num" id="statVenues">0</div><div class="pp-stat-label">Venues</div></div>
+      <div class="pp-stat"><div class="pp-stat-num" id="statCities">0</div><div class="pp-stat-label">Cities</div></div>
     </div>
+  </div>
+  <div class="pp-addbar"><button class="pp-addbtn" id="addStampBtn">+ Stamp a show</button></div>
+  <div id="passportBody"><div class="pp-empty" id="emptyState" style="display:none">
+    <div class="pp-empty-title">Your passport is blank.</div>
+    <div class="pp-empty-sub">Every venue you visit earns a stamp. Log your first show, past or upcoming, and start the collection.</div>
+    <button class="pp-addbtn" onclick="document.getElementById('addStampBtn').click()">Stamp your first show</button>
+  </div></div>
+</main>
 
-  <main class="page" id="mainPage" style="display:none">
-
-    <!-- Profile header -->
-    <div class="profile-header">
-      <div class="profile-avatar" id="avatarEl">?</div>
-      <div class="profile-info">
-        <div class="profile-name" id="nameEl">Loading…</div>
-        <div class="profile-email" id="emailEl"></div>
-        <div id="premiumBadgeEl" style="display:none">
-          <span class="premium-badge-large">&#10022; Concerto Premium</span>
-        </div>
-      </div>
+<div class="pp-modal-bg" id="stampModal">
+  <div class="pp-modal">
+    <h3>Stamp a show</h3>
+    <div class="pp-field"><label>Venue</label><input id="ppVenue" placeholder="Search 346 venues&hellip;" autocomplete="off"><div class="pp-vdrop" id="ppVdrop"></div></div>
+    <div class="pp-field"><label>Artist or event</label><input id="ppArtist" placeholder="e.g. Zach Bryan"></div>
+    <div class="pp-field"><label>Date</label><input id="ppDate" type="date"></div>
+    <div class="pp-modal-actions">
+      <button class="pp-btn ghost" id="ppCancel">Cancel</button>
+      <button class="pp-btn primary" id="ppSave">Stamp it</button>
     </div>
+  </div>
+</div>
+<div class="pp-toast" id="ppToast"></div>
 
-    <div class="dashboard-grid">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+<script src="app-shell.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  let sb; try{ sb=window._supabaseClient||(window._supabaseClient=supabase.createClient('https://qgvukssbtfkbvahaiejm.supabase.co','sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY')); }catch(e){ sb=null; }
+  let VENUES={}; let picked=null;
+  fetch('/data/venue_info.json').then(r=>r.json()).then(d=>{VENUES=d;}).catch(()=>{});
 
-      <!-- Premium -->
-      <div class="dash-card full-width" id="premiumCardEl">
-        <div class="premium-card-inner">
-          <div class="dash-card-header" style="margin-bottom:1.2rem">
-            <span class="dash-card-label">Concerto Premium</span>
-          </div>
-          <div id="premiumActiveEl" style="display:none">
-            <p class="premium-status-active" id="premiumStatusText"></p>
-            <a href="#" class="manage-sub-link" id="manageSubLink">Manage subscription &rarr;</a>
-          </div>
-          <div id="premiumUpgradeEl">
-            <h2 class="dash-card-title" style="color:#fff;margin-bottom:.6rem;">Unlock the full night.</h2>
-            <p class="premium-status-active">AI Bag Check, Live Mode, and Concerto+ AI Itinerary. $7.99/month or $69.99/year.</p>
-            <div class="premium-plans">
-              <label class="plan-option selected" id="monthlyPlan">
-                <input type="radio" name="plan" value="monthly" checked />
-                <div class="plan-name">Monthly</div>
-                <div class="plan-price">$7.99<span>/mo</span></div>
-              </label>
-              <label class="plan-option" id="annualPlan">
-                <input type="radio" name="plan" value="annual" />
-                <div class="plan-name">Annual</div>
-                <div class="plan-price">$69.99<span>/yr</span></div>
-                <div class="plan-save">Save 27%</div>
-              </label>
-            </div>
-            <button class="upgrade-btn" id="upgradeBtn">Start Premium &rarr;</button>
-          </div>
-        </div>
-      </div>
+  function toast(m){ const t=$('ppToast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
+  function fmt(d){ const dt=new Date(d+'T12:00:00'); return dt.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }
 
-      <!-- Favorite Artists -->
-      <div class="dash-card" style="cursor:pointer" onclick="window.location.href='passport.html'">
-      <div class="dash-card-header"><span class="dash-card-label">Concerto Passport</span>
-      <span class="dash-card-title">Every show, stamped</span></div>
-      <p style="font-family:var(--body);font-size:0.85rem;font-weight:300;color:var(--text-dim);line-height:1.6;margin:0.4rem 0 0.8rem;">Your live music history, collected. Log shows, earn venue stamps, build the record.</p>
-      <span style="font-family:var(--body);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Open your passport &rarr;</span>
-    </div><div class="dash-card">
-        <div class="dash-card-header">
-          <span class="dash-card-label">Following</span>
-          <span class="dash-card-title">Artists</span>
-        </div>
-        <div class="fav-list" id="artistsList"></div>
-        <div class="fav-add-input">
-          <input type="text" id="artistInput" placeholder="Add an artist…" />
-          <button class="fav-add-btn" id="addArtistBtn">Add</button>
-        </div>
-      </div>
+  async function requireUser(){
+    if(!sb) return null;
+    const {data:{session}}=await sb.auth.getSession();
+    return session?session.user:null;
+  }
 
-      <!-- Favorite Venues -->
-      <div class="dash-card">
-        <div class="dash-card-header">
-          <span class="dash-card-label">Saved</span>
-          <span class="dash-card-title">Venues</span>
-        </div>
-        <div class="fav-list" id="venuesList"></div>
-        <div class="fav-add-input">
-          <input type="text" id="venueInput" placeholder="Add a venue…" />
-          <button class="fav-add-btn" id="addVenueBtn">Add</button>
-        </div>
-      </div>
+  async function load(){
+    const user=await requireUser();
+    if(!user){ window.location.href='login.html?next='+encodeURIComponent(location.pathname); return; }
+    const {data:stamps,error}=await sb.from('passport_stamps').select('*').order('show_date',{ascending:false});
+    if(error){ toast('Could not load your passport'); return; }
+    render(stamps||[]);
+  }
 
-      <!-- Saved Cities -->
-      <div class="dash-card">
-        <div class="dash-card-header">
-          <span class="dash-card-label">Your Cities</span>
-          <span class="dash-card-title">Cities</span>
-        </div>
-        <div class="fav-list" id="citiesList"></div>
-        <div class="fav-add-input">
-          <input type="text" id="cityInput" placeholder="Add a city…" />
-          <button class="fav-add-btn" id="addCityBtn">Add</button>
-        </div>
-      </div>
-
-      <!-- Favorite Tours -->
-      <div class="dash-card">
-        <div class="dash-card-header">
-          <span class="dash-card-label">On the Road</span>
-          <span class="dash-card-title">Tours</span>
-        </div>
-        <div class="fav-list" id="toursList"></div>
-        <div class="fav-add-input">
-          <input type="text" id="tourInput" placeholder="Add a tour…" />
-          <button class="fav-add-btn" id="addTourBtn">Add</button>
-        </div>
-      </div>
-
-      <!-- Account Settings -->
-      <div class="dash-card full-width">
-        <div class="dash-card-header">
-          <span class="dash-card-label">Account</span>
-          <span class="dash-card-title">Settings</span>
-        </div>
-        <div class="settings-row">
-          <span class="settings-label">Display Name</span>
-          <div style="display:flex;align-items:center;gap:.75rem">
-            <span class="settings-value" id="settingsName"></span>
-            <button class="settings-edit" id="editNameBtn">Edit</button>
-          </div>
-        </div>
-        <div class="settings-row">
-          <span class="settings-label">Email</span>
-          <span class="settings-value" id="settingsEmail"></span>
-        </div>
-        <div class="settings-row">
-          <span class="settings-label">Home City</span>
-          <div style="display:flex;align-items:center;gap:.75rem">
-            <span class="settings-value" id="settingsCity">Not set</span>
-            <button class="settings-edit" id="editCityBtn">Edit</button>
-          </div>
-        </div>
-        <div class="settings-row">
-          <span class="settings-label">Password</span>
-          <button class="settings-edit" id="resetPwBtn">Send Reset Email</button>
-        </div>
-          <div class="settings-row">
-            <span class="settings-label">Session</span>
-            <button class="settings-edit" id="signOutBtn">Sign Out</button>
-          </div>
-      </div>
-
-    </div>
-  </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="auth.js"></script>
-  <script>
-    let profile = null;
-
-    async function init() {
-      const user = await requireAuth('account.html');
-      if (!user) return;
-      profile = await getProfile();
-      if (!profile) return;
-      renderProfile();
-      document.getElementById('mainPage').style.display = 'block';
-    }
-
-    function renderProfile() {
-      const name = profile.display_name || profile.email.split('@')[0];
-      document.getElementById('avatarEl').textContent = name.charAt(0).toUpperCase();
-      document.getElementById('nameEl').textContent = name;
-      document.getElementById('emailEl').textContent = profile.email;
-      document.getElementById('settingsName').textContent = name;
-      document.getElementById('settingsEmail').textContent = profile.email;
-      document.getElementById('settingsCity').textContent = profile.city || 'Not set';
-
-      // Premium
-      if (profile.is_premium) {
-        document.getElementById('premiumBadgeEl').style.display = 'block';
-        document.getElementById('premiumActiveEl').style.display = 'block';
-        document.getElementById('premiumUpgradeEl').style.display = 'none';
-        const exp = profile.premium_expires_at ? new Date(profile.premium_expires_at).toLocaleDateString(undefined,{month:'long',day:'numeric',year:'numeric'}) : '';
-        document.getElementById('premiumStatusText').textContent = `You're on Concerto Premium${profile.premium_tier === 'annual' ? ' (Annual)' : ' (Monthly)'}. ${exp ? 'Renews ' + exp + '.' : ''}`;
-        if (profile.stripe_customer_id) {
-          document.getElementById('manageSubLink').href = `https://billing.stripe.com/p/login/YOUR_PORTAL_LINK?prefilled_email=${encodeURIComponent(profile.email)}`;
-        }
-      }
-
-      renderFavList('artistsList', profile.favorite_artists, 'favorite_artists');
-      renderFavList('venuesList', profile.favorite_venues, 'favorite_venues');
-      renderFavList('citiesList', profile.saved_cities, 'saved_cities');
-      renderFavList('toursList', profile.favorite_tours, 'favorite_tours');
-    }
-
-    function renderFavList(containerId, items, field) {
-      const el = document.getElementById(containerId);
-      if (!items || !items.length) {
-        el.innerHTML = '<p class="favorites-empty">Nothing saved yet.</p>';
-        return;
-      }
-      el.innerHTML = items.map(item => `
-        <div class="fav-item">
-          <span class="fav-item-name">${item}</span>
-          <button class="fav-item-remove" onclick="removeFav('${field}','${item.replace(/'/g,"\\'")}')">Remove</button>
-        </div>`).join('');
-    }
-
-    async function addFav(field, inputId) {
-      const input = document.getElementById(inputId);
-      const val = input.value.trim();
-      if (!val) return;
-      input.value = '';
-      const updated = await toggleFavorite(field, val);
-      profile[field] = updated;
-      renderFavList(field === 'favorite_artists' ? 'artistsList' : field === 'favorite_venues' ? 'venuesList' : field === 'saved_cities' ? 'citiesList' : 'toursList', updated, field);
-    }
-
-    async function removeFav(field, val) {
-      const updated = await toggleFavorite(field, val);
-      profile[field] = updated;
-      const listId = field === 'favorite_artists' ? 'artistsList' : field === 'favorite_venues' ? 'venuesList' : field === 'saved_cities' ? 'citiesList' : 'toursList';
-      renderFavList(listId, updated, field);
-    }
-
-    // Add buttons
-    document.getElementById('addArtistBtn').onclick = () => addFav('favorite_artists','artistInput');
-    document.getElementById('addVenueBtn').onclick  = () => addFav('favorite_venues','venueInput');
-    document.getElementById('addCityBtn').onclick   = () => addFav('saved_cities','cityInput');
-    document.getElementById('addTourBtn').onclick   = () => addFav('favorite_tours','tourInput');
-
-    // Enter key on inputs
-    ['artistInput','venueInput','cityInput','tourInput'].forEach((id,i) => {
-      const fields = ['favorite_artists','favorite_venues','saved_cities','favorite_tours'];
-      document.getElementById(id).addEventListener('keydown', e => { if(e.key==='Enter'){e.preventDefault();addFav(fields[i],id);}});
+  function render(stamps){
+    $('statShows').textContent=stamps.length;
+    $('statVenues').textContent=new Set(stamps.map(s=>s.venue_slug)).size;
+    $('statCities').textContent=new Set(stamps.map(s=>s.city).filter(Boolean)).size;
+    const body=$('passportBody');
+    body.querySelectorAll('.pp-yearlabel,.pp-grid').forEach(e=>e.remove());
+    if(!stamps.length){ $('emptyState').style.display='block'; return; }
+    $('emptyState').style.display='none';
+    const byYear={};
+    stamps.forEach(s=>{ const y=(s.show_date||'').slice(0,4)||'Undated'; (byYear[y]=byYear[y]||[]).push(s); });
+    Object.keys(byYear).sort().reverse().forEach(y=>{
+      const label=document.createElement('div'); label.className='pp-yearlabel'; label.textContent=y;
+      const grid=document.createElement('div'); grid.className='pp-grid';
+      byYear[y].forEach(s=>{
+        const el=document.createElement('div'); el.className='pp-stamp'+(s.tier==='verified'?' verified':'');
+        el.innerHTML='<div class="pp-stamp-venue">'+esc(s.venue_name)+'</div>'
+          +'<div class="pp-stamp-city">'+esc(s.city||'')+'</div>'
+          +(s.artist||s.event_name?'<div class="pp-stamp-artist">'+esc(s.artist||s.event_name)+'</div>':'')
+          +'<div class="pp-stamp-date">'+fmt(s.show_date)+'</div>'
+          +(s.tier==='verified'?'<div class="pp-stamp-verified">Verified</div>':'');
+        el.title='Tap and hold to remove';
+        let ht; el.addEventListener('pointerdown',()=>{ ht=setTimeout(async()=>{ if(confirm('Remove this stamp?')){ await sb.from('passport_stamps').delete().eq('id',s.id); load(); } },700); });
+        el.addEventListener('pointerup',()=>clearTimeout(ht)); el.addEventListener('pointerleave',()=>clearTimeout(ht));
+        grid.appendChild(el);
+      });
+      body.appendChild(label); body.appendChild(grid);
     });
+  }
+  function esc(x){ const d=document.createElement('div'); d.textContent=x||''; return d.innerHTML; }
 
-    // Premium plan selection
-    document.getElementById('monthlyPlan').addEventListener('click', () => {
-      document.getElementById('monthlyPlan').classList.add('selected');
-      document.getElementById('annualPlan').classList.remove('selected');
-    });
-    document.getElementById('annualPlan').addEventListener('click', () => {
-      document.getElementById('annualPlan').classList.add('selected');
-      document.getElementById('monthlyPlan').classList.remove('selected');
-    });
-    document.getElementById('upgradeBtn').addEventListener('click', () => {
-      const tier = document.getElementById('annualPlan').classList.contains('selected') ? 'annual' : 'monthly';
-      startCheckout(tier);
-    });
+  // modal + venue search
+  $('addStampBtn').addEventListener('click',()=>{ $('stampModal').classList.add('open'); $('ppVenue').value=''; $('ppArtist').value=''; picked=null; setTimeout(()=>$('ppVenue').focus(),80); });
+  $('ppCancel').addEventListener('click',()=>$('stampModal').classList.remove('open'));
+  $('stampModal').addEventListener('click',e=>{ if(e.target.id==='stampModal') $('stampModal').classList.remove('open'); });
 
-    // Settings edits
-    document.getElementById('editNameBtn').addEventListener('click', async () => {
-      const val = prompt('Enter your display name:', profile.display_name || '');
-      if (val === null) return;
-      await updateProfile({ display_name: val.trim() });
-      profile.display_name = val.trim();
-      renderProfile();
-    });
-    document.getElementById('editCityBtn').addEventListener('click', async () => {
-      const val = prompt('Enter your home city:', profile.city || '');
-      if (val === null) return;
-      await updateProfile({ city: val.trim() });
-      profile.city = val.trim();
-      renderProfile();
-    });
-    document.getElementById('resetPwBtn').addEventListener('click', async () => {
-      await resetPassword(profile.email);
-      alert('Password reset email sent!');
-    });
+  const inp=$('ppVenue'), drop=$('ppVdrop');
+  function showDrop(){
+    const q=inp.value.toLowerCase().trim();
+    const items=Object.entries(VENUES).filter(([slug,d])=>(d.name||'').toLowerCase().includes(q)).slice(0,40);
+    if(!items.length){ drop.style.display='none'; return; }
+    drop.innerHTML=items.map(([slug,d])=>'<div class="pp-vdrop-item" data-slug="'+slug+'">'+esc(d.name)+'<div class="pp-vdrop-sub">'+esc([d.city,d.state||d.country].filter(Boolean).join(', '))+'</div></div>').join('');
+    drop.style.display='block';
+    drop.querySelectorAll('.pp-vdrop-item').forEach(el=>el.addEventListener('mousedown',e=>{
+      e.preventDefault();
+      const slug=el.dataset.slug, d=VENUES[slug];
+      picked={slug,name:d.name,city:[d.city,d.state||d.country].filter(Boolean).join(', ')};
+      inp.value=d.name; drop.style.display='none';
+    }));
+  }
+  inp.addEventListener('input',showDrop); inp.addEventListener('focus',showDrop);
+  inp.addEventListener('blur',()=>setTimeout(()=>drop.style.display='none',150));
 
-    document.getElementById('signOutBtn').addEventListener('click', signOut);
+  $('ppSave').addEventListener('click',async()=>{
+    const user=await requireUser();
+    if(!user){ window.location.href='login.html?next='+encodeURIComponent(location.pathname); return; }
+    if(!picked){ toast('Pick a venue from the list'); return; }
+    const date=$('ppDate').value;
+    if(!date){ toast('Pick the show date'); return; }
+    const {error}=await sb.from('passport_stamps').insert({
+      user_id:user.id, venue_slug:picked.slug, venue_name:picked.name, city:picked.city,
+      artist:$('ppArtist').value.trim(), show_date:date, tier:'logged'
+    });
+    if(error){ toast('Could not save, is the passport table set up?'); return; }
+    $('stampModal').classList.remove('open');
+    toast('Stamped.');
+    load();
+  });
 
-    init();
-  </script>
-
-  
-  <script src="app-shell.js"></script>
-  <script id="navmob10-js">(function(){var btn=document.getElementById("navHamburger"),menu=document.getElementById("navMobileMenu");if(!btn||!menu)return;function set(o){btn.classList.toggle("open",o);menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}btn.addEventListener("click",function(){set(!menu.classList.contains("open"));});menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
+  if (typeof supabase!=='undefined') load(); else window.addEventListener('load',load);
+})();
+</script>
 </body>
 </html>
