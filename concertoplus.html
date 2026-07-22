@@ -806,7 +806,7 @@ function renderPlan(plan){
       sec.style.cssText='margin:18px 0 4px;padding:14px 16px;background:rgba(192,126,31,0.06);border:1px solid rgba(192,126,31,0.25);border-radius:14px;';
       sec.innerHTML='<div style="font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold,#C07E1F);margin-bottom:8px;">Know Before You Go</div>'
         +plan.knowBeforeYouGo.map(k=>'<div style="display:flex;gap:8px;margin-bottom:6px;"><div style="flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--gold,#C07E1F);margin-top:7px;"></div><div style="font-size:13px;line-height:1.55;"><b>'+(k.title||'')+':</b> '+(k.detail||'')+'</div></div>').join('');
-      tlList.parentNode.insertBefore(sec, tlList);
+      const _tw=document.getElementById('tlWrap')||tlList; _tw.parentNode.insertBefore(sec, _tw);
     }
   }catch(e){}
 

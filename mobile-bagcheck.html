@@ -176,7 +176,7 @@
   .cam-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #0f1930 0%, #121e36 50%, #0b1322 100%); }
   .cam-ui { position: absolute; inset: 0; display: flex; flex-direction: column; }
   .cam-top { padding: 52px 20px 16px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 100%); }
-  .cam-venue-chip { background: rgba(248,249,249,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(248,249,249,0.15); border-radius: 99px; padding: 6px 14px; font-family: var(--body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(248,249,249,0.8); }
+  .cam-venue-chip { max-width: 78vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: rgba(248,249,249,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(248,249,249,0.15); border-radius: 99px; padding: 6px 14px; font-family: var(--body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(248,249,249,0.8); }
   .cam-back-btn { background: rgba(248,249,249,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(248,249,249,0.15); border-radius: 99px; padding: 8px 16px; font-family: var(--body); font-size: 0.72rem; font-weight: 600; color: rgba(248,249,249,0.8); cursor: pointer; transition: background 0.18s; }
   .cam-back-btn:hover { background: rgba(248,249,249,0.18); }
   .scan-frame { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -54%); width: 268px; height: 248px; }
@@ -667,7 +667,7 @@ function stopCamera(){
 // ── SCAN FLOW ──
 $('scanBtn').addEventListener('click',()=>{
   if(!currentVenue){showToast('Select a venue first');$('venueInput').focus();return;}
-  $('camVenueChip').textContent=currentVenue.n+' \u00b7 lay it all out, one photo checks everything';
+  $('camVenueChip').textContent=currentVenue.n;
   $('stepVenueName').textContent=`${currentVenue.n} · Verified`;
   goTo(1);startCamera();
 });

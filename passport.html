@@ -194,7 +194,16 @@
   .pp-toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--text); color: var(--bg);
     padding: 0.8rem 1.5rem; border-radius: 99px; font-family: var(--body); font-size: 0.82rem; opacity: 0; transition: all 0.3s; z-index: 99; }
   .pp-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-  @media (max-width: 560px) { .pp-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; } .pp-statsrow { gap: 1.4rem; } }
+  @media (max-width: 560px) {
+    .pp-wrap { padding: 96px 5% 60px; }
+    .pp-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
+    .pp-statsrow { gap: 1.4rem; }
+    .pp-stamp { padding: 0.9rem; }
+    .pp-stamp-venue { font-size: 0.86rem; }
+    .pp-modal { padding: 1.4rem; border-radius: 16px; }
+    .pp-modal-actions { flex-direction: column; }
+    .pp-toast { bottom: calc(20px + env(safe-area-inset-bottom, 0px)); width: max-content; max-width: 88vw; text-align: center; }
+  }
 </style>
 </head>
 <body class="bg-canvas">
