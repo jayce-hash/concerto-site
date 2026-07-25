@@ -1,9 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
    CONCERTO — the app, on the web.
-   Direct port of concerto-native/src/theme/tokens.ts. If a value here
-   disagrees with the app, the app wins; fix it here.
-   Light + night from the same tokens; night follows the OS, exactly
-   like the app's "System" appearance setting.
+   Ported value-for-value from concerto-native:
+   src/theme/tokens.ts + the Home tab's actual components
+   (SearchPill, NextShowCard empty state, EventCard, VenueCard,
+   TourTile, SectionHeader, NightCard). If a value here disagrees
+   with the app, the app wins; fix it here.
    ═══════════════════════════════════════════════════════════════════ */
 :root{
   --bg:#F8F9F9; --surface:#FFFFFF;
@@ -11,160 +12,175 @@
   --gold:#C9A84C; --gold-light:#E5C365; --gold-soft:#F2EBD6;
   --cream:#F8F9F9; --white:#FFFFFF;
   --ink:#121E36; --ink-muted:#5A6478; --ink-faint:#8A91A3;
-  --silver:#C0C0C0; --line:rgba(18,30,54,.14);
-  --scrim:rgba(18,30,54,.55);
+  --silver:#C0C0C0; --line:rgba(18,30,54,.14); --scrim:rgba(18,30,54,.55);
   --display:'Playfair Display',Georgia,serif;
   --body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-  /* app spacing scale (src/theme): sm 8, md 12, lg 16, xl 24, xxl 40, gutter 20 */
-  --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:24px; --sp-xxl:40px; --gutter:20px;
-  /* app radii: md 12, lg 18, pill 999 */
-  --r-md:12px; --r-lg:18px; --r-pill:999px;
-  --maxw:1160px; --nav-h:60px; --tabbar-h:62px;
+  /* space: xs4 sm8 md12 lg16 xl24 xxl32 gutter20 · radius: sm10 md14 lg18 xl24 */
+  --sp-xs:4px;--sp-sm:8px;--sp-md:12px;--sp-lg:16px;--sp-xl:24px;--sp-xxl:32px;--gutter:20px;
+  --r-sm:10px;--r-md:14px;--r-lg:18px;--r-xl:24px;--r-pill:999px;
+  --nav-h:60px;--tabbar-h:62px;--col:680px;
+  --shadow-card:0 6px 16px rgba(18,30,54,.08);
 }
 @media(prefers-color-scheme:dark){
-  :root{
-    --bg:#0B1220; --surface:#16203A;
-    --navy-soft:#1F2C4C; --gold-soft:rgba(201,168,76,.16);
-    --ink:#F1F3F6; --ink-muted:#A8B0C2; --ink-faint:#707B93;
-    --silver:#3C4762; --line:#2A3550; --scrim:rgba(6,10,20,.6);
-  }
+  :root{--bg:#0B1220;--surface:#16203A;--navy-soft:#1F2C4C;
+    --gold-soft:rgba(201,168,76,.16);--ink:#F1F3F6;--ink-muted:#A8B0C2;
+    --ink-faint:#707B93;--silver:#3C4762;--line:#2A3550;--scrim:rgba(6,10,20,.6)}
+  .lockup-img{filter:brightness(0) invert(.95)}
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{font-family:var(--body);background:var(--bg);color:var(--ink);
-  -webkit-font-smoothing:antialiased;line-height:1.55;font-size:16px}
+  -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 ::selection{background:var(--gold);color:var(--navy)}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+/* content column: Home is a phone-first column, centered on desktop */
+.col{max-width:var(--col);margin:0 auto;padding:0 var(--gutter)}
 
-/* ── Masthead: the app's Home header, verbatim ─────────────────── */
-.masthead{padding:calc(var(--nav-h) + 2.6rem) 0 1.6rem;text-align:center}
-.greeting{font-size:.7rem;font-weight:700;letter-spacing:.34em;color:var(--gold);text-transform:uppercase}
-.lockup{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,7vw,3.6rem);letter-spacing:.14em;color:var(--ink);margin-top:.5rem;line-height:1}
-.lockup-sub{font-family:var(--display);font-size:.66rem;letter-spacing:.3em;color:var(--ink-muted);margin-top:.55rem}
-
-/* ── Search pill (app: SearchPill) ─────────────────────────────── */
-.search-pill{display:flex;align-items:center;gap:.9rem;max-width:640px;margin:1.8rem auto 0;
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);
-  padding:.6rem .7rem;box-shadow:0 4px 18px rgba(18,30,54,.06);transition:transform .25s,box-shadow .25s}
-.search-pill:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(18,30,54,.12)}
-.search-pill .sp-icon{width:42px;height:42px;border-radius:50%;background:var(--gold-soft);
-  display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none}
-.search-pill .sp-title{font-weight:700;font-size:.95rem;color:var(--ink)}
-.search-pill .sp-sub{font-size:.78rem;color:var(--ink-muted)}
-
-/* ── Next Show card (app: NextShowCard, navy, gold eyebrow) ────── */
-.next-card{background:var(--navy);border-radius:var(--r-lg);padding:1.6rem;color:var(--cream);
-  max-width:640px;margin:1.6rem auto 0;box-shadow:0 14px 40px rgba(18,30,54,.22)}
-.next-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--gold)}
-.next-title{font-family:var(--display);font-size:1.5rem;margin:.5rem 0 .15rem;line-height:1.25}
-.next-count{display:flex;align-items:center;gap:.55rem;margin-top:1.05rem;flex-wrap:wrap}
-.nc-cell{text-align:center;min-width:58px;background:rgba(248,249,249,.06);
-  border:1px solid rgba(248,249,249,.11);border-radius:var(--r-md);padding:.65rem .4rem}
-.nc-cell b{font-family:var(--display);font-weight:500;font-size:1.55rem;display:block;
-  font-variant-numeric:tabular-nums;color:var(--cream)}
-.nc-cell em{font-style:normal;font-size:.52rem;font-weight:700;letter-spacing:.16em;color:var(--gold)}
-.nc-colon{font-family:var(--display);font-size:1.2rem;opacity:.35;color:var(--cream)}
-.next-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);
-  font-weight:700;font-size:.85rem;border-radius:var(--r-pill);padding:.7rem 1.3rem;margin-top:1.15rem;
-  transition:transform .25s}
-.next-cta:hover{transform:translateY(-2px)}
-
-/* ── Section headers (app: SectionHeader) ──────────────────────── */
-.sec{margin-top:3.4rem}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.1rem}
-.sec-head h2{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,3.2vw,2rem);color:var(--ink)}
-.sec-head .action{font-size:.8rem;font-weight:700;color:var(--gold)}
-.sec-head .action:hover{color:var(--gold-light)}
-
-/* ── Rails: horizontal snap on mobile, grid on desktop (Airbnb move) */
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:172px;gap:var(--sp-md);
-  overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;
-  scrollbar-width:none;-ms-overflow-style:none}
-.rail::-webkit-scrollbar{display:none}
-.rail>*{scroll-snap-align:start}
-@media(min-width:900px){
-  .rail{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));overflow:visible}
-}
-
-/* ── Venue card (app: VenueCard — image, scrim, two lines) ─────── */
-.vcard{position:relative;aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
-  background:var(--navy-soft);transition:transform .3s,box-shadow .3s;display:block}
-.vcard:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(18,30,54,.22)}
-.vcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vcard .scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,var(--scrim))}
-.vcard .vc-text{position:absolute;left:.9rem;right:.9rem;bottom:.8rem;color:var(--white)}
-.vcard .vc-name{font-family:var(--display);font-size:1.05rem;line-height:1.25}
-.vcard .vc-city{font-size:.72rem;opacity:.85;margin-top:.1rem}
-.vcard.mono{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem;background:var(--navy)}
-.vcard.mono b{font-family:var(--display);font-weight:500;font-size:2.6rem;color:var(--gold)}
-.vcard.mono span{font-size:.66rem;font-weight:700;letter-spacing:.2em;color:rgba(248,249,249,.7);text-transform:uppercase}
-
-/* ── Tour tile (app: TourTile fallback — Playfair initial on navy) */
-.ttile{position:relative;aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
-  background:var(--navy);display:flex;align-items:center;justify-content:center;
-  transition:transform .3s,box-shadow .3s}
-.ttile:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(18,30,54,.22)}
-.ttile .ini{font-family:var(--display);font-size:3.4rem;color:var(--gold)}
-.ttile .tt-text{position:absolute;left:.9rem;right:.9rem;bottom:.8rem;color:var(--white)}
-.ttile .tt-artist{font-family:var(--display);font-size:1rem;line-height:1.25}
-.ttile .tt-tour{font-size:.68rem;opacity:.8;margin-top:.1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ttile .tt-badge{position:absolute;top:.7rem;left:.7rem;font-size:.54rem;font-weight:700;
-  letter-spacing:.2em;color:var(--gold);background:rgba(18,30,54,.55);border:1px solid rgba(201,168,76,.4);
-  border-radius:var(--r-pill);padding:.25rem .55rem}
-
-/* ── Concerto+ band (app: upsell card) ─────────────────────────── */
-.plus-card{background:var(--navy);border-radius:var(--r-lg);padding:2.2rem;color:var(--cream);
-  display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap;
-  position:relative;overflow:hidden}
-.plus-card::before{content:'';position:absolute;top:-50%;right:-6%;width:20rem;height:20rem;
-  background:radial-gradient(circle,rgba(201,168,76,.2),transparent 65%)}
-.plus-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--gold)}
-.plus-card h2{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,3vw,2rem);margin:.45rem 0 .3rem}
-.plus-price{font-size:.82rem;color:rgba(248,249,249,.65)}
-.plus-price b{color:var(--gold)}
-
-/* ── App Store elements ────────────────────────────────────────── */
-.badge{display:inline-flex;align-items:center;gap:.65rem;background:var(--ink);color:var(--bg);
-  border-radius:var(--r-md);padding:.7rem 1.25rem;line-height:1.05;white-space:nowrap;
-  transition:transform .25s,box-shadow .25s;position:relative;z-index:1}
-@media(prefers-color-scheme:dark){.badge{background:var(--cream);color:var(--navy)}}
-.badge:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(18,30,54,.25)}
-.badge small{display:block;font-size:.58rem;opacity:.65}
-.badge strong{font-size:.98rem;font-weight:700}
-.badge.gold{background:var(--gold);color:var(--navy)}
-
-/* ── Top bar + bottom tab bar (mobile IS the app) ──────────────── */
+/* ── Top bar (web chrome, quiet) + bottom tab bar (the app's nav) ── */
 .topbar{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:1000;
   display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);
   background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);
   transition:box-shadow .3s}
 .topbar.scrolled{box-shadow:0 1px 0 var(--line)}
-.topbar .tb-brand{font-family:var(--display);letter-spacing:.26em;font-weight:600;font-size:.95rem;color:var(--ink)}
-.topbar .tb-links{display:flex;gap:1.6rem}
-.topbar .tb-links a{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted)}
-.topbar .tb-links a:hover{color:var(--gold)}
-@media(max-width:820px){.topbar .tb-links{display:none}}
+.tb-brand{font-family:var(--display);letter-spacing:.26em;font-weight:700;font-size:.9rem;color:var(--ink)}
+.tb-links{display:flex;gap:1.5rem}
+.tb-links a{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted)}
+.tb-links a:hover{color:var(--gold)}
+@media(max-width:820px){.tb-links{display:none}}
+.tb-get{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy);
+  font-weight:700;font-size:12px;border-radius:var(--r-pill);padding:9px 16px;transition:transform .25s}
+.tb-get:hover{transform:translateY(-1px)}
 
-.tabbar{position:fixed;left:0;right:0;bottom:0;height:calc(var(--tabbar-h) + env(safe-area-inset-bottom));
-  padding-bottom:env(safe-area-inset-bottom);z-index:1000;display:none;
-  background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(14px);
-  border-top:1px solid var(--line)}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:1000;display:none;
+  height:calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  padding-bottom:env(safe-area-inset-bottom);
+  background:color-mix(in srgb,var(--surface) 94%,transparent);
+  backdrop-filter:blur(14px);border-top:1px solid var(--line)}
 .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  font-size:.58rem;font-weight:700;letter-spacing:.04em;color:var(--ink-faint)}
+  font-size:10px;font-weight:700;color:var(--ink-faint)}
 .tabbar a.active{color:var(--gold)}
 .tabbar a svg{width:21px;height:21px}
 @media(max-width:820px){.tabbar{display:flex}body{padding-bottom:calc(var(--tabbar-h) + env(safe-area-inset-bottom))}}
 
-/* ── Footer inherits tokens ────────────────────────────────────── */
-footer{margin-top:4.5rem;border-top:1px solid var(--line);padding:2.6rem 0 3rem;
-  font-size:.82rem;color:var(--ink-muted)}
+/* ── Masthead (Home: mastheadPlain) ── */
+.masthead{padding-top:calc(var(--nav-h) + var(--sp-md));text-align:center}
+.eyebrow{font-weight:700;font-size:11px;letter-spacing:1.5px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:var(--sp-sm)}
+.lockup-img{width:250px;height:52px;object-fit:contain;margin:var(--sp-xs) auto var(--sp-lg)}
+
+/* ── SearchPill: exact port ── */
+.search-pill{display:flex;align-items:center;gap:var(--sp-md);
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);
+  padding:12px var(--sp-lg);box-shadow:var(--shadow-card);text-align:left;
+  transition:transform .25s,box-shadow .25s}
+.search-pill:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(18,30,54,.14)}
+.sp-icon{width:34px;height:34px;border-radius:17px;background:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;color:var(--navy);flex:none}
+.sp-title{font-weight:600;font-size:15px;color:var(--ink)}
+.sp-sub{font-size:12px;color:var(--ink-faint);margin-top:1px}
+
+/* ── NextShowCard, EMPTY STATE: exact port (ghost countdown) ── */
+.next-empty{display:block;margin-top:var(--sp-lg);background:var(--navy);
+  border-radius:var(--r-xl);padding:var(--sp-xl);text-align:left;
+  transition:transform .25s,box-shadow .25s}
+.next-empty:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(18,30,54,.28)}
+.ne-eyebrow{font-weight:700;font-size:10.5px;letter-spacing:1.6px;color:var(--gold)}
+.ne-text{font-family:var(--display);font-weight:700;font-size:19px;line-height:25px;color:var(--cream);margin-top:8px}
+.ne-countrow{display:flex;align-items:center;gap:var(--sp-sm);
+  background:rgba(248,249,249,.05);border:1px dashed rgba(248,249,249,.10);
+  border-radius:var(--r-lg);padding:var(--sp-md) var(--sp-lg);margin-top:var(--sp-lg)}
+.ne-cell{min-width:44px;text-align:center}
+.ne-val{font-family:var(--display);font-weight:700;font-size:24px;color:rgba(248,249,249,.35)}
+.ne-lab{font-weight:700;font-size:9px;letter-spacing:1.2px;color:rgba(201,168,76,.55);margin-top:2px}
+.ne-colon{font-family:var(--display);font-size:20px;color:rgba(248,249,249,.2);margin-top:-8px}
+.ne-cta{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy);
+  border-radius:var(--r-pill);padding:8px 14px;margin-top:var(--sp-lg);
+  font-weight:700;font-size:12px}
+
+/* ── SectionHeader: exact port ── */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;
+  padding:0 var(--gutter);margin:var(--sp-xxl) auto var(--sp-md);max-width:var(--rails-max,1160px)}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:22px;color:var(--ink)}
+.sec-head .action{font-size:13px;font-weight:600;color:var(--gold)}
+.sec-head .action:hover{color:var(--gold-light)}
+
+/* ── Rails: horizontal + snap, like the app's FlatLists ── */
+.rail{display:flex;gap:var(--sp-md);overflow-x:auto;
+  padding:2px var(--gutter) 10px;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;
+  max-width:var(--rails-max,1160px);margin:0 auto}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:none}
+
+/* ── EventCard: 168×224, image, scrim, two lines over ── */
+.ecard{position:relative;width:168px;height:224px;border-radius:var(--r-lg);
+  overflow:hidden;background:var(--navy-soft);transition:transform .3s,box-shadow .3s}
+.ecard:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(18,30,54,.2)}
+.ecard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ecard .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,30,54,0) 30%,var(--scrim))}
+.ecard .ec-text{position:absolute;left:var(--sp-md);right:var(--sp-md);bottom:var(--sp-md);color:var(--white)}
+.ecard .ec-name{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.2}
+.ecard .ec-meta{font-size:11.5px;color:rgba(248,249,249,.85);margin-top:1px}
+
+/* ── VenueCard: EXACT app grammar — image on top, text BELOW ── */
+.vcard{width:200px;display:block;transition:transform .3s}
+.vcard:hover{transform:translateY(-4px)}
+.vc-img{position:relative;height:150px;border-radius:var(--r-lg);overflow:hidden;background:var(--navy)}
+.vc-img img{width:100%;height:100%;object-fit:cover}
+.vc-img .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:52px;color:var(--gold)}
+.vc-meta{margin-top:var(--sp-sm)}
+.vc-name-row{display:flex;align-items:center;gap:6px}
+.vc-name{font-family:var(--display);font-weight:500;font-size:16px;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:1}
+.vc-shield{color:var(--gold);flex:none}
+.vc-city{font-size:12.5px;color:var(--ink-muted);margin-top:2px}
+
+/* ── TourTile: 168×224, navy fallback, gold Playfair initial ── */
+.ttile{position:relative;width:168px;height:224px;border-radius:var(--r-lg);
+  overflow:hidden;background:var(--navy);display:flex;align-items:center;justify-content:center;
+  transition:transform .3s,box-shadow .3s}
+.ttile:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(18,30,54,.2)}
+.ttile .ini{font-family:var(--display);font-weight:700;font-size:56px;color:var(--gold)}
+.ttile .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,30,54,0) 40%,var(--scrim))}
+.ttile .tt-text{position:absolute;left:var(--sp-md);right:var(--sp-md);bottom:var(--sp-md);color:var(--white)}
+.ttile .tt-artist{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ttile .tt-tour{font-size:11.5px;color:rgba(248,249,249,.85);margin-top:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ── NightCard: exact port ── */
+.night-card{display:block;margin:var(--sp-xxl) auto 0;background:var(--navy);
+  border-radius:var(--r-xl);padding:var(--sp-xl);box-shadow:var(--shadow-card);
+  transition:transform .25s,box-shadow .25s}
+.night-card:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(18,30,54,.28)}
+.nc-header{display:flex;align-items:center;gap:6px}
+.nc-brand{font-weight:700;font-size:12.5px;letter-spacing:.6px;color:var(--gold)}
+.nc-title{font-family:var(--display);font-weight:700;font-size:22px;color:var(--cream);margin-top:var(--sp-sm)}
+.nc-preview{margin-top:var(--sp-lg);display:flex;flex-direction:column;gap:10px}
+.nc-prow{display:flex;align-items:center;gap:10px}
+.nc-time{width:38px;font-family:var(--display);font-weight:500;font-size:13px;color:var(--gold)}
+.nc-dot{width:6px;height:6px;border-radius:3px;background:rgba(248,249,249,.25);flex:none}
+.nc-dot.gold{background:var(--gold)}
+.nc-label{flex:1;font-size:12.5px;color:rgba(248,249,249,.85)}
+.nc-ctarow{display:flex;align-items:center;margin-top:var(--sp-lg)}
+.nc-price{flex:1;font-size:11px;color:rgba(248,249,249,.6)}
+.nc-cta{display:inline-flex;align-items:center;gap:5px;background:var(--gold);color:var(--navy);
+  border-radius:var(--r-pill);padding:8px 14px;font-weight:700;font-size:12px}
+
+/* ── Library block (SEO) ── */
+.library{font-size:.92rem;color:var(--ink-muted);line-height:1.8}
+.library a.big{color:var(--gold);font-weight:700}
+.library a.hub{border-bottom:1px solid var(--line)}
+.library a.hub:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ── Footer inherits tokens ── */
+footer{margin-top:var(--sp-xxl);border-top:1px solid var(--line);
+  padding:2.4rem 0 3rem;font-size:.82rem;color:var(--ink-muted)}
 footer a{color:var(--ink-muted)}footer a:hover{color:var(--gold)}
 
-/* ── Reveals ───────────────────────────────────────────────────── */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+/* ── Reveals: gentle, app-like ── */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}

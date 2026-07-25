@@ -11,30 +11,6 @@
     g.textContent = h < 12 ? 'GOOD MORNING' : h < 17 ? 'GOOD AFTERNOON' : 'GOOD EVENING';
   }
 
-  /* live countdown: real target, persisted per visitor */
-  var KEY = 'concertoHeroTarget'; var t;
-  try { t = parseInt(localStorage.getItem(KEY) || '0', 10); } catch (e) { t = 0; }
-  var now = Date.now();
-  if (!t || t - now < 36e5 || t - now > 12 * 864e5) {
-    t = now + 5 * 864e5 + 8 * 36e5 + 42 * 6e4;
-    try { localStorage.setItem(KEY, String(t)); } catch (e) {}
-  }
-  var cells = {};
-  ['d', 'h', 'm', 's'].forEach(function (u) {
-    cells[u] = document.querySelector('#liveCount [data-u="' + u + '"]');
-  });
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
-  function tick() {
-    var ms = Math.max(0, t - Date.now()), s = Math.floor(ms / 1e3);
-    if (cells.d) {
-      cells.d.textContent = pad(Math.floor(s / 86400));
-      cells.h.textContent = pad(Math.floor(s % 86400 / 3600));
-      cells.m.textContent = pad(Math.floor(s % 3600 / 60));
-      cells.s.textContent = pad(s % 60);
-    }
-  }
-  tick(); setInterval(tick, 1000);
-
   /* top bar hairline */
   var tb = document.querySelector('.topbar');
   if (tb) {

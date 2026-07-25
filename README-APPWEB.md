@@ -1,41 +1,35 @@
-# concertocity.com IS the app -- Layer 1: shell + homepage
+# concertocity.com IS the app — Layer 1, faithful port
 
-## The principle (agreed)
-Airbnb's site works because it's their app on a bigger screen. This
-is Concerto's version of that. The homepage is the app's Home tab,
-rebuilt for the web from the app's ACTUAL design tokens
-(src/theme/tokens.ts ported line-for-line into css/concerto.css):
-same navy/gold/snow, same Playfair + DM Sans, same 12/18px radii,
-same spacing scale, same card grammar.
+Built by reading the app's actual source (concerto-native), not by
+approximating it. css/concerto.css ports src/theme/tokens.ts and the
+Home tab's real components value-for-value:
 
-What renders:
-- The app's masthead: time-aware greeting, CONCERTO lockup, tagline
-- The app's search pill ("Find your next show") -> /venues
-- The app's Next Show card, navy with gold eyebrow, with a LIVE
-  ticking countdown and "Find tonight -- in the app"
-- "Your Venues & Nearby": REAL venue cards -- your actual photography
-  (MSG, Moody Center, TD Garden, Kia Forum, Bridgestone) in the
-  app's exact image/scrim/two-line card style, + a "346" navy card
-- "Featured Tours": eight tour tiles in the app's designed fallback
-  (gold Playfair initial on navy, ON TOUR badge)
-- The app's Concerto+ upsell card
-- A quiet SEO library block keeping every hub link crawlable
-- MOBILE: a bottom tab bar (Home / Venues / Tours / Near Me / Get
-  App) -- on a phone, the site literally navigates like the app
-- Night mode: follows the OS with the app's exact dark palette
+- Masthead: greeting eyebrow (11px/1.5 gold, time-aware) + the REAL
+  lockup asset (assets/lockup.png, 250x52, auto-inverts in dark)
+- SearchPill: exact paddings, 34px goldSoft icon circle, 15/12 type
+- NextShowCard EMPTY STATE, exactly as shipped: navy radius-24 card,
+  "Save a show and the countdown starts here.", the GHOST dashed
+  countdown (-- DAYS : -- HRS : -- MIN) and the gold "Find tonight"
+  pill -> App Store. (The earlier invented live ticker is gone; the
+  app shows the ghost, so the web shows the ghost.)
+- VenueCard: the app's real grammar -- 200px card, 150px image on
+  top, name (Playfair 16) + city (12.5 muted) BELOW, gold verified
+  shield. Real photography for MSG/Moody/TD Garden/Kia Forum/
+  Bridgestone; navy monogram fallback (52px gold initial) for the
+  rest, exactly like the app.
+- TourTile: 168x224, navy, 56px gold Playfair initial, scrim,
+  artist 17 / tour 11.5 over the image.
+- SectionHeaders: Playfair 22 + gold 13 action, app spacing.
+- NightCard, full port: Concerto+ header row, "Your Whole Night,
+  Planned", the 5:45/7:10/11:15 preview rows with the gold middle
+  dot, "$7.99/mo · first plan free to preview", gold "Try it".
+- Mobile: bottom tab bar (Home/Venues/Tours/Near Me/Get App).
+- Night mode: OS-following, using the app's exact dark palette.
 
-## Files (3 new/changed -- index.html is the only replaced file)
-- index.html        -> replace at repo root
-- css/concerto.css  -> NEW folder+file
-- js/concerto-shell.js -> NEW folder+file
+FILES: index.html (replace), css/concerto.css (new), 
+js/concerto-shell.js (new), img/lockup.png (new — the app's own
+masthead asset).
 
-## SEO
-Same head block verbatim (title/desc/canonical/schema/OG) + smart
-banner. One h1. Footer with full link set untouched. Venue/tour
-cards link to their real pages (internal linking preserved).
-
-## Layers 2-3 (next sessions, per the agreed blueprint)
-2: rework build_static.py templates so all 346+74 pages render in
-   this same design system; one regeneration, same URLs.
-3: the deletion pass with 301s (mobile-*.html etc. AFTER native
-   app ships).
+SEO: head verbatim + smart banner, one h1 (the lockup image with
+full alt), all hub/venue/tour internal links present, footer + all
+existing page scripts untouched.

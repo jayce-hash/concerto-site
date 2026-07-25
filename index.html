@@ -61,152 +61,177 @@
       <a href="/events">Near Me</a>
       <a href="/about">About</a>
     </div>
-    <a class="badge gold" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Download on the</small><strong>App Store</strong></span>
+    <a class="tb-get" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+      Get the App
     </a>
   </nav>
 
-  <!-- ═════════ The app's Home tab, on the web ═════════ -->
-  <header class="masthead wrap" role="banner">
-    <p class="greeting" id="greeting">GOOD EVENING</p>
-    <h1 class="lockup">CONCERTO</h1>
-    <p class="lockup-sub">FROM THE CONCERT TO THE CITY&reg;</p>
-
+  <!-- ═════════ The app's Home tab, verbatim ═════════ -->
+  <header class="masthead col" role="banner">
+    <p class="eyebrow" id="greeting">GOOD EVENING</p>
+    <h1 style="margin:0"><img class="lockup-img" src="/img/lockup.png" alt="Concerto — From the Concert to the City" width="250" height="52"/></h1>
     <a class="search-pill rv" href="/venues" aria-label="Find your next show">
       <span class="sp-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
       <span><span class="sp-title">Find your next show</span><br/><span class="sp-sub">Venue, artist, or city</span></span>
     </a>
 
-    <div class="next-card rv" aria-label="Your next show countdown">
-      <p class="next-eyebrow">YOUR NEXT SHOW</p>
-      <p class="next-title">Save a show and the countdown starts here.</p>
-      <div class="next-count" id="liveCount" role="timer" aria-live="off">
-        <div class="nc-cell"><b data-u="d">05</b><em>DAYS</em></div>
-        <span class="nc-colon">:</span>
-        <div class="nc-cell"><b data-u="h">08</b><em>HRS</em></div>
-        <span class="nc-colon">:</span>
-        <div class="nc-cell"><b data-u="m">42</b><em>MIN</em></div>
-        <span class="nc-colon">:</span>
-        <div class="nc-cell"><b data-u="s">17</b><em>SEC</em></div>
+    <!-- NextShowCard, empty state: the ghost countdown, exactly as in the app -->
+    <a class="next-empty rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer" aria-label="Save a show in the Concerto app">
+      <p class="ne-eyebrow">YOUR NEXT SHOW</p>
+      <p class="ne-text">Save a show and the<br/>countdown starts here.</p>
+      <div class="ne-countrow" aria-hidden="true">
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">DAYS</div></div>
+        <div class="ne-colon">:</div>
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">HRS</div></div>
+        <div class="ne-colon">:</div>
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">MIN</div></div>
       </div>
-      <a class="next-cta" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M6 3h9l3 3v15l-7.5-4L3 21V6a3 3 0 0 1 3-3z"/></svg>
-        Find tonight &mdash; in the app
-      </a>
-    </div>
+      <span class="ne-cta">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>
+        Find tonight
+      </span>
+    </a>
   </header>
 
-  <main class="wrap">
-    <section class="sec" aria-label="Venues">
-      <div class="sec-head">
-        <h2>Your Venues &amp; Nearby</h2>
-        <a class="action" href="/venues">All venues</a>
-      </div>
-      <div class="rail">
-        <a class="vcard rv" href="/venues/madison-square-garden">
-          <img src="/img/cityguides/madison-square-garden/Madison-Square-Garden.webp" alt="Madison Square Garden" loading="lazy" width="600" height="800"/>
-          <div class="scrim"></div>
-          <div class="vc-text"><div class="vc-name">Madison Square Garden</div><div class="vc-city">New York</div></div>
-        </a>
-        <a class="vcard rv" href="/venues/moody-center">
-          <img src="/img/cityguides/moody-center/Moody-Center.webp" alt="Moody Center" loading="lazy" width="600" height="800"/>
-          <div class="scrim"></div>
-          <div class="vc-text"><div class="vc-name">Moody Center</div><div class="vc-city">Austin</div></div>
-        </a>
-        <a class="vcard rv" href="/venues/td-garden">
-          <img src="/img/cityguides/td-garden/TD-Garden.webp" alt="TD Garden" loading="lazy" width="600" height="800"/>
-          <div class="scrim"></div>
-          <div class="vc-text"><div class="vc-name">TD Garden</div><div class="vc-city">Boston</div></div>
-        </a>
-        <a class="vcard rv" href="/venues/kia-forum">
-          <img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="Kia Forum" loading="lazy" width="600" height="800"/>
-          <div class="scrim"></div>
-          <div class="vc-text"><div class="vc-name">Kia Forum</div><div class="vc-city">Inglewood</div></div>
-        </a>
-        <a class="vcard rv" href="/venues/bridgestone-arena">
-          <img src="/img/cityguides/bridgestone-arena/Bridgestone-Arena.webp" alt="Bridgestone Arena" loading="lazy" width="600" height="800"/>
-          <div class="scrim"></div>
-          <div class="vc-text"><div class="vc-name">Bridgestone Arena</div><div class="vc-city">Nashville</div></div>
-        </a>
-        <a class="vcard mono rv" href="/venues"><b>346</b><span>Venue<br/>Guides</span></a>
-      </div>
-    </section>
-
-    <section class="sec" aria-label="Featured tours">
-      <div class="sec-head">
-        <h2>Featured Tours</h2>
-        <a class="action" href="/tours">All tours</a>
-      </div>
-      <div class="rail">
-        <a class="ttile rv" href="/tours/noah-kahan-the-great-divide-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">N</span>
-          <div class="tt-text"><div class="tt-artist">Noah Kahan</div><div class="tt-tour">The Great Divide Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/bruno-mars-the-romantic-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">B</span>
-          <div class="tt-text"><div class="tt-artist">Bruno Mars</div><div class="tt-tour">The Romantic Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/ariana-grande-the-eternal-sunshine-tour-na">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">A</span>
-          <div class="tt-text"><div class="tt-artist">Ariana Grande</div><div class="tt-tour">The Eternal Sunshine Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/harry-styles-together-together-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">H</span>
-          <div class="tt-text"><div class="tt-artist">Harry Styles</div><div class="tt-tour">Together, Together Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/chris-stapleton-all-american-road-show-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">C</span>
-          <div class="tt-text"><div class="tt-artist">Chris Stapleton</div><div class="tt-tour">All-American Road Show</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/post-malone-the-big-ass-stadium-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">P</span>
-          <div class="tt-text"><div class="tt-artist">Post Malone</div><div class="tt-tour">The Big Ass Stadium Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/florence-the-machine-everybody-scream-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">F</span>
-          <div class="tt-text"><div class="tt-artist">Florence + The Machine</div><div class="tt-tour">Everybody Scream Tour</div></div>
-        </a>
-        <a class="ttile rv" href="/tours/my-chemical-romance-the-black-parade-tour">
-          <span class="tt-badge">ON TOUR</span>
-          <span class="ini">M</span>
-          <div class="tt-text"><div class="tt-artist">My Chemical Romance</div><div class="tt-tour">The Black Parade Tour</div></div>
-        </a>
-      </div>
-    </section>
-
-    <section class="sec" aria-label="Concerto Plus">
-      <div class="plus-card rv">
-        <div>
-          <p class="plus-eyebrow">CONCERTO+</p>
-          <h2>Your Whole Night, Planned</h2>
-          <p class="plus-price">AI Bag Check &amp; Plan My Night &middot; <b>$7.99/mo</b> or <b>$69.99/yr</b> &middot; starts in the app</p>
+  <main>
+    <div class="sec-head"><h2>Your Venues &amp; Nearby</h2><a class="action" href="/venues">All venues</a></div>
+    <div class="rail" aria-label="Venues">
+      <a class="vcard rv" href="/venues/madison-square-garden">
+        <div class="vc-img"><img src="/img/cityguides/madison-square-garden/Madison-Square-Garden.webp" alt="Madison Square Garden" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Madison Square Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">New York, NY</div>
         </div>
-        <a class="badge gold" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Download on the</small><strong>App Store</strong></span>
-        </a>
-      </div>
-    </section>
+      </a>
+      <a class="vcard rv" href="/venues/moody-center">
+        <div class="vc-img"><img src="/img/cityguides/moody-center/Moody-Center.webp" alt="Moody Center" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Moody Center</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Austin, TX</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/td-garden">
+        <div class="vc-img"><img src="/img/cityguides/td-garden/TD-Garden.webp" alt="TD Garden" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">TD Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Boston, MA</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/kia-forum">
+        <div class="vc-img"><img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="Kia Forum" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Kia Forum</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Inglewood, CA</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/bridgestone-arena">
+        <div class="vc-img"><img src="/img/cityguides/bridgestone-arena/Bridgestone-Arena.webp" alt="Bridgestone Arena" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Bridgestone Arena</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Nashville, TN</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/att-stadium">
+        <div class="vc-img"><span class="mono">A</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">AT&amp;T Stadium</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Arlington, TX</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/sphere">
+        <div class="vc-img"><span class="mono">S</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Sphere</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Las Vegas, NV</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/red-rocks-amphitheatre">
+        <div class="vc-img"><span class="mono">R</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Red Rocks Amphitheatre</span></div>
+          <div class="vc-city">Morrison, CO</div>
+        </div>
+      </a>
+    </div>
 
-    <section class="sec" aria-label="Browse the library">
-      <div class="sec-head"><h2>Every Venue. Every Rule. Verified.</h2></div>
-      <p style="color:var(--ink-muted);max-width:44rem;font-size:.95rem">The library behind the app
-        &mdash; checked against each venue's own posted policies. Browse
-        <a href="/venues" style="color:var(--gold);font-weight:700">346 venue guides</a>,
-        <a href="/tours" style="color:var(--gold);font-weight:700">74 tour guides</a>, or jump by need:
-        <a href="/bags" style="border-bottom:1px solid var(--line)">bag policies</a> &middot;
-        <a href="/parking" style="border-bottom:1px solid var(--line)">parking</a> &middot;
-        <a href="/rideshare" style="border-bottom:1px solid var(--line)">rideshare</a> &middot;
-        <a href="/concessions" style="border-bottom:1px solid var(--line)">concessions</a> &middot;
-        <a href="/top-picks" style="border-bottom:1px solid var(--line)">top picks</a> &middot;
-        <a href="/events" style="border-bottom:1px solid var(--line)">events near you</a>.</p>
-    </section>
+    <div class="sec-head"><h2>Featured Tours</h2><a class="action" href="/tours">All tours</a></div>
+    <div class="rail" aria-label="Featured tours">
+      <a class="ttile rv" href="/tours/noah-kahan-the-great-divide-tour">
+        <span class="ini">N</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Noah Kahan</div><div class="tt-tour">The Great Divide Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/bruno-mars-the-romantic-tour">
+        <span class="ini">B</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Bruno Mars</div><div class="tt-tour">The Romantic Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/ariana-grande-the-eternal-sunshine-tour-na">
+        <span class="ini">A</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Ariana Grande</div><div class="tt-tour">The Eternal Sunshine Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/harry-styles-together-together-tour">
+        <span class="ini">H</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Harry Styles</div><div class="tt-tour">Together, Together Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/chris-stapleton-all-american-road-show-tour">
+        <span class="ini">C</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Chris Stapleton</div><div class="tt-tour">All-American Road Show</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/post-malone-the-big-ass-stadium-tour">
+        <span class="ini">P</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Post Malone</div><div class="tt-tour">The Big Ass Stadium Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/florence-the-machine-everybody-scream-tour">
+        <span class="ini">F</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Florence + The Machine</div><div class="tt-tour">Everybody Scream Tour</div></div>
+      </a>
+      <a class="ttile rv" href="/tours/my-chemical-romance-the-black-parade-tour">
+        <span class="ini">M</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">My Chemical Romance</div><div class="tt-tour">The Black Parade Tour</div></div>
+      </a>
+    </div>
+
+    <!-- NightCard: the gold moment, exactly as in the app -->
+    <div class="col">
+      <a class="night-card rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
+        <div class="nc-header">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#C9A84C"><path d="m12 2 1.8 5.7L19.5 9l-5.7 1.8L12 16.5l-1.8-5.7L4.5 9l5.7-1.3L12 2zM19 14l.9 2.9 2.9.9-2.9.9L19 21.6l-.9-2.9-2.9-.9 2.9-.9L19 14z"/></svg>
+          <span class="nc-brand">Concerto+</span>
+        </div>
+        <p class="nc-title">Your Whole Night, Planned</p>
+        <div class="nc-preview">
+          <div class="nc-prow"><span class="nc-time">5:45</span><span class="nc-dot"></span><span class="nc-label">Dinner two blocks out</span></div>
+          <div class="nc-prow"><span class="nc-time">7:10</span><span class="nc-dot gold"></span><span class="nc-label">Doors, bag pre-checked</span></div>
+          <div class="nc-prow"><span class="nc-time">11:15</span><span class="nc-dot"></span><span class="nc-label">Ride from the quiet corner</span></div>
+        </div>
+        <div class="nc-ctarow">
+          <span class="nc-price">$7.99/mo &middot; first plan free to preview</span>
+          <span class="nc-cta">Try it
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M5 11h11.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H5v-2z"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <p class="library rv" style="margin-top:var(--sp-xxl)">
+        The library behind the app &mdash; checked against each venue's own posted
+        policies. Browse <a class="big" href="/venues">346 venue guides</a>,
+        <a class="big" href="/tours">74 tour guides</a>, or jump by need:
+        <a class="hub" href="/bags">bag policies</a> &middot;
+        <a class="hub" href="/parking">parking</a> &middot;
+        <a class="hub" href="/rideshare">rideshare</a> &middot;
+        <a class="hub" href="/concessions">concessions</a> &middot;
+        <a class="hub" href="/top-picks">top picks</a> &middot;
+        <a class="hub" href="/events">events near you</a>.
+      </p>
+    </div>
   </main>
 
 <footer role="contentinfo">
