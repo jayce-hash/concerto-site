@@ -29,3 +29,9 @@ touched).
 .well-known/apple-app-site-association: universal links (edit TEAMID,
 deploy with the site). WEBSITE.md: the site's Phase G repositioning:
 do-now steps + the homepage rebuild spec.
+
+supabase/analytics_setup.sql: run once in the Supabase SQL Editor to
+create the analytics_events table the app writes to. Insert-only by
+RLS, so the public anon key cannot read your data. The file also
+contains ready-made queries for daily actives, activation rate,
+retention, top venues, and premium feature usage.
