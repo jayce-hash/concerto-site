@@ -18,3 +18,14 @@ tools/fetch_venue_photos.py: one-time venue exterior photo fetch from
 Google Places (run in the site repo root with GOOGLE_MAPS_API_KEY).
 Outputs img/venues/*.webp + data/venue_photos.json + attribution
 file. Commit and deploy; the app picks photos up automatically.
+
+build_static.py: your existing build script with one addition: right
+after nearby.json is loaded, it regenerates the data/nearby/ split
+(346 per-venue files) on every build, so the app's city data can
+never drift from the site's. Replace your build_static.py with this
+one (it is your file from the zip, plus that block; nothing else
+touched).
+
+.well-known/apple-app-site-association: universal links (edit TEAMID,
+deploy with the site). WEBSITE.md: the site's Phase G repositioning:
+do-now steps + the homepage rebuild spec.

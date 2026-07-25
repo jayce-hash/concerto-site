@@ -1242,6 +1242,18 @@ import json as _J, html as _H, urllib.parse as _U, math as _M
 
 _VI=_J.load(open(rp('data/venue_info.json')))
 _NBD=_J.load(open(rp('data/nearby.json'))) if os.path.exists(rp('data/nearby.json')) else {}
+
+# --- Keep per-venue nearby files in sync for the native app ---------------
+# The app fetches data/nearby/<slug>.json (~6 KB) instead of the 3.7 MB
+# monolith. Regenerated on every build so the split never drifts.
+if _NBD:
+    _nb_dir = rp('data/nearby')
+    os.makedirs(_nb_dir, exist_ok=True)
+    for _nb_slug, _nb_entry in _NBD.items():
+        with open(os.path.join(_nb_dir, f'{_nb_slug}.json'), 'w') as _nb_f:
+            _J.dump(_nb_entry, _nb_f, separators=(',', ':'))
+    print(f'  nearby split: {len(_NBD)} per-venue files refreshed')
+# --------------------------------------------------------------------------
 _TP={x.get('slug'):x for x in _J.load(open(rp('data/top_picks.json')))}
 _TOKEN=re.search(r"accessToken\s*=\s*'(pk\.[^']+)'",read('cityguide/app.js')).group(1)
 
