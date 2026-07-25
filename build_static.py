@@ -693,7 +693,8 @@ if 'container alignment (generated' not in vcss2:
 
 # ================= STAGE 6: social previews + headers =================
 # og:image / twitter:card on every indexable page missing them
-OG_IMG = '''  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+OG_IMG = '''  <meta name="apple-itunes-app" content="app-id=6744903414">
+  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png">
 '''

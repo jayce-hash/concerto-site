@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
   <meta name="apple-mobile-web-app-title" content="Concerto" />
+  <meta name="apple-itunes-app" content="app-id=6744903414, app-argument=https://concertocity.com/" />
 <title>Concerto, From the Concert to the City</title>
   <meta name="description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out. Free on iOS." />
   <meta name="robots" content="index, follow" />
@@ -288,6 +289,83 @@
 @media(max-width:700px){.hero-search{width:100%;}}
 @media(max-width:600px){.hero-search{margin-top:1.8rem;}.hero-search input{font-size:0.88rem;padding:1.1rem 1.3rem 1.1rem 2.9rem;}}
 </style>
+
+  <style>
+    /* ---- App-first homepage (v15) ---- */
+    .hero-app{padding:4.5rem 1.5rem 3.5rem}
+    .hero-app-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+    .hero-eyebrow{font-family:var(--body);font-weight:700;font-size:.72rem;letter-spacing:.22em;color:var(--gold);margin:0 0 1rem}
+    .hero-app h1{font-family:var(--display);font-size:clamp(2.6rem,5.2vw,4.2rem);line-height:1.05;margin:0 0 1.2rem;color:var(--text)}
+    .hero-sub{font-size:1.05rem;line-height:1.65;color:var(--text-dim);max-width:34rem;margin:0 0 1.8rem}
+    .hero-cta-row{display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap}
+    .appstore-badge{display:inline-flex;align-items:center;gap:.7rem;background:#121E36;color:#F8F9F9;border-radius:14px;padding:.8rem 1.35rem;text-decoration:none;transition:transform .15s ease}
+    .appstore-badge:hover{transform:translateY(-2px)}
+    .appstore-badge small{display:block;font-size:.62rem;letter-spacing:.04em;opacity:.75}
+    .appstore-badge strong{display:block;font-size:1.05rem;font-weight:700;line-height:1.1}
+    .hero-qr{display:flex;align-items:center;gap:.6rem;color:var(--text-dim);font-size:.72rem;line-height:1.3}
+    .hero-qr img{border-radius:10px;border:1px solid var(--border-mid)}
+    .hero-proof{margin:1.4rem 0 0;font-size:.8rem;color:var(--text-xdim);letter-spacing:.02em}
+    /* phone mock */
+    .hero-phone-wrap{display:flex;justify-content:center}
+    .hero-phone{width:290px;border-radius:42px;background:#0B1220;padding:12px;box-shadow:0 30px 80px rgba(18,30,54,.28);position:relative}
+    .phone-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#0B1220;border-radius:0 0 16px 16px;z-index:2}
+    .phone-screen{background:#F8F9F9;border-radius:32px;padding:2.6rem 1rem 1.2rem;min-height:480px}
+    .phone-lockup{font-family:var(--display);letter-spacing:.28em;text-align:center;color:#121E36;font-size:1rem;margin-bottom:.9rem}
+    .phone-search{background:#fff;border:1px solid var(--border-mid);border-radius:99px;padding:.6rem 1rem;font-size:.72rem;color:var(--text-dim);margin-bottom:1rem}
+    .phone-card{background:#121E36;border-radius:20px;padding:1.1rem}
+    .pc-eyebrow{color:var(--gold);font-size:.55rem;font-weight:700;letter-spacing:.18em}
+    .pc-title{font-family:var(--display);color:#F8F9F9;font-size:1.3rem;margin:.35rem 0 .1rem}
+    .pc-meta{color:rgba(248,249,249,.7);font-size:.66rem;margin-bottom:.8rem}
+    .pc-count{display:flex;align-items:center;gap:.55rem;background:rgba(248,249,249,.06);border:1px solid rgba(248,249,249,.12);border-radius:14px;padding:.6rem .8rem}
+    .pc-cell{text-align:center}
+    .pc-cell span{font-family:var(--display);color:#F8F9F9;font-size:1.35rem;display:block}
+    .pc-cell em{font-style:normal;color:var(--gold);font-size:.5rem;font-weight:700;letter-spacing:.14em}
+    .pc-colon{color:rgba(248,249,249,.4);font-family:var(--display);font-size:1.1rem}
+    .phone-row{display:flex;align-items:center;gap:.55rem;background:#fff;border:1px solid var(--border);border-radius:14px;padding:.7rem .85rem;font-size:.72rem;color:var(--text);margin-top:.7rem}
+    .phone-row.gold{border-color:rgba(201,168,76,.5)}
+    .pr-badge{color:#2e7d4f;font-weight:700}.pr-spark{color:var(--gold)}
+    /* trio */
+    .feature-trio{padding:3.5rem 1.5rem;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .trio-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .trio-card h2{font-family:var(--display);font-size:1.5rem;margin:1.1rem 0 .5rem;color:var(--text)}
+    .trio-card p{color:var(--text-dim);font-size:.92rem;line-height:1.6;margin:0}
+    .trio-visual{border-radius:18px;min-height:130px;display:flex;flex-direction:column;justify-content:center;padding:1.1rem;background:var(--bg);border:1px solid var(--border-mid)}
+    .trio-visual.verdict span{color:#2e7d4f;font-weight:800;letter-spacing:.08em;font-size:1rem}
+    .trio-visual.verdict p{font-size:.72rem;color:var(--text-dim);margin-top:.4rem}
+    .trio-visual.plan div{font-size:.8rem;color:var(--text);padding:.28rem 0;border-bottom:1px dashed var(--border-mid)}
+    .trio-visual.plan div:last-child{border-bottom:0}
+    .trio-visual.plan i{font-style:normal;color:var(--gold);font-family:var(--display);margin-right:.5rem}
+    .trio-visual.vcount{flex-direction:row;align-items:baseline;gap:.4rem;justify-content:center}
+    .trio-visual.vcount span{font-family:var(--display);font-size:2rem;color:var(--text)}
+    .trio-visual.vcount span.c{color:var(--text-xdim);font-size:1.4rem}
+    .trio-visual.vcount em{font-style:normal;font-size:.55rem;font-weight:700;letter-spacing:.12em;color:var(--gold)}
+    .trio-cta{text-align:center;margin-top:2.5rem}
+    /* engine */
+    .venue-engine{padding:4rem 1.5rem}
+    .engine-inner{max-width:1180px;margin:0 auto;text-align:center}
+    .venue-engine h2{font-family:var(--display);font-size:2rem;color:var(--text);margin:0 0 .6rem}
+    .engine-sub{color:var(--text-dim);max-width:40rem;margin:0 auto 2rem}
+    .engine-links{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.6rem}
+    .engine-big{font-family:var(--display);font-size:1.25rem;color:var(--text);text-decoration:none;border:1px solid var(--border-mid);border-radius:16px;padding:1rem 1.8rem;background:#fff;transition:transform .15s ease}
+    .engine-big:hover{transform:translateY(-2px)}
+    .engine-popular{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+    .engine-popular a{font-size:.78rem;color:var(--text-dim);text-decoration:none;border:1px solid var(--border);border-radius:99px;padding:.45rem .95rem;background:#fff}
+    .engine-popular a:hover{color:var(--text);border-color:var(--border-mid)}
+    /* plus band */
+    .plus-band{background:#121E36;padding:4rem 1.5rem;text-align:center}
+    .plus-eyebrow{color:var(--gold);font-weight:700;font-size:.72rem;letter-spacing:.22em;margin:0 0 .8rem}
+    .plus-band h2{font-family:var(--display);color:#F8F9F9;font-size:2.1rem;margin:0 0 .5rem}
+    .plus-band p{color:rgba(248,249,249,.72);margin:0 0 1.6rem}
+    .btn-gold{background:var(--gold);color:#121E36 !important;border-radius:99px;padding:.9rem 2rem;font-weight:700;text-decoration:none;display:inline-block}
+    @media (max-width: 900px){
+      .hero-app-inner{grid-template-columns:1fr;text-align:center}
+      .hero-sub{margin-left:auto;margin-right:auto}
+      .hero-cta-row{justify-content:center}
+      .trio-inner{grid-template-columns:1fr}
+      .hero-phone-wrap{order:-1}
+      .hero-phone{width:250px}.phone-screen{min-height:420px}
+    }
+  </style>
 </head>
 <body class="page-app"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -345,165 +423,126 @@
     </div>
 
   <!-- Hero -->
-  <header class="hero" role="banner">
-    <span class="hero-eyebrow">The Concert Companion</span>
-    <h1 class="hero-headline">
-      From the Concert<br /><em>To the City.</em>
-    </h1>
-    <p class="hero-sub">
-      Venues, Tours, Setlists, Parking, City Guides<br />
-      Everything for Your Night Out, in One Place.
-    </p>
-
-    <div class="hero-search" id="heroSearch">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="heroSearchInput" type="text" placeholder="Search venues and tours" autocomplete="off" spellcheck="false" aria-label="Search venues and tours" role="combobox" aria-expanded="false" aria-controls="heroSearchResults">
-      <div class="hero-search-results" id="heroSearchResults" role="listbox" hidden></div>
-    </div>
-    <div class="hero-actions">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-dark">Download Free on iOS</a>
-    </div>
-    <p class="hero-trust">
-      <span>340+ venues</span> &nbsp;&middot;&nbsp;
-      <span>75+ active tours</span> &nbsp;&middot;&nbsp;
-      <span>Free on iOS</span>
-    </p>
-  </header>
-
-  <main id="main-content">
-
-    <!-- Stats band (count-up) -->
-    <section class="stats reveal" aria-label="Concerto by the numbers">
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-num"><span data-count="340" data-suffix="+">0</span></div>
-          <div class="stat-label">Venues covered</div>
+  <section class="hero-app">
+    <div class="hero-app-inner">
+      <div class="hero-app-copy">
+        <p class="hero-eyebrow">THE CONCERT COMPANION</p>
+        <h1>From the Concert<br/>to the City.</h1>
+        <p class="hero-sub">The app you open after you buy the ticket. Verified bag
+          policies, parking, setlists, and an AI-planned night for 346 venues
+          and every tour that matters.</p>
+        <div class="hero-cta-row">
+          <a class="appstore-badge" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" aria-label="Download Concerto on the App Store">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <div class="hero-qr">
+            <img src="img/app-qr.png" alt="QR code: download Concerto" width="86" height="86" loading="eager"/>
+            <span>Scan with<br/>your camera</span>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num"><span data-count="75" data-suffix="+">0</span></div>
-          <div class="stat-label">Active tours</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num gold">Free</div>
-          <div class="stat-label">On iOS</div>
+        <p class="hero-proof">Free · 346 venues verified · Works offline in the arena</p>
+      </div>
+
+      <!-- CSS phone: the countdown card, the app's signature moment -->
+      <div class="hero-phone-wrap" aria-hidden="true">
+        <div class="hero-phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-lockup">CONCERTO</div>
+            <div class="phone-search">Find your next show</div>
+            <div class="phone-card">
+              <div class="pc-eyebrow">YOUR NEXT SHOW</div>
+              <div class="pc-title">Noah Kahan</div>
+              <div class="pc-meta">Globe Life Field &middot; Doors 6:30 PM</div>
+              <div class="pc-count">
+                <div class="pc-cell"><span>05</span><em>DAYS</em></div>
+                <div class="pc-colon">:</div>
+                <div class="pc-cell"><span>08</span><em>HRS</em></div>
+                <div class="pc-colon">:</div>
+                <div class="pc-cell"><span>42</span><em>MIN</em></div>
+              </div>
+            </div>
+            <div class="phone-row"><span class="pr-badge">&#10003;</span> Bag verified for this venue</div>
+            <div class="phone-row gold"><span class="pr-spark">&#10022;</span> Your night is planned</div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Two main cards -->
-    <div class="main-cards main-cards-3">
-
-      <a href="venues.html" class="main-card reveal">
-        <span class="main-card-eyebrow">Know Before You Go</span>
-        <h2>Venue Guides</h2>
-        <p>Bag Policies, Parking, Concessions, Rideshare Zones, and a Curated City Guide for Every Major Venue, Arena, and Stadium. Search Any Venue and Get Everything in One Place.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">300+ venues covered</span>
-          <span class="main-card-arrow">&rarr;</span>
-        </div>
-      </a>
-
-      <a href="tours.html" class="main-card reveal" style="transition-delay:0.06s">
-        <span class="main-card-eyebrow">On the Road</span>
-        <h2>Tour Guides</h2>
-        <p>Setlists, Show Dates, and Official Ticket Links for Every Active Tour in 2026. Every Stop Links Directly to That Venue&rsquo;s Full Guide, So You&rsquo;re Ready Wherever the Tour Takes You.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">71 active tours</span>
-          <span class="main-card-arrow">&rarr;</span>
-        </div>
-      </a>
-      <a href="events.html" class="main-card reveal" style="transition-delay:0.12s">
-        <span class="main-card-eyebrow">Tonight</span>
-        <h2>Events Near Me</h2>
-        <p>Open the App and Instantly See Every Major Concert, Sports Game, Comedy Show, and Festival Happening Near You. No Searching, Just What&rsquo;s On Tonight.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">Powered by location</span>
-          <span class="main-card-arrow">&rarr;</span>
-        </div>
-      </a>
-
     </div>
+  </section>
 
-    <!-- Top Picks strip -->
-    <section class="picks-strip" id="picksStrip" aria-labelledby="picks-heading" style="display:none">
-      <div class="picks-head">
-        <span class="picks-eyebrow">Concerto Top Picks</span>
-        <h2 class="picks-title" id="picks-heading">Where to eat before the show.</h2>
-        <p class="picks-sub">Curated restaurants near the country&rsquo;s biggest venues, featured for fans heading to the show.</p>
-      </div>
-      <div class="picks-grid" id="picksGrid"></div>
-      <div class="picks-cta-wrap"><a href="top-picks.html" class="btn btn-outline">See all Top Picks</a></div>
-    </section>
-
-    <!-- PREMIUM UNLOCKED (premium users only; replaces the promo strip below) -->
-    <div class="main-cards main-cards-3" id="premiumCardsWeb" style="display:none">
-      <a href="bagcheck.html" class="main-card">
-        <span class="main-card-eyebrow">Premium</span>
+  <!-- ============ THE THREE SIGNATURE FEATURES ============ -->
+  <section class="feature-trio" aria-label="What Concerto does">
+    <div class="trio-inner">
+      <article class="trio-card">
+        <div class="trio-visual verdict"><span>&#10003; PASSES</span><p>Checked against Madison Square Garden's verified policy</p></div>
         <h2>AI Bag Check</h2>
-        <p>Scan Your Bag with Your Camera and Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy, Before You Leave the House.</p>
-        <div class="main-card-footer"><span class="main-card-stat">Instant verdict</span><span class="main-card-arrow">&rarr;</span></div>
-      </a>
-      <a href="livemode.html" class="main-card">
-        <span class="main-card-eyebrow">Free with Concerto</span>
-        <h2>Passport</h2>
-        <p>Every Show You Attend Earns the Venue&rsquo;s Stamp. Track the Setlist Live, Build Your Collection, and With Premium, Get a Story Card of Your Entire Night.</p>
-        <div class="main-card-footer"><span class="main-card-stat">Stamps + Story Cards</span><span class="main-card-arrow">&rarr;</span></div>
-      </a>
-      <a href="concertoplus.html" class="main-card">
-        <span class="main-card-eyebrow">Premium</span>
-        <h2>Concerto+</h2>
-        <p>Tell It Your Show and Your Vibe. It Builds the Full Evening, Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</p>
-        <div class="main-card-footer"><span class="main-card-stat">AI itinerary</span><span class="main-card-arrow">&rarr;</span></div>
-      </a>
+        <p>Snap a photo of your bag. Concerto verifies it against the venue's
+           actual posted policy before you leave the house, so security is a
+           walk-through, not a turn-around.</p>
+      </article>
+      <article class="trio-card">
+        <div class="trio-visual plan">
+          <div><i>5:45</i> Dinner two blocks out</div>
+          <div><i>7:10</i> Doors, bag pre-checked</div>
+          <div><i>11:15</i> Ride from the quiet corner</div>
+        </div>
+        <h2>Plan My Night</h2>
+        <p>Concerto+ builds your whole evening around the show: where to eat,
+           when to leave, where the rideshare pickup actually is, timed to
+           the doors.</p>
+      </article>
+      <article class="trio-card">
+        <div class="trio-visual vcount"><span>211</span><em>DAYS</em><span class="c">:</span><span>08</span><em>HRS</em><span class="c">:</span><span>06</span><em>MIN</em></div>
+        <h2>The Countdown</h2>
+        <p>Save a show and your home screen counts down to doors, with an
+           alert two hours before and every venue rule one tap away.</p>
+      </article>
     </div>
+    <div class="trio-cta">
+      <a class="btn btn-dark" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App Free</a>
+    </div>
+  </section>
 
-    <!-- Premium strip -->
-    <section class="premium-strip" id="premiumStripPromo" aria-labelledby="premium-heading">
-      <div class="premium-strip-inner">
-        <div class="premium-strip-copy reveal">
-          <span class="premium-strip-eyebrow">Concerto Premium</span>
-          <h2 class="premium-strip-title" id="premium-heading">The Magic Is in the Details.</h2>
-          <p class="premium-strip-sub">Premium Unlocks the Features That Turn a Good Night Into a Flawless One. $7.99/Month or $69.99/Year.</p>
-          <a href="premium.html" class="btn btn-gold">Explore Premium</a>
-        </div>
-        <div class="premium-features reveal" style="transition-delay:0.1s">
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>AI Bag Check</strong>, Point Your Camera at Your Bag. Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy Before You Leave the House.</div>
-          </div>
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>Passport Recaps</strong>, Your Passport Is Free. Premium Turns Every Stamped Night Into a Beautifully Designed, Shareable Story Card.</div>
-          </div>
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>Concerto+ AI Itinerary</strong>, Tell It Your Show and Your Vibe. It Builds the Full Evening, Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</div>
-          </div>
-          
-        </div>
+  <!-- ============ THE SEO ENGINE: every venue, every rule ============ -->
+  <section class="venue-engine" aria-label="Venue and tour guides">
+    <div class="engine-inner">
+      <h2>Every venue. Every rule. Verified.</h2>
+      <p class="engine-sub">The largest library of verified venue logistics on the
+         internet, and the reason fans find Concerto. Browse it free, or carry
+         all of it in your pocket.</p>
+      <div class="engine-links">
+        <a href="venues.html" class="engine-big">346 Venue Guides &rarr;</a>
+        <a href="tours.html" class="engine-big">74 Tour Guides &rarr;</a>
       </div>
-    </section>
+      <div class="engine-popular">
+        <a href="venues/madison-square-garden.html">Madison Square Garden</a>
+        <a href="venues/at-t-stadium.html">AT&amp;T Stadium</a>
+        <a href="venues/sphere.html">Sphere</a>
+        <a href="venues/globe-life-field.html">Globe Life Field</a>
+        <a href="venues/the-o2.html">The O2</a>
+        <a href="venues/red-rocks-amphitheatre.html">Red Rocks</a>
+        <a href="bags.html">Bag Policies</a>
+        <a href="parking.html">Parking</a>
+        <a href="rideshare.html">Rideshare</a>
+        <a href="concessions.html">Concessions</a>
+        <a href="top-picks.html">Top Picks</a>
+        <a href="events.html">Events Near Me</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Quote -->
-    <section class="quote-section">
-      <p class="quote-text reveal">
-        &ldquo;I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like one seamless event.&rdquo;
-      </p>
-      <p class="quote-attr reveal" style="transition-delay:0.1s">,  Jayce Wells, Founder</p>
-    </section>
+  <!-- ============ CONCERTO+ ============ -->
+  <section class="plus-band">
+    <div class="plus-inner">
+      <p class="plus-eyebrow">CONCERTO+</p>
+      <h2>Your whole night, planned.</h2>
+      <p>The AI concierge for concertgoers. $7.99/mo or $69.99/yr, inside the app.</p>
+      <a class="btn btn-gold" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Start in the App</a>
+    </div>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta reveal">
-      <h2>Your Show Starts Now.</h2>
-      <p>Free on iOS. No Account Required.</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-dark">Download Concerto</a>
-    </section>
-
-  </main>
+</main>
 
   <!-- Footer -->
   <footer role="contentinfo">

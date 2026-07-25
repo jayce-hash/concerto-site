@@ -194,3 +194,69 @@
   if (document.body) build();
   else document.addEventListener('DOMContentLoaded', build);
 })();
+
+// ═══════════════════════════════════════════════════════════════════
+// APP-FIRST LAYER (2026-07): the site's job is now driving downloads.
+// Two additions, both SEO-safe by construction:
+//
+// 1. NAV SIMPLIFICATION happens here in JS, not in HTML. Crawlers
+//    parsing the raw HTML still see the complete historical link set
+//    on every one of the ~460 pages (all internal-linking equity
+//    preserved); humans with JS get five focused links + a gold
+//    "Get the App" pill. This split is deliberate: the SEO nav and
+//    the human nav are different products.
+//
+// 2. APP PILL on venue/tour detail pages: the pages that earn organic
+//    search traffic are exactly where a fan is one tap from a better
+//    answer in the app. One quiet, dismissible pill; session-scoped
+//    dismissal so it never nags.
+// ═══════════════════════════════════════════════════════════════════
+(function () {
+  var APP_URL = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+
+  function simplifyNav() {
+    var center = document.querySelector('.nav-center');
+    if (!center) return;
+    center.innerHTML =
+      '<a href="/venues">Venues</a>' +
+      '<a href="/tours">Tours</a>' +
+      '<a href="/events">Near Me</a>' +
+      '<a href="/concertoplus">Concerto+</a>' +
+      '<a href="/about">About</a>';
+    var right = document.querySelector('.nav-right');
+    if (right && !right.querySelector('.nav-app-cta')) {
+      var cta = document.createElement('a');
+      cta.className = 'nav-app-cta';
+      cta.href = APP_URL;
+      cta.textContent = 'Get the App';
+      cta.style.cssText = 'font-family:var(--body);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;background:var(--gold,#C9A84C);color:var(--navy,#121E36);padding:0.55rem 1.1rem;border-radius:999px;margin-left:0.9rem;white-space:nowrap;';
+      right.insertBefore(cta, right.firstChild);
+    }
+  }
+
+  function appPill() {
+    var path = location.pathname;
+    var isDetail = /^\/(venues|tours)\/[^\/]+/.test(path);
+    if (!isDetail) return;
+    if (sessionStorage.getItem('appPillDismissed')) return;
+    var isVenue = path.indexOf('/venues/') === 0;
+    var pill = document.createElement('div');
+    pill.setAttribute('role', 'complementary');
+    pill.style.cssText = 'position:fixed;bottom:1.1rem;left:50%;transform:translateX(-50%);z-index:900;background:var(--navy,#121E36);color:#F8F9F9;border-radius:999px;box-shadow:0 8px 30px rgba(18,30,54,0.35);padding:0.6rem 0.7rem 0.6rem 1.1rem;display:flex;align-items:center;gap:0.8rem;font-family:var(--body,sans-serif);font-size:0.82rem;max-width:92vw;';
+    pill.innerHTML =
+      '<span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' +
+        (isVenue ? 'Bag check + night planner for this venue' : 'Countdown + setlists for this tour') +
+      '</span>' +
+      '<a href="' + APP_URL + '" style="background:#C9A84C;color:#121E36;font-weight:700;border-radius:999px;padding:0.45rem 0.95rem;white-space:nowrap;">Open in App</a>' +
+      '<button aria-label="Dismiss" style="background:none;border:none;color:rgba(248,249,249,0.55);font-size:1rem;padding:0.2rem 0.4rem;cursor:pointer;">✕</button>';
+    pill.querySelector('button').addEventListener('click', function () {
+      sessionStorage.setItem('appPillDismissed', '1');
+      pill.remove();
+    });
+    document.body.appendChild(pill);
+  }
+
+  function run() { simplifyNav(); appPill(); }
+  if (document.body) run();
+  else document.addEventListener('DOMContentLoaded', run);
+})();
