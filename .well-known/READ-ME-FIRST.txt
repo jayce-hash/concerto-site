@@ -1,0 +1,16 @@
+This one file needs to end up at:
+
+    yoursite.com/.well-known/apple-app-site-association
+
+Steps:
+1. In your website repo, create a folder literally named .well-known
+   (with the leading dot) at the root, next to index.html.
+2. Put apple-app-site-association (this file, no extension) inside it.
+3. Already filled in for you: Team ID 8J3D3W2829, bundle ID
+   com.v8ef92dbd0a8.www. Nothing to edit, just place the file.
+4. Commit and deploy.
+
+Why it's split out here: folders starting with a dot are hidden by
+default on Mac and some zip tools skip or hide them on extraction.
+The real copy also still lives in .well-known/ in this same zip in
+case your unzip tool handles dotfolders fine.
