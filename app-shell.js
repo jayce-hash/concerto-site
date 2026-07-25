@@ -223,7 +223,7 @@
       '<a href="/events">Near Me</a>' +
       '<a href="/concertoplus">Concerto+</a>' +
       '<a href="/about">About</a>';
-    var right = document.querySelector('.nav-right');
+    var right = document.querySelector('.nav-right') || document.querySelector('.nav-cta');
     if (right && !right.querySelector('.nav-app-cta')) {
       var cta = document.createElement('a');
       cta.className = 'nav-app-cta';
