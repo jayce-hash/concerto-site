@@ -1,4 +1,39 @@
-# The Show Night homepage
+# The Show Night homepage -- CINEMATIC CUT (GSAP)
+
+## What changed from the first cut
+This is the awwwards-tier pass. GSAP + ScrollTrigger (CDN, deferred)
+now direct the page like a film:
+- CURTAIN: a once-per-session house-lights opening -- navy curtain,
+  gold CONCERTO lockup breathing in, then it lifts.
+- ENTRANCE: headline lines rise out of masks, sub/CTAs/phone arrive
+  in a choreographed timeline; the phone swings in from a deeper
+  angle.
+- SCROLL SCRUB (the Fable move): scrolling through the hero is
+  scrubbed -- the phone straightens to face you and drifts upward,
+  the headline halves part, the beams fan wider, the crowd dims.
+  You are literally walking out of the venue.
+- MARQUEE VELOCITY: scroll faster and the venue ribbon spins faster,
+  easing back when you stop.
+- MAGNETIC App Store badge (pulls toward the cursor), pointer-tilt
+  phone via GSAP quickTo, and a soft gold cursor glow.
+- Section reveals now run on ScrollTrigger with batch stagger.
+
+## Engineering honesty
+- Progressive enhancement: if the CDN fails or JS is off, every word
+  and link renders normally; a fallback (IntersectionObserver + CSS)
+  still gives simple reveals. The countdown ticks with or without
+  GSAP.
+- prefers-reduced-motion disables the entire choreography.
+- Weight: two deferred CDN scripts (~60KB gz total, cached across
+  half the web); page HTML still ~46KB, no images, no video.
+- One h1 with a full aria-label (the visual split never leaks into
+  the accessibility tree as fragments).
+
+## Verify-in-Chrome loop
+Deploy, then tell Claude -- with the Claude in Chrome extension it
+can open the live page, screenshot it, and iterate on the real
+render with you.
+
 
 ## Concept: two acts
 ACT I -- THE CONCERT. The page opens inside the venue: deep navy,

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -182,10 +182,30 @@
     .plus-cta{background:var(--gold);color:var(--navy);font-weight:700;border-radius:99px;padding:.95rem 1.9rem;white-space:nowrap;transition:transform .25s;position:relative;z-index:1}
     .plus-cta:hover{transform:translateY(-2px)}
 
-    /* reveal on scroll */
-    .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-    .rv.in{opacity:1;transform:none}
+    /* reveal on scroll: CSS transition only in the no-GSAP fallback;
+       when GSAP drives, it owns opacity/transform entirely */
+    html.no-gsap .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+    html.no-gsap .rv.in{opacity:1;transform:none}
     @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.beam,.crowd,.crowd::after,.phone,.marquee-track,.show-copy h1 .city{animation:none!important}}
+
+    /* curtain */
+    .curtain{position:fixed;inset:0;z-index:3000;background:var(--navy-deep);display:flex;align-items:center;justify-content:center;transition:transform .9s cubic-bezier(.76,0,.24,1);transform-origin:top}
+    .curtain span{font-family:var(--display);color:var(--gold);letter-spacing:.5em;font-size:clamp(.9rem,2.4vw,1.3rem);opacity:0;animation:curtainIn .7s .15s forwards}
+    @keyframes curtainIn{to{opacity:1;letter-spacing:.34em}}
+    .curtain.lift{transform:scaleY(0)}
+    .curtain.lift span{animation:none;opacity:0;transition:opacity .3s}
+
+    /* cursor glow (desktop only) */
+    .cursor-glow{position:fixed;width:280px;height:280px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(201,168,76,.13),transparent 65%);transform:translate(-50%,-50%);opacity:0;transition:opacity .5s;mix-blend-mode:screen}
+    @media(pointer:coarse){.cursor-glow{display:none}}
+
+    /* split headline masks */
+    .hl-mask{display:block;overflow:hidden}
+    .hl-line{display:block;transform:translateY(110%)}
+    .no-js .hl-line,.rm .hl-line{transform:none}
+
+    .phone,.beam,.hl-line{will-change:transform}
+    html.js-anim .rv{opacity:0}
 
     /* nav over the dark hero: logo + auth flip to snow until scroll */
     .site-nav:not(.scrolled) .nav-logo-img{filter:brightness(0) invert(1)}
@@ -203,9 +223,14 @@
       .plus{flex-direction:column;text-align:center;padding:2.4rem 1.6rem}
     }
   </style>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
+  <!-- house lights: a once-per-session curtain -->
+  <div class="curtain" id="curtain" aria-hidden="true"><span>C O N C E R T O</span></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-logo">
       <a href="index.html" aria-label="Concerto Home">
@@ -244,7 +269,10 @@
     <div class="show-inner">
       <div class="show-copy">
         <p class="eyebrow">The Concert Companion</p>
-        <h1>From the Concert<br/>to the <span class="city">City.</span></h1>
+        <h1 aria-label="From the Concert to the City.">
+          <span class="hl-mask"><span class="hl-line" data-l="1">From the Concert</span></span>
+          <span class="hl-mask"><span class="hl-line" data-l="2">to the <span class="city">City.</span></span></span>
+        </h1>
         <p class="sub">The app you open after you buy the ticket. Verified bag policies,
           parking, setlists, and an AI&#8209;planned night &mdash; for 346 venues and every
           tour that matters.</p>
@@ -406,48 +434,130 @@
 
   <script>
   (function(){
-    // Live countdown: a real target ~5 days out, persisted per visitor so
-    // it genuinely ticks down across visits instead of resetting.
+    var docEl=document.documentElement;
+    docEl.classList.remove('no-js');
+    if(!matchMedia('(prefers-reduced-motion:reduce)').matches)docEl.classList.add('js-anim');
+    var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(RM)docEl.classList.add('rm');
+
+    /* ── live countdown (runs regardless of any library) ── */
     var KEY='concertoHeroTarget';var t;
     try{t=parseInt(localStorage.getItem(KEY)||'0',10)}catch(e){t=0}
     var now=Date.now();
     if(!t||t-now<3600e3||t-now>12*864e5){t=now+5*864e5+8*36e5+42*6e4;try{localStorage.setItem(KEY,String(t))}catch(e){}}
     var cells={};['d','h','m','s'].forEach(function(u){cells[u]=document.querySelector('#liveCount [data-u="'+u+'"]')});
     function pad(n){return (n<10?'0':'')+n}
-    function tick(){
-      var ms=Math.max(0,t-Date.now());
-      var s=Math.floor(ms/1e3),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),sec=s%60;
-      if(cells.d){cells.d.textContent=pad(d);cells.h.textContent=pad(h);cells.m.textContent=pad(m);cells.s.textContent=pad(sec)}
-    }
+    function tick(){var ms=Math.max(0,t-Date.now());var s=Math.floor(ms/1e3);
+      if(cells.d){cells.d.textContent=pad(Math.floor(s/86400));cells.h.textContent=pad(Math.floor(s%86400/3600));cells.m.textContent=pad(Math.floor(s%3600/60));cells.s.textContent=pad(s%60)}}
     tick();setInterval(tick,1000);
 
-    // Marquee: duplicate the track once for a seamless loop.
+    /* ── marquee seamless loop ── */
     var mq=document.getElementById('mqTrack');
     if(mq){mq.innerHTML+=mq.innerHTML}
 
-    // Phone parallax on desktop pointer.
-    var ph=document.getElementById('heroPhone');
-    if(ph&&matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
-      var hero=document.querySelector('.show');
-      hero.addEventListener('mousemove',function(e){
-        var r=hero.getBoundingClientRect();
-        var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-        ph.style.transform='rotateY('+(-13+x*7)+'deg) rotateX('+(5-y*5)+'deg)';
-      });
-      hero.addEventListener('mouseleave',function(){ph.style.transform=''});
-    }
+    /* ── curtain ── */
+    var curtain=document.getElementById('curtain');
+    function lift(){if(curtain){curtain.classList.add('lift');setTimeout(function(){curtain.remove()},1000)}}
+    try{
+      if(sessionStorage.getItem('curtainSeen')||RM){curtain.remove();curtain=null}
+      else{sessionStorage.setItem('curtainSeen','1');setTimeout(lift,950)}
+    }catch(e){setTimeout(lift,950)}
 
-    // Reveal on scroll.
-    var io=('IntersectionObserver'in window)?new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
-    },{threshold:.14}):null;
-    document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
-
-    // Nav: transparent over the dark hero, frosted after scroll.
+    /* ── nav state ── */
     var nav=document.querySelector('.site-nav')||document.querySelector('nav');
     if(nav){nav.classList.add('site-nav');
-      var on=function(){nav.classList.toggle('scrolled',window.scrollY>window.innerHeight*.7)};
+      var on=function(){nav.classList.toggle('scrolled',window.scrollY>window.innerHeight*.6)};
       window.addEventListener('scroll',on,{passive:true});on()}
+
+    /* ── graceful base reveals if GSAP never arrives ── */
+    function basicReveals(){
+      docEl.classList.remove('js-anim');
+      docEl.classList.add('no-gsap');
+      document.querySelectorAll('.hl-line').forEach(function(l){l.style.transition='transform .9s cubic-bezier(.22,1,.36,1)';l.style.transform='none'});
+      var io=('IntersectionObserver'in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14}):null;
+      document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+    }
+
+    /* ── the choreography ── */
+    function choreo(){
+      if(RM||!window.gsap||!window.ScrollTrigger){docEl.classList.remove('js-anim');basicReveals();return}
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Act I entrance: headline lines rise, phone arrives, CTAs fade up */
+      var intro=gsap.timeline({delay:curtain?0.85:0.1});
+      intro.to('.hl-line',{y:0,duration:1.05,ease:'power4.out',stagger:0.12})
+           .from('.show-copy .eyebrow',{opacity:0,y:14,duration:.6,ease:'power2.out'},'<')
+           .from('.show-copy .sub',{opacity:0,y:18,duration:.7,ease:'power2.out'},'-=.55')
+           .from('.cta-row > *',{opacity:0,y:16,duration:.55,stagger:.09,ease:'power2.out'},'-=.4')
+           .from('.proof',{opacity:0,duration:.6},'-=.3')
+           .from('#heroPhone',{opacity:0,y:60,rotateY:-30,duration:1.2,ease:'power3.out'},'-=1.1')
+           .from('.marquee',{opacity:0,duration:.8},'-=.5');
+
+      /* Scroll scrub: walking out of the venue. Phone straightens and
+         drifts up; beams fan wider; headline parts; marquee slides. */
+      gsap.timeline({scrollTrigger:{trigger:'.show',start:'top top',end:'bottom 35%',scrub:true}})
+        .to('#heroPhone',{rotateY:0,rotateX:0,y:-60,scale:1.04,ease:'none'},0)
+        .to('.hl-line[data-l="1"]',{x:-40,opacity:.25,ease:'none'},0)
+        .to('.hl-line[data-l="2"]',{x:40,opacity:.25,ease:'none'},0)
+        .to('.beam.b1',{rotate:-22,ease:'none'},0)
+        .to('.beam.b3',{rotate:22,ease:'none'},0)
+        .to('.crowd',{opacity:.12,ease:'none'},0)
+        .to('.marquee-track',{x:-220,ease:'none'},0);
+
+      /* Daybreak: the page itself brightens under your scroll */
+      gsap.fromTo('.daybreak',{opacity:.0},{opacity:1,scrollTrigger:{trigger:'.daybreak',start:'top 90%',end:'bottom 60%',scrub:true}});
+
+      /* Act II: sections rise in */
+      docEl.classList.remove('js-anim');
+      gsap.utils.toArray('.rv').forEach(function(el){
+        gsap.fromTo(el,{opacity:0,y:34},{opacity:1,y:0,duration:.85,ease:'power3.out',
+          scrollTrigger:{trigger:el,start:'top 86%',once:true}});
+        el.classList.add('in');
+      });
+
+      /* Trio cards: gentle stagger as a group */
+      ScrollTrigger.batch('.trio-card',{start:'top 88%',once:true,onEnter:function(b){
+        gsap.fromTo(b,{opacity:0,y:44},{opacity:1,y:0,duration:.8,stagger:.12,ease:'power3.out'})}});
+
+      /* Marquee velocity: scrolling faster spins the ribbon faster */
+      var base=gsap.to('.marquee-track',{xPercent:-50,repeat:-1,duration:42,ease:'none'});
+      var boost=0;
+      ScrollTrigger.create({onUpdate:function(self){
+        boost=gsap.utils.clamp(0,3,Math.abs(self.getVelocity())/900);
+        gsap.to(base,{timeScale:1+boost,duration:.4,overwrite:true});
+      }});
+
+      /* Phone pointer parallax (layered over scrub via quickTo on container) */
+      if(matchMedia('(pointer:fine)').matches){
+        var stage=document.querySelector('.stage');
+        var qx=gsap.quickTo(stage,'rotationY',{duration:.5,ease:'power2.out'});
+        var qy=gsap.quickTo(stage,'rotationX',{duration:.5,ease:'power2.out'});
+        var hero=document.querySelector('.show');
+        gsap.set(stage,{transformPerspective:1200});
+        hero.addEventListener('mousemove',function(e){
+          var r=hero.getBoundingClientRect();
+          qx(((e.clientX-r.left)/r.width-.5)*10);
+          qy(-((e.clientY-r.top)/r.height-.5)*7);
+        });
+        hero.addEventListener('mouseleave',function(){qx(0);qy(0)});
+
+        /* magnetic App Store badge */
+        var b=document.querySelector('.appstore-badge');
+        if(b){var bx=gsap.quickTo(b,'x',{duration:.35,ease:'power3.out'}),by=gsap.quickTo(b,'y',{duration:.35,ease:'power3.out'});
+          b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();bx((e.clientX-r.left-r.width/2)*.25);by((e.clientY-r.top-r.height/2)*.35)});
+          b.addEventListener('mouseleave',function(){bx(0);by(0)});}
+
+        /* cursor glow */
+        var g=document.getElementById('cursorGlow');
+        if(g){var gx=gsap.quickTo(g,'left',{duration:.6,ease:'power3.out'}),gy=gsap.quickTo(g,'top',{duration:.6,ease:'power3.out'});
+          window.addEventListener('mousemove',function(e){g.style.opacity=1;gx(e.clientX);gy(e.clientY)});}
+      }
+    }
+
+    /* CSS reveal default off for .rv handled by GSAP; if libs missing, fall back */
+    if(document.readyState==='complete')choreo();
+    else window.addEventListener('load',function(){setTimeout(choreo,0)});
+    setTimeout(function(){if(!window.gsap)basicReveals()},2500);
   })();
   </script>
 
