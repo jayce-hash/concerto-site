@@ -30,6 +30,20 @@ is now structurally impossible.
 - The app's own routes (/, /venues, /tours, /near-me) now carry
   title, description, canonical, OG tags and the smart app banner.
 
+## Web-only guards that had to exist (learned the hard way)
+Constants.appOwnership is 'expo' in Expo Go, NULL on web, and
+undefined in a real build. Guards written as (appOwnership !== 'expo')
+therefore returned TRUE on web and tried to require native-only
+modules. That is what crashed the Account screen. Now excluded
+explicitly by Platform.OS:
+  - react-native-purchases (IAP)  -> native only
+  - App Group widget storage      -> iOS only
+  - expo-notifications            -> native only (web no-ops so
+    saving a show still works everywhere)
+  - ErrorBoundary "Try again"      -> real window.location.reload()
+    on web (Updates.reloadAsync left the router mid-navigation,
+    which is why it landed on Bag Check)
+
 ## How to deploy into the site repo
 1. Copy EVERYTHING from this folder into the site repo root
    (index.html, _expo/, assets/, the route .html files, _redirects).
