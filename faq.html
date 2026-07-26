@@ -136,10 +136,13 @@
       margin-bottom:1.4rem}
     .hero-desc{font-size:1.08rem;font-weight:300;line-height:1.85;
       color:var(--ink-muted);max-width:36rem;margin:0 auto 1.8rem}
-    .hero-price{font-size:.9rem;color:var(--ink-muted);margin-bottom:1.8rem}
-    .hero .price-pill{background:var(--gold-soft);border-color:transparent;
+    /* The hero's buttons already read "Get Monthly, $7.99/mo", so a
+       separate price line directly above them states the same thing
+       twice. One price per action, attached to the action. */
+    .hero-price{display:none}
+    .hero .price-pill--show{background:var(--gold-soft);border-color:transparent;
       color:var(--navy);font-weight:700}
-    .hero .price-pill strong{color:var(--navy)}
+    .hero .price-pill--show strong{color:var(--navy)}
     .btn{display:inline-flex;align-items:center;justify-content:center;
       font-family:var(--body);font-size:.9rem;font-weight:700;
       border-radius:var(--r-pill);padding:.85rem 1.7rem;margin:.3rem;
@@ -172,7 +175,8 @@
       color:rgba(248,249,249,.72);max-width:32rem;margin:0 auto}
     .pricing-options{display:flex;flex-wrap:wrap;align-items:center;
       justify-content:center;gap:.7rem;margin-top:2.2rem}
-    .price-pill{display:inline-flex;align-items:baseline;gap:.45rem;
+    .price-pill{display:none}
+    .price-pill--show{display:inline-flex;align-items:baseline;gap:.45rem;
       background:rgba(248,249,249,.07);border:1px solid rgba(248,249,249,.16);
       border-radius:var(--r-pill);padding:.6rem 1.1rem;
       font-size:.78rem;font-weight:500;color:rgba(248,249,249,.72);white-space:nowrap}
