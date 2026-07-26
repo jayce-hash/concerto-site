@@ -132,8 +132,78 @@
       .nav-center { display:none !important; }
       .nav-cta a { display:none; }
     }
-    @media (max-width: 640px) { #navAuthLink { display:none; } }
-  
+    @media (max-width: 640px) { #navAuthLink { display:none; } }/* concerto-chrome v2.1 */
+  /* ── Uniform editorial system ───────────────────────────────────
+     About, FAQ, Premium, Privacy and Terms had drifted apart: About
+     and FAQ used a 4.8rem title and 1.05rem prose, Privacy and Terms
+     a 4rem title and 1rem prose, and Premium its own marketing scale.
+     Layout may differ by page purpose -- a pricing page is not a
+     legal page -- but type, scale and colour must not. This locks
+     every one of them to the same system, and forces light mode:
+     a guest arriving from search is not a user with a saved
+     preference. */
+  :root{
+    --v2-display:'Playfair Display',Georgia,serif;
+    --v2-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --v2-text:#121E36; --v2-dim:#5A6478; --v2-faint:#8A91A3;
+    --v2-surface:#FFFFFF;
+  }
+  html,body{ background:var(--v2-bg) !important; color:var(--v2-text) !important;
+             color-scheme: light !important; }
+
+  .editorial-container,.hero,.pricing-section,.features-grid{ }
+
+  .eyebrow{
+    font-family:var(--v2-body) !important; font-size:.62rem !important;
+    font-weight:700 !important; letter-spacing:.28em !important;
+    text-transform:uppercase !important; color:var(--v2-gold) !important;
+    margin-bottom:1.4rem !important;
+  }
+  .page-title,.hero-title{
+    font-family:var(--v2-display) !important;
+    font-size:clamp(2.4rem,5vw,4rem) !important;
+    font-weight:700 !important; letter-spacing:-.03em !important;
+    line-height:1.05 !important; color:var(--v2-text) !important;
+  }
+  .page-sub,.hero-desc,.pricing-copy{
+    font-family:var(--v2-body) !important; font-size:1.05rem !important;
+    font-weight:300 !important; line-height:1.8 !important;
+    color:var(--v2-dim) !important;
+  }
+  .prose p,.prose li{
+    font-family:var(--v2-body) !important; font-size:1rem !important;
+    font-weight:300 !important; line-height:1.85 !important;
+    color:var(--v2-dim) !important;
+  }
+  .prose h2,.pricing-section h2,.features-grid h2{
+    font-family:var(--v2-display) !important; font-size:1.5rem !important;
+    font-weight:700 !important; letter-spacing:-.015em !important;
+    color:var(--v2-text) !important;
+  }
+  .prose h3,.feat-label,.feat-card h3{
+    font-family:var(--v2-display) !important; color:var(--v2-text) !important;
+  }
+  .feat-label,.hero-price,.price-pill{
+    font-family:var(--v2-body) !important;
+  }
+  .prose strong{ color:var(--v2-text) !important; font-weight:600 !important; }
+  .prose a,.editorial-container a:not(.btn){ color:var(--v2-gold) !important; }
+
+  /* One CTA colour sitewide, matching the app-on-web chrome. */
+  .btn-gold,.feat-cta,.btn.btn-gold{
+    background:var(--v2-gold) !important; color:var(--v2-navy) !important;
+    border-color:var(--v2-gold) !important;
+    font-family:var(--v2-body) !important; font-weight:700 !important;
+  }
+  .btn-dark,.btn.btn-dark{
+    background:var(--v2-navy) !important; color:#F8F9F9 !important;
+    font-family:var(--v2-body) !important; font-weight:700 !important;
+  }
+  .feat-card,.pricing-card{
+    background:var(--v2-surface) !important;
+    border-color:var(--v2-line) !important;
+  }
+
   /* ── V2 chrome (matches the app-on-web nav + footer) ────────── */
   :root { --v2-navy:#121E36; --v2-gold:#C9A84C; --v2-bg:#F8F9F9;
           --v2-ink:#121E36; --v2-muted:#5A6478; --v2-line:rgba(18,30,54,.14); }
@@ -177,15 +247,7 @@
   <link rel="stylesheet" href="align.css">
   <script defer src="/analytics.js"></script>
 </head>
-<body class="page-content"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
-
-  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-  <div class="noise" aria-hidden="true"></div>
-
-  <!-- ─── NAV ─── -->
+<body class="page-content">
   <nav class="v2nav" role="navigation" aria-label="Main navigation">
     <a class="v2nav-brand" href="/" aria-label="Concerto home">
       <img src="/img/lockup.png" alt="Concerto — From the Concert to the City" width="168" height="36" />
@@ -205,7 +267,16 @@
       </a>
       <a class="v2nav-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
     </div>
-  </nav>
+  </nav><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─── -->
+  
     <!-- Mobile menu -->
     <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
@@ -273,20 +344,7 @@
   </main>
 
   <!-- ─── FOOTER ─── -->
-  <footer class="v2foot" role="contentinfo">
-    <div class="v2foot-inner">
-      <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
-      <nav class="v2foot-links" aria-label="Footer">
-        <a href="/about">About</a><span>&middot;</span>
-        <a href="/premium">Premium</a><span>&middot;</span>
-        <a href="/faq">FAQ</a><span>&middot;</span>
-        <a href="/privacy">Privacy</a><span>&middot;</span>
-        <a href="/terms">Terms</a><span>&middot;</span>
-        <a href="/account">Account</a>
-      </nav>
-      <a class="v2foot-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
-    </div>
-  </footer>
+  
 
   <script>
     document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
@@ -322,6 +380,21 @@
 
   <script src="auth.js"></script>
   <script src="app-shell.js"></script>
+  
+  <footer class="v2foot" role="contentinfo">
+    <div class="v2foot-inner">
+      <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
+      <nav class="v2foot-links" aria-label="Footer">
+        <a href="/about">About</a><span>&middot;</span>
+        <a href="/premium">Premium</a><span>&middot;</span>
+        <a href="/faq">FAQ</a><span>&middot;</span>
+        <a href="/privacy">Privacy</a><span>&middot;</span>
+        <a href="/terms">Terms</a><span>&middot;</span>
+        <a href="/account">Account</a>
+      </nav>
+      <a class="v2foot-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
+    </div>
+  </footer>
   <script>
   (function(){
     var n=document.querySelector('.v2nav'); if(!n) return;

@@ -1,34 +1,34 @@
 # Concerto V2 — the app IS the website
 
-## What's here
-The Expo web export of the actual app (index, venues, tours, near-me,
-account, settings, search, plan, bagcheck, venue/[slug], tour/[slug])
-plus _redirects and one script.
+## Deploy (two commands, from the site repo root)
+    cp -R ~/Downloads/concerto-web-app/. ~/Downloads/concerto-site/
+    python3 retrofit_chrome.py
+    git add -A && git commit -m "V2" && git push
 
-## Deploy (from the site repo root)
-1.  cp -R ~/Downloads/concerto-web-app/. ~/Downloads/concerto-site/
-    (cp MERGES; never drag folders in Finder -- that REPLACES and
-    would wipe venues/, tours/, data/ and img/)
-2.  python3 retrofit_chrome.py
-3.  git add -A && git commit -m "V2" && git push
+Use `cp -R`, never Finder drag: cp MERGES, Finder REPLACES folders and
+would wipe venues/, tours/, data/ and img/.
 
-## What retrofit_chrome.py does
-About, FAQ, Premium, Privacy and Terms keep their existing editorial
-design -- the fonts, spacing and rhythm are already right. The script
-swaps ONLY their nav and footer for markup matching the app-on-web
-chrome (lockup, Home/Venues/Tours/Near Me, search + account icons,
-gold Get the App; lean footer). Page bodies are untouched, so no legal
-or marketing wording changes.
+## retrofit_chrome.py
+Swaps ONLY the nav and footer on about / faq / premium / privacy /
+terms, and injects one shared stylesheet that locks all five to the
+same type scale, colours and light mode. Page BODIES are untouched, so
+no legal or marketing wording is altered.
 
-It also creates premium.html from concertoplus.html the first time it
-runs, because Concerto+ is a FEATURE (the night planner) while the
-paid tier is Premium. _redirects sends /concertoplus -> /premium.
+It is VERSION-AWARE (chrome v2.1): pages carrying older chrome are
+UPGRADED in place rather than skipped, and the old blocks are stripped
+first so nothing is duplicated. Safe to re-run after every export.
 
-The script is idempotent: pages already carrying the V2 chrome are
-skipped, so it's safe to re-run after every export.
+It also creates premium.html from concertoplus.html on first run --
+Concerto+ is a FEATURE (the night planner); the paid tier is Premium.
+_redirects sends /concertoplus -> /premium.
+
+## Light mode
+The site always renders light. Dark is opt-in via Settings, for
+signed-in users -- a guest arriving from Google has no saved
+preference, and following their desktop OS made the site look like a
+different product than the app on their phone.
 
 ## SEO
-- 346 venue + 76 tour static pages: untouched, still served first
+- 346 venue + 76 tour static pages: untouched, served first
 - App routes: title, description, canonical, OG, smart app banner
-- Legacy content pages: keep their original titles and descriptions,
-  and gain the smart app banner
+- Legacy content pages: original titles kept, smart banner added

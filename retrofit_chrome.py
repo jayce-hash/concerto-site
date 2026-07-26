@@ -52,7 +52,80 @@ FOOTER = '''<footer class="v2foot" role="contentinfo">
     </div>
   </footer>'''
 
-CSS = '''
+CHROME_VERSION = 'v2.1'
+
+CSS = '''/* concerto-chrome v2.1 */
+  /* ── Uniform editorial system ───────────────────────────────────
+     About, FAQ, Premium, Privacy and Terms had drifted apart: About
+     and FAQ used a 4.8rem title and 1.05rem prose, Privacy and Terms
+     a 4rem title and 1rem prose, and Premium its own marketing scale.
+     Layout may differ by page purpose -- a pricing page is not a
+     legal page -- but type, scale and colour must not. This locks
+     every one of them to the same system, and forces light mode:
+     a guest arriving from search is not a user with a saved
+     preference. */
+  :root{
+    --v2-display:'Playfair Display',Georgia,serif;
+    --v2-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --v2-text:#121E36; --v2-dim:#5A6478; --v2-faint:#8A91A3;
+    --v2-surface:#FFFFFF;
+  }
+  html,body{ background:var(--v2-bg) !important; color:var(--v2-text) !important;
+             color-scheme: light !important; }
+
+  .editorial-container,.hero,.pricing-section,.features-grid{ }
+
+  .eyebrow{
+    font-family:var(--v2-body) !important; font-size:.62rem !important;
+    font-weight:700 !important; letter-spacing:.28em !important;
+    text-transform:uppercase !important; color:var(--v2-gold) !important;
+    margin-bottom:1.4rem !important;
+  }
+  .page-title,.hero-title{
+    font-family:var(--v2-display) !important;
+    font-size:clamp(2.4rem,5vw,4rem) !important;
+    font-weight:700 !important; letter-spacing:-.03em !important;
+    line-height:1.05 !important; color:var(--v2-text) !important;
+  }
+  .page-sub,.hero-desc,.pricing-copy{
+    font-family:var(--v2-body) !important; font-size:1.05rem !important;
+    font-weight:300 !important; line-height:1.8 !important;
+    color:var(--v2-dim) !important;
+  }
+  .prose p,.prose li{
+    font-family:var(--v2-body) !important; font-size:1rem !important;
+    font-weight:300 !important; line-height:1.85 !important;
+    color:var(--v2-dim) !important;
+  }
+  .prose h2,.pricing-section h2,.features-grid h2{
+    font-family:var(--v2-display) !important; font-size:1.5rem !important;
+    font-weight:700 !important; letter-spacing:-.015em !important;
+    color:var(--v2-text) !important;
+  }
+  .prose h3,.feat-label,.feat-card h3{
+    font-family:var(--v2-display) !important; color:var(--v2-text) !important;
+  }
+  .feat-label,.hero-price,.price-pill{
+    font-family:var(--v2-body) !important;
+  }
+  .prose strong{ color:var(--v2-text) !important; font-weight:600 !important; }
+  .prose a,.editorial-container a:not(.btn){ color:var(--v2-gold) !important; }
+
+  /* One CTA colour sitewide, matching the app-on-web chrome. */
+  .btn-gold,.feat-cta,.btn.btn-gold{
+    background:var(--v2-gold) !important; color:var(--v2-navy) !important;
+    border-color:var(--v2-gold) !important;
+    font-family:var(--v2-body) !important; font-weight:700 !important;
+  }
+  .btn-dark,.btn.btn-dark{
+    background:var(--v2-navy) !important; color:#F8F9F9 !important;
+    font-family:var(--v2-body) !important; font-weight:700 !important;
+  }
+  .feat-card,.pricing-card{
+    background:var(--v2-surface) !important;
+    border-color:var(--v2-line) !important;
+  }
+
   /* ── V2 chrome (matches the app-on-web nav + footer) ────────── */
   :root { --v2-navy:#121E36; --v2-gold:#C9A84C; --v2-bg:#F8F9F9;
           --v2-ink:#121E36; --v2-muted:#5A6478; --v2-line:rgba(18,30,54,.14); }
@@ -119,9 +192,31 @@ for name in PAGES:
         continue
     s = p.read_text(encoding='utf-8')
 
-    if 'v2nav' in s:
-        print('already retrofitted:', name)
+    already = 'v2nav' in s
+    current = ('concerto-chrome ' + CHROME_VERSION) in s
+
+    if already and current:
+        print('up to date:', name)
         continue
+
+    if already:
+        # Previously retrofitted with an older chrome. Strip the old
+        # blocks and re-apply, so re-running UPGRADES a page instead of
+        # skipping it -- otherwise pages deployed with an earlier
+        # version would never receive later fixes.
+        s = re.sub(r'<nav[^>]*class="v2nav".*?</nav>', '', s, count=1, flags=re.S)
+        s = re.sub(r'<footer[^>]*class="v2foot".*?</footer>', '', s, count=1, flags=re.S)
+        # Strip any previously injected chrome CSS. v2.0 opened with
+        # "/* ── V2 chrome"; v2.1+ carries an explicit version marker.
+        # Matching both stops the block being appended twice on upgrade.
+        s = re.sub(r'\n\s*/\* concerto-chrome.*?(?=</style>)', '', s, count=1, flags=re.S)
+        s = re.sub(r'\n\s*/\* ── V2 chrome.*?(?=</style>)', '', s, count=1, flags=re.S)
+        s = re.sub(r'<script>\s*\(function\(\)\{\s*var n=document\.querySelector\(\'\.v2nav\'\).*?</script>', '', s, count=1, flags=re.S)
+        # re-insert placeholders the swaps below look for
+        s = s.replace('<body', '<body', 1)
+        # nav/footer were removed, so put minimal anchors back
+        s = re.sub(r'(<body[^>]*>)', r'\1\n  <nav class="site-nav"></nav>', s, count=1)
+        s = s.replace('</body>', '  <footer></footer>\n</body>', 1)
 
     # swap nav
     s = re.sub(r'<nav[^>]*class="site-nav".*?</nav>', NAV, s, count=1, flags=re.S)
