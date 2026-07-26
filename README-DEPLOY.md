@@ -1,69 +1,34 @@
-# Concerto: the app IS the website
+# Concerto V2 — the app IS the website
 
-This folder is the OUTPUT of building your actual app for the web:
+## What's here
+The Expo web export of the actual app (index, venues, tours, near-me,
+account, settings, search, plan, bagcheck, venue/[slug], tour/[slug])
+plus _redirects and one script.
 
-    npx expo export --platform web --output-dir dist
-    node scripts/inject-web-seo.js dist
+## Deploy (from the site repo root)
+1.  cp -R ~/Downloads/concerto-web-app/. ~/Downloads/concerto-site/
+    (cp MERGES; never drag folders in Finder -- that REPLACES and
+    would wipe venues/, tours/, data/ and img/)
+2.  python3 retrofit_chrome.py
+3.  git add -A && git commit -m "V2" && git push
 
-Not a rebuild. Not a port. The same `app/(tabs)/index.tsx`, the same
-VenueCard, the same tokens, the same Home tab -- compiled to run in a
-browser. Change the app, rebuild, the website changes with it. Drift
-is now structurally impossible.
+## What retrofit_chrome.py does
+About, FAQ, Premium, Privacy and Terms keep their existing editorial
+design -- the fonts, spacing and rhythm are already right. The script
+swaps ONLY their nav and footer for markup matching the app-on-web
+chrome (lockup, Home/Venues/Tours/Near Me, search + account icons,
+gold Get the App; lean footer). Page bodies are untouched, so no legal
+or marketing wording changes.
 
-## What's in the repo change (in the app repo, concerto-native)
-- react-dom / react-native-web / @expo/metro-runtime added
-- app.json: web bundler metro, output static
-- src/components/VenueMap.tsx + .web.tsx  -- react-native-maps has no
-  web build, so web renders a quiet placeholder; the events list
-  beneath it (the substance of Near Me) is identical on both.
-- src/lib/supabase.ts -- SSR-safe storage so static prerender works
-- src/data/api.ts -- ORIGIN is the current host on web, so branch
-  previews fetch their own data; native still points at production
-- scripts/inject-web-seo.js -- titles/canonicals/OG/smart-banner for
-  the app's own routes after each export
+It also creates premium.html from concertoplus.html the first time it
+runs, because Concerto+ is a FEATURE (the night planner) while the
+paid tier is Premium. _redirects sends /concertoplus -> /premium.
 
-## SEO: nothing was given up
-- /venues/{slug} and /tours/{slug}: your 346 + 76 STATIC pages, real
-  files, served first by Netlify, completely untouched.
-- The app's detail screens use the SINGULAR /venue/{slug} and
-  /tour/{slug}, so the two systems never collide.
-- The app's own routes (/, /venues, /tours, /near-me) now carry
-  title, description, canonical, OG tags and the smart app banner.
+The script is idempotent: pages already carrying the V2 chrome are
+skipped, so it's safe to re-run after every export.
 
-## Web-only guards that had to exist (learned the hard way)
-Constants.appOwnership is 'expo' in Expo Go, NULL on web, and
-undefined in a real build. Guards written as (appOwnership !== 'expo')
-therefore returned TRUE on web and tried to require native-only
-modules. That is what crashed the Account screen. Now excluded
-explicitly by Platform.OS:
-  - react-native-purchases (IAP)  -> native only
-  - App Group widget storage      -> iOS only
-  - expo-notifications            -> native only (web no-ops so
-    saving a show still works everywhere)
-  - ErrorBoundary "Try again"      -> real window.location.reload()
-    on web (Updates.reloadAsync left the router mid-navigation,
-    which is why it landed on Bag Check)
-
-## Content pages are now APP ROUTES
-about, faq, how-it-works, bags, parking, rideshare and concessions
-used to be hand-built HTML in the old design. They are now real app
-routes (app/about.tsx etc.) rendered with the app tokens, so they can
-never drift again -- and Expo static export still emits a real
-about.html / faq.html / bags.html, so their SEO is intact. The prose
-was ported from the old pages, not rewritten from scratch.
-
-These new files REPLACE the old same-named pages at the repo root.
-Copy them over; the old versions are superseded.
-
-## How to deploy into the site repo
-1. Copy EVERYTHING from this folder into the site repo root
-   (index.html, _expo/, assets/, the route .html files, _redirects).
-2. Do NOT delete: venues/, tours/, data/, img/, netlify/, sitemaps,
-   robots.txt, or the cityguide folder. They stay.
-3. Commit and push the v2-redesign branch.
-
-## Rebuilding later (the loop from now on)
-In the APP repo:
-    npx expo export --platform web --output-dir dist
-    node scripts/inject-web-seo.js dist
-then copy dist/* into the site repo. That's the whole workflow.
+## SEO
+- 346 venue + 76 tour static pages: untouched, still served first
+- App routes: title, description, canonical, OG, smart app banner
+- Legacy content pages: keep their original titles and descriptions,
+  and gain the smart app banner
