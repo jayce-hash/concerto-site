@@ -1,34 +1,40 @@
 # Concerto V2 — the app IS the website
 
-## Deploy (two commands, from the site repo root)
+## Deploy (one command, from anywhere)
     cp -R ~/Downloads/concerto-web-app/. ~/Downloads/concerto-site/
-    python3 retrofit_chrome.py
-    git add -A && git commit -m "V2" && git push
 
-Use `cp -R`, never Finder drag: cp MERGES, Finder REPLACES folders and
-would wipe venues/, tours/, data/ and img/.
+Then commit and push. Use `cp -R`, never a Finder drag: cp MERGES,
+Finder REPLACES folders and would wipe venues/, tours/, data/, img/.
 
-## retrofit_chrome.py
-Swaps ONLY the nav and footer on about / faq / premium / privacy /
-terms, and injects one shared stylesheet that locks all five to the
-same type scale, colours and light mode. Page BODIES are untouched, so
-no legal or marketing wording is altered.
+No script to run this time. The five content pages ship as finished
+HTML.
 
-It is VERSION-AWARE (chrome v2.1): pages carrying older chrome are
-UPGRADED in place rather than skipped, and the old blocks are stripped
-first so nothing is duplicated. Safe to re-run after every export.
+## What's here
+1. The Expo web export of the actual app: index, venues, tours,
+   near-me, account, settings, search, plan, bagcheck, plus
+   venue/[slug] and tour/[slug].
+2. about.html, faq.html, premium.html, privacy.html, terms.html —
+   rebuilt on ONE design system that matches the app: same tokens
+   (navy #121E36, gold #C9A84C, Snow #F8F9F9), same Playfair Display +
+   DM Sans, same nav, same footer, same 780px editorial column, same
+   title scale and prose leading. Every word is carried over verbatim
+   from the originals; only presentation changed.
+3. _redirects, including /concertoplus -> /premium.
 
-It also creates premium.html from concertoplus.html on first run --
-Concerto+ is a FEATURE (the night planner); the paid tier is Premium.
-_redirects sends /concertoplus -> /premium.
+## Uniformity
+Before: About and FAQ used a 4.8rem title with 1.05rem prose; Privacy
+and Terms 4rem and 1rem; Premium had its own marketing scale. Now all
+five share one stylesheet. Layout still differs by purpose — a pricing
+page is not a legal page — but type, scale and colour do not.
 
 ## Light mode
-The site always renders light. Dark is opt-in via Settings, for
-signed-in users -- a guest arriving from Google has no saved
+Every page renders light, always. Dark is opt-in in the app's Settings
+for signed-in users; a guest arriving from Google has no saved
 preference, and following their desktop OS made the site look like a
 different product than the app on their phone.
 
 ## SEO
 - 346 venue + 76 tour static pages: untouched, served first
 - App routes: title, description, canonical, OG, smart app banner
-- Legacy content pages: original titles kept, smart banner added
+- Content pages: original titles and descriptions kept exactly, plus
+  canonical, OG and the smart app banner
