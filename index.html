@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="apple-itunes-app" content="app-id=6744903414">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#F8F9F9" />
 
@@ -49,464 +50,192 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-      --body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
-      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
-      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
-      --gold: #C9A84C; --gold-light: #E5C365;
-      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
-      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
-      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
-      --ease-out: cubic-bezier(0.16,1,0.3,1);
-      --radius-md: 20px; --radius-lg: 28px; --nav-h: 68px;
-    }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
-    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-
-    /* Atmosphere */
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
-    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
-    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-    /* Nav */
-    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-    .nav-logo { display: flex; align-items: center; width: 200px; }
-    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
-    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
-    .nav-center > a:hover { color: var(--text); }
-    .nav-cta { display: flex; justify-content: flex-end; align-items:center; gap:10px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
-    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
-    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
-    .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border-mid); }
-    .btn-outline:hover { border-color: var(--text); transform: translateY(-2px); }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--text); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,168,76,0.4); }
-
-    /* Hero */
-    .hero {
-      min-height: 100svh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: calc(var(--nav-h) + 48px) 5% 80px;
-      position: relative;
-    }
-    .hero-eyebrow { font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: block; }
-    .hero-logo { height: 160px; width: auto; margin: 0 auto 2rem; }
-    .hero-headline {
-      font-family: var(--display);
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      font-weight: 700; letter-spacing: -0.03em; line-height: 1.0;
-      color: var(--text); margin-bottom: 1.6rem;
-    }
-    .hero-headline em { font-style: italic; color: var(--gold); }
-    .hero-sub { font-family: var(--body); font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; color: var(--text-dim); max-width: 520px; margin: 0 auto 2.8rem; line-height: 1.75; }
-    .hero-actions { display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-    .hero-trust { font-family: var(--body); font-size: 0.72rem; color: var(--text-xdim); letter-spacing: 0.08em; }
-    .hero-trust span { color: var(--text-dim); }
-
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── STATS BAND (count-up) ── */
-    .stats { max-width: 1280px; margin: 0 auto; padding: 8px 5% 8px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
-    .stat { background: var(--card-bg); padding: 2.6rem 1.4rem; text-align: center; }
-    .stat-num { font-family: var(--display); font-size: clamp(2.3rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--text); }
-    .stat-num.gold { color: var(--gold); }
-    .stat-label { margin-top: 0.7rem; font-family: var(--body); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-xdim); }
-    @media (max-width: 768px) { .stat { padding: 1.9rem 0.8rem; } }
-    @media (max-width: 480px) { .stat-label { font-size: 0.56rem; letter-spacing: 0.1em; } }
-
-    /* Two main cards */
-    .main-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; max-width: 1280px; margin: 0 auto; padding: 80px 5% 80px; }
-    .main-card {
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
-      padding: 3rem 2.8rem; display: flex; flex-direction: column;
-      text-decoration: none; box-shadow: var(--shadow-sm);
-      transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .main-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
-    .main-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
-    .main-card:hover::before { opacity: 1; }
-    .main-card-eyebrow { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
-    .main-card h2 { font-family: var(--display); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1rem; line-height: 1.05; transition: font-style 0.15s; }
-    .main-card:hover h2 { font-style: italic; }
-    .main-card p { font-family: var(--body); font-size: 0.92rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; margin-bottom: 2rem; flex: 1; }
-    .main-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.2rem; margin-top: auto; }
-    .main-card-stat { font-family: var(--body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-xdim); }
-    .main-card-arrow { color: var(--text-xdim); transition: transform 0.3s var(--ease-out), color 0.3s; font-size: 1.1rem; }
-    .main-card:hover .main-card-arrow { color: var(--gold); transform: translateX(4px); }
-
-    /* Premium strip */
-    .premium-strip { background: var(--text); padding: 80px 5%; }
-    .premium-strip-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .premium-strip-copy { }
-    .premium-strip-eyebrow { font-family: var(--body); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
-    .premium-strip-title { font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; letter-spacing: -0.025em; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
-    .premium-strip-sub { font-family: var(--body); font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 2.2rem; max-width: 420px; }
-    .premium-features { display: flex; flex-direction: column; gap: 1rem; }
-    .premium-feature { display: flex; align-items: flex-start; gap: 1rem; }
-    .premium-feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 0.55rem; }
-    .premium-feature-text { font-family: var(--body); font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
-    .premium-feature-text strong { color: #fff; font-weight: 600; }
-
-    /* Quote */
-    .quote-section { padding: 80px 5%; text-align: center; border-top: 1px solid var(--border); }
-    .quote-text { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; font-weight: 400; color: var(--text); line-height: 1.5; max-width: 700px; margin: 0 auto 1.2rem; letter-spacing: -0.01em; }
-    .quote-attr { font-family: var(--body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim); }
-
-    /* Final CTA */
-    .final-cta { padding: 80px 5%; text-align: center; }
-    .final-cta h2 { font-family: var(--display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1rem; }
-    .final-cta p { font-family: var(--body); font-size: 0.95rem; font-weight: 300; color: var(--text-dim); margin-bottom: 2.5rem; }
-
-    /* Footer */
-    footer { padding: 5rem 5% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
-    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
-    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
-    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
-    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
-    .footer-col a:hover { color: var(--text); }
-    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
-    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
-    .footer-bottom a:hover { color: var(--text); }
-
-     }
-    @media (max-width: 768px) {
-      :root { --nav-h: 58px; }
-      .hero { min-height: 100svh; padding: calc(var(--nav-h) + 24px) 5% 48px; }
-      .hero-headline { font-size: clamp(2.4rem, 10vw, 3.5rem); }
-      .hero-sub { font-size: 0.9rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .btn { justify-content: center; }
-      .main-cards { grid-template-columns: 1fr; padding: 40px 5% 60px; gap: 1rem; }
-      .main-card { padding: 1.8rem 1.5rem; }
-      .main-card h2 { font-size: 1.6rem; }
-      .premium-strip-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .premium-strip { padding: 60px 5%; }
-      .quote-section { padding: 60px 5%; }
-      .final-cta { padding: 60px 5%; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
-      .hero { min-height: 100svh; padding: calc(var(--nav-h) + 32px) 6% 60px; }
-      .main-cards { grid-template-columns: 1fr; padding: 60px 6%; gap: 1rem; }
-      .premium-strip-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
-
-    .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }
-    .nav-profile-btn:hover { color:var(--text); border-color:var(--text); }
-    .nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }
-    
-  /* ── MOBILE NAV ── */
-    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s ease; transform-origin: center; }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
-    .nav-profile-btn:hover { color: var(--text); border-color: var(--text); }
-    .nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
-    .nav-mobile-menu.open { display: flex; }
-    .nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color .2s; letter-spacing: -.01em; }
-    .nav-mobile-link:hover, .nav-mobile-link.active { color: var(--text); }
-    .nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .75rem; }
-    /* Desktop: show Sign In + Download, hide hamburger + profile icon */
-    /* Mobile: hide Sign In + Download, show hamburger + profile icon */
-    @media (max-width: 1024px) {
-      .nav-center { display: none !important; }
-      .nav-hamburger { display: flex; }
-      .nav-profile-btn { display: inline-flex; }
-      #navAuthLink { display: none; }
-      .nav-download { display: none; }
-    }
-  
-    /* ── TOP PICKS STRIP ── */
-    .picks-strip{ max-width:1280px; margin:0 auto; padding:20px 5% 80px; }
-    .picks-head{ text-align:center; max-width:600px; margin:0 auto 2.5rem; }
-    .picks-eyebrow{ font-family:var(--body); font-size:0.6rem; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:block; }
-    .picks-title{ font-family:var(--display); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:700; letter-spacing:-0.025em; color:var(--text); margin-bottom:0.9rem; line-height:1.1; }
-    .picks-sub{ font-family:var(--body); font-size:0.92rem; font-weight:300; color:var(--text-dim); line-height:1.7; }
-    .picks-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2.5rem; }
-    .pick-card{ background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.4rem; box-shadow:var(--shadow-sm); text-decoration:none; display:flex; flex-direction:column; gap:0.4rem; transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .3s; }
-    .pick-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--border-mid); }
-    .pick-card-name{ font-family:var(--display); font-size:1.15rem; font-weight:700; color:var(--text); line-height:1.2; }
-    .pick-card-venue{ font-family:var(--body); font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-xdim); }
-    .picks-cta-wrap{ text-align:center; }
-    @media (max-width:960px){ .picks-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:560px){ .picks-grid{ grid-template-columns:1fr; } }
-  </style>
-
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
-  <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
-  <link rel="stylesheet" href="align.css" />
-  <script defer src="/analytics.js"></script>
-<style>
-/* ---- top picks photo cards (generated by build_static.py) ---- */
-.picks-grid{grid-template-columns:repeat(3,1fr);}
-.pick-card{padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(0.16,1,0.3,1),box-shadow .3s cubic-bezier(0.16,1,0.3,1);}
-.pick-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
-.pick-card-img{width:100%;height:170px;object-fit:cover;display:block;}
-.pick-card-body{padding:1.2rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:6px;}
-@media(max-width:768px){.picks-grid{grid-template-columns:1fr 1fr;}.pick-card-img{height:130px;}}
-@media(max-width:520px){.picks-grid{grid-template-columns:1fr;}}
-</style>
-<style>
-/* ---- hero search (generated by build_static.py) ---- */
-.hero-search{position:relative;width:min(52vw,700px);margin:2.4rem auto 0;display:flex;align-items:center;}
-.hero-search svg{position:absolute;left:1.45rem;width:18px;height:18px;color:var(--text-xdim);pointer-events:none;}
-.hero-search input{width:100%;font-family:var(--body);font-size:0.92rem;color:var(--text);background:var(--card-bg);border:1px solid var(--border);border-radius:99px;padding:1.35rem 1.7rem 1.35rem 3.3rem;box-shadow:var(--shadow-md);outline:none;transition:border-color .2s,box-shadow .2s,transform .2s;}
-.hero-search input:focus{border-color:var(--gold);box-shadow:0 12px 32px rgba(18,30,54,.12);}
-.hero-search input::placeholder{color:var(--text-xdim);}
-.hero-search-results{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card-bg);border:1px solid var(--border);border-radius:20px;box-shadow:0 16px 40px rgba(18,30,54,.14);overflow:hidden;z-index:60;text-align:left;}
-.hero-search-results a{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.85rem 1.35rem;text-decoration:none;color:var(--text);font-family:var(--body);font-size:0.92rem;border-bottom:1px solid var(--border);}
-.hero-search-results a:last-child{border-bottom:none;}
-.hero-search-results a:hover,.hero-search-results a.active{background:var(--bg);}
-.hero-search-results .hs-type{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);flex-shrink:0;}
-.hero-search-results .hs-sub{color:var(--text-xdim);font-size:0.78rem;}
-.hero-search ~ .hero-actions{margin-top:1.4rem;}
-@media(max-width:700px){.hero-search{width:100%;}}
-@media(max-width:600px){.hero-search{margin-top:1.8rem;}.hero-search input{font-size:0.88rem;padding:1.1rem 1.3rem 1.1rem 2.9rem;}}
-</style>
+  <link rel="stylesheet" href="/css/concerto.css"/>
 </head>
-<body class="page-app"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
-
-  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-  <div class="noise" aria-hidden="true"></div>
-
-  <!-- Nav -->
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo">
-      <a href="index.html" aria-label="Concerto Home">
-        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
-      </a>
+<body>
+  <nav class="topbar" aria-label="Main">
+    <a class="tb-brand" href="/">CONCERTO</a>
+    <div class="tb-links">
+      <a href="/venues">Venues</a>
+      <a href="/tours">Tours</a>
+      <a href="/events">Near Me</a>
+      <a href="/about">About</a>
     </div>
-            <div class="nav-center">
-      <a href="venues.html">Venues</a>
-      <a href="tours.html">Tours</a>
-      <a href="events.html">Near Me</a>
-      <a href="top-picks.html">Top Picks</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
-      <a href="premium.html">Premium</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
-      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a class="tb-signin" id="tbSignin" href="/login.html" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-right:14px">Sign In</a>
+    <a class="tb-get" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+      Get the App
+    </a>
   </nav>
-    <!-- Mobile menu -->
-    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Near Me</a>
-      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="parking.html" class="nav-mobile-link">Parking</a>
-      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
+
+  <!-- ═════════ The app's Home tab, verbatim ═════════ -->
+  <header class="masthead col" role="banner">
+    <p class="eyebrow" id="greeting">GOOD EVENING</p>
+    <h1 style="margin:0"><img class="lockup-img" src="/img/lockup.png" alt="Concerto — From the Concert to the City" width="250" height="52"/></h1>
+    <a class="search-pill rv" href="/venues" aria-label="Find your next show">
+      <span class="sp-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <span><span class="sp-title">Find your next show</span><br/><span class="sp-sub">Venue, artist, or city</span></span>
+    </a>
+
+    <!-- NextShowCard, empty state: the ghost countdown, exactly as in the app -->
+    <a class="next-empty rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer" aria-label="Save a show in the Concerto app">
+      <p class="ne-eyebrow">YOUR NEXT SHOW</p>
+      <p class="ne-text">Save a show and the<br/>countdown starts here.</p>
+      <div class="ne-countrow" aria-hidden="true">
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">DAYS</div></div>
+        <div class="ne-colon">:</div>
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">HRS</div></div>
+        <div class="ne-colon">:</div>
+        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">MIN</div></div>
       </div>
-    </div>
-
-  <!-- Hero -->
-  <header class="hero" role="banner">
-    <span class="hero-eyebrow">The Concert Companion</span>
-    <h1 class="hero-headline">
-      From the Concert<br /><em>To the City.</em>
-    </h1>
-    <p class="hero-sub">
-      Venues, Tours, Setlists, Parking, City Guides<br />
-      Everything for Your Night Out, in One Place.
-    </p>
-
-    <div class="hero-search" id="heroSearch">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="heroSearchInput" type="text" placeholder="Search venues and tours" autocomplete="off" spellcheck="false" aria-label="Search venues and tours" role="combobox" aria-expanded="false" aria-controls="heroSearchResults">
-      <div class="hero-search-results" id="heroSearchResults" role="listbox" hidden></div>
-    </div>
-    <div class="hero-actions">
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-dark">Download Free on iOS</a>
-    </div>
-    <p class="hero-trust">
-      <span>340+ venues</span> &nbsp;&middot;&nbsp;
-      <span>75+ active tours</span> &nbsp;&middot;&nbsp;
-      <span>Free on iOS</span>
-    </p>
+      <span class="ne-cta">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>
+        Find tonight
+      </span>
+    </a>
   </header>
 
-  <main id="main-content">
-
-    <!-- Stats band (count-up) -->
-    <section class="stats reveal" aria-label="Concerto by the numbers">
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-num"><span data-count="340" data-suffix="+">0</span></div>
-          <div class="stat-label">Venues covered</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num"><span data-count="75" data-suffix="+">0</span></div>
-          <div class="stat-label">Active tours</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num gold">Free</div>
-          <div class="stat-label">On iOS</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Two main cards -->
-    <div class="main-cards main-cards-3">
-
-      <a href="venues.html" class="main-card reveal">
-        <span class="main-card-eyebrow">Know Before You Go</span>
-        <h2>Venue Guides</h2>
-        <p>Bag Policies, Parking, Concessions, Rideshare Zones, and a Curated City Guide for Every Major Venue, Arena, and Stadium. Search Any Venue and Get Everything in One Place.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">300+ venues covered</span>
-          <span class="main-card-arrow">&rarr;</span>
+  <main>
+    <div class="sec-head"><h2>Your Venues &amp; Nearby</h2><a class="action" href="/venues">All venues</a></div>
+    <div class="rail" aria-label="Venues">
+      <a class="vcard rv" href="/venues/madison-square-garden">
+        <div class="vc-img" data-vphoto data-vname="Madison Square Garden" data-vcity="New York" data-vlat="40.7505" data-vlng="-73.9934"><img src="/img/cityguides/madison-square-garden/Madison-Square-Garden.webp" alt="Madison Square Garden" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Madison Square Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">New York, NY</div>
         </div>
       </a>
-
-      <a href="tours.html" class="main-card reveal" style="transition-delay:0.06s">
-        <span class="main-card-eyebrow">On the Road</span>
-        <h2>Tour Guides</h2>
-        <p>Setlists, Show Dates, and Official Ticket Links for Every Active Tour in 2026. Every Stop Links Directly to That Venue&rsquo;s Full Guide, So You&rsquo;re Ready Wherever the Tour Takes You.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">71 active tours</span>
-          <span class="main-card-arrow">&rarr;</span>
+      <a class="vcard rv" href="/venues/moody-center">
+        <div class="vc-img" data-vphoto data-vname="Moody Center" data-vcity="Austin" data-vlat="30.28" data-vlng="-97.73"><img src="/img/cityguides/moody-center/Moody-Center.webp" alt="Moody Center" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Moody Center</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Austin, TX</div>
         </div>
       </a>
-      <a href="events.html" class="main-card reveal" style="transition-delay:0.12s">
-        <span class="main-card-eyebrow">Tonight</span>
-        <h2>Events Near Me</h2>
-        <p>Open the App and Instantly See Every Major Concert, Sports Game, Comedy Show, and Festival Happening Near You. No Searching, Just What&rsquo;s On Tonight.</p>
-        <div class="main-card-footer">
-          <span class="main-card-stat">Powered by location</span>
-          <span class="main-card-arrow">&rarr;</span>
+      <a class="vcard rv" href="/venues/td-garden">
+        <div class="vc-img" data-vphoto data-vname="TD Garden" data-vcity="Boston" data-vlat="42.3662" data-vlng="-71.0621"><img src="/img/cityguides/td-garden/TD-Garden.webp" alt="TD Garden" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">TD Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Boston, MA</div>
         </div>
       </a>
-
-    </div>
-
-    <!-- Top Picks strip -->
-    <section class="picks-strip" id="picksStrip" aria-labelledby="picks-heading" style="display:none">
-      <div class="picks-head">
-        <span class="picks-eyebrow">Concerto Top Picks</span>
-        <h2 class="picks-title" id="picks-heading">Where to eat before the show.</h2>
-        <p class="picks-sub">Curated restaurants near the country&rsquo;s biggest venues, featured for fans heading to the show.</p>
-      </div>
-      <div class="picks-grid" id="picksGrid"></div>
-      <div class="picks-cta-wrap"><a href="top-picks.html" class="btn btn-outline">See all Top Picks</a></div>
-    </section>
-
-    <!-- PREMIUM UNLOCKED (premium users only; replaces the promo strip below) -->
-    <div class="main-cards main-cards-3" id="premiumCardsWeb" style="display:none">
-      <a href="bagcheck.html" class="main-card">
-        <span class="main-card-eyebrow">Premium</span>
-        <h2>AI Bag Check</h2>
-        <p>Scan Your Bag with Your Camera and Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy, Before You Leave the House.</p>
-        <div class="main-card-footer"><span class="main-card-stat">Instant verdict</span><span class="main-card-arrow">&rarr;</span></div>
+      <a class="vcard rv" href="/venues/kia-forum">
+        <div class="vc-img" data-vphoto data-vname="Kia Forum" data-vcity="Inglewood" data-vlat="33.9584" data-vlng="-118.3419"><img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="Kia Forum" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Kia Forum</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Inglewood, CA</div>
+        </div>
       </a>
-      <a href="livemode.html" class="main-card">
-        <span class="main-card-eyebrow">Free with Concerto</span>
-        <h2>Passport</h2>
-        <p>Every Show You Attend Earns the Venue&rsquo;s Stamp. Track the Setlist Live, Build Your Collection, and With Premium, Get a Story Card of Your Entire Night.</p>
-        <div class="main-card-footer"><span class="main-card-stat">Stamps + Story Cards</span><span class="main-card-arrow">&rarr;</span></div>
+      <a class="vcard rv" href="/venues/bridgestone-arena">
+        <div class="vc-img" data-vphoto data-vname="Bridgestone Arena" data-vcity="Nashville" data-vlat="36.1592" data-vlng="-86.7785"><img src="/img/cityguides/bridgestone-arena/Bridgestone-Arena.webp" alt="Bridgestone Arena" loading="lazy" width="400" height="300"/></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Bridgestone Arena</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Nashville, TN</div>
+        </div>
       </a>
-      <a href="concertoplus.html" class="main-card">
-        <span class="main-card-eyebrow">Premium</span>
-        <h2>Concerto+</h2>
-        <p>Tell It Your Show and Your Vibe. It Builds the Full Evening, Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</p>
-        <div class="main-card-footer"><span class="main-card-stat">AI itinerary</span><span class="main-card-arrow">&rarr;</span></div>
+      <a class="vcard rv" href="/venues/att-stadium">
+        <div class="vc-img" data-vphoto data-vname="AT&T Stadium" data-vcity="Arlington" data-vlat="32.7473" data-vlng="-97.0945"><span class="mono">A</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">AT&amp;T Stadium</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Arlington, TX</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/sphere">
+        <div class="vc-img" data-vphoto data-vname="Sphere" data-vcity="Las Vegas" data-vlat="36.1219" data-vlng="-115.1624"><span class="mono">S</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Sphere</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
+          <div class="vc-city">Las Vegas, NV</div>
+        </div>
+      </a>
+      <a class="vcard rv" href="/venues/red-rocks-amphitheatre">
+        <div class="vc-img" data-vphoto data-vname="Red Rocks Amphitheatre" data-vcity="Morrison" data-vlat="39.6654" data-vlng="-105.2057"><span class="mono">R</span></div>
+        <div class="vc-meta">
+          <div class="vc-name-row"><span class="vc-name">Red Rocks Amphitheatre</span></div>
+          <div class="vc-city">Morrison, CO</div>
+        </div>
       </a>
     </div>
 
-    <!-- Premium strip -->
-    <section class="premium-strip" id="premiumStripPromo" aria-labelledby="premium-heading">
-      <div class="premium-strip-inner">
-        <div class="premium-strip-copy reveal">
-          <span class="premium-strip-eyebrow">Concerto Premium</span>
-          <h2 class="premium-strip-title" id="premium-heading">The Magic Is in the Details.</h2>
-          <p class="premium-strip-sub">Premium Unlocks the Features That Turn a Good Night Into a Flawless One. $7.99/Month or $69.99/Year.</p>
-          <a href="premium.html" class="btn btn-gold">Explore Premium</a>
-        </div>
-        <div class="premium-features reveal" style="transition-delay:0.1s">
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>AI Bag Check</strong>, Point Your Camera at Your Bag. Get an Instant Pass, Warn, or Fail Verdict Against Your Venue&rsquo;s Exact Policy Before You Leave the House.</div>
-          </div>
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>Passport Recaps</strong>, Your Passport Is Free. Premium Turns Every Stamped Night Into a Beautifully Designed, Shareable Story Card.</div>
-          </div>
-          <div class="premium-feature">
-            <div class="premium-feature-dot"></div>
-            <div class="premium-feature-text"><strong>Concerto+ AI Itinerary</strong>, Tell It Your Show and Your Vibe. It Builds the Full Evening, Dinner Timing, Ideal Arrival Window, and Post-Show Plans Mapped to Your Exact Venue.</div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
+    <div class="sec-head"><h2>Featured Tours</h2><a class="action" href="/tours">All tours</a></div>
+    <div class="rail" aria-label="Featured tours">
+      <a class="ttile rv" data-artist="Noah Kahan" href="/tours/noah-kahan-the-great-divide-tour">
+        <span class="ini">N</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Noah Kahan</div><div class="tt-tour">The Great Divide Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Bruno Mars" href="/tours/bruno-mars-the-romantic-tour">
+        <span class="ini">B</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Bruno Mars</div><div class="tt-tour">The Romantic Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Ariana Grande" href="/tours/ariana-grande-the-eternal-sunshine-tour-na">
+        <span class="ini">A</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Ariana Grande</div><div class="tt-tour">The Eternal Sunshine Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Harry Styles" href="/tours/harry-styles-together-together-tour">
+        <span class="ini">H</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Harry Styles</div><div class="tt-tour">Together, Together Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Chris Stapleton" href="/tours/chris-stapleton-all-american-road-show-tour">
+        <span class="ini">C</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Chris Stapleton</div><div class="tt-tour">All-American Road Show</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Post Malone" href="/tours/post-malone-the-big-ass-stadium-tour">
+        <span class="ini">P</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Post Malone</div><div class="tt-tour">The Big Ass Stadium Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="Florence + The Machine" href="/tours/florence-the-machine-everybody-scream-tour">
+        <span class="ini">F</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">Florence + The Machine</div><div class="tt-tour">Everybody Scream Tour</div></div>
+      </a>
+      <a class="ttile rv" data-artist="My Chemical Romance" href="/tours/my-chemical-romance-the-black-parade-tour">
+        <span class="ini">M</span>
+        <div class="scrim"></div>
+        <div class="tt-text"><div class="tt-artist">My Chemical Romance</div><div class="tt-tour">The Black Parade Tour</div></div>
+      </a>
+    </div>
 
-    <!-- Quote -->
-    <section class="quote-section">
-      <p class="quote-text reveal">
-        &ldquo;I built Concerto because I was tired of juggling five apps just to figure out where to eat before a show. The entire night should feel like one seamless event.&rdquo;
+    <!-- NightCard: the gold moment, exactly as in the app -->
+    <div class="col">
+      <a class="night-card rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
+        <div class="nc-header">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#C9A84C"><path d="m12 2 1.8 5.7L19.5 9l-5.7 1.8L12 16.5l-1.8-5.7L4.5 9l5.7-1.3L12 2zM19 14l.9 2.9 2.9.9-2.9.9L19 21.6l-.9-2.9-2.9-.9 2.9-.9L19 14z"/></svg>
+          <span class="nc-brand">Concerto+</span>
+        </div>
+        <p class="nc-title">Your Whole Night, Planned</p>
+        <div class="nc-preview">
+          <div class="nc-prow"><span class="nc-time">5:45</span><span class="nc-dot"></span><span class="nc-label">Dinner two blocks out</span></div>
+          <div class="nc-prow"><span class="nc-time">7:10</span><span class="nc-dot gold"></span><span class="nc-label">Doors, bag pre-checked</span></div>
+          <div class="nc-prow"><span class="nc-time">11:15</span><span class="nc-dot"></span><span class="nc-label">Ride from the quiet corner</span></div>
+        </div>
+        <div class="nc-ctarow">
+          <span class="nc-price">$7.99/mo &middot; first plan free to preview</span>
+          <span class="nc-cta">Try it
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M5 11h11.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H5v-2z"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <p class="library rv" style="margin-top:var(--sp-xxl)">
+        The library behind the app &mdash; checked against each venue's own posted
+        policies. Browse <a class="big" href="/venues">346 venue guides</a>,
+        <a class="big" href="/tours">74 tour guides</a>, or jump by need:
+        <a class="hub" href="/bags">bag policies</a> &middot;
+        <a class="hub" href="/parking">parking</a> &middot;
+        <a class="hub" href="/rideshare">rideshare</a> &middot;
+        <a class="hub" href="/concessions">concessions</a> &middot;
+        <a class="hub" href="/top-picks">top picks</a> &middot;
+        <a class="hub" href="/events">events near you</a>.
       </p>
-      <p class="quote-attr reveal" style="transition-delay:0.1s">,  Jayce Wells, Founder</p>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta reveal">
-      <h2>Your Show Starts Now.</h2>
-      <p>Free on iOS. No Account Required.</p>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414"
-         target="_blank" rel="noopener noreferrer"
-         class="btn btn-dark">Download Concerto</a>
-    </section>
-
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
+<footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
         <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44" />
@@ -538,6 +267,8 @@
       <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
     </div>
   </footer>
+  <script src="/js/concerto-shell.js" defer></script>
+
 
   <script>
     const bgCanvas = document.getElementById('bgCanvas');

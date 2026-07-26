@@ -194,3 +194,136 @@
   if (document.body) build();
   else document.addEventListener('DOMContentLoaded', build);
 })();
+
+
+// ═══════════════════════════════════════════════════════════════════
+// V2 CHROME (2026-07): the app's bottom tab bar on every legacy page.
+// The 446 venue/tour/hub pages keep their HTML untouched (SEO intact)
+// but gain the same navigation a visitor learned on the V2 homepage,
+// so moving between the new pages and the old ones feels like one
+// product. Styles are injected here so zero legacy files change.
+// Guarded: pages that already carry the V2 shell (the new home,
+// venues, tours, events) render their own tab bar and are skipped.
+// ═══════════════════════════════════════════════════════════════════
+(function () {
+  if (document.querySelector('script[src*="concerto-shell"]')) return; // V2 pages own their chrome
+  if (document.querySelector('.tabbar')) return;
+  var APP_URL = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+
+  var css = document.createElement('style');
+  css.textContent =
+    '.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:1000;display:none;' +
+    'height:calc(62px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);' +
+    'background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid rgba(18,30,54,.14)}' +
+    '@media(prefers-color-scheme:dark){.tabbar{background:rgba(22,32,58,.94);border-top-color:#2A3550}}' +
+    '.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;' +
+    'font-family:"DM Sans",-apple-system,sans-serif;font-size:10px;font-weight:700;color:#8A91A3;text-decoration:none}' +
+    '.tabbar a.active{color:#C9A84C}.tabbar a svg{width:21px;height:21px}' +
+    '@media(max-width:820px){.tabbar{display:flex}body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}}';
+  document.head.appendChild(css);
+
+  var ic = {
+    home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>',
+    venues: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>',
+    tours: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></svg>',
+    near: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 18-8-8 18-2.5-7.5L3 11z"/></svg>',
+    get: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>'
+  };
+  var path = location.pathname;
+  function act(p) {
+    return (p === '/' && (path === '/' || path === '/index.html')) ||
+           (p !== '/' && path.indexOf(p) === 0) ? ' class="active"' : '';
+  }
+  var bar = document.createElement('nav');
+  bar.className = 'tabbar';
+  bar.setAttribute('aria-label', 'Concerto');
+  bar.innerHTML =
+    '<a href="/"' + act('/') + '>' + ic.home + 'Home</a>' +
+    '<a href="/venues"' + act('/venues') + '>' + ic.venues + 'Venues</a>' +
+    '<a href="/tours"' + act('/tours') + '>' + ic.tours + 'Tours</a>' +
+    '<a href="/events"' + act('/events') + '>' + ic.near + 'Near Me</a>' +
+    '<a href="' + APP_URL + '" style="color:#C9A84C">' + ic.get + 'Get App</a>';
+  function mount() { document.body.appendChild(bar); }
+  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
+})();
+
+/* ═══ "Get the app" banner — the Airbnb top strip, Concerto's version.
+   Mobile only, inline at the very top (not fixed), dismissible for
+   the session. Sits under Safari's native Smart App Banner. ═══ */
+(function () {
+  if (window.innerWidth > 820) return;
+  try { if (sessionStorage.getItem('getAppBannerDismissed')) return; } catch (e) {}
+  var APP_URL = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+  var b = document.createElement('div');
+  b.id = 'getAppBanner';
+  b.style.cssText = 'display:flex;align-items:center;gap:12px;padding:10px 14px;' +
+    'background:var(--surface,#fff);border-bottom:1px solid var(--line,rgba(18,30,54,.14));' +
+    'font-family:"DM Sans",-apple-system,sans-serif;position:relative;z-index:999';
+  b.innerHTML =
+    '<button aria-label="Dismiss" style="background:none;border:0;color:var(--ink-faint,#8A91A3);font-size:16px;padding:4px;cursor:pointer;line-height:1">&#10005;</button>' +
+    '<img src="/img/app-icon.png" alt="" width="44" height="44" style="border-radius:10px;flex:none"/>' +
+    '<span style="flex:1;min-width:0">' +
+      '<b style="display:block;font-size:14px;color:var(--ink,#121E36)">Get the app</b>' +
+      '<span style="display:block;font-size:11.5px;color:var(--ink-muted,#5A6478);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">The fastest way from the concert to the city</span>' +
+    '</span>' +
+    '<a href="' + APP_URL + '" style="background:var(--gold,#C9A84C);color:var(--navy,#121E36);font-weight:700;font-size:12px;letter-spacing:.04em;border-radius:999px;padding:9px 16px;text-decoration:none;white-space:nowrap">USE APP</a>';
+  b.querySelector('button').addEventListener('click', function () {
+    try { sessionStorage.setItem('getAppBannerDismissed', '1'); } catch (e) {}
+    b.remove();
+  });
+  function mount() { document.body.insertBefore(b, document.body.firstChild); }
+  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
+})();
+
+/* ═══════════════════════════════════════════════════════════════════
+   GET-THE-APP BANNER — the Airbnb pattern, sitewide.
+   Apple's Smart App Banner (the meta tag, already on all 461 pages)
+   only shows in Safari. This is the second, always-visible bar every
+   app-first company runs underneath it: icon, one line of value, one
+   button. Dismissible, and the dismissal sticks for 30 days so it
+   never nags. Mobile only -- on desktop the top bar already carries
+   "Get the App".
+   ═══════════════════════════════════════════════════════════════════ */
+(function () {
+  if (document.querySelector('script[src*="concerto-shell"]')) return;
+  if (window.matchMedia('(min-width:821px)').matches) return;
+  if (document.querySelector('.appbar')) return;
+  var KEY = 'concerto.appbar.dismissed';
+  try { if (+(localStorage.getItem(KEY) || 0) > Date.now()) return; } catch (e) {}
+
+  var APP_URL = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+  var css = document.createElement('style');
+  css.textContent =
+    '.appbar{position:sticky;top:0;z-index:1100;display:flex;align-items:center;gap:12px;' +
+      'padding:10px 14px;background:#121E36;color:#F8F9F9;font-family:"DM Sans",-apple-system,sans-serif}' +
+    '.appbar-x{background:none;border:0;color:rgba(248,249,249,.5);font-size:17px;line-height:1;' +
+      'padding:4px 2px;cursor:pointer;flex:none}' +
+    '.appbar-icon{width:40px;height:40px;border-radius:9px;flex:none;background:#F8F9F9}' +
+    '.appbar-text{flex:1;min-width:0}' +
+    '.appbar-t{font-size:14px;font-weight:700;line-height:1.2}' +
+    '.appbar-s{font-size:11.5px;color:rgba(248,249,249,.62);line-height:1.3;margin-top:1px;' +
+      'white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+    '.appbar-cta{flex:none;background:#C9A84C;color:#121E36;font-size:12.5px;font-weight:700;' +
+      'letter-spacing:.04em;border-radius:999px;padding:9px 16px;text-decoration:none}';
+  document.head.appendChild(css);
+
+  var bar = document.createElement('aside');
+  bar.className = 'appbar';
+  bar.setAttribute('aria-label', 'Get the Concerto app');
+  bar.innerHTML =
+    '<button class="appbar-x" aria-label="Dismiss">\u2715</button>' +
+    '<img class="appbar-icon" src="/img/app-icon.png" alt="" width="40" height="40"/>' +
+    '<div class="appbar-text">' +
+      '<div class="appbar-t">Get the app</div>' +
+      '<div class="appbar-s">Bag check, parking, and your night \u2014 planned</div>' +
+    '</div>' +
+    '<a class="appbar-cta" href="' + APP_URL + '" target="_blank" rel="noopener noreferrer">USE APP</a>';
+
+  bar.querySelector('.appbar-x').addEventListener('click', function () {
+    try { localStorage.setItem(KEY, String(Date.now() + 30 * 864e5)); } catch (e) {}
+    bar.remove();
+  });
+
+  function mount() { document.body.insertBefore(bar, document.body.firstChild); }
+  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
+})();

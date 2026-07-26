@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-<meta name="theme-color" content="#F8F9F9"/>
-<title>Events Near Me, Concerts, Sports & Nightlife | Concerto</title>
-<meta name="description" content="Find concerts, sports games, comedy shows, and festivals near you. Browse by date, filter by type, and get venue guides for every event."/>
-<link rel="canonical" href="https://concertocity.com/events.html"/>
+  <meta charset="UTF-8" />
+  <meta name="apple-itunes-app" content="app-id=6744903414">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F9F9" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
+  <meta name="apple-mobile-web-app-title" content="Concerto" />
+<title>Concerts Near Me — This Week | Concerto</title>
+  <meta name="description" content="Live music near you this week — shows day by day, with verified venue guides for bags, parking, and rideshare." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://concertocity.com/events" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://concertocity.com/events.html" />
-<meta property="og:title" content="Events Near Me, Concerto" />
-<meta property="og:description" content="Concerts, sports, comedy, and festivals near you. Filter by type, browse by date." />
+<meta property="og:url" content="https://concertocity.com/events" />
+<meta property="og:title" content="Concerto, From the Concert to the City" />
+<meta property="og:description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out." />
 <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <meta property="og:image:secure_url" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <meta property="og:image:type" content="image/png" />
@@ -19,372 +27,71 @@
 <meta property="og:image:alt" content="Concerto, from the concert to the city" />
 <meta property="og:site_name" content="Concerto" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://concertocity.com/events.html" />
-<meta name="twitter:title" content="Events Near Me, Concerto" />
-<meta name="twitter:description" content="Concerts, sports, comedy, and festivals near you. Filter by type, browse by date." />
+<meta name="twitter:url" content="https://concertocity.com/" />
+<meta name="twitter:title" content="Concerto, From the Concert to the City" />
+<meta name="twitter:description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out." />
 <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
 <meta name="twitter:image:alt" content="Concerto, from the concert to the city" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --display: 'Playfair Display', Georgia, serif;
-  --body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
-  --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
-  --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
-  --gold: #C9A84C; --gold-light: #E5C365;
-  --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
-  --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
-  --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
-  --ease-out: cubic-bezier(0.16,1,0.3,1);
-  --radius-md: 16px; --radius-lg: 24px; --nav-h: 68px;
-}
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--bg); }
-body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
 
-/* Atmosphere */
-.bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
-.orb { position: absolute; border-radius: 50%; filter: blur(130px); }
-.orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; }
-.orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; }
-.noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Concerto",
+    "description": "From the Concert to the City. Bag policies, parking, setlists, city guides, and AI itineraries for concerts, sports, and nights out at 300+ venues.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "iOS",
+    "url": "https://concertocity.com",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "Concerto LLC", "url": "https://concertocity.com" }
+  }
+  </script>
 
-/* Nav */
-.site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-.nav-logo { display: flex; align-items: center; width: 200px; }
-.nav-logo-img { height: 48px; width: auto; object-fit: contain; }
-.nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-.nav-center > a { font-family: var(--body); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); transition: color 0.25s; padding: 0 1.2rem; height: var(--nav-h); display: flex; align-items: center; }
-.nav-center > a:hover, .nav-center > a.active { color: var(--text); }
-.nav-cta { display: flex; justify-content: flex-end; align-items:center; gap:10px; align-items: center; gap: 10px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s; cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
-.btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
-.btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
-
-/* Mobile nav */
-.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: 4px; }
-.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; transform-origin: center; }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }
-.nav-mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: rgba(248,249,249,0.98); backdrop-filter: blur(24px); z-index: 999; flex-direction: column; padding: 2rem 6%; overflow-y: auto; border-top: 1px solid var(--border); }
-.nav-mobile-menu.open { display: flex; }
-.nav-mobile-link { font-family: var(--body); font-size: 1.5rem; font-weight: 600; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
-.nav-mobile-link:hover { color: var(--text); }
-.nav-mobile-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-@media (max-width: 1024px) {
-  .nav-hamburger { display: flex; }
-  .nav-profile-btn { display: inline-flex; }
-  .nav-center { display: none !important; }
-  #navAuthLink { display: none; }
-  .nav-download { display: none; }
-}
-
-/* Page hero */
-.page-hero { padding: calc(var(--nav-h) + 48px) 4% 32px; max-width: 1200px; margin: 0 auto; }
-.page-eyebrow { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-.page-title { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; color: var(--text); margin-bottom: 0.75rem; }
-.page-sub { font-size: 0.95rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
-
-/* Main layout */
-.events-layout { max-width: 1200px; margin: 0 auto; padding: 0 4% 80px; display: grid; grid-template-columns: 1fr; gap: 2rem; }
-
-/* City search */
-.city-bar { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
-.city-input-wrap { position: relative; flex: 1; min-width: 200px; max-width: 360px; }
-.city-input { width: 100%; padding: 0.85rem 1rem 0.85rem 2.8rem; border: 1.5px solid var(--border-mid); border-radius: 99px; font-family: var(--body); font-size: 0.88rem; color: var(--text); background: var(--card-bg); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-.city-input:focus { border-color: var(--text); box-shadow: 0 0 0 3px rgba(18,30,54,0.06); }
-.city-input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); pointer-events: none; }
-.city-search-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.5rem; border-radius: 99px; background: var(--text); color: #F8F9F9; font-family: var(--body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
-.city-search-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
-
-/* Filter pills */
-.filter-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.filter-pill { padding: 0.5rem 1rem; border-radius: 99px; border: 1.5px solid var(--border-mid); font-family: var(--body); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); cursor: pointer; background: transparent; transition: all 0.2s; white-space: nowrap; }
-.filter-pill:hover { border-color: var(--text-dim); color: var(--text); }
-.filter-pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
-.filter-pill.active.music { background: #1a1a2e; border-color: #1a1a2e; }
-.filter-pill.active.sports { background: #1e3a1a; border-color: #1e3a1a; }
-.filter-pill.active.comedy { background: #3a2a1a; border-color: #3a2a1a; }
-.filter-pill.active.festival { background: #2a1a3a; border-color: #2a1a3a; }
-.filter-pill.active.theater { background: #1a2a3a; border-color: #1a2a3a; }
-
-/* View toggle */
-.view-toggle { display: flex; gap: 0; border: 1.5px solid var(--border-mid); border-radius: 99px; overflow: hidden; }
-.view-btn { padding: 0.5rem 1.1rem; font-family: var(--body); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); cursor: pointer; background: transparent; border: none; transition: all 0.2s; }
-.view-btn.active { background: var(--text); color: var(--bg); }
-
-/* Controls row */
-.controls-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-
-/* Calendar */
-.calendar-wrap { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
-.cal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
-.cal-month { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
-.cal-nav { display: flex; gap: 0.5rem; }
-.cal-nav-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border-mid); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-dim); transition: all 0.2s; font-size: 0.9rem; }
-.cal-nav-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
-.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
-.cal-day-header { padding: 0.6rem 0; text-align: center; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-xdim); border-bottom: 1px solid var(--border); }
-.cal-day { min-height: 72px; padding: 0.5rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; position: relative; }
-.cal-day:nth-child(7n) { border-right: none; }
-.cal-day:hover { background: rgba(18,30,54,0.02); }
-.cal-day.other-month .cal-day-num { color: var(--text-xdim); }
-.cal-day.today .cal-day-num { background: var(--text); color: var(--bg); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-.cal-day.selected { background: rgba(201,168,76,0.06); }
-.cal-day.selected .cal-day-num { color: var(--gold); font-weight: 700; }
-.cal-day.has-events { cursor: pointer; }
-.cal-day-num { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-.cal-dots { display: flex; gap: 2px; flex-wrap: wrap; margin-top: 2px; }
-.cal-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-.cal-dot.music { background: #C9A84C; }
-.cal-dot.sports { background: #4CAF50; }
-.cal-dot.comedy { background: #FF9800; }
-.cal-dot.festival { background: #9C27B0; }
-.cal-dot.theater { background: #2196F3; }
-.cal-dot.other { background: var(--text-xdim); }
-
-/* Day panel */
-.day-panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
-.day-panel-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.day-panel-title { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
-.day-panel-count { font-size: 0.72rem; font-weight: 600; color: var(--text-xdim); letter-spacing: 0.08em; text-transform: uppercase; }
-.day-panel-empty { padding: 3rem 1.5rem; text-align: center; color: var(--text-xdim); font-size: 0.88rem; }
-
-/* Event cards */
-.event-list { display: flex; flex-direction: column; }
-.event-card { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); text-decoration: none; transition: background 0.15s; cursor: pointer; }
-.event-card:last-child { border-bottom: none; }
-.event-card:hover { background: rgba(18,30,54,0.02); }
-.event-card-date { width: 44px; text-align: center; flex-shrink: 0; }
-.event-card-date-day { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1; }
-.event-card-date-month { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-xdim); }
-.event-card-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
-.event-card-info { flex: 1; min-width: 0; }
-.event-card-name { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.event-card-venue { font-size: 0.78rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.event-card-type { flex-shrink: 0; }
-.event-type-badge { padding: 3px 10px; border-radius: 99px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-.badge-music { background: rgba(201,168,76,0.12); color: #9a7a2a; }
-.badge-sports { background: rgba(76,175,80,0.12); color: #2e7d32; }
-.badge-comedy { background: rgba(255,152,0,0.12); color: #e65100; }
-.badge-festival { background: rgba(156,39,176,0.12); color: #6a1b9a; }
-.badge-theater { background: rgba(33,150,243,0.12); color: #0d47a1; }
-.badge-other { background: rgba(18,30,54,0.06); color: var(--text-dim); }
-.event-card-arrow { color: var(--text-xdim); font-size: 0.9rem; flex-shrink: 0; }
-
-/* List view */
-.list-view { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
-.list-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.list-title { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--text); }
-.list-count { font-size: 0.72rem; font-weight: 600; color: var(--text-xdim); letter-spacing: 0.08em; text-transform: uppercase; }
-
-/* Loading */
-.loading-state { padding: 4rem 1.5rem; text-align: center; }
-.loading-spinner { width: 28px; height: 28px; border: 2px solid var(--border-mid); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 1rem; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.loading-text { font-size: 0.85rem; color: var(--text-xdim); }
-
-/* Empty state */
-.empty-state { padding: 4rem 1.5rem; text-align: center; }
-.empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.empty-title { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-.empty-sub { font-size: 0.85rem; color: var(--text-dim); }
-
-/* Footer */
-footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
-.footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
-.footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
-.footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
-.footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
-.footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
-.footer-col a:hover { color: var(--text); }
-.footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
-.footer-bottom a { color: var(--text-dim); text-decoration: none; }
-.footer-bottom a:hover { color: var(--text); }
-
-@media (max-width: 768px) {
-  :root { --nav-h: 58px; }
-  .page-hero { padding: calc(var(--nav-h) + 32px) 5% 24px; }
-  .events-layout { padding: 0 5% 60px; }
-  .cal-day { min-height: 52px; padding: 0.35rem; }
-  .cal-day-num { font-size: 0.7rem; width: 20px; height: 20px; }
-  .city-bar { flex-direction: column; align-items: stretch; }
-  .city-input-wrap { max-width: 100%; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .footer-brand { grid-column: span 2; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-}
-@media (max-width: 480px) {
-  .cal-day { min-height: 44px; padding: 0.25rem; }
-  .cal-dot { width: 4px; height: 4px; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .footer-brand { grid-column: auto; }
-}
-</style>
-
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
-  <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
-  <link rel="stylesheet" href="align.css">
-  <script defer src="/analytics.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/concerto.css"/>
 </head>
-<body class="page-content"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
+<body>
+  <nav class="topbar" aria-label="Main">
+    <a class="tb-brand" href="/">CONCERTO</a>
+    <div class="tb-links"><a href="/venues">Venues</a><a href="/tours">Tours</a><a href="/events">Near Me</a><a href="/about">About</a></div>
+    <a class="tb-signin" id="tbSignin" href="/login.html" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-right:14px">Sign In</a>
+    <a class="tb-get" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
+  </nav>
 
-<div class="bg-canvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-<div class="noise" aria-hidden="true"></div>
+  <main class="col">
+    <header class="page-head">
+      <h1 class="page-title">Near Me</h1>
+      <p class="page-sub">Shows near you, day by day &middot; this week</p>
+    </header>
 
-<!-- NAV -->
-<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-  <div class="nav-logo">
-    <a href="index.html" aria-label="Concerto Home">
-      <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/>
-    </a>
-  </div>
-  <div class="nav-center">
-      <a href="venues.html">Venues</a>
-      <a href="tours.html">Tours</a>
-      <a href="events.html" class="active">Near Me</a>
-      <a href="top-picks.html">Top Picks</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
-      <a href="premium.html">Premium</a>
-      <a href="about.html">About</a>
-    </div>
-  <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-    <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid);color:var(--text);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-    <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
-    <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    </a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Near Me</a>
-      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="parking.html" class="nav-mobile-link">Parking</a>
-      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
+    <div class="loc-bar" id="locBar">
+      <button class="loc-current" id="geoBtn" title="Use my current location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="m3 11 18-8-8 18-2.5-7.5L3 11z"/></svg>
+        <span id="locLabel">Use my location</span>
+      </button>
+      <button class="loc-change" id="pickBtn">Change</button>
     </div>
 
-<main id="main-content">
-  <!-- HERO -->
-  <div class="page-hero">
-    <span class="page-eyebrow">Tonight &amp; Beyond</span>
-    <h1 class="page-title">Events Near You.</h1>
-    <p class="page-sub">Concerts, sports, comedy, festivals, browse by date or search your city.</p>
-  </div>
-
-  <div class="events-layout">
-
-    <!-- CITY SEARCH + FILTERS -->
-    <div>
-      <div class="city-bar">
-        <div class="city-input-wrap">
-          <svg class="city-input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <input type="text" class="city-input" id="cityInput" placeholder="Enter your city..." autocomplete="off"/>
-        </div>
-        <button class="city-search-btn" id="searchBtn">Find Events</button>
-        <div class="view-toggle" style="margin-left:auto;">
-          <button class="view-btn active" id="calViewBtn" onclick="setView('calendar')">Calendar</button>
-          <button class="view-btn" id="listViewBtn" onclick="setView('list')">List</button>
-        </div>
+    <div class="picker" id="picker" hidden>
+      <div class="picker-head">
+        <input id="cityInput" type="search" placeholder="Search a city" autocomplete="off"/>
+        <button id="pickClose" aria-label="Close">&#10005;</button>
       </div>
-      <div class="filter-bar" id="filterBar">
-        <button class="filter-pill active" data-type="all" onclick="toggleFilter(this)">All</button>
-        <button class="filter-pill music" data-type="music" onclick="toggleFilter(this)">🎵 Music</button>
-        <button class="filter-pill sports" data-type="sports" onclick="toggleFilter(this)">🏟 Sports</button>
-        <button class="filter-pill comedy" data-type="comedy" onclick="toggleFilter(this)">🎤 Comedy</button>
-        <button class="filter-pill festival" data-type="festival" onclick="toggleFilter(this)">🎪 Festivals</button>
-        <button class="filter-pill theater" data-type="theater" onclick="toggleFilter(this)">🎭 Arts &amp; Theater</button>
-      </div>
+      <div class="picker-list" id="cityList"></div>
     </div>
 
-    <!-- CALENDAR VIEW -->
-    <div id="calendarView">
-      <div class="calendar-wrap" id="calendarWrap">
-        <div class="cal-header">
-          <button class="cal-nav-btn" id="prevMonth" onclick="changeMonth(-1)">&#8592;</button>
-          <span class="cal-month" id="calMonthLabel"></span>
-          <button class="cal-nav-btn" id="nextMonth" onclick="changeMonth(1)">&#8594;</button>
-        </div>
-        <div class="cal-grid" id="calGrid">
-          <div class="cal-day-header">Sun</div>
-          <div class="cal-day-header">Mon</div>
-          <div class="cal-day-header">Tue</div>
-          <div class="cal-day-header">Wed</div>
-          <div class="cal-day-header">Thu</div>
-          <div class="cal-day-header">Fri</div>
-          <div class="cal-day-header">Sat</div>
-        </div>
-        <div class="loading-state" id="calLoading" style="display:none;">
-          <div class="loading-spinner"></div>
-          <p class="loading-text">Finding events...</p>
-        </div>
-        <div class="empty-state" id="calEmpty" style="display:none;">
-          <div class="empty-icon">🎟</div>
-          <div class="empty-title">Search a city to see events</div>
-          <p class="empty-sub">Type your city above and hit Find Events</p>
-        </div>
-      </div>
-
-      <!-- Day panel -->
-      <div class="day-panel" id="dayPanel" style="display:none;">
-        <div class="day-panel-header">
-          <span class="day-panel-title" id="dayPanelTitle">Select a date</span>
-          <span class="day-panel-count" id="dayPanelCount"></span>
-        </div>
-        <div id="dayPanelContent">
-          <div class="day-panel-empty">Click a date to see events</div>
-        </div>
-      </div>
+    <div id="geoGate" class="geo-gate">
+      <p class="gg-eyebrow">THIS WEEK</p>
+      <p class="gg-text">Every show within 75 miles,<br/>night by night.</p>
+      <p class="gg-note">Use your location, or pick any city Concerto covers &mdash; 175 of them.</p>
     </div>
 
-    <!-- LIST VIEW -->
-    <div id="listView" style="display:none;">
-      <div class="list-view">
-        <div class="list-header">
-          <span class="list-title" id="listTitle">All Events</span>
-          <span class="list-count" id="listCount"></span>
-        </div>
-        <div id="listContent">
-          <div class="empty-state">
-            <div class="empty-icon">🎟</div>
-            <div class="empty-title">Search a city to see events</div>
-            <p class="empty-sub">Type your city above and hit Find Events</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="weekList" class="week-list" hidden></div>
+    <p id="weekEmpty" class="week-empty" hidden>Quiet week nearby. The app watches every venue for you.</p>
+  </main>
 
-  </div>
-</main>
-
-<!-- FOOTER -->
 <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -417,358 +124,188 @@ footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid v
       <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
     </div>
   </footer>
-
-<script>
-const API_KEY = '';
-const TM_URL = '/.netlify/functions/tm/events.json';
-
-let allEvents = [];
-let filteredEvents = [];
-let activeFilter = 'all';
-let currentView = 'calendar';
-let currentDate = new Date();
-let selectedDay = null;
-
-// ── City search ──
-document.getElementById('cityInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') fetchEvents();
-});
-document.getElementById('searchBtn').addEventListener('click', fetchEvents);
-
-async function fetchEvents() {
-  const city = document.getElementById('cityInput').value.trim();
-  if (!city) return;
-
-  showCalLoading(true);
-
-  const start = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-  const end = new Date(currentDate.getFullYear(), currentDate.getMonth() + 2, 0);
-  const startStr = start.toISOString().split('T')[0] + 'T00:00:00Z';
-  const endStr = end.toISOString().split('T')[0] + 'T23:59:59Z';
-
-  const params = new URLSearchParams({
-    city: city,
-    countryCode: 'US',
-    source: 'ticketmaster',
-    size: 200,
-    startDateTime: startStr,
-    endDateTime: endStr,
-    sort: 'date,asc'
-  });
-
-  try {
-    const res = await fetch(`${TM_URL}?${params}`);
-    const data = await res.json();
-    allEvents = (data._embedded?.events || [])
-      .map(parseEvent)
-      .filter(e => e.type !== 'other' && e.venueCountry === 'US');
-    applyFilter();
-    renderCalendar();
-    renderList();
-    showCalLoading(false);
-    if (allEvents.length === 0) showCalEmpty(true);
-  } catch(e) {
-    showCalLoading(false);
-    showCalEmpty(true);
-  }
-}
-
-function parseEvent(ev) {
-  const date = ev.dates?.start?.localDate || '';
-  const time = ev.dates?.start?.localTime || '';
-  const seg = ev.classifications?.[0]?.segment?.name?.toLowerCase() || 'other';
-  const genre = ev.classifications?.[0]?.genre?.name?.toLowerCase() || '';
-  const v = ev._embedded?.venues?.[0] || {};
-
-  let type = 'other';
-  if (seg === 'music') type = 'music';
-  else if (seg === 'sports') type = 'sports';
-  else if (seg === 'arts & theatre' || seg === 'arts & theater') type = 'theater';
-  else if (genre.includes('comedy') || seg === 'comedy') type = 'comedy';
-  else if (genre.includes('festival') || ev.name?.toLowerCase().includes('festival')) type = 'festival';
-
-  return {
-    id: ev.id,
-    name: ev.name,
-    date,
-    time,
-    type,
-    venue: v.name || '',
-    venueCity: v.city?.name || '',
-    venueCountry: v.country?.countryCode || '',
-    url: ev.url || '#',
-    image: ev.images?.[0]?.url || ''
-  };
-}
-
-// ── Filters ──
-function toggleFilter(btn) {
-  const type = btn.dataset.type;
-  if (type === 'all') {
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = 'all';
-  } else {
-    document.querySelector('[data-type="all"]').classList.remove('active');
-    btn.classList.toggle('active');
-    const active = [...document.querySelectorAll('.filter-pill.active')].map(p => p.dataset.type).filter(t => t !== 'all');
-    activeFilter = active.length > 0 ? active : 'all';
-    if (active.length === 0) {
-      document.querySelector('[data-type="all"]').classList.add('active');
-      activeFilter = 'all';
+  <style>
+    .page-head{padding-top:calc(var(--nav-h) + var(--sp-xl));text-align:center}
+    .page-title{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,2.6rem);color:var(--ink)}
+    .page-sub{font-size:.85rem;color:var(--ink-muted);margin-top:4px}
+    .geo-gate{margin-top:var(--sp-xl);background:var(--navy);border-radius:var(--r-xl);
+      padding:var(--sp-xl);text-align:left}
+    .gg-eyebrow{font-weight:700;font-size:10.5px;letter-spacing:1.6px;color:var(--gold)}
+    .gg-text{font-family:var(--display);font-weight:700;font-size:19px;line-height:25px;color:var(--cream);margin-top:8px}
+    .gg-btn{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:var(--navy);
+      border:0;border-radius:var(--r-pill);padding:10px 16px;margin-top:var(--sp-lg);
+      font-family:var(--body);font-weight:700;font-size:13px;cursor:pointer;transition:transform .25s}
+    .gg-btn:hover{transform:translateY(-2px)}
+    .gg-note{font-size:11px;color:rgba(248,249,249,.55);margin-top:var(--sp-md)}
+    .day-head{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);
+      margin:var(--sp-xl) 0 var(--sp-sm)}
+    .erow{display:flex;align-items:center;gap:var(--sp-md);padding:10px 4px;border-bottom:1px solid var(--line)}
+    .erow:hover{background:color-mix(in srgb,var(--gold) 6%,transparent)}
+    .edate{width:46px;height:46px;border-radius:var(--r-md);background:var(--surface);
+      border:1px solid var(--line);flex:none;display:flex;flex-direction:column;
+      align-items:center;justify-content:center}
+    .edate b{font-family:var(--display);font-weight:500;font-size:17px;color:var(--ink);line-height:1}
+    .edate span{font-weight:700;font-size:9.5px;letter-spacing:.5px;color:var(--gold)}
+    .etext{flex:1;min-width:0}
+    .ename{display:block;font-weight:600;font-size:14.5px;color:var(--ink);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .emeta{display:block;font-size:12px;color:var(--ink-muted);margin-top:1px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .loc-bar{display:flex;align-items:center;gap:var(--sp-sm);margin-top:var(--sp-lg)}
+    .loc-current{flex:1;display:flex;align-items:center;gap:8px;background:var(--surface);
+      border:1px solid var(--line);border-radius:var(--r-pill);padding:11px var(--sp-lg);
+      font-family:var(--body);font-size:14.5px;font-weight:600;color:var(--ink);
+      cursor:pointer;text-align:left;box-shadow:var(--shadow-card)}
+    .loc-current svg{color:var(--gold);flex:none}
+    .loc-change{background:none;border:0;color:var(--gold);font-family:var(--body);
+      font-weight:700;font-size:13px;padding:11px 14px;cursor:pointer}
+    .picker{margin-top:var(--sp-md);background:var(--surface);border:1px solid var(--line);
+      border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-card)}
+    .picker-head{display:flex;align-items:center;gap:8px;padding:10px var(--sp-lg);
+      border-bottom:1px solid var(--line)}
+    .picker-head input{flex:1;border:0;outline:0;background:none;font-family:var(--body);
+      font-size:15px;color:var(--ink)}
+    .picker-head button{background:none;border:0;color:var(--ink-faint);font-size:15px;cursor:pointer}
+    .picker-list{max-height:320px;overflow-y:auto}
+    .picker-list button{display:flex;width:100%;align-items:center;justify-content:space-between;
+      gap:10px;background:none;border:0;border-bottom:1px solid var(--line);
+      padding:11px var(--sp-lg);font-family:var(--body);font-size:14.5px;color:var(--ink);
+      cursor:pointer;text-align:left}
+    .picker-list button:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}
+    .picker-list .pc-n{font-size:11.5px;color:var(--ink-faint);flex:none}
+    .week-empty{margin-top:var(--sp-xl);text-align:center;color:var(--ink-muted);font-size:.9rem}
+  </style>
+  <script>
+  (function(){
+    /* Ported from the app's useWeekEvents + mapTmEvents:
+       same params (Music, 60, date asc, 7-day window, 75mi),
+       same venue+datetime dedupe, same venueCase acronym rules. */
+    var SMALL=['a','an','and','as','at','but','by','for','in','of','on','or','the','to','vs','with'];
+    function venueCase(input){
+      if(!input)return input;
+      var letters=input.replace(/[^a-zA-Z]/g,'');if(!letters)return input;
+      var upper=(letters.match(/[A-Z]/g)||[]).length/letters.length;
+      if(upper<.8)return input;
+      return input.split(' ').map(function(w,i){
+        var bare=w.replace(/[^A-Za-z0-9]/g,''),lower=bare.toLowerCase();
+        if(SMALL.indexOf(lower)!==-1)return i===0?lower.charAt(0).toUpperCase()+lower.slice(1):lower;
+        var ac=bare.length<=3||!/[aeiou]/i.test(bare);
+        if(ac&&bare.length)return w.toUpperCase();
+        return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();
+      }).join(' ');
     }
-  }
-  applyFilter();
-  renderCalendar();
-  if (selectedDay) renderDayPanel(selectedDay);
-  if (currentView === 'list') renderList();
-}
+    function fmtTime(iso,local){
+      if(local){var p=local.split(':');var h=+p[0],mm=p[1];var ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+mm+' '+ap}
+      if(!iso)return'';
+      return new Date(iso).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+    }
+    var LKEY='concerto.location';
+    var btn=document.getElementById('geoBtn'),label=document.getElementById('locLabel');
+    var pickBtn=document.getElementById('pickBtn'),picker=document.getElementById('picker');
+    var cityInput=document.getElementById('cityInput'),cityList=document.getElementById('cityList');
+    var CITIES=[];
 
-function applyFilter() {
-  if (activeFilter === 'all') {
-    filteredEvents = [...allEvents];
-  } else {
-    const types = Array.isArray(activeFilter) ? activeFilter : [activeFilter];
-    filteredEvents = allEvents.filter(e => types.includes(e.type));
-  }
-}
+    function remember(o){try{localStorage.setItem(LKEY,JSON.stringify(o))}catch(e){}}
+    function recall(){try{return JSON.parse(localStorage.getItem(LKEY)||'null')}catch(e){return null}}
 
-// ── View toggle ──
-function setView(v) {
-  currentView = v;
-  document.getElementById('calendarView').style.display = v === 'calendar' ? 'block' : 'none';
-  document.getElementById('listView').style.display = v === 'list' ? 'block' : 'none';
-  document.getElementById('calViewBtn').classList.toggle('active', v === 'calendar');
-  document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
-  if (v === 'list') renderList();
-}
-
-// ── Calendar ──
-function changeMonth(dir) {
-  currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + dir, 1);
-  renderCalendar();
-  if (allEvents.length > 0) {
-    fetchEvents(); // reload for new month
-  }
-}
-
-function renderCalendar() {
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
-  const today = new Date();
-
-  document.getElementById('calMonthLabel').textContent = 
-    new Date(year, month, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-
-  // Build event map by date
-  const eventMap = {};
-  filteredEvents.forEach(ev => {
-    if (!eventMap[ev.date]) eventMap[ev.date] = [];
-    eventMap[ev.date].push(ev);
-  });
-
-  // Get calendar days
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const daysInPrevMonth = new Date(year, month, 0).getDate();
-
-  const grid = document.getElementById('calGrid');
-  // Remove old day cells (keep headers)
-  const headers = [...grid.querySelectorAll('.cal-day-header')];
-  grid.innerHTML = '';
-  headers.forEach(h => grid.appendChild(h));
-
-  const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
-
-  for (let i = 0; i < totalCells; i++) {
-    const cell = document.createElement('div');
-    cell.className = 'cal-day';
-
-    let dayNum, dateStr, isOther = false;
-
-    if (i < firstDay) {
-      dayNum = daysInPrevMonth - firstDay + i + 1;
-      dateStr = `${year}-${String(month === 0 ? 12 : month).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
-      isOther = true;
-      cell.classList.add('other-month');
-    } else if (i >= firstDay + daysInMonth) {
-      dayNum = i - firstDay - daysInMonth + 1;
-      dateStr = `${year}-${String(month + 2 > 12 ? 1 : month + 2).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
-      isOther = true;
-      cell.classList.add('other-month');
-    } else {
-      dayNum = i - firstDay + 1;
-      dateStr = `${year}-${String(month + 1).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
+    function use(loc){
+      label.textContent=loc.name;
+      remember(loc);
+      picker.hidden=true;
+      load(loc.lat,loc.lng);
     }
 
-    const numEl = document.createElement('div');
-    numEl.className = 'cal-day-num';
-    numEl.textContent = dayNum;
+    /* current location */
+    btn.addEventListener('click',function(){
+      if(!navigator.geolocation){alert('This browser cannot share location. Pick a city instead.');return}
+      label.textContent='Finding you…';
+      navigator.geolocation.getCurrentPosition(function(pos){
+        use({name:'Current location',lat:pos.coords.latitude,lng:pos.coords.longitude,device:1});
+      },function(){
+        label.textContent='Use my location';
+        alert('Location was blocked. Pick a city instead, or allow location in your browser settings.');
+      },{timeout:12000});
+    });
 
-    // Today highlight
-    if (!isOther && dayNum === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
-      cell.classList.add('today');
+    /* city picker, from the cities Concerto actually covers */
+    function renderCities(q){
+      q=(q||'').trim().toLowerCase();
+      var list=q?CITIES.filter(function(c){return c.name.toLowerCase().indexOf(q)!==-1}):CITIES.slice(0,40);
+      cityList.innerHTML=list.map(function(c,i){
+        return '<button data-i="'+CITIES.indexOf(c)+'">'+c.name.replace(/</g,'&lt;')+
+          '<span class="pc-n">'+c.n+' venue'+(c.n>1?'s':'')+'</span></button>';
+      }).join('')||'<button disabled style="color:var(--ink-faint)">No city matches</button>';
     }
+    pickBtn.addEventListener('click',function(){
+      picker.hidden=!picker.hidden;
+      if(picker.hidden)return;
+      cityInput.focus();
+      if(CITIES.length){renderCities('');return}
+      fetch('/data/cities.json').then(function(r){return r.json()}).then(function(d){
+        CITIES=d;renderCities('');
+      }).catch(function(){cityList.innerHTML='<button disabled>Could not load cities</button>'});
+    });
+    document.getElementById('pickClose').addEventListener('click',function(){picker.hidden=true});
+    cityInput.addEventListener('input',function(){renderCities(cityInput.value)});
+    cityList.addEventListener('click',function(e){
+      var b=e.target.closest('button[data-i]');if(!b)return;
+      var c=CITIES[+b.getAttribute('data-i')];
+      if(c)use({name:c.name,lat:c.lat,lng:c.lng});
+    });
 
-    // Selected
-    if (selectedDay === dateStr) cell.classList.add('selected');
+    /* remembered location loads immediately — personalization on arrival */
+    var saved=recall();
+    if(saved){label.textContent=saved.name;load(saved.lat,saved.lng);}
 
-    cell.appendChild(numEl);
-
-    // Event dots
-    if (eventMap[dateStr] && eventMap[dateStr].length > 0) {
-      cell.classList.add('has-events');
-      const dots = document.createElement('div');
-      dots.className = 'cal-dots';
-      const types = [...new Set(eventMap[dateStr].map(e => e.type))].slice(0, 4);
-      types.forEach(t => {
-        const dot = document.createElement('div');
-        dot.className = `cal-dot ${t}`;
-        dots.appendChild(dot);
+    function load(lat,lng){
+      var now=new Date(),end=new Date(Date.now()+7*864e5);
+      var p=new URLSearchParams({classificationName:'Music',size:'60',sort:'date,asc',
+        startDateTime:now.toISOString().split('.')[0]+'Z',
+        endDateTime:end.toISOString().split('.')[0]+'Z',
+        latlong:lat+','+lng,radius:'75',unit:'miles'});
+      fetch('/.netlify/functions/tm/events.json?'+p).then(function(r){return r.json()}).then(function(d){
+        var evts=(d&&d._embedded&&d._embedded.events)||[];
+        var seen={},out=[];
+        evts.forEach(function(e){
+          var v=(e._embedded&&e._embedded.venues&&e._embedded.venues[0])||{};
+          var date=(e.dates&&e.dates.start&&(e.dates.start.dateTime||e.dates.start.localDate))||'';
+          var key=(v.name||'').toLowerCase()+'|'+date;
+          if(seen[key])return;seen[key]=1;
+          out.push({name:e.name,url:e.url,date:date,
+            time:fmtTime(e.dates&&e.dates.start&&e.dates.start.dateTime,e.dates&&e.dates.start&&e.dates.start.localTime),
+            venue:venueCase(v.name||'')});
+        });
+        render(out);
+      }).catch(function(){render([])});
+    }
+    function render(evts){
+      document.getElementById('geoGate').hidden=true;
+      document.getElementById('weekEmpty').hidden=true;
+      var list=document.getElementById('weekList');
+      if(!evts.length){document.getElementById('weekEmpty').hidden=false;return}
+      var byDay={};
+      evts.forEach(function(e){
+        var d=e.date?new Date(e.date):null;
+        var k=d?d.toLocaleDateString([],{weekday:'long',month:'short',day:'numeric'}):'Upcoming';
+        (byDay[k]=byDay[k]||[]).push(e);
       });
-      cell.appendChild(dots);
-
-      cell.addEventListener('click', () => {
-        selectedDay = dateStr;
-        document.querySelectorAll('.cal-day.selected').forEach(d => d.classList.remove('selected'));
-        cell.classList.add('selected');
-        renderDayPanel(dateStr);
+      var html='';
+      Object.keys(byDay).forEach(function(day){
+        html+='<h2 class="day-head">'+day+'</h2>';
+        byDay[day].forEach(function(e){
+          var d=e.date?new Date(e.date):null;
+          html+='<a class="erow" href="'+(e.url||'#')+'" target="_blank" rel="noopener noreferrer">'
+            +'<span class="edate"><span>'+(d?d.toLocaleDateString([], {month:'short'}).toUpperCase():'')+'</span><b>'+(d?d.getDate():'')+'</b></span>'
+            +'<span class="etext"><span class="ename">'+e.name.replace(/</g,'&lt;')+'</span>'
+            +'<span class="emeta">'+e.venue.replace(/</g,'&lt;')+(e.time?' &middot; '+e.time:'')+'</span></span>'
+            +'</a>';
+        });
       });
+      list.innerHTML=html;list.hidden=false;
     }
-
-    grid.appendChild(cell);
-  }
-
-  // Show empty state if no events loaded yet
-  if (filteredEvents.length === 0 && allEvents.length === 0) {
-    showCalEmpty(true);
-  } else {
-    showCalEmpty(false);
-  }
-}
-
-function renderDayPanel(dateStr) {
-  const panel = document.getElementById('dayPanel');
-  panel.style.display = 'block';
-
-  const events = filteredEvents.filter(e => e.date === dateStr);
-  const date = new Date(dateStr + 'T12:00:00');
-  const label = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-
-  document.getElementById('dayPanelTitle').textContent = label;
-  document.getElementById('dayPanelCount').textContent = events.length > 0 ? `${events.length} event${events.length !== 1 ? 's' : ''}` : '';
-
-  const content = document.getElementById('dayPanelContent');
-
-  if (events.length === 0) {
-    content.innerHTML = '<div class="day-panel-empty">No events on this date</div>';
-    return;
-  }
-
-  content.innerHTML = '';
-  const list = document.createElement('div');
-  list.className = 'event-list';
-  events.forEach(ev => list.appendChild(buildEventCard(ev)));
-  content.appendChild(list);
-}
-
-// ── List view ──
-function renderList() {
-  const city = document.getElementById('cityInput').value.trim() || 'Your City';
-  document.getElementById('listTitle').textContent = `Events in ${city}`;
-  document.getElementById('listCount').textContent = filteredEvents.length > 0 ? `${filteredEvents.length} events` : '';
-
-  const content = document.getElementById('listContent');
-
-  if (filteredEvents.length === 0) {
-    content.innerHTML = `<div class="empty-state"><div class="empty-icon">🎟</div><div class="empty-title">${allEvents.length === 0 ? 'Search a city to see events' : 'No events match your filters'}</div><p class="empty-sub">${allEvents.length === 0 ? 'Type your city above and hit Find Events' : 'Try selecting different filters'}</p></div>`;
-    return;
-  }
-
-  content.innerHTML = '';
-  const list = document.createElement('div');
-  list.className = 'event-list';
-  filteredEvents.forEach(ev => list.appendChild(buildEventCard(ev)));
-  content.appendChild(list);
-}
-
-// ── Event card builder ──
-function buildEventCard(ev) {
-  const card = document.createElement('a');
-  card.className = 'event-card';
-  card.href = ev.url;
-  card.target = '_blank';
-  card.rel = 'noopener noreferrer';
-
-  const date = new Date(ev.date + 'T12:00:00');
-  const dayNum = date.getDate();
-  const monthStr = date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-
-  const typeLabels = { music: 'Music', sports: 'Sports', comedy: 'Comedy', festival: 'Festival', theater: 'Theater', other: 'Event' };
-
-  card.innerHTML = `
-    <div class="event-card-date">
-      <div class="event-card-date-day">${dayNum}</div>
-      <div class="event-card-date-month">${monthStr}</div>
-    </div>
-    <div class="event-card-divider"></div>
-    <div class="event-card-info">
-      <div class="event-card-name">${ev.name}</div>
-      <div class="event-card-venue">${ev.venue}${ev.time ? ' · ' + formatTime(ev.time) : ''}</div>
-    </div>
-    <div class="event-card-type">
-      <span class="event-type-badge badge-${ev.type}">${typeLabels[ev.type] || 'Event'}</span>
-    </div>
-    <span class="event-card-arrow">→</span>`;
-
-  return card;
-}
-
-function formatTime(t) {
-  const [h, m] = t.split(':').map(Number);
-  const ampm = h >= 12 ? 'PM' : 'AM';
-  const hour = h % 12 || 12;
-  return `${hour}:${String(m).padStart(2,'0')} ${ampm}`;
-}
-
-// ── UI helpers ──
-function showCalLoading(show) {
-  document.getElementById('calLoading').style.display = show ? 'block' : 'none';
-  document.getElementById('calGrid').style.opacity = show ? '0.3' : '1';
-}
-function showCalEmpty(show) {
-  document.getElementById('calEmpty').style.display = show ? 'block' : 'none';
-}
-
-// ── Init ──
-renderCalendar();
-showCalEmpty(true);
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="auth.js"></script>
-
-<script>
-// Mobile nav
-(function(){
-  const btn = document.getElementById('navHamburger');
-  const menu = document.getElementById('navMobileMenu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open'); btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-  }));
-})();
-</script>
-
-
-  <script src="auth.js"></script>
-  <script src="app-shell.js"></script>
+  })();
+  </script>
+  <script src="/js/concerto-shell.js" defer></script>
+  <script src="/analytics.js" defer></script>
 </body>
 </html>
