@@ -1,435 +1,360 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="apple-itunes-app" content="app-id=6744903414">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#F8F9F9" />
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-96x96.png" />
-  <meta name="apple-mobile-web-app-title" content="Concerto" />
-<title>Concerto, From the Concert to the City</title>
-  <meta name="description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out. Free on iOS." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://concertocity.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://concertocity.com/" />
-<meta property="og:title" content="Concerto, From the Concert to the City" />
-<meta property="og:description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out." />
-<meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
-<meta property="og:image:secure_url" content="https://concertocity.com/ConcertoSocialPreview.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Concerto, from the concert to the city" />
-<meta property="og:site_name" content="Concerto" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://concertocity.com/" />
-<meta name="twitter:title" content="Concerto, From the Concert to the City" />
-<meta name="twitter:description" content="Bag policies, parking, setlists, city guides, and events near you for 340+ venues and 71 active tours. The one-stop shop for concerts, sports, and nights out." />
-<meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
-<meta name="twitter:image:alt" content="Concerto, from the concert to the city" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "Concerto",
-    "description": "From the Concert to the City. Bag policies, parking, setlists, city guides, and AI itineraries for concerts, sports, and nights out at 300+ venues.",
-    "applicationCategory": "EntertainmentApplication",
-    "operatingSystem": "iOS",
-    "url": "https://concertocity.com",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "author": { "@type": "Organization", "name": "Concerto LLC", "url": "https://concertocity.com" }
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/concerto.css"/>
-</head>
-<body>
-  <nav class="topbar" aria-label="Main">
-    <a class="tb-brand" href="/">CONCERTO</a>
-    <div class="tb-links">
-      <a href="/venues">Venues</a>
-      <a href="/tours">Tours</a>
-      <a href="/events">Near Me</a>
-      <a href="/about">About</a>
-    </div>
-    <a class="tb-signin" id="tbSignin" href="/login.html" style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-right:14px">Sign In</a>
-    <a class="tb-get" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      Get the App
-    </a>
-  </nav>
-
-  <!-- ═════════ The app's Home tab, verbatim ═════════ -->
-  <header class="masthead col" role="banner">
-    <p class="eyebrow" id="greeting">GOOD EVENING</p>
-    <h1 style="margin:0"><img class="lockup-img" src="/img/lockup.png" alt="Concerto — From the Concert to the City" width="250" height="52"/></h1>
-    <a class="search-pill rv" href="/venues" aria-label="Find your next show">
-      <span class="sp-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
-      <span><span class="sp-title">Find your next show</span><br/><span class="sp-sub">Venue, artist, or city</span></span>
-    </a>
-
-    <!-- NextShowCard, empty state: the ghost countdown, exactly as in the app -->
-    <a class="next-empty rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer" aria-label="Save a show in the Concerto app">
-      <p class="ne-eyebrow">YOUR NEXT SHOW</p>
-      <p class="ne-text">Save a show and the<br/>countdown starts here.</p>
-      <div class="ne-countrow" aria-hidden="true">
-        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">DAYS</div></div>
-        <div class="ne-colon">:</div>
-        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">HRS</div></div>
-        <div class="ne-colon">:</div>
-        <div class="ne-cell"><div class="ne-val">--</div><div class="ne-lab">MIN</div></div>
-      </div>
-      <span class="ne-cta">
-        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>
-        Find tonight
-      </span>
-    </a>
-  </header>
-
-  <main>
-    <div class="sec-head"><h2>Your Venues &amp; Nearby</h2><a class="action" href="/venues">All venues</a></div>
-    <div class="rail" aria-label="Venues">
-      <a class="vcard rv" href="/venues/madison-square-garden">
-        <div class="vc-img" data-vphoto data-vname="Madison Square Garden" data-vcity="New York" data-vlat="40.7505" data-vlng="-73.9934"><img src="/img/cityguides/madison-square-garden/Madison-Square-Garden.webp" alt="Madison Square Garden" loading="lazy" width="400" height="300"/></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Madison Square Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">New York, NY</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/moody-center">
-        <div class="vc-img" data-vphoto data-vname="Moody Center" data-vcity="Austin" data-vlat="30.28" data-vlng="-97.73"><img src="/img/cityguides/moody-center/Moody-Center.webp" alt="Moody Center" loading="lazy" width="400" height="300"/></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Moody Center</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Austin, TX</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/td-garden">
-        <div class="vc-img" data-vphoto data-vname="TD Garden" data-vcity="Boston" data-vlat="42.3662" data-vlng="-71.0621"><img src="/img/cityguides/td-garden/TD-Garden.webp" alt="TD Garden" loading="lazy" width="400" height="300"/></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">TD Garden</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Boston, MA</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/kia-forum">
-        <div class="vc-img" data-vphoto data-vname="Kia Forum" data-vcity="Inglewood" data-vlat="33.9584" data-vlng="-118.3419"><img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="Kia Forum" loading="lazy" width="400" height="300"/></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Kia Forum</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Inglewood, CA</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/bridgestone-arena">
-        <div class="vc-img" data-vphoto data-vname="Bridgestone Arena" data-vcity="Nashville" data-vlat="36.1592" data-vlng="-86.7785"><img src="/img/cityguides/bridgestone-arena/Bridgestone-Arena.webp" alt="Bridgestone Arena" loading="lazy" width="400" height="300"/></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Bridgestone Arena</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Nashville, TN</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/att-stadium">
-        <div class="vc-img" data-vphoto data-vname="AT&T Stadium" data-vcity="Arlington" data-vlat="32.7473" data-vlng="-97.0945"><span class="mono">A</span></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">AT&amp;T Stadium</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Arlington, TX</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/sphere">
-        <div class="vc-img" data-vphoto data-vname="Sphere" data-vcity="Las Vegas" data-vlat="36.1219" data-vlng="-115.1624"><span class="mono">S</span></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Sphere</span><svg class="vc-shield" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm-1.2 13.6-3-3 1.4-1.4 1.6 1.6 4-4L16.2 10l-5.4 5.6z"/></svg></div>
-          <div class="vc-city">Las Vegas, NV</div>
-        </div>
-      </a>
-      <a class="vcard rv" href="/venues/red-rocks-amphitheatre">
-        <div class="vc-img" data-vphoto data-vname="Red Rocks Amphitheatre" data-vcity="Morrison" data-vlat="39.6654" data-vlng="-105.2057"><span class="mono">R</span></div>
-        <div class="vc-meta">
-          <div class="vc-name-row"><span class="vc-name">Red Rocks Amphitheatre</span></div>
-          <div class="vc-city">Morrison, CO</div>
-        </div>
-      </a>
-    </div>
-
-    <div class="sec-head"><h2>Featured Tours</h2><a class="action" href="/tours">All tours</a></div>
-    <div class="rail" aria-label="Featured tours">
-      <a class="ttile rv" data-artist="Noah Kahan" href="/tours/noah-kahan-the-great-divide-tour">
-        <span class="ini">N</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Noah Kahan</div><div class="tt-tour">The Great Divide Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Bruno Mars" href="/tours/bruno-mars-the-romantic-tour">
-        <span class="ini">B</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Bruno Mars</div><div class="tt-tour">The Romantic Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Ariana Grande" href="/tours/ariana-grande-the-eternal-sunshine-tour-na">
-        <span class="ini">A</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Ariana Grande</div><div class="tt-tour">The Eternal Sunshine Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Harry Styles" href="/tours/harry-styles-together-together-tour">
-        <span class="ini">H</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Harry Styles</div><div class="tt-tour">Together, Together Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Chris Stapleton" href="/tours/chris-stapleton-all-american-road-show-tour">
-        <span class="ini">C</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Chris Stapleton</div><div class="tt-tour">All-American Road Show</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Post Malone" href="/tours/post-malone-the-big-ass-stadium-tour">
-        <span class="ini">P</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Post Malone</div><div class="tt-tour">The Big Ass Stadium Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="Florence + The Machine" href="/tours/florence-the-machine-everybody-scream-tour">
-        <span class="ini">F</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">Florence + The Machine</div><div class="tt-tour">Everybody Scream Tour</div></div>
-      </a>
-      <a class="ttile rv" data-artist="My Chemical Romance" href="/tours/my-chemical-romance-the-black-parade-tour">
-        <span class="ini">M</span>
-        <div class="scrim"></div>
-        <div class="tt-text"><div class="tt-artist">My Chemical Romance</div><div class="tt-tour">The Black Parade Tour</div></div>
-      </a>
-    </div>
-
-    <!-- NightCard: the gold moment, exactly as in the app -->
-    <div class="col">
-      <a class="night-card rv" href='https://apps.apple.com/us/app/concerto-show-go/id6744903414' target="_blank" rel="noopener noreferrer">
-        <div class="nc-header">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="#C9A84C"><path d="m12 2 1.8 5.7L19.5 9l-5.7 1.8L12 16.5l-1.8-5.7L4.5 9l5.7-1.3L12 2zM19 14l.9 2.9 2.9.9-2.9.9L19 21.6l-.9-2.9-2.9-.9 2.9-.9L19 14z"/></svg>
-          <span class="nc-brand">Concerto+</span>
-        </div>
-        <p class="nc-title">Your Whole Night, Planned</p>
-        <div class="nc-preview">
-          <div class="nc-prow"><span class="nc-time">5:45</span><span class="nc-dot"></span><span class="nc-label">Dinner two blocks out</span></div>
-          <div class="nc-prow"><span class="nc-time">7:10</span><span class="nc-dot gold"></span><span class="nc-label">Doors, bag pre-checked</span></div>
-          <div class="nc-prow"><span class="nc-time">11:15</span><span class="nc-dot"></span><span class="nc-label">Ride from the quiet corner</span></div>
-        </div>
-        <div class="nc-ctarow">
-          <span class="nc-price">$7.99/mo &middot; first plan free to preview</span>
-          <span class="nc-cta">Try it
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M5 11h11.2l-4.6-4.6L13 5l7 7-7 7-1.4-1.4 4.6-4.6H5v-2z"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <p class="library rv" style="margin-top:var(--sp-xxl)">
-        The library behind the app &mdash; checked against each venue's own posted
-        policies. Browse <a class="big" href="/venues">346 venue guides</a>,
-        <a class="big" href="/tours">74 tour guides</a>, or jump by need:
-        <a class="hub" href="/bags">bag policies</a> &middot;
-        <a class="hub" href="/parking">parking</a> &middot;
-        <a class="hub" href="/rideshare">rideshare</a> &middot;
-        <a class="hub" href="/concessions">concessions</a> &middot;
-        <a class="hub" href="/top-picks">top picks</a> &middot;
-        <a class="hub" href="/events">events near you</a>.
-      </p>
-    </div>
-  </main>
-
-<footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
-      </div>
-      <nav class="footer-col" aria-label="Company links">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop</a>
-        <a href="partners.html">Partnerships</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Legal">
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="mailto:support@concertocity.com">Contact</a>
-      </nav>
-      <nav class="footer-col" aria-label="Social">
-        <h4>Follow Us</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
-      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
-    </div>
-  </footer>
-  <script src="/js/concerto-shell.js" defer></script>
-
-
-  <script>
-    const bgCanvas = document.getElementById('bgCanvas');
-    let ticking = false;
-    document.addEventListener('mousemove', (e) => {
-      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-18}px,${(e.clientY/window.innerHeight-0.5)*-18}px)`; ticking = false; }); ticking = true; }
-    });
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-    // Count-up stats, animates each number once when it scrolls into view
-    (function(){
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function animateCount(el){
-        var target = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '', dur = 1400, start = null;
-        function frame(ts){ if(!start) start = ts; var p = Math.min((ts-start)/dur, 1); var eased = 1 - Math.pow(1-p, 3); el.textContent = Math.round(target*eased) + suf; if(p < 1) requestAnimationFrame(frame); }
-        requestAnimationFrame(frame);
-      }
-      document.querySelectorAll('[data-count]').forEach(function(el){
-        if (prefersReduced) { el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); return; }
-        var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ animateCount(el); io.unobserve(el); } }); }, { threshold: 0.6 });
-        io.observe(el);
-      });
-    })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="auth.js"></script>
-
-
-<script>
-// Mobile nav
-(function(){
-  const btn = document.getElementById('navHamburger');
-  const menu = document.getElementById('navMobileMenu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }));
-  // Auth state, mobile menu + profile icon
-  const mobileAuth = document.getElementById('navMobileAuthLink');
-  const profileIcon = document.getElementById('navProfileIcon');
-  try {
-    const SB_URL = 'https://qgvukssbtfkbvahaiejm.supabase.co';
-    const SB_KEY = 'sb_publishable_xuc86SqqrndgPMj5ToBuvw_EHDkRwYY';
-    const token = JSON.parse(localStorage.getItem('sb-' + SB_URL.split('//')[1].split('.')[0] + '-auth-token') || '{}').access_token || '';
-    var PREM_CACHE = 'cc_is_premium';
-    function applyPremiumUI(isPrem){
-      var cards = document.getElementById('premiumCardsWeb');
-      var promo = document.getElementById('premiumStripPromo');
-      if (isPrem) { if (cards) cards.style.display = ''; if (promo) promo.style.display = 'none'; }
-      else { if (cards) cards.style.display = 'none'; if (promo) promo.style.display = ''; }
-    }
-    if (!token) { applyPremiumUI(false); try { localStorage.removeItem(PREM_CACHE); } catch(e){} }
-    else {
-      try { if (localStorage.getItem(PREM_CACHE) === '1') applyPremiumUI(true); } catch(e){}
-      fetch(SB_URL + '/auth/v1/user', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-        .then(r => r.ok ? r.json() : null)
-        .then(user => {
-          if (!user?.id) { applyPremiumUI(false); try { localStorage.setItem(PREM_CACHE,'0'); } catch(e){} return; }
-          if (mobileAuth) { mobileAuth.textContent = 'My Account'; mobileAuth.href = 'account.html'; }
-          if (profileIcon) { profileIcon.href = 'account.html'; profileIcon.classList.add('logged-in'); profileIcon.setAttribute('aria-label', 'My Account'); }
-          fetch(SB_URL + '/rest/v1/profiles?id=eq.' + user.id + '&select=is_premium', { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + token } })
-            .then(r => r.ok ? r.json() : null)
-            .then(rows => { var isPrem = Array.isArray(rows) && rows[0] && rows[0].is_premium === true; applyPremiumUI(isPrem); try { localStorage.setItem(PREM_CACHE, isPrem ? '1':'0'); } catch(e){} })
-            .catch(()=>{});
-        })
-        .catch(()=>{});
-    }
-  } catch(e) {}
-})();
-</script>
-
-<script>
-// Top Picks strip, one standout per venue from the Top Picks source (Google Sheet via /top-picks function); hides itself if unavailable
-(function(){
-  var sec=document.getElementById('picksStrip'), grid=document.getElementById('picksGrid');
-  if(!sec||!grid) return;
-  var MAP_BASE='/venues/';
-  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  fetch('/data/top_picks.json').then(function(r){return r.json();}).then(function(data){
-    data=data.slice().sort(function(a,b){var pa=((a.items||[])[0]||{}).photo?0:1,pb=((b.items||[])[0]||{}).photo?0:1;return pa-pb;});
-    var cards=data.slice(0,6).map(function(v){
-      var it=(v.items||[])[0]; if(!it) return '';
-      var ph=it.photo?'<img class="pick-card-img" src="/'+esc(String(it.photo).replace(/^\//,''))+'" alt="'+esc(it.name)+'" loading="lazy" decoding="async" onerror="this.remove()">':'';
-      return '<a class="pick-card" href="'+MAP_BASE+esc(v.slug||'')+'" rel="noopener noreferrer">'+ph
-        +'<div class="pick-card-body">'
-        +'<div class="pick-card-name">'+esc(it.name)+'</div>'
-        +'<div class="pick-card-venue">'+esc(v.venueName)+' &middot; '+esc(v.city)+'</div>'
-        +'</div>'
-      +'</a>';
-    }).join('');
-    if(cards.replace(/\s/g,'')){ grid.innerHTML=cards; sec.style.display=''; }
-  }).catch(function(){});
-})();
-</script>
-
-  <script src="auth.js"></script>
-  <script src="app-shell.js"></script>
-
-<script>
-(function(){
-  var inp=document.getElementById('heroSearchInput'), box=document.getElementById('heroSearchResults');
-  if(!inp||!box) return;
-  var IDX=null, sel=-1;
-  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-  function load(){ if(IDX) return Promise.resolve(IDX);
-    return fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){IDX=d;return d;}).catch(function(){return {venues:[],tours:[]};}); }
-  function scoreOf(hay,q){ hay=hay.toLowerCase();
-    if(hay.indexOf(q)===-1) return -1;
-    if(hay.indexOf(q)===0) return 0;                      // starts with query
-    if(hay.indexOf(' '+q)>-1) return 1;                   // word boundary
-    return 2; }                                           // substring
-  function match(q){ q=q.toLowerCase();
-    var out=[];
-    (IDX.tours||[]).forEach(function(t){
-      var sA=scoreOf(t.artist||'',q), sN=scoreOf(t.name||'',q);
-      var s=Math.min(sA===-1?9:sA, sN===-1?9:sN);
-      if(s<9) out.push({s:s, name:t.artist?t.artist:t.name, sub:t.artist?t.name:'', href:'/tours/'+t.slug, type:'Tour'});
-    });
-    (IDX.venues||[]).forEach(function(v){
-      var s=scoreOf(v.name,q);
-      if(s>-1) out.push({s:s+0.5, name:v.name, sub:v.type||'', href:'/venues/'+v.slug, type:'Venue'});
-    });
-    out.sort(function(a,b){return a.s-b.s;});
-    return out.slice(0,8); }
-  function render(items){ sel=-1;
-    if(!items.length){ box.hidden=true; inp.setAttribute('aria-expanded','false'); return; }
-    box.innerHTML=items.map(function(it){
-      return '<a href="'+esc(it.href)+'"><span>'+esc(it.name)+(it.sub?' <span class="hs-sub">'+esc(it.sub)+'</span>':'')+'</span><span class="hs-type">'+it.type+'</span></a>';
-    }).join('');
-    box.hidden=false; inp.setAttribute('aria-expanded','true'); }
-  var POP=['madison-square-garden','sofi-stadium','sphere','cryptocom-arena','td-garden','moody-center'];
-  function defaults(){ var by={}; (IDX&&IDX.venues||[]).forEach(function(v){by[v.slug]=v;});
-    var rows=POP.map(function(sl){return by[sl];}).filter(Boolean).map(function(v){return {name:v.name, sub:v.type||'', href:'/venues/'+v.slug, type:'Venue'};});
-    rows.push({name:'Browse all venues', sub:'', href:'/venues.html', type:'340+'});
-    rows.push({name:'Browse all tours', sub:'', href:'/tours.html', type:'75+'});
-    return rows; }
-  inp.addEventListener('focus',function(){ load().then(function(){ if(inp.value.trim().length<2) render(defaults()); }); });
-  inp.addEventListener('input',function(){ var q=inp.value.trim();
-    if(q.length<2){ load().then(function(){ render(defaults()); }); return; }
-    load().then(function(){ render(match(q)); }); });
-  inp.addEventListener('keydown',function(e){
-    var links=box.querySelectorAll('a'); if(box.hidden||!links.length){ return; }
-    if(e.key==='ArrowDown'){ e.preventDefault(); sel=Math.min(sel+1,links.length-1); }
-    else if(e.key==='ArrowUp'){ e.preventDefault(); sel=Math.max(sel-1,0); }
-    else if(e.key==='Enter'){ if(sel>-1){ e.preventDefault(); links[sel].click(); } else if(links.length){ e.preventDefault(); links[0].click(); } return; }
-    else if(e.key==='Escape'){ box.hidden=true; return; }
-    else { return; }
-    for(var i=0;i<links.length;i++){ links[i].classList.toggle('active', i===sel); } });
-  box.addEventListener('click',function(e){ var a=e.target.closest('a'); if(a && window.gtag){ try{ gtag('event','search',{search_term:inp.value.trim()}); }catch(err){} } });
-  document.addEventListener('click',function(e){ if(!e.target.closest('#heroSearch')) box.hidden=true; });
-})();
-</script>
-</body>
-</html>
+<!DOCTYPE html><html  lang="en"><head><title data-rh="true"></title><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><style id="expo-reset">#root,body,html{height:100%}body{overflow:hidden}#root{display:flex}</style><style id="react-native-stylesheet">[stylesheet-group="0"]{}
+body{margin:0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input::-webkit-search-cancel-button,input::-webkit-search-decoration,input::-webkit-search-results-button,input::-webkit-search-results-decoration{display:none;}
+[stylesheet-group="1"]{}
+.css-11aywtz{-moz-appearance:textfield;-webkit-appearance:none;background-color:rgba(0,0,0,0.00);border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px;border:0 solid black;box-sizing:border-box;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0px;padding:0px;resize:none;}
+.css-146c3p1{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:rgba(0,0,0,1.00);display:inline;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;list-style:none;margin:0px;padding:0px;position:relative;text-align:start;text-decoration:none;white-space:pre-wrap;word-wrap:break-word;}
+.css-1jxf684{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:inherit;display:inline;font:inherit;list-style:none;margin:0px;padding:0px;position:relative;text-align:inherit;text-decoration:none;white-space:inherit;word-wrap:break-word;}
+.css-9pa8cd{bottom:0px;height:100%;left:0px;opacity:0;position:absolute;right:0px;top:0px;width:100%;z-index:-1;}
+.css-g5y9jx{align-content:flex-start;align-items:stretch;background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;display:flex;flex-basis:auto;flex-direction:column;flex-shrink:0;list-style:none;margin:0px;min-height:0px;min-width:0px;padding:0px;position:relative;text-decoration:none;z-index:0;}
+[stylesheet-group="2"]{}
+.r-11mg6pl{border-bottom-color:rgba(255,255,255,1.00);border-left-color:rgba(255,255,255,1.00);border-right-color:rgba(255,255,255,1.00);border-top-color:rgba(255,255,255,1.00);}
+.r-13awgt0{flex:1;}
+.r-1awa8pu{border-bottom-color:rgba(101,119,134,1.00);border-left-color:rgba(101,119,134,1.00);border-right-color:rgba(101,119,134,1.00);border-top-color:rgba(101,119,134,1.00);}
+.r-1bq2mok{margin:3px;}
+.r-1d4xg89{border-bottom-color:rgba(170,184,194,1.00);border-left-color:rgba(170,184,194,1.00);border-right-color:rgba(170,184,194,1.00);border-top-color:rgba(170,184,194,1.00);}
+.r-1dzdj1l{border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-top-left-radius:10px;border-top-right-radius:10px;}
+.r-1f0042m{border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px;}
+.r-1j16mh1{border-bottom-left-radius:100%;border-bottom-right-radius:100%;border-top-left-radius:100%;border-top-right-radius:100%;}
+.r-1jkafct{border-bottom-left-radius:2px;border-bottom-right-radius:2px;border-top-left-radius:2px;border-top-right-radius:2px;}
+.r-1jyn79y{border-bottom-color:rgba(0,150,136,1.00);border-left-color:rgba(0,150,136,1.00);border-right-color:rgba(0,150,136,1.00);border-top-color:rgba(0,150,136,1.00);}
+.r-1pcd2l5{padding:20px;}
+.r-1phboty{border-bottom-style:solid;border-left-style:solid;border-right-style:solid;border-top-style:solid;}
+.r-1q9bdsx{border-bottom-left-radius:12px;border-bottom-right-radius:12px;border-top-left-radius:12px;border-top-right-radius:12px;}
+.r-1qsk4np{overflow-x:clip;overflow-y:clip;}
+.r-1rvyss1{border-bottom-color:rgba(255,255,255,0.20);border-left-color:rgba(255,255,255,0.20);border-right-color:rgba(255,255,255,0.20);border-top-color:rgba(255,255,255,0.20);}
+.r-1sp51qo{padding:10px;}
+.r-1udh08x{overflow-x:hidden;overflow-y:hidden;}
+.r-1uu6nss{padding:5px;}
+.r-1xfd6ze{border-bottom-left-radius:8px;border-bottom-right-radius:8px;border-top-left-radius:8px;border-top-right-radius:8px;}
+.r-4a18lf{border-bottom-color:rgba(255,0,0,1.00);border-left-color:rgba(255,0,0,1.00);border-right-color:rgba(255,0,0,1.00);border-top-color:rgba(255,0,0,1.00);}
+.r-60ke3l{border-bottom-color:rgba(0,128,0,1.00);border-left-color:rgba(0,128,0,1.00);border-right-color:rgba(0,128,0,1.00);border-top-color:rgba(0,128,0,1.00);}
+.r-6t2glc{border-bottom-left-radius:40px;border-bottom-right-radius:40px;border-top-left-radius:40px;border-top-right-radius:40px;}
+.r-9x6qib{border-bottom-color:rgba(204,214,221,1.00);border-left-color:rgba(204,214,221,1.00);border-right-color:rgba(204,214,221,1.00);border-top-color:rgba(204,214,221,1.00);}
+.r-cpet4d{border-bottom-left-radius:999px;border-bottom-right-radius:999px;border-top-left-radius:999px;border-top-right-radius:999px;}
+.r-crgep1{margin:0px;}
+.r-d045u9{border-bottom-width:2px;border-left-width:2px;border-right-width:2px;border-top-width:2px;}
+.r-d23pfw{padding:24px;}
+.r-edyy15{padding:8px;}
+.r-fx7oqy{border-bottom-color:rgba(0,0,255,1.00);border-left-color:rgba(0,0,255,1.00);border-right-color:rgba(0,0,255,1.00);border-top-color:rgba(0,0,255,1.00);}
+.r-krxsd3{display:-webkit-box;}
+.r-rs99b7{border-bottom-width:1px;border-left-width:1px;border-right-width:1px;border-top-width:1px;}
+.r-t60dpp{padding:0px;}
+.r-wg31gx{border-bottom-color:rgba(49,53,56,1.00);border-left-color:rgba(49,53,56,1.00);border-right-color:rgba(49,53,56,1.00);border-top-color:rgba(49,53,56,1.00);}
+.r-xoduu5{display:inline-flex;}
+.r-ywje51{margin:auto;}
+.r-z2wwpe{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top-left-radius:4px;border-top-right-radius:4px;}
+[stylesheet-group="2.1"]{}
+.r-11f147o{padding-bottom:8px;padding-top:8px;}
+.r-11gswi8{padding-left:3px;padding-right:3px;}
+.r-17q4wm6{margin-left:5px;margin-right:5px;}
+.r-184id4b{margin-bottom:12px;margin-top:12px;}
+.r-1d7mnkm{padding-bottom:15px;padding-top:15px;}
+.r-1e084wi{padding-left:0px;padding-right:0px;}
+.r-1fkl15p{padding-left:32px;padding-right:32px;}
+.r-1mmae3n{padding-bottom:12px;padding-top:12px;}
+.r-1ntr0p{padding-left:5px;padding-right:5px;}
+.r-1rsorjc{padding-left:36px;padding-right:36px;}
+.r-1yd117h{padding-bottom:7px;padding-top:7px;}
+.r-3o4zer{padding-left:12px;padding-right:12px;}
+.r-cxgwc0{padding-left:24px;padding-right:24px;}
+.r-f8sm7e{margin-left:auto;margin-right:auto;}
+.r-h0bjfv{padding-left:22px;padding-right:22px;}
+.r-is05cd{padding-left:8px;padding-right:8px;}
+.r-jdiy1a{margin-left:11px;margin-right:11px;}
+.r-jusfrs{margin-left:12px;margin-right:12px;}
+.r-n5f61p{margin-bottom:3px;margin-top:3px;}
+.r-n7gxbd{padding-left:4px;padding-right:4px;}
+.r-u9wvl5{padding-left:20px;padding-right:20px;}
+.r-ugi1tw{padding-left:5%;padding-right:5%;}
+.r-w7s2jr{padding-bottom:16px;padding-top:16px;}
+.r-ytbthy{padding-bottom:10px;padding-top:10px;}
+[stylesheet-group="2.2"]{}
+.r-10s2tm5{left:0%;}
+.r-16o8guy{right:100%;}
+.r-1a11zyx{margin-right:12px;}
+.r-1cwvpvk{margin-left:12px;}
+.r-1e97lx8{margin-right:3px;}
+.r-1euzeng{padding-left:24px;}
+.r-1g4tz6n{margin-right:-14.5px;}
+.r-1h31txp{padding-right:16px;}
+.r-1lhn9r{margin-left:-14.5px;}
+.r-1sqnqi2{margin-left:3px;}
+.r-1vl2501{padding-right:24px;}
+.r-9mo606{margin-right:10px;}
+.r-c59us2{left:-3px;}
+.r-dqe1q{right:0%;}
+.r-qb41rp{margin-right:5px;}
+.r-rci37q{left:100%;}
+.r-uhung1{margin-left:10px;}
+.r-vpmibe{right:-3px;}
+.r-w67my2{padding-left:16px;}
+.r-wizibn{margin-left:5px;}
+[stylesheet-group="3"]{}
+.r-102gzdx{height:52px;}
+.r-105ug2t{pointer-events:auto!important;}
+.r-10ptun7{height:16px;}
+.r-10v3vxq{transform:scaleX(-1);}
+.r-10x49cs{font-size:10px;}
+.r-10xqauy{padding-top:env(safe-area-inset-top);}
+.r-11c0sde{margin-top:24px;}
+.r-11j9u27{visibility:hidden;}
+.r-11mpjr4{background-color:rgba(223,223,223,1.00);}
+.r-11udlyb{background-color:rgba(0,150,136,1.00);}
+.r-11v9fek{min-width:180px;}
+.r-11yh6sk{overflow-x:hidden;}
+.r-12f6czt{top:17px;}
+.r-12vffkv>* {pointer-events:auto;}
+.r-12vffkv{pointer-events:none!important;}
+.r-135wba7{line-height:24px;}
+.r-13aq9py{animation-name:r-1iq689l;}
+.r-13qz1uu{width:100%;}
+.r-13tjlyg{transition-duration:0.1s;}
+.r-1472mwg{height:24px;}
+.r-14gqq1x{margin-top:4px;}
+.r-14lw9ot{background-color:rgba(255,255,255,1.00);}
+.r-14sbq61{background-color:rgba(33,150,243,1.00);}
+.r-150rngu{-webkit-overflow-scrolling:touch;}
+.r-156q2ks{margin-top:10px;}
+.r-15ex2jp{transform:scaleX(0);}
+.r-16y2uox{flex-grow:1;}
+.r-173mn98{align-self:flex-end;}
+.r-173mzie{transform:scaleY(-1);}
+.r-1777fci{justify-content:center;}
+.r-17bb2tj{animation-duration:0.75s;}
+.r-17leim2{background-repeat:repeat;}
+.r-17s6mgv{justify-content:flex-end;}
+.r-17tb59b{opacity:0.7;}
+.r-17tloay{opacity:0.6;}
+.r-17u3ijr{background-color:rgba(155,161,166,0.27);}
+.r-184en5c{z-index:1;}
+.r-18nhz7w{top:-3px;}
+.r-18u1ve8{color:rgba(255,255,255,0.40);}
+.r-18u37iz{flex-direction:row;}
+.r-19oahor{font-size:64px;}
+.r-19wmn03{width:20px;}
+.r-19z077z{touch-action:none;}
+.r-1a2p6p6{-webkit-text-decoration-style:solid;text-decoration-style:solid;}
+.r-1abnn5w{animation-play-state:paused;}
+.r-1acpoxo{width:36px;}
+.r-1aiqnjv{font-family:monospace,monospace;}
+.r-1aockid{width:40px;}
+.r-1awozwy{align-items:center;}
+.r-1ay1djp{animation-duration:1s;}
+.r-1b43r93{font-size:14px;}
+.r-1c6unfx{forced-color-adjust:none;}
+.r-1c85bru{width:270px;}
+.r-1cmwbt1{gap:8px;}
+.r-1d2f490{left:0px;}
+.r-1d5kdc7{flex-direction:column-reverse;}
+.r-1ddef8g{-webkit-text-decoration-line:underline;text-decoration-line:underline;}
+.r-1dernwh{height:70%;}
+.r-1ei5mc7{cursor:inherit;}
+.r-1enofrn{font-size:12px;}
+.r-1euycsn{flex-direction:row-reverse;}
+.r-1ewcgjf{box-shadow:0px 1px 3px rgba(0,0,0,0.5);}
+.r-1ff274t{text-align:right;}
+.r-1ffj0ar{background-color:rgba(0,0,0,0.40);}
+.r-1g80hic{opacity:0.8;}
+.r-1ge9hsw{max-width:960px;}
+.r-1ghxqbu{font-variant:tabular-nums;}
+.r-1gkfh8e{font-size:11px;}
+.r-1gx4lff{background-color:rgba(18,30,54,1.00);}
+.r-1h0z5md{justify-content:flex-start;}
+.r-1h2t8mc{width:0px;}
+.r-1habvwh{align-items:flex-start;}
+.r-1hy97zq{padding-top:80px;}
+.r-1i10wst{font-size:18px;}
+.r-1i6wzkk{-moz-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;}
+.r-1i71y14{gap:14px;}
+.r-1ikidpy{letter-spacing:0.5px;}
+.r-1iln25a{word-wrap:normal;}
+.r-1inkyih{font-size:17px;}
+.r-1iusvr4{flex-basis:0px;}
+.r-1j23gm6{font-family:DMSans_700Bold;}
+.r-1janqcz{width:16px;}
+.r-1jkjb{margin-left:8px;}
+.r-1kb76zh{margin-right:8px;}
+.r-1kfrs79{font-weight:600;}
+.r-1kihuf0{align-self:center;}
+.r-1ld3bg{top:-4px;}
+.r-1ldzwu0{animation-timing-function:linear;}
+.r-1loqt21{cursor:pointer;}
+.r-1mlwlqe{flex-basis:auto;}
+.r-1mrlafo{background-position:0;}
+.r-1mspbye{background-color:rgba(201,168,76,1.00);}
+.r-1muvv40{animation-iteration-count:infinite;}
+.r-1niwhzg{background-color:rgba(0,0,0,0.00);}
+.r-1nlw0im{bottom:8px;}
+.r-1no09lo{margin-top:28px;}
+.r-1nxhmzv{margin-bottom:28px;}
+.r-1ny4l3l{outline-style:none;}
+.r-1ocf4r9{scroll-snap-type:y mandatory;}
+.r-1onu96p{border-curve:continuous;}
+.r-1oszu61{align-items:stretch;}
+.r-1otgn73{touch-action:manipulation;}
+.r-1p0dtai{bottom:0px;}
+.r-1pi2tsx{height:100%;}
+.r-1pm8pkb{font-family:Courier;}
+.r-1qd0xha{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.r-1qulhi1{animation-name:r-1pzkwqh;}
+.r-1r4fvd0{color:rgba(82,169,255,1.00);}
+.r-1r74h94{left:8px;}
+.r-1r8g8re{height:36px;}
+.r-1rnoaur{overflow-y:auto;}
+.r-1sg8ghl{z-index:1000;}
+.r-1ssbvtb{gap:12px;}
+.r-1sxrcry{background-size:auto;}
+.r-1udbk01{text-overflow:ellipsis;}
+.r-1ui5ee8{font-size:32px;}
+.r-1vr29t4{font-weight:800;}
+.r-1w0rzrk{font-family:PlayfairDisplay_700Bold;}
+.r-1w2pmg{height:0px;}
+.r-1w6e6rj{flex-wrap:wrap;}
+.r-1wbh5a2{flex-shrink:1;}
+.r-1wtj0ep{justify-content:space-between;}
+.r-1wyyakw{z-index:-1;}
+.r-1xcajam{position:fixed;}
+.r-1xnzce8{-moz-user-select:text;-webkit-user-select:text;user-select:text;}
+.r-1xpsq9i{box-shadow:0px 3px 3px rgba(0, 0, 0, 0.33);}
+.r-1xzupcd{width:13px;}
+.r-1yef0xd{animation-name:r-11cv4x;}
+.r-2eszeu::-webkit-scrollbar{display:none}
+.r-2eszeu{scrollbar-width:none;}
+.r-30o5oe{-moz-appearance:none;-ms-appearance:none;-webkit-appearance:none;appearance:none;}
+.r-356f0p{letter-spacing:0.35px;}
+.r-3mc0re{right:8px;}
+.r-3s2u2q{white-space:nowrap;}
+.r-417010{z-index:0;}
+.r-4gszlv{background-size:cover;}
+.r-4v7adb{height:5px;}
+.r-5oul0u{margin-bottom:8px;}
+.r-60vfwk{min-width:1px;}
+.r-633pao>* {pointer-events:none;}
+.r-633pao{pointer-events:none!important;}
+.r-6dt33c{opacity:1;}
+.r-6gpygo{margin-bottom:12px;}
+.r-6taxm2:-ms-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-moz-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-webkit-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-726pan{width:31px;}
+.r-76blku{height:21px;}
+.r-7cikom{font-size:inherit;}
+.r-7q8q6z{cursor:default;}
+.r-8akbws{-webkit-box-orient:vertical;}
+.r-8ay8q1{letter-spacing:0.1px;}
+.r-97e31f{padding-bottom:env(safe-area-inset-bottom);}
+.r-9daxd3{animation-duration:250ms;}
+.r-adyw6z{font-size:20px;}
+.r-agouwx{transform:translateZ(0);}
+.r-ah5dr5>* {pointer-events:none;}
+.r-ah5dr5{pointer-events:auto!important;}
+.r-aruset{font-weight:200;}
+.r-aynxtb{background-color:rgba(248,249,249,1.00);}
+.r-bi4vy9{transform:translateY(100%);}
+.r-bt1l66{min-height:20px;}
+.r-buy8e9{overflow-y:hidden;}
+.r-bv2aro{padding-left:env(safe-area-inset-left);}
+.r-c68hjy{color:rgba(161,161,161,1.00);}
+.r-c97pre{z-index:999;}
+.r-cpa5s6{scroll-snap-align:start;}
+.r-cqee49{color:rgba(0,0,0,1.00);}
+.r-dkge59{background-color:rgba(170,184,194,1.00);}
+.r-dnmrzs{max-width:100%;}
+.r-eafdt9{transition-duration:0.15s;}
+.r-ebwn4k{animation-name:r-q67da2;}
+.r-ehq7j7{background-size:contain;}
+.r-epq5cr{height:2px;}
+.r-eqz5dr{flex-direction:column;}
+.r-eu3ka{height:40px;}
+.r-fdjqy7{text-align:left;}
+.r-g3mlsw{animation-name:r-t2lo5v;}
+.r-ghxds0{transform:translateY(0%);}
+.r-gtdqiz{position:-webkit-sticky;position:sticky;}
+.r-h0d30l{height:28px;}
+.r-hxflta{padding-right:env(safe-area-inset-right);}
+.r-i933xg{letter-spacing:1.5px;}
+.r-icoktb{opacity:0.5;}
+.r-ipm5af{top:0px;}
+.r-jwli3a{color:rgba(255,255,255,1.00);}
+.r-k200y{align-self:flex-start;}
+.r-kemksi{background-color:rgba(0,0,0,1.00);}
+.r-kizejy{color:rgba(155,161,166,1.00);}
+.r-knv0ih{margin-top:8px;}
+.r-l71dzp{margin-top:14px;}
+.r-leqjx2{animation-timing-function:cubic-bezier(0.215, 0.61, 0.355, 1);}
+.r-lltvgl{overflow-x:auto;}
+.r-lpb231{height:168px;}
+.r-lrsllp{width:24px;}
+.r-lrvibr{-moz-user-select:none;-webkit-user-select:none;user-select:none;}
+.r-m2n80f{color:rgba(18,30,54,1.00);}
+.r-majxgm{font-weight:500;}
+.r-mfh4gg{scroll-snap-type:x mandatory;}
+.r-mhe3cw{z-index:10;}
+.r-mro3nb{background-color:rgba(21,23,24,1.00);}
+.r-n6v787{font-size:13px;}
+.r-o4n3w5{width:23px;}
+.r-orgf3d{opacity:0;}
+.r-pvf4s5{font-family:DMSans_400Regular;}
+.r-q4m81j{text-align:center;}
+.r-qfi6ny{top:30000px;}
+.r-qklmqi{border-bottom-width:1px;}
+.r-qn3fzs{padding-bottom:24px;}
+.r-qq6crh{color:rgba(90,100,120,1.00);}
+.r-rjixqe{line-height:20px;}
+.r-rlb4qz{color:rgba(201,168,76,1.00);}
+.r-rs94m5{background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K");}
+.r-s62m2j{animation-timing-function:cubic-bezier(0.47, 0, 0.745, 0.715);}
+.r-sfbmgh{z-index:9999;}
+.r-sgscqh{width:250px;}
+.r-so7y2g{line-height:64px;}
+.r-tsynxw{text-transform:uppercase;}
+.r-u6sd8q{background-repeat:no-repeat;}
+.r-u8s1d{position:absolute;}
+.r-u92y06{background-color:rgba(255,165,0,1.00);}
+.r-ubezar{font-size:16px;}
+.r-uho16t{font-size:34px;}
+.r-vacyoi{padding-bottom:64px;}
+.r-van48c{caret-color:transparent;}
+.r-vboj7i{top:-7px;}
+.r-vvn4in{background-position:center;}
+.r-vw2c0b{font-weight:bold;}
+.r-wfqgy4{transition-duration:100ms;}
+.r-ws9h79{left:4px;}
+.r-x11e5r{font-family:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+.r-x3cy2q{background-size:100% 100%;}
+.r-xx3c9p{animation-name:r-imtty0;}
+.r-y7v2we{background-color:rgba(32,36,37,1.00);}
+.r-yy2aun{font-size:26px;}
+.r-z80fyv{height:20px;}
+.r-zchlnj{right:0px;}
+.r-zz5t5d{font-size:28px;}
+@-webkit-keyframes r-11cv4x{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@-webkit-keyframes r-1iq689l{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@-webkit-keyframes r-1pzkwqh{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@-webkit-keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@-webkit-keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@-webkit-keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}
+@keyframes r-11cv4x{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes r-1iq689l{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@keyframes r-1pzkwqh{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}</style><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="icon" href="/favicon.ico" />    <title>Concerto — From the Concert to the City</title>
+    <meta name="description" content="Verified bag policies, parking, setlists and an AI-planned night for 346 venues. The app you open after you buy the ticket.">
+    <link rel="canonical" href="https://concertocity.com/">
+    <meta name="apple-itunes-app" content="app-id=6744903414">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Concerto">
+    <meta property="og:title" content="Concerto — From the Concert to the City">
+    <meta property="og:description" content="Verified bag policies, parking, setlists and an AI-planned night for 346 venues. The app you open after you buy the ticket.">
+    <meta property="og:url" content="https://concertocity.com/">
+    <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head><body><div id="root"><div class="css-g5y9jx r-13awgt0"><!--$--><!--/$--></div></div><script src="/_expo/static/js/web/entry-aac8f8aabc0b140e1be183c6e5fa5d4f.js" defer></script>
+</body></html>

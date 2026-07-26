@@ -1,12 +1,21 @@
-/mobile-bags.html  /mobile-bagcheck.html  301
-/mobile-bags  /mobile-bagcheck  301
-# City Guide deep links -> SPA (MUST come before the catch-all)
+# ── Concerto: the app IS the website ────────────────────────────────
+# Order matters. Netlify serves real files first, so the 346 static
+# venue pages and 76 tour pages under /venues/* and /tours/* keep
+# being served exactly as before -- their SEO is untouched.
+
+# Legacy
+/mobile-bags.html   /mobile-bagcheck.html   301
+/mobile-bags        /mobile-bagcheck        301
+
+# City guide SPA (unchanged)
 /cityguide/*   /cityguide/index.html   200
 
-# Real 404 for unknown paths.
-# Was previously:  /*  /index.html  200
-# That returned the full homepage with an HTTP 200 status for every unknown URL,
-# so Google logged each dead link and typo as an alternate/duplicate of the
-# homepage instead of dropping it. All in-app routing is hash based
-# (#venue-id, #tour-slug), so no path-based route relies on this fallback.
-/*             /404.html               404
+# The APP's own detail screens live at the SINGULAR paths, so they
+# never collide with the plural static SEO pages:
+#   /venue/madison-square-garden   -> app screen (client-rendered)
+#   /venues/madison-square-garden  -> static SEO page (indexed)
+/venue/*   /venue/[slug].html   200
+/tour/*    /tour/[slug].html    200
+
+# Real 404 for anything else.
+/*   /+not-found.html   404
