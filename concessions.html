@@ -1,741 +1,360 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#F8F9F9" />
-
-  <!-- ─── SEO ─── -->
-  <title>Venue Food & Drink Guide, Concessions at 300+ Stadiums & Arenas | Concerto</title>
-  <meta name="title" content="Venue Food & Drink Guide, Concessions at 300+ Stadiums & Arenas | Concerto" />
-  <meta name="description" content="What food is at SoFi Stadium? What can you eat at MSG? Look up concessions, vendors, bars, and food options at 300+ concert venues, arenas, and stadiums before you arrive." />
-  <meta name="keywords" content="concert venue food, stadium concessions, what food is at SoFi Stadium, MSG food options, arena food guide, what can you eat at a concert, venue vendors, stadium food and drink, concert arena concessions" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://concertocity.com/concessions.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://concertocity.com/concessions.html" />
-  <meta property="og:title" content="What Food &amp; Drinks Are at Your Venue?, Concerto Concessions Guide" />
-  <meta property="og:description" content="Look up food vendors, bars, and concession options at 300+ concert venues, arenas, and stadiums before you arrive." />
-  <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
-  <meta property="og:image:secure_url" content="https://concertocity.com/ConcertoSocialPreview.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Concerto, from the concert to the city" />
-  <meta property="og:site_name" content="Concerto" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://concertocity.com/concessions.html" />
-  <meta name="twitter:title" content="What Food &amp; Drinks Are at Your Venue?, Concerto Concessions Guide" />
-  <meta name="twitter:description" content="Look up food vendors, bars, and concession options at 300+ concert venues, arenas, and stadiums before you arrive." />
-  <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png" />
-  <meta name="twitter:image:alt" content="Concerto, from the concert to the city" />
-
-  <!-- ─── Schema.org ─── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Venue Concessions Guide, Food & Drinks at 300+ Stadiums & Arenas",
-    "description": "Look up food vendors, bars, and concession options at 300+ concert venues, stadiums, and festivals before you arrive.",
-    "url": "https://concertocity.com/concessions.html",
-    "isPartOf": { "@type": "WebSite", "name": "Concerto", "url": "https://concertocity.com" },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://concertocity.com" },
-        { "@type": "ListItem", "position": 2, "name": "Concessions", "item": "https://concertocity.com/concessions.html" }
-      ]
-    }
-  }
-  </script>
-
-  <!-- ─── Fonts ─── -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --display:     'Playfair Display', Georgia, 'Times New Roman', serif;
-      --body:        'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-      --bg:          #F8F9F9;
-      --card-bg:     #FFFFFF;
-      --text:        #121E36;
-      --text-dim:    rgba(18, 30, 54, 0.52);
-      --text-xdim:   rgba(18, 30, 54, 0.28);
-      --border:      rgba(18, 30, 54, 0.08);
-      --border-mid:  rgba(18, 30, 54, 0.14);
-      --gold:        #C9A84C;
-      --gold-light:  #E5C365;
-      --shadow-sm:   0 2px 12px rgba(18, 30, 54, 0.04);
-      --shadow-md:   0 8px 32px rgba(18, 30, 54, 0.07);
-      --shadow-lg:   0 20px 50px rgba(18, 30, 54, 0.10);
-      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-      --radius-sm:   12px;
-      --radius-md:   20px;
-      --radius-lg:   28px;
-      --nav-h:       68px;
-      --nav-total:   68px;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); font-size: 16px; }
-    body { font-family: var(--body); color: var(--text); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: 'kern' 1, 'liga' 1; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    .bg-canvas { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; transition: transform 0.12s linear; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(130px); }
-    .orb-1 { width: 65vw; height: 65vw; background: radial-gradient(circle, rgba(192,192,192,0.22) 0%, transparent 70%); top: -25%; left: -15%; opacity: 0.9; }
-    .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); bottom: -15%; right: -10%; opacity: 0.85; }
-    .noise { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-    /* ── Nav ── */
-    .site-nav { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5%; transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); border-bottom: 1px solid transparent; }
-    .site-nav.scrolled { background: rgba(248,249,249,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-color: var(--border); box-shadow: var(--shadow-sm); }
-    .nav-logo { display: flex; align-items: center; width: 200px; }
-    .nav-logo-img { height: 48px; width: auto; object-fit: contain; }
-    .nav-center { display: flex; gap: 0; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-center > a,
-    .nav-center > a:hover,
-    .nav-cta { display: flex; justify-content: flex-end; align-items:center; gap:10px; }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.72rem 1.6rem; border-radius: 99px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
-    .btn-dark { background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(18,30,54,0.18); }
-    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(18,30,54,0.24); }
-
-    /* ── Page Hero ── */
-    .page-hero { padding: calc(var(--nav-total) + 60px) 4% 60px; text-align: center; max-width: 860px; margin: 0 auto; }
-    .eyebrow { display: block; font-family: var(--body); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
-    .page-hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.025em; color: var(--text); line-height: 1.08; margin-bottom: 1.2rem; }
-    .page-hero p { font-family: var(--body); font-size: 1.05rem; font-weight: 300; color: var(--text-dim); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.75; letter-spacing: 0.01em; }
-
-    .seo-intro { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; max-width: 860px; margin: 0 auto 3rem; box-shadow: var(--shadow-sm); }
-    .seo-intro h2 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-    .seo-intro p { font-family: var(--body); font-size: 0.9rem; font-weight: 300; color: var(--text-dim); line-height: 1.75; }
-
-    main { min-height: 100vh; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 4%; }
-
-    .search-wrapper { max-width: 640px; margin: 0 auto 2rem; position: relative; }
-    .search-input { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 99px; padding: 1.1rem 2rem 1.1rem 3.2rem; font-family: var(--body); font-size: 0.95rem; color: var(--text); box-shadow: var(--shadow-md); outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
-    .search-input:focus { border-color: var(--gold); box-shadow: var(--shadow-lg); }
-    .search-input::placeholder { color: var(--text-xdim); }
-    .search-icon { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--text-xdim); font-size: 1rem; pointer-events: none; }
-    .search-count { text-align: center; font-family: var(--body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-xdim); margin-bottom: 2rem; }
-
-    .directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 5rem; }
-    .directory-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem 2rem; display: flex; flex-direction: column; text-decoration: none; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.3s; }
-    .directory-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
-    .directory-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-mid); }
-    .directory-card:hover::before { opacity: 1; }
-    .venue-name { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 1.2rem; letter-spacing: -0.01em; flex: 1; transition: font-style 0.15s; }
-    .directory-card:hover .venue-name { font-style: italic; }
-    .card-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.2rem; }
-    .card-link-text { font-family: var(--body); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
-    .card-arrow { color: var(--text-xdim); font-size: 1rem; transition: transform 0.3s var(--ease-out), color 0.3s; }
-    .directory-card:hover .card-arrow { color: var(--text); transform: translateX(4px); }
-    .no-results { grid-column: span 3; text-align: center; padding: 5rem 0; color: var(--text-dim); font-family: var(--display); font-size: 1.4rem; font-style: italic; display: none; }
-
-    footer { padding: 5rem 4% 2.5rem; background: var(--bg); border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
-    .footer-brand img { height: 44px; width: auto; object-fit: contain; object-position: left; margin-bottom: 1.2rem; }
-    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; max-width: 260px; }
-    .footer-col h4 { font-family: var(--body); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.24em; color: var(--text); margin-bottom: 1.2rem; }
-    .footer-col a { font-family: var(--body); display: block; font-size: 0.9rem; font-weight: 400; color: var(--text-dim); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.25s; }
-    .footer-col a:hover { color: var(--text); }
-    .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-xdim); }
-    .footer-bottom a { color: var(--text-dim); text-decoration: none; transition: color 0.25s; }
-    .footer-bottom a:hover { color: var(--text); }
-
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 1200px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: span 3; } }
-    @media (max-width: 1024px) { .nav-center { display: none; } .directory-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      :root { --nav-h: 58px; --nav-total: 58px; }
-      .page-hero { padding: calc(var(--nav-total) + 40px) 5% 40px; }
-      .directory-grid { grid-template-columns: 1fr; gap: 1.1rem; }
-      .no-results { grid-column: span 1; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .seo-intro { padding: 1.5rem; }
-    }
-    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-brand { grid-column: auto; } }
-/* ── MOBILE NAV ── */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; margin-left:4px; }
-    .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s ease; transform-origin:center; }
-    .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-    .nav-mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,249,249,0.98); backdrop-filter:blur(24px); z-index:999; flex-direction:column; padding:2rem 6%; overflow-y:auto; border-top:1px solid var(--border); }
-    .nav-mobile-menu.open { display:flex; }
-    .nav-mobile-link { font-family:var(--body); font-size:1.5rem; font-weight:600; color:var(--text-dim); text-decoration:none; padding:1rem 0; border-bottom:1px solid var(--border); transition:color .2s; }
-    .nav-mobile-link:hover { color:var(--text); }
-    .nav-mobile-cta { margin-top:2rem; display:flex; flex-direction:column; gap:.75rem; }
-    @media (max-width: 1024px) {
-      .nav-hamburger { display:flex; }
-      .nav-center { display:none !important; }
-      .nav-cta a { display:none; }
-    }
-    @media (max-width: 640px) { #navAuthLink { display:none; } }
-  </style>
-
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
-  <style id="ios-fix">html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}</style>
-<style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
-  <link rel="stylesheet" href="align.css">
-  <script defer src="/analytics.js"></script>
-</head>
-<body class="page-content"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
-
-  <div class="bg-canvas" id="bgCanvas" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-  </div>
-  <div class="noise" aria-hidden="true"></div>
-
-  <!-- ─── NAV ─── -->
-  <nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo">
-      <a href="index.html" aria-label="Concerto Home">
-        <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48" />
-      </a>
-    </div>
-            <div class="nav-center">
-      <a href="venues.html">Venues</a>
-      <a href="tours.html">Tours</a>
-      <a href="events.html">Near Me</a>
-      <a href="top-picks.html">Top Picks</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html" class="active">Concessions</a>
-      <a href="premium.html">Premium</a>
-      <a href="about.html">About</a>
-    </div>
-        <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
-      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-    <!-- Mobile menu -->
-    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Near Me</a>
-      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="parking.html" class="nav-mobile-link">Parking</a>
-      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
-    </div>
-
-  <!-- ─── HERO ─── -->
-  <div class="page-hero">
-    <span class="eyebrow">The Essentials</span>
-    <h1>Food &amp; Drinks Inside<br />Your Venue</h1>
-    <p>
-      Know exactly what&rsquo;s available before you walk through the gates.
-      Look up vendors, bars, and food options at 300+ concert venues,
-      arenas, and stadiums, by section, by type, before you arrive.
-    </p>
-  </div>
-
-  <main id="main-content">
-    <div class="container">
-
-      <div class="seo-intro reveal">
-        <h2>What Food and Drinks Are Available at Your Venue?</h2>
-        <p>
-          Every major arena and stadium has its own mix of concessions, and knowing what&rsquo;s
-          inside before you get there saves time and money. Whether you&rsquo;re wondering what food
-          is at SoFi Stadium, what drinks are available at MSG, or what the best concession options
-          are near your section at Chase Center, Concerto has the breakdown for 300+ venues.
-          Search below to find your venue.
-        </p>
-      </div>
-
-      <div class="search-wrapper reveal">
-        <span class="search-icon" aria-hidden="true">&#128269;</span>
-        <input type="text" id="searchInput" class="search-input"
-               placeholder="Search MSG, SoFi Stadium, Chase Center..."
-               aria-label="Search concessions by venue or festival" />
-      </div>
-      <p class="search-count reveal" id="searchCount">Showing all 243 venues &amp; festivals</p>
-
-      <div class="directory-grid" id="directoryGrid" role="list"></div>
-      <p class="no-results" id="noResults">No venues found matching your search.</p>
-
-    </div>
-  </main>
-
-  <!-- ─── FOOTER ─── -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44" />
-        <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p>
-      </div>
-      <nav class="footer-col" aria-label="Company links">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="premium.html">Premium</a>
-        <a href="shop.html">Shop</a>
-        <a href="partners.html">Partnerships</a>
-        <a href="faq.html">FAQ</a>
-      </nav>
-      <nav class="footer-col" aria-label="Legal">
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="mailto:support@concertocity.com">Contact</a>
-      </nav>
-      <nav class="footer-col" aria-label="Social">
-        <h4>Follow Us</h4>
-        <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
-        <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
-      <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
-    </div>
-  </footer>
-
-  <script>
-    /* ── Nav ── */
-    const siteNav = document.getElementById('siteNav');
-    siteNav.classList.add('scrolled');
-    window.addEventListener('scroll', () => siteNav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-
-    /* ── Dropdown ── */
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') {} });
-
-    /* ── Parallax ── */
-    const bgCanvas = document.getElementById('bgCanvas');
-    let ticking = false;
-    document.addEventListener('mousemove', (e) => {
-      if (!ticking) { requestAnimationFrame(() => { bgCanvas.style.transform = `translate(${(e.clientX/window.innerWidth-0.5)*-15}px, ${(e.clientY/window.innerHeight-0.5)*-15}px)`; ticking = false; }); ticking = true; }
-    });
-
-    /* ── Scroll reveal ── */
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /* ── Data ── */
-    const concessionsData = [
-      { venue: "3Arena", url: "/venues/3arena#concessions" },
-      { venue: "713 Music Hall", url: "/venues/713-music-hall#concessions" },
-      { venue: "Accor Arena", url: "/venues/accor-arena#concessions" },
-      { venue: "ACL Live at The Moody Theater", url: "/venues/acl-live-at-the-moody-theater#concessions" },
-      { venue: "Acrisure Arena at Greater Palm Springs", url: "/venues/acrisure-arena-at-greater-palm-springs#concessions" },
-      { venue: "Acrisure Stadium", url: "/venues/acrisure-stadium#concessions" },
-      { venue: "Addition Financial Arena", url: "/venues/addition-financial-arena#concessions" },
-      { venue: "Alamodome", url: "/venues/alamodome#concessions" },
-      { venue: "Albertsons Stadium", url: "/venues/albertsons-stadium#concessions" },
-      { venue: "Allegiant Stadium", url: "/venues/allegiant-stadium#concessions" },
-      { venue: "Allas Live", url: "/venues/allas-live#concessions" },
-      { venue: "Amerant Bank Arena", url: "/venues/amerant-bank-arena#concessions" },
-      { venue: "American Airlines Center", url: "/venues/american-airlines-center#concessions" },
-      { venue: "American Family Insurance Amphitheater", url: "/venues/american-family-insurance-amphitheater#concessions" },
-      { venue: "American Family Field", url: "/venues/american-family-field#concessions" },
-      { venue: "Amalie Arena", url: "/venues/amalie-arena#concessions" },
-      { venue: "Amica Mutual Pavilion", url: "/venues/amica-mutual-pavilion#concessions" },
-      { venue: "Anfiteatro degli Scavi", url: "/venues/anfiteatro-degli-scavi#concessions" },
-      { venue: "Angel Stadium", url: "/venues/angel-stadium#concessions" },
-      { venue: "AO Arena", url: "/venues/ao-arena#concessions" },
-      { venue: "Arizona Financial Theatre", url: "/venues/arizona-financial-theatre#concessions" },
-      { venue: "AT&T Stadium", url: "/venues/att-stadium#concessions" },
-      { venue: "BMO Pavilion", url: "/venues/bmo-pavilion#concessions" },
-      { venue: "Ball Arena", url: "/venues/ball-arena#concessions" },
-      { venue: "Bank of America Stadium", url: "/venues/bank-of-america-stadium#concessions" },
-      { venue: "Barclays Center", url: "/venues/barclays-center#concessions" },
-      { venue: "Barclays Arena", url: "/venues/barclays-arena#concessions" },
-      { venue: "BC Place", url: "/venues/bc-place#concessions" },
-      { venue: "Bell Centre", url: "/venues/bell-centre#concessions" },
-      { venue: "Bellco Theatre", url: "/venues/bellco-theatre#concessions" },
-      { venue: "Benchmark International Arena", url: "/venues/benchmark-international-arena#concessions" },
-      { venue: "Bethel Woods Center for the Arts", url: "/venues/bethel-woods-center-for-the-arts#concessions" },
-      { venue: "Bill Graham Civic Auditorium", url: "/venues/bill-graham-civic-auditorium#concessions" },
-      { venue: "BJCC Arena", url: "/venues/bjcc-arena#concessions" },
-      { venue: "Blue Cross Arena", url: "/venues/blue-cross-arena#concessions" },
-      { venue: "Bobby Dodd Stadium at Hyundai Field", url: "/venues/bobby-dodd-stadium-at-hyundai-field#concessions" },
-      { venue: "BOK Center", url: "/venues/bok-center#concessions" },
-      { venue: "bp pulse Live", url: "/venues/bp-pulse-live#concessions" },
-      { venue: "Bridgestone Arena", url: "/venues/bridgestone-arena#concessions" },
-      { venue: "Broadview Stage at SPAC", url: "/venues/broadview-stage-at-spac#concessions" },
-      { venue: "Brighton Centre", url: "/venues/brighton-centre#concessions" },
-      { venue: "Brooklyn Paramount", url: "/venues/brooklyn-paramount#concessions" },
-      { venue: "Busch Stadium", url: "/venues/busch-stadium#concessions" },
-      { venue: "Byline Bank Aragon Ballroom", url: "/venues/byline-bank-aragon-ballroom#concessions" },
-      { venue: "Cable Dahmer Arena", url: "/venues/cable-dahmer-arena#concessions" },
-      { venue: "Caesars Superdome", url: "/venues/caesars-superdome#concessions" },
-      { venue: "Camp Randall Stadium", url: "/venues/camp-randall-stadium#concessions" },
-      { venue: "Canada Life Centre", url: "/venues/canada-life-centre#concessions" },
-      { venue: "Canadian Tire Centre", url: "/venues/canadian-tire-centre#concessions" },
-      { venue: "Capital One Arena", url: "/venues/capital-one-arena#concessions" },
-      { venue: "Center Stage Theater", url: "/venues/center-stage-theater#concessions" },
-      { venue: "CFG Bank Arena", url: "/venues/cfg-bank-arena#concessions" },
-      { venue: "Chaifetz Arena", url: "/venues/chaifetz-arena#concessions" },
-      { venue: "Chase Center", url: "/venues/chase-center#concessions" },
-      { venue: "Chase Field", url: "/venues/chase-field#concessions" },
-      { venue: "CHI Health Center", url: "/venues/chi-health-center#concessions" },
-      { venue: "Citi Field", url: "/venues/citi-field#concessions" },
-      { venue: "Citizens Bank Park", url: "/venues/citizens-bank-park#concessions" },
-      { venue: "Citizens House of Blues", url: "/venues/citizens-house-of-blues#concessions" },
-      { venue: "Climate Pledge Arena", url: "/venues/climate-pledge-arena#concessions" },
-      { venue: "Coca-Cola Coliseum", url: "/venues/cocacola-coliseum#concessions" },
-      { venue: "Coca-Cola Roxy", url: "/venues/cocacola-roxy#concessions" },
-      { venue: "Colonial Life Arena", url: "/venues/colonial-life-arena#concessions" },
-      { venue: "Comerica Park", url: "/venues/comerica-park#concessions" },
-      { venue: "Commonwealth Stadium", url: "/venues/commonwealth-stadium#concessions" },
-      { venue: "Co-op Live", url: "/venues/coop-live#concessions" },
-      { venue: "Coors Field", url: "/venues/coors-field#concessions" },
-      { venue: "Credit Union 1 Amphitheatre", url: "/venues/credit-union-1-amphitheatre#concessions" },
-      { venue: "Cross Insurance Arena", url: "/venues/cross-insurance-arena#concessions" },
-      { venue: "Cross Insurance Center", url: "/venues/cross-insurance-center#concessions" },
-      { venue: "Crypto.com Arena", url: "/venues/cryptocom-arena#concessions" },
-      { venue: "CURE Insurance Arena", url: "/venues/cure-insurance-arena#concessions" },
-      { venue: "Daikin Park", url: "/venues/daikin-park#concessions" },
-      { venue: "Delta Center", url: "/venues/delta-center#concessions" },
-      { venue: "Desert Diamond Arena", url: "/venues/desert-diamond-arena#concessions" },
-      { venue: "Dickies Arena", url: "/venues/dickies-arena#concessions" },
-      { venue: "Dodger Stadium", url: "/venues/dodger-stadium#concessions" },
-      { venue: "Dos Equis Pavilion", url: "/venues/dos-equis-pavilion#concessions" },
-      { venue: "EagleBank Arena", url: "/venues/eaglebank-arena#concessions" },
-      { venue: "Empower Federal Credit Union Amphitheater", url: "/venues/empower-federal-credit-union-amphitheater#concessions" },
-      { venue: "Empower Field at Mile High", url: "/venues/empower-field-at-mile-high#concessions" },
-      { venue: "Enterprise Center", url: "/venues/enterprise-center#concessions" },
-      { venue: "Estadio GNP Seguros", url: "/venues/estadio-gnp-seguros#concessions" },
-      { venue: "Eventim Apollo", url: "/venues/eventim-apollo#concessions" },
-      { venue: "EverBank Stadium", url: "/venues/everbank-stadium#concessions" },
-      { venue: "Falcon Stadium", url: "/venues/falcon-stadium#concessions" },
-      { venue: "Fargodome", url: "/venues/fargodome#concessions" },
-      { venue: "FedExForum", url: "/venues/fedexforum#concessions" },
-      { venue: "Fenway Park", url: "/venues/fenway-park#concessions" },
-      { venue: "Festhalle", url: "/venues/festhalle#concessions" },
-      { venue: "Fillmore Minneapolis", url: "/venues/fillmore-minneapolis-presented-by-affinity-plus#concessions" },
-      { venue: "Fishers Event Center", url: "/venues/fishers-event-center#concessions" },
-      { venue: "FivePoint Amphitheatre", url: "/venues/fivepoint-amphitheatre#concessions" },
-      { venue: "Fiserv Forum", url: "/venues/fiserv-forum#concessions" },
-      { venue: "Fontainebleau Las Vegas", url: "/venues/fontainebleau-las-vegas#concessions" },
-      { venue: "Food City Center", url: "/venues/food-city-center#concessions" },
-      { venue: "Ford Field", url: "/venues/ford-field#concessions" },
-      { venue: "Ford Idaho Center Arena", url: "/venues/ford-idaho-center-arena#concessions" },
-      { venue: "Forum Karlín", url: "/venues/forum-karln#concessions" },
-      { venue: "Fox Theatre Detroit", url: "/venues/fox-theatre-detroit#concessions" },
-      { venue: "Fox Theater", url: "/venues/fox-theater#concessions" },
-      { venue: "Freedom Mortgage Pavilion", url: "/venues/freedom-mortgage-pavilion#concessions" },
-      { venue: "Frost Bank Center", url: "/venues/frost-bank-center#concessions" },
-      { venue: "Gainbridge Fieldhouse", url: "/venues/gainbridge-fieldhouse#concessions" },
-      { venue: "Gallagher Square at Petco Park", url: "/venues/gallagher-square-at-petco-park#concessions" },
-      { venue: "Gas South Arena", url: "/venues/gas-south-arena#concessions" },
-      { venue: "GEHA Field at Arrowhead Stadium", url: "/venues/geha-field-at-arrowhead-stadium#concessions" },
-      { venue: "GIANT Center", url: "/venues/giant-center#concessions" },
-      { venue: "Gillette Stadium", url: "/venues/gillette-stadium#concessions" },
-      { venue: "Globe Life Field", url: "/venues/globe-life-field#concessions" },
-      { venue: "Golden 1 Center", url: "/venues/golden-1-center#concessions" },
-      { venue: "Grand Casino Arena", url: "/venues/grand-casino-arena#concessions" },
-      { venue: "Great American Ball Park", url: "/venues/great-american-ball-park#concessions" },
-      { venue: "Hard Rock Stadium", url: "/venues/hard-rock-stadium#concessions" },
-      { venue: "Heritage Bank Center", url: "/venues/heritage-bank-center#concessions" },
-      { venue: "Hersheypark Stadium", url: "/venues/hersheypark-stadium#concessions" },
-      { venue: "Highmark Stadium", url: "/venues/highmark-stadium#concessions" },
-      { venue: "History", url: "/venues/history#concessions" },
-      { venue: "Hollywood Bowl", url: "/venues/hollywood-bowl#concessions" },
-      { venue: "Honda Center", url: "/venues/honda-center#concessions" },
-      { venue: "House of Blues Chicago", url: "/venues/house-of-blues-chicago#concessions" },
-      { venue: "House of Blues Las Vegas", url: "/venues/house-of-blues-las-vegas#concessions" },
-      { venue: "Howard Theatre", url: "/venues/howard-theatre#concessions" },
-      { venue: "Huntington Bank Field", url: "/venues/huntington-bank-field#concessions" },
-      { venue: "Intuit Dome", url: "/venues/intuit-dome#concessions" },
-      { venue: "Irving Plaza", url: "/venues/irving-plaza#concessions" },
-      { venue: "Isleta Amphitheater", url: "/venues/isleta-amphitheater#concessions" },
-      { venue: "Jiffy Lube Live", url: "/venues/jiffy-lube-live#concessions" },
-      { venue: "JMA Wireless Dome", url: "/venues/jma-wireless-dome#concessions" },
-      { venue: "Johan Cruijff ArenA", url: "/venues/johan-cruijff-arena#concessions" },
-      { venue: "John Paul Jones Arena", url: "/venues/john-paul-jones-arena#concessions" },
-      { venue: "Kaseya Center", url: "/venues/kaseya-center#concessions" },
-      { venue: "Kauffman Stadium", url: "/venues/kauffman-stadium#concessions" },
-      { venue: "KeyBank Center", url: "/venues/keybank-center#concessions" },
-      { venue: "King Baudouin Stadium", url: "/venues/king-baudouin-stadium#concessions" },
-      { venue: "Kia Center", url: "/venues/kia-center#concessions" },
-      { venue: "Kia Forum", url: "/venues/kia-forum#concessions" },
-      { venue: "LANXESS Arena", url: "/venues/lanxess-arena#concessions" },
-      { venue: "Lambeau Field", url: "/venues/lambeau-field#concessions" },
-      { venue: "LDLC Arena", url: "/venues/ldlc-arena#concessions" },
-      { venue: "Lenovo Center", url: "/venues/lenovo-center#concessions" },
-      { venue: "Letnia Scena Progresji", url: "/venues/letnia-scena-progresji#concessions" },
-      { venue: "Levi's Stadium", url: "/venues/levis-stadium#concessions" },
-      { venue: "Lincoln Financial Field", url: "/venues/lincoln-financial-field#concessions" },
-      { venue: "Little Caesars Arena", url: "/venues/little-caesars-arena#concessions" },
-      { venue: "LoanDepot Park", url: "/venues/loandepot-park#concessions" },
-      { venue: "Lotto Arena", url: "/venues/lotto-arena#concessions" },
-      { venue: "Lucas Oil Stadium", url: "/venues/lucas-oil-stadium#concessions" },
-      { venue: "Lumen Field", url: "/venues/lumen-field#concessions" },
-      { venue: "Madison Square Garden", url: "/venues/madison-square-garden#concessions" },
-      { venue: "Manchester Academy", url: "/venues/manchester-academy#concessions" },
-      { venue: "Manhattan Center Hammerstein Ballroom", url: "/venues/manhattan-center-hammerstein-ballroom#concessions" },
-      { venue: "Marx Halle", url: "/venues/marx-halle#concessions" },
-      { venue: "Maverik Center", url: "/venues/maverik-center#concessions" },
-      { venue: "M&T Bank Stadium", url: "/venues/mt-bank-stadium#concessions" },
-      { venue: "Mercedes-Benz Stadium", url: "/venues/mercedesbenz-stadium#concessions" },
-      { venue: "Merriweather Post Pavilion", url: "/venues/merriweather-post-pavilion#concessions" },
-      { venue: "MetLife Stadium", url: "/venues/metlife-stadium#concessions" },
-      { venue: "MGM Music Hall at Fenway", url: "/venues/mgm-music-hall-at-fenway#concessions" },
-      { venue: "Moda Center", url: "/venues/moda-center#concessions" },
-      { venue: "Mohegan Sun Arena", url: "/venues/mohegan-sun-arena#concessions" },
-      { venue: "Moody Center", url: "/venues/moody-center#concessions" },
-      { venue: "Mortgage Matchup Center", url: "/venues/mortgage-matchup-center#concessions" },
-      { venue: "Movistar Arena", url: "/venues/movistar-arena#concessions" },
-      { venue: "MVP Arena", url: "/venues/mvp-arena#concessions" },
-      { venue: "myticket Jahrhunderthalle", url: "/venues/myticket-jahrhunderthalle#concessions" },
-      { venue: "Nationals Park", url: "/venues/nationals-park#concessions" },
-      { venue: "Nationwide Arena", url: "/venues/nationwide-arena#concessions" },
-      { venue: "Nissan Stadium", url: "/venues/nissan-stadium#concessions" },
-      { venue: "North Island Credit Union Amphitheatre", url: "/venues/north-island-credit-union-amphitheatre#concessions" },
-      { venue: "NRG Stadium", url: "/venues/nrg-stadium#concessions" },
-      { venue: "Oakland Arena", url: "/venues/oakland-arena#concessions" },
-      { venue: "Oracle Park", url: "/venues/oracle-park#concessions" },
-      { venue: "Oriole Park at Camden Yards", url: "/venues/oriole-park-at-camden-yards#concessions" },
-      { venue: "O2 Academy Birmingham", url: "/venues/o2-academy-birmingham#concessions" },
-      { venue: "O2 Arena", url: "/venues/o2-arena#concessions" },
-      { venue: "O2 Shepherds Bush Empire", url: "/venues/o2-shepherds-bush-empire#concessions" },
-      { venue: "Ohio Stadium", url: "/venues/ohio-stadium#concessions" },
-      { venue: "Olympiahalle", url: "/venues/olympiahalle#concessions" },
-      { venue: "Olympiastadion", url: "/venues/olympiastadion#concessions" },
-      { venue: "OVO Hydro", url: "/venues/ovo-hydro#concessions" },
-      { venue: "Palacio de los Deportes", url: "/venues/palacio-de-los-deportes#concessions" },
-      { venue: "Palau Sant Jordi", url: "/venues/palau-sant-jordi#concessions" },
-      { venue: "Paramount Theatre", url: "/venues/paramount-theatre#concessions" },
-      { venue: "Paycom Center", url: "/venues/paycom-center#concessions" },
-      { venue: "Paycor Stadium", url: "/venues/paycor-stadium#concessions" },
-      { venue: "Pechanga Arena", url: "/venues/pechanga-arena#concessions" },
-      { venue: "PeoplesBank Arena", url: "/venues/peoplesbank-arena#concessions" },
-      { venue: "Petco Park", url: "/venues/petco-park#concessions" },
-      { venue: "Petersen Events Center", url: "/venues/petersen-events-center#concessions" },
-      { venue: "PHX Arena", url: "/venues/phx-arena#concessions" },
-      { venue: "PNC Park", url: "/venues/pnc-park#concessions" },
-      { venue: "PNC Arena", url: "/venues/pnc-arena#concessions" },
-      { venue: "Pinnacle Bank Arena", url: "/venues/pinnacle-bank-arena#concessions" },
-      { venue: "PPG Paints Arena", url: "/venues/ppg-paints-arena#concessions" },
-      { venue: "Progressive Field", url: "/venues/progressive-field#concessions" },
-      { venue: "Providence Park", url: "/venues/providence-park#concessions" },
-      { venue: "Prudential Center", url: "/venues/prudential-center#concessions" },
-      { venue: "Rate Field", url: "/venues/rate-field#concessions" },
-      { venue: "Raymond James Stadium", url: "/venues/raymond-james-stadium#concessions" },
-      { venue: "Red Hat Amphitheater", url: "/venues/red-hat-amphitheater#concessions" },
-      { venue: "Red Rocks Amphitheatre", url: "/venues/red-rocks-amphitheatre#concessions" },
-      { venue: "Riyadh Air Metropolitano", url: "/venues/riyadh-air-metropolitano#concessions" },
-      { venue: "Rocket Mortgage FieldHouse", url: "/venues/rocket-mortgage-fieldhouse#concessions" },
-      { venue: "Rocket Arena", url: "/venues/rocket-arena#concessions" },
-      { venue: "Rogers Arena", url: "/venues/rogers-arena#concessions" },
-      { venue: "Rogers Centre", url: "/venues/rogers-centre#concessions" },
-      { venue: "Rogers Place", url: "/venues/rogers-place#concessions" },
-      { venue: "Rogers Stadium", url: "/venues/rogers-stadium#concessions" },
-      { venue: "Rosemont Theatre", url: "/venues/rosemont-theatre#concessions" },
-      { venue: "Rupp Arena", url: "/venues/rupp-arena#concessions" },
-      { venue: "Ryman Auditorium", url: "/venues/ryman-auditorium#concessions" },
-      { venue: "SAP Center", url: "/venues/sap-center#concessions" },
-      { venue: "Save Mart Center", url: "/venues/save-mart-center#concessions" },
-      { venue: "Schottenstein Center", url: "/venues/schottenstein-center#concessions" },
-      { venue: "Scotiabank Arena", url: "/venues/scotiabank-arena#concessions" },
-      { venue: "Scotiabank Saddledome", url: "/venues/scotiabank-saddledome#concessions" },
-      { venue: "Scottish Gas Murrayfield", url: "/venues/scottish-gas-murrayfield#concessions" },
-      { venue: "Shoreline Amphitheatre", url: "/venues/shoreline-amphitheatre#concessions" },
-      { venue: "Simmons Bank Arena", url: "/venues/simmons-bank-arena#concessions" },
-      { venue: "Skyline Stage at the Mann", url: "/venues/skyline-stage-at-the-mann#concessions" },
-      { venue: "SNHU Arena", url: "/venues/snhu-arena#concessions" },
-      { venue: "Smoothie King Center", url: "/venues/smoothie-king-center#concessions" },
-      { venue: "SoFi Stadium", url: "/venues/sofi-stadium#concessions" },
-      { venue: "Soldier Field", url: "/venues/soldier-field#concessions" },
-      { venue: "Spectrum Center", url: "/venues/spectrum-center#concessions" },
-      { venue: "Sphere", url: "/venues/sphere#concessions" },
-      { venue: "SSE Arena Belfast", url: "/venues/sse-arena-belfast#concessions" },
-      { venue: "Stade de France", url: "/venues/stade-de-france#concessions" },
-      { venue: "Stadio San Siro", url: "/venues/stadio-san-siro#concessions" },
-      { venue: "Stadtpark Open Air", url: "/venues/stadtpark-open-air#concessions" },
-      { venue: "Starlight Theatre", url: "/venues/starlight-theatre#concessions" },
-      { venue: "State Farm Arena", url: "/venues/state-farm-arena#concessions" },
-      { venue: "State Farm Stadium", url: "/venues/state-farm-stadium#concessions" },
-      { venue: "Summit Music Hall", url: "/venues/summit-music-hall#concessions" },
-      { venue: "Sun Bowl Stadium", url: "/venues/sun-bowl-stadium#concessions" },
-      { venue: "Synovus Bank Amphitheater at Chastain Park", url: "/venues/synovus-bank-amphitheater-at-chastain-park#concessions" },
-      { venue: "Target Center", url: "/venues/target-center#concessions" },
-      { venue: "Target Field", url: "/venues/target-field#concessions" },
-      { venue: "TD Coliseum", url: "/venues/td-coliseum#concessions" },
-      { venue: "TD Garden", url: "/venues/td-garden#concessions" },
-      { venue: "The Anthem", url: "/venues/the-anthem#concessions" },
-      { venue: "The Armory", url: "/venues/the-armory#concessions" },
-      { venue: "The Danforth Music Hall", url: "/venues/the-danforth-music-hall#concessions" },
-      { venue: "The Dome at America's Center", url: "/venues/the-dome-at-americas-center#concessions" },
-      { venue: "The Fillmore Detroit", url: "/venues/the-fillmore-detroit#concessions" },
-      { venue: "The Fillmore Silver Spring", url: "/venues/the-fillmore-silver-spring#concessions" },
-      { venue: "The Lyric", url: "/venues/the-lyric#concessions" },
-      { venue: "The Met Presented by Highmark", url: "/venues/the-met-presented-by-highmark#concessions" },
-      { venue: "The O2", url: "/venues/the-o2#concessions" },
-      { venue: "The Pavilion at Star Lake", url: "/venues/the-pavilion-at-star-lake#concessions" },
-      { venue: "The Pavilion at Toyota Music Factory", url: "/venues/the-pavilion-at-toyota-music-factory#concessions" },
-      { venue: "The Pinnacle", url: "/venues/the-pinnacle#concessions" },
-      { venue: "The Rady Shell at Jacobs Park", url: "/venues/the-rady-shell-at-jacobs-park#concessions" },
-      { venue: "The Tabernacle", url: "/venues/the-tabernacle#concessions" },
-      { venue: "The Theatre of Living Arts", url: "/venues/the-theatre-of-living-arts#concessions" },
-      { venue: "The Wiltern", url: "/venues/the-wiltern#concessions" },
-      { venue: "Thunder Ridge Nature Arena", url: "/venues/thunder-ridge-nature-arena#concessions" },
-      { venue: "T-Mobile Arena", url: "/venues/tmobile-arena#concessions" },
-      { venue: "T-Mobile Center", url: "/venues/tmobile-center#concessions" },
-      { venue: "T-Mobile Park", url: "/venues/tmobile-park#concessions" },
-      { venue: "Talking Stick Resort Amphitheatre", url: "/venues/talking-stick-resort-amphitheatre#concessions" },
-      { venue: "Tottenham Hotspur Stadium", url: "/venues/tottenham-hotspur-stadium#concessions" },
-      { venue: "Toyota Center", url: "/venues/toyota-center#concessions" },
-      { venue: "Truist Park", url: "/venues/truist-park#concessions" },
-      { venue: "UBC – Doug Mitchell Thunderbird Sports Centre", url: "/venues/ubc--doug-mitchell-thunderbird-sports-centre#concessions" },
-      { venue: "UBS Arena", url: "/venues/ubs-arena#concessions" },
-      { venue: "UC Berkeley Greek Theatre", url: "/venues/uc-berkeley-greek-theatre#concessions" },
-      { venue: "U.S. Bank Stadium", url: "/venues/us-bank-stadium#concessions" },
-      { venue: "Unipol Arena", url: "/venues/unipol-arena#concessions" },
-      { venue: "Unipol Forum", url: "/venues/unipol-forum#concessions" },
-      { venue: "United Center", url: "/venues/united-center#concessions" },
-      { venue: "Unity Arena", url: "/venues/unity-arena#concessions" },
-      { venue: "Usher Hall", url: "/venues/usher-hall#concessions" },
-      { venue: "Utah First Credit Union Amphitheatre", url: "/venues/utah-first-credit-union-amphitheatre#concessions" },
-      { venue: "Utilita Arena Birmingham", url: "/venues/utilita-arena-birmingham#concessions" },
-      { venue: "Utilita Arena Newcastle", url: "/venues/utilita-arena-newcastle#concessions" },
-      { venue: "Utilita Arena Sheffield", url: "/venues/utilita-arena-sheffield#concessions" },
-      { venue: "UW – Panther Arena", url: "/venues/uw--panther-arena#concessions" },
-      { venue: "Van Andel Arena", url: "/venues/van-andel-arena#concessions" },
-      { venue: "Veikkaus Arena", url: "/venues/veikkaus-arena#concessions" },
-      { venue: "Veterans Memorial Coliseum", url: "/venues/veterans-memorial-coliseum#concessions" },
-      { venue: "Veterans United Home Loans Amphitheater", url: "/venues/veterans-united-home-loans-amphitheater#concessions" },
-      { venue: "Videotron Centre", url: "/venues/videotron-centre#concessions" },
-      { venue: "Viejas Arena", url: "/venues/viejas-arena#concessions" },
-      { venue: "Villa Erba", url: "/venues/villa-erba#concessions" },
-      { venue: "WAMU Theater", url: "/venues/wamu-theater#concessions" },
-      { venue: "Walmart AMP", url: "/venues/walmart-amp#concessions" },
-      { venue: "Wells Fargo Arena", url: "/venues/wells-fargo-arena#concessions" },
-      { venue: "Wells Fargo Center", url: "/venues/wells-fargo-center#concessions" },
-      { venue: "Wembley Stadium", url: "/venues/wembley-stadium#concessions" },
-      { venue: "WinStar Lucas Oil Live", url: "/venues/winstar-lucas-oil-live#concessions" },
-      { venue: "Wrigley Field", url: "/venues/wrigley-field#concessions" },
-      { venue: "XL Center", url: "/venues/xl-center#concessions" },
-      { venue: "Xcel Energy Center", url: "/venues/xcel-energy-center#concessions" },
-      { venue: "Yankee Stadium", url: "/venues/yankee-stadium#concessions" },
-      { venue: "Stagecoach Festival", url: "/venues/stagecoach-festival#concessions" },
-      { venue: "Ultra Music Festival", url: "/venues/ultra-music-festival#concessions" },
-      { venue: "EDC Las Vegas", url: "/venues/edc-las-vegas#concessions" },
-      { venue: "Electric Forest", url: "/venues/electric-forest#concessions" },
-      { venue: "Bonnaroo Music & Arts Festival", url: "/venues/bonnaroo-music-and-arts-festival#concessions" },
-      { venue: "Governors Ball", url: "/venues/governors-ball#concessions" },
-      { venue: "Boston Calling", url: "/venues/boston-calling#concessions" },
-      { venue: "BottleRock Napa Valley", url: "/venues/bottlerock-napa-valley#concessions" },
-      { venue: "Hangout Music Festival", url: "/venues/hangout-music-festival#concessions" },
-      { venue: "Outside Lands", url: "/venues/outside-lands#concessions" },
-      { venue: "Lollapalooza", url: "/venues/lollapalooza#concessions" },
-      { venue: "Rolling Loud Miami", url: "/venues/rolling-loud-miami#concessions" },
-      { venue: "Rolling Loud Los Angeles", url: "/venues/rolling-loud-los-angeles#concessions" },
-      { venue: "Summerfest", url: "/venues/summerfest#concessions" },
-      { venue: "Pitchfork Music Festival", url: "/venues/pitchfork-music-festival#concessions" },
-      { venue: "New Orleans Jazz & Heritage Festival", url: "/venues/new-orleans-jazz-and-heritage-festival#concessions" },
-      { venue: "Newport Folk Festival", url: "/venues/newport-folk-festival#concessions" },
-      { venue: "Newport Jazz Festival", url: "/venues/newport-jazz-festival#concessions" },
-      { venue: "Austin City Limits Music Festival", url: "/venues/austin-city-limits-music-festival#concessions" },
-      { venue: "When We Were Young", url: "/venues/when-we-were-young#concessions" },
-      { venue: "Life Is Beautiful", url: "/venues/life-is-beautiful#concessions" },
-      { venue: "Lightning in a Bottle", url: "/venues/lightning-in-a-bottle#concessions" },
-      { venue: "Shaky Knees Music Festival", url: "/venues/shaky-knees-music-festival#concessions" },
-      { venue: "Music Midtown", url: "/venues/music-midtown#concessions" },
-      { venue: "III Points", url: "/venues/iii-points#concessions" },
-      { venue: "HARD Summer Music Festival", url: "/venues/hard-summer-music-festival#concessions" },
-      { venue: "Beyond Wonderland SoCal", url: "/venues/beyond-wonderland-socal#concessions" },
-      { venue: "Moonrise Festival", url: "/venues/moonrise-festival#concessions" },
-      { venue: "Country Thunder Wisconsin", url: "/venues/country-thunder-wisconsin#concessions" },
-      { venue: "Burning Man", url: "/venues/burning-man#concessions" },
-      { venue: "Electric Zoo", url: "/venues/electric-zoo#concessions" },
-      { venue: "Riot Fest", url: "/venues/riot-fest#concessions" },
-      { venue: "Essence Festival of Culture", url: "/venues/essence-festival-of-culture#concessions" },
-      { venue: "SXSW (Music, Film & Interactive)", url: "/venues/sxsw-music-film-and-interactive#concessions" },
-      { venue: "CMA Fest", url: "/venues/cma-fest#concessions" },
-      { venue: "Made in America", url: "/venues/made-in-america#concessions" },
-      { venue: "Radio City Music Hall", url: "/venues/radio-city-music-hall#concessions" },
-      { venue: "The Gorge Amphitheatre", url: "/venues/the-gorge-amphitheatre#concessions" }
-    ];
-
-    const grid        = document.getElementById('directoryGrid');
-    const searchInput = document.getElementById('searchInput');
-    const noResults   = document.getElementById('noResults');
-    const countEl     = document.getElementById('searchCount');
-
-    function renderCards(data) {
-      grid.innerHTML = '';
-      countEl.textContent = data.length === concessionsData.length
-        ? `Showing all ${concessionsData.length} venues & festivals`
-        : `${data.length} result${data.length !== 1 ? 's' : ''} found`;
-      if (data.length === 0) { noResults.style.display = 'block'; return; }
-      noResults.style.display = 'none';
-      data.forEach(item => {
-        const card = document.createElement('a');
-        card.className = 'directory-card';
-        card.href = item.url;
-        card.target = '_blank';
-        card.rel = 'noopener noreferrer';
-        card.setAttribute('role', 'listitem');
-        card.innerHTML = `
-          <h2 class="venue-name">${item.venue}</h2>
-          <div class="card-footer">
-            <span class="card-link-text">View Concessions</span>
-            <span class="card-arrow">&rarr;</span>
-          </div>`;
-        grid.appendChild(card);
-      });
-    }
-
-    renderCards(concessionsData);
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      renderCards(q ? concessionsData.filter(v => v.venue.toLowerCase().includes(q)) : concessionsData);
-    });
-  </script>
-
-<script>
-// Mobile nav
-(function(){
-  const btn = document.getElementById('navHamburger');
-  const menu = document.getElementById('navMobileMenu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }));
-})();
-</script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <script src="auth.js"></script>
-  <script src="app-shell.js"></script>
-</body>
-</html>
+<!DOCTYPE html><html  lang="en"><head><title data-rh="true"></title><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><style id="expo-reset">#root,body,html{height:100%}body{overflow:hidden}#root{display:flex}</style><style id="react-native-stylesheet">[stylesheet-group="0"]{}
+body{margin:0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input::-webkit-search-cancel-button,input::-webkit-search-decoration,input::-webkit-search-results-button,input::-webkit-search-results-decoration{display:none;}
+[stylesheet-group="1"]{}
+.css-11aywtz{-moz-appearance:textfield;-webkit-appearance:none;background-color:rgba(0,0,0,0.00);border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:0px;border-top-right-radius:0px;border:0 solid black;box-sizing:border-box;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0px;padding:0px;resize:none;}
+.css-146c3p1{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:rgba(0,0,0,1.00);display:inline;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;list-style:none;margin:0px;padding:0px;position:relative;text-align:start;text-decoration:none;white-space:pre-wrap;word-wrap:break-word;}
+.css-1jxf684{background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;color:inherit;display:inline;font:inherit;list-style:none;margin:0px;padding:0px;position:relative;text-align:inherit;text-decoration:none;white-space:inherit;word-wrap:break-word;}
+.css-9pa8cd{bottom:0px;height:100%;left:0px;opacity:0;position:absolute;right:0px;top:0px;width:100%;z-index:-1;}
+.css-g5y9jx{align-content:flex-start;align-items:stretch;background-color:rgba(0,0,0,0.00);border:0 solid black;box-sizing:border-box;display:flex;flex-basis:auto;flex-direction:column;flex-shrink:0;list-style:none;margin:0px;min-height:0px;min-width:0px;padding:0px;position:relative;text-decoration:none;z-index:0;}
+[stylesheet-group="2"]{}
+.r-11mg6pl{border-bottom-color:rgba(255,255,255,1.00);border-left-color:rgba(255,255,255,1.00);border-right-color:rgba(255,255,255,1.00);border-top-color:rgba(255,255,255,1.00);}
+.r-13awgt0{flex:1;}
+.r-1awa8pu{border-bottom-color:rgba(101,119,134,1.00);border-left-color:rgba(101,119,134,1.00);border-right-color:rgba(101,119,134,1.00);border-top-color:rgba(101,119,134,1.00);}
+.r-1bq2mok{margin:3px;}
+.r-1d4xg89{border-bottom-color:rgba(170,184,194,1.00);border-left-color:rgba(170,184,194,1.00);border-right-color:rgba(170,184,194,1.00);border-top-color:rgba(170,184,194,1.00);}
+.r-1dzdj1l{border-bottom-left-radius:10px;border-bottom-right-radius:10px;border-top-left-radius:10px;border-top-right-radius:10px;}
+.r-1f0042m{border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-top-left-radius:5px;border-top-right-radius:5px;}
+.r-1j16mh1{border-bottom-left-radius:100%;border-bottom-right-radius:100%;border-top-left-radius:100%;border-top-right-radius:100%;}
+.r-1jkafct{border-bottom-left-radius:2px;border-bottom-right-radius:2px;border-top-left-radius:2px;border-top-right-radius:2px;}
+.r-1jyn79y{border-bottom-color:rgba(0,150,136,1.00);border-left-color:rgba(0,150,136,1.00);border-right-color:rgba(0,150,136,1.00);border-top-color:rgba(0,150,136,1.00);}
+.r-1pcd2l5{padding:20px;}
+.r-1phboty{border-bottom-style:solid;border-left-style:solid;border-right-style:solid;border-top-style:solid;}
+.r-1q9bdsx{border-bottom-left-radius:12px;border-bottom-right-radius:12px;border-top-left-radius:12px;border-top-right-radius:12px;}
+.r-1qsk4np{overflow-x:clip;overflow-y:clip;}
+.r-1rvyss1{border-bottom-color:rgba(255,255,255,0.20);border-left-color:rgba(255,255,255,0.20);border-right-color:rgba(255,255,255,0.20);border-top-color:rgba(255,255,255,0.20);}
+.r-1sp51qo{padding:10px;}
+.r-1udh08x{overflow-x:hidden;overflow-y:hidden;}
+.r-1uu6nss{padding:5px;}
+.r-1xfd6ze{border-bottom-left-radius:8px;border-bottom-right-radius:8px;border-top-left-radius:8px;border-top-right-radius:8px;}
+.r-4a18lf{border-bottom-color:rgba(255,0,0,1.00);border-left-color:rgba(255,0,0,1.00);border-right-color:rgba(255,0,0,1.00);border-top-color:rgba(255,0,0,1.00);}
+.r-60ke3l{border-bottom-color:rgba(0,128,0,1.00);border-left-color:rgba(0,128,0,1.00);border-right-color:rgba(0,128,0,1.00);border-top-color:rgba(0,128,0,1.00);}
+.r-6t2glc{border-bottom-left-radius:40px;border-bottom-right-radius:40px;border-top-left-radius:40px;border-top-right-radius:40px;}
+.r-9x6qib{border-bottom-color:rgba(204,214,221,1.00);border-left-color:rgba(204,214,221,1.00);border-right-color:rgba(204,214,221,1.00);border-top-color:rgba(204,214,221,1.00);}
+.r-cpet4d{border-bottom-left-radius:999px;border-bottom-right-radius:999px;border-top-left-radius:999px;border-top-right-radius:999px;}
+.r-crgep1{margin:0px;}
+.r-d045u9{border-bottom-width:2px;border-left-width:2px;border-right-width:2px;border-top-width:2px;}
+.r-d23pfw{padding:24px;}
+.r-edyy15{padding:8px;}
+.r-fx7oqy{border-bottom-color:rgba(0,0,255,1.00);border-left-color:rgba(0,0,255,1.00);border-right-color:rgba(0,0,255,1.00);border-top-color:rgba(0,0,255,1.00);}
+.r-krxsd3{display:-webkit-box;}
+.r-rs99b7{border-bottom-width:1px;border-left-width:1px;border-right-width:1px;border-top-width:1px;}
+.r-t60dpp{padding:0px;}
+.r-wg31gx{border-bottom-color:rgba(49,53,56,1.00);border-left-color:rgba(49,53,56,1.00);border-right-color:rgba(49,53,56,1.00);border-top-color:rgba(49,53,56,1.00);}
+.r-xoduu5{display:inline-flex;}
+.r-ywje51{margin:auto;}
+.r-z2wwpe{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top-left-radius:4px;border-top-right-radius:4px;}
+[stylesheet-group="2.1"]{}
+.r-11f147o{padding-bottom:8px;padding-top:8px;}
+.r-11gswi8{padding-left:3px;padding-right:3px;}
+.r-17q4wm6{margin-left:5px;margin-right:5px;}
+.r-184id4b{margin-bottom:12px;margin-top:12px;}
+.r-1d7mnkm{padding-bottom:15px;padding-top:15px;}
+.r-1e084wi{padding-left:0px;padding-right:0px;}
+.r-1fkl15p{padding-left:32px;padding-right:32px;}
+.r-1mmae3n{padding-bottom:12px;padding-top:12px;}
+.r-1ntr0p{padding-left:5px;padding-right:5px;}
+.r-1rsorjc{padding-left:36px;padding-right:36px;}
+.r-1yd117h{padding-bottom:7px;padding-top:7px;}
+.r-3o4zer{padding-left:12px;padding-right:12px;}
+.r-cxgwc0{padding-left:24px;padding-right:24px;}
+.r-f8sm7e{margin-left:auto;margin-right:auto;}
+.r-h0bjfv{padding-left:22px;padding-right:22px;}
+.r-is05cd{padding-left:8px;padding-right:8px;}
+.r-jdiy1a{margin-left:11px;margin-right:11px;}
+.r-jusfrs{margin-left:12px;margin-right:12px;}
+.r-n5f61p{margin-bottom:3px;margin-top:3px;}
+.r-n7gxbd{padding-left:4px;padding-right:4px;}
+.r-u9wvl5{padding-left:20px;padding-right:20px;}
+.r-ugi1tw{padding-left:5%;padding-right:5%;}
+.r-w7s2jr{padding-bottom:16px;padding-top:16px;}
+.r-ytbthy{padding-bottom:10px;padding-top:10px;}
+[stylesheet-group="2.2"]{}
+.r-10s2tm5{left:0%;}
+.r-16o8guy{right:100%;}
+.r-1a11zyx{margin-right:12px;}
+.r-1cwvpvk{margin-left:12px;}
+.r-1e97lx8{margin-right:3px;}
+.r-1euzeng{padding-left:24px;}
+.r-1g4tz6n{margin-right:-14.5px;}
+.r-1h31txp{padding-right:16px;}
+.r-1lhn9r{margin-left:-14.5px;}
+.r-1sqnqi2{margin-left:3px;}
+.r-1vl2501{padding-right:24px;}
+.r-9mo606{margin-right:10px;}
+.r-c59us2{left:-3px;}
+.r-dqe1q{right:0%;}
+.r-qb41rp{margin-right:5px;}
+.r-rci37q{left:100%;}
+.r-uhung1{margin-left:10px;}
+.r-vpmibe{right:-3px;}
+.r-w67my2{padding-left:16px;}
+.r-wizibn{margin-left:5px;}
+[stylesheet-group="3"]{}
+.r-102gzdx{height:52px;}
+.r-105ug2t{pointer-events:auto!important;}
+.r-10ptun7{height:16px;}
+.r-10v3vxq{transform:scaleX(-1);}
+.r-10x49cs{font-size:10px;}
+.r-10xqauy{padding-top:env(safe-area-inset-top);}
+.r-11c0sde{margin-top:24px;}
+.r-11j9u27{visibility:hidden;}
+.r-11mpjr4{background-color:rgba(223,223,223,1.00);}
+.r-11udlyb{background-color:rgba(0,150,136,1.00);}
+.r-11v9fek{min-width:180px;}
+.r-11yh6sk{overflow-x:hidden;}
+.r-12f6czt{top:17px;}
+.r-12vffkv>* {pointer-events:auto;}
+.r-12vffkv{pointer-events:none!important;}
+.r-135wba7{line-height:24px;}
+.r-13aq9py{animation-name:r-1iq689l;}
+.r-13qz1uu{width:100%;}
+.r-13tjlyg{transition-duration:0.1s;}
+.r-1472mwg{height:24px;}
+.r-14gqq1x{margin-top:4px;}
+.r-14lw9ot{background-color:rgba(255,255,255,1.00);}
+.r-14sbq61{background-color:rgba(33,150,243,1.00);}
+.r-150rngu{-webkit-overflow-scrolling:touch;}
+.r-156q2ks{margin-top:10px;}
+.r-15ex2jp{transform:scaleX(0);}
+.r-16y2uox{flex-grow:1;}
+.r-173mn98{align-self:flex-end;}
+.r-173mzie{transform:scaleY(-1);}
+.r-1777fci{justify-content:center;}
+.r-17bb2tj{animation-duration:0.75s;}
+.r-17leim2{background-repeat:repeat;}
+.r-17s6mgv{justify-content:flex-end;}
+.r-17tb59b{opacity:0.7;}
+.r-17tloay{opacity:0.6;}
+.r-17u3ijr{background-color:rgba(155,161,166,0.27);}
+.r-184en5c{z-index:1;}
+.r-18nhz7w{top:-3px;}
+.r-18u1ve8{color:rgba(255,255,255,0.40);}
+.r-18u37iz{flex-direction:row;}
+.r-19oahor{font-size:64px;}
+.r-19wmn03{width:20px;}
+.r-19z077z{touch-action:none;}
+.r-1a2p6p6{-webkit-text-decoration-style:solid;text-decoration-style:solid;}
+.r-1abnn5w{animation-play-state:paused;}
+.r-1acpoxo{width:36px;}
+.r-1aiqnjv{font-family:monospace,monospace;}
+.r-1aockid{width:40px;}
+.r-1awozwy{align-items:center;}
+.r-1ay1djp{animation-duration:1s;}
+.r-1b43r93{font-size:14px;}
+.r-1c6unfx{forced-color-adjust:none;}
+.r-1c85bru{width:270px;}
+.r-1cmwbt1{gap:8px;}
+.r-1d2f490{left:0px;}
+.r-1d5kdc7{flex-direction:column-reverse;}
+.r-1ddef8g{-webkit-text-decoration-line:underline;text-decoration-line:underline;}
+.r-1dernwh{height:70%;}
+.r-1ei5mc7{cursor:inherit;}
+.r-1enofrn{font-size:12px;}
+.r-1euycsn{flex-direction:row-reverse;}
+.r-1ewcgjf{box-shadow:0px 1px 3px rgba(0,0,0,0.5);}
+.r-1ff274t{text-align:right;}
+.r-1ffj0ar{background-color:rgba(0,0,0,0.40);}
+.r-1g80hic{opacity:0.8;}
+.r-1ge9hsw{max-width:960px;}
+.r-1ghxqbu{font-variant:tabular-nums;}
+.r-1gkfh8e{font-size:11px;}
+.r-1gx4lff{background-color:rgba(18,30,54,1.00);}
+.r-1h0z5md{justify-content:flex-start;}
+.r-1h2t8mc{width:0px;}
+.r-1habvwh{align-items:flex-start;}
+.r-1hy97zq{padding-top:80px;}
+.r-1i10wst{font-size:18px;}
+.r-1i6wzkk{-moz-transition-property:opacity;-webkit-transition-property:opacity;transition-property:opacity;}
+.r-1i71y14{gap:14px;}
+.r-1ikidpy{letter-spacing:0.5px;}
+.r-1iln25a{word-wrap:normal;}
+.r-1inkyih{font-size:17px;}
+.r-1iusvr4{flex-basis:0px;}
+.r-1j23gm6{font-family:DMSans_700Bold;}
+.r-1janqcz{width:16px;}
+.r-1jkjb{margin-left:8px;}
+.r-1kb76zh{margin-right:8px;}
+.r-1kfrs79{font-weight:600;}
+.r-1kihuf0{align-self:center;}
+.r-1ld3bg{top:-4px;}
+.r-1ldzwu0{animation-timing-function:linear;}
+.r-1loqt21{cursor:pointer;}
+.r-1mlwlqe{flex-basis:auto;}
+.r-1mrlafo{background-position:0;}
+.r-1mspbye{background-color:rgba(201,168,76,1.00);}
+.r-1muvv40{animation-iteration-count:infinite;}
+.r-1niwhzg{background-color:rgba(0,0,0,0.00);}
+.r-1nlw0im{bottom:8px;}
+.r-1no09lo{margin-top:28px;}
+.r-1nxhmzv{margin-bottom:28px;}
+.r-1ny4l3l{outline-style:none;}
+.r-1ocf4r9{scroll-snap-type:y mandatory;}
+.r-1onu96p{border-curve:continuous;}
+.r-1oszu61{align-items:stretch;}
+.r-1otgn73{touch-action:manipulation;}
+.r-1p0dtai{bottom:0px;}
+.r-1pi2tsx{height:100%;}
+.r-1pm8pkb{font-family:Courier;}
+.r-1qd0xha{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.r-1qulhi1{animation-name:r-1pzkwqh;}
+.r-1r4fvd0{color:rgba(82,169,255,1.00);}
+.r-1r74h94{left:8px;}
+.r-1r8g8re{height:36px;}
+.r-1rnoaur{overflow-y:auto;}
+.r-1sg8ghl{z-index:1000;}
+.r-1ssbvtb{gap:12px;}
+.r-1sxrcry{background-size:auto;}
+.r-1udbk01{text-overflow:ellipsis;}
+.r-1ui5ee8{font-size:32px;}
+.r-1vr29t4{font-weight:800;}
+.r-1w0rzrk{font-family:PlayfairDisplay_700Bold;}
+.r-1w2pmg{height:0px;}
+.r-1w6e6rj{flex-wrap:wrap;}
+.r-1wbh5a2{flex-shrink:1;}
+.r-1wtj0ep{justify-content:space-between;}
+.r-1wyyakw{z-index:-1;}
+.r-1xcajam{position:fixed;}
+.r-1xnzce8{-moz-user-select:text;-webkit-user-select:text;user-select:text;}
+.r-1xpsq9i{box-shadow:0px 3px 3px rgba(0, 0, 0, 0.33);}
+.r-1xzupcd{width:13px;}
+.r-1yef0xd{animation-name:r-11cv4x;}
+.r-2eszeu::-webkit-scrollbar{display:none}
+.r-2eszeu{scrollbar-width:none;}
+.r-30o5oe{-moz-appearance:none;-ms-appearance:none;-webkit-appearance:none;appearance:none;}
+.r-356f0p{letter-spacing:0.35px;}
+.r-3mc0re{right:8px;}
+.r-3s2u2q{white-space:nowrap;}
+.r-417010{z-index:0;}
+.r-4gszlv{background-size:cover;}
+.r-4v7adb{height:5px;}
+.r-5oul0u{margin-bottom:8px;}
+.r-60vfwk{min-width:1px;}
+.r-633pao>* {pointer-events:none;}
+.r-633pao{pointer-events:none!important;}
+.r-6dt33c{opacity:1;}
+.r-6gpygo{margin-bottom:12px;}
+.r-6taxm2:-ms-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-moz-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::-webkit-input-placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-6taxm2::placeholder{color:var(--placeholderTextColor);opacity:1;}
+.r-726pan{width:31px;}
+.r-76blku{height:21px;}
+.r-7cikom{font-size:inherit;}
+.r-7q8q6z{cursor:default;}
+.r-8akbws{-webkit-box-orient:vertical;}
+.r-8ay8q1{letter-spacing:0.1px;}
+.r-97e31f{padding-bottom:env(safe-area-inset-bottom);}
+.r-9daxd3{animation-duration:250ms;}
+.r-adyw6z{font-size:20px;}
+.r-agouwx{transform:translateZ(0);}
+.r-ah5dr5>* {pointer-events:none;}
+.r-ah5dr5{pointer-events:auto!important;}
+.r-aruset{font-weight:200;}
+.r-aynxtb{background-color:rgba(248,249,249,1.00);}
+.r-bi4vy9{transform:translateY(100%);}
+.r-bt1l66{min-height:20px;}
+.r-buy8e9{overflow-y:hidden;}
+.r-bv2aro{padding-left:env(safe-area-inset-left);}
+.r-c68hjy{color:rgba(161,161,161,1.00);}
+.r-c97pre{z-index:999;}
+.r-cpa5s6{scroll-snap-align:start;}
+.r-cqee49{color:rgba(0,0,0,1.00);}
+.r-dkge59{background-color:rgba(170,184,194,1.00);}
+.r-dnmrzs{max-width:100%;}
+.r-eafdt9{transition-duration:0.15s;}
+.r-ebwn4k{animation-name:r-q67da2;}
+.r-ehq7j7{background-size:contain;}
+.r-epq5cr{height:2px;}
+.r-eqz5dr{flex-direction:column;}
+.r-eu3ka{height:40px;}
+.r-fdjqy7{text-align:left;}
+.r-g3mlsw{animation-name:r-t2lo5v;}
+.r-ghxds0{transform:translateY(0%);}
+.r-gtdqiz{position:-webkit-sticky;position:sticky;}
+.r-h0d30l{height:28px;}
+.r-hxflta{padding-right:env(safe-area-inset-right);}
+.r-i933xg{letter-spacing:1.5px;}
+.r-icoktb{opacity:0.5;}
+.r-ipm5af{top:0px;}
+.r-jwli3a{color:rgba(255,255,255,1.00);}
+.r-k200y{align-self:flex-start;}
+.r-kemksi{background-color:rgba(0,0,0,1.00);}
+.r-kizejy{color:rgba(155,161,166,1.00);}
+.r-knv0ih{margin-top:8px;}
+.r-l71dzp{margin-top:14px;}
+.r-leqjx2{animation-timing-function:cubic-bezier(0.215, 0.61, 0.355, 1);}
+.r-lltvgl{overflow-x:auto;}
+.r-lpb231{height:168px;}
+.r-lrsllp{width:24px;}
+.r-lrvibr{-moz-user-select:none;-webkit-user-select:none;user-select:none;}
+.r-m2n80f{color:rgba(18,30,54,1.00);}
+.r-majxgm{font-weight:500;}
+.r-mfh4gg{scroll-snap-type:x mandatory;}
+.r-mhe3cw{z-index:10;}
+.r-mro3nb{background-color:rgba(21,23,24,1.00);}
+.r-n6v787{font-size:13px;}
+.r-o4n3w5{width:23px;}
+.r-orgf3d{opacity:0;}
+.r-pvf4s5{font-family:DMSans_400Regular;}
+.r-q4m81j{text-align:center;}
+.r-qfi6ny{top:30000px;}
+.r-qklmqi{border-bottom-width:1px;}
+.r-qn3fzs{padding-bottom:24px;}
+.r-qq6crh{color:rgba(90,100,120,1.00);}
+.r-rjixqe{line-height:20px;}
+.r-rlb4qz{color:rgba(201,168,76,1.00);}
+.r-rs94m5{background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K");}
+.r-s62m2j{animation-timing-function:cubic-bezier(0.47, 0, 0.745, 0.715);}
+.r-sfbmgh{z-index:9999;}
+.r-sgscqh{width:250px;}
+.r-so7y2g{line-height:64px;}
+.r-tsynxw{text-transform:uppercase;}
+.r-u6sd8q{background-repeat:no-repeat;}
+.r-u8s1d{position:absolute;}
+.r-u92y06{background-color:rgba(255,165,0,1.00);}
+.r-ubezar{font-size:16px;}
+.r-uho16t{font-size:34px;}
+.r-vacyoi{padding-bottom:64px;}
+.r-van48c{caret-color:transparent;}
+.r-vboj7i{top:-7px;}
+.r-vvn4in{background-position:center;}
+.r-vw2c0b{font-weight:bold;}
+.r-wfqgy4{transition-duration:100ms;}
+.r-ws9h79{left:4px;}
+.r-x11e5r{font-family:SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+.r-x3cy2q{background-size:100% 100%;}
+.r-xx3c9p{animation-name:r-imtty0;}
+.r-y7v2we{background-color:rgba(32,36,37,1.00);}
+.r-yy2aun{font-size:26px;}
+.r-z80fyv{height:20px;}
+.r-zchlnj{right:0px;}
+.r-zz5t5d{font-size:28px;}
+@-webkit-keyframes r-11cv4x{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@-webkit-keyframes r-1iq689l{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@-webkit-keyframes r-1pzkwqh{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@-webkit-keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@-webkit-keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@-webkit-keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}
+@keyframes r-11cv4x{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes r-1iq689l{0%{transform:translateY(0%);}100%{transform:translateY(100%);}}
+@keyframes r-1pzkwqh{0%{transform:translateY(100%);}100%{transform:translateY(0%);}}
+@keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
+@keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
+@keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}</style><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="icon" href="/favicon.ico" />    <title>Venue Concessions — Food, Drink & Cashless Rules | Concerto</title>
+    <meta name="description" content="What is inside your venue and what it costs, including which venues went cashless.">
+    <link rel="canonical" href="https://concertocity.com/concessions">
+    <meta name="apple-itunes-app" content="app-id=6744903414">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Concerto">
+    <meta property="og:title" content="Venue Concessions — Food, Drink & Cashless Rules | Concerto">
+    <meta property="og:description" content="What is inside your venue and what it costs, including which venues went cashless.">
+    <meta property="og:url" content="https://concertocity.com/concessions">
+    <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://concertocity.com/ConcertoSocialPreview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head><body><div id="root"><div class="css-g5y9jx r-13awgt0"><!--$--><!--/$--></div></div><script src="/_expo/static/js/web/entry-0fd78e4ee8850e5071aede750c622ec3.js" defer></script>
+</body></html>

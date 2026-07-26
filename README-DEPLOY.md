@@ -44,6 +44,17 @@ explicitly by Platform.OS:
     on web (Updates.reloadAsync left the router mid-navigation,
     which is why it landed on Bag Check)
 
+## Content pages are now APP ROUTES
+about, faq, how-it-works, bags, parking, rideshare and concessions
+used to be hand-built HTML in the old design. They are now real app
+routes (app/about.tsx etc.) rendered with the app tokens, so they can
+never drift again -- and Expo static export still emits a real
+about.html / faq.html / bags.html, so their SEO is intact. The prose
+was ported from the old pages, not rewritten from scratch.
+
+These new files REPLACE the old same-named pages at the repo root.
+Copy them over; the old versions are superseded.
+
 ## How to deploy into the site repo
 1. Copy EVERYTHING from this folder into the site repo root
    (index.html, _expo/, assets/, the route .html files, _redirects).
