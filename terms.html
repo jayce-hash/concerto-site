@@ -182,24 +182,23 @@
     .pricing-options .btn-dark{background:rgba(248,249,249,.1);color:#F8F9F9;
       border-color:rgba(248,249,249,.22)}
 
-    /* ── Footer: copy + links left, wordmark centred ───────────── */
-    .v2foot{border-top:1px solid var(--line);padding:28px 16px 40px;background:var(--bg)}
+    /* ── Footer: slogan left, wordmark centred, links right ────── */
+    .v2foot{border-top:1px solid var(--line);padding:26px 16px 34px;background:var(--bg)}
     .v2foot-inner{max-width:var(--maxw);margin:0 auto;position:relative;
-      display:flex;align-items:center;justify-content:flex-start;gap:16px;min-height:56px}
-    .v2foot-left{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-    .v2foot-copy{font-size:12px;color:var(--ink-faint)}
-    .v2foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
-    .v2foot-links a{font-size:12.5px;font-weight:600;color:var(--ink-muted)}
-    .v2foot-links a:hover{color:var(--gold)}
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;min-height:40px;flex-wrap:wrap}
+    .v2foot-copy{font-size:12px;color:var(--ink-faint);flex-shrink:1}
     /* Centred on the FOOTER, not between its neighbours, so it stays
-       optically centred no matter how wide the link row gets. */
-    .v2foot-mark{position:absolute;left:50%;transform:translateX(-50%);
-      pointer-events:auto}
+       optically centred however wide the link row gets. */
+    .v2foot-mark{position:absolute;left:50%;transform:translateX(-50%)}
     .v2foot-mark img{width:150px;height:32px;object-fit:contain;opacity:.85}
     .v2foot-mark:hover img{opacity:1}
+    .v2foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+    .v2foot-links a{font-size:12.5px;font-weight:600;color:var(--ink-muted)}
+    .v2foot-links a:hover{color:var(--gold)}
     @media(max-width:900px){
-      .v2foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
-      .v2foot-mark{position:static;transform:none;align-self:center}
+      .v2foot-inner{flex-direction:column;align-items:center;text-align:center;gap:18px}
+      .v2foot-mark{position:static;transform:none;order:-1}
     }
 
     @media(max-width:640px){
@@ -298,20 +297,18 @@
 
   <footer class="v2foot" role="contentinfo">
     <div class="v2foot-inner">
-      <div class="v2foot-left">
-        <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
-        <nav class="v2foot-links" aria-label="Footer">
-          <a href="/about">About</a>
-          <a href="/premium">Premium</a>
-          <a href="/faq">FAQ</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/account">Account</a>
-        </nav>
-      </div>
+      <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
       <a class="v2foot-mark" href="/" aria-label="Concerto home">
         <img src="/img/lockup.png" alt="Concerto" width="150" height="32" />
       </a>
+      <nav class="v2foot-links" aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/premium">Premium</a>
+        <a href="/faq">FAQ</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/account">Account</a>
+      </nav>
     </div>
   </footer>
   <script defer src="/analytics.js"></script>
