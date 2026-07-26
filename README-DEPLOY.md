@@ -9,6 +9,15 @@ Finder REPLACES folders and would wipe venues/, tours/, data/, img/.
 No script to run this time. The five content pages ship as finished
 HTML.
 
+## Deploy, in full
+    cp -R ~/Downloads/concerto-web-app/. ~/Downloads/concerto-site/
+    cd ~/Downloads/concerto-site
+    python3 build_sitemap.py
+    git add -A && git commit -m "V2" && git push
+
+build_sitemap.py reads what is actually on disk, so the sitemap can
+never drift from the site again. Re-run it whenever pages are added.
+
 ## What's here
 1. The Expo web export of the actual app: index, venues, tours,
    near-me, account, settings, search, plan, bagcheck, plus
