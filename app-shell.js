@@ -215,7 +215,7 @@
     '.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:1000;display:none;' +
     'height:calc(62px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);' +
     'background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid rgba(18,30,54,.14)}' +
-    '@media(prefers-color-scheme:dark){.tabbar{background:rgba(22,32,58,.94);border-top-color:#2A3550}}' +
+    
     '.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;' +
     'font-family:"DM Sans",-apple-system,sans-serif;font-size:10px;font-weight:700;color:#8A91A3;text-decoration:none}' +
     '.tabbar a.active{color:#C9A84C}.tabbar a svg{width:21px;height:21px}' +
@@ -241,7 +241,7 @@
     '<a href="/"' + act('/') + '>' + ic.home + 'Home</a>' +
     '<a href="/venues"' + act('/venues') + '>' + ic.venues + 'Venues</a>' +
     '<a href="/tours"' + act('/tours') + '>' + ic.tours + 'Tours</a>' +
-    '<a href="/events"' + act('/events') + '>' + ic.near + 'Near Me</a>' +
+    '<a href="/events"' + act('/near-me') + '>' + ic.near + 'Near Me</a>' +
     '<a href="' + APP_URL + '" style="color:#C9A84C">' + ic.get + 'Get App</a>';
   function mount() { document.body.appendChild(bar); }
   if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);

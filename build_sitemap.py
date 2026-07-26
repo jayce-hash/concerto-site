@@ -28,9 +28,9 @@ HUBS = [
     ('/',          '1.0', 'daily'),
     ('/venues',    '0.9', 'weekly'),
     ('/tours',     '0.9', 'daily'),
-    # /near-me renders the same screen and canonicalises here, so
-    # only one of the pair belongs in the sitemap.
-    ('/events',    '0.8', 'daily'),
+    # events.tsx was retired; /events 301s here, so /near-me is the
+    # single canonical Near Me URL.
+    ('/near-me',   '0.8', 'daily'),
     ('/premium',   '0.8', 'monthly'),
     ('/about',     '0.6', 'monthly'),
     ('/faq',       '0.6', 'monthly'),
