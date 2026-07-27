@@ -30,7 +30,7 @@
       --line:rgba(18,30,54,.14);
       --display:'Playfair Display',Georgia,serif;
       --body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-      --nav-h:60px; --maxw:1160px; --col:780px;
+      --nav-h:60px; --maxw:1760px; --col:780px;
       --r-md:14px; --r-lg:18px; --r-pill:999px;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -43,7 +43,7 @@
 
     /* ── Nav: matches the app-on-web top nav ───────────────────── */
     .v2nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;
-      justify-content:space-between;gap:.6rem;padding:12px 16px;background:var(--bg)}
+      justify-content:space-between;gap:.6rem;padding:12px 4%;background:var(--bg)}
     .v2nav.is-scrolled{border-bottom:1px solid var(--line)}
     .v2nav-brand img{width:168px;height:36px;object-fit:contain}
     .v2nav-links{position:absolute;left:50%;transform:translateX(-50%);
@@ -134,7 +134,7 @@
     .faq-answer-inner a{color:var(--gold);border-bottom:1px solid rgba(201,168,76,.35)}
 
     /* ── Premium: marketing layout, same type system ───────────── */
-    .showcase-container{max-width:var(--maxw);margin:0 auto;padding:64px 24px 96px}
+    .showcase-container{max-width:var(--maxw);margin:0 auto;padding:64px 4% 96px}
     .hero{text-align:center;max-width:var(--col);margin:0 auto 4rem}
     .hero-title{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);
       font-weight:700;letter-spacing:-.03em;line-height:1.05;color:var(--ink);
@@ -204,7 +204,7 @@
        window narrowed the copy and links expanded straight over the
        top of it. Equal zones centre the mark and guarantee nothing
        can overlap it at any width. */
-    .v2foot{border-top:1px solid var(--line);padding:26px 16px 34px;background:var(--bg)}
+    .v2foot{border-top:1px solid var(--line);padding:26px 4% 34px;background:var(--bg)}
     .v2foot-inner{max-width:var(--maxw);margin:0 auto;display:flex;
       align-items:center;gap:16px;min-height:40px}
     .v2foot-side{flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;min-width:0}
