@@ -44,7 +44,7 @@ HUBS = [
 # sitemap would throw away real ranking history for no reason.
 LEGACY_HUBS = ['bags', 'parking', 'rideshare', 'concessions',
                'how-it-works', 'setlists', 'top-picks', 'partners',
-               'passport', 'features']
+               'features']
 
 # Deliberately EXCLUDED:
 #   search, plan, settings, account -> app utility screens; account is
