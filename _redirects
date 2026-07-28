@@ -33,5 +33,11 @@
 /mobile-livemode        /mobile-account    301
 /mobile-livemode.html   /mobile-account.html   301
 
+# These also exist in netlify.toml, but _redirects is applied
+# first, so the catch-all below was swallowing them.
+/cityguide/*              /venues/:splat   301
+/cityguides               /venues          301
+/tours/fifa-world-cup-2026   /tours        301
+
 # Real 404 for anything else.
 /*   /+not-found.html   404
