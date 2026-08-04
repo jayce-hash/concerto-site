@@ -382,5 +382,14 @@
 /cityguide/*   /venue/:splat   301
 /cityguides    /venues         301
 
+# Duplicate surfaces retired: picks/featuredtours were canonical to
+# /top-picks and /tours already; tourinfo folds into /tours.
+/picks                /top-picks   301
+/picks.html           /top-picks   301
+/featuredtours        /tours       301
+/featuredtours.html   /tours       301
+/tourinfo             /tours       301
+/tourinfo.html        /tours       301
+
 # Real 404 for anything else.
 /*   /+not-found.html   404

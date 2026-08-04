@@ -265,47 +265,46 @@
 <style id="navfix">.site-nav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;width:100% !important;z-index:1000 !important;height:var(--nav-h,68px) !important;display:flex !important;align-items:center !important;justify-content:space-between !important;padding:0 3.5% !important;background:rgba(248,249,249,0.97) !important;-webkit-backdrop-filter:blur(24px) !important;backdrop-filter:blur(24px) !important;border-bottom:1px solid rgba(18,30,54,.08) !important;box-shadow:0 2px 12px rgba(18,30,54,.04) !important;}.nav-logo{display:flex !important;align-items:center !important;width:200px !important;flex:0 0 auto !important;}.nav-cta{display:flex !important;align-items:center !important;justify-content:flex-end !important;gap:10px !important;width:auto !important;flex:0 0 auto !important;}.nav-center{display:flex !important;gap:0 !important;align-items:center !important;position:absolute !important;left:50% !important;transform:translateX(-50%) !important;height:var(--nav-h,68px) !important;}.nav-center>a{font-family:var(--body,sans-serif) !important;font-weight:600 !important;text-transform:uppercase !important;letter-spacing:0.05em !important;font-size:0.64rem !important;padding:0 0.6rem !important;color:var(--text-dim,rgba(18,30,54,.52)) !important;white-space:nowrap !important;display:flex !important;align-items:center !important;height:var(--nav-h,68px) !important;text-decoration:none !important;}.nav-center>a:hover,.nav-center>a.active{color:var(--text,#121E36) !important;}.nav-hamburger{display:none;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}#navAuthLink,.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}}</style>
   <link rel="stylesheet" href="align.css">
   <script defer src="/analytics.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site-chrome.css">
 </head>
-<body class="page-content"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
+<body class="page-content chrome-align">
+<nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">
+    <a class="v2nav-brand" href="/" aria-label="Concerto home">
+      <img src="/img/lockup.png" alt="Concerto &mdash; From the Concert to the City" width="168" height="36" />
+    </a>
+    <div class="v2nav-links">
+      <a href="/">Home</a>
+      <a href="/venues">Venues</a>
+      <a href="/tours">Tours</a>
+      <a href="/near-me">Near Me</a>
+    </div>
+    <div class="v2nav-right">
+      <a class="v2nav-icon" href="/search" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a class="v2nav-icon" href="/account" aria-label="Account">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="3.2"/><circle cx="12" cy="12" r="9"/><path d="M5.5 19a7 7 0 0 1 13 0"/></svg>
+      </a>
+      <button class="v2nav-icon v2nav-menubtn" id="v2menubtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="v2nav-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
+    </div>
+  </nav><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
 <div class="noise" aria-hidden="true"></div>
 
 <!-- NAV -->
-<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
-  <div class="nav-logo">
-    <a href="index.html" aria-label="Concerto Home">
-      <img src="logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/>
-    </a>
-  </div>
-  <div class="nav-center">
-      <a href="venues.html">Venues</a>
-      <a href="tours.html">Tours</a>
-      <a href="events.html">Near Me</a>
-      <a href="top-picks.html">Top Picks</a>
-      <a href="bags.html">Bag Policies</a>
-      <a href="rideshare.html">Rideshare</a>
-      <a href="parking.html">Parking</a>
-      <a href="concessions.html">Concessions</a>
-      <a href="premium.html">Premium</a>
-      <a href="about.html">About</a>
-    </div>
-  <div class="nav-cta" style="display:flex;gap:10px;align-items:center;">
-      <a id="navAuthLink" href="login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a>
-      <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a>
-      <a id="navProfileIcon" href="login.html" class="nav-profile-btn" aria-label="Account">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-</nav>
+
 
 <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
       <a href="venues.html" class="nav-mobile-link">Venues</a>
       <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="events.html" class="nav-mobile-link">Near Me</a>
+      <a href="/near-me" class="nav-mobile-link">Near Me</a>
       <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
       <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
       <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
@@ -385,38 +384,7 @@
 </main>
 
 <!-- FOOTER -->
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img loading="lazy" decoding="async" src="logo.png" alt="Concerto" width="160" height="44"/>
-      <p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, and city guides. Everything you need, in one place.</p>
-    </div>
-    <nav class="footer-col" aria-label="Company links">
-      <h4>Company</h4>
-      <a href="about.html">About Us</a>
-      <a href="premium.html">Premium</a>
-      <a href="shop.html">Shop</a>
-      <a href="partners.html">Partnerships</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-    <nav class="footer-col" aria-label="Legal">
-      <h4>Legal</h4>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="mailto:support@concertocity.com">Contact</a>
-    </nav>
-    <nav class="footer-col" aria-label="Social">
-      <h4>Follow Us</h4>
-      <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a>
-    </nav>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Concerto LLC. All rights reserved.</span>
-    <span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span>
-  </div>
-</footer>
+
 
 <script>
 // Parallax
@@ -547,5 +515,36 @@ document.addEventListener('mousemove', (e) => {
   set('restaurants');
 })();
 </script>
+<footer class="v2foot" role="contentinfo">
+    <div class="v2foot-inner">
+      <div class="v2foot-side">
+        <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
+        <div class="v2foot-social">
+          <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on Instagram">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.07-1.1 0-1.7.2-2.1.35-.5.2-.9.4-1.2.8-.4.3-.6.7-.8 1.2-.15.4-.3 1-.35 2.1C2.7 9.8 2.7 10.2 2.7 12s0 2.2.07 3.5c.05 1.1.2 1.7.35 2.1.2.5.4.9.8 1.2.3.4.7.6 1.2.8.4.15 1 .3 2.1.35 1.3.07 1.7.07 4.8.07s3.5 0 4.8-.07c1.1-.05 1.7-.2 2.1-.35.5-.2.9-.4 1.2-.8.4-.3.6-.7.8-1.2.15-.4.3-1 .35-2.1.07-1.3.07-1.7.07-3.5s0-2.2-.07-3.5c-.05-1.1-.2-1.7-.35-2.1-.2-.5-.4-.9-.8-1.2-.3-.4-.7-.6-1.2-.8-.4-.15-1-.3-2.1-.35C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.2-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on TikTok">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06v-3.1a5.66 5.66 0 0 0-.77-.05A5.66 5.66 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on YouTube">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.02V8.98L15.2 12 10 15.02z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="v2foot-center">
+        <a class="v2foot-mark" href="/" aria-label="Concerto home">
+          <img src="/img/lockup.png" alt="Concerto" width="150" height="32" />
+        </a>
+      </div>
+      <nav class="v2foot-side v2foot-end" aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/premium">Concerto+</a>
+        <a href="/faq">FAQ</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/account">Account</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
