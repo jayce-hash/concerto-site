@@ -290,20 +290,6 @@
   <!-- ─── NAV ─── -->
   
     <!-- Mobile menu -->
-    <div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="venues.html" class="nav-mobile-link">Venues</a>
-      <a href="tours.html" class="nav-mobile-link">Tours</a>
-      <a href="/near-me" class="nav-mobile-link">Near Me</a>
-      <a href="top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="parking.html" class="nav-mobile-link">Parking</a>
-      <a href="concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="premium.html" class="nav-mobile-link">Premium</a>
-      <a href="about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
     </div>
 
   <!-- ─── HERO ─── -->
@@ -337,7 +323,7 @@
         <span class="eyebrow">For Partners</span>
         <h2>Be the spot Concerto sends fans to</h2>
         <p>One featured restaurant and one hotel per venue. Your spot at the top, a ticket-holder deal we promote across our guides, Instagram, and ambassadors, and Concerto&rsquo;s recommendation in front of fans planning their night. <b>Founding partners lock the early rate.</b></p>
-        <a class="btn btn-dark" href="partners.html">Become a partner</a>
+        <a class="btn btn-dark" href="/partners">Become a partner</a>
       </section>
 
     </div>
@@ -415,7 +401,7 @@
       var offer=(mode==='partner'&&it.offer)
         ?'<div class="cc-offer"><span class="ot">&#127915; '+esc(it.offer)+'</span><span class="os">Show your ticket</span></div>'
         :'<div class="cc-offer"><span class="ot">This slot is open near '+esc(it.venueName)+'.</span><span class="os">Get featured here</span></div>';
-      var cta=mode==='partner'?'<a class="btn btn-dark cc-feat-cta" href="'+href+'">See it on the '+esc(it.city)+' guide</a>':'<a class="btn btn-dark cc-feat-cta" href="partners.html">Become a partner</a>';
+      var cta=mode==='partner'?'<a class="btn btn-dark cc-feat-cta" href="'+href+'">See it on the '+esc(it.city)+' guide</a>':'<a class="btn btn-dark cc-feat-cta" href="/partners">Become a partner</a>';
       return '<article class="cc-featured"><div class="cc-feat-photo">'+img(it)+'</div>'
         +'<div class="cc-feat-body"><span class="eyebrow">'+label+'</span>'
         +'<span class="cc-near">Near '+esc(it.venueName)+' &middot; '+esc(it.city)+'</span><h3>'+esc(it.name)+'</h3>'
