@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-Regenerate sitemap.xml to match the V2 URL structure.
+Regenerate sitemap.xml for the consolidated site.
+
+One surface: venue and tour detail URLs are the app's singular paths
+(/venue/{slug}, /tour/{slug}), served by the exported Expo shells.
+Slugs come from data/venues.json and data/tours.json, the same files
+the app itself loads, so the sitemap cannot list a page the app
+cannot render.
 
 Run from the site repo root:  python3 build_sitemap.py
 
@@ -94,13 +100,17 @@ for name in LEGACY_HUBS:
     if os.path.exists(f'{name}.html'):
         rows.append(url(f'/{name}', '0.5', 'monthly'))
 
-venues = slugs('venues')
-for s in venues:
-    rows.append(url(f'/venues/{s}', '0.7', 'weekly'))
+import json
 
-tours = slugs('tours')
+with open('data/venues.json', encoding='utf-8') as f:
+    venues = sorted(v['id'] for v in json.load(f))
+for s in venues:
+    rows.append(url(f'/venue/{s}', '0.7', 'weekly'))
+
+with open('data/tours.json', encoding='utf-8') as f:
+    tours = sorted(t['tourId'] for t in json.load(f))
 for s in tours:
-    rows.append(url(f'/tours/{s}', '0.7', 'weekly'))
+    rows.append(url(f'/tour/{s}', '0.7', 'weekly'))
 
 xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

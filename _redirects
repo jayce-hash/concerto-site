@@ -1,7 +1,7 @@
 # ── Concerto: the app IS the website ────────────────────────────────
-# Netlify serves real files first, so the 346 static venue pages and 76
-# tour pages under /venues/* and /tours/* are unaffected by everything
-# below -- their SEO is untouched.
+# One surface. The static /venues/* and /tours/* guide pages are gone;
+# every venue and tour URL now serves the app's detail screen at the
+# singular path. The 301s below carry the old URLs across.
 
 # Legacy
 # events.tsx retired -- /near-me is the single Near Me screen. A 301
@@ -15,13 +15,6 @@
 /concertoplus       /premium   301
 /concertoplus.html  /premium   301
 
-# The APP's detail screens live at the SINGULAR paths, so they never
-# collide with the plural static SEO pages:
-#   /venue/madison-square-garden   -> app screen
-#   /venues/madison-square-garden  -> static SEO page (indexed)
-/venue/*   /venue/[slug].html   200
-/tour/*    /tour/[slug].html    200
-
 # Retired surfaces -- files deleted so these actually fire. Passport
 # (formerly Live Mode) is retired entirely; /features carries the story.
 /passport               /features          301
@@ -33,11 +26,361 @@
 /mobile-livemode        /mobile-account    301
 /mobile-livemode.html   /mobile-account.html   301
 
-# These also exist in netlify.toml, but _redirects is applied
-# first, so the catch-all below was swallowing them.
-/cityguide/*              /venues/:splat   301
-/cityguides               /venues          301
-/tours/fifa-world-cup-2026   /tours        301
+# Retired tour. Must sit above the /tours/* splat so it wins.
+/tours/fifa-world-cup-2026   /tours   301
+
+# The plural guide URLs are retired. Every old /venues/{slug} and
+# /tours/{slug} 301s to the app screen at the singular path. The
+# hubs /venues and /tours are untouched (splats don't match the bare
+# path) and keep serving the app's tab pages.
+/venues/*   /venue/:splat   301
+/tours/*    /tour/:splat    301
+
+# The app's detail screens: any slug rewrites to the exported shell.
+/venue/*   /venue/[slug].html   200
+/tour/*    /tour/[slug].html    200
+
+# Old city guide SPA links used de-hyphenated slugs, so a splat can't
+# map them. Explicit per-venue mapping, generated from data/venues.json
+# (slug with hyphens stripped -> real slug). Fallback splat after.
+/cityguide/713musichall   /venue/713-music-hall   301
+/cityguide/accorarena   /venue/accor-arena   301
+/cityguide/aclliveatthemoodytheater   /venue/acl-live-at-the-moody-theater   301
+/cityguide/acrisurearenaatgreaterpalmsprings   /venue/acrisure-arena-at-greater-palm-springs   301
+/cityguide/acrisurestadium   /venue/acrisure-stadium   301
+/cityguide/additionfinancialarena   /venue/addition-financial-arena   301
+/cityguide/albertsonsstadium   /venue/albertsons-stadium   301
+/cityguide/allaslive   /venue/allas-live   301
+/cityguide/allegiantstadium   /venue/allegiant-stadium   301
+/cityguide/allianzarena   /venue/allianz-arena   301
+/cityguide/allstatearena   /venue/allstate-arena   301
+/cityguide/amaliearena   /venue/amalie-arena   301
+/cityguide/amerantbankarena   /venue/amerant-bank-arena   301
+/cityguide/americanairlinescenter   /venue/american-airlines-center   301
+/cityguide/americanfamilyfield   /venue/american-family-field   301
+/cityguide/americanfamilyinsuranceamphitheater   /venue/american-family-insurance-amphitheater   301
+/cityguide/amicamutualpavilion   /venue/amica-mutual-pavilion   301
+/cityguide/anfiteatrodegliscavi   /venue/anfiteatro-degli-scavi   301
+/cityguide/angelstadium   /venue/angel-stadium   301
+/cityguide/aoarena   /venue/ao-arena   301
+/cityguide/arizonafinancialtheatre   /venue/arizona-financial-theatre   301
+/cityguide/attstadium   /venue/att-stadium   301
+/cityguide/austincitylimitsmusicfestival   /venue/austin-city-limits-music-festival   301
+/cityguide/ballarena   /venue/ball-arena   301
+/cityguide/bankofamericastadium   /venue/bank-of-america-stadium   301
+/cityguide/barclaysarena   /venue/barclays-arena   301
+/cityguide/barclayscenter   /venue/barclays-center   301
+/cityguide/bcplace   /venue/bc-place   301
+/cityguide/bellcentre   /venue/bell-centre   301
+/cityguide/bellcotheatre   /venue/bellco-theatre   301
+/cityguide/benchmarkinternationalarena   /venue/benchmark-international-arena   301
+/cityguide/bethelwoodscenterforthearts   /venue/bethel-woods-center-for-the-arts   301
+/cityguide/beyondwonderlandsocal   /venue/beyond-wonderland-socal   301
+/cityguide/billgrahamcivicauditorium   /venue/bill-graham-civic-auditorium   301
+/cityguide/bjccarena   /venue/bjcc-arena   301
+/cityguide/bluecrossarena   /venue/blue-cross-arena   301
+/cityguide/bmopavilion   /venue/bmo-pavilion   301
+/cityguide/bobbydoddstadiumathyundaifield   /venue/bobby-dodd-stadium-at-hyundai-field   301
+/cityguide/bokcenter   /venue/bok-center   301
+/cityguide/bonnaroomusicartsfestival   /venue/bonnaroo-music-arts-festival   301
+/cityguide/bostoncalling   /venue/boston-calling   301
+/cityguide/bottlerocknapavalley   /venue/bottlerock-napa-valley   301
+/cityguide/bppulselive   /venue/bp-pulse-live   301
+/cityguide/bridgestonearena   /venue/bridgestone-arena   301
+/cityguide/brightoncentre   /venue/brighton-centre   301
+/cityguide/broadviewstageatspac   /venue/broadview-stage-at-spac   301
+/cityguide/brooklynparamount   /venue/brooklyn-paramount   301
+/cityguide/burningman   /venue/burning-man   301
+/cityguide/buschstadium   /venue/busch-stadium   301
+/cityguide/bylinebankaragonballroom   /venue/byline-bank-aragon-ballroom   301
+/cityguide/cabledahmerarena   /venue/cable-dahmer-arena   301
+/cityguide/caesarssuperdome   /venue/caesars-superdome   301
+/cityguide/camprandallstadium   /venue/camp-randall-stadium   301
+/cityguide/canadalifecentre   /venue/canada-life-centre   301
+/cityguide/canadiantirecentre   /venue/canadian-tire-centre   301
+/cityguide/capitalonearena   /venue/capital-one-arena   301
+/cityguide/centerstagetheater   /venue/center-stage-theater   301
+/cityguide/cfgbankarena   /venue/cfg-bank-arena   301
+/cityguide/chaifetzarena   /venue/chaifetz-arena   301
+/cityguide/chasecenter   /venue/chase-center   301
+/cityguide/chasefield   /venue/chase-field   301
+/cityguide/chihealthcenter   /venue/chi-health-center   301
+/cityguide/citifield   /venue/citi-field   301
+/cityguide/citizensbankpark   /venue/citizens-bank-park   301
+/cityguide/citizenshouseofblues   /venue/citizens-house-of-blues   301
+/cityguide/climatepledgearena   /venue/climate-pledge-arena   301
+/cityguide/cmafest   /venue/cma-fest   301
+/cityguide/coachellavalleymusicandartsfestival   /venue/coachella-valley-music-and-arts-festival   301
+/cityguide/cocacolacoliseum   /venue/coca-cola-coliseum   301
+/cityguide/cocacolaroxy   /venue/coca-cola-roxy   301
+/cityguide/coloniallifearena   /venue/colonial-life-arena   301
+/cityguide/comericapark   /venue/comerica-park   301
+/cityguide/commonwealthstadium   /venue/commonwealth-stadium   301
+/cityguide/cooplive   /venue/co-op-live   301
+/cityguide/coorsfield   /venue/coors-field   301
+/cityguide/countrythunderwisconsin   /venue/country-thunder-wisconsin   301
+/cityguide/creditunion1amphitheatre   /venue/credit-union-1-amphitheatre   301
+/cityguide/crossinsurancearena   /venue/cross-insurance-arena   301
+/cityguide/crossinsurancecenter   /venue/cross-insurance-center   301
+/cityguide/cryptocomarena   /venue/cryptocom-arena   301
+/cityguide/cureinsurancearena   /venue/cure-insurance-arena   301
+/cityguide/daikinpark   /venue/daikin-park   301
+/cityguide/deltacenter   /venue/delta-center   301
+/cityguide/desertdiamondarena   /venue/desert-diamond-arena   301
+/cityguide/dickiesarena   /venue/dickies-arena   301
+/cityguide/dodgerstadium   /venue/dodger-stadium   301
+/cityguide/dolbyliveatparkmgm   /venue/dolby-live-at-park-mgm   301
+/cityguide/dosequispavilion   /venue/dos-equis-pavilion   301
+/cityguide/eaglebankarena   /venue/eaglebank-arena   301
+/cityguide/edclasvegas   /venue/edc-las-vegas   301
+/cityguide/electricforest   /venue/electric-forest   301
+/cityguide/electriczoo   /venue/electric-zoo   301
+/cityguide/empowerfederalcreditunionamphitheater   /venue/empower-federal-credit-union-amphitheater   301
+/cityguide/empowerfieldatmilehigh   /venue/empower-field-at-mile-high   301
+/cityguide/enterprisecenter   /venue/enterprise-center   301
+/cityguide/essencefestivalofculture   /venue/essence-festival-of-culture   301
+/cityguide/estadiognpseguros   /venue/estadio-gnp-seguros   301
+/cityguide/eventimapollo   /venue/eventim-apollo   301
+/cityguide/everbankstadium   /venue/everbank-stadium   301
+/cityguide/falconstadium   /venue/falcon-stadium   301
+/cityguide/fenwaypark   /venue/fenway-park   301
+/cityguide/fillmoreminneapolispresentedbyaffinityplus   /venue/fillmore-minneapolis-presented-by-affinity-plus   301
+/cityguide/fiservforum   /venue/fiserv-forum   301
+/cityguide/fisherseventcenter   /venue/fishers-event-center   301
+/cityguide/fivepointamphitheatre   /venue/fivepoint-amphitheatre   301
+/cityguide/fontainebleaulasvegas   /venue/fontainebleau-las-vegas   301
+/cityguide/foodcitycenter   /venue/food-city-center   301
+/cityguide/fordfield   /venue/ford-field   301
+/cityguide/fordidahocenterarena   /venue/ford-idaho-center-arena   301
+/cityguide/forumkarln   /venue/forum-karln   301
+/cityguide/foxtheater   /venue/fox-theater   301
+/cityguide/foxtheatredetroit   /venue/fox-theatre-detroit   301
+/cityguide/franklinmusichall   /venue/franklin-music-hall   301
+/cityguide/freedommortgagepavilion   /venue/freedom-mortgage-pavilion   301
+/cityguide/frostbankcenter   /venue/frost-bank-center   301
+/cityguide/gainbridgefieldhouse   /venue/gainbridge-fieldhouse   301
+/cityguide/gallaghersquareatpetcopark   /venue/gallagher-square-at-petco-park   301
+/cityguide/gassoutharena   /venue/gas-south-arena   301
+/cityguide/gehafieldatarrowheadstadium   /venue/geha-field-at-arrowhead-stadium   301
+/cityguide/giantcenter   /venue/giant-center   301
+/cityguide/gillettestadium   /venue/gillette-stadium   301
+/cityguide/globelifefield   /venue/globe-life-field   301
+/cityguide/golden1center   /venue/golden-1-center   301
+/cityguide/governorsball   /venue/governors-ball   301
+/cityguide/grandcasinoarena   /venue/grand-casino-arena   301
+/cityguide/greatamericanballpark   /venue/great-american-ball-park   301
+/cityguide/hangoutmusicfestival   /venue/hangout-music-festival   301
+/cityguide/hardrockstadium   /venue/hard-rock-stadium   301
+/cityguide/hardsummermusicfestival   /venue/hard-summer-music-festival   301
+/cityguide/heritagebankcenter   /venue/heritage-bank-center   301
+/cityguide/hersheyparkstadium   /venue/hersheypark-stadium   301
+/cityguide/highmarkstadium   /venue/highmark-stadium   301
+/cityguide/hollywoodbowl   /venue/hollywood-bowl   301
+/cityguide/hondacenter   /venue/honda-center   301
+/cityguide/houseofblueschicago   /venue/house-of-blues-chicago   301
+/cityguide/houseofblueslasvegas   /venue/house-of-blues-las-vegas   301
+/cityguide/howardtheatre   /venue/howard-theatre   301
+/cityguide/huntingtonbankfield   /venue/huntington-bank-field   301
+/cityguide/iiipoints   /venue/iii-points   301
+/cityguide/intuitdome   /venue/intuit-dome   301
+/cityguide/irvingplaza   /venue/irving-plaza   301
+/cityguide/isletaamphitheater   /venue/isleta-amphitheater   301
+/cityguide/iveaghgardens   /venue/iveagh-gardens   301
+/cityguide/jiffylubelive   /venue/jiffy-lube-live   301
+/cityguide/jmawirelessdome   /venue/jma-wireless-dome   301
+/cityguide/johancruijffarena   /venue/johan-cruijff-arena   301
+/cityguide/johnpauljonesarena   /venue/john-paul-jones-arena   301
+/cityguide/kaseyacenter   /venue/kaseya-center   301
+/cityguide/kauffmanstadium   /venue/kauffman-stadium   301
+/cityguide/keybankcenter   /venue/keybank-center   301
+/cityguide/kiacenter   /venue/kia-center   301
+/cityguide/kiaforum   /venue/kia-forum   301
+/cityguide/kingbaudouinstadium   /venue/king-baudouin-stadium   301
+/cityguide/lambeaufield   /venue/lambeau-field   301
+/cityguide/lanxessarena   /venue/lanxess-arena   301
+/cityguide/ldlcarena   /venue/ldlc-arena   301
+/cityguide/lenovocenter   /venue/lenovo-center   301
+/cityguide/letniascenaprogresji   /venue/letnia-scena-progresji   301
+/cityguide/levisstadium   /venue/levis-stadium   301
+/cityguide/lifeisbeautiful   /venue/life-is-beautiful   301
+/cityguide/lightninginabottle   /venue/lightning-in-a-bottle   301
+/cityguide/lincolnfinancialfield   /venue/lincoln-financial-field   301
+/cityguide/littlecaesarsarena   /venue/little-caesars-arena   301
+/cityguide/loandepotpark   /venue/loandepot-park   301
+/cityguide/lottoarena   /venue/lotto-arena   301
+/cityguide/lucasoilstadium   /venue/lucas-oil-stadium   301
+/cityguide/lumenfield   /venue/lumen-field   301
+/cityguide/madeinamerica   /venue/made-in-america   301
+/cityguide/madisonsquaregarden   /venue/madison-square-garden   301
+/cityguide/manchesteracademy   /venue/manchester-academy   301
+/cityguide/manhattancenterhammersteinballroom   /venue/manhattan-center-hammerstein-ballroom   301
+/cityguide/marxhalle   /venue/marx-halle   301
+/cityguide/masseyhall   /venue/massey-hall   301
+/cityguide/maverikcenter   /venue/maverik-center   301
+/cityguide/mercedesbenzstadium   /venue/mercedes-benz-stadium   301
+/cityguide/merriweatherpostpavilion   /venue/merriweather-post-pavilion   301
+/cityguide/metlifestadium   /venue/metlife-stadium   301
+/cityguide/mgmgrandgardenarena   /venue/mgm-grand-garden-arena   301
+/cityguide/mgmmusichallatfenway   /venue/mgm-music-hall-at-fenway   301
+/cityguide/modacenter   /venue/moda-center   301
+/cityguide/mohegansunarena   /venue/mohegan-sun-arena   301
+/cityguide/moodycenter   /venue/moody-center   301
+/cityguide/moonrisefestival   /venue/moonrise-festival   301
+/cityguide/mortgagematchupcenter   /venue/mortgage-matchup-center   301
+/cityguide/movistararena   /venue/movistar-arena   301
+/cityguide/mtbankstadium   /venue/mt-bank-stadium   301
+/cityguide/musicmidtown   /venue/music-midtown   301
+/cityguide/mvparena   /venue/mvp-arena   301
+/cityguide/myticketjahrhunderthalle   /venue/myticket-jahrhunderthalle   301
+/cityguide/nationalspark   /venue/nationals-park   301
+/cityguide/nationwidearena   /venue/nationwide-arena   301
+/cityguide/neworleansjazzheritagefestival   /venue/new-orleans-jazz-heritage-festival   301
+/cityguide/newportfolkfestival   /venue/newport-folk-festival   301
+/cityguide/newportjazzfestival   /venue/newport-jazz-festival   301
+/cityguide/nissanstadium   /venue/nissan-stadium   301
+/cityguide/northislandcreditunionamphitheatre   /venue/north-island-credit-union-amphitheatre   301
+/cityguide/nrgstadium   /venue/nrg-stadium   301
+/cityguide/o2academybirmingham   /venue/o2-academy-birmingham   301
+/cityguide/o2arena   /venue/o2-arena   301
+/cityguide/o2shepherdsbushempire   /venue/o2-shepherds-bush-empire   301
+/cityguide/oaklandarena   /venue/oakland-arena   301
+/cityguide/ohiostadium   /venue/ohio-stadium   301
+/cityguide/oraclepark   /venue/oracle-park   301
+/cityguide/orioleparkatcamdenyards   /venue/oriole-park-at-camden-yards   301
+/cityguide/outsidelands   /venue/outside-lands   301
+/cityguide/ovohydro   /venue/ovo-hydro   301
+/cityguide/palaciodelosdeportes   /venue/palacio-de-los-deportes   301
+/cityguide/palausantjordi   /venue/palau-sant-jordi   301
+/cityguide/paramounttheatre   /venue/paramount-theatre   301
+/cityguide/patrickgym   /venue/patrick-gym   301
+/cityguide/paycomcenter   /venue/paycom-center   301
+/cityguide/paycorstadium   /venue/paycor-stadium   301
+/cityguide/pechangaarena   /venue/pechanga-arena   301
+/cityguide/peoplesbankarena   /venue/peoplesbank-arena   301
+/cityguide/petcopark   /venue/petco-park   301
+/cityguide/peterseneventscenter   /venue/petersen-events-center   301
+/cityguide/phxarena   /venue/phx-arena   301
+/cityguide/pinnaclebankarena   /venue/pinnacle-bank-arena   301
+/cityguide/pitchforkmusicfestival   /venue/pitchfork-music-festival   301
+/cityguide/pncarena   /venue/pnc-arena   301
+/cityguide/pncpark   /venue/pnc-park   301
+/cityguide/ppgpaintsarena   /venue/ppg-paints-arena   301
+/cityguide/progressivefield   /venue/progressive-field   301
+/cityguide/providencepark   /venue/providence-park   301
+/cityguide/prudentialcenter   /venue/prudential-center   301
+/cityguide/radiocitymusichall   /venue/radio-city-music-hall   301
+/cityguide/ratefield   /venue/rate-field   301
+/cityguide/raymondjamesstadium   /venue/raymond-james-stadium   301
+/cityguide/redhatamphitheater   /venue/red-hat-amphitheater   301
+/cityguide/redrocksamphitheatre   /venue/red-rocks-amphitheatre   301
+/cityguide/riotfest   /venue/riot-fest   301
+/cityguide/riyadhairmetropolitano   /venue/riyadh-air-metropolitano   301
+/cityguide/rocketarena   /venue/rocket-arena   301
+/cityguide/rocketmortgagefieldhouse   /venue/rocket-mortgage-fieldhouse   301
+/cityguide/rogersarena   /venue/rogers-arena   301
+/cityguide/rogerscentre   /venue/rogers-centre   301
+/cityguide/rogersplace   /venue/rogers-place   301
+/cityguide/rogersstadium   /venue/rogers-stadium   301
+/cityguide/rollingloudlosangeles   /venue/rolling-loud-los-angeles   301
+/cityguide/rollingloudmiami   /venue/rolling-loud-miami   301
+/cityguide/rosemonttheatre   /venue/rosemont-theatre   301
+/cityguide/rupparena   /venue/rupp-arena   301
+/cityguide/rymanauditorium   /venue/ryman-auditorium   301
+/cityguide/sapcenter   /venue/sap-center   301
+/cityguide/savemartcenter   /venue/save-mart-center   301
+/cityguide/schottensteincenter   /venue/schottenstein-center   301
+/cityguide/scotiabankarena   /venue/scotiabank-arena   301
+/cityguide/scotiabanksaddledome   /venue/scotiabank-saddledome   301
+/cityguide/scottishgasmurrayfield   /venue/scottish-gas-murrayfield   301
+/cityguide/shakykneesmusicfestival   /venue/shaky-knees-music-festival   301
+/cityguide/shorelineamphitheatre   /venue/shoreline-amphitheatre   301
+/cityguide/simmonsbankarena   /venue/simmons-bank-arena   301
+/cityguide/skylinestageatthemann   /venue/skyline-stage-at-the-mann   301
+/cityguide/smoothiekingcenter   /venue/smoothie-king-center   301
+/cityguide/snhuarena   /venue/snhu-arena   301
+/cityguide/sofistadium   /venue/sofi-stadium   301
+/cityguide/soldierfield   /venue/soldier-field   301
+/cityguide/spectrumcenter   /venue/spectrum-center   301
+/cityguide/ssearenabelfast   /venue/sse-arena-belfast   301
+/cityguide/stadedefrance   /venue/stade-de-france   301
+/cityguide/stadiosansiro   /venue/stadio-san-siro   301
+/cityguide/stadtparkopenair   /venue/stadtpark-open-air   301
+/cityguide/stagecoachfestival   /venue/stagecoach-festival   301
+/cityguide/stanfordstadium   /venue/stanford-stadium   301
+/cityguide/starlighttheatre   /venue/starlight-theatre   301
+/cityguide/statefarmarena   /venue/state-farm-arena   301
+/cityguide/statefarmstadium   /venue/state-farm-stadium   301
+/cityguide/summitmusichall   /venue/summit-music-hall   301
+/cityguide/sunbowlstadium   /venue/sun-bowl-stadium   301
+/cityguide/sxswmusicfilminteractive   /venue/sxsw-music-film-interactive   301
+/cityguide/synovusbankamphitheateratchastainpark   /venue/synovus-bank-amphitheater-at-chastain-park   301
+/cityguide/talkingstickresortamphitheatre   /venue/talking-stick-resort-amphitheatre   301
+/cityguide/targetcenter   /venue/target-center   301
+/cityguide/targetfield   /venue/target-field   301
+/cityguide/tdcoliseum   /venue/td-coliseum   301
+/cityguide/tdgarden   /venue/td-garden   301
+/cityguide/theanthem   /venue/the-anthem   301
+/cityguide/thearmory   /venue/the-armory   301
+/cityguide/thedanforthmusichall   /venue/the-danforth-music-hall   301
+/cityguide/thedomeatamericascenter   /venue/the-dome-at-americas-center   301
+/cityguide/thefillmoredetroit   /venue/the-fillmore-detroit   301
+/cityguide/thefillmoresilverspring   /venue/the-fillmore-silver-spring   301
+/cityguide/thegorgeamphitheatre   /venue/the-gorge-amphitheatre   301
+/cityguide/thelyric   /venue/the-lyric   301
+/cityguide/themetpresentedbyhighmark   /venue/the-met-presented-by-highmark   301
+/cityguide/theo2   /venue/the-o2   301
+/cityguide/thepavilionatstarlake   /venue/the-pavilion-at-star-lake   301
+/cityguide/thepavilionattoyotamusicfactory   /venue/the-pavilion-at-toyota-music-factory   301
+/cityguide/thepinnacle   /venue/the-pinnacle   301
+/cityguide/theradyshellatjacobspark   /venue/the-rady-shell-at-jacobs-park   301
+/cityguide/thestar   /venue/the-star   301
+/cityguide/thetabernacle   /venue/the-tabernacle   301
+/cityguide/thetheatreoflivingarts   /venue/the-theatre-of-living-arts   301
+/cityguide/thevanburen   /venue/the-van-buren   301
+/cityguide/thewiltern   /venue/the-wiltern   301
+/cityguide/thunderridgenaturearena   /venue/thunder-ridge-nature-arena   301
+/cityguide/tmobilearena   /venue/t-mobile-arena   301
+/cityguide/tmobilecenter   /venue/t-mobile-center   301
+/cityguide/tmobilepark   /venue/t-mobile-park   301
+/cityguide/tottenhamhotspurstadium   /venue/tottenham-hotspur-stadium   301
+/cityguide/toyotacenter   /venue/toyota-center   301
+/cityguide/truistpark   /venue/truist-park   301
+/cityguide/ubcdougmitchellthunderbirdsportscentre   /venue/ubc-doug-mitchell-thunderbird-sports-centre   301
+/cityguide/ubsarena   /venue/ubs-arena   301
+/cityguide/ucberkeleygreektheatre   /venue/uc-berkeley-greek-theatre   301
+/cityguide/ultramusicfestival   /venue/ultra-music-festival   301
+/cityguide/unipolarena   /venue/unipol-arena   301
+/cityguide/unipolforum   /venue/unipol-forum   301
+/cityguide/unitedcenter   /venue/united-center   301
+/cityguide/unityarena   /venue/unity-arena   301
+/cityguide/usbankstadium   /venue/us-bank-stadium   301
+/cityguide/usherhall   /venue/usher-hall   301
+/cityguide/utahfirstcreditunionamphitheatre   /venue/utah-first-credit-union-amphitheatre   301
+/cityguide/utilitaarenabirmingham   /venue/utilita-arena-birmingham   301
+/cityguide/utilitaarenanewcastle   /venue/utilita-arena-newcastle   301
+/cityguide/utilitaarenasheffield   /venue/utilita-arena-sheffield   301
+/cityguide/uwpantherarena   /venue/uw-panther-arena   301
+/cityguide/vanandelarena   /venue/van-andel-arena   301
+/cityguide/veikkausarena   /venue/veikkaus-arena   301
+/cityguide/veteransmemorialcoliseum   /venue/veterans-memorial-coliseum   301
+/cityguide/veteransunitedhomeloansamphitheater   /venue/veterans-united-home-loans-amphitheater   301
+/cityguide/videotroncentre   /venue/videotron-centre   301
+/cityguide/viejasarena   /venue/viejas-arena   301
+/cityguide/villaerba   /venue/villa-erba   301
+/cityguide/walmartamp   /venue/walmart-amp   301
+/cityguide/wamutheater   /venue/wamu-theater   301
+/cityguide/wellsfargoarena   /venue/wells-fargo-arena   301
+/cityguide/wellsfargocenter   /venue/wells-fargo-center   301
+/cityguide/wembleystadium   /venue/wembley-stadium   301
+/cityguide/whenwewereyoung   /venue/when-we-were-young   301
+/cityguide/winstarlucasoillive   /venue/winstar-lucas-oil-live   301
+/cityguide/wrigleyfield   /venue/wrigley-field   301
+/cityguide/xcelenergycenter   /venue/xcel-energy-center   301
+/cityguide/xlcenter   /venue/xl-center   301
+/cityguide/yankeestadium   /venue/yankee-stadium   301
+# Any cityguide slug not in the map (the 11 with no hyphens to lose)
+/cityguide/*   /venue/:splat   301
+/cityguides    /venues         301
 
 # Real 404 for anything else.
 /*   /+not-found.html   404

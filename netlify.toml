@@ -6,10 +6,12 @@
   # so they are not real secrets. Tell Netlify's scanner to skip them.
   SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY,SUPABASE_URL"
 
-# City guide SPA retired — venue pages carry the guide now
+# City guide SPA retired. Venue pages carry the guide now.
+# NOTE: _redirects is authoritative and has a per-slug cityguide map;
+# these are kept only as a mirror of the fallback behaviour.
 [[redirects]]
   from = "/cityguide/*"
-  to = "/venues/:splat"
+  to = "/venue/:splat"
   status = 301
 
 [[redirects]]

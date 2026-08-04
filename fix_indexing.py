@@ -125,11 +125,43 @@ for f, t in [('search.html', 'Search | Concerto'),
              ('account.html', 'Account | Concerto')]:
     inject(f, f'<title>{t}</title><meta name="robots" content="noindex">')
 
-for f in ['venue/[slug].html', 'tour/[slug].html', 'venues/[slug].html',
-          'tours/[slug].html', '+not-found.html', '_sitemap.html',
+for f in ['+not-found.html', '_sitemap.html',
           '(tabs)/index.html', '(tabs)/venues.html', '(tabs)/tours.html',
           '(tabs)/near-me.html', '(tabs)/account.html']:
     inject(f, '<meta name="robots" content="noindex">')
+
+# The singular detail shells are the ONLY venue/tour pages now.
+# They must stay indexable, carry the Smart App Banner, and have a
+# default title (the app fills the real one client-side). Re-applied
+# after every export because the export writes bare shells.
+def shell_meta(path, title, desc):
+    if not os.path.exists(path):
+        return
+    h = read(path)
+    h = h.replace('<meta name="robots" content="noindex">', '', 1)
+    h = h.replace('<title data-rh="true"></title>',
+                  f'<title data-rh="true">{title}</title>', 1)
+    if 'apple-itunes-app' not in h:
+        block = (
+            '<meta name="apple-itunes-app" content="app-id=6744903414">'
+            f'<meta name="description" content="{desc}">'
+            '<meta property="og:site_name" content="Concerto">'
+            '<meta property="og:type" content="website">'
+            f'<meta property="og:title" content="{title}">'
+            f'<meta property="og:description" content="{desc}">'
+            f'<meta property="og:image" content="{SITE}/ConcertoSocialPreview.png">'
+            '<meta name="twitter:card" content="summary_large_image">'
+            f'<meta name="twitter:image" content="{SITE}/ConcertoSocialPreview.png">')
+        h = h.replace(MARK, MARK + block, 1)
+    write(path, h)
+
+shell_meta('venue/[slug].html', 'Venue Guide | Concerto',
+           'Bag policy, parking, concessions, rideshare zones and a '
+           'curated city guide for this venue. Know before you go '
+           'with Concerto.')
+shell_meta('tour/[slug].html', 'Tour Guide | Concerto',
+           'Dates, setlists and venue guides for this tour. Know '
+           'before you go with Concerto.')
 
 # ════════════════════════════════════════════════════════════════════
 # PART 2 -- Passport retirement
@@ -144,7 +176,7 @@ for f in ['events.html', 'concertoplus.html', 'shop.html',
 # build_sitemap.py: passport out of LEGACY_HUBS
 edit('build_sitemap.py', lambda h: re.sub(r"'passport',\s*", '', h))
 
-# 76 tour-page footers
+# 76 tour-page footers (folder retired; no-op, kept for history)
 for f in glob.glob('tours/*.html'):
     edit(f, lambda h: h.replace(
         'AI Bag Check, Passport, real-time setlists',
