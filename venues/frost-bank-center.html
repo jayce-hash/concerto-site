@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-itunes-app" content="app-id=6744903414">
   <meta name="theme-color" content="#F8F9F9" />
   <title>Frost Bank Center Bag Policy, Parking &amp; City Guide | San Antonio | Concerto</title>
   <meta name="description" content="Everything you need for Frost Bank Center in San Antonio, TX: bag policy, parking, concessions, rideshare zones, and a curated city guide. Know before you go with Concerto." />
@@ -87,176 +88,48 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --display: 'Playfair Display', Georgia, serif;
-      --body: 'DM Sans', -apple-system, sans-serif;
-      --bg: #F8F9F9; --card-bg: #FFFFFF; --text: #121E36;
-      --text-dim: rgba(18,30,54,0.52); --text-xdim: rgba(18,30,54,0.28);
-      --border: rgba(18,30,54,0.08); --border-mid: rgba(18,30,54,0.14);
-      --gold: #C9A84C; --gold-light: #E5C365;
-      --shadow-sm: 0 2px 12px rgba(18,30,54,0.04);
-      --shadow-md: 0 8px 32px rgba(18,30,54,0.07);
-      --shadow-lg: 0 20px 50px rgba(18,30,54,0.10);
-      --ease-out: cubic-bezier(0.16,1,0.3,1);
-      --radius-lg: 24px; --nav-h: 68px;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;background:var(--bg);}
-    body{font-family:var(--body);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
-    a{color:inherit;text-decoration:none;}
-    img{display:block;max-width:100%;}
-    .bg-canvas{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;transition:transform 0.12s linear;}
-    .orb{position:absolute;border-radius:50%;filter:blur(130px);}
-    .orb-1{width:65vw;height:65vw;background:radial-gradient(circle,rgba(192,192,192,0.22) 0%,transparent 70%);top:-25%;left:-15%;opacity:.9;}
-    .orb-2{width:50vw;height:50vw;background:radial-gradient(circle,rgba(201,168,76,0.10) 0%,transparent 70%);bottom:-15%;right:-10%;opacity:.85;}
-    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-    /* Nav */
-    .site-nav{position:fixed;top:0;width:100%;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;background:rgba(248,249,249,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);}
-    .nav-logo{display:flex;align-items:center;width:200px;}
-    .nav-logo-img{height:48px;width:auto;object-fit:contain;}
-    .nav-center{display:flex;gap:0;align-items:center;position:absolute;left:50%;transform:translateX(-50%);}
-    .nav-center > a,.nav-dropdown-trigger{font-family:var(--body);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);transition:color .25s;padding:0 1.2rem;height:var(--nav-h);display:flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer;white-space:nowrap;}
-    .nav-center > a:hover,.nav-dropdown-trigger:hover,.nav-center > a.active{color:var(--text);}
-    .nav-chevron{width:10px;height:10px;display:block;flex-shrink:0;transition:transform .35s var(--ease-out);}
-    .nav-dropdown-trigger.open .nav-chevron{transform:rotate(180deg);}
-    .nav-dropdown{position:relative;}
-    .nav-dropdown-panel{position:absolute;top:calc(var(--nav-h) + 8px);left:50%;transform:translateX(-50%) translateY(10px);background:rgba(248,249,249,.99);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid var(--border);border-radius:28px;box-shadow:0 8px 16px rgba(18,30,54,.04),0 24px 64px rgba(18,30,54,.13);padding:.6rem;width:700px;opacity:0;pointer-events:none;transition:opacity .28s var(--ease-out),transform .28s var(--ease-out);}
-    .nav-dropdown-panel.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-    .dropdown-header{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem .8rem;border-bottom:1px solid var(--border);margin-bottom:.5rem;}
-    .dropdown-header-label{font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--text-xdim);}
-    .dropdown-header-count{font-size:.58rem;font-weight:600;color:var(--gold);}
-    .dropdown-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.25rem;padding:0 .25rem .25rem;}
-    .nav-dropdown-item{display:flex;flex-direction:column;padding:1rem 1.1rem;border-radius:20px;text-decoration:none;position:relative;transition:background .2s var(--ease-out);border:1px solid transparent;}
-    .nav-dropdown-item::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:2px;border-radius:99px;background:var(--gold);opacity:0;transform:scaleY(.4);transition:opacity .2s,transform .25s var(--ease-out);}
-    .nav-dropdown-item:hover{background:var(--card-bg);border-color:var(--border);}
-    .nav-dropdown-item:hover::before{opacity:1;transform:scaleY(1);}
-    .nav-dropdown-item-title{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;letter-spacing:-.01em;transition:font-style .15s;}
-    .nav-dropdown-item:hover .nav-dropdown-item-title{font-style:italic;}
-    .nav-dropdown-item-desc{font-size:.75rem;color:var(--text-dim);line-height:1.5;}
-    .nav-cta{display:flex;justify-content:flex-end;width:200px;}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1.6rem;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);cursor:pointer;border:none;text-decoration:none;white-space:nowrap;}
-    .btn-dark{background:var(--text);color:var(--bg);box-shadow:0 8px 24px rgba(18,30,54,.18);}
-    .btn-dark:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(18,30,54,.24);}
-    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-mid);}
-    .btn-outline:hover{background:var(--card-bg);border-color:var(--text);transform:translateY(-2px);}
-    /* Page */
-    main{padding-top:calc(var(--nav-h) + 48px);padding-bottom:80px;}
-    .container{max-width:1280px;margin:0 auto;padding:0 4%;}
-    .venue-hero{text-align:center;padding:3rem 4% 2rem;max-width:1280px;margin:0 auto;}
-    .eyebrow{display:block;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-    .venue-name{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-.03em;color:var(--text);line-height:1.05;margin-bottom:1rem;}
-    .breadcrumb{font-size:.75rem;color:var(--text-xdim);margin-bottom:2rem;}
-    .breadcrumb a{color:var(--text-dim);transition:color .2s;}
-    .breadcrumb a:hover{color:var(--text);}
-    /* Tool sections */
-    .tool-section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);box-shadow:var(--shadow-sm);}
-    .tool-section-header{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:2rem;}
-    .tool-section-meta .tool-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block;}
-    .tool-section-title{font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;color:var(--text);margin-bottom:.6rem;}
-    .tool-section-desc{font-size:.9rem;font-weight:300;color:var(--text-dim);line-height:1.75;max-width:520px;}
-    .tool-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--text);color:var(--bg);padding:.75rem 1.5rem;border-radius:99px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out);white-space:nowrap;flex-shrink:0;}
-    .tool-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,30,54,.2);}
-    /* Bag policy sub-cards */
-    .bag-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem;}
-    .bag-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.4rem;}
-    .bag-card-label{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text-xdim);margin-bottom:.5rem;display:block;}
-    .bag-card-value{font-family:var(--display);font-size:1.1rem;font-weight:700;color:var(--text);}
-    /* Info grid (enhanced venues) */
-    .info-section{margin:0 4% 1.5rem;max-width:calc(1280px - 8%);}
-    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
-    .info-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);}
-    .info-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block;}
-    .info-title{font-family:var(--display);font-size:1.1rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin-bottom:.6rem;}
-    .info-body{font-size:.88rem;font-weight:300;color:var(--text-dim);line-height:1.75;}
-    /* Events section */
-    .events-section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);box-shadow:var(--shadow-sm);}
-    .section-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2rem;}
-    .section-title{font-family:var(--display);font-size:1.8rem;font-weight:700;letter-spacing:-.02em;color:var(--text);}
-    .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-    .events-loading{grid-column:span 3;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:3rem;color:var(--text-dim);font-size:.9rem;}
-    .spinner{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
-    @keyframes spin{to{transform:rotate(360deg);}}
-    .event-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.4rem;display:flex;flex-direction:column;text-decoration:none;transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),border-color .25s;}
-    .event-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-mid);}
-    .event-date{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
-    .event-name{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;line-height:1.2;}
-    .event-venue-name{font-size:.78rem;color:var(--text-dim);margin-bottom:1rem;}
-    .event-link{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:auto;}
-    .events-error{grid-column:span 3;text-align:center;padding:2rem;color:var(--text-dim);font-style:italic;}
-    /* Reveal animation */
-    .reveal{opacity:1;}
-    /* App CTA */
-    .app-cta{background:var(--text);border-radius:var(--radius-lg);padding:3rem;margin:0 4% 1.5rem;max-width:calc(1280px - 8%);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
-    .app-cta-copy h3{font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:.5rem;}
-    .app-cta-copy p{font-size:.9rem;color:rgba(255,255,255,.55);max-width:400px;}
-    /* Footer */
-    footer{padding:5rem 4% 2.5rem;background:var(--bg);border-top:1px solid var(--border);}
-    .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;}
-    .footer-brand img{height:44px;width:auto;object-fit:contain;object-position:left;margin-bottom:1.2rem;}
-    .footer-brand p{font-size:.9rem;color:var(--text-dim);line-height:1.65;max-width:260px;}
-    .footer-col h4{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--text);margin-bottom:1.2rem;}
-    .footer-col a{display:block;font-size:.9rem;color:var(--text-dim);text-decoration:none;margin-bottom:.65rem;transition:color .25s;}
-    .footer-col a:hover{color:var(--text);}
-    .footer-bottom{max-width:1280px;margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:var(--text-xdim);}
-    .footer-bottom a{color:var(--text-dim);text-decoration:none;transition:color .25s;}
-    .footer-bottom a:hover{color:var(--text);}
-    @media(max-width:1024px){.nav-center{display:none;}.bag-cards,.info-grid,.events-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:768px){:root{--nav-h:58px;}.tool-section,.events-section,.info-section,.app-cta{margin:0 5% 1.2rem;}.tool-section-header{flex-direction:column;}.bag-cards,.info-grid,.events-grid{grid-template-columns:1fr;}.events-loading{grid-column:span 1;}.events-error{grid-column:span 1;}.footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}.footer-brand{grid-column:span 2;}.footer-bottom{flex-direction:column;text-align:center;}.app-cta{padding:2rem;}}
-    @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}.footer-brand{grid-column:auto;}}
-  .nav-profile-btn { display:none; width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border-mid); align-items:center; justify-content:center; color:var(--text-dim); transition:color .2s, border-color .2s; flex-shrink:0; }.nav-profile-btn:hover { color:var(--text); border-color:var(--text); }.nav-profile-btn.logged-in { background:var(--text); color:var(--bg); border-color:var(--text); }.nav-profile-btn { display: none; width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid var(--border-mid); align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s, border-color .2s; flex-shrink: 0; text-decoration: none; }.nav-profile-btn:hover { color: var(--text); border-color: var(--text); }.nav-profile-btn.logged-in { background: var(--text); color: var(--bg); border-color: var(--text); }.nav-profile-btn { display: inline-flex; }.nav-download { display: none; }.nav-download{display:none !important;}.nav-profile-btn{display:inline-flex !important;}</style>
-
-  <style id="nav10">.nav-center>a{padding:0 0.6rem !important;font-size:0.64rem !important;letter-spacing:0.05em !important;}@media(max-width:1366px){.nav-center{display:none !important;}.nav-hamburger{display:flex !important;}}</style>
-  <style id="navmob10">
-  html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;}
-  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s ease;transform-origin:center;}
-  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  .nav-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:rgba(248,249,249,0.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;border-top:1px solid var(--border);}
-  .nav-mobile-menu.open{display:flex;}
-  .nav-mobile-link{font-family:var(--body);font-size:1.5rem;font-weight:600;color:var(--text-dim);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s;letter-spacing:-.01em;}
-  .nav-mobile-link:hover,.nav-mobile-link.active{color:var(--text);}
-  .nav-mobile-cta{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
-  </style>
-  <link rel="stylesheet" href="../align.css">
+<link rel="stylesheet" href="../align.css">
   <script defer src="/analytics.js"></script>
-<link rel="stylesheet" href="/cityguide.css"><script src="/affiliate.js" defer></script></head>
+<link rel="stylesheet" href="/cityguide.css"><script src="/affiliate.js" defer></script>
+  <link rel="stylesheet" href="/css/concerto-v2.css">
+</head>
 <body class="page-venue"><style>.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#121E36;color:#fff;padding:10px 18px;border-radius:0 0 12px 0;font-size:.8rem;text-decoration:none;}.skip-link:focus{left:0;}</style><a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="bg-canvas" id="bgCanvas" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-  <div class="noise" aria-hidden="true"></div>
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo"><a href="../index.html" aria-label="Concerto Home"><img src="../logo.png" alt="Concerto" class="nav-logo-img" width="160" height="48"/></a></div>
-    <div class="nav-center">
-      <a href="../venues.html" class="active">Venues</a>
-      <a href="../tours.html">Tours</a>
-      <a href="../events.html">Near Me</a>
-      <a href="../top-picks.html">Top Picks</a>
-      <a href="../bags.html">Bag Policies</a>
-      <a href="../rideshare.html">Rideshare</a>
-      <a href="../parking.html">Parking</a>
-      <a href="../concessions.html">Concessions</a>
-      <a href="../premium.html">Premium</a>
-      <a href="../about.html">About</a>
+  <nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">
+    <a class="v2nav-brand" href="/" aria-label="Concerto home">
+      <img src="/img/lockup.png" alt="Concerto &mdash; From the Concert to the City" width="168" height="36" />
+    </a>
+    <div class="v2nav-links">
+      <a href="/">Home</a>
+      <a href="/venues">Venues</a>
+      <a href="/tours">Tours</a>
+      <a href="/near-me">Near Me</a>
     </div>
-    <div class="nav-cta" style="display:flex;gap:10px;align-items:center;"><a id="navAuthLink" href="../login.html" class="btn" style="background:transparent;border:1px solid var(--border-mid,rgba(18,30,54,.14));color:var(--text,#121E36);font-size:0.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0.72rem 1.4rem;border-radius:99px;text-decoration:none;white-space:nowrap;">Sign In</a><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark nav-download">Download the App</a><a id="navProfileIcon" href="../login.html" class="nav-profile-btn" aria-label="Account"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></a><button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    <div class="v2nav-right">
+      <a class="v2nav-icon" href="/search" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a class="v2nav-icon" href="/account" aria-label="Account">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="3.2"/><circle cx="12" cy="12" r="9"/><path d="M5.5 19a7 7 0 0 1 13 0"/></svg>
+      </a>
+      <button class="v2nav-icon v2nav-menubtn" id="v2menubtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="v2nav-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Get the App</a>
+    </div>
   </nav>
-<div class="nav-mobile-menu" id="navMobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="../venues.html" class="nav-mobile-link">Venues</a>
-      <a href="../tours.html" class="nav-mobile-link">Tours</a>
-      <a href="../events.html" class="nav-mobile-link">Near Me</a>
-      <a href="../top-picks.html" class="nav-mobile-link">Top Picks</a>
-      <a href="../bags.html" class="nav-mobile-link">Bag Policies</a>
-      <a href="../rideshare.html" class="nav-mobile-link">Rideshare</a>
-      <a href="../parking.html" class="nav-mobile-link">Parking</a>
-      <a href="../concessions.html" class="nav-mobile-link">Concessions</a>
-      <a href="../premium.html" class="nav-mobile-link">Premium</a>
-      <a href="../about.html" class="nav-mobile-link">About</a>
-      <div class="nav-mobile-cta">
-        <a id="navMobileAuthLink" href="../login.html" class="btn btn-outline" style="justify-content:center;">Sign In</a>
-      </div>
-    </div>
+  <div class="v2menu" id="v2menu">
+    <a href="/">Home</a>
+    <a href="/venues">Venues</a>
+    <a href="/tours">Tours</a>
+    <a href="/near-me">Near Me</a>
+    <a href="/search">Search</a>
+    <a href="/account">Account</a>
+    <a href="/premium">Concerto+</a>
+    <a href="/about">About</a>
+    <a class="v2menu-cta" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+  </div>
+
+  
 
   <main id="main-content">
     <div class="venue-hero">
@@ -266,7 +139,6 @@
 
     <!-- City Guide -->
     <section class="es-section reveal" id="sec-essentials"><div class="es-inner"><div class="es-headr"><span class="eyebrow">Know Before You Go</span><h2 class="section-title">Venue Info</h2></div><div class="es-grid"><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Venue Guide</span><span class="es-title">Bag Policy</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Frost Bank Center allows bags 12&quot; x 12&quot; x 6&quot; or smaller, with magnetometer screening at entry. Bag policies may vary by event.</p><div class="es-listlabel es-ok">Allowed</div><ul><li>Bags 12&quot; x 12&quot; x 6&quot; or smaller</li></ul><div class="es-listlabel es-no">Not allowed</div><ul><li>Backpacks</li><li>Oversized totes or purses</li><li>Duffel bags</li><li>Luggage</li><li>Camera bags</li><li>Laptop bags</li><li>Drawstring bags that exceed size limits</li></ul><p class="es-fine">Diaper bags and medical bags are allowed and will be screened and tagged by Security.</p><a class="es-cta" href="https://go.frostbankcenter.com/bag-policy-security-screening" target="_blank" rel="noopener">View full policy &rarr;</a></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Getting There</span><span class="es-title">Parking</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Parking availability, access routes, and pricing at Frost Bank Center can vary by event. Review the linked official information and reserve in advance when that option is offered.</p><a class="es-cta" href="https://www.frostbankcenter.com/plan-your-visit/parking-info" target="_blank" rel="noopener">Official parking guide &rarr;</a></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Inside the Venue</span><span class="es-title">Concessions</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Frost Bank Center offers a variety of food and drink options, including casual dining at The Agave Club and upscale public concessions at the Frost Club. Highlights include creative shareable appetizers at the ULTRA Club, brisket tacos at Davila&#x27;s BBQ, and smashburgers at Roadhouse. The venue is cashless and features a wide selection of beverages, including premium cocktails and souvenir draft beers.</p><ul><li>The Agave Club</li><li>Frost Club</li><li>ULTRA Club</li><li>Whataburger</li><li>Davila&#x27;s BBQ/Grab &amp; Go</li><li>Garrison Brothers Bar</li></ul><a class="es-cta" href="https://www.frostbankcenter.com/arena/food-beverage" target="_blank" rel="noopener">Concessions guide &rarr;</a></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Uber &amp; Lyft</span><span class="es-title">Rideshare</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>No specific rideshare notes available.</p><div class="es-btnrow"><a class="es-btn" href="https://m.uber.com/ul/?action=setPickup&amp;pickup=my_location&amp;dropoff[latitude]=29.4269&amp;dropoff[longitude]=-98.4375&amp;dropoff[nickname]=Frost%20Bank%20Center" target="_blank" rel="noopener">Uber to venue</a><a class="es-btn" href="https://m.uber.com/ul/?action=setPickup&amp;pickup[latitude]=29.4269&amp;pickup[longitude]=-98.4375&amp;pickup[nickname]=Frost%20Bank%20Center" target="_blank" rel="noopener">Uber from venue</a><a class="es-btn" href="https://ride.lyft.com/?destination[latitude]=29.4269&amp;destination[longitude]=-98.4375" target="_blank" rel="noopener">Lyft to venue</a><a class="es-btn" href="https://ride.lyft.com/?pickup[latitude]=29.4269&amp;pickup[longitude]=-98.4375" target="_blank" rel="noopener">Lyft from venue</a></div></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Accessibility</span><span class="es-title">Accessibility</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Accessibility services and seating arrangements at Frost Bank Center may vary by event. Contact the venue before purchasing tickets if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.</p></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Entry &amp; Exit</span><span class="es-title">Re-Entry Policy</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Frost Bank Center does not publish one re-entry rule that applies to every event. Confirm with venue staff before exiting because re-entry may be prohibited.</p></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Ticket Pickup</span><span class="es-title">Box Office & Ticket Pickup</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Ticket delivery, box-office hours, and will-call procedures can vary by event and ticketing partner. Review the instructions attached to your official order and contact the venue before event day if pickup is required.</p></div></div><div class="es-row"><button class="es-head" aria-expanded="false"><span class="es-meta"><span class="es-label">Getting In</span><span class="es-title">Gates & Entrances</span></span><span class="es-arrow">&#8595;</span></button><div class="es-body"><p>Entrance assignments and door times at Frost Bank Center vary by event. Check the official event page or ticket, arrive early for screening, and follow on-site signage.</p></div></div></div><p class="es-trust">Verified 2026-07-20 &middot; Spot something off? <a href="mailto:hello@concertocity.com?subject=Venue%20correction:%20Frost%20Bank%20Center">Report it</a> and we&rsquo;ll fix it fast.</p></div></section><section class="cgx-section reveal" id="cgx"><div class="cgx-inner"><div class="cgx-headr"><span class="eyebrow">City Guide</span><h2 class="section-title">Make a Night of It</h2><p class="section-desc">Where to eat, stay, and wander near Frost Bank Center &mdash; chosen for concertgoers, not tourists.</p></div><div class="cgx-tabs"><button class="cgx-tab on" data-cg="eat">Eat</button><button class="cgx-tab" data-cg="stay">Stay</button><button class="cgx-tab" data-cg="do">Do</button></div><div class="cgx-panel on" data-cg-panel="eat"><div class="cgx-chips"><button class="cgx-chip on" data-chip="featured">Featured</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="restaurant">Restaurants</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="bar">Bars</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="coffee">Caf&eacute;s</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="fast_food">Fast Food</button></div><div class="cgx-baked"><div class="dir-list"><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Whataburger%201%20Frost%20Bank%20Center%20Drive%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Whataburger</span><span class="dir-dots"></span><span class="dir-meta">0.01 mi&ensp;&middot;&ensp;&#9733; 4.4 (87)&ensp;&middot;&ensp;$</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Taco%20Palenque%20Frost%20Bank%20Center%201%20Frost%20Bank%20Center%20Drive%20Section%20124%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Taco Palenque Frost Bank Center</span><span class="dir-dots"></span><span class="dir-meta">0.03 mi&ensp;&middot;&ensp;&#9733; 5 (35)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Circle%20K%203659%20East%20Commerce%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Circle K</span><span class="dir-dots"></span><span class="dir-meta">0.69 mi&ensp;&middot;&ensp;&#9733; 3.5 (31)&ensp;&middot;&ensp;$</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Willow%20Springs%20Bar%20and%20Grill%20202%20Frost%20Bank%20Center%20Drive%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Willow Springs Bar and Grill</span><span class="dir-dots"></span><span class="dir-meta">0.23 mi&ensp;&middot;&ensp;&#9733; 5 (3)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Terrace%20Restaurant%20At%20the%20AT%26T%20Center%201%20Frost%20Bank%20Center%20Drive%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Terrace Restaurant At the AT&amp;T Center</span><span class="dir-dots"></span><span class="dir-meta">0.02 mi&ensp;&middot;&ensp;&#9733; 3.7 (20)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=VIP%20MINI%20TACOS%203098%20East%20Commerce%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">VIP MINI TACOS</span><span class="dir-dots"></span><span class="dir-meta">0.54 mi&ensp;&middot;&ensp;&#9733; 4.4 (7)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Rock%20%26%20Brews%201%20Frost%20Bank%20Center%20Drive%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Rock &amp; Brews</span><span class="dir-dots"></span><span class="dir-meta">0.01 mi&ensp;&middot;&ensp;&#9733; 3 (48)&ensp;&middot;&ensp;$$</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%20classic%20One%20Frost%20Bank%20Center%20Drive%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Pizza classic</span><span class="dir-dots"></span><span class="dir-meta">0.05 mi</span><span class="dir-cta">Map&nbsp;&rarr;</span></a></div></div><div class="cgx-results"></div></div><div class="cgx-panel" data-cg-panel="stay"><div class="cgx-chips"><button class="cgx-chip on" data-chip="featured">Featured</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="hotel">Hotels</button></div><div class="cgx-baked"><div class="dir-list"><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=San%20Antonio%20/%20Alamo%20KOA%20Holiday%20602%20Gembler%20Road%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">San Antonio / Alamo KOA Holiday</span><span class="dir-dots"></span><span class="dir-meta">1.03 mi&ensp;&middot;&ensp;&#9733; 4.6 (1,986)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Days%20Inn%20%26%20Suites%20by%20Wyndham%20San%20Antonio%20near%20Frost%20Bank%20Ctr%204038%20Frontage%20Road%20I-10%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Days Inn &amp; Suites by Wyndham San Antonio near Frost Bank Ctr</span><span class="dir-dots"></span><span class="dir-meta">1.32 mi&ensp;&middot;&ensp;&#9733; 4 (1,081)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Knights%20Inn%20San%20Antonio%20near%20Frost%20Bank%20Center%204039%20East%20Houston%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Knights Inn San Antonio near Frost Bank Center</span><span class="dir-dots"></span><span class="dir-meta">1.12 mi&ensp;&middot;&ensp;&#9733; 3.3 (1,923)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Days%20Inn%20by%20Wyndham%20San%20Antonio%20Splashtown/ATT%20Center%203443%20North%20PanAm%20Expressway%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Days Inn by Wyndham San Antonio Splashtown/ATT Center</span><span class="dir-dots"></span><span class="dir-meta">1.39 mi&ensp;&middot;&ensp;&#9733; 3.1 (928)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Motel%206%20San%20Antonio%2C%20Tx%20-%20Frost%20Bank%20Center%203370%20Interstate%2035%20Frontage%20Road%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Motel 6 San Antonio, Tx - Frost Bank Center</span><span class="dir-dots"></span><span class="dir-meta">1.32 mi&ensp;&middot;&ensp;&#9733; 3.2 (711)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=choice%20inn%20motel%202212%20East%20Commerce%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">choice inn motel</span><span class="dir-dots"></span><span class="dir-meta">1.5 mi&ensp;&middot;&ensp;&#9733; 3.7 (104)</span><span class="dir-cta">Book&nbsp;&rarr;</span></a></div></div><div class="cgx-results"></div></div><div class="cgx-panel" data-cg-panel="do"><div class="cgx-chips"><button class="cgx-chip on" data-chip="featured">Featured</button>&thinsp;&middot;&thinsp;<button class="cgx-chip" data-chip="tourist_attraction">Attractions</button></div><div class="cgx-baked"><div class="dir-list"><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Dawson%20Park%202500%20East%20Commerce%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Dawson Park</span><span class="dir-dots"></span><span class="dir-meta">1.1 mi&ensp;&middot;&ensp;&#9733; 4.3 (192)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Menger%20Creek%20Linear%20Park%201526%20North%20Walters%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Menger Creek Linear Park</span><span class="dir-dots"></span><span class="dir-meta">0.95 mi&ensp;&middot;&ensp;&#9733; 4.2 (203)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Dafoste%20Park%20210%20Da%20Foste%20Avenue%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Dafoste Park</span><span class="dir-dots"></span><span class="dir-meta">0.65 mi&ensp;&middot;&ensp;&#9733; 4.3 (127)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Woodard%20Park%201011%20Locke%20Street%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Woodard Park</span><span class="dir-dots"></span><span class="dir-meta">0.94 mi&ensp;&middot;&ensp;&#9733; 4.4 (47)</span><span class="dir-cta">Map&nbsp;&rarr;</span></a><a class="dir-row" href="https://www.google.com/maps/search/?api=1&amp;query=Vendor%20parking%20CHH5%2B9G%2C%20San%20Antonio" target="_blank" rel="noopener"><span class="dir-name">Vendor parking</span><span class="dir-dots"></span><span class="dir-meta">0.25 mi</span><span class="dir-cta">Map&nbsp;&rarr;</span></a></div></div><div class="cgx-results"></div></div><p class="cgx-note">Distances via Google &middot; live search via Mapbox &middot; Concerto may earn a commission on hotel bookings.</p></div><script>(function(){var s=document.getElementById("cgx");var TK="pk.eyJ1Ijoiandjb25jZXJ0byIsImEiOiJjbXEydDBmZWYwN3I3MnFvZmN1aHN6bmd6In0.Tr4r5AIYnOdE7VAD_MvH7A";var LAT=29.4269,LNG=-98.4375;function show(pan,m){pan.querySelector(".cgx-baked").style.display=(m==="featured")?"block":"none";pan.querySelector(".cgx-results").style.display=(m==="featured")?"none":"block";}function live(pan,cat){var box=pan.querySelector(".cgx-results");box.innerHTML="<div class=\"cgx-loading\">Searching&hellip;</div>";var u="https://api.mapbox.com/search/searchbox/v1/category/"+encodeURIComponent(cat)+"?access_token="+TK+"&proximity="+LNG+","+LAT+"&limit=15&language=en";fetch(u).then(function(r){return r.json()}).then(function(d){var fs=(d&&d.features)||[];if(!fs.length){box.innerHTML="<div class=\"cgx-empty\">No results nearby.</div>";return}box.innerHTML="<div class=\"dir-list\">"+fs.map(function(f){var p=f.properties||{},nm=p.name||"",ad=p.full_address||p.place_formatted||"";var q=encodeURIComponent(nm+" "+ad);return "<a class=\"dir-row\" href=\"https://www.google.com/maps/search/?api=1&query="+q+"\" target=\"_blank\" rel=\"noopener\"><span class=\"dir-name\">"+nm+"</span><span class=\"dir-dots\"></span><span class=\"dir-meta dir-addr\">"+ad.split(",")[0]+"</span><span class=\"dir-cta\">Map&nbsp;&rarr;</span></a>"}).join("")+"</div>"}).catch(function(){box.innerHTML="<div class=\"cgx-empty\">Search unavailable.</div>"})}s.querySelectorAll(".cgx-tab").forEach(function(b){b.addEventListener("click",function(){var k=b.dataset.cg;s.querySelectorAll(".cgx-tab").forEach(function(x){x.classList.toggle("on",x===b)});s.querySelectorAll(".cgx-panel").forEach(function(p){p.classList.toggle("on",p.dataset.cgPanel===k)})})});s.querySelectorAll(".cgx-chip").forEach(function(c){c.addEventListener("click",function(){var pan=c.closest(".cgx-panel");pan.querySelectorAll(".cgx-chip").forEach(function(x){x.classList.toggle("on",x===c)});var cat=c.dataset.chip;if(cat==="featured"){show(pan,"featured")}else{show(pan,"live");live(pan,cat)}})});document.querySelectorAll(".es-head").forEach(function(h){h.addEventListener("click",function(){var c=h.closest(".es-row");var open=c.classList.toggle("open");h.setAttribute("aria-expanded",open?"true":"false");})});})();</script></section>
-    
 
     <!-- ─── UPCOMING EVENTS ─── -->
     <section id="sec-events" class="events-section reveal">
@@ -284,7 +156,6 @@
       </div>
     </section>
 
-    
     <!-- Nearby Venues (generated by build_static.py) -->
     <section id="sec-nearby" class="nearby-section reveal">
       <div class="section-header"><div><span class="eyebrow">Explore More</span><h2 class="section-title">Nearby Venues</h2></div></div>
@@ -300,17 +171,6 @@
       <a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Download Free on iOS</a>
     </div>
   </main>
-
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand"><img loading="lazy" decoding="async" src="../logo.png" alt="Concerto" width="160" height="44"/><p>The go-to app for concerts, sports, and nights out. Bag policies, parking, setlists, city guides, everything you need, in one place.</p></div>
-      <nav class="footer-col"><h4>Company</h4><a href="../about.html">About Us</a><a href="../premium.html">Premium</a><a href="../shop.html">Shop</a><a href="../partners.html">Partnerships</a><a href="../faq.html">FAQ</a><a href="../how-it-works.html">How It Works</a></nav>
-      <nav class="footer-col"><h4>Tools</h4><a href="../cityguides.html">City Guides</a><a href="../events.html">Events Near Me</a><a href="../setlists.html">Setlists</a><a href="../bags.html">Bag Policies</a><a href="../parking.html">Parking</a><a href="../concessions.html">Concessions</a><a href="../rideshare.html">Rideshare</a></nav>
-      <nav class="footer-col"><h4>Legal</h4><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms of Service</a><a href="mailto:support@concertocity.com">Contact</a></nav>
-      <nav class="footer-col"><h4>Follow Us</h4><a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
-    </div>
-    <div class="footer-bottom"><span>&copy; 2026 Concerto LLC. All rights reserved.</span><span>Designed by <a href="https://jwdigital.ink" target="_blank" rel="noopener noreferrer">JW Digital</a></span></div>
-  </footer>
 
   <script>
     const featuresBtn=document.getElementById('featuresBtn'),featuresPanel=document.getElementById('featuresPanel');
@@ -361,5 +221,52 @@
 <script src="../auth.js"></script>
 <script src="../app-shell.js"></script>
   <script id="navmob10-js">(function(){var btn=document.getElementById("navHamburger"),menu=document.getElementById("navMobileMenu");if(!btn||!menu)return;function set(o){btn.classList.toggle("open",o);menu.classList.toggle("open",o);btn.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";}btn.addEventListener("click",function(){set(!menu.classList.contains("open"));});menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
-<script>document.addEventListener("DOMContentLoaded",function(){function wire(){if(!window.ConcertoAffiliate)return;document.querySelectorAll('[data-cg-panel="stay"] .dir-row').forEach(function(a){var nm=a.querySelector(".dir-name");var r=window.ConcertoAffiliate.hotelNear(29.4269,-98.4375,nm?nm.textContent:"");if(r&&r.href){a.href=r.href;}});var grid=document.getElementById("eventsGrid");if(grid){new MutationObserver(function(){grid.querySelectorAll('a[href*="ticketmaster."]').forEach(function(a){if(a.dataset.aff)return;var r=window.ConcertoAffiliate.ticket(a.href,"ticketmaster");a.href=r.href;a.dataset.aff="1";});}).observe(grid,{childList:true,subtree:true});}}wire();setTimeout(wire,1200);});</script><script>document.addEventListener("DOMContentLoaded",async function(){var b=document.getElementById("favVenueBtn");if(!b)return;var name=b.dataset.name;var heart=b.querySelector(".vh-fav-heart");var txt=b.querySelector(".vh-fav-txt");function paint(on){heart.innerHTML=on?"&#9829;":"&#9825;";txt.textContent=on?"Saved":"Save venue";b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");}try{if(typeof isFavorite==="function"){var on=await isFavorite("favorite_venues",name);paint(!!on);}}catch(e){}b.addEventListener("click",async function(){try{var sess=window._supabaseClient?(await window._supabaseClient.auth.getSession()).data.session:null;if(!sess){window.location.href="/login.html?next="+encodeURIComponent(location.pathname);return;}var updated=await toggleFavorite("favorite_venues",name);paint(updated&&updated.includes(name));}catch(e){}});});</script></body>
+<script>document.addEventListener("DOMContentLoaded",function(){function wire(){if(!window.ConcertoAffiliate)return;document.querySelectorAll('[data-cg-panel="stay"] .dir-row').forEach(function(a){var nm=a.querySelector(".dir-name");var r=window.ConcertoAffiliate.hotelNear(29.4269,-98.4375,nm?nm.textContent:"");if(r&&r.href){a.href=r.href;}});var grid=document.getElementById("eventsGrid");if(grid){new MutationObserver(function(){grid.querySelectorAll('a[href*="ticketmaster."]').forEach(function(a){if(a.dataset.aff)return;var r=window.ConcertoAffiliate.ticket(a.href,"ticketmaster");a.href=r.href;a.dataset.aff="1";});}).observe(grid,{childList:true,subtree:true});}}wire();setTimeout(wire,1200);});</script><script>document.addEventListener("DOMContentLoaded",async function(){var b=document.getElementById("favVenueBtn");if(!b)return;var name=b.dataset.name;var heart=b.querySelector(".vh-fav-heart");var txt=b.querySelector(".vh-fav-txt");function paint(on){heart.innerHTML=on?"&#9829;":"&#9825;";txt.textContent=on?"Saved":"Save venue";b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");}try{if(typeof isFavorite==="function"){var on=await isFavorite("favorite_venues",name);paint(!!on);}}catch(e){}b.addEventListener("click",async function(){try{var sess=window._supabaseClient?(await window._supabaseClient.auth.getSession()).data.session:null;if(!sess){window.location.href="/login.html?next="+encodeURIComponent(location.pathname);return;}var updated=await toggleFavorite("favorite_venues",name);paint(updated&&updated.includes(name));}catch(e){}});});</script>
+  <footer class="v2foot" role="contentinfo">
+    <div class="v2foot-inner">
+      <div class="v2foot-side">
+        <span class="v2foot-copy">&copy; 2026 Concerto &middot; From the Concert to the City&reg;</span>
+        <div class="v2foot-social">
+          <a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on Instagram">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.07-1.1 0-1.7.2-2.1.35-.5.2-.9.4-1.2.8-.4.3-.6.7-.8 1.2-.15.4-.3 1-.35 2.1C2.7 9.8 2.7 10.2 2.7 12s0 2.2.07 3.5c.05 1.1.2 1.7.35 2.1.2.5.4.9.8 1.2.3.4.7.6 1.2.8.4.15 1 .3 2.1.35 1.3.07 1.7.07 4.8.07s3.5 0 4.8-.07c1.1-.05 1.7-.2 2.1-.35.5-.2.9-.4 1.2-.8.4-.3.6-.7.8-1.2.15-.4.3-1 .35-2.1.07-1.3.07-1.7.07-3.5s0-2.2-.07-3.5c-.05-1.1-.2-1.7-.35-2.1-.2-.5-.4-.9-.8-1.2-.3-.4-.7-.6-1.2-.8-.4-.15-1-.3-2.1-.35C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.2-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on TikTok">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06v-3.1a5.66 5.66 0 0 0-.77-.05A5.66 5.66 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener noreferrer" aria-label="Concerto on YouTube">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.02V8.98L15.2 12 10 15.02z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="v2foot-center">
+        <a class="v2foot-mark" href="/" aria-label="Concerto home">
+          <img src="/img/lockup.png" alt="Concerto" width="150" height="32" />
+        </a>
+      </div>
+      <nav class="v2foot-side v2foot-end" aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/premium">Concerto+</a>
+        <a href="/faq">FAQ</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/account">Account</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+  (function(){
+    var n=document.getElementById('v2nav');
+    if(n){var s=function(){n.classList.toggle('is-scrolled',window.scrollY>8)};
+      window.addEventListener('scroll',s,{passive:true});s();}
+    var b=document.getElementById('v2menubtn'),m=document.getElementById('v2menu');
+    if(b&&m){b.addEventListener('click',function(){
+      var open=m.classList.toggle('open');
+      b.setAttribute('aria-expanded',String(open));
+      b.setAttribute('aria-label',open?'Close menu':'Open menu');});}
+    var here=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+    document.querySelectorAll('.v2nav-links a').forEach(function(a){
+      var h=a.getAttribute('href').replace(/\/$/,'')||'/';
+      if(h===here)a.setAttribute('aria-current','page');});
+  })();
+  </script></body>
 </html>
