@@ -130,51 +130,36 @@ for f in ['+not-found.html', '_sitemap.html',
           '(tabs)/near-me.html', '(tabs)/account.html']:
     inject(f, '<meta name="robots" content="noindex">')
 
-# The singular detail shells are the ONLY venue/tour pages now.
-# They must stay indexable, carry the Smart App Banner, and have a
-# default title (the app fills the real one client-side). Re-applied
-# after every export because the export writes bare shells.
-def shell_meta(path, title, desc):
+# Per-page venue and tour HTML now comes from the export itself
+# (generateStaticParams + <Head> in app/venue/[slug].tsx and
+# app/tour/[slug].tsx). Real pages need nothing here. The two
+# [slug].html FALLBACK shells serve unknown slugs only: give them a
+# generic title, noindex them, and make sure the banner is present.
+def fallback_shell(path, title, kind):
     if not os.path.exists(path):
         return
     h = read(path)
-    h = h.replace('<meta name="robots" content="noindex">', '', 1)
-    h = h.replace('<title data-rh="true"></title>',
-                  f'<title data-rh="true">{title}</title>', 1)
+    h = re.sub(r'<title[^>]*>[^<]*</title>',
+               f'<title data-rh="true">{title}</title>', h, 1)
+    if 'name="robots"' not in h:
+        h = h.replace('</head>', '<meta name="robots" content="noindex"></head>', 1)
     if 'apple-itunes-app' not in h:
-        block = (
-            '<meta name="apple-itunes-app" content="app-id=6744903414">'
-            f'<meta name="description" content="{desc}">'
-            '<meta property="og:site_name" content="Concerto">'
-            '<meta property="og:type" content="website">'
-            f'<meta property="og:title" content="{title}">'
-            f'<meta property="og:description" content="{desc}">'
-            f'<meta property="og:image" content="{SITE}/ConcertoSocialPreview.png">'
-            '<meta name="twitter:card" content="summary_large_image">'
-            f'<meta name="twitter:image" content="{SITE}/ConcertoSocialPreview.png">')
-        h = h.replace(MARK, MARK + block, 1)
+        h = h.replace(MARK, MARK + '<meta name="apple-itunes-app" content="app-id=6744903414">', 1)
+    h = re.sub(r'\[slug\](?![.\]])', f'this {kind}', h)
     write(path, h)
 
-shell_meta('venue/[slug].html', 'Venue Guide | Concerto',
-           'Bag policy, parking, concessions, rideshare zones and a '
-           'curated city guide for this venue. Know before you go '
-           'with Concerto.')
-shell_meta('tour/[slug].html', 'Tour Guide | Concerto',
-           'Dates, setlists and venue guides for this tour. Know '
-           'before you go with Concerto.')
+fallback_shell('venue/[slug].html', 'Venue Guide | Concerto', 'venue')
+fallback_shell('tour/[slug].html', 'Tour Guide | Concerto', 'tour')
 
-# ════════════════════════════════════════════════════════════════════
-# PART 2 -- Passport retirement
-# ════════════════════════════════════════════════════════════════════
-
-for f in ['events.html', 'concertoplus.html', 'shop.html',
-          'livemode.html', 'passport.html', 'mobile-livemode.html']:
-    if os.path.exists(f):
-        os.remove(f)
-        changed.append(f + '  (DELETED)')
-
-# build_sitemap.py: passport out of LEGACY_HUBS
-edit('build_sitemap.py', lambda h: re.sub(r"'passport',\s*", '', h))
+# Guard: if the export EVER regresses to empty titles on the real
+# per-page files (the fonts gate, an SSR error), fail loudly rather
+# than shipping 346 blank heads.
+bad = [p for p in glob.glob('venue/*.html') + glob.glob('tour/*.html')
+       if not p.endswith('[slug].html')
+       and re.search(r'<title[^>]*></title>', read(p))]
+if bad:
+    sys.exit(f'EXPORT REGRESSION: empty <title> on {len(bad)} pages, e.g. {bad[:3]}. '
+             'Check the web fonts gate in app/_layout.tsx and re-export.')
 
 # 76 tour-page footers (folder retired; no-op, kept for history)
 for f in glob.glob('tours/*.html'):
