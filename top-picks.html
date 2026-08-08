@@ -304,11 +304,48 @@
 /* Live picks */
 .pv{border-top:1px solid var(--line);padding:2rem 0}
 .pv h3{font-family:var(--display);font-size:1.45rem;margin:0 0 .2rem;color:var(--ink)}
+.pv-link{color:inherit;text-decoration:none;display:inline-flex;align-items:baseline;gap:.4rem}
+.pv-link span[aria-hidden]{color:var(--gold);font-size:1.25em;line-height:1;
+  transform:translateY(.04em);transition:transform .2s ease}
+.pv-link:hover span[aria-hidden]{transform:translate(3px,.04em)}
+.pv-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .pv-c{font-family:'DM Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ink-faint);margin:0 0 1.3rem}
-.pv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.pv-r{position:relative}
+.pv-g{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3rem)/4);
+  gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-padding:0 1px;padding-bottom:.4rem;
+  scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.pv-g::-webkit-scrollbar{height:6px}
+.pv-g::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.pv-g>*{scroll-snap-align:start}
+/* Fade the right edge only while more cards remain off screen. */
+.pv-r::after{content:'';position:absolute;top:0;right:0;bottom:.4rem;width:56px;
+  pointer-events:none;opacity:0;transition:opacity .25s ease;
+  background:linear-gradient(90deg,transparent,var(--bg))}
+.pv-r.more::after{opacity:1}
+.pv-nav{position:absolute;top:-3.1rem;right:0;display:none;gap:.4rem}
+.pv-r.more .pv-nav{display:flex}
+.pv-nav button{width:32px;height:32px;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);cursor:pointer;font-size:.8rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:border-color .2s ease}
+.pv-nav button:hover{border-color:var(--gold)}
+.pv-nav button:disabled{opacity:.32;cursor:default;border-color:var(--line)}
+.pv-nav button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:1.3rem;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+  padding:1.3rem;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+  display:flex;flex-direction:column;gap:.1rem;text-decoration:none;color:inherit}
+.pc:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.pc-meta{margin-top:auto;padding-top:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.pc-walk{font-family:'DM Mono',ui-monospace,monospace;font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.pc-offer{font-family:'DM Mono',ui-monospace,monospace;font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--gold-soft);color:var(--navy);
+  padding:3px 8px;border-radius:999px}
+.pc-go{font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-left:auto}
 .pc:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px rgba(18,30,54,.07)}
 .pc-k{font-family:'DM Mono',ui-monospace,monospace;font-size:.58rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--gold)}
@@ -362,7 +399,9 @@
   .rv{opacity:1;transform:none;transition:none}
   .b:hover,.pc:hover{transform:none}
 }
+@media(max-width:900px){.pv-g{grid-auto-columns:calc((100% - 1rem)/2)}}
 @media(max-width:760px){
+  .pv-g{grid-auto-columns:78%}
   .ro{grid-template-columns:1fr}
   .ro-t{padding:1.5rem 0 0}
   .ro-b{padding:.5rem 0 1.7rem}
@@ -438,8 +477,9 @@
   <div class="pg"><div class="rule"></div></div>
 
   <section class="sec rv center"><div class="pg">
-    <h2 class="h2">Own a room near a venue?</h2>
-    <p class="p">One restaurant and one hotel per venue. No directory, no page three.</p>
+    <h2 class="h2">Run a restaurant or hotel near one of these venues?</h2>
+    <p class="p">We feature one restaurant and one hotel per venue, at the top of
+      the guide fans read before the show. Most venues still have a spot open.</p>
     <div class="acts" style="margin-top:1.6rem"><a class="b b-dark" href="/partners">Partner with Concerto</a></div>
   </div></section>
 </main>
@@ -524,17 +564,96 @@ if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{roo
 e.forEach(function(n){o.observe(n)})})();
 </script>
 <script>
-(async function(){var r=document.getElementById('picks-root');
-function e(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
-try{var f=await fetch('/.netlify/functions/top-picks');if(!f.ok)throw 0;
-var data=await f.json();var g=Array.isArray(data)?data:(data.venues||[]);
-var h=g.map(function(v){var it=v.picks||v.items||[];if(!it.length)return '';
-return '<section class="pv"><h3>'+e(v.venueName||v.name)+'</h3><p class="pv-c">'+e(v.city||'')+
-'</p><div class="pv-g">'+it.map(function(i){return '<article class="pc"><span class="pc-k">'+
-e(i.kind||i.type||'Pick')+(i.sponsored?' &middot; Partner':'')+'</span><h4>'+e(i.name)+'</h4>'+
-(i.notes?'<p>'+e(i.notes)+'</p>':'')+'</article>'}).join('')+'</div></section>'}).join('');
-r.innerHTML=h||'<p class="msg">Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>'
-}catch(x){r.innerHTML='<p class="msg">Picks are being refreshed right now. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>'}})();
+(async function () {
+  var root = document.getElementById('picks-root');
+  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
+
+  // Where a card goes: Google Maps, because the next thing a fan wants
+  // is hours, photos and directions. place_id when we have it (exact
+  // match), otherwise a name plus address search, which Google
+  // resolves reliably. No place data means no link, and the card
+  // falls back to the venue guide it belongs to.
+  function mapHref(item, slug) {
+    if (item.placeId) {
+      return 'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent(item.name) + '&query_place_id=' + encodeURIComponent(item.placeId);
+    }
+    if (item.address) {
+      return 'https://www.google.com/maps/search/?api=1&query=' +
+        encodeURIComponent(item.name + ' ' + item.address);
+    }
+    return slug ? '/venue/' + slug : '/venues';
+  }
+
+  try {
+    var res = await fetch('/.netlify/functions/top-picks');
+    if (!res.ok) throw 0;
+    var data = await res.json();
+    var groups = Array.isArray(data) ? data : (data.venues || []);
+
+    var html = groups.map(function (g) {
+      var items = g.picks || g.items || [];
+      if (!items.length) return '';
+      var slug = g.slug || '';
+      return '<section class="pv">' +
+        '<h3>' + (slug
+          ? '<a class="pv-link" href="/venue/' + esc(slug) + '">' + esc(g.venueName || g.name) +
+            '<span aria-hidden="true">&rsaquo;</span><span class="sr">venue guide</span></a>'
+          : esc(g.venueName || g.name)) + '</h3>' +
+        '<p class="pv-c">' + esc([g.city, g.state].filter(Boolean).join(', ')) + '</p>' +
+        '<div class="pv-r">' +
+          '<div class="pv-nav">' +
+            '<button type="button" data-dir="-1" aria-label="Previous picks">&larr;</button>' +
+            '<button type="button" data-dir="1" aria-label="More picks">&rarr;</button>' +
+          '</div>' +
+          '<div class="pv-g">' + items.map(function (i) {
+            var href = mapHref(i, slug);
+            var external = href.indexOf('http') === 0;
+            return '<a class="pc" href="' + href + '"' +
+              (external ? ' target="_blank" rel="noopener"' : '') + '>' +
+              '<span class="pc-k">' + esc(i.badge || i.kind || 'Pick') +
+                (i.sponsored ? ' &middot; Partner' : '') + '</span>' +
+              '<h4>' + esc(i.name) + '</h4>' +
+              (i.notes ? '<p>' + esc(i.notes) + '</p>' : '') +
+              '<span class="pc-meta">' +
+                (i.walk ? '<span class="pc-walk">' + esc(i.walk) + '</span>' : '') +
+                (i.offer ? '<span class="pc-offer">' + esc(i.offer) + '</span>' : '') +
+                '<span class="pc-go">' + (external ? 'Map' : 'Guide') + ' &rarr;</span>' +
+              '</span>' +
+            '</a>';
+          }).join('') + '</div>' +
+        '</div></section>';
+    }).join('');
+
+    root.innerHTML = html || '<p class="msg">Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
+
+    // Rails only behave like carousels when there is something to
+    // scroll to; four or fewer picks stay a plain row.
+    root.querySelectorAll('.pv-r').forEach(function (rail) {
+      var track = rail.querySelector('.pv-g');
+      var prev = rail.querySelector('[data-dir="-1"]');
+      var next = rail.querySelector('[data-dir="1"]');
+      function sync() {
+        var overflow = track.scrollWidth - track.clientWidth;
+        rail.classList.toggle('more', overflow > 8);
+        prev.disabled = track.scrollLeft < 8;
+        next.disabled = track.scrollLeft >= overflow - 8;
+      }
+      rail.querySelectorAll('button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var card = track.querySelector('.pc');
+          var step = card ? card.getBoundingClientRect().width + 16 : track.clientWidth;
+          track.scrollBy({ left: step * Number(b.dataset.dir), behavior: 'smooth' });
+        });
+      });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  } catch (e) {
+    root.innerHTML = '<p class="msg">Picks are being refreshed right now. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
+  }
+})();
 </script>
 </body>
 </html>
