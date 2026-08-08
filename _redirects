@@ -8,8 +8,8 @@
 # carries the old URL's ranking history across.
 /events       /near-me   301
 /events.html  /near-me   301
-/mobile-bags.html   /mobile-bagcheck.html   301
-/mobile-bags        /mobile-bagcheck        301
+/mobile-bags.html   /bagcheck   301
+/mobile-bags        /bagcheck   301
 
 # Concerto+ is a FEATURE (the night planner); the paid tier is Premium.
 /concertoplus       /premium   301
@@ -23,8 +23,8 @@
 /livemode.html          /          301
 /shop                   /premium           301
 /shop.html              /premium           301
-/mobile-livemode        /mobile-account    301
-/mobile-livemode.html   /mobile-account.html   301
+/mobile-livemode        /account   301
+/mobile-livemode.html   /account   301
 
 # Retired tour. Must sit above the /tours/* splat so it wins.
 /tours/fifa-world-cup-2026   /tours   301
@@ -392,6 +392,26 @@
 
 # Tour id typo fixed (millenium -> millennium); carry the old URL.
 /tour/backstreet-boys-into-the-millenium-sphere-las-vegas   /tour/backstreet-boys-into-the-millennium-sphere-las-vegas   301
+
+# Pre-consolidation mobile shell: every surface is an app route now.
+/mobile              /          301
+/mobile.html         /          301
+/mobile-account      /account   301
+/mobile-account.html /account   301
+/mobile-bagcheck     /bagcheck  301
+/mobile-bagcheck.html /bagcheck 301
+/mobile-venues       /venues    301
+/mobile-venues.html  /venues    301
+/mobile-tours        /tours     301
+/mobile-tours.html   /tours     301
+/mobile-events       /near-me   301
+/mobile-events.html  /near-me   301
+/mobile-top-picks    /top-picks 301
+/mobile-top-picks.html /top-picks 301
+/mobile-premium      /premium   301
+/mobile-premium.html /premium   301
+/mobile-concertoplus /premium   301
+/mobile-concertoplus.html /premium 301
 
 # Duplicate surfaces retired: picks/featuredtours were canonical to
 # /top-picks and /tours already; tourinfo folds into /tours.

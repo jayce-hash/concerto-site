@@ -264,13 +264,14 @@ save('search-index.json', search)
 
 # ── Setlist coverage (informational) ─────────────────────────────────
 if setlists:
-    artists = {t['artist'] for t in tours}
-    def artist_slug(a):
-        return re.sub(r'[^a-z0-9]+', '-', a.lower()).strip('-')
-    missing = sorted(a for a in artists if artist_slug(a) not in setlists)
-    if missing:
-        warn(f'{len(missing)} touring artists have no setlist entry, '
-             f'e.g. {missing[:4]}')
+    # setlists.json is keyed by tourId. (It used to be keyed by artist
+    # slug, and this check still assumed that, so it reported every
+    # tour as missing a setlist even when all 78 were present.)
+    empty = sorted(t['tourId'] for t in tours
+                   if not (setlists.get(t['tourId']) or {}).get('songs'))
+    if empty:
+        warn(f'{len(empty)} of {len(tours)} tours have no songs yet, '
+             f'e.g. {empty[:3]}')
 
 # ── Report ──────────────────────────────────────────────────────────
 print(f'venues: {len(venues)}   venue_info: {len(info)}   tours: {len(tours)}')
