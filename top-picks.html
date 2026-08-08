@@ -17,7 +17,7 @@
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 
     :root{
@@ -246,132 +246,137 @@
     }
   
 
-/* ── Night pages: Top Picks + Partners ──────────────────────────
-   Immersive navy. The brand already owns this color; going dark is
-   the subject (a night out), not a default. Mono is here because the
-   artifacts of a show are call sheets, running orders and ticket
-   stubs, and those are set in mono. */
-.night{background:var(--navy);color:#F8F9F9;margin:0;padding:0}
-.night-wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-.n-hero{padding:clamp(80px,14vw,150px) 0 clamp(56px,8vw,90px);position:relative;overflow:hidden}
-.n-hero::after{content:'';position:absolute;left:50%;top:-20%;width:min(120vw,900px);height:520px;
-  transform:translateX(-50%);pointer-events:none;
-  background:radial-gradient(ellipse at center,rgba(201,168,76,.16),transparent 68%)}
-.n-kicker{font-family:'DM Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.34em;
-  text-transform:uppercase;color:var(--gold);margin:0 0 1.6rem;position:relative;z-index:1}
-.n-h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:.98;
-  font-size:clamp(2.9rem,8.5vw,6.4rem);margin:0 0 1.6rem;color:#F8F9F9;position:relative;z-index:1;
-  max-width:16ch}
-.n-h1 em{font-style:normal;color:var(--gold)}
-.n-lede{font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;line-height:1.8;
-  color:rgba(248,249,249,.74);max-width:44ch;margin:0 0 2.4rem;position:relative;z-index:1}
-.n-actions{display:flex;gap:.7rem;flex-wrap:wrap;position:relative;z-index:1}
-.n-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--body);
-  font-size:.9rem;font-weight:700;border-radius:999px;padding:.9rem 1.7rem;
-  text-decoration:none;border:1px solid transparent;transition:transform .2s,opacity .2s}
-.n-btn:hover{transform:translateY(-2px)}
-.n-btn-gold{background:var(--gold);color:var(--navy)}
-.n-btn-ghost{border-color:rgba(248,249,249,.3);color:#F8F9F9}
-.n-rule{height:1px;background:rgba(248,249,249,.14);margin:0}
-.n-sec{padding:clamp(56px,8vw,96px) 0}
-.n-sec-head{font-family:'DM Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gold);margin:0 0 2.4rem}
-.n-h2{font-family:var(--display);font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:700;
-  letter-spacing:-.025em;line-height:1.1;margin:0 0 1rem;color:#F8F9F9}
-.n-body{font-size:1rem;line-height:1.85;color:rgba(248,249,249,.7);max-width:52ch}
+/* ── Top Picks + Partners ────────────────────────────────────────
+   Light, matching every other static page. Mono carries times and
+   labels because the artifacts of a show night are call sheets,
+   running orders and ticket stubs. Measure is capped in ch and
+   headings use text-wrap:balance so lines break evenly instead of
+   leaving one word hanging. */
+.pg{max-width:1040px;margin:0 auto;padding:0 24px}
+.pg-narrow{max-width:62ch}
 
-/* Signature: the running order. The night as a setlist. */
-.ro-row{display:grid;grid-template-columns:120px 1fr;gap:0;border-top:1px solid rgba(248,249,249,.14)}
-.ro-row:last-child{border-bottom:1px solid rgba(248,249,249,.14)}
-.ro-time{font-family:'DM Mono',ui-monospace,monospace;font-size:.82rem;letter-spacing:.06em;
-  color:var(--gold);padding:2rem 1rem 2rem 0;white-space:nowrap}
-.ro-time small{display:block;color:rgba(248,249,249,.45);letter-spacing:.2em;
-  text-transform:uppercase;font-size:.6rem;margin-top:.4rem}
-.ro-body{padding:2rem 0}
-.ro-body h3{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:700;
-  letter-spacing:-.02em;margin:0 0 .5rem;color:#F8F9F9}
-.ro-body p{font-size:.96rem;line-height:1.8;color:rgba(248,249,249,.68);margin:0;max-width:54ch}
-.ro-tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;
+.ph{padding:clamp(64px,10vw,116px) 0 clamp(40px,6vw,64px);position:relative}
+.ph::before{content:'';position:absolute;inset:-10% -20% auto;height:340px;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0,rgba(201,168,76,.14),transparent 70%)}
+.kick{font-family:'DM Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem;position:relative}
+.h1{font-family:var(--display);font-weight:700;letter-spacing:-.032em;line-height:1.02;
+  font-size:clamp(2.5rem,6.4vw,4.6rem);margin:0 0 1.4rem;color:var(--ink);
+  max-width:15ch;text-wrap:balance;position:relative}
+.h1 em{font-style:normal;color:var(--gold)}
+.lede{font-size:clamp(1rem,1.4vw,1.14rem);font-weight:300;line-height:1.82;
+  color:var(--ink-muted);max-width:46ch;margin:0 0 2.2rem;text-wrap:pretty;position:relative}
+.acts{display:flex;gap:.7rem;flex-wrap:wrap;position:relative}
+.b{display:inline-flex;align-items:center;font-family:var(--body);font-size:.9rem;
+  font-weight:700;border-radius:999px;padding:.85rem 1.65rem;text-decoration:none;
+  border:1px solid transparent;transition:transform .2s ease,box-shadow .2s ease}
+.b:hover{transform:translateY(-2px)}
+.b-gold{background:var(--gold);color:var(--navy);box-shadow:0 8px 22px rgba(201,168,76,.28)}
+.b-dark{background:var(--navy);color:#F8F9F9}
+.b-ghost{border-color:var(--line);color:var(--ink)}
+
+.sec{padding:clamp(48px,7vw,84px) 0}
+.sec-k{font-family:'DM Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 1.6rem}
+.h2{font-family:var(--display);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;
+  letter-spacing:-.025em;line-height:1.12;margin:0 0 1rem;color:var(--ink);
+  max-width:20ch;text-wrap:balance}
+.p{font-size:1rem;line-height:1.85;color:var(--ink-muted);max-width:58ch;
+  margin:0 0 1rem;text-wrap:pretty}
+.rule{height:1px;background:var(--line)}
+
+/* Signature: the running order */
+.ro{display:grid;grid-template-columns:112px 1fr;border-top:1px solid var(--line)}
+.ro:last-of-type{border-bottom:1px solid var(--line)}
+.ro-t{font-family:'DM Mono',ui-monospace,monospace;font-size:.8rem;color:var(--gold);
+  padding:1.9rem 1rem 1.9rem 0;white-space:nowrap}
+.ro-t small{display:block;color:var(--ink-faint);letter-spacing:.2em;
+  text-transform:uppercase;font-size:.58rem;margin-top:.4rem}
+.ro-b{padding:1.9rem 0}
+.ro-b h3{font-family:var(--display);font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:700;
+  letter-spacing:-.02em;margin:0 0 .45rem;color:var(--ink);text-wrap:balance}
+.ro-b p{font-size:.96rem;line-height:1.8;color:var(--ink-muted);margin:0;
+  max-width:56ch;text-wrap:pretty}
+.tag{display:inline-block;font-family:'DM Mono',ui-monospace,monospace;font-size:.58rem;
   letter-spacing:.16em;text-transform:uppercase;background:var(--gold);color:var(--navy);
-  padding:3px 9px;border-radius:999px;margin-left:.6rem;vertical-align:middle}
+  padding:3px 9px;border-radius:999px;margin-left:.55rem;vertical-align:middle}
 
-/* Live picks grid */
-#picks-root{margin-top:1rem}
-.pk-venue{border-top:1px solid rgba(248,249,249,.14);padding:2.2rem 0}
-.pk-venue-name{font-family:var(--display);font-size:1.5rem;margin:0 0 .2rem;color:#F8F9F9}
-.pk-venue-city{font-family:'DM Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.2em;
-  text-transform:uppercase;color:rgba(248,249,249,.45);margin:0 0 1.4rem}
-.pk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.pk-card{border:1px solid rgba(248,249,249,.16);border-radius:16px;padding:1.3rem;
-  transition:border-color .25s,transform .25s}
-.pk-card:hover{border-color:var(--gold);transform:translateY(-3px)}
-.pk-kind{font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.18em;
+/* Live picks */
+.pv{border-top:1px solid var(--line);padding:2rem 0}
+.pv h3{font-family:var(--display);font-size:1.45rem;margin:0 0 .2rem;color:var(--ink)}
+.pv-c{font-family:'DM Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);margin:0 0 1.3rem}
+.pv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.3rem;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.pc:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px rgba(18,30,54,.07)}
+.pc-k{font-family:'DM Mono',ui-monospace,monospace;font-size:.58rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--gold)}
-.pk-card h4{font-family:var(--display);font-size:1.12rem;margin:.5rem 0 .4rem;color:#F8F9F9}
-.pk-card p{font-size:.88rem;line-height:1.7;color:rgba(248,249,249,.65);margin:0}
-.pk-msg{padding:3rem 0;color:rgba(248,249,249,.6);font-size:.98rem;line-height:1.8}
-.pk-msg a{color:var(--gold)}
+.pc h4{font-family:var(--display);font-size:1.1rem;margin:.5rem 0 .4rem;color:var(--ink)}
+.pc p{font-size:.88rem;line-height:1.72;color:var(--ink-muted);margin:0;text-wrap:pretty}
+.msg{padding:2.6rem 0;color:var(--ink-muted);font-size:.98rem;line-height:1.8}
+.msg a{color:var(--gold)}
 
-/* Signature: the ticket stub. The mechanic, as its own artifact. */
-.stub{display:flex;max-width:520px;margin:0 auto;background:#F8F9F9;color:var(--navy);
-  border-radius:14px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.4)}
-.stub-main{flex:1;padding:1.7rem 1.6rem}
-.stub-kicker{font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.2em;
-  text-transform:uppercase;color:#5A6478;margin:0 0 .5rem}
-.stub-main h3{font-family:var(--display);font-size:1.5rem;margin:0 0 .4rem;letter-spacing:-.02em}
-.stub-main p{font-size:.87rem;line-height:1.65;color:#5A6478;margin:0 0 1rem}
-.stub-deal{display:inline-block;background:var(--navy);color:#F8F9F9;border-radius:8px;
-  padding:.5rem .8rem;font-family:'DM Mono',ui-monospace,monospace;
-  font-size:.72rem;letter-spacing:.04em}
-.stub-tear{width:64px;background:var(--gold);position:relative;display:flex;
+/* Signature: the ticket stub */
+.stub{display:flex;max-width:520px;margin:0;background:var(--navy);color:#F8F9F9;
+  border-radius:15px;overflow:hidden;box-shadow:0 20px 48px rgba(18,30,54,.2)}
+.stub-m{flex:1;padding:1.7rem 1.6rem}
+.stub-k{font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(248,249,249,.55);margin:0 0 .5rem}
+.stub-m h3{font-family:var(--display);font-size:1.5rem;margin:0 0 .4rem;letter-spacing:-.02em;color:#F8F9F9}
+.stub-m p{font-size:.87rem;line-height:1.68;color:rgba(248,249,249,.68);margin:0 0 1rem;
+  max-width:34ch;text-wrap:pretty}
+.stub-d{display:inline-block;background:var(--gold);color:var(--navy);border-radius:8px;
+  padding:.5rem .8rem;font-family:'DM Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.04em}
+.stub-t{width:62px;background:var(--gold);position:relative;display:flex;
   align-items:center;justify-content:center}
-.stub-tear::before{content:'';position:absolute;left:-1px;top:0;bottom:0;width:2px;
-  background-image:radial-gradient(circle,var(--navy) 1.6px,transparent 1.7px);
-  background-size:2px 11px}
-.stub-tear span{font-family:'DM Mono',ui-monospace,monospace;font-size:.58rem;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--navy);
-  writing-mode:vertical-rl;transform:rotate(180deg)}
+.stub-t::before{content:'';position:absolute;left:-1px;top:0;bottom:0;width:2px;
+  background-image:radial-gradient(circle,var(--navy) 1.6px,transparent 1.7px);background-size:2px 11px}
+.stub-t span{font-family:'DM Mono',ui-monospace,monospace;font-size:.56rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--navy);writing-mode:vertical-rl;transform:rotate(180deg)}
 
-/* Two slots per venue, one taken, one open. Scarcity you can see. */
-.slots{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.4rem 0 0}
-.slot{border-radius:16px;padding:1.5rem;min-height:150px;display:flex;
+/* Signature: two slots, one taken one open */
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.2rem 0 0}
+.slot{border-radius:var(--r-lg);padding:1.5rem;min-height:152px;display:flex;
   flex-direction:column;justify-content:space-between}
-.slot-taken{background:var(--gold);color:var(--navy)}
-.slot-open{border:1.5px dashed rgba(248,249,249,.42);color:#F8F9F9}
-.slot-label{font-family:'DM Mono',ui-monospace,monospace;font-size:.62rem;
-  letter-spacing:.2em;text-transform:uppercase;opacity:.75}
-.slot h4{font-family:var(--display);font-size:1.35rem;margin:.8rem 0 0;letter-spacing:-.02em}
-.slot p{font-size:.84rem;line-height:1.6;margin:.35rem 0 0;opacity:.8}
+.slot-x{background:var(--gold);color:var(--navy)}
+.slot-o{border:1.5px dashed rgba(18,30,54,.34);color:var(--ink)}
+.slot-l{font-family:'DM Mono',ui-monospace,monospace;font-size:.6rem;letter-spacing:.2em;
+  text-transform:uppercase;opacity:.7}
+.slot h4{font-family:var(--display);font-size:1.3rem;margin:.9rem 0 0;letter-spacing:-.02em}
+.slot p{font-size:.84rem;line-height:1.65;margin:.3rem 0 0;opacity:.82;text-wrap:pretty}
 
-.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
-.qa div{padding:1.7rem 1.6rem 1.7rem 0;border-top:1px solid rgba(248,249,249,.14)}
-.qa b{display:block;font-family:'DM Mono',ui-monospace,monospace;font-size:.64rem;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.qa span{font-size:.94rem;line-height:1.78;color:rgba(248,249,249,.72)}
+.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:0 2.4rem}
+.qa div{padding:1.6rem 0;border-top:1px solid var(--line)}
+.qa b{display:block;font-family:'DM Mono',ui-monospace,monospace;font-size:.62rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem}
+.qa span{font-size:.94rem;line-height:1.8;color:var(--ink-muted);text-wrap:pretty;display:block;max-width:46ch}
 
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
+.center{text-align:center}
+.center .h1,.center .h2,.center .lede,.center .p{margin-inline:auto}
+.center .acts{justify-content:center}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .n-btn:hover,.pk-card:hover{transform:none}
+  .rv{opacity:1;transform:none;transition:none}
+  .b:hover,.pc:hover{transform:none}
 }
 @media(max-width:760px){
-  .ro-row{grid-template-columns:1fr}
-  .ro-time{padding:1.6rem 0 0}
-  .ro-body{padding:.6rem 0 1.8rem}
+  .ro{grid-template-columns:1fr}
+  .ro-t{padding:1.5rem 0 0}
+  .ro-b{padding:.5rem 0 1.7rem}
   .slots,.qa{grid-template-columns:1fr}
-  .qa div{padding-right:0}
-  .stub{flex-direction:column}
-  .stub-tear{width:auto;height:38px}
-  .stub-tear span{writing-mode:horizontal-tb;transform:none}
-  .stub-tear::before{left:0;right:0;top:-1px;bottom:auto;width:auto;height:2px;
-    background-image:radial-gradient(circle,var(--navy) 1.6px,transparent 1.7px);
-    background-size:11px 2px}
+  .stub{flex-direction:column;max-width:none}
+  .stub-t{width:auto;height:36px}
+  .stub-t span{writing-mode:horizontal-tb;transform:none}
+  .stub-t::before{left:0;right:0;top:-1px;bottom:auto;width:auto;height:2px;
+    background-image:radial-gradient(circle,var(--navy) 1.6px,transparent 1.7px);background-size:11px 2px}
 }
 
 </style>
 </head>
-<body class="night">
+<body>
 <nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">
     <a class="v2nav-brand" href="/" aria-label="Concerto home">
       <img src="/img/lockup.png" alt="Concerto &mdash; From the Concert to the City" width="168" height="36" />
@@ -397,70 +402,46 @@
   </nav>
 
 <main id="main">
-  <header class="n-hero">
-    <div class="night-wrap">
-      <p class="n-kicker">Concerto Top Picks</p>
-      <h1 class="n-h1">Doors at eight.<br>The night starts <em>at six.</em></h1>
-      <p class="n-lede">
-        The two hours before a show are the part nobody plans. These are the
-        rooms we would send you to, chosen venue by venue, with a deal you
-        unlock by showing the ticket already in your pocket.
-      </p>
-      <div class="n-actions">
-        <a class="n-btn n-btn-gold" href="/venues">Find your venue</a>
-        <a class="n-btn n-btn-ghost" href="/near-me">See what is near me</a>
-      </div>
+  <header class="ph"><div class="pg">
+    <p class="kick">Concerto Top Picks</p>
+    <h1 class="h1">Doors at eight. The night starts <em>at six.</em></h1>
+    <p class="lede">The two hours before a show are the part nobody plans.
+      These are the rooms we would send you to, chosen venue by venue, with a
+      deal you unlock by showing the ticket already in your pocket.</p>
+    <div class="acts">
+      <a class="b b-gold" href="/venues">Find your venue</a>
+      <a class="b b-ghost" href="/near-me">See what is near me</a>
     </div>
-  </header>
+  </div></header>
 
-  <section class="n-sec reveal">
-    <div class="night-wrap">
-      <p class="n-sec-head">Running order</p>
-      <div class="ro-row">
-        <div class="ro-time">5:30 PM<small>Before</small></div>
-        <div class="ro-body">
-          <h3>Dinner close enough to walk<span class="ro-tag">Deal</span></h3>
-          <p>Somewhere you can be seated, fed and out in ninety minutes, within
-             a few blocks of the gate. Show your ticket, get the offer.</p>
-        </div>
-      </div>
-      <div class="ro-row">
-        <div class="ro-time">7:00 PM<small>Doors</small></div>
-        <div class="ro-body">
-          <h3>The part we already handle</h3>
-          <p>Bag policy, parking, the right entrance, where the rideshare pickup
-             actually is. Every venue guide, verified and dated.</p>
-        </div>
-      </div>
-      <div class="ro-row">
-        <div class="ro-time">10:30 PM<small>After</small></div>
-        <div class="ro-body">
-          <h3>A bed, or one more round<span class="ro-tag">Deal</span></h3>
-          <p>The hotel worth walking to instead of driving home, and the bar
-             still serving when twenty thousand people hit the street at once.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="sec rv"><div class="pg">
+    <p class="sec-k">Running order</p>
+    <div class="ro"><div class="ro-t">5:30 PM<small>Before</small></div>
+      <div class="ro-b"><h3>Dinner close enough to walk<span class="tag">Deal</span></h3>
+      <p>Somewhere you can be seated, fed and out in ninety minutes, a few
+         blocks from the gate. Show your ticket and the offer is yours.</p></div></div>
+    <div class="ro"><div class="ro-t">7:00 PM<small>Doors</small></div>
+      <div class="ro-b"><h3>The part we already handle</h3>
+      <p>Bag policy, parking, the right entrance, and where the rideshare
+         pickup actually is. Every venue guide, verified and dated.</p></div></div>
+    <div class="ro"><div class="ro-t">10:30 PM<small>After</small></div>
+      <div class="ro-b"><h3>A bed, or one more round<span class="tag">Deal</span></h3>
+      <p>The hotel worth walking to instead of driving home, and the bar still
+         serving when twenty thousand people hit the street at once.</p></div></div>
+  </div></section>
 
-  <section class="n-sec reveal">
-    <div class="night-wrap">
-      <p class="n-sec-head">Tonight, by venue</p>
-      <div id="picks-root"><p class="pk-msg">Loading picks&hellip;</p></div>
-    </div>
-  </section>
+  <section class="sec rv"><div class="pg">
+    <p class="sec-k">Tonight, by venue</p>
+    <div id="picks-root"><p class="msg">Loading picks&hellip;</p></div>
+  </div></section>
 
-  <div class="n-rule"></div>
+  <div class="pg"><div class="rule"></div></div>
 
-  <section class="n-sec reveal">
-    <div class="night-wrap" style="text-align:center">
-      <h2 class="n-h2" style="margin-inline:auto">Own a room near a venue?</h2>
-      <p class="n-body" style="margin:0 auto 2rem">
-        One restaurant and one hotel per venue. No directory, no page three.
-      </p>
-      <a class="n-btn n-btn-gold" href="/partners">Partner with Concerto</a>
-    </div>
-  </section>
+  <section class="sec rv center"><div class="pg">
+    <h2 class="h2">Own a room near a venue?</h2>
+    <p class="p">One restaurant and one hotel per venue. No directory, no page three.</p>
+    <div class="acts" style="margin-top:1.6rem"><a class="b b-dark" href="/partners">Partner with Concerto</a></div>
+  </div></section>
 </main>
 
 <footer class="v2foot" role="contentinfo">
@@ -535,43 +516,25 @@
   })();
   </script>
 <script>
-(function(){
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    els.forEach(function(e){e.classList.add('in')});return;
-  }
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
-  },{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
-})();
+(function(){var e=document.querySelectorAll('.rv');
+if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){
+e.forEach(function(n){n.classList.add('in')});return}
+var o=new IntersectionObserver(function(s){s.forEach(function(x){
+if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+e.forEach(function(n){o.observe(n)})})();
 </script>
 <script>
-(async function () {
-  var root = document.getElementById('picks-root');
-  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
-  try {
-    var r = await fetch('/.netlify/functions/top-picks');
-    if (!r.ok) throw 0;
-    var data = await r.json();
-    var groups = Array.isArray(data) ? data : (data.venues || []);
-    var html = groups.map(function (g) {
-      var items = g.picks || g.items || [];
-      if (!items.length) return '';
-      return '<section class="pk-venue"><h3 class="pk-venue-name">' + esc(g.venueName || g.name) +
-        '</h3><p class="pk-venue-city">' + esc(g.city || '') + '</p><div class="pk-grid">' +
-        items.map(function (i) {
-          return '<article class="pk-card"><span class="pk-kind">' +
-            esc(i.kind || i.type || 'Pick') + (i.sponsored ? ' &middot; Partner' : '') +
-            '</span><h4>' + esc(i.name) + '</h4>' +
-            (i.notes ? '<p>' + esc(i.notes) + '</p>' : '') + '</article>';
-        }).join('') + '</div></section>';
-    }).join('');
-    root.innerHTML = html || '<p class="pk-msg">Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
-  } catch (e) {
-    root.innerHTML = '<p class="pk-msg">Picks are being refreshed right now. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
-  }
-})();
+(async function(){var r=document.getElementById('picks-root');
+function e(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML}
+try{var f=await fetch('/.netlify/functions/top-picks');if(!f.ok)throw 0;
+var data=await f.json();var g=Array.isArray(data)?data:(data.venues||[]);
+var h=g.map(function(v){var it=v.picks||v.items||[];if(!it.length)return '';
+return '<section class="pv"><h3>'+e(v.venueName||v.name)+'</h3><p class="pv-c">'+e(v.city||'')+
+'</p><div class="pv-g">'+it.map(function(i){return '<article class="pc"><span class="pc-k">'+
+e(i.kind||i.type||'Pick')+(i.sponsored?' &middot; Partner':'')+'</span><h4>'+e(i.name)+'</h4>'+
+(i.notes?'<p>'+e(i.notes)+'</p>':'')+'</article>'}).join('')+'</div></section>'}).join('');
+r.innerHTML=h||'<p class="msg">Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>'
+}catch(x){r.innerHTML='<p class="msg">Picks are being refreshed right now. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>'}})();
 </script>
 </body>
 </html>
