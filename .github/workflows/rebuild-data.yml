@@ -1,5 +1,14 @@
 name: Rebuild data
 
+# Edit data/venues.json, data/venue_info.json, data/tours.json or
+# setlists.json in the GitHub web editor, hit Commit, and this runs.
+# It regenerates search-index.json and sitemap.xml, validates
+# everything, and commits the result. Netlify then deploys, and the
+# app picks the new data up on its next fetch: no App Store update.
+#
+# If validation fails, the commit is left alone and the run goes red.
+# Check the Actions tab for what went wrong.
+
 on:
   push:
     branches: [main]

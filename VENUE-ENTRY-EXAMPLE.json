@@ -1,0 +1,73 @@
+{
+  "state-farm-arena": {
+    "name": "State Farm Arena",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "lat": 33.7573,
+    "lng": -84.3963,
+    "bagPolicy": {
+      "summary": "State Farm Arena allows bags smaller than 14\" x 14\" x 6\" and does not enforce a clear bag policy. All bags are subject to screening.",
+      "allowed": [
+        "Single-compartment drawstring bags",
+        "purses",
+        "fashion backpacks smaller than 14\" x 14\" x 6\"",
+        "medical bags",
+        "diaper bags"
+      ],
+      "prohibited": [
+        "All bags larger than 14\" x 14\" x 6\"",
+        "briefcases",
+        "luggage",
+        "backpacks",
+        "hard-sided bags of any size"
+      ],
+      "note": "Medical bags and diaper bags accompanying a child are exempt from the size requirement but are subject to search.",
+      "officialLink": "https://www.statefarmarena.com/plan-your-visit/bag-policy",
+      "verified": "2026-07-20"
+    },
+    "parking": {
+      "note": "State Farm Arena offers multiple parking options with varying proximity to the venue. Pre-purchasing parking through ParkMobile guarantees a spot and the lowest prices. Options include the Sapphire Deck, Ruby Lot, State Farm Drive, and Diamond Deck.",
+      "lots": [
+        "Sapphire Deck",
+        "Ruby Lot",
+        "State Farm Drive",
+        "Diamond Deck"
+      ],
+      "officialLink": "https://www.statefarmarena.com/arena-parking",
+      "verified": "2026-07-20"
+    },
+    "rideshare": {
+      "note": "No specific rideshare notes available."
+    },
+    "concessions": {
+      "note": "State Farm Arena offers a diverse range of food and beverage options, featuring local Atlanta favorites like Chick-fil-A, Dolo's Pizza Co., and J.R. Crickets. New offerings include a BBQ Smashburger and a Black Bean Burger, with a focus on quality, speed, and sustainability.",
+      "stands": [
+        "Chick-fil-A",
+        "Dolo's Pizza Co.",
+        "J.R. Crickets"
+      ],
+      "officialLink": "https://www.statefarmarena.com/food-beverage",
+      "verified": "2026-07-20"
+    },
+    "accessibility": {
+      "title": "ADA &amp; Accessible Services",
+      "body": "Fully ADA accessible. Wheelchair seating on all levels. Elevators, ramps, and accessible restrooms."
+    },
+    "reEntry": {
+      "title": "Re-Entry Policy",
+      "body": "No re-entry policy."
+    },
+    "ticketPickup": {
+      "title": "Will Call",
+      "body": "Box Office on-site, check event details for hours. Photo ID required."
+    },
+    "gates": {
+      "title": "Gates &amp; Entrances",
+      "body": "Multiple entrances, check ticket for specific gate. Located at 1 State Farm Drive, Atlanta."
+    },
+    "seatingChartLink": "",
+    "photo": "",
+    "capacity": ""
+  }
+}

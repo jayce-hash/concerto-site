@@ -255,6 +255,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site-chrome.css">
+
+<style id="v2-align">
+/* V2 alignment layer: adopt About's metrics. Loads last, wins ties. */
+.pp-hero h1, .hero h1 { font-size: clamp(2.1rem, 4.5vw, 3.2rem) !important; letter-spacing: -.02em !important; }
+.pp-head h2, h2.section-title, .section-head h2 { font-size: 1.5rem !important; letter-spacing: -.015em !important; margin: 3.5rem 0 1.2rem !important; }
+.tier, .card, .eats-card, .pp-card {
+  border-radius: 16px !important;
+  border: 1px solid rgba(18,30,54,.12) !important;
+  box-shadow: none !important;
+}
+.btn, .btn-gold, .btn-dark, .btn-outline {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: .9rem !important;
+}
+section, .section { padding-top: 0 !important; }
+</style>
 </head>
 <body class="page-content chrome-align">
 <nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">

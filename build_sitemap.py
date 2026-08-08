@@ -48,8 +48,7 @@ HUBS = [
 # Legacy hub pages: still live, still indexed, still earning traffic.
 # They keep their old design for now, but excluding them from the
 # sitemap would throw away real ranking history for no reason.
-LEGACY_HUBS = ['bags', 'parking', 'rideshare', 'concessions',
-               'how-it-works', 'setlists', 'top-picks', 'partners',
+LEGACY_HUBS = ['bags', 'parking', 'rideshare', 'concessions', 'top-picks', 'partners',
                'features']
 
 # Deliberately EXCLUDED:

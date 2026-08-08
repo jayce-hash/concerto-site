@@ -11,6 +11,9 @@ THE ONLY FILES YOU EDIT BY HAND:
   data/tours.json        one entry per tour (tourId, tourName, artist,
                          tourWebsite)
   setlists.json          keyed by artist slug
+  data/updates/*.json    venue info patches from research chats;
+                         merged into venue_info.json then moved to
+                         data/updates/applied/
 
 EVERYTHING ELSE IS GENERATED FROM THOSE. Never edit these by hand:
 
@@ -34,7 +37,6 @@ from datetime import date
 
 FAIL = []
 WARN = []
-NO_DATE = []
 
 
 def load(path):
@@ -60,6 +62,131 @@ venues = load('data/venues.json')
 info = load('data/venue_info.json')
 tours = load('data/tours.json')
 setlists = load('setlists.json') if os.path.exists('setlists.json') else {}
+
+
+# ── Apply venue info updates ────────────────────────────────────────
+# Research chats write a patch file to data/updates/*.json instead of
+# hand-editing the 1MB venue_info.json. Shape:
+#
+#   { "venue-slug": { "bagPolicy": {...}, "concessions": {...} } }
+#
+# Only the sections present are replaced; everything else on that
+# venue is left alone. Each patched section gets today's date stamped
+# into "verified" unless the patch supplied one. Applied patches are
+# moved to data/updates/applied/ so they run exactly once.
+UPD = 'data/updates'
+applied_any = False
+if os.path.isdir(UPD):
+    os.makedirs(f'{UPD}/applied', exist_ok=True)
+    today_str = date.today().isoformat()
+    for fn in sorted(os.listdir(UPD)):
+        if not fn.endswith('.json'):
+            continue
+        path = f'{UPD}/{fn}'
+        try:
+            patch = load(path)
+        except json.JSONDecodeError as e:
+            fail(f'{path}: not valid JSON ({e})')
+            continue
+        if not isinstance(patch, dict):
+            fail(f'{path}: expected an object keyed by venue slug')
+            continue
+        count = 0
+        for slug, sections in patch.items():
+            if slug not in info:
+                fail(f'{path}: no venue named {slug!r} '
+                     '(check the slug against data/venues.json)')
+                continue
+            if not isinstance(sections, dict):
+                fail(f'{path}: {slug} should map to an object of sections')
+                continue
+            for sec, body in sections.items():
+                if sec not in ('bagPolicy', 'parking', 'rideshare',
+                               'concessions', 'accessibility', 'reEntry',
+                               'ticketPickup', 'gates'):
+                    fail(f'{path}: {slug} has unknown section {sec!r}')
+                    continue
+                if isinstance(body, dict) and not body.get('verified'):
+                    body['verified'] = today_str
+                info[slug][sec] = body
+                count += 1
+        if not FAIL:
+            os.rename(path, f'{UPD}/applied/{fn}')
+            print(f'applied {fn}: {count} section(s) updated')
+            applied_any = True
+
+if applied_any:
+    save('data/venue_info.json', info)
+
+
+# ── One-time corrections + permanent reconciliation ─────────────────
+# Verified against official sources (artist sites, Live Nation,
+# Sphere Entertainment, Variety) on 2026-08-07. tours.json is the
+# single source of truth for artist and tour names; setlists.json
+# inherits both below, so the two files can never disagree again.
+
+ID_FIXES = {
+    # typo in the slug; a 301 in _redirects covers the old URL
+    'backstreet-boys-into-the-millenium-sphere-las-vegas':
+        'backstreet-boys-into-the-millennium-sphere-las-vegas',
+}
+NAME_FIXES = {
+    # tourId: (artist or None, tourName or None)
+    'mumford-and-sons-prizefighter-tour': ('Mumford & Sons', None),
+    'harry-styles-together-together-tour': (None, 'Together, Together'),
+    'my-chemical-romance-the-black-parade-tour': (None, 'The Black Parade 2026'),
+    'eagles-live-at-sphere-2026': (None, 'Eagles: Live in Concert at Sphere'),
+    'hayley-williams-at-a-bachelorette-party-tour':
+        (None, 'Hayley Williams at a Bachelorette Party'),
+    'olivia-dean-the-art-of-loving-tour': (None, 'The Art of Loving Live'),
+}
+
+changed_data = False
+for t in tours:
+    if 'lastShowDate' in t:
+        t.pop('lastShowDate', None)
+        changed_data = True
+    tid = t.get('tourId', '')
+    if tid in ID_FIXES:
+        t['tourId'] = ID_FIXES[tid]
+        tid = t['tourId']
+        changed_data = True
+    if tid in NAME_FIXES:
+        art, name = NAME_FIXES[tid]
+        if art and t.get('artist') != art:
+            t['artist'] = art
+            changed_data = True
+        if name and t.get('tourName') != name:
+            t['tourName'] = name
+            changed_data = True
+
+# setlists.json: keys must be resolvable from a current tourId (the
+# app matches by prefix). Delete orphans, propagate names from tours.
+if setlists:
+    tids = [t['tourId'] for t in tours]
+    orphans = [k for k in list(setlists)
+               if not any(tid.startswith(k) for tid in tids)]
+    for k in orphans:
+        del setlists[k]
+        print(f'setlists: removed orphan {k!r} (no matching tour)')
+        changed_data = True
+    for t in tours:
+        k = next((k for k in setlists if t['tourId'].startswith(k)), None)
+        if not k:
+            continue
+        s = setlists[k]
+        if s.get('artist') != t['artist']:
+            s['artist'] = t['artist']
+            changed_data = True
+        if s.get('tour') != t['tourName']:
+            s['tour'] = t['tourName']
+            changed_data = True
+
+if changed_data:
+    save('data/tours.json', tours)
+    if setlists:
+        save('setlists.json', setlists)
+    print('tours.json / setlists.json reconciled and saved')
 
 # ── Validate venues ─────────────────────────────────────────────────
 SLUG_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
@@ -107,13 +234,10 @@ for t in tours:
     if a.lower().endswith(' tour'):
         warn(f'{tid}: artist reads {a!r}, which looks like a tour name. '
              'Check the artist field.')
-    # Optional but recommended: lastShowDate lets ended tours be caught
-    last = t.get('lastShowDate')
-    if last and last < today:
-        warn(f'{tid}: lastShowDate {last} has passed. This tour has ended '
-             'and should be removed from data/tours.json.')
-    if not last:
-        NO_DATE.append(tid)
+    # Dates are Ticketmaster's job (the app queries TM live). A hand
+    # maintained lastShowDate drifts, so the field is retired; strip it
+    # if present so it cannot mislead anyone later.
+    t.pop('lastShowDate', None)
 
 # ── Generate search-index.json ──────────────────────────────────────
 # This is the file that silently drifted: four tours existed but were
@@ -137,11 +261,6 @@ search = {
     ],
 }
 save('search-index.json', search)
-
-if NO_DATE:
-    warn(f'{len(NO_DATE)} of {len(tours)} tours have no lastShowDate, so an '
-         'ended tour cannot be detected automatically. Add '
-         '"lastShowDate": "YYYY-MM-DD" as you touch each one.')
 
 # ── Setlist coverage (informational) ─────────────────────────────────
 if setlists:

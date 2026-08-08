@@ -16,11 +16,11 @@
 /concertoplus.html  /premium   301
 
 # Retired surfaces -- files deleted so these actually fire. Passport
-# (formerly Live Mode) is retired entirely; /features carries the story.
-/passport               /features          301
-/passport.html          /features          301
-/livemode               /features          301
-/livemode.html          /features          301
+# (formerly Live Mode) is retired entirely.
+/passport               /          301
+/passport.html          /          301
+/livemode               /          301
+/livemode.html          /          301
 /shop                   /premium           301
 /shop.html              /premium           301
 /mobile-livemode        /mobile-account    301
@@ -381,6 +381,17 @@
 # Any cityguide slug not in the map (the 11 with no hyphens to lose)
 /cityguide/*   /venue/:splat   301
 /cityguides    /venues         301
+
+# Retired marketing pages: the app's own surfaces carry these now.
+/features            /        301
+/features.html       /        301
+/how-it-works        /        301
+/how-it-works.html   /        301
+/setlists            /tours   301
+/setlists.html       /tours   301
+
+# Tour id typo fixed (millenium -> millennium); carry the old URL.
+/tour/backstreet-boys-into-the-millenium-sphere-las-vegas   /tour/backstreet-boys-into-the-millennium-sphere-las-vegas   301
 
 # Duplicate surfaces retired: picks/featuredtours were canonical to
 # /top-picks and /tours already; tourinfo folds into /tours.

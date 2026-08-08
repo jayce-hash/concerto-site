@@ -82,8 +82,6 @@ def edit(p, fn):
 CANON = {
     'top-picks.html':     f'{SITE}/top-picks',
     'partners.html':      f'{SITE}/partners',
-    'features.html':      f'{SITE}/features',
-    'setlists.html':      f'{SITE}/setlists',
     'picks.html':         f'{SITE}/top-picks',
     'featuredtours.html': f'{SITE}/tours',
     'tourinfo.html':      f'{SITE}/tourinfo',
