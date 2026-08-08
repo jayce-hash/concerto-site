@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Become a Concerto Partner: Featured Placement Near Every Venue</title>
-<meta name="description" content="Be the restaurant or hotel Concerto sends fans to before the show. Featured placement on venue guides and Top Picks, with a ticket-holder deal we promote.">
+<title>Become a Concerto Partner: Be the Spot Fans Go To Before the Show</title>
+<meta name="description" content="Concerto fans have a ticket in hand and have not picked dinner. One featured restaurant and one hotel per venue, with a ticket-holder deal we build and promote.">
 <link rel="canonical" href="https://concertocity.com/partners">
 <meta name="apple-itunes-app" content="app-id=6744903414">
 <meta property="og:site_name" content="Concerto">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Become a Concerto Partner: Featured Placement Near Every Venue">
-<meta property="og:description" content="Be the restaurant or hotel Concerto sends fans to before the show. Featured placement on venue guides and Top Picks, with a ticket-holder deal we promote.">
+<meta property="og:title" content="Become a Concerto Partner">
+<meta property="og:description" content="They already have tickets. They have not picked dinner. One featured spot per venue.">
 <meta property="og:url" content="https://concertocity.com/partners">
 <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,20 +246,65 @@
     }
   
 
-/* Partners: the B2B page. Numbered steps reuse feat-card metrics. */
-.pt-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:3rem 0}
+/* ── Partners: the pitch ──────────────────────────────────────── */
+.pt-hero{text-align:center;max-width:var(--col);margin:0 auto 3.5rem}
+.pt-intent{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:0 0 1rem}
+.pt-intent div{padding:1.3rem 1.1rem;border-right:1px solid var(--line)}
+.pt-intent div:last-child{border-right:0}
+.pt-intent b{display:block;font-family:var(--display);font-size:1.05rem;color:var(--ink);margin-bottom:.25rem}
+.pt-intent span{font-size:.84rem;line-height:1.6;color:var(--ink-muted)}
+.pt-note{text-align:center;font-size:.85rem;color:var(--ink-muted);margin:0 0 3.5rem}
+
+/* The product, rendered. This is the pitch. */
+.pt-demo{background:var(--navy);border-radius:22px;padding:2rem 1.6rem 2.2rem;margin:0 0 1rem}
+.pt-demo-label{text-align:center;font-size:.62rem;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem}
+.pt-phone{max-width:340px;margin:0 auto;background:#F8F9F9;border-radius:16px;
+  padding:1.1rem;box-shadow:0 18px 44px rgba(0,0,0,.32)}
+.pt-phone-venue{font-family:var(--display);font-size:1.15rem;color:var(--navy);margin:0 0 .1rem}
+.pt-phone-city{font-size:.76rem;color:var(--ink-muted);margin:0 0 .9rem}
+.pt-phone-tabs{display:flex;gap:.35rem;margin:0 0 .9rem;flex-wrap:wrap}
+.pt-phone-tab{font-size:.66rem;border:1px solid var(--line);border-radius:999px;padding:.28rem .6rem;color:var(--ink-muted)}
+.pt-phone-tab.on{background:var(--navy);color:#F8F9F9;border-color:var(--navy)}
+.pt-slot{border:1.5px solid var(--gold);background:var(--gold-soft);
+  border-radius:12px;padding:.85rem .9rem;position:relative}
+.pt-slot-tag{position:absolute;top:-9px;left:.8rem;background:var(--gold);color:var(--navy);
+  font-size:.55rem;font-weight:700;letter-spacing:.1em;padding:2px 7px;border-radius:999px}
+.pt-slot b{display:block;font-family:var(--display);font-size:1rem;color:var(--navy);margin:.15rem 0 .2rem}
+.pt-slot p{font-size:.76rem;line-height:1.55;color:var(--navy);opacity:.82;margin:0 0 .5rem}
+.pt-slot-deal{background:var(--navy);color:#F8F9F9;border-radius:7px;
+  padding:.4rem .6rem;font-size:.7rem;font-weight:700}
+.pt-slot-rest{margin-top:.6rem;display:flex;flex-direction:column;gap:.4rem}
+.pt-slot-rest div{border:1px solid var(--line);border-radius:9px;padding:.5rem .65rem;
+  font-size:.74rem;color:var(--ink-muted);background:#fff}
+.pt-demo-caption{text-align:center;color:rgba(248,249,249,.72);font-size:.83rem;
+  line-height:1.7;max-width:30rem;margin:1.4rem auto 0}
+
+.pt-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:2.5rem 0 0}
 .pt-step{background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--r-lg);padding:1.6rem;display:flex;flex-direction:column;gap:.6rem}
-.pt-step-num{font-family:var(--display);font-size:1.6rem;color:var(--gold);line-height:1}
-.pt-step h3{font-family:var(--display);font-size:1.12rem;margin:0;color:var(--ink)}
-.pt-step p{font-size:.92rem;line-height:1.75;color:var(--ink-muted);margin:0}
-.pt-who{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:0 0 3rem}
-.pt-chip{border:1px solid var(--line);border-radius:var(--r-pill);
-  padding:.5rem 1.1rem;font-size:.85rem;font-weight:500;color:var(--ink)}
-.pt-chip.soon{color:var(--ink-muted);opacity:.7}
-.pt-chip.soon::after{content:' · soon';font-size:.7rem;letter-spacing:.06em}
-.pt-cta{text-align:center;margin:3.5rem 0 0}
-@media(max-width:720px){.pt-steps{grid-template-columns:1fr}}
+  border-radius:var(--r-lg);padding:1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.pt-step-num{font-family:var(--display);font-size:1.5rem;color:var(--gold);line-height:1}
+.pt-step h3{font-family:var(--display);font-size:1.08rem;margin:0;color:var(--ink)}
+.pt-step p{font-size:.9rem;line-height:1.72;color:var(--ink-muted);margin:0}
+
+.pt-scarcity{border:1px solid var(--gold);border-radius:var(--r-lg);
+  background:var(--gold-soft);padding:1.8rem;text-align:center;margin:3.5rem 0 0}
+.pt-scarcity h2{font-family:var(--display);font-size:1.45rem;color:var(--navy);margin:0 0 .5rem}
+.pt-scarcity p{font-size:.95rem;line-height:1.75;color:var(--navy);max-width:34rem;margin:0 auto}
+.pt-slots{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0 0}
+.pt-slots span{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:.4rem .9rem;font-size:.8rem;color:var(--ink)}
+
+.pt-terms{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin:2.5rem 0 0}
+.pt-term{border:1px solid var(--line);border-radius:var(--r-md);padding:1.1rem 1.2rem}
+.pt-term b{display:block;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.pt-term span{font-size:.9rem;line-height:1.7;color:var(--ink)}
+@media(max-width:720px){
+  .pt-steps,.pt-terms,.pt-intent{grid-template-columns:1fr}
+  .pt-intent div{border-right:0;border-bottom:1px solid var(--line)}
+}
 
 </style>
 </head>
@@ -289,78 +334,116 @@
   </nav>
 
 <main id="main" class="editorial-container">
-  <div class="hero">
+
+  <div class="pt-hero">
     <span class="eyebrow">Concerto Partners</span>
-    <h1 class="hero-title">Be the Spot We Send Fans To</h1>
+    <h1 class="hero-title">They Already Have Tickets. They Have Not Picked Dinner.</h1>
     <p class="lead">
-      Fans open Concerto while they plan the night around your venue. Be the
-      restaurant or hotel in front of them when they do, with an offer they
-      redeem at your table. We promote it. You count the covers.
+      Concerto is the app fans open when they have a ticket to a specific show,
+      at a specific venue, on a specific night. Be the spot we recommend when
+      they decide where to go first.
     </p>
-    <a class="btn btn-gold" href="mailto:partners@concertocity.com?subject=Concerto%20Partnership">Become a Partner</a>
+    <a class="btn btn-gold" href="mailto:partners@concertocity.com?subject=Concerto%20Partnership">Claim Your Venue</a>
     <a class="btn btn-dark" href="/top-picks">See the Showcase</a>
   </div>
 
-  <div class="pt-who">
-    <span class="pt-chip">Restaurants</span>
-    <span class="pt-chip">Hotels</span>
-    <span class="pt-chip soon">Venues</span>
-    <span class="pt-chip soon">Artists</span>
+  <div class="pt-intent">
+    <div><b>A ticket in hand</b><span>Not browsing. Committed to a night out, at a venue near you.</span></div>
+    <div><b>A decision to make</b><span>Where to eat before, where to stay after. Usually unmade.</span></div>
+    <div><b>Hours, not weeks</b><span>They are planning tonight or this weekend, not someday.</span></div>
   </div>
-
-  <h2 style="font-family:var(--display);font-size:1.5rem;text-align:center;margin:0 0 .6rem;color:var(--ink)">
-    What You Get
-  </h2>
-  <p class="lead" style="margin-bottom:0">
-    A featured spot, an offer, and real promotion.
+  <p class="pt-note">
+    That is the whole pitch. Not impressions. Intent, at the moment it converts.
   </p>
 
+  <div class="pt-demo">
+    <p class="pt-demo-label">What Your Listing Looks Like</p>
+    <div class="pt-phone">
+      <p class="pt-phone-venue">American Airlines Center</p>
+      <p class="pt-phone-city">Dallas, TX</p>
+      <div class="pt-phone-tabs">
+        <span class="pt-phone-tab">Venue Info</span>
+        <span class="pt-phone-tab on">Night Of It</span>
+        <span class="pt-phone-tab">Getting Out</span>
+      </div>
+      <div class="pt-slot">
+        <span class="pt-slot-tag">PARTNER</span>
+        <b>Your Restaurant</b>
+        <p>Six minute walk from the west entrance. Kitchen open till midnight on show nights.</p>
+        <div class="pt-slot-deal">Show your ticket: 15% off the table</div>
+      </div>
+      <div class="pt-slot-rest">
+        <div>Another spot nearby</div>
+        <div>Another spot nearby</div>
+      </div>
+    </div>
+    <p class="pt-demo-caption">
+      Top of the guide, on the tab fans open while they are deciding. One
+      featured restaurant and one hotel per venue, so you are never one of
+      twelve options in a list.
+    </p>
+  </div>
+
+  <h2 style="font-family:var(--display);font-size:1.5rem;text-align:center;margin:3.5rem 0 .4rem;color:var(--ink)">How It Works</h2>
+  <p class="lead" style="margin-bottom:0">Three steps, and none of them are yours to run.</p>
   <div class="pt-steps">
     <article class="pt-step">
       <span class="pt-step-num">01</span>
-      <h3>Featured Placement</h3>
-      <p>
-        The top slot on Concerto&rsquo;s Top Picks, plus the featured spot on
-        your venue&rsquo;s guide. One restaurant and one hotel per venue, so
-        you are never buried in a list.
-      </p>
+      <h3>We Build the Offer</h3>
+      <p>You tell us what you can do. We write it, design it, and place it. Nothing to install, no hardware, no new steps for your staff.</p>
     </article>
     <article class="pt-step">
       <span class="pt-step-num">02</span>
-      <h3>A Ticket-Holder Deal</h3>
-      <p>
-        We build the offer with you and fans redeem it by showing their ticket.
-        No app to install on your end, no hardware, no new POS steps.
-      </p>
+      <h3>We Put It In Front of Fans</h3>
+      <p>Your venue guide, Top Picks, our Instagram, and our ambassadors. Fans see it while they are planning a night at your venue.</p>
     </article>
     <article class="pt-step">
       <span class="pt-step-num">03</span>
-      <h3>Real Promotion</h3>
-      <p>
-        Your spot goes out across our venue guides, Instagram, and ambassador
-        network, in front of fans planning a specific night at a specific venue.
-      </p>
+      <h3>They Show a Ticket</h3>
+      <p>That is the whole redemption. A fan shows the ticket they already have and you honor the deal. You count the covers.</p>
     </article>
   </div>
 
-  <div class="premium-callout">
+  <div class="pt-scarcity">
+    <h2>One Restaurant. One Hotel. Per Venue.</h2>
+    <p>
+      We do not sell a directory. Each venue guide has exactly two featured
+      slots, and once a spot takes one, the venue is closed to competitors for
+      the length of the partnership.
+    </p>
+    <div class="pt-slots">
+      <span>346 venues</span>
+      <span>2 slots each</span>
+      <span>Yours is probably open</span>
+    </div>
+  </div>
+
+  <h2 style="font-family:var(--display);font-size:1.5rem;text-align:center;margin:3.5rem 0 0;color:var(--ink)">Straight Answers</h2>
+  <div class="pt-terms">
+    <div class="pt-term"><b>What it costs</b><span>Depends on the venue and the season, and we will tell you the number in the first conversation. Early partners get founding terms that do not move when we grow.</span></div>
+    <div class="pt-term"><b>How long you are in</b><span>One quarter to start. If it does not earn its place, you walk, and we part on good terms.</span></div>
+    <div class="pt-term"><b>What we need from you</b><span>An offer you can honor and someone who can answer an email. That is it. We build and run everything else.</span></div>
+    <div class="pt-term"><b>How you know it worked</b><span>Fans redeem by showing a ticket, so you count them at the table. We report what we sent you, honestly, including when it is small.</span></div>
+  </div>
+
+  <div class="premium-callout" style="margin-top:2.5rem">
     <p style="margin:0;font-size:.95rem;line-height:1.75;color:var(--navy)">
       Concerto picks every spot on merit first. Partnership buys placement and
-      promotion, never a recommendation we would not make anyway, and featured
-      partners are always labeled as partners to fans.
+      promotion, never a recommendation we would not already make, and featured
+      partners are always labeled as partners to fans. That is the reason our
+      recommendations are worth being featured in.
     </p>
   </div>
 
-  <div class="pt-cta">
-    <h2 style="font-family:var(--display);font-size:1.5rem;margin:0 0 1rem;color:var(--ink)">
-      Start With One Venue
-    </h2>
+  <div style="text-align:center;margin:3.5rem 0 0">
+    <h2 style="font-family:var(--display);font-size:1.5rem;margin:0 0 .8rem;color:var(--ink)">Start With One Venue</h2>
     <p class="lead">
       Tell us your spot and the venue you are near. We will come back with the
-      offer, the placement, and what we would promote.
+      offer, the placement, and exactly what we would promote.
     </p>
-    <a class="btn btn-gold" href="mailto:partners@concertocity.com?subject=Concerto%20Partnership">Email partners@concertocity.com</a>
+    <a class="btn btn-gold" href="mailto:partners@concertocity.com?subject=Concerto%20Partnership&amp;body=My%20spot%3A%20%0AVenue%20I%27m%20near%3A%20%0AWhat%20I%20could%20offer%20ticket%20holders%3A%20">Email partners@concertocity.com</a>
   </div>
+
 </main>
 
 <footer class="v2foot" role="contentinfo">
@@ -434,6 +517,5 @@
     });
   })();
   </script>
-
 </body>
 </html>
