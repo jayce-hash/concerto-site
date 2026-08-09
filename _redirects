@@ -33,8 +33,8 @@
 # /tours/{slug} 301s to the app screen at the singular path. The
 # hubs /venues and /tours are untouched (splats don't match the bare
 # path) and keep serving the app's tab pages.
-/venues/*   /venue/:splat   301
-/tours/*    /tour/:splat    301
+/venues/*   /venue/:splat   301!
+/tours/*    /tour/:splat    301!
 
 # The app's detail screens: any slug rewrites to the exported shell.
 /venue/*   /venue/[slug].html   200
