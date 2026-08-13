@@ -19,6 +19,28 @@
 // (event_id, alert_type) -- a retry, a double-trigger, or a crash
 // mid-run can never produce two alerts for the same thing.
 //
+// This is a Netlify BACKGROUND function (the -background suffix in
+// the filename is what tells Netlify's build system to treat it that
+// way), not a standard one. First deploy used a standard function and
+// it hit Netlify's ~30-second execution ceiling on the very first
+// real run -- with no favorited artists yet, Pass A does nothing, but
+// the zero-results check at the bottom was making up to 78 sequential
+// Ticketmaster calls, one per tour, and that alone blew past the
+// limit. Background functions get up to 15 minutes, which is what
+// scheduled work with no caller waiting on a response actually needs.
+//
+// One real tradeoff: background functions return their HTTP response
+// immediately (a bare 202, before any real work happens) rather than
+// waiting for the handler to finish and sending its return value back
+// -- Netlify's whole point is "acknowledge receipt, then work in the
+// background." So the summary object is no longer something you'd see
+// in a curl response; it's logged instead, visible in Netlify's
+// function invocation logs under this function's name.
+//
+// Also batched the Ticketmaster calls in groups of 5 rather than
+// fully sequential, which cuts wall-clock time considerably and is
+// still gentle enough not to trip Ticketmaster's own rate limits.
+//
 // SETUP: Netlify env vars ->
 //   ALERTS_DRY_RUN            "false" to actually send. Any other
 //                             value, or unset, means dry run -- this
@@ -65,6 +87,17 @@ async function tmGetEvent(eventId) {
   const res = await fetch(`${TM_BASE}/events/${eventId}.json?${params}`);
   if (!res.ok) return null;
   return res.json();
+}
+
+// Runs `items` through `worker` in batches of `size` concurrently,
+// rather than either fully sequential (slow, exactly what timed out
+// the first run) or one giant Promise.all (risks tripping
+// Ticketmaster's rate limit if `items` is large, e.g. every tour with
+// zero favoriters yet).
+async function inBatches(items, size, worker) {
+  for (let i = 0; i < items.length; i += size) {
+    await Promise.all(items.slice(i, i + size).map(worker));
+  }
 }
 
 function eventDoorsLine(tmEvent) {
@@ -122,12 +155,13 @@ exports.handler = async function () {
     }
   }
 
-  for (const [artist, userIds] of artistToUsers) {
+  await inBatches([...artistToUsers.keys()], 5, async (artist) => {
+    const userIds = artistToUsers.get(artist);
     try {
       const events = await tmSearchByArtist(artist);
       if (!events.length) {
         summary.staleArtists.push(artist);
-        continue;
+        return;
       }
 
       const { data: alreadySeenRows } = await supabase
@@ -151,7 +185,7 @@ exports.handler = async function () {
 
       // First time we've ever polled this artist: that's a baseline,
       // not a wave of new announcements. Don't alert on it.
-      if (!everPolled) continue;
+      if (!everPolled) return;
 
       for (const id of newIds) {
         const tmEvent = events.find((e) => e.id === id);
@@ -182,9 +216,13 @@ exports.handler = async function () {
     } catch (e) {
       summary.errors.push(`artist:${artist}:${String(e).slice(0, 120)}`);
     }
-  }
+  });
 
   // ---- Pass B: presale/onsale timing for already-saved shows --------
+  // Still sequential, not batched like Pass A above. Fine for now --
+  // this scales with "premium users' upcoming saved shows," which is
+  // near zero today -- but if it ever becomes the slow part as usage
+  // grows, the same inBatches() treatment applies here too.
   const seenEventIdsThisRun = new Set();
   for (const p of eligible) {
     const saved = (p.saved_events ?? []).filter(
@@ -254,14 +292,22 @@ exports.handler = async function () {
     const toursPath = path.join(__dirname, '..', '..', 'data', 'tours.json');
     const tours = JSON.parse(fs.readFileSync(toursPath, 'utf8'));
     const polledArtists = new Set(artistToUsers.keys());
-    for (const t of tours) {
-      if (polledArtists.has(t.artist)) continue; // already checked in Pass A
+    const toCheck = tours.filter((t) => !polledArtists.has(t.artist));
+    // This loop alone is what blew the 30-second ceiling on a
+    // standard function with an empty database: up to 78 sequential
+    // Ticketmaster calls. Batched now, and running as a background
+    // function besides, so there's real headroom on both sides.
+    await inBatches(toCheck, 5, async (t) => {
       const events = await tmSearchByArtist(t.artist);
       if (!events.length) summary.staleArtists.push(t.artist);
-    }
+    });
   } catch (e) {
     summary.errors.push(`stale-check:${String(e).slice(0, 120)}`);
   }
 
+  // A background function's HTTP response is acknowledged before this
+  // return value is ever seen by anyone -- the real result lives here,
+  // in the logs, not in a response body nobody's listening for.
+  console.log('alerts-poll summary:', JSON.stringify(summary));
   return { statusCode: 200, body: JSON.stringify(summary) };
 };

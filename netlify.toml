@@ -1,6 +1,6 @@
 [functions]
   directory = "netlify/functions"
-  # alerts-poll.js reads data/tours.json at runtime via fs.readFileSync
+  # alerts-poll-background.js reads data/tours.json at runtime via fs.readFileSync
   # for the zero-results check. Netlify's bundler only packages a
   # function's own code and npm dependencies by default -- it won't
   # include a sibling data file just because the code references it
@@ -35,5 +35,10 @@
 # (followed artists) and presale timing (already-saved shows).
 # Defaults to a dry run (see ALERTS_DRY_RUN in the function itself)
 # until you're ready to have it actually send.
-[functions."alerts-poll"]
+#
+# Runs as a Background Function (the -background filename suffix,
+# not a config here), which is what gives it up to 15 minutes instead
+# of the ~30-second ceiling a standard function hit on its first real
+# run. The schedule config still applies the same way regardless.
+[functions."alerts-poll-background"]
   schedule = "0 */6 * * *"
