@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Concerto Top Picks: Where to Go Before the Show</title>
-<meta name="description" content="The rooms we would send you to before and after a show, chosen venue by venue. Show your ticket at a featured spot and the deal is yours.">
+<meta name="description" content="The restaurants and hotels we would actually send you to before a show, picked venue by venue and close enough to walk before doors.">
 <link rel="canonical" href="https://concertocity.com/top-picks">
 <meta name="apple-itunes-app" content="app-id=6744903414">
 <meta property="og:site_name" content="Concerto">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Concerto Top Picks">
-<meta property="og:description" content="Doors at eight. The night starts at six.">
+<meta property="og:description" content="The restaurants and hotels we would actually send you to, picked venue by venue.">
 <meta property="og:url" content="https://concertocity.com/top-picks">
 <meta property="og:image" content="https://concertocity.com/ConcertoSocialPreview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -311,6 +311,13 @@
 .pv-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pk-search{margin:0 0 1.6rem}
+.pk-search input{width:100%;font-family:var(--body);font-size:.95rem;
+  padding:.8rem 1.2rem;border-radius:999px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);outline:none;
+  transition:border-color .2s ease}
+.pk-search input:focus{border-color:var(--gold)}
+.pk-search input::placeholder{color:var(--ink-faint)}
 .pv-c{font-family:'DM Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ink-faint);margin:0 0 1.3rem}
 .pv-r{position:relative}
@@ -443,7 +450,7 @@
 <main id="main">
   <header class="ph"><div class="pg">
     <p class="kick">Concerto Top Picks</p>
-    <h1 class="h1">Doors at eight. The night starts <em>at six.</em></h1>
+    <h1 class="h1">Where to Go<br>Before <em>the Show.</em></h1>
     <p class="lede">The two hours before a show are the part nobody plans.
       These are the places we would actually send you to, chosen venue by
       venue and close enough to walk before doors.</p>
@@ -472,6 +479,10 @@
 
   <section class="sec rv"><div class="pg">
     <p class="sec-k">Tonight, by venue</p>
+    <div class="pk-search">
+      <input type="search" id="picks-search" placeholder="Venue, pick, or city"
+        autocomplete="off" aria-label="Search Top Picks">
+    </div>
     <div id="picks-root"><p class="msg">Loading picks&hellip;</p></div>
   </div></section>
 
@@ -586,12 +597,9 @@ e.forEach(function(n){o.observe(n)})})();
     return slug ? '/venue/' + slug : '/venues';
   }
 
-  try {
-    var res = await fetch('/.netlify/functions/top-picks');
-    if (!res.ok) throw 0;
-    var data = await res.json();
-    var groups = Array.isArray(data) ? data : (data.venues || []);
+  var allGroups = [];
 
+  function render(groups) {
     var html = groups.map(function (g) {
       var items = g.picks || g.items || [];
       if (!items.length) return '';
@@ -626,7 +634,12 @@ e.forEach(function(n){o.observe(n)})})();
         '</div></section>';
     }).join('');
 
-    root.innerHTML = html || '<p class="msg">Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
+    root.innerHTML = html ||
+      '<p class="msg">' +
+      (searchInput.value.trim()
+        ? 'No picks match "' + esc(searchInput.value.trim()) + '". Try a venue, a pick, or a city.'
+        : 'Picks are being refreshed. Open any <a href="/venues">venue guide</a> to see what is nearby.') +
+      '</p>';
 
     // Rails only behave like carousels when there is something to
     // scroll to; four or fewer picks stay a plain row.
@@ -651,6 +664,37 @@ e.forEach(function(n){o.observe(n)})})();
       window.addEventListener('resize', sync);
       sync();
     });
+  }
+
+  // Matches on the venue, the pick's own name, or the city -- a fan
+  // searching "Austin" or "Salty Sow" or "Moody Center" should all
+  // find their way to the same result.
+  function filterGroups(q) {
+    q = q.trim().toLowerCase();
+    if (!q) return allGroups;
+    return allGroups
+      .map(function (g) {
+        var items = (g.picks || g.items || []).filter(function (i) {
+          return (g.venueName || g.name || '').toLowerCase().indexOf(q) !== -1 ||
+                 (g.city || '').toLowerCase().indexOf(q) !== -1 ||
+                 (i.name || '').toLowerCase().indexOf(q) !== -1;
+        });
+        return Object.assign({}, g, { picks: items, items: items });
+      })
+      .filter(function (g) { return (g.picks || g.items || []).length; });
+  }
+
+  var searchInput = document.getElementById('picks-search');
+  searchInput.addEventListener('input', function () {
+    render(filterGroups(searchInput.value));
+  });
+
+  try {
+    var res = await fetch('/.netlify/functions/top-picks');
+    if (!res.ok) throw 0;
+    var data = await res.json();
+    allGroups = Array.isArray(data) ? data : (data.venues || []);
+    render(allGroups);
   } catch (e) {
     root.innerHTML = '<p class="msg">Picks are being refreshed right now. Open any <a href="/venues">venue guide</a> to see what is nearby.</p>';
   }

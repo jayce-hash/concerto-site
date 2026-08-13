@@ -1,5 +1,12 @@
 [functions]
   directory = "netlify/functions"
+  # alerts-poll.js reads data/tours.json at runtime via fs.readFileSync
+  # for the zero-results check. Netlify's bundler only packages a
+  # function's own code and npm dependencies by default -- it won't
+  # include a sibling data file just because the code references it
+  # at runtime, so this has to be explicit or the file silently won't
+  # exist in the deployed function.
+  included_files = ["data/tours.json"]
 
 [build.environment]
   # Google Maps browser keys are referrer-restricted and must ship to the client,
@@ -23,3 +30,10 @@
   from = "/tours/fifa-world-cup-2026"
   to = "/tours"
   status = 301
+
+# Onsale alerts: polls Ticketmaster every 6 hours for new tour dates
+# (followed artists) and presale timing (already-saved shows).
+# Defaults to a dry run (see ALERTS_DRY_RUN in the function itself)
+# until you're ready to have it actually send.
+[functions."alerts-poll"]
+  schedule = "0 */6 * * *"

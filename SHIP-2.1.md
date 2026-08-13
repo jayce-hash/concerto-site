@@ -82,26 +82,31 @@ eas submit --platform ios
 ## 3. QA before submitting: the ten minute pass
 
 1. **Cold launch** : navy splash only, no white flash. Check first.
-2. **Icons** : browse every tab; SF Symbols render, nothing missing.
+2. **Icons** : browse every tab; icons render everywhere, nothing
+   missing. (Native SF Symbols were tried and reverted this cycle
+   after several hand-typed symbol names turned out invalid and broke
+   icon rendering app-wide; back to Ionicons everywhere, which is the
+   known-working state.)
 3. **Dynamic Type** : Settings > Accessibility > Display and Text Size, Larger Text near max. Text grows, layouts hold.
 4. **Purchase (sandbox)** : buy Concerto+ with a sandbox Apple ID.
    MEMBER state appears immediately, not after a delay.
 5. **Near Me** : tap an event; Ticketmaster opens, not the venue page.
-6. **Calendar** : save a show, tap Add to Calendar on the countdown
-   card. Permission prompt appears, event lands in Calendar with the
-   venue guide link in the notes.
-7. **Weather** : save a show within 16 days; forecast card appears on
+6. **Weather** : save a show within 16 days; forecast card appears on
    Home under Concerto+, and a one line strip shows above Upcoming
    Here on that venue page. Needs step 1 deployed.
-8. **Top Picks card** : under the weather card on Home. Tapping opens
+7. **Top Picks card** : under the weather card on Home. Tapping opens
    Top Picks in the in-app browser.
-9. **History** : with a past dated saved show, the history card shows a
+8. **History** : with a past dated saved show, the history card shows a
    count; Settings > Privacy shows Clear Show History with a confirm.
-10. **Share** : tour page share button opens the sheet with the
+9. **Share** : tour page share button opens the sheet with the
     concertocity.com link.
 
-The calendar chip and the Top Picks browser are native only by design;
-their absence on web is not a bug.
+The Top Picks browser is native only by design; its absence on web is
+not a bug. Add to Calendar was cut from this release after crashing
+twice on two different fixes (an iOS 17 permission-string gap, then
+something deeper); rather than guess a third time against a real
+user's app, the feature was removed entirely; module uninstalled, UI
+gone, permission strings gone. Nothing to test for it in this build.
 
 If anything fails, stop and send a screenshot before submitting.
 
@@ -115,10 +120,9 @@ What's new in Concerto 2.1
 - Show Day Forecast: the weather for your next saved show, on Home
   and on the venue's guide
 - Show History: the shows you've been to, automatically
-- Add to Calendar: one tap puts your next show on your calendar
 - Top Picks: where to eat and stay before the show, venue by venue
 - Share any tour or venue guide with the people you're going with
-- Native iOS icons, Dynamic Type support, and larger touch targets
+- Dynamic Type support and larger touch targets throughout
 - Membership now activates instantly after purchase
 - A smoother launch, with a splash screen that matches the app
 - Tapping an event in Near Me now goes straight to tickets
