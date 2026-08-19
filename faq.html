@@ -20,7 +20,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/editorial.css">
   <style>
     :root{
       --bg:#F8F9F9; --surface:#FFFFFF;
@@ -285,111 +286,139 @@
   </div>
 
 <main id="main-content">
-    <section class="editorial-container">
-      <span class="eyebrow">Common Questions</span>
-      <h1 class="page-title">Frequently Asked.</h1>
+    <section class="ed-hero ed-hero-solo ed-shell">
+      <div class="ed-hero-copy">
+        <p class="ed-label">Help</p>
+        <h1>Everything you might <em>reasonably wonder.</em></h1>
+        <p class="ed-lead">How Concerto works, what is free, what Concerto+ adds, and what
+          happens the moment you save a show.</p>
+      </div>
+    </section>
 
-      <div class="faq-list">
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
-            What exactly is Concerto?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-1">
-            <div class="faq-answer-inner">
-              Concerto is the app you open after you buy the ticket. Instead of juggling maps, reviews, and ticketing websites, Concerto gives you one hub for your entire night out, curated city guides, venue logistics (parking, bag policies, concessions), official setlists, and tour guides for 300+ venues worldwide.
-            </div>
-          </div>
+    <section class="ed-sec ed-shell" style="padding-top:0">
+      <div class="ed-faq-group">
+        <p class="ed-label">01 &middot; The basics</p>
+        <div class="ed-faq">
+          <details class="ed-faq-item">
+            <summary>What exactly is Concerto?</summary>
+            <div class="ed-faq-body">Concerto is the app you open after you buy the ticket.
+              Instead of juggling maps, reviews, and ticketing websites, you get one hub for
+              the entire night out: verified venue logistics, curated city guides, setlists,
+              and everything between doors and the ride home.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>Is Concerto free to use?</summary>
+            <div class="ed-faq-body">Yes. The core of Concerto is completely free: Events Near
+              Me, city guides, setlists, bag policies, parking, and 1-tap rideshare routing at
+              no cost. Concerto+ ($7.99 per month or $69.99 per year) unlocks AI Bag Check,
+              Plan My Night, and a full set of alerts for the shows you save.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>Does Concerto sell tickets?</summary>
+            <div class="ed-faq-body">No. Concerto is not a ticketing platform. Each tour guide
+              links directly to the official, verified ticketing site so you can buy safely
+              without going through a third party.</div>
+          </details>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
-            Is Concerto free to use?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-2">
-            <div class="faq-answer-inner">
-              Yes. The core of Concerto is completely free, Events Near Me, City Guides, Setlists, Bag Policies, Parking, and 1-Tap Rideshare routing at no cost. Concerto+ ($7.99/month or $69.99/year) unlocks AI Bag Check, Plan My Night itineraries, and a full set of alerts for the shows you save.
-            </div>
-          </div>
+      <div class="ed-faq-group">
+        <p class="ed-label">02 &middot; Coverage</p>
+        <div class="ed-faq">
+          <details class="ed-faq-item">
+            <summary>How many venues does Concerto cover?</summary>
+            <div class="ed-faq-body">Concerto currently covers 300+ major venues, stadiums,
+              arenas, and festivals worldwide, with verified bag policies, parking guides,
+              concessions breakdowns, city guides, and rideshare zones for each. Browse the
+              full list at <a href="/venues">concertocity.com/venues</a>. The database is
+              constantly growing.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>Does Concerto cover tours and setlists?</summary>
+            <div class="ed-faq-body">Yes. Concerto has dedicated tour guide pages for 80+
+              active tours, including setlists, show dates, official ticket links, and
+              per-venue guides for every stop. Browse them all at
+              <a href="/tours">concertocity.com/tours</a>.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>What does the verified date mean?</summary>
+            <div class="ed-faq-body">Bag policies and parking information are researched from
+              the venue&rsquo;s own official sources, then stamped with the date they were last
+              confirmed. If a rule changed after that date, the date tells you how much to
+              trust it. A stale date is worse than no date, so we show it either way.</div>
+          </details>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
-            How does the AI Bag Check work?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-3">
-            <div class="faq-answer-inner">
-              As part of Concerto+, hold your bag up to your phone&rsquo;s camera. Our AI estimates your bag&rsquo;s dimensions and structure, cross-references it with your specific venue&rsquo;s official policy, and gives you an instant verdict, &ldquo;You&rsquo;re good to go,&rdquo; &ldquo;May cause issues,&rdquo; or &ldquo;Not permitted,&rdquo; before you leave the house.
-            </div>
-          </div>
+      <div class="ed-faq-group">
+        <p class="ed-label">03 &middot; Using the app</p>
+        <div class="ed-faq">
+          <details class="ed-faq-item">
+            <summary>What happens when I save a show?</summary>
+            <div class="ed-faq-body">Your home screen builds itself around it. A countdown to
+              doors, the setlist as soon as it is confirmed, and restaurants, hotels, and
+              things to do near that specific venue, right there without digging into the
+              venue page. Concerto+ members also get a weather forecast the morning of the
+              show, a doors alert two hours out, and a check-in once the night is over.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>Do I need an account?</summary>
+            <div class="ed-faq-body">No. You can browse every venue guide, every tour, and
+              every setlist without signing in, and you can save shows too. An account matters
+              for one reason: it keeps your saved shows, favorites, and history if you switch
+              phones or reinstall.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>How do I follow an artist?</summary>
+            <div class="ed-faq-body">Open any tour page and tap Follow. Followed artists appear
+              on your Account page, and Concerto+ members get an alert when that artist
+              announces new dates.</div>
+          </details>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
-            What is Concerto+?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-4">
-            <div class="faq-answer-inner">
-              Concerto+ is three things. AI Bag Check settles your bag policy question before you leave the house. Plan My Night is our itinerary builder: tell it your show, your vibe, and your pace, and it maps out dinner, arrival timing, and what to know before you go. And a full set of alerts follows you through the actual night, a forecast the morning of your show, a doors reminder, and a check-in once it's over, all tied to the shows you've saved.
-            </div>
-          </div>
+      <div class="ed-faq-group">
+        <p class="ed-label">04 &middot; Concerto+</p>
+        <div class="ed-faq">
+          <details class="ed-faq-item">
+            <summary>What is Concerto+?</summary>
+            <div class="ed-faq-body">Three things. AI Bag Check settles your bag policy
+              question before you leave the house. Plan My Night is the itinerary builder: tell
+              it your show, your vibe, and your pace, and it maps out dinner, arrival timing,
+              and what to know before you go. And a full set of alerts follows you through the
+              night, all tied to the shows you have saved.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>How does AI Bag Check work?</summary>
+            <div class="ed-faq-body">Hold your bag up to your phone&rsquo;s camera. Concerto
+              estimates its dimensions and structure, cross-references it with that
+              venue&rsquo;s official policy, and gives you an instant verdict: you are good to
+              go, it may cause issues, or it is not permitted, with the specific rule you are
+              hitting and what to do about it.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>How do I cancel?</summary>
+            <div class="ed-faq-body">In iOS Settings, tap your name, then Subscriptions, then
+              Concerto. Canceling there stops the renewal and you keep access through the end
+              of the period you already paid for.</div>
+          </details>
+          <details class="ed-faq-item">
+            <summary>I paid but the app says I am not a member.</summary>
+            <div class="ed-faq-body">Go to Account and tap Restore Purchases. That re-checks
+              with Apple and restores your membership, which is also what to do after
+              reinstalling or switching phones.</div>
+          </details>
         </div>
+      </div>
+    </section>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
-            How many venues does Concerto cover?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-6">
-            <div class="faq-answer-inner">
-              Concerto currently covers 300+ major venues, stadiums, arenas, and festivals worldwide, with verified bag policies, parking guides, concessions breakdowns, city guides, and rideshare zones for each. Browse the full list at <a href="venues.html">concertocity.com/venues</a>. The database is constantly growing.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-7">
-            Does Concerto cover tours and setlists?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-7">
-            <div class="faq-answer-inner">
-              Yes, Concerto has dedicated tour guide pages for 80+ active tours, including setlists, show dates, official ticket links, and per-venue guides for every stop. You can browse all tours at <a href="tours.html">concertocity.com/tours</a>.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-8">
-            Does Concerto sell tickets?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-8">
-            <div class="faq-answer-inner">
-              No. Concerto is not a ticketing platform. Each tour guide links directly to the official, verified ticketing site so you can buy safely without going through a third party.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-10">
-            What happens when I save a show?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-10">
-            <div class="faq-answer-inner">
-              Your home screen builds itself around it. A countdown to doors, the setlist as soon as it&rsquo;s confirmed, and restaurants, hotels, and things to do near that specific venue, right there without digging into the venue page. Concerto+ members also get a weather forecast the morning of the show, a doors alert two hours out, and a check-in once the night&rsquo;s over.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq-9">
-            How do I contact support?<span class="faq-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-answer" id="faq-9">
-            <div class="faq-answer-inner">
-              Email us anytime at <a href="mailto:support@concertocity.com">support@concertocity.com</a>. We&rsquo;re here to make your night flawless.
-            </div>
-          </div>
-        </div>
-
+    <section class="ed-cta">
+      <div class="ed-shell ed-cta-inner">
+        <p class="ed-label ed-label-light">Still stuck</p>
+        <h2>Ask us directly.</h2>
+        <p class="ed-cta-copy">If something here does not match what you are seeing, that is on
+          us. Email goes to a real person.</p>
+        <a class="ed-btn ed-btn-gold ed-btn-lg" href="mailto:support@concertocity.com?subject=Concerto%20Support">Email support@concertocity.com <span aria-hidden="true">&#8599;</span></a>
       </div>
     </section>
   </main>

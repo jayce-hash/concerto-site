@@ -20,7 +20,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/editorial.css">
   <style>
     :root{
       --bg:#F8F9F9; --surface:#FFFFFF;
@@ -251,7 +252,7 @@
 <body>
   <nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">
     <a class="v2nav-brand" href="/" aria-label="Concerto home">
-      <img src="/img/lockup.png" alt="Concerto &mdash; From the Concert to the City" width="168" height="36" />
+      <img src="/img/lockup.png" alt="Concerto: From the Concert to the City" width="168" height="36" />
     </a>
     <div class="v2nav-links">
       <a href="/">Home</a>
@@ -285,12 +286,23 @@
   </div>
 
 <main id="main-content">
-    <section class="editorial-container">
-      <span class="eyebrow">Legal</span>
-      <h1 class="page-title">Privacy Policy.</h1>
-      <div class="last-updated">Effective Date: March 17, 2026</div>
+    <section class="ed-hero ed-hero-solo ed-shell">
+      <div class="ed-hero-copy">
+        <p class="ed-label">Legal</p>
+        <h1>Privacy Policy.</h1>
+        <p class="ed-lead">What we collect, why, and the controls you have over it.</p>
+      </div>
+    </section>
 
-      <div class="prose">
+    <section class="ed-sec ed-shell" style="padding-top:0">
+      <div class="ed-legal">
+        
+        <section class="editorial-container">
+      
+      
+      Effective Date: March 17, 2026
+
+      
         <p>At Concerto, we are committed to protecting your privacy and providing a transparent explanation of how we collect, use, and safeguard your information. We built this app to enhance your real-world experiences, and we only collect data that helps us do exactly that.</p>
 
         <h2>1. Information We Collect</h2>
@@ -346,6 +358,8 @@
 
         <h2>7. Updates to This Policy</h2>
         <p>We may update this policy from time to time as we introduce new features. If we make significant changes, we will notify users via the app or email. Continued use of the app after changes implies acceptance of the updated policy.</p>
+      
+    </section>
       </div>
     </section>
   </main>
