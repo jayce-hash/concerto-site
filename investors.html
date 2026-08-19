@@ -35,9 +35,13 @@
   .nav{width:min(1280px,calc(100% - 48px));height:88px;margin-inline:auto;
     display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
     border-bottom:1px solid var(--line)}
-  .wordmark{width:fit-content;font-family:var(--display);font-size:21px;font-weight:700;
-    letter-spacing:.08em;line-height:1}
-  .wordmark span{color:var(--gold)}
+  .wordmark{width:fit-content;display:inline-flex;align-items:center;line-height:1}
+  .wordmark img{width:168px;height:36px;object-fit:contain;display:block}
+  /* The footer sits on navy while lockup.png is drawn for light
+     backgrounds, so it gets inverted there rather than shipping a
+     second asset that would need keeping in sync. */
+  .wordmarkLight img{width:150px;height:32px;filter:brightness(0) invert(1);opacity:.85}
+  .wordmarkLight:hover img{opacity:1}
   .navMeta{display:flex;align-items:center;gap:9px;color:var(--ink-muted);font-size:12px;
     font-weight:600;letter-spacing:.12em;text-transform:uppercase}
   .statusDot{width:6px;height:6px;border-radius:50%;background:var(--gold);
@@ -229,7 +233,7 @@
 <body>
 <main>
   <nav class="nav" aria-label="Primary">
-    <a class="wordmark" href="https://concertocity.com" aria-label="Concerto home">CONCERTO<span>.</span></a>
+    <a class="wordmark" href="https://concertocity.com" aria-label="Concerto home"><img src="/img/lockup.png" alt="Concerto: From the Concert to the City" width="168" height="36"></a>
     <div class="navMeta"><span class="statusDot" aria-hidden="true"></span><span>Founder note</span></div>
     <a class="navLink" href="#contact">Start a conversation <span aria-hidden="true">&#8599;</span></a>
   </nav>
@@ -367,7 +371,7 @@
 
   <footer class="footer">
     <div class="shell footerInner">
-      <a class="wordmark wordmarkLight" href="https://concertocity.com">CONCERTO<span>.</span></a>
+      <a class="wordmark wordmarkLight" href="https://concertocity.com" aria-label="Concerto home"><img src="/img/lockup.png" alt="Concerto" width="150" height="32"></a>
       <p>From the Concert to the City</p>
       <p>&copy; 2026 Concerto</p>
     </div>

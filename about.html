@@ -20,7 +20,8 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/editorial.css">
   <style>
     :root{
       --bg:#F8F9F9; --surface:#FFFFFF;
@@ -285,40 +286,118 @@
   </div>
 
 <main id="main-content">
-    <section class="editorial-container">
-      <span class="eyebrow">Behind the App</span>
-      <h1 class="page-title">Our Story.</h1>
-
-      <div class="prose">
-        <p class="lead">Whether it&rsquo;s your favorite artist taking the stage, or your hometown team hitting the court, the experience starts long before the event.</p>
-
-        <p>It&rsquo;s the dinner before the show, the hotel you stay in, the rush of grabbing merch, and figuring out how to get home when the encore ends. Most apps stop at discovery. They tell you the show exists, and then you&rsquo;re on your own. Bouncing between maps, review sites, and venue pages just to piece the night together.</p>
-
-        <p>At Concerto, we believe every detail of the night matters. That&rsquo;s why we built the app you open <em>after</em> you buy the ticket. A single hub for the entire night out.</p>
-
-        <p>We actively cover over 300+ venues globally, providing verified bag policies, parking maps, official setlists, and 1-tap rideshare routing. We skip the generic Yelp reviews to bring you curated City Guides physically anchored to your venue. With 65 active tour guides on the site, complete with setlists, show dates, and per-venue logistics, Concerto is becoming the destination for anyone going to a live event.</p>
-
-        <p>And Concerto isn&rsquo;t just for concerts. If you&rsquo;re heading to a game, a match, or any live event at these same arenas and stadiums, you get the exact same benefits. From grabbing dinner before tip-off to finding the right rideshare zone after the final whistle, we built Concerto to make the entire experience effortless.</p>
-
-        <div class="premium-callout">
-          <h2>Concerto+</h2>
-          <p>For fans who want to remove all friction from the live event experience, Concerto+ unlocks our most powerful tools:</p>
-          <ul>
-            <li><strong>AI Bag Check:</strong> Scan your bag with your camera for an instant verdict against the venue&rsquo;s official policy. No surprises at the door.</li>
-            <li><strong>Plan My Night:</strong> A personalized AI builder that mathematically maps out your dinner timing, arrival windows, and post-show plans around your specific venue.</li>
-            
-          </ul>
-          <div class="price-tag">Available for $7.99 Per Month or $69.99 Per Year.</div>
+    <section class="ed-hero ed-shell">
+      <div class="ed-hero-copy">
+        <p class="ed-label">Behind the app</p>
+        <h1>The night starts <em>long before the first song.</em></h1>
+        <p class="ed-lead">Concerto is the app you open after you buy the ticket. One place
+          for the dinner before, the doors, the bag policy, and the way home when the
+          encore ends.</p>
+        <div class="ed-actions">
+          <a class="ed-btn ed-btn-gold" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Download on the App Store <span aria-hidden="true">&#8599;</span></a>
+          <a class="ed-textlink" href="#story">Read the story <span aria-hidden="true">&#8595;</span></a>
         </div>
-
-        <p class="lead" style="text-align:center;margin-top:3.5rem;">With Concerto, planning your night is as easy as enjoying it.</p>
-        <p style="text-align:center;">From the pre-show buzz to the final encore, we&rsquo;re here to make every moment smoother.</p>
       </div>
+      <aside class="ed-card" aria-label="What Concerto covers">
+        <p class="ed-card-kicker">What we actually cover</p>
+        <div class="ed-card-title">Verified. Dated. Checked.</div>
+        <ul class="ed-card-list">
+          <li><span class="ed-check" aria-hidden="true">&#10003;</span>Bag policies, researched from official sources</li>
+          <li><span class="ed-check" aria-hidden="true">&#10003;</span>Parking, entrances, and rideshare pickup</li>
+          <li><span class="ed-check" aria-hidden="true">&#10003;</span>Setlists and live tour dates</li>
+        </ul>
+        <p class="ed-card-note">Every fact carries the date it was confirmed.</p>
+      </aside>
+    </section>
 
-      <div class="disclaimer">
-        <div class="disclaimer-title">Disclaimer</div>
-        <p>Concerto is an independent platform and is not affiliated with or endorsed by any artist, band, team, league, venue, or promoter. All artist names, tour titles, team names, event information, and images are the property of their respective owners and are used for informational purposes only.</p>
-        <p>Concerto provides links to third-party websites and services, including venue information, Uber, and Lyft, for convenience only. Concerto does not own or control these services, and all trademarks and content remain the property of their respective owners.</p>
+    <section class="ed-proof" aria-label="Concerto by the numbers">
+      <div class="ed-shell ed-proof-grid">
+        <div class="ed-proof-intro"><span>Live today</span><p>Built from zero. Operating now.</p></div>
+        <div class="ed-stat">
+          <div class="ed-stat-line"><strong>300+</strong><span>venues</span></div>
+          <p>Researched, verified, and dated</p>
+        </div>
+        <div class="ed-stat">
+          <div class="ed-stat-line"><strong>80+</strong><span>live tours</span></div>
+          <p>Setlists and show information tracked</p>
+        </div>
+        <div class="ed-stat">
+          <div class="ed-stat-line"><strong>1</strong><span>founder</span></div>
+          <p>Product, research, and operations</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-sec ed-shell" id="story">
+      <p class="ed-label">01 &middot; The problem</p>
+      <div class="ed-grid">
+        <h2>Most apps stop at discovery.</h2>
+        <div class="ed-body">
+          <p>Whether it is your favorite artist taking the stage or your hometown team
+            hitting the court, the experience starts long before the event. It is the
+            dinner before the show, the hotel you stay in, the rush of grabbing merch, and
+            figuring out how to get home when the encore ends.</p>
+          <p>Most apps tell you the show exists, and then you are on your own. Bouncing
+            between maps, review sites, and venue pages just to piece the night together.</p>
+          <p class="ed-quote">Every detail of the night matters. So we built the app you
+            open after you buy the ticket.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-dark">
+      <div class="ed-shell ed-dark-grid">
+        <div>
+          <p class="ed-label ed-label-light">02 &middot; The difference</p>
+          <h2>A date on every fact, or it does not ship.</h2>
+        </div>
+        <div class="ed-dark-card">
+          <div class="ed-topline"><span class="ed-pulse" aria-hidden="true"></span><span>How the data works</span></div>
+          <p class="ed-dark-lead">Bag policies and parking are researched from the venue&rsquo;s
+            own official sources, then stamped with the date they were last confirmed.</p>
+          <p>We skip the generic review-site aggregation and anchor everything to the venue
+            itself. When you read a rule in Concerto, you can see how recently someone
+            checked it. A stale date is worse than no date, so we show it either way.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-sec ed-shell">
+      <p class="ed-label">03 &middot; Beyond concerts</p>
+      <div class="ed-grid">
+        <h2>Same arenas. Same questions.</h2>
+        <div class="ed-body">
+          <p>Concerto is not just for concerts. If you are heading to a game, a match, or
+            any live event at these same arenas and stadiums, you get the exact same
+            guides.</p>
+          <p>From grabbing dinner before tip-off to finding the right rideshare zone after
+            the final whistle, the questions are identical. So is the answer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-cta">
+      <div class="ed-shell ed-cta-inner">
+        <p class="ed-label ed-label-light">From the concert to the city</p>
+        <h2>Planning the night should be as easy as enjoying it.</h2>
+        <p class="ed-cta-copy">Concerto is free to use, with verified venue guides, live
+          tour dates, and setlists. Concerto+ adds Bag Check, Plan My Night, and alerts
+          that follow you through the show.</p>
+        <a class="ed-btn ed-btn-gold ed-btn-lg" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414" target="_blank" rel="noopener noreferrer">Download on the App Store <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+
+    <section class="ed-sec ed-shell">
+      <p class="ed-label">Disclaimer</p>
+      <div class="ed-body" style="margin-top:1.5rem">
+        <p style="font-size:14px">Concerto is an independent platform and is not affiliated
+          with or endorsed by any artist, band, team, league, venue, or promoter. All artist
+          names, tour titles, team names, event information, and images are the property of
+          their respective owners and are used for informational purposes only.</p>
+        <p style="font-size:14px">Concerto provides links to third-party websites and
+          services, including venue information, Uber, and Lyft, for convenience only.
+          Concerto does not own or control these services, and all trademarks and content
+          remain the property of their respective owners.</p>
       </div>
     </section>
   </main>
