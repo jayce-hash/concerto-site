@@ -237,7 +237,11 @@
    measure, clear heading hierarchy, no decoration. The goal is
    "same company" through type and spacing, not through adding
    flourishes to a document nobody reads for pleasure. */
-.ed-legal{max-width:74ch;margin-inline:auto}
+/* Left aligned, not centered. margin-inline:auto centered the whole
+   legal block in the viewport while the hero above it aligned to
+   ed-shell's left edge, so on a wide screen the page visibly split
+   into two different alignments at the effective date. */
+.ed-legal{max-width:74ch}
 .ed-legal h2{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:600;
   color:var(--navy);letter-spacing:-.02em;line-height:1.2;margin:48px 0 14px;max-width:none}
 .ed-legal h3{font-family:var(--display);font-size:19px;font-weight:600;color:var(--navy);
