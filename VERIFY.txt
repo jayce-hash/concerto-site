@@ -1,0 +1,17 @@
+Content page rebuild, verification markers.
+
+After deploying, each of these greps should return the number shown.
+If any return 0, that file did not deploy.
+
+  grep -c "Buying the ticket is the easy part" about.html        -> 1
+  grep -c "The free version tells you" premium.html              -> 1
+  grep -c "Verified venue data does not scrape" investors.html   -> 1
+  grep -c "346" partners.html                                    -> 0
+  grep -c "ed-legal-meta" terms.html                             -> 1
+  grep -c "ed-legal-meta" privacy.html                           -> 1
+  grep -c "ed-faq-item" faq.html                                 -> 13
+  grep -c "^  --display:'Playfair Display'" css/editorial.css    -> 1
+
+If all pass locally but the live site looks unchanged, it is browser
+cache on editorial.css. Hard refresh with Cmd+Shift+R, or open the
+site in a private window.
