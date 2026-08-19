@@ -14,11 +14,28 @@
  */
 
 :root{
+  /* Every variable this stylesheet uses is declared here, including
+     ones the host page also defines. That is deliberate: this file
+     loads BEFORE each page's inline <style> block, and CSS custom
+     properties do not resolve retroactively. Relying on the page to
+     define --display and --body meant every headline silently fell
+     back to the browser default font. Declaring them here fixes it
+     regardless of load order, and the values are identical to
+     concerto.css so nothing drifts. */
+  --display:'Playfair Display',Georgia,serif;
+  --body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --navy:#121E36;
   --navy-2:#182744;
   --navy-deep:#0D172B;
+  --gold:#C9A84C;
   --gold-pale:#F0E7CC;
   --gold-deep:#9B7B29;
-  --mono:'DM Mono',ui-monospace,monospace;
+  --ink:#121E36;
+  --ink-muted:#5A6478;
+  --ink-faint:#8A91A3;
+  --line:rgba(18,30,54,.14);
+  --surface:#FFFFFF;
 }
 
 .ed-shell{width:min(1180px,calc(100% - 48px));margin-inline:auto}
