@@ -4,109 +4,374 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Concerto: A Note From the Founder</title>
-<meta name="description" content="I'm looking for investors with real relationships in restaurants, hotels, and venues, not just capital.">
+<meta name="description" content="I am looking for investors with real relationships in restaurants, hotels, and venues, not just capital.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://concertocity.com/investors">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F8F9F9; --surface:#FFFFFF;
-    --navy:#121E36; --navy-soft:#1C2B4A;
-    --gold:#C9A84C; --gold-soft:#F2EBD6;
+    --navy:#121E36; --navy-2:#182744; --navy-deep:#0D172B;
+    --gold:#C9A84C; --gold-pale:#F0E7CC; --gold-deep:#9B7B29;
+    --bg:#F8F9F9; --paper:#FFFFFF;
     --ink:#121E36; --ink-muted:#5A6478; --ink-faint:#8A91A3;
     --line:rgba(18,30,54,.14);
     --display:'Playfair Display',Georgia,serif;
     --body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'DM Mono',ui-monospace,monospace;
   }
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--body);background:var(--bg);color:var(--ink);
-    -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.65}
-  a{color:inherit}
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{margin:0;overflow-x:clip;background:var(--bg);color:var(--ink);
+    font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
   ::selection{background:var(--gold);color:var(--navy)}
+  .shell{width:min(1180px,calc(100% - 48px));margin-inline:auto}
 
-  .wrap{max-width:640px;margin:0 auto;padding:4rem 1.5rem 6rem}
-  .brand{font-family:var(--display);font-weight:700;font-size:1.5rem;
-    letter-spacing:.02em;color:var(--navy);margin-bottom:.5rem}
-  .brand span{color:var(--gold)}
-  .byline{font-size:.85rem;color:var(--ink-faint);margin-bottom:3rem}
+  /* Nav: deliberately minimal. This page is unlisted and sent
+     directly, so it does not carry the full site chrome. */
+  .nav{width:min(1280px,calc(100% - 48px));height:88px;margin-inline:auto;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    border-bottom:1px solid var(--line)}
+  .wordmark{width:fit-content;font-family:var(--display);font-size:21px;font-weight:700;
+    letter-spacing:.08em;line-height:1}
+  .wordmark span{color:var(--gold)}
+  .navMeta{display:flex;align-items:center;gap:9px;color:var(--ink-muted);font-size:12px;
+    font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+  .statusDot{width:6px;height:6px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 0 5px rgba(201,168,76,.14)}
+  .navLink{justify-self:end;font-size:13px;font-weight:600;border-bottom:1px solid var(--ink);
+    padding-bottom:3px;transition:color .18s ease,border-color .18s ease}
+  .navLink:hover{color:var(--gold-deep);border-color:var(--gold)}
 
-  h1{font-family:var(--display);font-weight:700;font-size:2rem;
-    line-height:1.3;color:var(--navy);margin-bottom:1.5rem}
-  p{margin-bottom:1.2rem;color:var(--ink)}
-  p.lead{font-size:1.05rem;color:var(--ink-muted)}
+  /* Hero: two columns, with the gold circles bleeding off the right
+     edge. The circles are the one piece of pure decoration on the
+     page, and they earn it by giving the composition a focal point
+     that is not another block of text. */
+  .hero{min-height:640px;display:grid;
+    grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);
+    gap:clamp(64px,9vw,132px);align-items:center;padding-block:92px 104px;position:relative}
+  .hero::before,.hero::after{content:"";position:absolute;
+    border:1px solid rgba(201,168,76,.23);border-radius:50%;pointer-events:none}
+  .hero::before{width:420px;height:420px;right:-140px;top:34px}
+  .hero::after{width:300px;height:300px;right:-80px;top:94px;opacity:.65}
+  .heroCopy,.partnerCard{position:relative;z-index:1}
+  .eyebrow,.sectionLabel,.cardKicker{margin:0;color:var(--gold-deep);font-size:11px;
+    font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-family:var(--mono)}
+  .hero h1{max-width:820px;margin:22px 0 28px;color:var(--navy);font-family:var(--display);
+    font-size:clamp(46px,5.6vw,76px);font-weight:600;letter-spacing:-.045em;line-height:1.02;
+    text-wrap:balance}
+  .hero h1 em{display:block;color:var(--gold-deep);font-weight:600}
+  .heroLead{max-width:690px;margin:0;color:var(--ink-muted);
+    font-size:clamp(17px,2vw,20px);font-weight:300;line-height:1.65;text-wrap:pretty}
+  .heroActions{display:flex;align-items:center;gap:28px;margin-top:38px;flex-wrap:wrap}
+  .button{display:inline-flex;align-items:center;justify-content:center;gap:16px;
+    min-height:54px;padding:0 24px;border-radius:999px;font-size:14px;font-weight:600;
+    transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+  .button:hover{transform:translateY(-2px)}
+  .buttonGold{background:var(--gold);color:var(--navy);box-shadow:0 12px 30px rgba(136,104,23,.16)}
+  .buttonGold:hover{background:#DAB85E;box-shadow:0 16px 34px rgba(136,104,23,.24)}
+  .textLink{color:var(--ink-muted);font-size:13px;font-weight:500}
+  .textLink span{display:inline-block;margin-left:7px;color:var(--gold-deep);
+    transition:transform .18s ease}
+  .textLink:hover span{transform:translateY(3px)}
 
-  h2{font-family:var(--display);font-weight:700;font-size:1.25rem;
-    color:var(--navy);margin:2.75rem 0 .9rem}
+  .partnerCard{background:var(--navy);color:#fff;border-radius:4px 4px 40px 4px;
+    padding:38px 34px 32px;box-shadow:0 28px 70px rgba(18,30,54,.18)}
+  .partnerCard::before{content:"";position:absolute;inset:12px;
+    border:1px solid rgba(255,255,255,.08);border-radius:2px 2px 31px 2px;pointer-events:none}
+  .cardKicker{color:#D9BD73}
+  .partnerTitle{max-width:260px;margin-top:16px;font-family:var(--display);font-size:33px;
+    line-height:1.12}
+  .signalList{display:grid;gap:0;margin:30px 0 0;padding:0;list-style:none}
+  .signalList li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:15px 0;
+    border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.82);font-size:13px}
+  .check{color:#DFC77F}
+  .cardNote{margin:16px 0 0;color:rgba(255,255,255,.5);font-size:12px;font-style:italic}
 
-  .stats{display:flex;gap:2rem;flex-wrap:wrap;margin:2.5rem 0;
-    padding:1.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .stat-num{font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--navy)}
-  .stat-label{font-size:.82rem;color:var(--ink-faint);margin-top:.2rem}
+  /* Proof strip: real numbers, rounded, never invented to fill a slot. */
+  .proofStrip{background:var(--paper);border-block:1px solid var(--line)}
+  .proofGrid{display:grid;grid-template-columns:1.08fr repeat(3,1fr)}
+  .proofIntro,.stat{min-height:150px;display:flex;flex-direction:column;justify-content:center;
+    padding:26px 30px;border-left:1px solid var(--line)}
+  .proofIntro{padding-left:0;border-left:0}
+  .proofIntro span{color:var(--gold-deep);font-size:11px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;font-family:var(--mono)}
+  .proofIntro p,.stat p{margin:7px 0 0;color:var(--ink-muted);font-size:12px}
+  .statLine{display:flex;align-items:baseline;gap:9px}
+  .stat strong{color:var(--navy);font-family:var(--display);font-size:36px;font-weight:600;
+    letter-spacing:-.04em;line-height:1}
+  .statLine span{color:var(--navy);font-size:12px;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase}
 
-  .proof{background:var(--gold-soft);border-radius:14px;padding:1.5rem;margin:2rem 0}
-  .proof p{margin-bottom:0;color:var(--navy)}
-  .proof .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--ink-muted);margin-bottom:.5rem;font-weight:700}
+  .story,.model,.traction{padding-block:clamp(80px,10vw,120px)}
+  .storyGrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,.85fr);
+    gap:clamp(70px,12vw,165px);margin-top:42px}
+  .story h2,.signalSection h2,.model h2,.traction h2,.contact h2{margin:0;color:var(--navy);
+    font-family:var(--display);font-size:clamp(36px,4.6vw,58px);font-weight:600;
+    letter-spacing:-.038em;line-height:1.08;text-wrap:balance}
+  .bodyCopy p{margin:0 0 22px;color:var(--ink-muted);font-size:17px;font-weight:300;
+    line-height:1.8;text-wrap:pretty}
+  .bodyCopy .pullQuote{margin:36px 0;padding:8px 0 8px 26px;border-left:2px solid var(--gold);
+    color:var(--navy);font-family:var(--display);font-size:25px;font-style:italic;line-height:1.4}
 
-  ul{margin:0 0 1.2rem 1.1rem}
-  li{margin-bottom:.55rem;color:var(--ink)}
+  /* Dark full-bleed section. The page needs one, both for rhythm and
+     because the strongest single piece of evidence deserves to sit
+     apart from everything around it. */
+  .signalSection{padding-block:clamp(80px,10vw,112px);background:var(--navy);color:#fff;
+    position:relative;overflow:hidden}
+  .signalSection::after{content:"";position:absolute;width:720px;height:720px;right:-250px;
+    bottom:-520px;border:1px solid rgba(201,168,76,.23);border-radius:50%}
+  .signalGrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+    gap:clamp(60px,10vw,135px);align-items:start}
+  .sectionLabelLight{color:#D4B867}
+  .signalSection h2{margin-top:42px;color:#fff}
+  .signalCard{position:relative;z-index:1;padding:42px;border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.045)}
+  .signalTopline{display:flex;align-items:center;gap:10px;margin-bottom:28px;color:#DFC77F;
+    font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    font-family:var(--mono)}
+  .livePulse{width:7px;height:7px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 0 6px rgba(201,168,76,.13)}
+  .signalCard p{color:rgba(255,255,255,.62);font-size:15px;font-weight:300;line-height:1.75}
+  .signalCard .signalLead{margin:0 0 22px;color:#fff;font-family:var(--display);font-size:25px;
+    line-height:1.48}
+  .signalFooter{display:flex;justify-content:space-between;gap:16px;margin-top:32px;
+    padding-top:20px;border-top:1px solid rgba(255,255,255,.12);color:#DFC77F;font-size:11px;
+    font-weight:600;letter-spacing:.09em;text-transform:uppercase;font-family:var(--mono)}
 
-  .cta{margin-top:3rem;padding:1.75rem;background:var(--navy);border-radius:14px}
-  .cta p{color:#F8F9F9;margin-bottom:1rem}
-  .cta a{display:inline-block;background:var(--gold);color:var(--navy);
-    font-weight:700;padding:.8rem 1.6rem;border-radius:999px;font-size:.95rem}
+  .modelHeader{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.6fr);gap:100px;
+    align-items:end;margin:42px 0 70px}
+  .modelHeader p,.tractionIntro{margin:0;color:var(--ink-muted);font-size:17px;font-weight:300;
+    line-height:1.75}
+  .loop{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:26px;align-items:center}
+  .loop article{min-height:240px;padding:30px;background:var(--paper);border:1px solid var(--line);
+    border-radius:2px 2px 26px 2px;box-shadow:0 14px 35px rgba(18,30,54,.055)}
+  .step{color:var(--gold-deep);font-family:var(--display);font-size:14px;font-style:italic}
+  .loop h3{margin:44px 0 12px;color:var(--navy);font-family:var(--display);font-size:23px;
+    font-weight:600}
+  .loop p{margin:0;color:var(--ink-muted);font-size:13px;line-height:1.7}
+  .loopArrow{color:var(--gold-deep);font-size:20px}
+  .revenueNote{display:grid;grid-template-columns:170px 1fr;gap:30px;margin-top:34px;
+    padding:28px 32px;background:var(--gold-pale);color:var(--navy)}
+  .revenueNote span{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    font-family:var(--mono)}
+  .revenueNote p{margin:0;font-family:var(--display);font-size:18px;line-height:1.5}
 
-  .sign{margin-top:3rem;font-family:var(--display);font-size:1.1rem;color:var(--navy)}
-  .foot{margin-top:1rem;font-size:.8rem;color:var(--ink-faint)}
+  .traction{border-top:1px solid var(--line)}
+  .tractionGrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);
+    gap:clamp(70px,11vw,150px);margin-top:42px}
+  .tractionIntro{max-width:465px;margin-top:30px}
+  .factList{border-top:1px solid var(--line)}
+  .fact{display:grid;grid-template-columns:45px 1fr;gap:18px;padding:24px 0;
+    border-bottom:1px solid var(--line)}
+  .fact>span{color:var(--gold-deep);font-size:11px;padding-top:3px;font-family:var(--mono)}
+  .fact p{margin:0;color:var(--ink-muted);font-size:15px}
+  .fact strong{color:var(--navy);font-weight:600}
+
+  .contact{background:var(--navy-2);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .contact::before,.contact::after{content:"";position:absolute;
+    border:1px solid rgba(201,168,76,.14);border-radius:50%}
+  .contact::before{width:600px;height:600px;left:-390px;top:-270px}
+  .contact::after{width:520px;height:520px;right:-340px;bottom:-280px}
+  .contactInner{position:relative;z-index:1;padding-block:clamp(80px,10vw,115px) clamp(70px,9vw,100px)}
+  .eyebrowLight{color:#D9BD73}
+  .contact h2{max-width:850px;margin:28px auto 24px;color:#fff}
+  .contactCopy{max-width:660px;margin:0 auto;color:rgba(255,255,255,.62);font-size:17px;
+    font-weight:300;line-height:1.75}
+  .buttonLarge{min-height:62px;margin-top:38px;padding-inline:30px}
+  .signature{margin-top:58px}
+  .signature span{font-family:var(--display);font-size:24px;font-style:italic}
+  .signature p{margin:2px 0 0;color:rgba(255,255,255,.42);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;font-family:var(--mono)}
+
+  .footer{background:var(--navy-deep);color:rgba(255,255,255,.42)}
+  .footerInner{min-height:100px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    gap:20px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-family:var(--mono)}
+  .wordmarkLight{color:#fff}
+  .footerInner p{margin:0}
+  .footerInner p:last-child{justify-self:end}
+
+  @media(max-width:900px){
+    .hero{min-height:auto;grid-template-columns:1fr;gap:55px;padding-block:78px 86px}
+    .hero h1 em{display:inline}
+    .partnerCard{max-width:560px}
+    .proofGrid{grid-template-columns:repeat(3,1fr)}
+    .proofIntro{grid-column:1/-1;min-height:auto;padding:24px 0}
+    .storyGrid,.signalGrid,.tractionGrid,.modelHeader{grid-template-columns:1fr;gap:44px}
+    .loop{grid-template-columns:1fr}
+    .loopArrow{transform:rotate(90deg);justify-self:center}
+    .loop article{min-height:200px}
+    .loop h3{margin-top:32px}
+  }
+  @media(max-width:640px){
+    .shell,.nav{width:min(100% - 32px,1180px)}
+    .nav{height:74px;grid-template-columns:1fr auto}
+    .navMeta{display:none}
+    .hero{padding-block:58px 70px}
+    .heroActions{align-items:flex-start;flex-direction:column;gap:20px}
+    .partnerCard,.signalCard{padding:30px 25px}
+    .proofGrid{grid-template-columns:1fr}
+    .stat{min-height:110px;padding-inline:0;border-left:0;border-top:1px solid var(--line)}
+    .revenueNote{grid-template-columns:1fr;gap:12px;padding:25px}
+    .buttonLarge{width:100%;padding-inline:16px}
+    .footerInner{grid-template-columns:1fr auto}
+    .footerInner p:nth-child(2){display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition-duration:.01ms!important}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+<main>
+  <nav class="nav" aria-label="Primary">
+    <a class="wordmark" href="https://concertocity.com" aria-label="Concerto home">CONCERTO<span>.</span></a>
+    <div class="navMeta"><span class="statusDot" aria-hidden="true"></span><span>Founder note</span></div>
+    <a class="navLink" href="#contact">Start a conversation <span aria-hidden="true">&#8599;</span></a>
+  </nav>
 
-  <div class="brand">CONCERTO<span>.</span></div>
-  <div class="byline">A note from Jayce, the founder</div>
+  <section class="hero shell">
+    <div class="heroCopy">
+      <p class="eyebrow">A note from Jayce Wells &middot; Founder</p>
+      <h1>I built Concerto by myself. <em>Now I need the right doors opened.</em></h1>
+      <p class="heroLead">I am looking for an investor who already knows the places around the
+        show, restaurants, hotels, and venues, and can turn real industry relationships into
+        distribution. Not a general raise, and not capital for its own sake.</p>
+      <div class="heroActions">
+        <a class="button buttonGold" href="mailto:partners@concertocity.com?subject=Concerto%20Investor%20Interest">Talk with me <span aria-hidden="true">&#8599;</span></a>
+        <a class="textLink" href="#story">Read the founder story <span aria-hidden="true">&#8595;</span></a>
+      </div>
+    </div>
 
-  <h1>I built Concerto by myself. I'm looking for the right person to help it go further, not just anyone with a check.</h1>
-  <p class="lead">Specifically, someone with real relationships in restaurants, hotels, or venue operations. Not a general raise, and not capital for its own sake.</p>
+    <aside class="partnerCard" aria-label="Ideal partner profile">
+      <div class="cardKicker">The right person brings</div>
+      <div class="partnerTitle">Access. Context. Conviction.</div>
+      <ul class="signalList">
+        <li><span class="check" aria-hidden="true">&#10003;</span>Restaurant groups near major venues</li>
+        <li><span class="check" aria-hidden="true">&#10003;</span>Hotels built around event traffic</li>
+        <li><span class="check" aria-hidden="true">&#10003;</span>Venue and live event operations</li>
+      </ul>
+      <p class="cardNote">Capital matters. The right doors matter more.</p>
+    </aside>
+  </section>
 
-  <div class="stats">
-    <div><div class="stat-num">300+</div><div class="stat-label">venues, verified &amp; dated</div></div>
-    <div><div class="stat-num">80+</div><div class="stat-label">tours tracked live</div></div>
-    <div><div class="stat-num">1</div><div class="stat-label">founder, self-taught, still solo</div></div>
-  </div>
+  <section class="proofStrip" aria-label="Concerto by the numbers">
+    <div class="shell proofGrid">
+      <div class="proofIntro"><span>Already live</span><p>Built from zero. Operating today.</p></div>
+      <div class="stat">
+        <div class="statLine"><strong>300+</strong><span>venues</span></div>
+        <p>Researched, verified, and dated</p>
+      </div>
+      <div class="stat">
+        <div class="statLine"><strong>80+</strong><span>live tours</span></div>
+        <p>Setlists and show information tracked</p>
+      </div>
+      <div class="stat">
+        <div class="statLine"><strong>1</strong><span>founder</span></div>
+        <p>Product, research, and operations</p>
+      </div>
+    </div>
+  </section>
 
-  <h2>Why I built this</h2>
-  <p>Concerto exists because I got tired of the moment right before a show, standing outside a venue, not knowing if my bag would get me turned away, not knowing where to park, not knowing what they'd even played the night before. That's a small problem on its own. It happens to millions of people every week, and nobody had actually solved it with real, dated, verified information.</p>
-  <p>I taught myself to build the entire technical stack to fix it. Concerto is live on the App Store today, and I've built every part of it myself, including the parts most people would have hired out.</p>
+  <section class="story shell" id="story">
+    <div class="sectionLabel">01 &middot; The problem</div>
+    <div class="storyGrid">
+      <h2>The concert starts long before the first song.</h2>
+      <div class="bodyCopy">
+        <p>Concerto began with the questions that hit every fan before a show. Will my bag get
+          me turned away? Where should I park? Where can we eat nearby? What did the artist
+          play last night?</p>
+        <p>Each question feels small. Together they shape the entire night for millions of
+          people, and the answers online are too often old, scattered, or wrong.</p>
+        <p class="pullQuote">So I taught myself to build the product I could not find.</p>
+        <p>Concerto is live on the App Store today. I built the product, researched the venues,
+          verified the tours, and created the operating system behind it, all as a solo founder.</p>
+      </div>
+    </div>
+  </section>
 
-  <h2>What's actually working right now</h2>
-  <div class="proof">
-    <div class="label">This week</div>
-    <p>I posted a short-form video about the Jonas Brothers' new tour setlist. It's outperformed everything else I've ever posted, by a real margin. This is the second time this has happened this year with verified setlist content specifically, not a one-off. The thing I built the company around, real, checkable information, is the thing that actually gets people to stop scrolling.</p>
-  </div>
+  <section class="signalSection">
+    <div class="shell signalGrid">
+      <div>
+        <div class="sectionLabel sectionLabelLight">02 &middot; The signal</div>
+        <h2>The content people stop for is the product itself.</h2>
+      </div>
+      <div class="signalCard">
+        <div class="signalTopline"><span class="livePulse" aria-hidden="true"></span><span>Live market proof</span></div>
+        <p class="signalLead">A short video covering the Jonas Brothers&rsquo; newly announced
+          tour setlist outperformed every previous Concerto post by a real margin.</p>
+        <p>It was the second breakout this year driven specifically by verified setlist
+          information. That is not an adjacent content strategy. It is evidence that Concerto&rsquo;s
+          core advantage, timely and checkable concert information, is what earns attention.</p>
+        <div class="signalFooter"><span>Verified information</span><span aria-hidden="true">&#8594;</span><span>Organic attention</span></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Why I want relationships, not just money</h2>
-  <p>Concerto's second real revenue line, alongside the subscription, is featuring a restaurant or hotel near a venue, free to start, paid once there's real traffic behind it. That grows through actual introductions, not ad spend. If you already know people who run restaurant groups, or hotels near major venues, or the venues themselves, you can shorten that from a cold email to a real conversation. That's worth more to me right now than the same dollar amount from someone I'd have to introduce to the industry myself.</p>
+  <section class="model shell" id="model">
+    <div class="sectionLabel">03 &middot; The model</div>
+    <div class="modelHeader">
+      <h2>From concert utility to local intent.</h2>
+      <p>Concerto meets fans when they are actively deciding where to go, stay, eat, and spend.
+        Not weeks later, and not in a generic feed.</p>
+    </div>
+    <div class="loop" aria-label="Concerto growth loop">
+      <article><span class="step">01</span><h3>Trusted information</h3><p>Verified setlists, venue policies, parking, and show details.</p></article>
+      <span class="loopArrow" aria-hidden="true">&#8594;</span>
+      <article><span class="step">02</span><h3>High intent fans</h3><p>People planning a real night in a specific city, at a specific venue.</p></article>
+      <span class="loopArrow" aria-hidden="true">&#8594;</span>
+      <article><span class="step">03</span><h3>Local partners</h3><p>Restaurants and hotels featured when the recommendation matters most.</p></article>
+    </div>
+    <div class="revenueNote">
+      <span>Revenue today</span>
+      <p>Subscription economics are positive at current pricing. The next revenue line is a
+        partner network: free to begin, paid when Concerto delivers meaningful traffic.</p>
+    </div>
+  </section>
 
-  <h2>Where things stand</h2>
-  <ul>
-    <li>Enrolled in Apple's Small Business Program (15% commission, not 30%)</li>
-    <li>Profitable per subscriber at current pricing, and my infrastructure costs are still inside free-tier usage at this scale</li>
-    <li>Every line of code, every venue researched, every tour verified, done by me</li>
-    <li>Instagram is the channel, and now I have real proof it's working, not just a hope</li>
-  </ul>
+  <section class="traction shell" id="foundation">
+    <div class="sectionLabel">04 &middot; The foundation</div>
+    <div class="tractionGrid">
+      <div>
+        <h2>Lean by design.<br>Ready for leverage.</h2>
+        <p class="tractionIntro">The hard part is no longer proving the product can exist. It
+          does. The opportunity now is connecting it to the right network.</p>
+      </div>
+      <div class="factList">
+        <div class="fact"><span>01</span><p><strong>15% App Store commission</strong> through Apple&rsquo;s Small Business Program</p></div>
+        <div class="fact"><span>02</span><p><strong>Positive unit economics</strong> per subscriber at current pricing</p></div>
+        <div class="fact"><span>03</span><p><strong>Infrastructure remains lean</strong> and inside free tier usage at this scale</p></div>
+        <div class="fact"><span>04</span><p><strong>Organic distribution is emerging</strong> through verified setlist content</p></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="cta">
-    <p>If this sounds like you, or you know someone it describes, email me directly. I'd rather have a real conversation than a pitch deck back and forth.</p>
-    <a href="mailto:partners@concertocity.com?subject=Concerto%20Investor%20Interest">Email partners@concertocity.com</a>
-  </div>
+  <section class="contact" id="contact">
+    <div class="shell contactInner">
+      <p class="eyebrow eyebrowLight">One conversation can change the trajectory</p>
+      <h2>If you can open the right doors, I would like to meet you.</h2>
+      <p class="contactCopy">I am not running a broad, anonymous raise. I am looking for an
+        investor who sees the same opportunity and brings relationships in restaurants, hotels,
+        venues, or live events.</p>
+      <a class="button buttonGold buttonLarge" href="mailto:partners@concertocity.com?subject=Concerto%20Investor%20Interest">Email partners@concertocity.com <span aria-hidden="true">&#8599;</span></a>
+      <div class="signature">
+        <span>Jayce Wells</span>
+        <p>Founder, Concerto</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="sign">Jayce</div>
-  <div class="foot">Founder, Concerto &middot; From the Concert to the City</div>
-
-</div>
+  <footer class="footer">
+    <div class="shell footerInner">
+      <a class="wordmark wordmarkLight" href="https://concertocity.com">CONCERTO<span>.</span></a>
+      <p>From the Concert to the City</p>
+      <p>&copy; 2026 Concerto</p>
+    </div>
+  </footer>
+</main>
 </body>
 </html>

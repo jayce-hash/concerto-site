@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#F8F9F9; --surface:#FFFFFF;
@@ -73,6 +73,36 @@
 
     /* ── Editorial page frame ──────────────────────────────────── */
     .editorial-container{max-width:var(--col);margin:0 auto;padding:64px 24px 96px}
+
+    /* Shared content-page system (see CONTENT-PAGE-SYSTEM.md).
+       Lifted from partners.html, which already had it: labeled
+       sections, rules between them, DM Mono for kickers. */
+    .sec{padding:clamp(40px,6vw,68px) 0}
+    .sec-k{font-family:'DM Mono',ui-monospace,monospace;font-size:.68rem;
+      letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem}
+    .h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;
+      letter-spacing:-.025em;line-height:1.14;margin:0 0 1rem;color:var(--ink);
+      max-width:20ch;text-wrap:balance}
+    .p{font-size:1rem;line-height:1.85;color:var(--ink-muted);max-width:58ch;
+      margin:0 0 1rem;text-wrap:pretty}
+    .rule{height:1px;background:var(--line)}
+
+    /* Proof strip: real numbers get their own row, not a buried
+       sentence. Rounded counts only. */
+    .proof{display:flex;gap:2.5rem;flex-wrap:wrap;padding:1.6rem 0;
+      border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:2rem 0}
+    .proof-n{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--ink);
+      line-height:1}
+    .proof-l{font-family:var(--body);font-size:.9rem;color:var(--ink);margin-top:.35rem}
+    .proof-d{font-family:'DM Mono',ui-monospace,monospace;font-size:.62rem;
+      letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:.3rem}
+
+    /* Price row: the number is the point, so it gets display type. */
+    .price{display:flex;gap:2.5rem;flex-wrap:wrap;margin:1.5rem 0 .5rem}
+    .price-v{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--ink);
+      line-height:1}
+    .price-p{font-family:'DM Mono',ui-monospace,monospace;font-size:.62rem;
+      letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:.4rem}
     .eyebrow{display:block;font-size:.62rem;font-weight:700;letter-spacing:.28em;
       text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;text-align:center}
     .page-title{font-family:var(--display);font-size:clamp(2.4rem,5vw,4rem);
@@ -251,7 +281,7 @@
 <body>
   <nav class="v2nav" id="v2nav" role="navigation" aria-label="Main">
     <a class="v2nav-brand" href="/" aria-label="Concerto home">
-      <img src="/img/lockup.png" alt="Concerto &mdash; From the Concert to the City" width="168" height="36" />
+      <img src="/img/lockup.png" alt="Concerto: From the Concert to the City" width="168" height="36" />
     </a>
     <div class="v2nav-links">
       <a href="/">Home</a>
@@ -286,42 +316,97 @@
 
 <main>
     <div class="editorial-container">
-      <span class="eyebrow">Concerto+</span>
-      <h1 class="page-title">The night, without the friction.</h1>
-      <p class="lead">Everything in Concerto is free. Concerto+ removes the two
-        biggest problems standing between you and the show.</p>
+      <p class="sec-k">Concerto+</p>
+      <h1 class="page-title">The Night, Without the Friction.</h1>
+      <p class="lead">Everything in Concerto is free. Concerto+ handles the three
+        things that actually go wrong between buying a ticket and getting home.</p>
 
-      <div class="prose">
-        <h2>AI Bag Check</h2>
-        <p>Photograph the bag you are planning to bring. Concerto estimates its
-          dimensions and structure, checks it against that venue&rsquo;s own posted
-          policy, and gives you a verdict before you leave the house &mdash; so the
-          security line is a walk&#8209;through, not a turn&#8209;around.</p>
-
-        <h2>Plan My Night</h2>
-        <p>Plan My Night is the AI night planner. Tell it your show, your vibe and
-          your pace, and it builds the whole evening around doors time: where to
-          eat, when to leave, where to park, and the quiet corner to get your ride
-          home from.</p>
-
-        <h2>What it costs</h2>
-        <p><strong>$7.99 per month, or $69.99 per year.</strong> Subscriptions run
-          through your Apple ID and renew until cancelled; you can cancel anytime
-          in your Apple ID settings. Concerto+ unlocks on every device you sign in
-          with.</p>
-
-        <h2>What stays free</h2>
-        <p>The core of Concerto costs nothing and always will:</p>
-        <ul>
-          <li>Verified bag policies, parking and rideshare pickups for 300+ venues around the world</li>
-          <li>Events near you, night by night</li>
-          <li>Tour guides and setlists for 70+ active tours</li>
-          <li>Saved shows, countdowns and doors alerts</li>
-        </ul>
-
-        <p>Concerto+ lives in the app &mdash; Bag Check needs your camera, and the
-          planner is built for the hours you are out.</p>
+      <div class="proof">
+        <div>
+          <div class="proof-n">300+</div>
+          <div class="proof-l">venues</div>
+          <div class="proof-d">Verified and dated</div>
+        </div>
+        <div>
+          <div class="proof-n">80+</div>
+          <div class="proof-l">live tours</div>
+          <div class="proof-d">Dates and setlists</div>
+        </div>
+        <div>
+          <div class="proof-n">3</div>
+          <div class="proof-l">member features</div>
+          <div class="proof-d">Bag Check, Plan Night, Alerts</div>
+        </div>
       </div>
+
+      <section class="sec">
+        <p class="sec-k">At the door</p>
+        <h2 class="h2">AI Bag Check</h2>
+        <p class="p">Photograph the bag you are planning to bring. Concerto estimates
+          its dimensions and structure, checks it against that venue&rsquo;s own posted
+          policy, and gives you a verdict before you leave the house. You get one of
+          three answers, never a maybe: you are good to go, it may cause issues, or
+          it is not permitted, with the specific rule you are hitting and what to do
+          about it.</p>
+      </section>
+      <div class="rule"></div>
+
+      <section class="sec">
+        <p class="sec-k">Before the show</p>
+        <h2 class="h2">Plan My Night</h2>
+        <p class="p">Tell it your show, your vibe, and your pace. It builds the whole
+          evening around doors time: where to eat, when to leave, where to park, and
+          the quiet corner to get your ride home from. Real places with a reason for
+          each, not a generic list of what is nearby.</p>
+      </section>
+      <div class="rule"></div>
+
+      <section class="sec">
+        <p class="sec-k">Through the night</p>
+        <h2 class="h2">Alerts</h2>
+        <p class="p">Save a show and Concerto stays with you through it. A forecast
+          the morning of, so you know what to wear. A reminder about two hours out,
+          so you are not rushing. A check-in once the encore is done. And when an
+          artist you follow announces new dates, you hear about it from us rather
+          than from a sold-out screenshot.</p>
+      </section>
+      <div class="rule"></div>
+
+      <section class="sec">
+        <p class="sec-k">What it costs</p>
+        <div class="price">
+          <div>
+            <div class="price-v">$7.99</div>
+            <div class="price-p">per month</div>
+          </div>
+          <div>
+            <div class="price-v">$69.99</div>
+            <div class="price-p">per year</div>
+          </div>
+        </div>
+        <p class="p">Subscriptions run through your Apple ID and renew until
+          cancelled. Cancel anytime in your Apple ID settings. Concerto+ unlocks on
+          every device you sign in with.</p>
+      </section>
+      <div class="rule"></div>
+
+      <section class="sec">
+        <p class="sec-k">What stays free</p>
+        <h2 class="h2">Most of Concerto Costs Nothing.</h2>
+        <p class="p">The core of the app is free and always will be:</p>
+        <div class="prose">
+          <ul>
+            <li>Verified bag policies, parking and rideshare pickups for 300+ venues
+              around the world</li>
+            <li>Events near you, night by night</li>
+            <li>Tour guides and setlists for 80+ active tours</li>
+            <li>Saving shows, countdowns to doors, and your show history</li>
+          </ul>
+        </div>
+        <p class="p">Concerto+ lives in the app for a practical reason: Bag Check
+          needs your camera, and the rest is built for the hours you are actually
+          out.</p>
+      </section>
 
       <div class="premium-callout">
         <h2>Start in the app</h2>
