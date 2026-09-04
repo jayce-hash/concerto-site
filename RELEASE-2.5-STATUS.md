@@ -82,3 +82,10 @@ Do not call the website deployment final until that workflow succeeds.
 - reviewer account has Concerto+ access
 
 See LAUNCH-2.5.md in either repo for the exact release sequence and test checklist.
+
+## Final company-site navigation pass
+- Added one global footer/navigation system to every generated/static HTML page.
+- Footer groups are now consistent everywhere: Explore, Company, Work With Us, Support, plus Privacy/Terms and official Instagram/TikTok/YouTube channels.
+- Rebuilt About, FAQ, Concerto+, and Investors into the same corporate visual system as Partners, Creators, Press, and Contact.
+- Privacy and Terms retain a simpler legal-document layout intentionally, but now use the same global footer/navigation.
+- Updated the native web `WebFooter` source so future Expo web exports preserve the same information architecture instead of reverting to the old lean footer.
