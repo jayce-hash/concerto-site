@@ -1,85 +1,82 @@
-// ─────────────────────────────────────────
-// STRIPE WEBHOOK HANDLER
-// Deploy as a Supabase Edge Function or Vercel/Netlify serverless function
-// File: /api/stripe-webhook.js
-// ─────────────────────────────────────────
+// Stripe web checkout -> Supabase entitlement synchronization.
+// Netlify Lambda-compatible handler; event.body is passed raw to Stripe so
+// signature verification is performed against the exact webhook payload.
 
-import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
+const Stripe = require('stripe');
+const { createClient } = require('@supabase/supabase-js');
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY // service role — bypasses RLS
-);
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-export default async function handler(req, res) {
-  const sig = req.headers['stripe-signature'];
-  let event;
+function tierFor(priceId) {
+  return priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : 'monthly';
+}
+function activeStatus(status) {
+  // past_due can still be in Stripe's retry/recovery flow. Do not remove paid
+  // access until Stripe moves the subscription to unpaid/canceled/deleted.
+  return ['active', 'trialing', 'past_due'].includes(status);
+}
 
+exports.handler = async function (event) {
+  if (event.httpMethod !== 'POST') return { statusCode: 405, body: 'Method Not Allowed' };
+
+  const sig = event.headers['stripe-signature'] || event.headers['Stripe-Signature'];
+  let stripeEvent;
   try {
-    event = stripe.webhooks.constructEvent(
-      req.body, sig, process.env.STRIPE_WEBHOOK_SECRET
+    stripeEvent = stripe.webhooks.constructEvent(
+      event.body || '',
+      sig,
+      process.env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (err) {
-    return res.status(400).send(`Webhook error: ${err.message}`);
+    console.error('stripe signature error:', err.message);
+    return { statusCode: 400, body: `Webhook error: ${err.message}` };
   }
 
-  switch (event.type) {
-
-    case 'checkout.session.completed': {
-      const session = event.data.object;
-      const customerId = session.customer;
-      const subscriptionId = session.subscription;
-      // client_reference_id is the Supabase user ID passed from startCheckout()
+  try {
+    if (stripeEvent.type === 'checkout.session.completed') {
+      const session = stripeEvent.data.object;
       const userId = session.client_reference_id || session.metadata?.supabase_user_id;
+      if (!userId || !session.subscription) return { statusCode: 200, body: 'ignored' };
 
-      if (!userId) {
-        console.error('No user ID in checkout session — cannot upgrade profile');
-        break;
-      }
-
-      // Fetch subscription to get tier
-      const sub = await stripe.subscriptions.retrieve(subscriptionId);
-      const priceId = sub.items.data[0].price.id;
-      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : 'monthly';
-      const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
-
-      await supabase.from('profiles').update({
-        is_premium: true,
-        premium_tier: tier,
-        premium_expires_at: expiresAt,
-        stripe_customer_id: customerId,
-        stripe_subscription_id: subscriptionId,
+      const sub = await stripe.subscriptions.retrieve(session.subscription);
+      const priceId = sub.items.data[0]?.price?.id;
+      const { error } = await supabase.from('profiles').update({
+        is_premium: activeStatus(sub.status),
+        premium_tier: activeStatus(sub.status) ? tierFor(priceId) : null,
+        premium_expires_at: sub.current_period_end ? new Date(sub.current_period_end * 1000).toISOString() : null,
+        stripe_customer_id: session.customer || null,
+        stripe_subscription_id: sub.id,
       }).eq('id', userId);
-      break;
+      if (error) throw error;
     }
 
-    case 'customer.subscription.updated': {
-      const sub = event.data.object;
-      const expiresAt = new Date(sub.current_period_end * 1000).toISOString();
-      const isActive = ['active', 'trialing'].includes(sub.status);
-      const priceId = sub.items.data[0].price.id;
-      const tier = priceId === process.env.STRIPE_PRICE_ANNUAL ? 'annual' : priceId === process.env.STRIPE_PRICE_MONTHLY ? 'monthly' : 'monthly';
-
-      await supabase.from('profiles').update({
+    if (stripeEvent.type === 'customer.subscription.updated') {
+      const sub = stripeEvent.data.object;
+      const isActive = activeStatus(sub.status);
+      const priceId = sub.items.data[0]?.price?.id;
+      const { error } = await supabase.from('profiles').update({
         is_premium: isActive,
-        premium_tier: isActive ? tier : null,
-        premium_expires_at: expiresAt,
+        premium_tier: isActive ? tierFor(priceId) : null,
+        premium_expires_at: sub.current_period_end ? new Date(sub.current_period_end * 1000).toISOString() : null,
       }).eq('stripe_subscription_id', sub.id);
-      break;
+      if (error) throw error;
     }
 
-    case 'customer.subscription.deleted': {
-      const sub = event.data.object;
-      await supabase.from('profiles').update({
+    if (stripeEvent.type === 'customer.subscription.deleted') {
+      const sub = stripeEvent.data.object;
+      const { error } = await supabase.from('profiles').update({
         is_premium: false,
         premium_tier: null,
+        premium_expires_at: null,
         stripe_subscription_id: null,
       }).eq('stripe_subscription_id', sub.id);
-      break;
+      if (error) throw error;
     }
-  }
 
-  res.json({ received: true });
-}
+    return { statusCode: 200, body: JSON.stringify({ received: true }) };
+  } catch (err) {
+    console.error('stripe-webhook error:', err);
+    return { statusCode: 500, body: 'Webhook processing failed' };
+  }
+};

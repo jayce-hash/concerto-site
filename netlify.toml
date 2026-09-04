@@ -6,7 +6,7 @@
   # include a sibling data file just because the code references it
   # at runtime, so this has to be explicit or the file silently won't
   # exist in the deployed function.
-  included_files = ["data/tours.json"]
+  included_files = ["data/tours.json", "data/venue_info.json"]
 
 [build.environment]
   # Google Maps browser keys are referrer-restricted and must ship to the client,

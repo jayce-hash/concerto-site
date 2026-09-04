@@ -39,6 +39,7 @@
 # The app's detail screens: any slug rewrites to the exported shell.
 /venue/*   /venue/[slug].html   200
 /tour/*    /tour/[slug].html    200
+/show/*    /show/[id].html      200
 
 # Old city guide SPA links used de-hyphenated slugs, so a splat can't
 # map them. Explicit per-venue mapping, generated from data/venues.json

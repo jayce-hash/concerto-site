@@ -100,6 +100,15 @@ async function inBatches(items, size, worker) {
   }
 }
 
+function savedEventTime(raw) {
+  if (!raw) return Number.NaN;
+  // A date-only Ticketmaster value represents the event's calendar day, not
+  // UTC midnight. Keep it eligible through that day so US time zones do not
+  // make the event look expired the prior evening.
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return Date.parse(`${raw}T23:59:59Z`);
+  return new Date(raw).getTime();
+}
+
 function eventDoorsLine(tmEvent) {
   const venue = tmEvent._embedded?.venues?.[0];
   const name = tmEvent.name || 'A show';
@@ -176,7 +185,7 @@ exports.handler = async function () {
       // Record every event as seen regardless of whether this is the
       // baseline poll or a later one -- next cycle's diff depends on
       // this being complete.
-      if (events.length) {
+      if (events.length && !DRY_RUN) {
         await supabase.from('tm_seen_events').upsert(
           events.map((e) => ({ event_id: e.id, artist })),
           { onConflict: 'event_id', ignoreDuplicates: true },
@@ -191,10 +200,12 @@ exports.handler = async function () {
         const tmEvent = events.find((e) => e.id === id);
         if (!tmEvent) continue;
 
-        const { error: logErr } = await supabase
-          .from('onsale_alert_log')
-          .insert({ event_id: id, alert_type: 'new_tour_date' });
-        if (logErr) continue; // already alerted (or a race lost), skip silently
+        if (!DRY_RUN) {
+          const { error: logErr } = await supabase
+            .from('onsale_alert_log')
+            .insert({ event_id: id, alert_type: 'new_tour_date' });
+          if (logErr) continue; // already alerted (or a race lost), skip silently
+        }
 
         const targetUsers = artistToUsers.get(artist) ?? [];
         const { data: tokenRows } = await supabase
@@ -203,7 +214,7 @@ exports.handler = async function () {
           .in('user_id', targetUsers);
         const tokens = (tokenRows ?? [])
           .map((r) => r.token)
-          .filter((t) => t && t.startsWith('ExponentPushToken'));
+          .filter((t) => t && /^(ExponentPushToken|ExpoPushToken)/.test(t));
 
         await sendPush(
           tokens,
@@ -226,17 +237,19 @@ exports.handler = async function () {
   const seenEventIdsThisRun = new Set();
   for (const p of eligible) {
     const saved = (p.saved_events ?? []).filter(
-      (e) => e?.date && new Date(e.date).getTime() > Date.now(),
+      (e) => e?.date && savedEventTime(e.date) > Date.now(),
     );
     for (const event of saved) {
       if (seenEventIdsThisRun.has(event.id)) continue; // one TM lookup per event per run, even if many users saved it
       seenEventIdsThisRun.add(event.id);
 
       try {
-        const { error: logErr } = await supabase
-          .from('onsale_alert_log')
-          .insert({ event_id: event.id, alert_type: 'presale_timing' });
-        if (logErr) continue; // already alerted
+        if (!DRY_RUN) {
+          const { error: logErr } = await supabase
+            .from('onsale_alert_log')
+            .insert({ event_id: event.id, alert_type: 'presale_timing' });
+          if (logErr) continue; // already alerted
+        }
 
         const tmEvent = await tmGetEvent(event.id);
         const presale = tmEvent?.sales?.presales?.[0]?.startDateTime;
@@ -247,9 +260,11 @@ exports.handler = async function () {
           // row so a real future onsale for this event can still
           // alert later -- inserting it above was optimistic locking
           // against a concurrent run, not a claim that we found one.
-          await supabase.from('onsale_alert_log')
-            .delete()
-            .match({ event_id: event.id, alert_type: 'presale_timing' });
+          if (!DRY_RUN) {
+            await supabase.from('onsale_alert_log')
+              .delete()
+              .match({ event_id: event.id, alert_type: 'presale_timing' });
+          }
           continue;
         }
 
@@ -264,12 +279,19 @@ exports.handler = async function () {
           .in('user_id', owners);
         const tokens = (tokenRows ?? [])
           .map((r) => r.token)
-          .filter((t) => t && t.startsWith('ExponentPushToken'));
+          .filter((t) => t && /^(ExponentPushToken|ExpoPushToken)/.test(t));
 
-        const when = new Date(saleDate).toLocaleString('en-US', {
-          weekday: 'short', month: 'short', day: 'numeric',
-          hour: 'numeric', minute: '2-digit',
-        });
+        const timeZone = tmEvent?.dates?.timezone;
+        let when;
+        try {
+          when = new Date(saleDate).toLocaleString('en-US', {
+            weekday: 'short', month: 'short', day: 'numeric',
+            hour: 'numeric', minute: '2-digit',
+            ...(timeZone ? { timeZone } : {}),
+          });
+        } catch {
+          when = new Date(saleDate).toISOString();
+        }
         await sendPush(
           tokens,
           presale ? 'Presale starts soon' : 'Tickets go on sale soon',

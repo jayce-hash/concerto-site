@@ -37,25 +37,25 @@
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "The 3Arena offers exclusive dining experiences through its Private Members Clubs, The 1878 and The Studio. The 1878 provides a luxurious pre-show dining experience with a selection of food and wine, while The Studio offers quick, no-fuss dishes for members to enjoy before taking their seats.",
+      "note": "Bars and retail units throughout 3Arena serve alcoholic and non-alcoholic drinks plus confectionery and snacks. Outside food and drinks are not permitted, and the venue says it does not have sit-down food areas.",
       "stands": [],
-      "officialLink": "https://3arena.ie/private-members-clubs",
-      "verified": "2026-08-20",
+      "officialLink": "https://3arena.ie/faqs",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
       "body": "Accessible tickets should be booked in advance through Ticketmaster. Guests with mobility needs are directed to the accessible area, flat seating, or lower-tier Blocks A–G; wheelchairs are not permitted on the ground floor. Contact enquiry@3arena.ie or 01 866 3400 for special-access questions.",
       "officialLink": "https://3arena.ie/faqs",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "Re-entry is not permitted. Guests who leave during a show will not be readmitted.",
       "officialLink": "https://3arena.ie/faqs",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "ticketPickup": {
       "title": "Ticket Collection",
@@ -672,68 +672,71 @@
     "lat": 43.615,
     "lng": -116.2247,
     "bagPolicy": {
-      "summary": "Albertsons Stadium does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://broncosports.com/sports/2024/8/19/fan-guide-2024",
-      "verified": "2026-08-20",
+      "summary": "Fans may bring one clear plastic or vinyl bag up to 12 x 6 x 12 inches, a one-gallon clear freezer bag, or a small purse/clutch up to 4.5 x 6.5 inches. Large purses, backpacks, luggage, computer bags, and bags over the limit are prohibited.",
+      "allowed": [
+        "clear bags up to 12 x 6 x 12 inches",
+        "one-gallon clear freezer bags",
+        "small purse/clutch up to 4.5 x 6.5 inches"
+      ],
+      "prohibited": [
+        "large purses",
+        "backpacks",
+        "luggage",
+        "computer bags",
+        "bags larger than permitted size"
+      ],
+      "note": "Complimentary bag check is available at stadium entries for prohibited bags.",
+      "officialLink": "https://broncosports.com/news/2026/9/1/general-boise-state-athletics-announces-stadium-entry-changes-for-2026-season",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "The new interactive map on the BroncoSports app provides detailed parking information for game days at Albertsons Stadium. Fans are encouraged to use the app to find the fastest routes and available parking options.",
+      "note": "Game-day parking is available across Boise State campus and off campus. The current stadium fan guide lists reserved and day-of options; availability and event pricing vary, so use the current interactive map before arrival.",
       "lots": [],
-      "officialLink": "https://broncosports.com/sports/2024/8/19/fan-guide-2024",
-      "verified": "2026-08-20",
+      "officialLink": "https://broncosports.com/sports/2025/8/12/albertsons-stadium-fan-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "A dedicated rideshare zone was not confirmed in Albertsons Stadium's current published guidance. Follow the event page and your rideshare app on show day, and use only signed pickup or drop-off areas.",
-      "officialLink": "https://broncosports.com/sports/2024/8/19/fan-guide-2024",
-      "verified": "2026-08-20",
+      "note": "A dedicated rideshare zone was not confirmed in the current Albertsons Stadium fan guide. Use the current event map and signed drop-off/pickup areas on event day.",
+      "officialLink": "https://broncosports.com/sports/2025/8/12/albertsons-stadium-fan-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "Albertsons Stadium offers a variety of local and traditional food options, including new signature items like the Mountain Burger with Double R Brisket and Smoky Mountain Wings. Fans can enjoy local beer offerings and a wide array of beverages, with selections from Anheuser-Busch and local vendors.",
-      "stands": [
-        "Heart & Sull",
-        "Blue 32",
-        "Meraki Greek Street Food",
-        "La Tapatia",
-        "Boise Best Kettle Korn",
-        "Idaho Nut Hut"
-      ],
-      "officialLink": "https://broncosports.com/news/2024/9/16/general-bronco-athletics-announces-menu-items-available-at-albertsons-stadium",
-      "verified": "2026-08-20",
+      "note": "Albertsons Stadium concessions are cashless; credit/debit cards, mobile payments, and prepaid debit cards are accepted. Food and beverage offerings can change by event.",
+      "stands": [],
+      "officialLink": "https://broncosports.com/documents/download/2026/6/3/HWMTL_FAN_GUIDE.pdf",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by Albertsons Stadium, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://broncosports.com/sports/2024/8/19/fan-guide-2024",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Accessible parking and seating are available. The current fan guide lists accessible game-day parking and wheelchair-accessible shuttle service, while the Boise State Ticket Office can assist with accessible seating.",
+      "officialLink": "https://broncosports.com/sports/2025/8/12/albertsons-stadium-fan-guide",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Albertsons Stadium's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://broncosports.com/sports/2024/8/19/fan-guide-2024",
-      "verified": "2026-08-20",
+      "officialLink": "https://broncosports.com/sports/2025/8/12/albertsons-stadium-fan-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "For the basketball season, regular will call is located at Box Office #2. For football, will call is located on the west side of Albertsons Stadium in the Athletic Ticket Office.",
-      "officialLink": "https://broncosports.com/news/2009/4/24/Ticket_Office_FAQ_amp_Policies",
-      "verified": "2026-08-20",
+      "body": "For ticket assistance, use the current Boise State Athletics Ticket Office information. Mobile-ticket or game-day issues can be handled through the main box office, subject to event instructions.",
+      "officialLink": "https://broncosports.com/sports/2026/3/27/ticket-office-home-updated",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Albertsons Stadium. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://broncosports.com/sports/2025/8/12/albertsons-stadium-fan-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "All Albertsons Stadium entries open two hours before kickoff for Boise State football. Most tickets use an any-ticket, any-gate policy, with exceptions for Stueckle Sky Center, North End Zone, and student tickets; check the ticket for the suggested entry.",
+      "officialLink": "https://broncosports.com/news/2026/9/1/general-boise-state-athletics-announces-stadium-entry-changes-for-2026-season",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -2372,8 +2375,8 @@
       ],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
       "officialLink": "https://www.barclays-arena.de/besuch-planen/einlass-sicherheit",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking costs EUR 10 per vehicle, with special rates for RVs. VIP parking is available for certain ticket holders. Parking lots are located near the arena, but access may be restricted during events at the nearby Volksparkstadion.",
@@ -3723,9 +3726,9 @@
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Fans who order after January 6 can pick up their admission tickets at the Busch Stadium Box Office during regular box office hours, weekdays from 10:00 a.m. Since tickets retrieved within the MLB Ballpark app will now be considered printed, the tickets will not be available for pickup at Will Call.",
-      "officialLink": "https://www.mlb.com/press-release/press-release-2020-cardinals-winter-warm-up-tickets",
-      "verified": "2026-08-20",
+      "body": "Busch Stadium uses mobile ticketing. Tickets already retrieved in the MLB Ballpark app are not available for Will Call pickup; if you cannot access a valid mobile ticket, visit a Busch Stadium Ticket Office window for assistance.",
+      "officialLink": "https://www.mlb.com/cardinals/tickets/mobile",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "gates": {
@@ -3817,13 +3820,20 @@
     "lat": 39.0926,
     "lng": -94.4129,
     "bagPolicy": {
-      "summary": "Cable Dahmer Arena does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.cabledahmerarena.com/events/detail/sturgillsimpson",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "summary": "Bags may be no larger than 12 x 6 x 12 inches. Oversized bags and backpacks are not permitted; diaper and medically necessary bags have stated exceptions and are subject to inspection.",
+      "allowed": [
+        "bags up to 12 x 6 x 12 inches",
+        "diaper bags when accompanied by a child",
+        "medically necessary bags subject to inspection"
+      ],
+      "prohibited": [
+        "oversized bags",
+        "backpacks"
+      ],
+      "note": "Guests are encouraged not to bring bags.",
+      "officialLink": "https://www.cabledahmerarena.com/plan-your-visit/a-z-guide",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "All parking transactions are cashless. Pre-paid parking is available for $15 on Ticketmaster.com, while day-of parking costs $25 online and in person. Parking for Kansas City Mavericks and Kansas City Comets games is free.",
@@ -3863,29 +3873,29 @@
     "accessibility": {
       "title": "Accessibility",
       "body": "Current official guidance confirms that accessibility arrangements are handled by Cable Dahmer Arena, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://www.cabledahmerarena.com/events/detail/sturgillsimpson",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.cabledahmerarena.com/plan-your-visit/a-z-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Cable Dahmer Arena's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.cabledahmerarena.com/events/detail/sturgillsimpson",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.cabledahmerarena.com/plan-your-visit/a-z-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Will Call is located at the Box Office on the northeast corner of Cable Dahmer Arena or inside the adjacent doors for Mavericks and Comets games. The Box Office is operated by Ticketmaster, the only official authorized ticketing agency for Cable Dahmer Arena events and is located on the northeast corner of Cable Dahmer Arena just off of Valley View Parkway.",
-      "officialLink": "https://www.cabledahmerarena.com/events/buying-tickets",
-      "verified": "2026-08-20",
+      "body": "The Ticketmaster box office is on the northeast corner of the arena next to Gate 1. On event days it opens three hours before showtime; current seasonal hours are posted in the venue A-Z guide.",
+      "officialLink": "https://www.cabledahmerarena.com/plan-your-visit/a-z-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Cable Dahmer Arena. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.cabledahmerarena.com/events/detail/sturgillsimpson",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.cabledahmerarena.com/plan-your-visit/a-z-guide",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "seatingChartLink": "",
@@ -4288,13 +4298,17 @@
     "lat": 33.7815,
     "lng": -84.3865,
     "bagPolicy": {
-      "summary": "Center Stage Theater does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.centerstage-atlanta.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "summary": "Backpacks are not permitted. Small bags under 12 inches are allowed and will be searched.",
+      "allowed": [
+        "small bags under 12 inches"
+      ],
+      "prohibited": [
+        "backpacks"
+      ],
+      "note": "All ticket holders are subject to security screening. Artist or event restrictions may be stricter.",
+      "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking is available at the Center Stage Garage for $10-$25 and the Midtown Plaza Deck for $17.50. Both accept credit, debit, and ParkMobile, but no cash. Limited complimentary parking is available for box office visits.",
@@ -4313,18 +4327,18 @@
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "Nearby dining options include Aveline Bar & Lounge, Hartley Kitchen & Cocktails, and Nan Thai Fine Dining, offering a variety of cuisines and valet parking services. Patrons spending $50 at Hartley or Aveline receive complimentary valet parking.",
+      "note": "Center Stage, The Loft, and Vinyl have bars. Snacks are available at the bar, and certain shows also offer pizza.",
       "stands": [],
-      "officialLink": "https://www.centerstage-atlanta.com/directions-parking/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by Center Stage Theater, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://www.centerstage-atlanta.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Accessible seating can be arranged by calling the venue at (404) 885-1365 or emailing info@rivalentertainment.com.",
+      "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
@@ -4335,17 +4349,17 @@
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Current official guidance does not publish one universal will-call schedule for every event at Center Stage Theater. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.centerstage-atlanta.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Will Call is located at the entrance to each room. Bring a valid photo ID. The box office also sells tickets in person during posted hours and, when available, at show entry.",
+      "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Center Stage Theater. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.centerstage-atlanta.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Doors are generally scheduled to open one hour before the time printed on the ticket. Lines often form near 17th Street and West Peachtree Street.",
+      "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -7012,10 +7026,10 @@
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "The Enterprise Center offers a variety of food and drink options, including traditional stadium fare and local specialties. Highlights include a range of craft beers and gourmet snacks. Special offerings may include themed food items during events.",
+      "note": "Enterprise Center has concession stands and portable carts across the Plaza and Mezzanine levels with stadium staples, local/specialty foods, soft drinks, beer, wine, and mixed drinks. Offerings and locations can vary by event.",
       "stands": [],
-      "officialLink": "http://www.enterprisecenter.com/assets/doc/ConcessionList-ab710498e5.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.enterprisecenter.com/about-us/food-beverage",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
@@ -7058,24 +7072,23 @@
     "lat": 19.4052,
     "lng": -99.0966,
     "bagPolicy": {
-      "summary": "Bags allowed include small backpacks, handbags, and transparent storage bags within specified size limits. Larger bags and certain types of bags like camera cases and large tote bags are prohibited.",
+      "summary": "Bags or backpacks may not exceed 10 x 15 x 30 cm and are preferably clear. Small handbags and fanny packs may not exceed 11 x 16 cm; medium clear storage bags are also allowed.",
       "allowed": [
-        "Bolsas/ mochilas que no excedan 10x15x30 CM",
-        "Bolsas de mano pequeñas que no excedan 11x16 CM",
-        "Bolsas de almacenamiento transparentes como ziploc",
-        "Cangureras que no excedan 11x16 CM"
+        "bags/backpacks up to 10 x 15 x 30 cm",
+        "small handbags up to 11 x 16 cm",
+        "fanny packs up to 11 x 16 cm",
+        "medium clear storage bags"
       ],
       "prohibited": [
-        "Mochilas de más de 10x15x30 CM",
-        "Bolsa de diario",
-        "Funda para cámara",
-        "Tote bag grande",
-        "Bolsas de mesh"
+        "backpacks larger than 10 x 15 x 30 cm",
+        "daily bags",
+        "camera cases",
+        "large tote bags"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "All items remain subject to security inspection and event restrictions.",
       "officialLink": "https://www.estadiognpseguros.com/faqs",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "The Estadio GNP Seguros offers parking with access through gates 7, 8, 9, and 15 of the Autódromo Hermanos Rodríguez and Ciudad Deportiva Magdalena Mixhuca. Access points may vary depending on the event configuration and location.",
@@ -8390,13 +8403,15 @@
     "lat": 50.0903,
     "lng": 14.4484,
     "bagPolicy": {
-      "summary": "Forum Karlín does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "Luggage larger than 40 x 30 x 20 cm is not permitted. All visitors agree to entry security checks and baggage inspection, and an event organizer may impose stricter restrictions.",
       "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "prohibited": [
+        "luggage larger than 40 x 30 x 20 cm"
+      ],
+      "note": "Organizer-specific restrictions can be stricter than the venue rules.",
       "officialLink": "https://www.forumkarlin.cz/en/for-visitors/rules-for-visitors/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking information is not explicitly provided on the Forum Karlín website. Visitors are advised to check nearby public parking facilities or use public transportation for convenience.",
@@ -8420,17 +8435,17 @@
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by Forum Karlín, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
+      "body": "Forum Karlín is accessible to visitors with reduced mobility. The first floor includes reserved places, and other arrangements may be prepared by written agreement with the organizer.",
       "officialLink": "https://www.forumkarlin.cz/en/for-visitors/rules-for-visitors/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in Forum Karlín's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
+      "body": "A ticket allows one entry. Re-entry is only possible if it has been agreed in advance in writing with the event organizer.",
       "officialLink": "https://www.forumkarlin.cz/en/for-visitors/rules-for-visitors/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
@@ -8563,8 +8578,8 @@
       ],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
       "officialLink": "https://thefoxoakland.com/faq/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking is available at 1800 SAN PABLO LOT for a $20 flat rate and at FRANKLIN PLAZA GARAGE for a $25 flat rate during event hours. Public transportation via the 19th Street BART station is highly encouraged.",
@@ -11945,25 +11960,31 @@
     "lat": 45.7707,
     "lng": 4.9796,
     "bagPolicy": {
-      "summary": "LDLC Arena does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.olvallee.fr/faq/",
-      "verified": "2026-08-20",
+      "summary": "Large backpacks and luggage are not accepted. Small bags and pouches are allowed; self-service cloakrooms are available inside, and exterior storage is available for prohibited items.",
+      "allowed": [
+        "small bags",
+        "small pouches"
+      ],
+      "prohibited": [
+        "large backpacks",
+        "large luggage"
+      ],
+      "note": "Event productions can impose additional restrictions; check the event page.",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking options include a paid car park for 20 euros and a two-wheeler park for 10 euros. There is also a free parking area for non-motorized two-wheelers near the stadium.",
+      "note": "LDLC Arena has car, motorcycle, and bicycle parking. Paid car/motorcycle parking must be reserved online through the event page; bicycle parking is available near the arena.",
       "lots": [],
-      "officialLink": "https://www.olvallee.fr/ol-losc-toutes-les-informations-a-connaitre-pour-vous-rendre-au-groupama-stadium/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "A dedicated rideshare zone was not confirmed in LDLC Arena's current published guidance. Follow the event page and your rideshare app on show day, and use only signed pickup or drop-off areas.",
-      "officialLink": "https://www.olvallee.fr/ol-losc-toutes-les-informations-a-connaitre-pour-vous-rendre-au-groupama-stadium/",
-      "verified": "2026-08-20",
+      "note": "A dedicated rideshare pickup zone was not confirmed in the current LDLC Arena FAQ. Use the event-specific access instructions and signed pickup/drop-off areas.",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
@@ -11975,31 +11996,31 @@
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by LDLC Arena, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://www.olvallee.fr/faq/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "LDLC Arena publishes accessible arrival and in-venue guidance, including elevators for level 2 and accommodation for medical equipment and guide/service dogs. Contact the venue in advance for event-specific needs.",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in LDLC Arena's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.olvallee.fr/faq/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at LDLC Arena. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.olvallee.fr/faq/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at LDLC Arena. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.olvallee.fr/faq-everything-to-know-about-groupama-stadiums-concerts-in-2022/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Door-opening times and access instructions are event-specific. Check the dedicated event page shortly before arrival for the current opening time and entrance information.",
+      "officialLink": "https://www.olvallee.fr/foire-aux-questions-ldlc-arena/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -14092,13 +14113,19 @@
     "lat": 40.4238,
     "lng": -3.6717,
     "bagPolicy": {
-      "summary": "Movistar Arena does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.movistararena.es/ayuda/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "summary": "Only small backpacks or bags up to 25 liters in capacity are permitted.",
+      "allowed": [
+        "small backpacks or bags up to 25L"
+      ],
+      "prohibited": [
+        "larger backpacks or bags",
+        "tablets and iPads",
+        "motorcycle helmets"
+      ],
+      "note": "Additional object restrictions and cloakroom guidance are published in the venue help center.",
+      "officialLink": "https://www.movistararena.es/ayuda",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking availability, access routes, and pricing at Movistar Arena can vary by event. Review the linked official information and reserve in advance when that option is offered.",
@@ -19814,13 +19841,21 @@
     "lat": 53.5596,
     "lng": 10.0176,
     "bagPolicy": {
-      "summary": "The venue does not provide specific details on bag policies, but it mentions no liability for personal items.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.stadtparkopenair.de/veranstaltungsordnung/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "summary": "Only bags whose largest side is no larger than a DIN A4 sheet are permitted, such as belt bags, gym bags, and tote bags. Larger bags, backpacks, and helmets may have to be placed in paid storage.",
+      "allowed": [
+        "bags no larger than DIN A4 on the longest side",
+        "belt bags",
+        "gym bags",
+        "tote bags"
+      ],
+      "prohibited": [
+        "larger bags",
+        "larger backpacks"
+      ],
+      "note": "Entry includes more thorough security screening. Bring only what you need.",
+      "officialLink": "https://www.stadtparkopenair.de/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking is available at the 'Überseering' in the City Nord, which is about a 5-10 minute walk from the venue. No specific pricing information is provided. Consider using public transportation as the event ticket includes an HVV ticket.",
@@ -19867,10 +19902,10 @@
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Stadtpark Open Air. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.stadtparkopenair.de/veranstaltungsordnung/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Entry begins no later than one hour before the event; for sold-out concerts the venue says entry can begin about 90 minutes before the show.",
+      "officialLink": "https://www.stadtparkopenair.de/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -21942,13 +21977,17 @@
     "lat": 39.9476,
     "lng": -75.1438,
     "bagPolicy": {
-      "summary": "The Theatre of Living Arts does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.tlaphilly.com/shows/calendar/2025-08",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "summary": "Bags up to 12 x 6 x 12 inches are permitted and will be searched before entry. Non-clear bags may receive additional inspection.",
+      "allowed": [
+        "bags up to 12 x 6 x 12 inches"
+      ],
+      "prohibited": [
+        "bags larger than 12 x 6 x 12 inches"
+      ],
+      "note": "All bags are subject to search; event restrictions may be stricter.",
+      "officialLink": "https://venue.tlaphilly.com/visit",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "There is limited metered street parking near the venue. Commercial lots are available on 5th and Bainbridge Streets, but they accept cash only. The venue has partnered with ParkWhiz for additional parking options.",
@@ -21980,23 +22019,23 @@
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in The Theatre of Living Arts's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.tlaphilly.com/shows/calendar/2025-08",
-      "verified": "2026-08-20",
+      "officialLink": "https://venue.tlaphilly.com/visit",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at The Theatre of Living Arts. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.tlaphilly.com/shows/calendar/2025-08",
-      "verified": "2026-08-20",
+      "officialLink": "https://venue.tlaphilly.com/visit",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at The Theatre of Living Arts. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.tlaphilly.com/shows/calendar/2025-08",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Doors generally open about one hour before the scheduled show time. Confirm the exact door time on the event listing or ticket.",
+      "officialLink": "https://venue.tlaphilly.com/visit",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -23271,12 +23310,15 @@
     "lat": 45.398,
     "lng": 9.1469,
     "bagPolicy": {
-      "summary": "Unipol Forum does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "Unipol Forum does not publish a universal bag-size limit in its current access rules. Motorcycle helmets and potentially dangerous items are prohibited, and event promoters may impose additional restrictions.",
       "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.unipolforum.it/en/whoweare/",
-      "verified": "2026-08-20",
+      "prohibited": [
+        "motorcycle helmets",
+        "potentially dangerous items"
+      ],
+      "note": "Check the promoter's event-specific restrictions before arrival.",
+      "officialLink": "https://www.unipolforum.it/en/rules/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "parking": {
@@ -23311,22 +23353,22 @@
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Unipol Forum's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.unipolforum.it/en/whoweare/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.unipolforum.it/en/rules/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at Unipol Forum. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.unipolforum.it/en/whoweare/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.unipolforum.it/en/rules/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Unipol Forum. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.unipolforum.it/en/whoweare/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.unipolforum.it/en/rules/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "seatingChartLink": "",
@@ -26044,13 +26086,16 @@
     "lat": 43.5203,
     "lng": -86.342,
     "bagPolicy": {
-      "summary": "Electric Forest does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "Framed or large backpacks are prohibited in the festival venue area. Review the current Festival Info & Policies for additional venue and campground restrictions.",
       "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.electricforest.com/pass-types/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "prohibited": [
+        "framed backpacks",
+        "large backpacks"
+      ],
+      "note": "Camping-area and venue-area rules differ; check the current official policy before arrival.",
+      "officialLink": "https://www.electricforest.com/plan/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "No specific parking options, pricing, or tips are mentioned on the provided page. Attendees are encouraged to check the official website for updates.",
@@ -26461,49 +26506,19 @@
     "lat": 37.7694,
     "lng": -122.4862,
     "bagPolicy": {
-      "summary": "Outside Lands prefers attendees to come bag-free but allows clear backpacks and small bags. Hydration packs under 2.5L with no more than one pocket are also permitted.",
+      "summary": "Clear plastic, vinyl, or PVC bags are allowed. Small non-clear bags, fanny packs, and purses may be up to 6 x 8 x 3 inches. Empty dedicated hydration packs under 2.5L with no more than one additional pocket are allowed; standard backpacks with hydration bladders are not.",
       "allowed": [
-        "Backpacks and bags made of clear plastic, clear vinyl, or clear PVC",
-        "Small bags, fanny-packs, purses up to 6” x 8” x 3”",
-        "Empty dedicated hydration packs with a bladder capacity of under 2.5L/150 in. and no more than one additional pocket"
+        "clear plastic/vinyl/PVC bags",
+        "small non-clear bags up to 6 x 8 x 3 inches",
+        "empty dedicated hydration packs under 2.5L with no more than one additional pocket"
       ],
       "prohibited": [
-        "Non-clear drawstring backpacks",
-        "Weapons of any kind",
-        "Illegal substances",
-        "Glow-sticks",
-        "Alcohol",
-        "Glass or cans of any kind",
-        "Video or audio recording equipment",
-        "Professional still camera equipment with a detachable lens longer than 2 inches",
-        "Skateboards, scooters or personal motorized vehicles",
-        "Bicycles",
-        "Strollers, wagons or carts of any kind",
-        "Hammocks or slack lines",
-        "Fireworks, explosives or open flames",
-        "Instruments",
-        "Laser pointers",
-        "Umbrellas",
-        "Selfie sticks",
-        "Spray paint, large markers or Aerosol cans",
-        "Picnic baskets",
-        "Coolers",
-        "Liquids (excluding personal sized hand sanitizers)",
-        "Lawn furniture or any chairs with legs",
-        "Large inflatables",
-        "Tents",
-        "Pets (except service animals)",
-        "Drones",
-        "Totems or flags",
-        "Threatening signs or apparel",
-        "Native American or “American Indian” headdresses",
-        "Spiked jewelry or clothing",
-        "Illegal vending"
+        "standard backpacks with hydration bladders"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://sfoutsidelands.com/info/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "note": "Festival policy can change; review the current FAQ before arrival.",
+      "officialLink": "https://sfoutsidelands.com/faq-app/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking information is not provided on the official website. Attendees are encouraged to use public transportation or rideshare services due to limited parking availability in the area.",
@@ -26565,13 +26580,17 @@
     "lat": 41.8763,
     "lng": -87.619,
     "bagPolicy": {
-      "summary": "Lollapalooza does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
+      "summary": "Small clutch purses and fanny packs 6 x 9 inches or smaller do not need to be clear and may have no more than one pocket. Other bags larger than 6 x 9 inches must be clear and smaller than 12 x 6 x 12 inches. Empty hydration packs are allowed within the festival policy.",
+      "allowed": [
+        "small clutch/fanny packs up to 6 x 9 inches",
+        "clear bags smaller than 12 x 6 x 12 inches",
+        "empty hydration packs within policy"
+      ],
       "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.chicagoparkdistrict.com/special-event-venues",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "note": "All bags are searched and the festival says the policy is subject to change.",
+      "officialLink": "https://www.lollapalooza.com/safety",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "Parking options around Lollapalooza in Chicago may include nearby public parking lots and garages. Prices can vary, and it is advisable to arrive early to secure a spot. Consider using public transportation or rideshare services to avoid parking hassles.",
@@ -26633,19 +26652,20 @@
     "lat": 25.958,
     "lng": -80.2389,
     "bagPolicy": {
-      "summary": "Hard Rock Stadium allows clear plastic bags up to 12\" x 6\" x 12\" and small bags or fanny packs up to 4.5\" x 6.5\". Diaper bags are permitted and subject to search.",
+      "summary": "For U.S. Rolling Loud festivals, bags must generally be clear plastic, vinyl, or PVC and no larger than 12 x 6 x 12 inches. One-gallon clear freezer bags, small clutches up to 4.5 x 6.5 inches, and empty clear hydration packs are also allowed.",
       "allowed": [
-        "Clear plastic bags that do not exceed 12\" x 6\" x 12\"",
-        "Small bags or fanny packs that do not exceed 4.5\" x 6.5\"",
-        "Diaper bags"
+        "clear bags up to 12 x 6 x 12 inches",
+        "one-gallon clear freezer bags",
+        "small clutches up to 4.5 x 6.5 inches",
+        "empty clear hydration packs"
       ],
       "prohibited": [
-        "All purses or bags that exceed 12\" x 6\" x 12\"",
-        "Non-clear bags that exceed 4.5\" x 6.5\""
+        "non-clear backpacks, purses, or bags outside the listed exceptions",
+        "tinted or opalescent bags"
       ],
-      "note": "No current Miami edition is posted. Use the official Miami festival page for any return announcement and edition-specific clear-bag requirements.",
-      "officialLink": "https://www.rollingloud.com/miami2024",
-      "verified": "2026-08-20",
+      "note": "This is Rolling Loud's current policy for all U.S. festivals.",
+      "officialLink": "https://www.rollingloud.com/bagpolicy",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -26654,53 +26674,22 @@
         "Yellow (Lots 14, 15/16, and 18)",
         "Gray (Lot 40)"
       ],
-      "officialLink": "https://www.rollingloud.com/miami2024",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "rideshare": {
       "note": "A dedicated rideshare zone was not confirmed in Rolling Loud Miami's current published guidance. Follow the event page and your rideshare app on show day, and use only signed pickup or drop-off areas.",
-      "officialLink": "https://www.rollingloud.com/miami2024",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "Hard Rock Stadium offers a diverse range of food options including American, Tex-Mex, Japanese, and Cuban cuisines. Highlights include mobile ordering at select locations and a cashless payment system. Unique offerings include hibachi from Benihana and upscale options at Seafood Republic.",
-      "stands": [
-        "Avo Eats by Avocados from Mexico",
-        "Benihana",
-        "Cafe La Carreta",
-        "CANTALOUPE & Pepsi Food Zone",
-        "Carvery",
-        "Cheeseburger Baby",
-        "Cluck",
-        "Craft Provisions",
-        "Crisppi’s Chicken",
-        "Crust Artisan Pizza",
-        "Ella Cafe",
-        "Fan Favorites",
-        "Fatboy Smashburgers",
-        "Fuku",
-        "Gourmet Donuts",
-        "Granny B’z",
-        "Italian Vice",
-        "Kebab Joint",
-        "La Mila Nation",
-        "Lcky Chckn",
-        "Little Caesars",
-        "Magic City Dogs",
-        "Novecento",
-        "Puffles Ice Cream & Waffles",
-        "Seafood Republic",
-        "Seed Bistro",
-        "Seed Grill",
-        "Shula Burger",
-        "Sobe Q",
-        "Sol Cubano"
-      ],
-      "officialLink": "https://www.rollingloud.com/miami2024",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
+      "note": "A current Miami-specific food and beverage vendor list was not confirmed on Rolling Loud's official site. Review the current Miami event guide when published.",
+      "stands": [],
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "accessibility": {
       "title": "Accessibility",
@@ -26712,22 +26701,22 @@
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Rolling Loud Miami's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://2026.rollingloud.com/guide/faq/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at Rolling Loud Miami. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://cali.rollingloud.com/guide/hours-and-info/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Rolling Loud Miami. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://2026.rollingloud.com/guide/faq/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.rollingloud.com/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "seatingChartLink": "",
@@ -26742,20 +26731,21 @@
     "lat": 33.9535,
     "lng": -118.3392,
     "bagPolicy": {
-      "summary": "Rolling Loud's current U.S. policy permits clear plastic, vinyl, or PVC bags up to 12\" x 6\" x 12\", one-gallon clear freezer bags, small clutches up to 4.5\" x 6.5\", and qualifying empty clear hydration packs.",
+      "summary": "For U.S. Rolling Loud festivals, bags must generally be clear plastic, vinyl, or PVC and no larger than 12 x 6 x 12 inches. One-gallon clear freezer bags, small clutches up to 4.5 x 6.5 inches, and empty clear hydration packs are also allowed.",
       "allowed": [
-        "Clear bags up to 12\" x 6\" x 12\"",
-        "One-gallon clear freezer bags",
-        "Small clutches up to 4.5\" x 6.5\"",
-        "Empty clear hydration packs"
+        "clear bags up to 12 x 6 x 12 inches",
+        "one-gallon clear freezer bags",
+        "small clutches up to 4.5 x 6.5 inches",
+        "empty clear hydration packs"
       ],
       "prohibited": [
-        "Other backpacks, purses, or bags"
+        "non-clear backpacks, purses, or bags outside the listed exceptions",
+        "tinted or opalescent bags"
       ],
-      "note": "This is the current all-U.S.-festivals policy; verify that a future Los Angeles edition has not published event-specific changes.",
+      "note": "This is Rolling Loud's current policy for all U.S. festivals.",
       "officialLink": "https://www.rollingloud.com/bagpolicy",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "parking": {
       "note": "No current Los Angeles-specific Rolling Loud parking plan was confirmed on the official festival site. Do not rely on the former apartment-page link; use the official event guide if a Los Angeles edition is announced.",
@@ -26995,69 +26985,63 @@
     "lat": 29.9868,
     "lng": -90.0745,
     "bagPolicy": {
-      "summary": "New Orleans Jazz & Heritage Festival does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "Jazz Fest publishes festival-specific allowed and prohibited items rather than a simple universal bag-size rule. Check the current official FAQ and prohibited-items guidance shortly before attending.",
       "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.jazzandheritage.org/wp-content/uploads/2024/05/Education-After-School-Grants-2024-2025-Guidelines.pdf",
-      "verified": "2026-08-20",
+      "prohibited": [
+        "rolling bags or packs"
+      ],
+      "note": "The festival policies are event-specific and can change between editions.",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "parking": {
-      "note": "Parking is available at the rear of the George and Joyce Wein Jazz & Heritage Center, where the entrance is also located. No pricing information is provided.",
+      "note": "On-site parking is very limited and is reserved for eligible VIP packages and a limited number of accessible spaces. Parking in the surrounding neighborhood is restricted to residents.",
       "lots": [],
-      "officialLink": "https://www.jazzandheritage.org/community-outreach-pick-up/",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "A dedicated rideshare zone was not confirmed in New Orleans Jazz & Heritage Festival's current published guidance. Follow the event page and your rideshare app on show day, and use only signed pickup or drop-off areas.",
-      "officialLink": "https://www.jazzandheritage.org/community-outreach-pick-up/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "note": "The City restricts rideshare pickup and drop-off within a perimeter around the Fair Grounds. Use the current official Jazz Fest transportation map for the designated pickup zone.",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
-      "note": "The New Orleans Jazz & Heritage Festival offers a diverse array of food options, including BBQ, seafood, and vegan dishes. Highlights include the Whiskey Bacon & Swiss Burger, Crawfish Mac & Cheese, and Chargrilled Oysters. Unique offerings such as the Surf ‘n Turf Pupusa and Ropa Vieja Modelo Queso Mac showcase the festival's culinary creativity.",
-      "stands": [
-        "Divine Cuisine",
-        "Cochon King BBQ",
-        "Magasin Vietnamese Café",
-        "Brocato’s Catering",
-        "Que Pasta Nola",
-        "Café Dauphine",
-        "Steakman Catering"
-      ],
-      "officialLink": "https://www.jazzandheritage.org/food-menus-2024-crescent-city-blues-bbq-festival/",
-      "verified": "2026-08-20",
+      "note": "Jazz Fest has two major food areas with a wide range of Louisiana cuisine and vegan/vegetarian-friendly options. Food, beverage, craft, and merchandise booths are cashless.",
+      "stands": [],
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by New Orleans Jazz & Heritage Festival, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://www.jazzandheritage.org/wp-content/uploads/2024/05/Education-After-School-Grants-2024-2025-Guidelines.pdf",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Jazz Fest has a dedicated Access Program and Access Center, accessible routes, viewing accommodations, accessible parking/loading guidance, and services for guests with mobility, vision, hearing, and sensory needs.",
+      "officialLink": "https://www.nojazzfest.com/patrons-with-disabilities/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in New Orleans Jazz & Heritage Festival's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.jazzandheritage.org/wp-content/uploads/2024/05/Education-After-School-Grants-2024-2025-Guidelines.pdf",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "General admission does not include re-entry. Certain qualifying VIP credentials include re-entry privileges at the festival's main gates.",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Current official guidance does not publish one universal will-call schedule for every event at New Orleans Jazz & Heritage Festival. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.jazzandheritage.org/wp-content/uploads/2024/05/Education-After-School-Grants-2024-2025-Guidelines.pdf",
-      "verified": "2026-08-20",
+      "body": "Ticket delivery and event-day support depend on the ticket or package purchased. Follow the instructions from the official Jazz Fest ticket provider and current festival communications.",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at New Orleans Jazz & Heritage Festival. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.jazzandheritage.org/wp-content/uploads/2024/05/Education-After-School-Grants-2024-2025-Guidelines.pdf",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Public pedestrian access is available at the Gentilly Boulevard, Trafalgar Street, and Sauvage Street gates. Festival gates open at 11 a.m. daily for the currently published schedule; confirm the current edition before arrival.",
+      "officialLink": "https://www.nojazzfest.com/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -27689,64 +27673,65 @@
     "lat": 34.0774,
     "lng": -117.2577,
     "bagPolicy": {
-      "summary": "Bags must be clear and not exceed 12”x6”x12”. Non-clear hydration packs with up to two main compartments are allowed if empty upon entry.",
+      "summary": "Clear bags up to 12 x 6 x 12 inches are allowed. Small non-clear or clear clutch bags up to 6 x 9 inches are also allowed, along with empty hydration packs within the festival compartment rules.",
       "allowed": [
-        "CLEAR bags not exceeding 12”x6”x12”",
-        "NON-CLEAR hydration packs with no more than two main compartments (must be empty upon entry)"
+        "clear bags up to 12 x 6 x 12 inches",
+        "small clutch bags up to 6 x 9 inches",
+        "empty hydration packs within policy"
       ],
       "prohibited": [],
-      "note": "Physician-prescribed medication must be shown with a prescription and consulted with a safety officer upon entry.",
+      "note": "All guests agree to thorough security screening. Review the current festival guide before arrival.",
       "officialLink": "https://socal.beyondwonderland.com/guide/hours-and-info/",
-      "verified": "2026-08-20",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking availability, access routes, and pricing at Beyond Wonderland SoCal can vary by event. Review the linked official information and reserve in advance when that option is offered.",
+      "note": "Use the festival's current Parking & Drop-Offs page for official parking directions and restrictions. Vehicles must leave the parking lot after each festival day.",
       "lots": [],
-      "officialLink": "https://www.nosevents.com/wp-content/uploads/2017/03/2017-OSF-Food-Vendor-App.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://socal.beyondwonderland.com/travel/parking/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "Whether you’re ridesharing, taking a taxi, or getting dropped off by a friend, all guest drop-offs must go to the designated Guest Drop-Off and Pickup location.",
+      "note": "Rideshare, taxi, and guest drop-offs use the designated Guest Drop-Off and Pickup location. The current guide directs rideshare drivers toward the Big Lots parking lot off Orange Show Road and Arrowhead Boulevard.",
       "officialLink": "https://socal.beyondwonderland.com/travel/parking/",
-      "verified": "2026-08-20",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
-      "note": "Food and beverage availability at Beyond Wonderland SoCal varies by event and operating setup. Review the linked official guest information before arrival.",
+      "note": "Food, drinks, and other festival amenities are available on site. Exact vendors and locations vary by edition; use the current festival map and Amenities & Services guide.",
       "stands": [],
-      "officialLink": "https://www.nosevents.com/wine-food-by-the-lagoon/",
-      "verified": "2026-08-20",
+      "officialLink": "https://socal.beyondwonderland.com/guide/amenities-services/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Current official guidance confirms that accessibility arrangements are handled by Beyond Wonderland SoCal, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://socal.beyondwonderland.com/guide/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "The festival provides accessible routes connecting parking, entrances, stages, viewing areas, vendors, and other activity areas. Limited accessible parking is available first come, first served.",
+      "officialLink": "https://socal.beyondwonderland.com/guide/accessibility/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in Beyond Wonderland SoCal's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://socal.beyondwonderland.com/guide/hours-and-info/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Re-entry is not allowed; the festival does not permit ins-and-outs.",
+      "officialLink": "https://socal.beyondwonderland.com/guide/faq/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Current official guidance does not publish one universal will-call schedule for every event at Beyond Wonderland SoCal. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://socal.beyondwonderland.com/guide/faq/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Box Office/Will Call hours are published in the current Hours & Info guide for each edition. Confirm the posted hours before traveling to the venue.",
+      "officialLink": "https://socal.beyondwonderland.com/guide/hours-and-info/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Beyond Wonderland SoCal. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://socal.beyondwonderland.com/guide/faq/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Entry is through the festival entrances shown in the current map and event guide. Expect TSA-style security screening and confirm event hours in the current Hours & Info page.",
+      "officialLink": "https://socal.beyondwonderland.com/guide/hours-and-info/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -28118,12 +28103,12 @@
     "lat": 29.951439,
     "lng": -90.08197,
     "bagPolicy": {
-      "summary": "Essence Festival of Culture does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "ESSENCE Festival spans multiple venues, so there is not one bag rule for the entire weekend. The Caesars Superdome evening concert series requires stadium-compliant clear bags; daytime Convention Center rules can differ.",
       "allowed": [],
       "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://mccno.com/wp-content/uploads/2024/09/NOENMCC-Operational-Procedures-Information-7.9.24.pdf",
-      "verified": "2026-08-20",
+      "note": "Check the E360 app and the rules for the specific ESSENCE event/venue you are attending.",
+      "officialLink": "https://www.essence.com/essencefest-general-faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "parking": {
@@ -28151,29 +28136,29 @@
     "accessibility": {
       "title": "Accessibility",
       "body": "Current official guidance confirms that accessibility arrangements are handled by Essence Festival of Culture, but event-specific services may require advance coordination. Contact the venue before purchasing if you need accessible seating, mobility assistance, interpreting, assistive-listening support, or another accommodation.",
-      "officialLink": "https://mccno.com/wp-content/uploads/2024/09/NOENMCC-Operational-Procedures-Information-7.9.24.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.essence.com/essencefest-general-faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Essence Festival of Culture's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://mccno.com/wp-content/uploads/2024/09/NOENMCC-Operational-Procedures-Information-7.9.24.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.essence.com/essencefest-general-faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at Essence Festival of Culture. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://mccno.com/wp-content/uploads/2024/09/NOENMCC-Operational-Procedures-Information-7.9.24.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.essence.com/essencefest-general-faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Essence Festival of Culture. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://mccno.com/wp-content/uploads/2024/09/NOENMCC-Operational-Procedures-Information-7.9.24.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.essence.com/essencefest-general-faq/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "seatingChartLink": "",
@@ -28188,12 +28173,15 @@
     "lat": 30.263591,
     "lng": -97.739749,
     "bagPolicy": {
-      "summary": "SXSW (Music, Film & Interactive) does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
+      "summary": "SXSW bag policies vary by venue. Attendees are encouraged to travel light; luggage and large cases are not permitted, and larger bags may be inspected. Major Film & TV and Music Festival venues publish their own size/clear-bag limits.",
       "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://www.sxsw.com/wp-content/uploads/2024/02/singleparamount.pdf",
-      "verified": "2026-08-20",
+      "prohibited": [
+        "luggage",
+        "large cases"
+      ],
+      "note": "Always check the specific official venue policy before entry.",
+      "officialLink": "https://sxsw.com/attendee-safety/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -28210,11 +28198,11 @@
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "The SXSW event offers a variety of food and drink options, including local Austin favorites and international cuisine. Attendees can enjoy a mix of traditional and innovative food offerings, with special emphasis on sustainability and local sourcing.",
+      "note": "Food and beverage availability varies across SXSW venues and activations. Check the individual venue or event listing rather than relying on one festival-wide concessions menu.",
       "stands": [],
-      "officialLink": "https://www.sxsw.com/wp-content/uploads/2021/10/2022-SXSW-General-Exhibitons-FAQ-.pdf",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
+      "officialLink": "https://sxsw.com/",
+      "verified": "2026-09-04",
+      "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "accessibility": {
       "title": "Accessibility",
@@ -28226,22 +28214,22 @@
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in SXSW (Music, Film & Interactive)'s current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.sxsw.com/wp-content/uploads/2024/02/singleparamount.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://sxsw.com/attendee-safety/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
       "body": "Current official guidance does not publish one universal will-call schedule for every event at SXSW (Music, Film & Interactive). Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.sxsw.com/wp-content/uploads/2024/02/singleparamount.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://sxsw.com/attendee-safety/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at SXSW (Music, Film & Interactive). Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.sxsw.com/wp-content/uploads/2024/02/singleparamount.pdf",
-      "verified": "2026-08-20",
+      "officialLink": "https://sxsw.com/attendee-safety/",
+      "verified": "2026-09-04",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "seatingChartLink": "",

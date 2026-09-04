@@ -5,5 +5,9 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.107.0",
     "stripe": "^22.2.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-release.js",
+    "validate:deploy": "node scripts/validate-deploy.js"
   }
 }

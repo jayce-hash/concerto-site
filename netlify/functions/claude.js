@@ -15,6 +15,7 @@
 // capability is "list a venue's upcoming music events" — read-only public data, no key exposed.
 
 const { createClient } = require('@supabase/supabase-js');
+const venueInfo = require('../../data/venue_info.json');
 
 const ALLOWED_ORIGINS = [
   'https://concertocity.com',
@@ -143,9 +144,27 @@ exports.handler = async function (event) {
 
     // ── Bag Check (image analysis) ──
     if (service === 'bag_check') {
-      const { imageB64, venue } = body;
-      if (!imageB64 || !venue) {
+      const { imageB64, venueSlug, venue: clientVenue } = body;
+      if (!imageB64 || (!venueSlug && !clientVenue)) {
         return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing image or venue' }) };
+      }
+
+      // Verified venue policy is server-owned. A modified client must not be
+      // able to tell Bag Check what an arena's official rules supposedly are.
+      // Keep the legacy payload only as a compatibility fallback for an older
+      // app binary while 2.4.1 rolls out.
+      const detail = venueSlug ? venueInfo[String(venueSlug)] : null;
+      const venue = detail ? {
+        n: detail.name,
+        loc: `${detail.city}${detail.state ? `, ${detail.state}` : ''}`,
+        policy_text: detail.bagPolicy?.summary || '',
+        allows: detail.bagPolicy?.allowed || [],
+        denies: detail.bagPolicy?.prohibited || [],
+        park_note: detail.parking?.note || 'unknown',
+        ride_note: detail.rideshare?.note || 'unknown',
+      } : clientVenue;
+      if (!venue) {
+        return { statusCode: 404, headers, body: JSON.stringify({ error: 'Venue not found' }) };
       }
       const policy = `Venue: ${venue.n} (${venue.loc})
 Policy: ${venue.policy_text || ''}

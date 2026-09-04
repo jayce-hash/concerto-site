@@ -38,7 +38,12 @@ HUBS = [
     # single canonical Near Me URL.
     ('/near-me',   '0.8', 'daily'),
     ('/premium',   '0.8', 'monthly'),
-    ('/about',     '0.6', 'monthly'),
+    ('/about',     '0.7', 'monthly'),
+    ('/partners',  '0.7', 'monthly'),
+    ('/creators',  '0.6', 'monthly'),
+    ('/press',     '0.6', 'monthly'),
+    ('/investors', '0.5', 'monthly'),
+    ('/contact',   '0.5', 'monthly'),
     ('/faq',       '0.6', 'monthly'),
     ('/bagcheck',  '0.6', 'monthly'),
     ('/privacy',   '0.3', 'yearly'),
@@ -48,7 +53,7 @@ HUBS = [
 # Legacy hub pages: still live, still indexed, still earning traffic.
 # They keep their old design for now, but excluding them from the
 # sitemap would throw away real ranking history for no reason.
-LEGACY_HUBS = ['bags', 'parking', 'rideshare', 'concessions', 'top-picks', 'partners',
+LEGACY_HUBS = ['bags', 'parking', 'rideshare', 'concessions', 'top-picks',
                'features']
 
 # Deliberately EXCLUDED:
