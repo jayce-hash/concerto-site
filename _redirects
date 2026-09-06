@@ -1,7 +1,8 @@
-# ── Concerto: the app IS the website ────────────────────────────────
-# One surface. The static /venues/* and /tours/* guide pages are gone;
-# every venue and tour URL now serves the app's detail screen at the
-# singular path. The 301s below carry the old URLs across.
+# ── Concerto public web architecture ───────────────────────────────
+# One content system, two presentation systems. Public venue, tour, and
+# setlist URLs are website-native static pages. App utility routes remain
+# available where appropriate. Redirects below preserve historical URLs
+# without routing canonical content through a generic app shell.
 
 # Legacy
 # events.tsx retired -- /near-me is the single Near Me screen. A 301
@@ -29,17 +30,17 @@
 # Retired tour. Must sit above the /tours/* splat so it wins.
 /tours/fifa-world-cup-2026   /tours   301
 
-# The plural guide URLs are retired. Every old /venues/{slug} and
-# /tours/{slug} 301s to the app screen at the singular path. The
-# hubs /venues and /tours are untouched (splats don't match the bare
-# path) and keep serving the app's tab pages.
+# Historical plural detail URLs redirect to the canonical singular
+# website-native venue and tour pages. Hub URLs remain canonical.
 /venues/*   /venue/:splat   301!
 /tours/*    /tour/:splat    301!
 
-# The app's detail screens: any slug rewrites to the exported shell.
-/venue/*   /venue/[slug].html   200
-/tour/*    /tour/[slug].html    200
 /show/*    /show/[id].html      200
+
+
+# Historical tour slugs with direct successors.
+/tour/hayley-williams-at-a-bachelorette-party-tour  /tour/hayley-williams-the-hayley-williams-show  301
+/tour/jonas-brothers-greetings-from-your-hometown-tour  /tour/jonas-brothers-the-burning-up-tour-all-over-again  301
 
 # Old city guide SPA links used de-hyphenated slugs, so a splat can't
 # map them. Explicit per-venue mapping, generated from data/venues.json
@@ -383,13 +384,11 @@
 /cityguide/*   /venue/:splat   301
 /cityguides    /venues         301
 
-# Retired marketing pages: the app's own surfaces carry these now.
+# Retired legacy marketing routes.
 /features            /        301
 /features.html       /        301
 /how-it-works        /        301
 /how-it-works.html   /        301
-/setlists            /tours   301
-/setlists.html       /tours   301
 
 # Tour id typo fixed (millenium -> millennium); carry the old URL.
 /tour/backstreet-boys-into-the-millenium-sphere-las-vegas   /tour/backstreet-boys-into-the-millennium-sphere-las-vegas   301
@@ -407,8 +406,8 @@
 /mobile-tours.html   /tours     301
 /mobile-events       /near-me   301
 /mobile-events.html  /near-me   301
-/mobile-top-picks    /top-picks 301
-/mobile-top-picks.html /top-picks 301
+/mobile-top-picks    /perks 301
+/mobile-top-picks.html /perks 301
 /mobile-premium      /premium   301
 /mobile-premium.html /premium   301
 /mobile-concertoplus /premium   301
@@ -416,12 +415,16 @@
 
 # Duplicate surfaces retired: picks/featuredtours were canonical to
 # /top-picks and /tours already; tourinfo folds into /tours.
-/picks                /top-picks   301
-/picks.html           /top-picks   301
+/picks                /perks   301
+/picks.html           /perks   301
 /featuredtours        /tours       301
 /featuredtours.html   /tours       301
 /tourinfo             /tours       301
 /tourinfo.html        /tours       301
+
+# Public website canonical helpers.
+/setlists.html       /setlists       301
+/setlists/*          /setlist/:splat 301!
 
 # Real 404 for anything else.
 /*   /+not-found.html   404
@@ -430,8 +433,8 @@
 /tour/jonas-brothers-the-burning-up-tour-all-over-again
 301!
 # Concerto partnership architecture
-/top-picks       /perks   301
-/top-picks.html  /perks   301
+/top-picks       /perks   301!
+/top-picks.html  /perks   301!
 /partners/restaurants  /partner-restaurants.html  200
 /partners/hotels       /partner-hotels.html       200
 /partners/venues       /partner-venues.html       200

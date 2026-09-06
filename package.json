@@ -9,6 +9,7 @@
   "scripts": {
     "validate": "node scripts/validate-release.js",
     "validate:deploy": "node scripts/validate-deploy.js",
-    "validate:brand": "node scripts/validate-brand-system.js"
+    "validate:brand": "node scripts/validate-brand-system.js",
+    "validate:seo": "node scripts/validate-seo.js"
   }
 }
