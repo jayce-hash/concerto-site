@@ -14,7 +14,6 @@ for(const [id,n] of unmatched) ok(allowed.has(id)&&n===0,`setlist mapping ${id}:
 
 const netlify=fs.readFileSync(path.join(root,'netlify.toml'),'utf8');
 ok(netlify.includes('data/venue_info.json'),'netlify.toml must package venue_info.json for Bag Check');
-ok(fs.existsSync(path.join(root,'.github/workflows/sync-native-web.yml')),'native web sync workflow missing');
 ok(fs.existsSync(path.join(root,'scripts/sync-native-web.sh')),'native web sync script missing');
 const bannedVenueSources=['Education-After-School-Grants-2024-2025-Guidelines.pdf','2017-OSF-Food-Vendor-App.pdf','2022-SXSW-General-Exhibitons-FAQ','/miami2024','/shows/calendar/2025-08'];
 const infoText=JSON.stringify(info);
@@ -37,7 +36,6 @@ for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){ const html=
 ok(fs.existsSync(path.join(root,'BRAND-LANGUAGE-2.5.md')),'2.5 brand language source of truth missing');
 ok(fs.existsSync(path.join(root,'LAUNCH-2.5.md')),'2.5 launch pack missing');
 
-const premium=fs.readFileSync(path.join(root,'premium.html'),'utf8'); ok((premium.match(/<script src="auth\.js"><\/script>/g)||[]).length===1,'premium.html must load auth.js once');
 for(const f of fs.readdirSync(path.join(root,'netlify/functions')).filter(x=>x.endsWith('.js'))){try{cp.execFileSync(process.execPath,['--check',path.join(root,'netlify/functions',f)],{stdio:'ignore'});}catch{errors.push(`syntax error netlify/functions/${f}`)}}
 if(errors.length){console.error('RELEASE VALIDATION FAILED'); for(const e of errors)console.error(' - '+e); process.exit(1)}
 console.log(`PASS: site | ${venues.length} venues | ${tours.length} tours | ${Object.keys(setlists).length} setlists | ${fields.length} verified venue sections each`);

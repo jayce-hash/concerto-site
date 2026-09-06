@@ -427,16 +427,49 @@
 /setlists/*          /setlist/:splat 301!
 
 # Real 404 for anything else.
-/*   /+not-found.html   404
 
-/tour/jonas-brothers-greetings-from-your-hometown-tour
-/tour/jonas-brothers-the-burning-up-tour-all-over-again
-301!
-# Concerto partnership architecture
-/top-picks       /perks   301!
-/top-picks.html  /perks   301!
-/partners/restaurants  /partner-restaurants.html  200
-/partners/hotels       /partner-hotels.html       200
-/partners/venues       /partner-venues.html       200
-/partners/artists      /partner-artists.html      200
-/partners-thank-you    /partners-thank-you.html   200
+# Canonical public website routes. These are explicit so public navigation never falls through to an app shell.
+/ /index.html 200
+/venues /venues.html 200
+/tours /tours.html 200
+/setlists /setlists.html 200
+/near-me /near-me.html 200
+/premium /premium.html 200
+/perks /perks.html 200
+/partners /partners.html 200
+/about /about.html 200
+/press /press.html 200
+/investors /investors.html 200
+/contact /contact.html 200
+/creators /creators.html 200
+/help /help.html 200
+/faq /faq.html 200
+/bagcheck /bagcheck.html 200
+/bags /bags.html 200
+/parking /parking.html 200
+/rideshare /rideshare.html 200
+/concessions /concessions.html 200
+/privacy /privacy.html 200
+/terms /terms.html 200
+/search /search.html 200
+/account /account.html 200
+/login /login.html 200
+/signup /signup.html 200
+/settings /settings.html 200
+/plan /plan.html 200
+/partners/restaurants /partner-restaurants.html 200
+/partners/hotels /partner-hotels.html 200
+/partners/venues /partner-venues.html 200
+/partners/artists /partner-artists.html 200
+/partners-thank-you /partners-thank-you.html 200
+/contact-thank-you /contact-thank-you.html 200
+/venue/* /venue/:splat.html 200
+/tour/* /tour/:splat.html 200
+/setlist/* /setlist/:splat.html 200
+
+# Retired commercial surface.
+/top-picks /perks 301!
+/top-picks.html /perks 301!
+
+# Real 404 for anything else.
+/* /404.html 404

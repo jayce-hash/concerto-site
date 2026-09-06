@@ -46,6 +46,6 @@ const fs=require('fs'), cp=require('child_process');
 const [native,site]=process.argv.slice(2);
 let commit='unknown';
 try{commit=cp.execFileSync('git',['-C',native,'rev-parse','HEAD'],{encoding:'utf8'}).trim()}catch{}
-fs.writeFileSync(`${site}/.native-web-sync.json`,JSON.stringify({nativeCommit:commit,syncedAt:new Date().toISOString(),architecture:'public-web-v3'},null,2)+'\n');
+fs.writeFileSync(`${site}/.native-web-sync.json`,JSON.stringify({nativeCommit:commit,syncedAt:new Date().toISOString(),architecture:'public-web-v5'},null,2)+'\n');
 NODE
 node "$SITE/scripts/validate-deploy.js"
