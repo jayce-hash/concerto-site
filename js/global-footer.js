@@ -1,7 +1,7 @@
 (function(){
   const APP_STORE='https://apps.apple.com/us/app/concerto-show-go/id6744903414';
   const groups=[
-    ['Explore',[['Venues','/venues'],['Tours','/tours'],['Near Me','/near-me'],['Concerto+','/premium']]],
+    ['Explore',[['Venues','/venues'],['Tours','/tours'],['Near Me','/near-me'],['Perks','/perks'],['Concerto+','/premium']]],
     ['Company',[['About','/about'],['Press & Media','/press'],['Investors','/investors'],['Contact','/contact']]],
     ['Work With Us',[['Partners','/partners'],['Creators','/creators'],['Get the App',APP_STORE,'app']]],
     ['Support',[['Help Center','/help'],['FAQ','/faq'],['Account','/account'],['Search','/search']]]
