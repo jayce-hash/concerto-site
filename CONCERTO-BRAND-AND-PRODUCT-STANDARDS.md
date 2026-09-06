@@ -1,3 +1,13 @@
+## Typography baseline
+
+The typography authority is the original user-uploaded concerto-site-main-24 package. Preserve its established Playfair/DM Sans relationship and intentional specialty mono treatments rather than flattening all surfaces into one font treatment.
+
+- Playfair Display 700: major page, section, editorial, venue, tour, and branded headings.
+- Playfair Display 500/regular: secondary editorial/entity treatments where the original system used them.
+- DM Sans: body, metadata, navigation, controls, buttons, filters, forms, and utility text.
+- DM Mono: only where the original site explicitly used it for compact coded/editorial labels (for example Top Picks and selected premium micro-labels).
+- Do not replace an established Playfair hierarchy with DM Sans for the sake of appearing more native.
+
 # Concerto Brand & Product Standards
 Version 1.1 - September 2026
 
