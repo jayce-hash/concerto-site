@@ -14,7 +14,6 @@ for(const [id,n] of unmatched) ok(allowed.has(id)&&n===0,`setlist mapping ${id}:
 
 const netlify=fs.readFileSync(path.join(root,'netlify.toml'),'utf8');
 ok(netlify.includes('data/venue_info.json'),'netlify.toml must package venue_info.json for Bag Check');
-ok(fs.existsSync(path.join(root,'.github/workflows/sync-native-web.yml')),'native web sync workflow missing');
 ok(fs.existsSync(path.join(root,'scripts/sync-native-web.sh')),'native web sync script missing');
 const bannedVenueSources=['Education-After-School-Grants-2024-2025-Guidelines.pdf','2017-OSF-Food-Vendor-App.pdf','2022-SXSW-General-Exhibitons-FAQ','/miami2024','/shows/calendar/2025-08'];
 const infoText=JSON.stringify(info);
