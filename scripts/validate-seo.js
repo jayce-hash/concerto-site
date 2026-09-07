@@ -44,6 +44,7 @@ for(const f of publicPages){const h=read(f);
   ok(!h.includes('iphone-status')&&!h.includes('iphone-frame'),`${f}: fake phone status bar markup present`);
   ok(!/<nav[^>]*class="(nav|v2nav)[\s"]/.test(h),`${f}: legacy navigation markup present`);
   ok(!h.split('</head>')[0].includes('\\n'),`${f}: literal \\n text in <head>`);
-  ok(!h.includes('/img/product/source/'),`${f}: references an uncropped product capture`);}
+  ok(!h.includes('/img/product/source/'),`${f}: references an uncropped product capture`);
+  ok(!/\/img\/product\/screens\/[a-z-]+\.webp/.test(h),`${f}: references an unhashed product screen (rerun build-product-screens.py)`);}
 ok(!/\b157 setlists\b/i.test(read('index.html')+read('setlists.html')),'public site must not imply all 157 tracked records are populated setlists');
 console.log(`PASS: SEO | ${locs.length} sitemap URLs | ${venues.length} venue pages | ${tours.length} tour pages | ${populated.length} populated setlist pages | ${coming.length} tracked coming soon | public web V6`);

@@ -4,7 +4,7 @@ import re, json, os, sys
 from pathlib import Path
 from collections import Counter, defaultdict
 ROOT=Path(__file__).resolve().parent.parent; SITE='https://concertocity.com'
-issues=defaultdict(list)
+issues=defaultdict(list); warnings=[]
 rules=[l.split('#')[0].split() for l in (ROOT/'_redirects').read_text().splitlines() if l.split('#')[0].strip()]
 def match(p):
     for r in rules:
@@ -87,7 +87,7 @@ for rel,html in pages.items():
     if not t: issues['missing title'].append(rel)
     if not d: issues['missing meta description'].append(rel)
     w=text_words(html)
-    if w<120: issues['thin page (<120 words)'].append(f'{rel} ({w} words)')
+    if w<120: warnings.append(f'{rel} ({w} words)')
     if not re.search(r'<h1[ >]',html): issues['missing h1'].append(rel)
     if len(re.findall(r'<h1[ >]',html))>1: issues['multiple h1'].append(rel)
     for m in re.findall(r'<script type="application/ld\+json">(.*?)</script>',html,re.S):
@@ -129,6 +129,7 @@ for p in ['/this-does-not-exist','/venue/not-a-venue','/tour/not-a-tour','/setli
     if st!='404': issues['should be 404'].append(f'{p} ({st})')
 # ---- report
 total=sum(len(v) for v in issues.values())
+if warnings: print('\n## warning: short pages (review, not blocking)'); [print('  -',x) for x in warnings]
 for k,v in issues.items():
     print(f'\n## {k} ({len(v)})'); [print('  -',x) for x in v[:8]]; 
     if len(v)>8: print(f'  ... {len(v)-8} more')

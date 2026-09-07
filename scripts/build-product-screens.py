@@ -8,6 +8,7 @@ never shows a stale clock, then writes a compact WebP to img/product/screens/.
 The device frame in css/public-v6.css draws the Dynamic Island and is sized to
 this exact aspect ratio, so the whole screen is visible with nothing cut off.
 """
+import hashlib, io, json
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -73,14 +74,22 @@ def paint_status_bar(im):
     return im
 
 
-built = []
+built = []; manifest = {}
 for f in sorted(SRC.glob('*.png')):
     im = Image.open(f).convert('RGB')
     im = paint_status_bar(im)
-    out = OUT / f'{f.stem}.webp'
-    im.save(out, 'WEBP', quality=86, method=6)
-    built.append((f.stem, im.width, im.height, out.stat().st_size // 1024))
+    buf = io.BytesIO(); im.save(buf, 'WEBP', quality=86, method=6); data = buf.getvalue()
+    digest = hashlib.sha1(data).hexdigest()[:8]
+    out = OUT / f'{f.stem}.{digest}.webp'
+    for stale in OUT.glob(f'{f.stem}.*.webp'):
+        if stale != out: stale.unlink()
+    legacy = OUT / f'{f.stem}.webp'
+    if legacy.exists(): legacy.unlink()
+    out.write_bytes(data)
+    manifest[f.stem] = out.name
+    built.append((f.stem, im.width, im.height, len(data) // 1024))
 
+(OUT / 'manifest.json').write_text(json.dumps(manifest, indent=1, sort_keys=True) + '\n')
 for name, w, h, kb in built:
     print(f'{name:12s} {w}x{h}  {kb} KB')
 if built:

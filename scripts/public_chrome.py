@@ -134,14 +134,19 @@ SCREENS_DIR = 'img/product/screens'
 
 
 def product_screen(name):
-    """Path to a cropped app capture. Falls back to the venue screen when a
-    feature does not have its own real capture yet (drop one into
-    img/product/source/<name>.png and run scripts/build-product-screens.py)."""
+    """Path to a cropped app capture, resolved through img/product/screens/manifest.json
+    (content-hashed filenames, so a replaced capture is a new URL and never served stale).
+    Falls back to the venue screen, then home, when a feature has no capture yet."""
+    import json
     from pathlib import Path
     root = Path(__file__).resolve().parent.parent
+    try:
+        manifest = json.loads((root / SCREENS_DIR / 'manifest.json').read_text())
+    except Exception:
+        manifest = {}
     for candidate in (name, 'venue', 'home'):
-        if (root / SCREENS_DIR / f'{candidate}.webp').exists():
-            return f'/{SCREENS_DIR}/{candidate}.webp'
+        if candidate in manifest:
+            return f'/{SCREENS_DIR}/{manifest[candidate]}'
     return f'/{SCREENS_DIR}/{name}.webp'
 
 
