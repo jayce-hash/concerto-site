@@ -69,3 +69,11 @@ example content and is labeled as such. Replace it with a real capture by adding
 `scripts/forms/contact.html`, topic prefilled from `?topic=investor|media|creator`),
 and FAQ (questions in `scripts/faq.json`, emitted as FAQPage structured data).
 Help, Privacy, and Terms remain hand-written.
+
+## SEO launch checks
+`scripts/build-redirects.py` writes a managed block in `_redirects` that 301s every
+`.html` file to its extensionless canonical (forced, because Netlify serves a static
+file before any unforced rule). `scripts/audit-seo.py` checks the sitemap against the
+files and redirect rules, self-referencing canonicals, robots directives, titles,
+descriptions, h1s, structured data, redirect chains, retired routes, and genuine 404s.
+Both run in the push script; the audit exits non-zero on any finding.
