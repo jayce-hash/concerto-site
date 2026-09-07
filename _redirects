@@ -442,6 +442,7 @@
 # Canonical public website routes. These are explicit so public navigation never falls through to an app shell.
 / /index.html 200
 /near-me /near-me.html 200
+/your-night /your-night.html 200
 /premium /premium.html 200
 /perks /perks.html 200
 /partners /partners.html 200

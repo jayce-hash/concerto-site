@@ -90,7 +90,7 @@ def footer_html():
     cols = [
         ('Discover', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'),
                       ('Near Me', '/near-me'), ('Perks', '/perks')]),
-        ('Product', [('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
+        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
                      ('Bag policies', '/bags'), ('Parking', '/parking'), ('Get the App', APP)]),
         ('Company', [('About', '/about'), ('Press & Media', '/press'), ('Investors', '/investors'),
                      ('Contact', '/contact')]),
