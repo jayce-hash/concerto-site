@@ -35,5 +35,15 @@ for(const t of tours){const slug=t.tourId;const h=read(`tour/${slug}.html`);ok(h
 for(const [slug,meta] of populated){const h=read(`setlist/${slug}.html`);ok(h.includes(`https://concertocity.com/setlist/${slug}`),`bad setlist canonical ${slug}`);ok(h.includes('<ol class="song-list">'),`setlist content missing ${slug}`);ok(!/\b0 songs\b/i.test(h),`zero-song copy present on populated setlist ${slug}`)}
 for(const f of ['account.html','search.html','settings.html','plan.html','login.html','signup.html']){if(fs.existsSync(path.join(root,f)))ok(/name=["']robots["'][^>]*content=["']noindex/i.test(read(f))||/content=["']noindex[^"']*["'][^>]*name=["']robots/i.test(read(f)),`${f} should be noindex`)}
 ok(read('index.html').includes('The concert is only part of the night.'),'public marketing homepage missing');
+// Site chrome must be real HTML on every public page: one header, one footer, no fake phone status bar, no legacy nav.
+const publicPages=fs.readdirSync(root).filter(f=>f.endsWith('.html')&&!['account.html','login.html','signup.html','plan.html','settings.html'].includes(f))
+  .concat(venueFiles.map(f=>'venue/'+f),tourFiles.map(f=>'tour/'+f),setlistFiles.map(f=>'setlist/'+f));
+for(const f of publicPages){const h=read(f);
+  ok((h.match(/<header class="site-header">/g)||[]).length===1,`${f}: expected exactly one site header`);
+  ok((h.match(/<footer class="site-footer">/g)||[]).length===1,`${f}: expected exactly one site footer`);
+  ok(!h.includes('iphone-status')&&!h.includes('iphone-frame'),`${f}: fake phone status bar markup present`);
+  ok(!/<nav[^>]*class="(nav|v2nav)[\s"]/.test(h),`${f}: legacy navigation markup present`);
+  ok(!h.split('</head>')[0].includes('\\n'),`${f}: literal \\n text in <head>`);
+  ok(!h.includes('/img/product/source/'),`${f}: references an uncropped product capture`);}
 ok(!/\b157 setlists\b/i.test(read('index.html')+read('setlists.html')),'public site must not imply all 157 tracked records are populated setlists');
 console.log(`PASS: SEO | ${locs.length} sitemap URLs | ${venues.length} venue pages | ${tours.length} tour pages | ${populated.length} populated setlist pages | ${coming.length} tracked coming soon | public web V6`);

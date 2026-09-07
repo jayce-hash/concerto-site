@@ -37,6 +37,9 @@ fi
 
 python3 "$SITE/scripts/build-public-site.py"
 python3 "$SITE/scripts/build-public-features.py"
+python3 "$SITE/scripts/build-company-pages.py"
+python3 "$SITE/scripts/build-support-pages.py"
+python3 "$SITE/scripts/apply-public-chrome.py"
 python3 "$SITE/build_sitemap.py"
 node "$SITE/scripts/validate-brand-system.js"
 node "$SITE/scripts/validate-release.js"

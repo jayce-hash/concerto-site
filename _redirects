@@ -453,8 +453,11 @@
 /terms /terms.html 200
 /search /search.html 200
 /account /account.html 200
-/login /login.html 200
-/signup /signup.html 200
+# Auth lives inside the app's Account tab; the standalone web forms are retired.
+/login /account 301
+/login.html /account 301
+/signup /account 301
+/signup.html /account 301
 /settings /settings.html 200
 /plan /plan.html 200
 /partners/restaurants /partner-restaurants.html 200
@@ -462,7 +465,9 @@
 /partners/venues /partner-venues.html 200
 /partners/artists /partner-artists.html 200
 /partners-thank-you /partners-thank-you.html 200
+/partners/thank-you /partners-thank-you.html 200
 /contact-thank-you /contact-thank-you.html 200
+/contact/thank-you /contact-thank-you.html 200
 /venue/* /venue/:splat.html 200
 /tour/* /tour/:splat.html 200
 /setlist/* /setlist/:splat.html 200

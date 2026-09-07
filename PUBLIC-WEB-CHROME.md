@@ -1,0 +1,65 @@
+# Public web chrome, photos, and product screens
+
+## Header and footer
+`scripts/public_chrome.py` is the single source of the site header and footer.
+Both generators import it, and `scripts/apply-public-chrome.py` stamps the same
+markup into the hand-written pages (about, premium, partners, press, legal,
+help, search, 404). The navigation is real HTML on every page; `js/public-v6.js`
+only wires the menu button. Run `python3 scripts/apply-public-chrome.py` after
+editing any hand-written page. `scripts/sync-native-web.sh` runs it for you.
+
+## Photos
+`js/public-v6.js` resolves photos exactly the way the iPhone app does
+(`src/data/queries.ts` in concerto-native):
+
+- Artist: `tm/attractions.json` with an exact or contains name match, then the
+  monogram. There is no Ticketmaster events fallback on purpose; that is how a
+  different artist's poster used to land on a tile.
+- Venue: static cityguide image, then `venue-photo` (Google Places, coordinate
+  verified), then `tm/venues.json`, then the monogram.
+
+Cards only request photos when they are within 400px of the viewport, at most
+four requests in flight, so a full catalog page does not fire hundreds of
+Google or Ticketmaster calls on load. Real answers are cached (Ticketmaster 30
+days in localStorage, Google 15 minutes in sessionStorage); failures are never
+cached.
+
+## Retired in Phase A
+`css/company.css`, `css/editorial.css`, `css/concerto.css`, `css/global-footer.css`,
+`js/global-footer.js`, `align.css`, `app.js`, `app-shell.js`, `auth.js`, the root
+`songlink.js`, `login.html`, `signup.html` (now 301 to `/account`), `tools/`,
+`besteats.json`, `mockup-*.png`, `preview-image.jpg`, `fix_indexing.py`, and the
+superseded SHIP/PREVIEW/V4 notes. Everything public now renders from
+`css/public-v6.css` and `js/public-v6.js`; the brand validator fails if a retired
+stylesheet reappears.
+
+## Structured data
+Home: Organization, WebSite with SearchAction, SoftwareApplication. Venue: MusicVenue
+with geo plus BreadcrumbList. Tour: MusicGroup plus BreadcrumbList. Setlist: ItemList
+linked to the tour's MusicGroup plus BreadcrumbList. MusicEvent is not emitted because
+`data/tours.json` carries no dates; add dates to the tour records before adding it.
+
+## Product screens
+Raw iPhone captures live in `img/product/source/<name>.png`. Run
+`python3 scripts/build-product-screens.py` to repaint the iOS status bar to the
+marketing standard (12:00, full signal, Wi-Fi, battery) and write compact WebP files to `img/product/screens/`. The device frame in
+`css/public-v6.css` is sized to that exact aspect ratio, so the whole screen is
+visible with nothing overlaid or cut off.
+
+Only `home`, `near-me`, and `venue` are real captures today. The AI Bag Check,
+bags, parking, rideshare, concessions, and Concerto+ pages fall back to the
+venue screen until a real capture is added with the matching name.
+
+## Generated company pages (Phase B and C)
+`scripts/build-company-pages.py` builds the Partners hub, the four partner pages
+(`/partners/restaurants|hotels|venues|artists`), Perks, Concerto+, Investors, and
+Press. Partner copy, example offers, and placements live in the `PARTNERS` dict at
+the top of that script. The Netlify interest forms are kept verbatim in
+`scripts/forms/<type>.html`; edit them there. The in-app preview on partner pages
+is rendered from the app's Home Perk card (`src/components/HomeCards.tsx`) with
+example content and is labeled as such. Replace it with a real capture by adding
+`img/product/source/perk.png` and swapping `app_preview()` for `phone('perk', ...)`.
+`scripts/build-support-pages.py` builds About, Creators, Contact (form in
+`scripts/forms/contact.html`, topic prefilled from `?topic=investor|media|creator`),
+and FAQ (questions in `scripts/faq.json`, emitted as FAQPage structured data).
+Help, Privacy, and Terms remain hand-written.
