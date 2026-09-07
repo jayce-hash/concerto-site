@@ -639,6 +639,13 @@
 /show/*    /show/[id].html      200
 
 
+# Historical URLs seen in Search Console 404 report (Sep 2026).
+/tours/ariana-grande-the-eternal-sunshine-tour-na-2026   /tour/ariana-grande-the-eternal-sunshine-tour-na   301!
+/tour/ariana-grande-the-eternal-sunshine-tour-na-2026    /tour/ariana-grande-the-eternal-sunshine-tour-na   301!
+/venues/tmobile-arena.html   /venue/t-mobile-arena   301!
+/venues/tmobile-arena        /venue/t-mobile-arena   301!
+/venue/tmobile-arena         /venue/t-mobile-arena   301!
+
 # Historical tour slugs with direct successors.
 /tour/hayley-williams-at-a-bachelorette-party-tour  /tour/hayley-williams-the-hayley-williams-show  301
 /tour/jonas-brothers-greetings-from-your-hometown-tour  /tour/jonas-brothers-the-burning-up-tour-all-over-again  301
