@@ -1,3 +1,14 @@
+# ── Hub pages first ─────────────────────────────────────────────────
+# Netlify splats (/tours/*) also match the bare path (/tours), and the
+# first matching rule wins. These must sit above every splat rule below
+# or the hubs 301 to /tour/ and 404.
+/venues     /venues.html     200
+/venues/    /venues.html     200
+/tours      /tours.html      200
+/tours/     /tours.html      200
+/setlists   /setlists.html   200
+/setlists/  /setlists.html   200
+
 # ── Concerto public web architecture ───────────────────────────────
 # One content system, two presentation systems. Public venue, tour, and
 # setlist URLs are website-native static pages. App utility routes remain
@@ -430,9 +441,6 @@
 
 # Canonical public website routes. These are explicit so public navigation never falls through to an app shell.
 / /index.html 200
-/venues /venues.html 200
-/tours /tours.html 200
-/setlists /setlists.html 200
 /near-me /near-me.html 200
 /premium /premium.html 200
 /perks /perks.html 200
