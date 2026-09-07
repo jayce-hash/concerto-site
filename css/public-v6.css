@@ -438,6 +438,8 @@ fieldset legend{margin-bottom:10px}
 .ap-near b{font-family:var(--display);font-weight:500;font-size:10px;line-height:1.15}.ap-near span{font-size:7.5px;color:var(--muted);margin-top:2px}
 .ap-near-photo{background:linear-gradient(160deg,#C9C2B3,#7E7466 60%,#3F3A33);color:#fff}.ap-near-photo span{color:rgba(255,255,255,.75)}
 .ap-near-mono{background:var(--navy);color:#fff}.ap-near-mono i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:var(--display);font-size:34px;color:var(--gold);padding-bottom:26px}.ap-near-mono span{color:rgba(255,255,255,.7)}
+.ap-badge{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);white-space:nowrap;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--muted);background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:5px 10px}
+.app-preview{overflow:visible}.preview-section .ap-badge{color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
 .ap-tabs{position:absolute;left:0;right:0;bottom:0;height:11%;background:var(--navy);display:flex;justify-content:space-around;align-items:center;padding:0 4% 3%;font-size:7px;font-weight:600;color:rgba(255,255,255,.6)}
 .ap-tabs span{display:flex;flex-direction:column;align-items:center;gap:4px}.ap-tabs span:before{content:'';width:12px;height:12px;border-radius:3px;background:currentColor;opacity:.55}.ap-tabs .on{color:var(--gold)}
 .preview-section .preview-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:64px;align-items:center}
