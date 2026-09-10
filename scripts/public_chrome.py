@@ -16,7 +16,6 @@ NAV = [
     ('Setlists', '/setlists'),
     ('Near Me', '/near-me'),
     ('Concerto+', '/premium'),
-    ('Perks', '/perks'),
     ('Partners', '/partners'),
 ]
 MENU_EXTRA = [('About', '/about'), ('Help', '/help'), ('Search', '/search')]

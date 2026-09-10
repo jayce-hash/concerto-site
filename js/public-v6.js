@@ -269,6 +269,81 @@
     render();
   }
 
+
+  /* ---------- Live: shows near the visitor, same Ticketmaster query as the app ---------- */
+  function fmtDay(d) {
+    var t = new Date(d + 'T12:00:00'); var now = new Date(); now.setHours(12, 0, 0, 0);
+    var diff = Math.round((t - now) / 86400000);
+    if (diff === 0) return 'Tonight'; if (diff === 1) return 'Tomorrow';
+    return t.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+  }
+  function eventCard(ev) {
+    var v = ev._embedded && ev._embedded.venues && ev._embedded.venues[0] || {};
+    var img = bestImage(ev.images); var day = ev.dates && ev.dates.start && ev.dates.start.localDate || '';
+    var time = ev.dates && ev.dates.start && ev.dates.start.localTime ? new Date('1970-01-01T' + ev.dates.start.localTime).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }) : '';
+    var a = document.createElement('a'); a.className = 'live-card'; a.href = ev.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = (img ? '<img alt="" loading="lazy" decoding="async">' : '<span class="live-mono">' + initial(ev.name) + '</span>') +
+      '<div class="live-copy"><span class="live-day"></span><h3></h3><p></p></div>';
+    if (img) a.querySelector('img').src = img;
+    a.querySelector('.live-day').textContent = day ? fmtDay(day) : '';
+    a.querySelector('h3').textContent = ev.name || '';
+    a.querySelector('p').textContent = [v.name, time].filter(Boolean).join(' · ');
+    return a;
+  }
+  function loadNear(opts) {
+    var rail = document.querySelector('[data-live-rail]'); if (!rail) return;
+    var params = new URLSearchParams({ size: '12', sort: 'date,asc', classificationName: 'Music', countryCode: 'US', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    if (opts.city) params.set('city', opts.city); else if (opts.lat) { params.set('latlong', opts.lat + ',' + opts.lng); params.set('radius', '75'); params.set('unit', 'miles'); }
+    getJSON(FN + '/tm/events.json?' + params).then(function (d) {
+      var list = d && d._embedded && d._embedded.events || [];
+      var seen = {}; list = list.filter(function (ev) { var k = (ev.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
+      rail.innerHTML = '';
+      if (!list.length) { rail.innerHTML = '<div class="live-empty">No music shows found here this week. Try another city.</div>'; return; }
+      list.slice(0, 10).forEach(function (ev) { rail.appendChild(eventCard(ev)); });
+    }).catch(function () { rail.innerHTML = '<div class="live-empty">Shows near you load in a moment. <a class="text-link" href="/near-me">Open Near Me in the app</a>.</div>'; });
+  }
+  function wireLive() {
+    var root = document.querySelector('[data-live-near]'); if (!root) return;
+    var cityEl = root.querySelector('[data-live-city]'), sub = root.querySelector('[data-live-sub]'), form = root.querySelector('[data-live-form]');
+    getJSON(FN + '/geo').then(function (g) {
+      if (g && g.ok) { cityEl.textContent = g.city || 'you'; loadNear({ lat: g.lat, lng: g.lng }); }
+      else { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); }
+    }).catch(function () { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var c = form.querySelector('input').value.trim(); if (!c) return;
+      cityEl.textContent = c; sub.textContent = 'Music shows in ' + c + ', by night.';
+      root.querySelector('[data-live-rail]').innerHTML = '<div class="live-skeleton"></div><div class="live-skeleton"></div><div class="live-skeleton"></div><div class="live-skeleton"></div>';
+      loadNear({ city: c });
+    });
+  }
+  /* Countdowns on rendered UI pieces */
+  function wireCountdowns() {
+    document.querySelectorAll('[data-countdown]').forEach(function (el) {
+      var t = new Date(el.getAttribute('data-countdown')); if (isNaN(t)) return;
+      var days = Math.max(0, Math.ceil((t - new Date()) / 86400000)); el.textContent = days;
+    });
+  }
+  /* Tonight at this venue: upcoming shows + forecast on venue pages, same functions the app calls */
+  function wireVenueTonight() {
+    var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
+    var lat = host.getAttribute('data-lat'), lng = host.getAttribute('data-lng'), name = host.getAttribute('data-name');
+    var params = new URLSearchParams({ keyword: name, size: '3', sort: 'date,asc', countryCode: 'US', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    if (lat && lng) { params.set('latlong', lat + ',' + lng); params.set('radius', '2'); params.set('unit', 'miles'); }
+    getJSON(FN + '/tm/events.json?' + params).then(function (d) {
+      var list = d && d._embedded && d._embedded.events || []; if (!list.length) return;
+      var first = list[0], day = first.dates && first.dates.start && first.dates.start.localDate;
+      var pill = document.createElement('span'); pill.className = 'meta-pill';
+      pill.innerHTML = '<b></b>&nbsp;· ' + (day ? fmtDay(day) : 'Upcoming');
+      pill.querySelector('b').textContent = first.name; host.appendChild(pill);
+      if (day && lat && lng) getJSON(FN + '/weather?' + new URLSearchParams({ lat: lat, lng: lng, date: day })).then(function (w) {
+        if (!w || !w.available) return;
+        var wp = document.createElement('span'); wp.className = 'meta-pill';
+        wp.textContent = 'Show day ' + w.highF + '°/' + w.lowF + '°' + (w.precipPercent >= 30 ? ' · ' + w.precipPercent + '% rain' : '');
+        host.appendChild(wp);
+      }).catch(function () {});
+    }).catch(function () {});
+  }
+
   /* ---------- contact form: prefill topic from ?topic= ---------- */
   function wireTopic() {
     var sel = document.querySelector('select[name="topic"]'); if (!sel) return;
@@ -280,6 +355,9 @@
 
   function init() {
     wireTopic();
+    wireLive();
+    wireCountdowns();
+    wireVenueTonight();
     document.body.classList.add('public-site');
     wireHeader();
     wireFilters();
