@@ -316,6 +316,16 @@
       loadNear({ city: c });
     });
   }
+  /* No orphaned last word in headlines: tie the last two words together (fallback for browsers without text-wrap:balance) */
+  function wireWidows() {
+    if (CSS && CSS.supports && CSS.supports('text-wrap', 'balance')) return;
+    document.querySelectorAll('h1, h2, h3, .lead, figcaption p').forEach(function (el) {
+      if (el.children.length) return;
+      var t = el.textContent.trim(); var i = t.lastIndexOf(' ');
+      if (i < 0 || t.length < 24) return;
+      el.textContent = t.slice(0, i) + '\u00A0' + t.slice(i + 1);
+    });
+  }
   /* Countdowns on rendered UI pieces */
   function wireCountdowns() {
     document.querySelectorAll('[data-countdown]').forEach(function (el) {
@@ -357,6 +367,7 @@
     wireTopic();
     wireLive();
     wireCountdowns();
+    wireWidows();
     wireVenueTonight();
     document.body.classList.add('public-site');
     wireHeader();
