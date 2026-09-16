@@ -326,6 +326,21 @@
       el.textContent = t.slice(0, i) + '\u00A0' + t.slice(i + 1);
     });
   }
+  /* Open in Concerto: try the app scheme, fall back to the App Store (iOS only; elsewhere the href wins) */
+  function wireAppLinks() {
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    document.querySelectorAll('[data-app-link]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (!ios) return;
+        e.preventDefault();
+        var store = a.getAttribute('href'), app = a.getAttribute('data-app-link'), t0 = Date.now(), left = false;
+        var onHide = function () { left = true; };
+        document.addEventListener('visibilitychange', onHide, { once: true });
+        window.location.href = app;
+        setTimeout(function () { document.removeEventListener('visibilitychange', onHide); if (!left && !document.hidden && Date.now() - t0 < 2500) window.location.href = store; }, 1400);
+      });
+    });
+  }
   /* Countdowns on rendered UI pieces */
   function wireCountdowns() {
     document.querySelectorAll('[data-countdown]').forEach(function (el) {
@@ -367,6 +382,7 @@
     wireTopic();
     wireLive();
     wireCountdowns();
+    wireAppLinks();
     wireWidows();
     wireVenueTonight();
     document.body.classList.add('public-site');

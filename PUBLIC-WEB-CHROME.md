@@ -77,3 +77,17 @@ file before any unforced rule). `scripts/audit-seo.py` checks the sitemap agains
 files and redirect rules, self-referencing canonicals, robots directives, titles,
 descriptions, h1s, structured data, redirect chains, retired routes, and genuine 404s.
 Both run in the push script; the audit exits non-zero on any finding.
+
+## Deep links
+Venue, tour, and setlist pages carry "Open in Concerto" (`app_link()` in
+`public_chrome.py`): on iOS the link tries `concerto://venue/<slug>` or
+`concerto://tour/<slug>` and falls back to the App Store after 1.4s if the app did not
+open; elsewhere it is a plain App Store link. The Smart App Banner on those pages carries
+the same `app-argument`, so an installed user tapping Open lands on that screen. The AASA
+file in `.well-known/` is served as JSON via `_headers`.
+
+## Setlist pipeline
+`scripts/fetch_setlists.py` fills tours without a confirmed setlist from setlist.fm
+(needs `SETLISTFM_API_KEY`). Curated entries are never overwritten; setlist.fm entries
+carry a `source` block and a note naming the show. `--dry-run` previews, `--refresh`
+re-pulls setlist.fm entries older than 14 days. The app reads the same file.

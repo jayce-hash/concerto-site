@@ -165,5 +165,18 @@ def photo_slot(name, alt, cls='photo-band'):
     return ''
 
 
+def app_link(kind, slug, label='Open in Concerto', cls='btn-primary'):
+    """Deep link that opens the app on this venue/tour when installed, else the App Store.
+    Safari will not fire a universal link to the page you are already on, so the site
+    tries the concerto:// scheme first (js/public-v6.js handles the fallback)."""
+    return (f'<a class="{cls}" href="{APP}" data-app-link="concerto://{kind}/{_e(slug)}" '
+            f'data-web-link="{SITE}/{kind}/{_e(slug)}" rel="noopener">{_e(label)}</a>')
+
+
+def smart_banner(kind=None, slug=None):
+    arg = f', app-argument=concerto://{kind}/{slug}' if kind and slug else ''
+    return f'<meta name="apple-itunes-app" content="app-id=6744903414{arg}">'
+
+
 def page_end():
     return footer_html() + '<script src="/js/public-v6.js" defer></script></body></html>'
