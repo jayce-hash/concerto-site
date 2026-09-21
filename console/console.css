@@ -1,0 +1,39 @@
+.console-title{font-size:12px;font-weight:700;color:var(--gold-ink);letter-spacing:.12em;text-transform:uppercase}
+.console-main{padding:56px 0 96px;max-width:960px}
+.console-main h1{font-family:var(--display);font-size:clamp(34px,4.4vw,52px);letter-spacing:-.03em;line-height:1.04;color:var(--navy);margin:10px 0 14px}
+.console-main .lead{font-size:15.5px;line-height:1.7;color:var(--muted);max-width:60ch;margin:0 0 30px}
+.console-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.console-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:14px;margin-bottom:16px}
+.console-card h2{font-family:var(--display);font-size:22px;color:var(--navy);margin:0}
+.console-card label{display:grid;gap:6px;font-size:12px;font-weight:700;color:var(--navy)}
+.console-card input,.console-card select,.console-card textarea{border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:500 14px var(--body);color:var(--navy);background:#fff}
+.console-card input:focus,.console-card select:focus,.console-card textarea:focus{outline:none;border-color:rgba(201,168,76,.8);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.console-card textarea{min-height:90px;resize:vertical}
+.console-card .btn-primary{justify-self:start;border:0;cursor:pointer}
+.console-hint{font-size:11.5px;color:var(--faint);margin:0}
+.console-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.console-status{min-height:22px;font-size:13px;color:var(--gold-ink);font-weight:700;margin-top:12px}
+.console-tabs{display:flex;gap:6px;margin:0 0 22px;border-bottom:1px solid var(--line)}
+.console-tabs button{border:0;background:none;padding:12px 14px;font:700 13px var(--body);color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.console-tabs button.on{color:var(--navy);border-bottom-color:var(--gold)}
+.section-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 24px;margin-bottom:14px}
+.section-card header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.section-card h3{font-family:var(--display);font-size:22px;margin:0;color:var(--navy)}
+.section-card .stamp{font-size:11px;font-weight:800;color:var(--gold-ink)}
+.section-card .stamp.venue:before{content:'✓ '}
+.section-card p.summary{font-size:14px;line-height:1.65;color:var(--muted);margin:0 0 10px}
+.section-card details{margin-top:8px}.section-card summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--gold-ink)}
+.section-card form{display:grid;gap:10px;margin-top:12px}
+.section-card form label{display:grid;gap:5px;font-size:12px;font-weight:700;color:var(--navy)}
+.section-card form input,.section-card form textarea{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:500 14px var(--body);color:var(--navy)}
+.section-card form .btn-primary{justify-self:start;border:0;cursor:pointer}
+.list-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-top:1px solid var(--line-soft);font-size:13.5px;color:var(--navy)}
+.list-row span{color:var(--muted);font-size:12.5px}
+.list-row .pill{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
+.list-row button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font:700 12px var(--body);cursor:pointer;color:var(--navy)}
+.report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.report-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+.report-card b{display:block;font-family:var(--display);font-size:32px;color:var(--navy);line-height:1}
+.report-card span{display:block;font-size:11.5px;color:var(--muted);margin-top:6px}
+.console-foot{display:flex;justify-content:space-between;gap:16px;padding:24px 0 40px;font-size:12px;color:var(--muted)}
+@media(max-width:760px){.console-grid{grid-template-columns:1fr}.console-main{padding:36px 0 72px}}

@@ -16,6 +16,20 @@ tours=json.loads((ROOT/'data/tours.json').read_text())
 venues=json.loads((ROOT/'data/venues.json').read_text())
 vi=json.loads((ROOT/'data/venue_info.json').read_text())
 setlists=json.loads((ROOT/'setlists.json').read_text())
+stage_times=json.loads((ROOT/'data/stage_times.json').read_text()) if (ROOT/'data/stage_times.json').exists() else {}
+def clock12(t):
+    try:
+        h,m=[int(x) for x in t.split(':')[:2]]; return f"{h%12 or 12}:{m:02d} {'PM' if h>=12 else 'AM'}"
+    except Exception: return t
+def stage_line(slug):
+    h=stage_times.get(slug)
+    if not h or not h.get('headliner'): return ''
+    return f'<p class="stage-line"><b>Headliner around {clock12(h["headliner"])}</b> · based on {h["shows"]} shows this tour. Venues that verify their page can set the exact time.</p>'
+def setlist_provenance(sl):
+    src=sl.get('source') or {}
+    if src.get('eventDate'): return f"From {esc(src.get('venue') or 'a recent show')} on {esc(src['eventDate'])}{' · draft' if src.get('draft') else ''}"
+    return f"Updated {esc(sl.get('updated',''))}"
+
 tour_by_id={t['tourId']:t for t in tours}
 venue_by_id={v['id']:v for v in venues}
 available_setlists={k:v for k,v in setlists.items() if (v.get('songs') or []) and k in tour_by_id}
@@ -167,7 +181,7 @@ for v in venues:
         if body:
             ver=x.get('verified') or ''; official=x.get('officialLink') or ''
             link=f'<a class="text-link" href="{esc(official)}" target="_blank" rel="noopener">Official source →</a>' if official else ''
-            sections.append(f'''<article class="info-card"><div class="label">{esc(label)}</div><h3>{esc(x.get('title') or label)}</h3><p>{esc(body)}</p>{f'<span class="verified">Verified {esc(ver)}</span>' if ver else ''}{f'<div class="link-row">{link}</div>' if link else ''}</article>''')
+            sections.append(f'''<article class="info-card" data-section="{esc(key)}"><div class="label">{esc(label)}</div><h3>{esc(x.get('title') or label)}</h3><p>{esc(body)}</p>{f'<span class="verified">Verified {esc(ver)}</span>' if ver else ''}{f'<div class="link-row">{link}</div>' if link else ''}</article>''')
     desc=f"{v['name']} concert guide with bag policy, parking, rideshare, concessions, accessibility, entrances, and other show-night information."
     ld={'@context':'https://schema.org','@type':'MusicVenue','name':v['name'],'address':{'@type':'PostalAddress','addressLocality':v.get('city') or '','addressRegion':v.get('state') or '','addressCountry':v.get('country') or ''},'url':SITE+'/venue/'+slug}
     ld['geo']={'@type':'GeoCoordinates','latitude':v.get('lat'),'longitude':v.get('lng')} if v.get('lat') else None
@@ -190,7 +204,7 @@ for t in tours:
     extra=ld_json(ld)+breadcrumb_ld([('Tours','/tours'),(t['artist'],f'/tour/{slug}')])
     if songs:
         first=songs[:8]
-        set_teaser=f'''<section class="detail-section"><p class="eyebrow">Latest setlist</p><h2>{len(songs)} songs, ready.</h2><ol class="song-list">{''.join('<li>'+esc(x)+'</li>' for x in first)}</ol><div class="link-row"><a class="btn-secondary" href="/setlist/{esc(slug)}">View full setlist →</a></div></section>'''
+        set_teaser=f'''<section class="detail-section"><p class="eyebrow">Latest setlist</p><h2>{len(songs)} songs, ready.</h2><p class="provenance">{setlist_provenance(s)}. Setlists change by night.</p><ol class="song-list">{''.join('<li>'+esc(x)+'</li>' for x in first)}</ol><div class="link-row"><a class="btn-secondary" href="/setlist/{esc(slug)}">View full setlist →</a><a class="btn-secondary" href="https://music.apple.com/search?term={esc(t['artist'])}" target="_blank" rel="noopener">Apple Music</a><a class="btn-secondary" href="https://open.spotify.com/search/{esc(t['artist'])}" target="_blank" rel="noopener">Spotify</a></div></section>'''
     elif s:
         set_teaser=f'''<section class="detail-section"><p class="eyebrow">Setlist</p><h2>Setlist Coming Soon!</h2><p>Concerto is already tracking this tour. When there is a usable current setlist, the songs will appear here instead of an empty or guessed list.</p></section>'''
     else: set_teaser=''

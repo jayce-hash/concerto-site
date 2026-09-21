@@ -16,6 +16,14 @@
   "Your Night is the show-specific home for a concert you saved. Home tells you where you are going next with one action, View Your Night. Your Night tells you everything about that night: what matters next, Concerto+ planning, venue essentials, weather, getting there, parking and rideshare, the setlist, restaurants, hotels, and things to do around the venue, and getting home."
  ],
  [
+  "How does Concerto know when the headliner goes on?",
+  "Two ways, and it always says which. Venues that verify their page set doors, opener, and headliner times themselves (\"set by the venue\"). Otherwise Concerto uses the median of recent shows on the same tour (\"based on 7 shows this tour\"). When neither exists it says the stage time is not yet posted, and never guesses."
+ ],
+ [
+  "Can Concerto find shows I already have tickets for?",
+  "With your permission, Concerto checks your calendar for events that name an artist and a venue in its catalogue and offers to save them with one tap. It reads only; it never writes to your calendar or stores your events."
+ ],
+ [
   "What are Concerto Perks?",
   "Concerto Perks are benefits created with Concerto Partners, restaurants, hotels, venues, and artists, and surfaced inside Your Night at the moment they matter. They launch with the first partnerships. Every partner placement is labeled Concerto Partner."
  ],

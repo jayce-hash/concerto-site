@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Concerto Partner Console</title><meta name="robots" content="noindex,nofollow"><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/public-v6.css"><link rel="stylesheet" href="/console/console.css"></head>
+<body class="public-site console">
+<header class="site-header"><div class="site-shell wide header-inner"><a class="site-logo" href="/"><img src="/img/lockup.png" alt="Concerto" width="250" height="52"></a><nav class="site-nav" aria-label="Console"><span class="console-title">Partner Console</span></nav><div class="header-actions"><button class="header-text-link" data-signout hidden>Sign out</button></div></div></header>
+<main class="site-shell console-main">
+
+<section data-view="signin" hidden>
+  <p class="eyebrow">Concerto Partners</p><h1>Own your page. Reach fans with a ticket.</h1>
+  <p class="lead">Venues verify their own information and set stage times; restaurants, hotels, and artists publish Perks that appear inside Your Night. Sign in with a link, no password.</p>
+  <div class="console-grid">
+    <form class="console-card" data-form="claim">
+      <h2>I run a venue</h2>
+      <label>Venue<select name="venueSlug" required><option value="">Choose your venue</option></select></label>
+      <label>Work email<input type="email" name="email" placeholder="you@yourvenue.com" required></label>
+      <button class="btn-primary" type="submit">Claim this page</button>
+      <p class="console-hint">Use an address on your venue's own domain so we can confirm you represent it.</p>
+    </form>
+    <form class="console-card" data-form="partner">
+      <h2>I run a business</h2>
+      <label>Type<select name="kind" required><option value="restaurant">Restaurant or bar</option><option value="hotel">Hotel</option><option value="artist">Artist or tour</option></select></label>
+      <label>Business name<input name="name" required placeholder="Pax &amp; Beneficia"></label>
+      <label>Email<input type="email" name="email" required placeholder="you@business.com"></label>
+      <button class="btn-primary" type="submit">Create a Perk</button>
+      <p class="console-hint">Founding partners are free through December 31, 2026.</p>
+    </form>
+  </div>
+  <p class="console-status" data-status></p>
+</section>
+
+<section data-view="venue" hidden>
+  <p class="eyebrow">Venue</p><h1 data-venue-name></h1>
+  <p class="lead">What you publish here appears in the app and on concertocity.com within five minutes, stamped "Verified by the venue" with today's date.</p>
+  <div class="console-tabs"><button data-tab="sections" class="on">Venue information</button><button data-tab="stage">Stage times</button><button data-tab="report">Report</button></div>
+  <div data-pane="sections"></div>
+  <div data-pane="stage" hidden>
+    <form class="console-card" data-form="stage">
+      <h2>Add stage times for a show</h2>
+      <div class="console-row"><label>Show date<input type="date" name="event_date" required></label><label>Doors<input type="time" name="doors"></label><label>Opener<input type="time" name="opener"></label><label>Headliner<input type="time" name="headliner"></label></div>
+      <label>Note (optional)<input name="note" placeholder="Times may shift; check the event page day of"></label>
+      <button class="btn-primary" type="submit">Publish</button>
+    </form>
+    <div data-stage-list></div>
+  </div>
+  <div data-pane="report" hidden></div>
+</section>
+
+<section data-view="partner" hidden>
+  <p class="eyebrow" data-partner-kind></p><h1 data-partner-name></h1>
+  <p class="lead">A Perk appears inside Your Night for fans who saved a show at the venues you choose: before the show, at the venue, your stay, or the ride home. Every Perk is labeled Concerto Partner.</p>
+  <div class="console-tabs"><button data-tab="perks" class="on">Perks</button><button data-tab="report">Report</button></div>
+  <div data-pane="perks">
+    <form class="console-card" data-form="perk">
+      <h2>New Perk</h2>
+      <label>The offer, in one line<input name="offer" required maxlength="80" placeholder="Free espresso with any pre-show order"></label>
+      <label>How to redeem, distance, anything the fan should know<input name="details" maxlength="160" placeholder="Show this screen at the counter. 6 min walk from the north doors."></label>
+      <label>Link (reservations, booking, code)<input type="url" name="url" placeholder="https://"></label>
+      <label>Venues this applies to<select name="venue_slugs" multiple size="6"></select></label>
+      <div class="console-row"><label>Starts<input type="date" name="starts_on"></label><label>Ends<input type="date" name="ends_on"></label></div>
+      <button class="btn-primary" type="submit">Submit for review</button>
+      <p class="console-hint">Concerto reviews every Perk before it goes live, usually within a day.</p>
+    </form>
+    <div data-perk-list></div>
+  </div>
+  <div data-pane="report" hidden></div>
+</section>
+
+</main>
+<footer class="console-foot site-shell"><span>Questions: partnerships@concertocity.com</span><a href="/partners">About Concerto Partners</a></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="/console/console.js" defer></script>
+</body></html>

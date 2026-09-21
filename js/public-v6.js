@@ -341,12 +341,60 @@
       });
     });
   }
+  /* Report wrong info: one tap on any venue section, setlist, or time. Fans are the verification network. */
+  function wireReports() {
+    var venue = (location.pathname.match(/^\/venue\/([a-z0-9-]+)/) || [])[1];
+    var tour = (location.pathname.match(/^\/(?:tour|setlist)\/([a-z0-9-]+)/) || [])[1];
+    if (!venue && !tour) return;
+    var targets = venue ? document.querySelectorAll('.info-card[data-section]') : document.querySelectorAll('.song-list, .detail-grid');
+    targets.forEach(function (card) {
+      var field = card.getAttribute('data-section') || (card.classList.contains('song-list') ? 'setlist' : 'showTime');
+      var a = document.createElement('button'); a.type = 'button'; a.className = 'report-link'; a.textContent = 'Report wrong info';
+      a.addEventListener('click', function () {
+        var msg = window.prompt('What is wrong? One line is enough. (Optional)') ; if (msg === null) return;
+        fetch(FN + '/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ venue: venue || '', tour: tour || '', field: field, message: msg, surface: 'web' }) }).catch(function () {});
+        a.textContent = 'Thank you. We will check it.'; a.disabled = true;
+      });
+      card.appendChild(a);
+    });
+  }
   /* Countdowns on rendered UI pieces */
   function wireCountdowns() {
     document.querySelectorAll('[data-countdown]').forEach(function (el) {
       var t = new Date(el.getAttribute('data-countdown')); if (isNaN(t)) return;
       var days = Math.max(0, Math.ceil((t - new Date()) / 86400000)); el.textContent = days;
     });
+  }
+  /* What the venue and its partners published through the Partner Console: same endpoint the app reads */
+  function wirePartnerContent() {
+    var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
+    var slug = (location.pathname.match(/^\/venue\/([a-z0-9-]+)/) || [])[1]; if (!slug) return;
+    getJSON(FN + '/partner-content?venue=' + encodeURIComponent(slug)).then(function (pc) {
+      if (!pc) return;
+      if (pc.claimed) { var c = document.createElement('span'); c.className = 'meta-pill'; c.textContent = '✓ Verified by the venue'; host.insertBefore(c, host.firstChild); }
+      Object.keys(pc.overrides || {}).forEach(function (key) {
+        var card = document.querySelector('.info-card[data-section="' + key + '"]'); var o = pc.overrides[key]; if (!card || !o) return;
+        var p = card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
+        var v = card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
+        v.textContent = 'Verified by the venue ' + (o.verified || '');
+        if (o.officialLink) { var a = card.querySelector('.link-row a'); if (a) a.href = o.officialLink; }
+      });
+      var st = (pc.stageTimes || [])[0];
+      if (st && (st.headliner || st.doors)) {
+        var fmt = function (t) { var h = +t.split(':')[0], m = t.split(':')[1] || '00'; return (h % 12 || 12) + ':' + m + (h >= 12 ? ' PM' : ' AM'); };
+        var sp = document.createElement('span'); sp.className = 'meta-pill';
+        sp.textContent = [st.doors ? 'Doors ' + fmt(st.doors) : null, st.headliner ? 'Headliner ' + fmt(st.headliner) : null].filter(Boolean).join(' · ') + ' · set by the venue';
+        host.appendChild(sp);
+      }
+      if (pc.perks && pc.perks.length) {
+        var sec = document.querySelector('.detail-section'); if (!sec) return;
+        var perk = pc.perks[0]; var box = document.createElement('div'); box.className = 'ui ui-section perk-web';
+        box.innerHTML = '<div class="ui-section-head"><span class="ui-kicker">Concerto Perk · Concerto Partner</span></div><h3></h3><p class="perk-offer"></p><p></p>';
+        box.querySelector('h3').textContent = perk.partner_name; box.querySelector('.perk-offer').textContent = perk.offer; box.querySelectorAll('p')[1].textContent = perk.details || '';
+        if (perk.url) { var l = document.createElement('a'); l.className = 'ui-link'; l.href = perk.url; l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'View Perk →'; box.appendChild(l); }
+        sec.insertBefore(box, sec.querySelector('.info-grid'));
+      }
+    }).catch(function () {});
   }
   /* Tonight at this venue: upcoming shows + forecast on venue pages, same functions the app calls */
   function wireVenueTonight() {
@@ -382,9 +430,11 @@
     wireTopic();
     wireLive();
     wireCountdowns();
+    wireReports();
     wireAppLinks();
     wireWidows();
     wireVenueTonight();
+    wirePartnerContent();
     document.body.classList.add('public-site');
     wireHeader();
     wireFilters();
