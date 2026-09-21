@@ -15,7 +15,6 @@
  */
 (function () {
   'use strict';
-  var APP = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
   var FN = '/.netlify/functions';
   var DAY = 86400000;
 

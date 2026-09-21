@@ -7,8 +7,24 @@ js/public-v6.js only wires up the menu button and never rebuilds the header.
 """
 import html
 
-APP = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414'
+# Apple App Analytics campaign attribution. pt is the account-level provider
+# token (App Store Connect > Analytics > Campaigns); ct is a freeform string
+# identifying where the click came from and does not need to be pre-created in
+# the App Store Connect UI, Apple attributes any pt/ct pair it sees on install.
+# Bare APP (no ct) is the fallback for places we haven't tagged individually;
+# app_link_campaign() lets a specific page type report separately so we can
+# see which pages actually drive installs.
+_APP_BASE = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414'
+_PT = '127753814'
+APP = f'{_APP_BASE}?pt={_PT}&ct=website-default&mt=8'
 SITE = 'https://concertocity.com'
+
+
+def app_link_campaign(ct):
+    """App Store link tagged for a specific page type, e.g. 'website-venue',
+    'website-tour', 'website-home'. Use on the primary "Get the App" CTA of a
+    template; secondary/incidental links can keep using the bare APP constant."""
+    return f'{_APP_BASE}?pt={_PT}&ct={ct}&mt=8'
 
 NAV = [
     ('Venues', '/venues'),
@@ -168,8 +184,11 @@ def photo_slot(name, alt, cls='photo-band'):
 def app_link(kind, slug, label='Open in Concerto', cls='btn-primary'):
     """Deep link that opens the app on this venue/tour when installed, else the App Store.
     Safari will not fire a universal link to the page you are already on, so the site
-    tries the concerto:// scheme first (js/public-v6.js handles the fallback)."""
-    return (f'<a class="{cls}" href="{APP}" data-app-link="concerto://{kind}/{_e(slug)}" '
+    tries the concerto:// scheme first (js/public-v6.js handles the fallback). The App
+    Store fallback carries a kind-specific campaign tag (website-venue / website-tour)
+    so App Store Connect shows which page type actually drives installs."""
+    store_url = app_link_campaign(f'website-{kind}') if kind in ('venue', 'tour') else APP
+    return (f'<a class="{cls}" href="{store_url}" data-app-link="concerto://{kind}/{_e(slug)}" '
             f'data-web-link="{SITE}/{kind}/{_e(slug)}" rel="noopener">{_e(label)}</a>')
 
 
