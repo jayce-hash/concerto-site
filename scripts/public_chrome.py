@@ -27,14 +27,12 @@ def app_link_campaign(ct):
     return f'{_APP_BASE}?pt={_PT}&ct={ct}&mt=8'
 
 NAV = [
+    ('How It Works', '/your-night'),
     ('Venues', '/venues'),
     ('Tours', '/tours'),
-    ('Setlists', '/setlists'),
-    ('Near Me', '/near-me'),
     ('Concerto+', '/premium'),
-    ('Partners', '/partners'),
 ]
-MENU_EXTRA = [('About', '/about'), ('Help', '/help'), ('Search', '/search')]
+MENU_EXTRA = [('Search', '/search'), ('Help', '/help')]
 
 HEADER_START = '<!-- CONCERTO_CHROME_HEADER_START -->'
 HEADER_END = '<!-- CONCERTO_CHROME_HEADER_END -->'
@@ -103,14 +101,14 @@ def header_html(path='/'):
 
 def footer_html():
     cols = [
-        ('Discover', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'),
-                      ('Near Me', '/near-me'), ('Perks', '/perks')]),
-        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
-                     ('Bag policies', '/bags'), ('Parking', '/parking'), ('Get the App', APP)]),
-        ('Company', [('About', '/about'), ('Press & Media', '/press'), ('Investors', '/investors'),
-                     ('Contact', '/contact')]),
-        ('Work With Us', [('Partners', '/partners'), ('Creators', '/creators'),
-                          ('Help Center', '/help'), ('FAQ', '/faq')]),
+        ('Concerto', [('How It Works', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
+                      ('Get the App', APP)]),
+        ('Library', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'),
+                     ('Near Me', '/near-me'), ('Search', '/search')]),
+        ('Company', [('About', '/about'), ('Press', '/press'), ('Investors', '/investors'),
+                     ('Creators', '/creators'), ('Contact', '/contact')]),
+        ('Partners & Help', [('Partners', '/partners'), ('Partner Console', '/console/'),
+                             ('Help Center', '/help'), ('FAQ', '/faq')]),
     ]
 
     def col(title, items):

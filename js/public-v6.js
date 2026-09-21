@@ -375,8 +375,8 @@
   function wireCountdowns() {
     document.querySelectorAll('[data-countdown]').forEach(function (el) {
       var t = new Date(el.getAttribute('data-countdown')); if (isNaN(t)) return;
-      var days = Math.ceil((t - new Date()) / 86400000);
-      if (days < 0) { var wrap = el.closest('.ui-count'); if (wrap) { wrap.innerHTML = '<b>Your night</b><span>example show</span>'; } return; }
+      var days = Math.floor((t - new Date()) / 86400000);
+      if (days < 0) { var wrap = el.closest('.ui-count'); if (wrap) { wrap.innerHTML = '<b>Your night</b><span>example show</span>'; } else if (el.parentElement) { el.parentElement.textContent = 'Show day, planned'; } return; }
       el.textContent = String(days);
     });
   }
