@@ -1,0 +1,9 @@
+node_modules/
+.netlify/
+.venv/
+.env*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+*.log

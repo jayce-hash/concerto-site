@@ -26,7 +26,7 @@ if [ -d "$NATIVE/dist-web/assets" ]; then
   cp -a "$NATIVE/dist-web/assets" "$SITE/assets"
 fi
 
-for f in account search settings plan login signup; do
+for f in account settings plan login signup; do
   if [ -f "$NATIVE/dist-web/$f.html" ]; then cp "$NATIVE/dist-web/$f.html" "$SITE/$f.html"; fi
 done
 
@@ -35,10 +35,8 @@ if [ -d "$NATIVE/dist-web/show" ]; then
   cp -a "$NATIVE/dist-web/show" "$SITE/show"
 fi
 
-python3 "$SITE/scripts/build-public-site.py"
-python3 "$SITE/scripts/build-public-features.py"
-python3 "$SITE/scripts/build-company-pages.py"
-python3 "$SITE/scripts/build-support-pages.py"
+python3 "$SITE/scripts/prepare-app-utilities.py"
+python3 "$SITE/scripts/rebuild-consumer-site.py"
 python3 "$SITE/scripts/apply-public-chrome.py"
 python3 "$SITE/build_sitemap.py"
 python3 "$SITE/scripts/build-redirects.py"

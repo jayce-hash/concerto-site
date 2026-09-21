@@ -27,12 +27,13 @@ def app_link_campaign(ct):
     return f'{_APP_BASE}?pt={_PT}&ct={ct}&mt=8'
 
 NAV = [
-    ('How It Works', '/your-night'),
+    ('The App', '/your-night'),
     ('Venues', '/venues'),
-    ('Tours', '/tours'),
+    ('Setlists', '/setlists'),
     ('Concerto+', '/premium'),
+    ('Partners', '/partners'),
 ]
-MENU_EXTRA = [('Search', '/search'), ('Help', '/help')]
+MENU_EXTRA = [('Tours', '/tours'), ('About', '/about'), ('Search', '/search'), ('Help', '/help')]
 
 HEADER_START = '<!-- CONCERTO_CHROME_HEADER_START -->'
 HEADER_END = '<!-- CONCERTO_CHROME_HEADER_END -->'
@@ -43,7 +44,7 @@ HEAD_ASSETS = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
     '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800'
-    '&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">'
+    '&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">'
     '<link rel="stylesheet" href="/css/public-v6.css">'
     '<script src="/analytics.js" defer></script>'
 )
@@ -79,13 +80,13 @@ def header_html(path='/'):
     menu_links = ''.join(link(l, h) for l, h in NAV + MENU_EXTRA)
     return (
         f'{HEADER_START}'
-        '<header class="site-header">'
+        '<a class="skip-link" href="#main-content">Skip to content</a><header class="site-header">'
         '<div class="site-shell wide header-inner">'
         '<a class="site-logo" href="/" aria-label="Concerto home">'
         '<img src="/img/lockup.png" alt="Concerto" width="250" height="52"></a>'
         f'<nav class="site-nav" aria-label="Main">{main_links}</nav>'
         '<div class="header-actions">'
-        '<a class="header-text-link" href="/search">Search</a>'
+        '<a class="header-text-link search-icon" href="/search" aria-label="Search Concerto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 5 5"/></svg></a>'
         f'<a class="header-cta" href="{APP}" target="_blank" rel="noopener">Get the App</a>'
         '<button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">'
         '<span class="menu-bar"></span><span class="menu-bar"></span></button>'
@@ -102,7 +103,7 @@ def header_html(path='/'):
 def footer_html():
     cols = [
         ('Concerto', [('How It Works', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
-                      ('Get the App', APP)]),
+                      ('Perks', '/perks'), ('Get the App', APP)]),
         ('Library', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'),
                      ('Near Me', '/near-me'), ('Search', '/search')]),
         ('Company', [('About', '/about'), ('Press', '/press'), ('Investors', '/investors'),
@@ -119,13 +120,11 @@ def footer_html():
 
     return (
         f'{FOOTER_START}'
-        '<footer class="site-footer">'
+        '<footer class="site-footer"><div class="site-shell footer-statement" aria-hidden="true">See you at the show.</div>'
         '<div class="site-shell footer-top">'
         '<div class="footer-brand">'
         '<img src="/img/lockup.png" alt="Concerto" width="250" height="52">'
         '<p class="footer-kicker">From the Concert to the City®</p>'
-        '<h2>One show. One connected night.</h2>'
-        '<p>Concerto connects the concert, venue, and city around it with trusted information and a plan that travels with you.</p>'
         f'<a class="footer-app" href="{APP}" target="_blank" rel="noopener">Get Concerto for iPhone</a>'
         '</div>'
         f'<div class="footer-nav">{"".join(col(t, i) for t, i in cols)}</div>'

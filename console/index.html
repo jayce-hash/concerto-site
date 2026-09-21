@@ -5,7 +5,7 @@
 
 <section data-view="signin" hidden>
   <p class="eyebrow">Concerto Partners</p><h1>Own your page. Reach fans with a ticket.</h1>
-  <p class="lead">Venues verify their own information and set stage times; restaurants, hotels, and artists publish Perks that appear inside Your Night. Sign in with a link, no password.</p>
+  <p class="lead">Manage venue information or submit an offer for concert fans. Sign in with an email link to get started.</p>
   <div class="console-grid">
     <form class="console-card" data-form="claim">
       <h2>I run a venue</h2>
@@ -20,7 +20,7 @@
       <label>Business name<input name="name" required placeholder="Pax &amp; Beneficia"></label>
       <label>Email<input type="email" name="email" required placeholder="you@business.com"></label>
       <button class="btn-primary" type="submit">Create a Perk</button>
-      <p class="console-hint">Founding partners are free through December 31, 2026.</p>
+      <p class="console-hint">Creating an account does not publish an offer or commit you to a paid placement. We agree on scope and terms before launch.</p>
     </form>
   </div>
   <p class="console-status" data-status></p>
@@ -29,11 +29,12 @@
 <section data-view="venue" hidden>
   <p class="eyebrow">Venue</p><h1 data-venue-name></h1>
   <p class="lead">What you publish here appears in the app and on concertocity.com within five minutes, stamped "Verified by the venue" with today's date.</p>
-  <div class="console-tabs"><button data-tab="sections" class="on">Venue information</button><button data-tab="stage">Stage times</button><button data-tab="report">Report</button></div>
+  <div class="console-tabs"><button data-tab="sections" class="on">Venue information</button><button data-tab="stage">Stage times</button><button data-tab="perks">Perks</button><button data-tab="report">Report</button></div>
   <div data-pane="sections"></div>
   <div data-pane="stage" hidden>
     <form class="console-card" data-form="stage">
       <h2>Add stage times for a show</h2>
+      <label>Ticketmaster event ID (recommended when there are multiple shows on a date)<input name="tm_event_id" maxlength="120"></label>
       <div class="console-row"><label>Show date<input type="date" name="event_date" required></label><label>Doors<input type="time" name="doors"></label><label>Opener<input type="time" name="opener"></label><label>Headliner<input type="time" name="headliner"></label></div>
       <label>Note (optional)<input name="note" placeholder="Times may shift; check the event page day of"></label>
       <button class="btn-primary" type="submit">Publish</button>
@@ -51,12 +52,15 @@
     <form class="console-card" data-form="perk">
       <h2>New Perk</h2>
       <label>The offer, in one line<input name="offer" required maxlength="80" placeholder="Free espresso with any pre-show order"></label>
-      <label>How to redeem, distance, anything the fan should know<input name="details" maxlength="160" placeholder="Show this screen at the counter. 6 min walk from the north doors."></label>
+      <label>Redemption instructions and terms<textarea name="details" required maxlength="2000" placeholder="Explain who qualifies, how to claim it, the eligible dates or hours, exclusions, and any booking or purchase requirement."></textarea></label>
       <label>Link (reservations, booking, code)<input type="url" name="url" placeholder="https://"></label>
+      <label>Address (for an in-person offer)<input name="address" maxlength="300"></label>
       <label>Venues this applies to<select name="venue_slugs" multiple size="6"></select></label>
-      <div class="console-row"><label>Starts<input type="date" name="starts_on"></label><label>Ends<input type="date" name="ends_on"></label></div>
+      <label data-tour-field hidden>Tour (artist offers)<select name="tour_slug"><option value="">Choose a tour</option></select></label>
+      <div class="console-row"><label>Starts<input type="date" name="starts_on" required></label><label>Ends<input type="date" name="ends_on" required></label></div>
       <button class="btn-primary" type="submit">Submit for review</button>
-      <p class="console-hint">Concerto reviews every Perk before it goes live, usually within a day.</p>
+      <p class="console-hint">Submitted offers enter review. We confirm the benefit, redemption steps, dates, and placement before publication. A listing alone is not a Perk.</p>
+      <p class="console-status" data-perk-status role="status" aria-live="polite"></p>
     </form>
     <div data-perk-list></div>
   </div>

@@ -1,3 +1,7 @@
+[build]
+  command = "python3 scripts/prepare-site.py"
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
   # alerts-poll-background.js reads data/tours.json at runtime via fs.readFileSync

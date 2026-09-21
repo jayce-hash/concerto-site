@@ -87,6 +87,8 @@ def process(path, canonical, repair_only=False):
     body = re.sub(r'</body>\s*</html>\s*$', '', body, flags=re.S)
     tail = footer_html() + '<script src="/js/public-v6.js" defer></script></body></html>\n'
     s = s[:body_start] + header_html(canonical) + body.rstrip() + tail
+    if 'id="main-content"' not in s:
+        s = re.sub(r'<main\b', '<main id="main-content"', s, count=1)
     p.write_text(s)
     return True
 

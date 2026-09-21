@@ -1,4 +1,17 @@
-## Typography baseline
+# Website revision — September 2026
+
+The user authorized a full website redesign after rejecting the former presentation. For public website pages, this revision supersedes the legacy typography, radius, and product-framing rules below. Native app design is unchanged.
+
+- DM Sans supplies bold, legible public website headings, navigation, and body text. Playfair Display supplies selective italic emphasis in the main brand and Concerto+ statements.
+- Keep the established navy, gold, lockup, product names, and slogan. Warm off-white and pale lilac support the website's editorial sections.
+- Use open layouts, ruled rows, and restrained 3px control corners. Avoid decorative cards, gradients, device borders, floating screenshot containers, and fake app interfaces.
+- Product captures are real, unretouched app views, shown with their natural aspect ratio and an example-view caption. Do not repaint status bars or invent hardware.
+- Public marketing is evergreen: no static countdowns, dated campaign heroes, unsupported popularity claims, or invented partner offers.
+- Preserve canonical routes, sitemap coverage, robots directives, structured factual guides, form contracts, and the separation between public pages and native utility exports.
+- `scripts/experience_pages.py`, `scripts/company_pages.py`, and the editorial section of `css/public-v6.css` own the website presentation. `SCREENSHOT-REPLACEMENT-GUIDE.md` owns capture placement.
+- Browser review at desktop and iPhone widths remains a release requirement. Automated validation alone is not visual sign-off.
+
+## Legacy native typography baseline
 
 The typography authority is the original user-uploaded concerto-site-main-24 package. Preserve its established Playfair/DM Sans relationship and intentional specialty mono treatments rather than flattening all surfaces into one font treatment.
 

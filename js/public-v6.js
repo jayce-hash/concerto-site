@@ -18,7 +18,7 @@
   var FN = '/.netlify/functions';
   var DAY = 86400000;
 
-  function safeHttps(u) { try { var p = new URL(String(u || '')); return p.protocol === 'https:' ? p.href : ''; } catch (e) { return ''; } }
+  function safeHttps(u) { try { var p = new URL(String(u || '')); return p.protocol === 'https:' && !p.username && !p.password ? p.href : ''; } catch (e) { return ''; } }
   function norm(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
   function initial(s) { var t = String(s || '').trim(); return t ? t.charAt(0).toUpperCase() : 'C'; }
   function getJSON(url) {
@@ -448,13 +448,67 @@
     [].slice.call(sel.options).forEach(function (o) { if (o.text === want) sel.value = o.value || o.text; });
   }
 
+  function wireLivePerks() {
+    var host = document.querySelector('[data-live-perks]'); if (!host) return;
+    host.setAttribute('aria-live', 'polite');
+    function load() {
+      host.textContent = 'Checking available Perks…';
+      fetch(FN + '/partner-content?all=1').then(function (r) { if (!r.ok) throw new Error(); return r.json(); }).then(function (data) {
+        if (data.error) throw new Error();
+        host.textContent = '';
+        var today = new Date().toISOString().slice(0, 10);
+        var offers = (data.perks || []).filter(function (p) { return p.offer && p.details && (!p.starts_on || p.starts_on <= today) && (!p.ends_on || p.ends_on >= today); });
+        if (!offers.length) { host.textContent = 'No Perks are available right now. New offers will appear here with their dates and redemption terms.'; return; }
+        offers.forEach(function (p) {
+          var card = document.createElement('article'); card.className = 'live-perk';
+          function line(tag, text) { var el = document.createElement(tag); el.textContent = text; card.appendChild(el); }
+          line('span', 'Concerto Partner · ' + (p.kind || 'Partner'));
+          line('h3', p.partner_name); line('h4', p.offer); line('p', p.details);
+          if (p.address) line('p', p.address);
+          if (p.starts_on || p.ends_on) line('p', [p.starts_on ? 'From ' + p.starts_on : '', p.ends_on ? 'Through ' + p.ends_on : ''].filter(Boolean).join(' · '));
+          var url = safeHttps(p.url);
+          if (url) { var a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener nofollow'; a.className = 'ui-link'; a.textContent = 'View offer →'; card.appendChild(a); }
+          host.appendChild(card);
+        });
+      }).catch(function () {
+        host.textContent = 'We couldn’t load Perks. Please try again.';
+        var retry = document.createElement('button'); retry.className = 'btn-secondary'; retry.textContent = 'Try again'; retry.addEventListener('click', load); host.appendChild(retry);
+      });
+    }
+    load();
+  }
+
+  function wireNightTabs() {
+    document.querySelectorAll('.night-tabs').forEach(function (list) {
+      var tabs = Array.from(list.querySelectorAll('[role="tab"]'));
+      function select(tab, focus) {
+        tabs.forEach(function (item) {
+          var active = item === tab;
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+          var panel = document.getElementById(item.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !active;
+        });
+        if (focus) tab.focus();
+      }
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () { select(tab, false); });
+        tab.addEventListener('keydown', function (event) {
+          var next = event.key === 'ArrowRight' ? (index + 1) % tabs.length : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
+          if (next !== null) { event.preventDefault(); select(tabs[next], true); }
+        });
+      });
+    });
+  }
+
   function init() {
+    wireNightTabs();
+    wireLivePerks();
     wireTopic();
     wireLive();
     wireCountdowns();
     wireReports();
     wireAppLinks();
-    wireWidows();
     wireVenueTonight();
     wirePartnerContent();
     document.body.classList.add('public-site');

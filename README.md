@@ -1,5 +1,7 @@
 # Concerto site additions (one companion zip for the website repo)
 
+Start with **[WEBSITE-REDESIGN.md](WEBSITE-REDESIGN.md)** for the current website release and **[SCREENSHOT-REPLACEMENT-GUIDE.md](SCREENSHOT-REPLACEMENT-GUIDE.md)** for the eight requested app views. Earlier design notes are historical.
+
 Everything in here goes into the concerto-site repo root and deploys
 with the site. The native app consumes it all.
 
@@ -35,3 +37,6 @@ create the analytics_events table the app writes to. Insert-only by
 RLS, so the public anon key cannot read your data. The file also
 contains ready-made queries for daily actives, activation rate,
 retention, top venues, and premium feature usage.
+# Website redesign handoff
+
+For the current website design, build instructions, validation status, and preview steps, start with [WEBSITE-REDESIGN.md](WEBSITE-REDESIGN.md). Use [SCREENSHOT-REPLACEMENT-GUIDE.md](SCREENSHOT-REPLACEMENT-GUIDE.md) for the eight requested app views. Earlier design notes below are historical; the September 2026 website revision supersedes their device-frame and typography guidance.
