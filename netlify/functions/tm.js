@@ -11,9 +11,13 @@ export async function handler(event) {
   const key = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
   if (!key) return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'TM key not configured' }) };
 
-  // Light anti-piggyback check: if a Referer is present, it must look like our site.
+  // Anti-piggyback check: if a Referer is present, its hostname must be ours
+  // (exact match or a subdomain), parsed, not matched as a substring.
   const ref = event.headers && (event.headers.referer || event.headers.Referer);
-  if (ref && !ALLOW_REFERER.some(h => ref.includes(h))) {
+  let refHost = '';
+  try { refHost = ref ? new URL(ref).hostname.toLowerCase() : ''; } catch { refHost = 'invalid'; }
+  const hostOk = (h) => ALLOW_REFERER.some(a => a.startsWith('.') ? h.endsWith(a) : (h === a || h.endsWith('.' + a)));
+  if (ref && !hostOk(refHost)) {
     return { statusCode: 403, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'forbidden' }) };
   }
 

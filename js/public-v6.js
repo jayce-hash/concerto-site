@@ -18,6 +18,7 @@
   var FN = '/.netlify/functions';
   var DAY = 86400000;
 
+  function safeHttps(u) { try { var p = new URL(String(u || '')); return p.protocol === 'https:' ? p.href : ''; } catch (e) { return ''; } }
   function norm(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
   function initial(s) { var t = String(s || '').trim(); return t ? t.charAt(0).toUpperCase() : 'C'; }
   function getJSON(url) {
@@ -280,24 +281,35 @@
     var v = ev._embedded && ev._embedded.venues && ev._embedded.venues[0] || {};
     var img = bestImage(ev.images); var day = ev.dates && ev.dates.start && ev.dates.start.localDate || '';
     var time = ev.dates && ev.dates.start && ev.dates.start.localTime ? new Date('1970-01-01T' + ev.dates.start.localTime).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }) : '';
-    var a = document.createElement('a'); a.className = 'live-card'; a.href = ev.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+    // The card is Concerto's: tapping it opens the show in the app (or the App Store).
+    // The ticket provider is a secondary link, never the click that leaves the site.
+    var store = document.querySelector('.header-cta') ? document.querySelector('.header-cta').getAttribute('href') : 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+    var a = document.createElement('a'); a.className = 'live-card'; a.href = store; a.rel = 'noopener';
+    a.setAttribute('data-app-link', 'concerto://show/' + encodeURIComponent(ev.id || ''));
     a.innerHTML = (img ? '<img alt="" loading="lazy" decoding="async">' : '<span class="live-mono">' + initial(ev.name) + '</span>') +
-      '<div class="live-copy"><span class="live-day"></span><h3></h3><p></p></div>';
+      '<div class="live-copy"><span class="live-day"></span><h3></h3><p></p><span class="live-actions"><span class="live-primary">Open in Concerto</span></span></div>';
     if (img) a.querySelector('img').src = img;
     a.querySelector('.live-day').textContent = day ? fmtDay(day) : '';
     a.querySelector('h3').textContent = ev.name || '';
-    a.querySelector('p').textContent = [v.name, time].filter(Boolean).join(' · ');
+    a.querySelector('p').textContent = [v.name, ev.dates && ev.dates.start && ev.dates.start.timeTBA ? 'Time to be announced' : time].filter(Boolean).join(' · ');
+    if (ev.url && /^https:\/\//.test(ev.url)) {
+      var t = document.createElement('a'); t.className = 'live-tickets'; t.href = ev.url; t.target = '_blank'; t.rel = 'noopener nofollow'; t.textContent = 'Tickets';
+      t.addEventListener('click', function (e) { e.stopPropagation(); });
+      a.querySelector('.live-actions').appendChild(t);
+    }
     return a;
   }
   function loadNear(opts) {
     var rail = document.querySelector('[data-live-rail]'); if (!rail) return;
-    var params = new URLSearchParams({ size: '12', sort: 'date,asc', classificationName: 'Music', countryCode: 'US', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    var now = new Date(); var end = new Date(now.getTime() + 7 * DAY);
+    var params = new URLSearchParams({ size: '12', sort: 'date,asc', classificationName: 'Music', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    if (opts.country) params.set('countryCode', opts.country);
     if (opts.city) params.set('city', opts.city); else if (opts.lat) { params.set('latlong', opts.lat + ',' + opts.lng); params.set('radius', '75'); params.set('unit', 'miles'); }
     getJSON(FN + '/tm/events.json?' + params).then(function (d) {
       var list = d && d._embedded && d._embedded.events || [];
       var seen = {}; list = list.filter(function (ev) { var k = (ev.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
       rail.innerHTML = '';
-      if (!list.length) { rail.innerHTML = '<div class="live-empty">No music shows found here this week. Try another city.</div>'; return; }
+      if (!list.length) { rail.innerHTML = '<div class="live-empty">No music shows near here in the next seven days. <a class="text-link" href="/near-me">See upcoming shows</a> or try another city.</div>'; return; }
       list.slice(0, 10).forEach(function (ev) { rail.appendChild(eventCard(ev)); });
     }).catch(function () { rail.innerHTML = '<div class="live-empty">Shows near you load in a moment. <a class="text-link" href="/near-me">Open Near Me in the app</a>.</div>'; });
   }
@@ -305,7 +317,7 @@
     var root = document.querySelector('[data-live-near]'); if (!root) return;
     var cityEl = root.querySelector('[data-live-city]'), sub = root.querySelector('[data-live-sub]'), form = root.querySelector('[data-live-form]');
     getJSON(FN + '/geo').then(function (g) {
-      if (g && g.ok) { cityEl.textContent = g.city || 'you'; loadNear({ lat: g.lat, lng: g.lng }); }
+      if (g && g.ok) { cityEl.textContent = g.city || 'you'; loadNear({ lat: g.lat, lng: g.lng, country: g.country }); }
       else { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); }
     }).catch(function () { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); });
     form.addEventListener('submit', function (e) {
@@ -350,9 +362,11 @@
       var field = card.getAttribute('data-section') || (card.classList.contains('song-list') ? 'setlist' : 'showTime');
       var a = document.createElement('button'); a.type = 'button'; a.className = 'report-link'; a.textContent = 'Report wrong info';
       a.addEventListener('click', function () {
-        var msg = window.prompt('What is wrong? One line is enough. (Optional)') ; if (msg === null) return;
-        fetch(FN + '/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ venue: venue || '', tour: tour || '', field: field, message: msg, surface: 'web' }) }).catch(function () {});
-        a.textContent = 'Thank you. We will check it.'; a.disabled = true;
+        if (a.disabled) return;
+        a.textContent = 'Sending…'; a.disabled = true;
+        fetch(FN + '/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ venue: venue || '', tour: tour || '', field: field, message: '', surface: 'web' }) })
+          .then(function (r) { if (!r.ok) throw new Error(String(r.status)); a.textContent = 'Thank you. We will check it.'; a.setAttribute('aria-live', 'polite'); })
+          .catch(function () { a.textContent = 'Could not send. Tap to try again.'; a.disabled = false; });
       });
       card.appendChild(a);
     });
@@ -361,7 +375,9 @@
   function wireCountdowns() {
     document.querySelectorAll('[data-countdown]').forEach(function (el) {
       var t = new Date(el.getAttribute('data-countdown')); if (isNaN(t)) return;
-      var days = Math.max(0, Math.ceil((t - new Date()) / 86400000)); el.textContent = days;
+      var days = Math.ceil((t - new Date()) / 86400000);
+      if (days < 0) { var wrap = el.closest('.ui-count'); if (wrap) { wrap.innerHTML = '<b>Your night</b><span>example show</span>'; } return; }
+      el.textContent = String(days);
     });
   }
   /* What the venue and its partners published through the Partner Console: same endpoint the app reads */
@@ -376,7 +392,7 @@
         var p = card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
         var v = card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
         v.textContent = 'Verified by the venue ' + (o.verified || '');
-        if (o.officialLink) { var a = card.querySelector('.link-row a'); if (a) a.href = o.officialLink; }
+        var safeLink = safeHttps(o.officialLink); if (safeLink) { var a = card.querySelector('.link-row a'); if (a) a.href = safeLink; }
       });
       var st = (pc.stageTimes || [])[0];
       if (st && (st.headliner || st.doors)) {
@@ -390,7 +406,7 @@
         var perk = pc.perks[0]; var box = document.createElement('div'); box.className = 'ui ui-section perk-web';
         box.innerHTML = '<div class="ui-section-head"><span class="ui-kicker">Concerto Perk · Concerto Partner</span></div><h3></h3><p class="perk-offer"></p><p></p>';
         box.querySelector('h3').textContent = perk.partner_name; box.querySelector('.perk-offer').textContent = perk.offer; box.querySelectorAll('p')[1].textContent = perk.details || '';
-        if (perk.url) { var l = document.createElement('a'); l.className = 'ui-link'; l.href = perk.url; l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'View Perk →'; box.appendChild(l); }
+        var perkUrl = safeHttps(perk.url); if (perkUrl) { var l = document.createElement('a'); l.className = 'ui-link'; l.href = perkUrl; l.target = '_blank'; l.rel = 'noopener nofollow'; l.textContent = 'View Perk →'; box.appendChild(l); }
         sec.insertBefore(box, sec.querySelector('.info-grid'));
       }
     }).catch(function () {});
@@ -399,10 +415,17 @@
   function wireVenueTonight() {
     var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
     var lat = host.getAttribute('data-lat'), lng = host.getAttribute('data-lng'), name = host.getAttribute('data-name');
-    var params = new URLSearchParams({ keyword: name, size: '3', sort: 'date,asc', countryCode: 'US', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    var country = host.getAttribute('data-country');
+    var params = new URLSearchParams({ keyword: name, size: '5', sort: 'date,asc', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    if (country) params.set('countryCode', country);
     if (lat && lng) { params.set('latlong', lat + ',' + lng); params.set('radius', '2'); params.set('unit', 'miles'); }
     getJSON(FN + '/tm/events.json?' + params).then(function (d) {
-      var list = d && d._embedded && d._embedded.events || []; if (!list.length) return;
+      var list = d && d._embedded && d._embedded.events || [];
+      // Only an event whose venue name matches this page's venue counts. A plausible
+      // event two blocks away is worse than showing nothing.
+      var want = norm(name);
+      list = list.filter(function (ev) { var v = ev._embedded && ev._embedded.venues && ev._embedded.venues[0]; var got = norm(v && v.name); return got && (got === want || got.indexOf(want) === 0 || want.indexOf(got) === 0); });
+      if (!list.length) return;
       var first = list[0], day = first.dates && first.dates.start && first.dates.start.localDate;
       var pill = document.createElement('span'); pill.className = 'meta-pill';
       pill.innerHTML = '<b></b>&nbsp;· ' + (day ? fmtDay(day) : 'Upcoming');

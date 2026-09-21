@@ -9,18 +9,19 @@ const H = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '
 const FREE = new Set(['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','aol.com','me.com','live.com','proton.me','protonmail.com']);
 const SITE = 'https://concertocity.com';
 function domainOf(email) { return String(email || '').toLowerCase().split('@')[1] || ''; }
+// Explicit, human-maintained: data/venue_domains.json maps venue slug -> the
+// venue's own email/web domain (e.g. "americanairlinescenter.com"). A claim from an
+// address on that exact domain (or a subdomain) is approved; anything else waits
+// for manual review in Supabase (venue_claims.status stays 'pending'). Ownership is
+// never inferred from source links: a ticketing, promoter, or parent-company domain
+// appearing in citations must not unlock a venue's page.
 function venueDomain(slug) {
-  // The venue's official domain is whatever its verified sections cite as officialLink.
   try {
-    const info = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'venue_info.json'), 'utf8'))[slug] || {};
-    const counts = {};
-    for (const k of ['bagPolicy','parking','rideshare','concessions','accessibility','reEntry','ticketPickup','gates']) {
-      const link = info[k] && info[k].officialLink; if (!link) continue;
-      try { const h = new URL(link).hostname.replace(/^www\./, ''); counts[h] = (counts[h] || 0) + 1; } catch {}
-    }
-    return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || '';
+    const map = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'venue_domains.json'), 'utf8'));
+    const d = map[slug]; return typeof d === 'string' ? d.toLowerCase().replace(/^www\./, '') : '';
   } catch { return ''; }
 }
+const FOUNDING_UNTIL = process.env.FOUNDING_PLAN_UNTIL || '2026-12-31';
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: H, body: '' };
   const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
@@ -33,10 +34,19 @@ exports.handler = async (event) => {
       const { data: claims } = await sb.from('venue_claims').select('*').eq('email', user.email).eq('status', 'pending');
       const made = [];
       for (const c of claims || []) {
+        if (String(c.venue_slug).startsWith('partner:')) {
+          const [, kind, name] = c.venue_slug.split(':');
+          const { data: org } = await sb.from('partner_orgs').insert({ kind, name: name || user.email, email_domain: domainOf(user.email), plan: 'founding', plan_until: FOUNDING_UNTIL }).select().single();
+          await sb.from('partner_members').insert({ org_id: org.id, user_id: user.id, role: 'owner' });
+          await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id);
+          made.push(c.venue_slug); continue;
+        }
         const vd = venueDomain(c.venue_slug), ed = domainOf(user.email);
-        const ok = vd && (ed === vd || ed.endsWith('.' + vd) || vd.endsWith('.' + ed));
+        const ok = Boolean(vd) && (ed === vd || ed.endsWith('.' + vd));
         if (!ok) continue;
-        const { data: org } = await sb.from('partner_orgs').insert({ kind: 'venue', name: c.venue_slug, venue_slug: c.venue_slug, email_domain: ed, plan: 'founding', plan_until: '2026-12-31' }).select().single();
+        const { data: existing } = await sb.from('partner_orgs').select('id').eq('kind', 'venue').eq('venue_slug', c.venue_slug).maybeSingle();
+        if (existing) { await sb.from('partner_members').upsert({ org_id: existing.id, user_id: user.id, role: 'owner' }); await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id); made.push(c.venue_slug); continue; }
+        const { data: org } = await sb.from('partner_orgs').insert({ kind: 'venue', name: c.venue_slug, venue_slug: c.venue_slug, email_domain: ed, plan: 'founding', plan_until: FOUNDING_UNTIL }).select().single();
         await sb.from('partner_members').insert({ org_id: org.id, user_id: user.id, role: 'owner' });
         await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id);
         made.push(c.venue_slug);
@@ -52,12 +62,9 @@ exports.handler = async (event) => {
       if (FREE.has(domainOf(em))) return { statusCode: 400, headers: H, body: '{"error":"Use your venue work email so we can confirm you represent it."}' };
       await sb.from('venue_claims').insert({ venue_slug: venueSlug, email: em });
     } else {
-      // Restaurants, hotels, artists: org is created immediately; Concerto reviews Perks before they go live.
-      const { data: org } = await sb.from('partner_orgs').insert({ kind, name: String(name || em).slice(0, 120), email_domain: domainOf(em), plan: 'founding', plan_until: '2026-12-31' }).select().single();
-      const { data: u } = await sb.auth.admin.listUsers({ perPage: 1000 });
-      const existing = (u && u.users || []).find(x => (x.email || '').toLowerCase() === em);
-      if (existing) await sb.from('partner_members').insert({ org_id: org.id, user_id: existing.id, role: 'owner' });
-      else await sb.from('partner_members').insert({ org_id: org.id, user_id: '00000000-0000-0000-0000-000000000000', role: 'pending:' + em }).catch(() => {});
+      // Restaurants, hotels, artists: record the request; the org is created on first
+      // sign-in (approve=1), once the email has proven itself through the magic link.
+      await sb.from('venue_claims').insert({ venue_slug: `partner:${kind}:${String(name || em).slice(0, 80)}`, email: em });
     }
     await sb.auth.signInWithOtp({ email: em, options: { emailRedirectTo: SITE + '/console/' } });
     return { statusCode: 200, headers: H, body: JSON.stringify({ ok: true }) };
