@@ -4,7 +4,7 @@ Prepared September 21, 2026. This replaces the website presentation from the ear
 
 ## The direction
 
-“Make a night of it.” A concert-poster approach: large typography, deep navy, warm off-white, gold emphasis, open layouts, and one pale-lilac Concerto+ section. Real screenshots appear directly on the page, with no simulated phones, floating frames, or invented app interfaces.
+“Make a night of it.” The app’s brand carried through an open, concise website: Playfair Display headings, DM Sans body text and controls, navy (#121E36), gold (#C9A84C), snow (#F8F9F9), and white. Soft-gold sections use the app’s #F2EBD6 token. Real screenshots appear directly on the page, with no simulated phones, floating frames, or invented app interfaces.
 
 The homepage has five focused sections: the product promise, a three-part concert-night walkthrough, venue/tour/setlist discovery, Concerto+, and a download invitation. The walkthrough supports pointer and keyboard selection. It does not autoplay.
 

@@ -1,140 +1,32 @@
-# Website revision — September 2026
+# Native app brand alignment — September 2026
 
-The user authorized a full website redesign after rejecting the former presentation. For public website pages, this revision supersedes the legacy typography, radius, and product-framing rules below. Native app design is unchanged.
+The native app is the source of truth for Concerto’s visual identity. Website layout and copy may adapt to the web; fonts, colors, logo, and brand identity must remain aligned with the app. This replaces the previous website-only typography and color direction.
 
-- DM Sans supplies bold, legible public website headings, navigation, and body text. Playfair Display supplies selective italic emphasis in the main brand and Concerto+ statements.
-- Keep the established navy, gold, lockup, product names, and slogan. Warm off-white and pale lilac support the website's editorial sections.
-- Use open layouts, ruled rows, and restrained 3px control corners. Avoid decorative cards, gradients, device borders, floating screenshot containers, and fake app interfaces.
-- Product captures are real, unretouched app views, shown with their natural aspect ratio and an example-view caption. Do not repaint status bars or invent hardware.
-- Public marketing is evergreen: no static countdowns, dated campaign heroes, unsupported popularity claims, or invented partner offers.
-- Preserve canonical routes, sitemap coverage, robots directives, structured factual guides, form contracts, and the separation between public pages and native utility exports.
-- `scripts/experience_pages.py`, `scripts/company_pages.py`, and the editorial section of `css/public-v6.css` own the website presentation. `SCREENSHOT-REPLACEMENT-GUIDE.md` owns capture placement.
-- Browser review at desktop and iPhone widths remains a release requirement. Automated validation alone is not visual sign-off.
+## Typography
 
-## Legacy native typography baseline
+- Playfair Display 700: page, hero, section, and editorial headings.
+- Playfair Display 500: secondary editorial and card headings.
+- DM Sans 400: body copy; 500: metadata; 600: controls and navigation; 700: eyebrows.
+- No replacement sans-serif headline system, third typeface, or decorative italic headline treatment.
 
-The typography authority is the original user-uploaded concerto-site-main-24 package. Preserve its established Playfair/DM Sans relationship and intentional specialty mono treatments rather than flattening all surfaces into one font treatment.
+## Colors
 
-- Playfair Display 700: major page, section, editorial, venue, tour, and branded headings.
-- Playfair Display 500/regular: secondary editorial/entity treatments where the original system used them.
-- DM Sans: body, metadata, navigation, controls, buttons, filters, forms, and utility text.
-- DM Mono: only where the original site explicitly used it for compact coded/editorial labels (for example Top Picks and selected premium micro-labels).
-- Do not replace an established Playfair hierarchy with DM Sans for the sake of appearing more native.
+Use the light-mode values from `src/theme/tokens.ts` in the native app:
 
-# Concerto Brand & Product Standards
-Version 1.1 - September 2026
+- Navy and primary text: `#121E36`; soft navy: `#1C2B4A`.
+- Gold: `#C9A84C`; light gold: `#E5C365`; soft gold: `#F2EBD6`.
+- Background: `#F8F9F9`; surface: `#FFFFFF`.
+- Muted text: `#5A6478`; faint text: `#8A91A3`; silver: `#C0C0C0`.
+- Dividers: `rgba(18,30,54,0.11)`.
 
-## Purpose
-Concerto must feel like one established company across iOS, web, corporate pages, support, investor, partner, creator, press, and marketing surfaces. A surface may adapt to its platform. It may not invent a new Concerto.
+No lilac or alternate warm off-white palette. Gold is selective emphasis. Preserve the existing Concerto logo, product names, and “From the Concert to the City®” slogan.
 
-## Brand constants
-- Primary Navy: `#121E36`
-- Gold: `#C9A84C`
-- Light Background: `#F8F9F9`
-- White: `#FFFFFF`
-- Display Typeface: Playfair Display
-- Functional Typeface: DM Sans
-- Registered slogan: `From the Concert to the City®`
+## Presentation
 
-Gold is earned emphasis. Navy is a brand anchor, not a default card background. White space is part of the brand.
+Keep open layouts, clear hierarchy, concise writing, and controls consistent with the app’s rounded shapes. Real screenshots retain their natural aspect ratio. Do not add simulated phones, decorative screenshot frames, or invented app interfaces.
 
-## Core typography principle
-**Playfair defines hierarchy. DM Sans defines function.**
+Keep the company story precise. Describe actual features, partner processes, and available perks. Do not invent audience counts, offers, exclusivity claims, or guaranteed business outcomes.
 
-Playfair is the recognizable editorial voice of Concerto. It should be visible wherever a user is orienting themselves to a page, section, artist, venue, tour, or meaningful piece of content. DM Sans makes the product usable: controls, lists, labels, metadata, navigation, and body copy.
+Preserve existing canonical routes, sitemap coverage, robots directives, verification metadata, factual guides, and form contracts. Public website pages remain separate from native utility exports.
 
-## Universal typography hierarchy
-| Role | Typeface | Case | Weight | Intent |
-| --- | --- | --- | --- | --- |
-| Display Hero | Playfair Display | Title Case | 600-700 | Major marketing or emotional statement |
-| Page Title | Playfair Display | Title Case | 600-700 | Primary screen/page identity |
-| Section Title | Playfair Display | Title Case | 600 | Nearby Restaurants, Featured Tours, Venue Essentials, Tour Dates |
-| Editorial / Entity Title | Playfair Display | Title Case | 500-700 | Artist, venue, tour, place, policy, branded feature moment |
-| Dense List / Utility Row Title | DM Sans | Title Case | 600 | Search results, venue/tour indexes, account settings, compact utility rows |
-| Eyebrow / Status | DM Sans | ALL CAPS | 700 | YOUR NEXT SHOW, VERIFIED, CONCERTO+ |
-| Button / Action | DM Sans | Title Case | 600-700 | View Your Night, Save Show |
-| Body | DM Sans | Sentence case | 400 | Descriptions and explanatory copy |
-| Metadata | DM Sans | Sentence case | 500 | Date, venue, distance, time |
-| Navigation | DM Sans | Title Case | 500-600 | Tabs, web nav, menus |
-
-### Typography hard rules
-1. ALL CAPS is reserved for eyebrows, status, and compact category labels.
-2. Page and section titles use Playfair.
-3. Playfair is never used for buttons, tabs, form labels, filters, metadata, or dense utility lists.
-4. DM Sans does not replace the editorial hierarchy merely to look more native. Native polish comes from spacing, behavior, disclosure, motion, and restraint - not by removing the brand typeface.
-5. Dense repeating rows use DM Sans for scanability, even when the section heading above them is Playfair.
-6. Concerto uses only Playfair Display and DM Sans in product and corporate brand UI. No third display, mono, or decorative typeface is introduced without a brand-system revision.
-7. The same semantic role receives the same treatment everywhere.
-
-## Spacing
-Use only the shared scale: `4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96`.
-- iOS page gutter: 20pt
-- Standard card padding: 20-24pt
-- Functional section gap: 32-48pt
-- Marketing section gap: 64-96px
-
-Do not introduce one-off spacing values without a documented platform requirement.
-
-## Radius
-- Small controls and chips: 10-12
-- Standard cards: 16
-- Hero / premium cards: 20
-- Pills: only status, filter, or true pill controls
-- Native sheets/modals: use platform-native presentation where possible
-
-## Color behavior
-- Gold: premium emphasis, selected states, verified accents, restrained brand detail.
-- Navy: brand anchors, hero moments, footer/header surfaces, major premium moments.
-- Do not use gold for paragraphs or arbitrary headings.
-- Do not make every card navy.
-- Contrast must remain readable in light/dark themes and web states.
-
-## Platform expression
-### iOS
-Prefer native hierarchy, progressive disclosure, sheets, menus, rows, haptics, safe-area behavior, and contextual actions. Reduce nested containers and branded chrome while preserving Playfair as the editorial hierarchy.
-
-### Web / Corporate
-Use the same typography roles and color rules with a larger editorial scale, wider compositions, and more generous whitespace. Corporate pages may be more editorial than iOS, but never become a separate template family.
-
-## Voice
-Concerto is concise, informed, premium, calm, and useful.
-- No unnecessary exclamation marks.
-- No jargon for its own sake.
-- No fake urgency.
-- No exaggerated claims.
-- No inconsistent naming for the same feature.
-- Use `Your Night`, `Concerto+`, and `From the Concert to the City®` consistently.
-
-## Logo standards
-- Maintain clear space around the lockup.
-- Never place a navy/blue logo on a navy background without a high-contrast treatment.
-- Use the white lockup on dark navy surfaces.
-- Never stretch, recolor arbitrarily, or recreate the mark in text.
-
-## Business-wide navigation and footer standard
-- Navigation labels use DM Sans, Title Case, medium/semi-bold.
-- Footer group labels are eyebrows and may be uppercase.
-- Footer content groups remain: Explore, Company, Work With Us, Support.
-- Active social destinations: Instagram, TikTok, YouTube only.
-
-## Governance
-Every new component or page must map text to a semantic role before styling. If a role is missing, extend the design system first rather than creating a one-off style.
-
-Before release, run the brand-system validator and complete visual QA on:
-1. Home
-2. Your Night
-3. Near Me
-4. Venues
-5. Tours
-6. Account
-7. Concerto+
-8. About
-9. Press & Media
-10. Investors
-11. Partners
-12. Creators
-13. Contact
-14. Help / FAQ / legal
-15. Global footer and navigation on desktop and mobile
-
-The test is simple: moving between any two Concerto surfaces should feel like changing rooms inside the same company, not changing companies.
+`scripts/experience_pages.py`, `scripts/company_pages.py`, and `css/public-v6.css` own public presentation. `SCREENSHOT-REPLACEMENT-GUIDE.md` describes replacement captures. Automated checks verify structure and brand declarations; rendered browser review is a separate check and must not be claimed when unavailable.
