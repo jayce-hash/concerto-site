@@ -71,3 +71,24 @@ COMPONENTS = {
 }
 def component(key):
     return (COMPONENTS.get(key) or next_show)()
+
+
+# ---- Library pages: the same card system, for any venue or tour ----
+def venue_section_card(info, key, title):
+    x = (info or {}).get(key) or {}
+    body = x.get('summary') or x.get('note') or x.get('body') or ''
+    if not body: return ''
+    lists = ''
+    if x.get('allowed') or x.get('prohibited'):
+        lists = '<div class="nc-lists">' + (f'<div><span class="nc-label">Allowed</span><ul>{"".join("<li>"+e(a)+"</li>" for a in x.get("allowed", [])[:5])}</ul></div>' if x.get('allowed') else '') + (f'<div><span class="nc-label">Not allowed</span><ul class="no">{"".join("<li>"+e(a)+"</li>" for a in x.get("prohibited", [])[:5])}</ul></div>' if x.get('prohibited') else '') + '</div>'
+    ver = f'<span class="nc-verified">Verified {e(x.get("verified"))}</span>' if x.get('verified') else '<span class="nc-verified nc-unverified">Not yet verified</span>'
+    link = f'<a class="nc-link" href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source ↗</a>' if x.get('officialLink') else ''
+    return f'<figure class="night-card night-card-paper night-card-full" data-section="{e(key)}" aria-label="{e(title)}"><div class="nc-head"><h3>{e(title)}</h3>{ver}</div><p class="nc-body">{e(body)}</p>{lists}{link}</figure>'
+
+def setlist_card_for(slug, artist, n=12):
+    s = _SL.get(slug) or {}; songs = s.get('songs') or []
+    if not songs: return ''
+    label = 'Official tour playlist' if 'apple music' in (s.get('note') or '').lower() else ('Confirmed setlist' if (s.get('source') or {}).get('eventDate') else 'Setlist')
+    items = ''.join(f'<li><i>{i+1:02d}</i>{e(x)}</li>' for i, x in enumerate(songs[:n]))
+    more = f'<a class="nc-link" href="/setlist/{e(slug)}">All {len(songs)} songs →</a>' if len(songs) > n else ''
+    return f'<figure class="night-card night-card-paper night-card-full" aria-label="{e(label)} for {e(artist)}"><div class="nc-head"><h3>{label}</h3><span class="nc-kicker">{len(songs)} songs · updated {e(s.get("updated",""))}</span></div><ol class="nc-songs">{items}</ol>{more}</figure>'
