@@ -991,3 +991,36 @@ h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-h
 h1,h2{font-weight:700}
 .poster-hero h1 em,.type-hero h1 em,.plus-editorial h2 em{font-style:normal;font-weight:700;letter-spacing:-.02em}
 .poster-hero .btn-primary,.last-call .btn-primary{background:var(--gold);border-color:var(--gold)}
+
+/* ---------- Night cards: product content from real data, in place of screenshots ---------- */
+.night-card{margin:0;width:100%;max-width:440px;border-radius:24px;padding:24px 26px;font-family:var(--body);box-shadow:0 18px 44px rgba(18,30,54,.10),0 0 0 1px rgba(18,30,54,.06);background:#fff;color:var(--navy)}
+.night-card-navy{background:var(--navy);color:#fff}
+.night-card h3{font-family:var(--display);font-size:26px;line-height:1.1;letter-spacing:-.02em;margin:0;font-weight:500}
+.night-card-navy h3{color:#fff}
+.nc-kicker{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.nc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.nc-sub{font-family:var(--display);font-size:16px;margin:6px 0 4px;color:inherit;opacity:.9}
+.nc-meta{font-size:13px;margin:0;opacity:.7}
+.nc-body{font-size:13.5px;line-height:1.6;margin:0 0 12px;color:var(--muted)}
+.night-card-navy .nc-body{color:rgba(255,255,255,.75)}
+.nc-count{margin:18px 0 14px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.nc-count b{display:block;font-family:var(--display);font-size:40px;line-height:1;font-weight:500}
+.nc-count > span{display:block;font-size:12px;opacity:.65;margin-top:6px}.nc-count b span{display:inline;font-size:inherit;opacity:1;margin:0}
+.nc-link{display:inline-block;font-size:13px;font-weight:700;color:var(--gold);margin-top:8px}
+.nc-verified{font-size:11px;font-weight:800;color:var(--gold-ink)}.nc-verified:before{content:'✓ '}
+.nc-lists{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 8px}
+.nc-label{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin-bottom:6px}
+.nc-lists ul{list-style:none;margin:0;padding:0}.nc-lists li{font-size:13px;padding:4px 0 4px 18px;position:relative}
+.nc-lists li:before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.nc-lists ul.no li:before{background:#9AA3B2}
+.nc-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line-soft);font-size:14px}
+.nc-row b{font-family:var(--display);font-weight:500;font-size:17px;display:block}.nc-row span{color:var(--muted);font-size:12.5px}
+.nc-row-venue > div span{display:block;margin-top:2px}.nc-check{color:var(--gold);font-weight:800}
+.nc-row-plan{align-items:flex-start}.nc-time{min-width:64px;font-size:12px;font-weight:800;color:var(--gold-ink);padding-top:3px}
+.nc-row-plan b{font-size:15px}.nc-row-plan div span{display:block}
+.nc-songs{list-style:none;margin:0;padding:0}.nc-songs li{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line-soft);font-size:15px;font-weight:600}
+.nc-songs li i{font-style:normal;font-family:var(--display);font-size:13px;color:var(--gold);min-width:22px}
+.nc-pills{display:flex;gap:8px;margin-top:4px}.nc-pills span{background:var(--gold);color:var(--navy);border-radius:999px;padding:9px 18px;font-size:13px;font-weight:700}
+.nc-foot{font-size:11.5px;color:var(--faint);margin:14px 0 0}
+.product-capture,.app-gallery-rail .night-card{flex:none}
+.app-gallery-rail .night-card{width:min(360px,84vw)}
