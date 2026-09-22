@@ -1600,3 +1600,14 @@ h1,h2{font-weight:700}
 .v8 .ftr-attrib{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 24px;padding-top:24px;font-size:12.5px;color:rgba(255,255,255,.5)}
 .v8 .ftr-attrib a{color:rgba(255,255,255,.7);text-decoration:underline;text-underline-offset:3px}
 .v8 .ftr-base{padding-top:18px}
+/* A dark section tone, so any band can carry the navy moment */
+.v8 .c-navy{background:var(--navy);color:#fff}
+.v8 .c-navy h2,.v8 .c-navy h3,.v8 .c-navy .c-statement,.v8 .c-navy .c-pull{color:#fff}
+.v8 .c-navy .c-body,.v8 .c-navy .c-lead,.v8 .c-navy .c-statement-after,.v8 .c-navy p{color:rgba(255,255,255,.74)}
+.v8 .c-navy .c-eyebrow{color:var(--gold-2)}
+.v8 .c-navy .c-link{color:#fff;border-bottom-color:var(--gold)}
+.v8 .c-navy .c-rows li,.v8 .c-navy .c-rows,.v8 .c-navy .c-principles,.v8 .c-navy .c-principle{border-color:rgba(255,255,255,.16)}
+/* The light hero keeps the glow, in gold rather than on navy */
+.v8 .c-hero-cream.c-hero-home{position:relative;overflow:hidden}
+.v8 .c-hero-cream.c-hero-home:before{content:'';position:absolute;inset:auto -15% -45% auto;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(closest-side,rgba(201,168,76,.14),transparent 70%);pointer-events:none}
+.v8 .c-hero-cream .c-hero-inner{position:relative}

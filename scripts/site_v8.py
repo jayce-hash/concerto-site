@@ -109,7 +109,7 @@ def guide_index():
 def problem_section():
     # The homepage names the fan's problem in their own words. The story of the name is a good
     # one, but it explains Concerto rather than the night, so it lives on About instead.
-    return ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-narrow">' + eyebrow('The problem') +
+    return ('<section class="c-section c-navy" data-reveal><div class="c-wrap c-narrow">' + eyebrow('The problem') +
             '<p class="c-statement">A ticket tells you the date.<br>It doesn\u2019t tell you the rest.</p>'
             '<p class="c-statement-after">What can I bring in? Where do I park? Where is the car after the encore?<br>'
             'One page. Every answer sourced and dated.</p></div></section>')
@@ -310,8 +310,8 @@ def mail(addr): return f'<a href="mailto:{addr}">{addr}</a>'
 def home():
     h = hero('The concert-night companion', 'From the concert<br>to the city.',
              'The venue’s rules. The setlist. The timing. The way home. One page per show.',
-             store_button('website-home', tone='white') + '<a class="c-link c-link-light" href="#what">What Concerto does</a>',
-             [f'{N_V} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'navy', 'c-hero-home')
+             store_button('website-home') + '<a class="c-link" href="#what">What Concerto does</a>',
+             [f'{N_V} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'cream', 'c-hero-home')
     what = section('white', 'What Concerto does', 'Three things, done carefully.', rows([
         ('Know the venue.', e(f'Bag policy, entry, parking, rideshare, accessibility. {N_V} venues, from official sources, dated.'), f'<a class="c-link" href="/venues">Browse {N_V} venue guides</a>'),
         ('Know the music.', e(f'{N_T} tours. {N_S} setlists, labeled by source. Learn the songs before doors.'), '<a class="c-link" href="/tours">Browse tours and setlists</a>'),
