@@ -3,54 +3,37 @@ import html
 import json
 from pathlib import Path
 from public_chrome import APP, page_end, app_link_campaign
-from night_components import component, EXAMPLE
 
 ROOT = Path(__file__).resolve().parent.parent
 def e(value): return html.escape(str(value), quote=True)
 
-def capture(key, alt, fallback='your-night'):
-    # Feature pages still call this; it now returns the data component for the key.
-    return component(key)
+from night_visuals import route
+from home_story import home_page
 
-def _cta(ct, label='Get Concerto for iPhone'):
-    return f'<a class="btn-primary" href="{app_link_campaign(ct)}">{label}</a>'
+def close(title='Your ticket is the beginning.'):
+    return f'<section class="last-call"><div class="site-shell"><p class="eyebrow">From the Concert to the City®</p><h2>{title}</h2><a class="btn-primary" href="{app_link_campaign("website-footer")}">Get Concerto for iPhone <span aria-hidden="true">↗</span></a><p class="small-print">Free to download. Concerto+ available in the app.</p></div></section>'
 
-def _rail(keys, label):
-    cards=''.join(component(k) for k in keys)
-    return f'<div class="moment-rail" role="region" aria-label="{e(label)}" tabindex="0">{cards}</div>'
-
-def _pillars(items):
-    return '<div class="pillars">'+''.join(f'<div><span class="pillar-verb">{e(v)}</span><p>{e(t)}</p></div>' for v,t in items)+'</div>'
-
-def _grid(items):
-    return '<div class="feature-grid">'+''.join(f'<div><h3>{e(h)}</h3><p>{e(t)}</p></div>' for h,t in items)+'</div>'
-
-def _proof(items):
-    return '<div class="proof">'+''.join(f'<div><b>{e(h)}</b><p>{e(t)}</p></div>' for h,t in items)+'</div>'
-
-def close(title='Your next show starts here.', ct='website-footer'):
-    return f'<section class="last-call"><div class="site-shell"><h2>{title}</h2><div class="last-call-actions">{_cta(ct)}<img class="qr" src="/img/appstore-qr.png" width="96" height="96" alt="QR code for Concerto on the App Store" loading="lazy"></div><p class="small-print">Free to download. Concerto+ available in the app.</p></div></section>'
-
-def home_page(head, schema):
-    hero=f'''<section class="stage-hero"><div class="site-shell"><h1>Everything after the ticket,<br>in one place.</h1><p class="lead">Save your show. Concerto keeps the venue rules, setlist, timing, places nearby, and the way home together.</p>{_cta('website-home')}</div><div class="site-shell wide">{_rail(['home','venue','setlist'], 'A saved show, its venue rules, and its setlist')}</div></section>'''
-    statement='''<section class="statement"><div class="site-shell"><p>Concerto is the concert-night companion. Save the show, and the night organizes itself.</p></div></section>'''
-    pillars='<section class="pillars-section"><div class="site-shell">'+_pillars([('Save','Find your show, or let your calendar suggest it.'),('Know','Bag policy, entry, parking, and rideshare, from official sources, dated.'),('Plan','Setlist, timing, dinner, and the way home on one page.')])+'</div></section>'
-    how='''<section class="how-para"><div class="site-shell"><p>Concerto works by attaching everything about a night to the show you saved: the venue’s verified rules, the tour’s setlist, the timing, the places nearby, and the route home. It is organized before you ask, so the night stays yours instead of your phone’s.</p></div></section>'''
-    night=f'''<section class="moments"><div class="site-shell"><h2>A page for every show you go to.</h2></div><div class="site-shell wide">{_rail(['your-night','venue-essentials','setlist','getting-home','night-plan'], 'Your Night, from the countdown to the way home')}</div></section>'''
-    plus=f'''<section class="plus-moment"><div class="site-shell plus-grid"><div><p class="eyebrow">Concerto+</p><h2>Make a plan of it.</h2><p>Dinner, arrival, and the way home, shaped around your show and your taste. Plan My Night and AI Bag Check, with the essentials always free.</p><a class="text-link" href="/premium">Explore Concerto+ <span aria-hidden="true">↗</span></a></div>{component('night-plan')}</div></section>'''
-    grid='<section class="features"><div class="site-shell"><p class="section-intro">Concerto turns a ticket into a night you can see. These are the pieces.</p>'+_grid([('Your Night','One page per saved show: countdown, essentials, setlist, nearby, and the way home.'),('Venue Essentials','Bag policy, entry, parking, rideshare, and accessibility for 346 venues, with the source and date on every section.'),('Setlists','What the tour is playing, labeled by source, so you can learn it before doors.'),('Getting Home','The venue’s published pickup guidance and ride links, kept with the show.'),('AI Bag Check','Compare your bag with the venue’s policy before you leave the house.'),('Show-day alerts','Quiet reminders on the day, in venue time, only for shows you saved.')])+'</div></section>'
-    proof='<section class="proof-section"><div class="site-shell"><h2>Built for fans who show up.</h2>'+_proof([('346 venue guides','Researched from official sources, each section dated.'),('Honest by default','When something is not confirmed, Concerto says so instead of guessing.'),('Free where it matters','Bag policy, entry, parking, and accessibility never sit behind Concerto+.')])+'</div></section>'
-    return head('Concerto | Everything After the Ticket, in One Place','Save your show. Concerto keeps the venue rules, setlist, timing, places nearby, and the plan for getting there and home together.','/',schema)+'<main class="experience-home">'+hero+statement+pillars+night+plus+grid+proof+close()+'</main>'+page_end()
+def journey():
+    first_capture = 'before'
+    phases = [
+      ('before','01','Before the show','The anticipation<br>is part of it.','Save your concert. Find the venue essentials, explore nearby dinner spots, and get familiar with the available tour setlist.',first_capture,'Your saved show and the Your Night entry point','/your-night','Meet Your Night'),
+      ('there','02','At the venue','Less figuring out.<br>More being there.','Bag rules, entry information, parking, and venue guidance. Keep the useful details close when the crowd starts moving.','venue-essentials','Venue essentials within Your Night','/venues','Explore venue guides'),
+      ('after','03','After the encore','Keep the way<br>home handy.','Return to the venue’s published pickup guidance and ride links. Your Night keeps the exit connected to the show.','getting-home','Getting Home guidance in Your Night','/rideshare','Explore getting home'),
+    ]
+    buttons=''.join(f'<button type="button" id="night-tab-{key}" role="tab" aria-selected="{str(i==0).lower()}" aria-controls="night-panel-{key}" tabindex="{0 if i==0 else -1}" data-night-tab="{key}"><span>{number}</span>{label}<span aria-hidden="true">↗</span></button>' for i,(key,number,label,*_) in enumerate(phases))
+    panels=''
+    for i,(key,number,label,title,desc,image,alt,href,link) in enumerate(phases):
+      panels += f'<div class="night-panel" id="night-panel-{key}" role="tabpanel" aria-labelledby="night-tab-{key}" {"hidden" if i else ""}><div class="night-panel-copy"><p class="eyebrow">Your concert, connected</p><h3>{title}</h3><p>{desc}</p><a class="text-link" href="{href}">{link} <span aria-hidden="true">↗</span></a></div>{route(key)}</div>'
+    return '<section class="night-experience" id="the-night"><div class="site-shell"><div class="section-lead"><p class="eyebrow">One show. The whole night.</p><h2>The whole night.<br>Not just the show.</h2></div><div class="night-tabs" role="tablist" aria-label="Explore your concert night">'+buttons+'</div>'+panels+'<noscript><p>Explore <a href="/your-night">Your Night</a>, <a href="/venues">venue guides</a>, and <a href="/rideshare">getting home</a>.</p></noscript></div></section>'
 
 def your_night_page(head):
-    hero=f'''<section class="stage-hero"><div class="site-shell"><p class="eyebrow">Your Night · Free in Concerto</p><h1>The show is yours.<br>So is the night.</h1><p class="lead">Save a concert and the whole evening gets a home: the venue, the music, the places nearby, and the way back.</p>{_cta('website-your-night','Save your next show')}</div><div class="site-shell wide">{_rail(['your-night','venue-essentials','setlist','getting-home'], 'Your Night, section by section')}</div></section>'''
-    pillars='<section class="pillars-section"><div class="site-shell">'+_pillars([('Weeks out','Learn the songs and the rules. Book dinner.'),('Show day','The forecast, when to leave, and where to enter.'),('After','The way home, and the setlist you heard.')])+'</div></section>'
-    free='<section class="proof-section"><div class="site-shell"><h2>Free, and honest about what it knows.</h2>'+_proof([('Always free','Saving shows, venue essentials, setlists, and directions.'),('Dated and sourced','Every venue section shows where it came from and when it was checked.'),('Concerto+','Plan My Night, AI Bag Check, and richer alerts, when you want them.')])+'</div></section>'
-    return head('Your Night | Every Part of Your Show | Concerto','Save a concert and keep venue rules, available setlists, nearby places, and the way home together.','/your-night')+'<main class="experience-product">'+hero+pillars+free+close('Save your next show.','website-your-night')+'</main>'+page_end()
+    hero=f'''<section class="type-hero"><div class="site-shell"><p class="eyebrow">Your Night · Free in Concerto</p><h1>The show is yours.<br><em>So is the night.</em></h1><div class="hero-bottom"><p>Save a concert and give the whole evening a home. The venue, the music, the places nearby, and the way back.</p><a class="btn-primary" href="{APP}">Save your next show ↗</a></div></div></section>'''
+    free='''<section class="principles-strip"><div class="site-shell"><div><span>01 / SAVE</span><h3>Start with your show.</h3><p>Find a concert and save it. Open Your Night from Home or My Shows.</p></div><div><span>02 / PREPARE</span><h3>Keep the facts close.</h3><p>Check sources and dates on venue guidance. Available details vary by show.</p></div><div><span>03 / MAKE IT YOURS</span><h3>Add a plan with +.</h3><p>Concerto+ adds personalized planning, AI Bag Check, and show-day alerts.</p><a class="text-link" href="/premium">Explore Concerto+ ↗</a></div></div></section>'''
+    return head('Your Night | Every Part of Your Show | Concerto','Save a concert and keep venue rules, available setlists, nearby places, and the way home together.','/your-night')+'<main class="experience-product">'+hero+journey()+close()+'</main>'+page_end()
 
 def premium_page(head):
     schema='<script type="application/ld+json">'+json.dumps({'@context':'https://schema.org','@type':'Product','name':'Concerto+','description':'Personalized concert-night planning inside Concerto.','brand':{'@type':'Brand','name':'Concerto'},'offers':[{'@type':'Offer','price':'7.99','priceCurrency':'USD','url':'https://concertocity.com/premium','name':'Monthly'},{'@type':'Offer','price':'69.99','priceCurrency':'USD','url':'https://concertocity.com/premium','name':'Yearly'}]})+'</script>'
-    hero=f'''<section class="stage-hero plus-hero"><div class="site-shell"><p class="eyebrow">Concerto+</p><h1>Good plans.<br>Great nights.</h1><p class="lead">A plan around your show and your preferences. A little less to figure out before you leave.</p>{_cta('website-premium','Start with the app')}</div><div class="site-shell wide">{_rail(['night-plan','bagcheck'], 'Plan My Night and AI Bag Check')}</div></section>'''
-    grid='<section class="features"><div class="site-shell">'+_grid([('Plan My Night','A timeline for the evening from your saved show: dinner, arrival, the encore, and home.'),('AI Bag Check','Your bag against the venue’s published policy, with the rule it used.'),('Show-day alerts','Forecast in the morning, leave-by in the afternoon, the way home after the encore.')])+'</div></section>'
-    pricing=f'''<section class="pricing"><div class="site-shell"><h2>Meet your +.</h2><p class="lead">The essentials stay free. Add Concerto+ when you want a personal plan.</p><div class="price-row"><div><b>$7.99</b><span>per month</span></div><div><b>$69.99</b><span>per year</span></div></div>{_cta('website-premium','Start your 7-day trial in the app')}<p class="small-print">Cancel anytime in your Apple ID settings.</p></div></section>'''
-    return head('Concerto+ | Your Whole Night, Planned Around You','Personalized concert-night planning, AI Bag Check, and show-day alerts with Concerto+.','/premium',schema)+'<main class="experience-product">'+hero+grid+pricing+'</main>'+page_end()
+    hero=f'''<section class="type-hero plus-hero"><div class="site-shell"><p class="eyebrow">Concerto+</p><h1>Good plans.<br><em>Great nights.</em></h1><div class="hero-bottom"><p>A plan around your show and your preferences.<br>A little less to figure out before you leave.</p><a class="btn-primary" href="{APP}">Explore Concerto+ in the app ↗</a></div></div></section>'''
+    features=f'''<section class="product-story"><div class="site-shell product-story-grid"><div><p class="eyebrow">Your evening, with a plan</p><h2>From dinner<br>to the encore.</h2><p class="lead">Choose what you’re in the mood for. Build a suggested timeline around your concert, adjust the stops and times, and share it with your people.</p><div class="feature-lines"><div><h3>Plan My Night</h3><p>Personalized suggestions using available show and venue information.</p></div><div><h3>AI Bag Check</h3><p>Compare your bag with the venue’s published policy before you go.</p></div><div><h3>Show-day alerts</h3><p>Useful reminders for saved shows, with notification controls in Settings.</p></div></div></div>{route('plan')}</div></section>'''
+    pricing=f'''<section class="membership-section"><div class="site-shell"><div><p class="eyebrow">Make room for more of the night</p><h2>Meet your +.</h2><p>The essentials stay free. Add Concerto+ when you want a personal plan.</p></div><div class="membership-terms"><div class="membership-price"><p><b>$7.99</b><span>per month</span></p><p><b>$69.99</b><span>per year</span></p></div><a class="btn-primary" href="{APP}">Choose in the app ↗</a><p class="small-print">US pricing. Confirm current price and terms before purchase. Apple subscriptions renew automatically unless canceled.</p><details><summary>What stays free?</summary><p>Venue guides, available setlists, tours, nearby discovery, saved shows, and Your Night.</p></details><details><summary>What should I know about the plan?</summary><p>Plans are suggestions, not reservations. Confirm times, business availability, and venue rules. AI Bag Check cannot guarantee entry. Saved plans stay on your device; sharing sends a text copy.</p></details><details><summary>How do I manage my subscription?</summary><p>Manage or cancel in your Apple subscription settings. Use Restore Purchases in the app if your membership is missing.</p></details></div></div></section>'''
+    return head('Concerto+ | Your Whole Night, Planned Around You','Personalized concert-night planning, AI Bag Check, and show-day alerts with Concerto+.','/premium',schema)+'<main class="experience-product">'+hero+features+pricing+'</main>'+page_end()

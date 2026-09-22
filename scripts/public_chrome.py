@@ -46,6 +46,7 @@ HEAD_ASSETS = (
     '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800'
     '&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">'
     '<link rel="stylesheet" href="/css/public-v6.css">'
+    '<link rel="stylesheet" href="/css/experience.css">'
     '<script src="/analytics.js" defer></script>'
 )
 
