@@ -27,13 +27,13 @@ def app_link_campaign(ct):
     return f'{_APP_BASE}?pt={_PT}&ct={ct}&mt=8'
 
 NAV = [
-    ('The App', '/your-night'),
+    ('Your Night', '/your-night'),
     ('Venues', '/venues'),
-    ('Setlists', '/setlists'),
+    ('Tours', '/tours'),
     ('Concerto+', '/premium'),
-    ('Partners', '/partners'),
+    ('About', '/about'),
 ]
-MENU_EXTRA = [('Tours', '/tours'), ('About', '/about'), ('Search', '/search'), ('Help', '/help')]
+MENU_EXTRA = [('Setlists', '/setlists'), ('Search', '/search'), ('Help', '/help')]
 
 HEADER_START = '<!-- CONCERTO_CHROME_HEADER_START -->'
 HEADER_END = '<!-- CONCERTO_CHROME_HEADER_END -->'
@@ -69,32 +69,25 @@ def is_active(href, path):
 
 
 def header_html(path='/'):
-    def link(label, href, cls=''):
+    def link(label, href):
         active = is_active(href, path)
-        classes = ' '.join(c for c in [cls, 'active' if active else ''] if c)
-        attrs = f' class="{classes}"' if classes else ''
-        cur = ' aria-current="page"' if active else ''
-        return f'<a{attrs} href="{href}"{cur}>{_e(label)}</a>'
-
+        cur = ' class="active" aria-current="page"' if active else ''
+        return f'<a href="{href}"{cur}>{_e(label)}</a>'
     main_links = ''.join(link(l, h) for l, h in NAV)
     menu_links = ''.join(link(l, h) for l, h in NAV + MENU_EXTRA)
     return (
         f'{HEADER_START}'
         '<a class="skip-link" href="#main-content">Skip to content</a><header class="site-header">'
-        '<div class="site-shell wide header-inner">'
-        '<a class="site-logo" href="/" aria-label="Concerto home">'
-        '<img src="/img/lockup.png" alt="Concerto" width="250" height="52"></a>'
+        '<div class="hdr">'
+        '<a class="site-logo" href="/" aria-label="Concerto home"><img src="/img/lockup.png" alt="Concerto" width="250" height="52"></a>'
         f'<nav class="site-nav" aria-label="Main">{main_links}</nav>'
         '<div class="header-actions">'
-        '<a class="header-text-link search-icon" href="/search" aria-label="Search Concerto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 5 5"/></svg></a>'
-        f'<a class="header-cta" href="{APP}" target="_blank" rel="noopener">Get the App</a>'
-        '<button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">'
-        '<span class="menu-bar"></span><span class="menu-bar"></span></button>'
+        '<a class="search-icon" href="/search" aria-label="Search Concerto"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg></a>'
+        f'<a class="header-cta" href="{app_link_campaign("website-header")}" target="_blank" rel="noopener">Download</a>'
+        '<button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span class="menu-bar"></span><span class="menu-bar"></span></button>'
         '</div></div>'
-        f'<nav class="mobile-nav" id="site-menu" aria-label="Menu" hidden>'
-        f'<div class="site-shell mobile-nav-inner">{menu_links}'
-        f'<a class="header-cta" href="{APP}" target="_blank" rel="noopener">Get the App</a>'
-        '</div></nav>'
+        f'<nav class="mobile-nav" id="site-menu" aria-label="Menu" hidden><div class="mobile-nav-inner">{menu_links}'
+        f'<a class="header-cta" href="{app_link_campaign("website-menu")}" target="_blank" rel="noopener">Download Concerto</a></div></nav>'
         '</header>'
         f'{HEADER_END}'
     )
@@ -102,48 +95,25 @@ def header_html(path='/'):
 
 def footer_html():
     cols = [
-        ('Concerto', [('How It Works', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'),
-                      ('Perks', '/perks'), ('Get the App', APP)]),
-        ('Library', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'),
-                     ('Near Me', '/near-me'), ('Search', '/search')]),
-        ('Company', [('About', '/about'), ('Press', '/press'), ('Investors', '/investors'),
-                     ('Creators', '/creators'), ('Contact', '/contact')]),
-        ('Partners & Help', [('Partners', '/partners'), ('Partner Console', '/console/'),
-                             ('Help Center', '/help'), ('FAQ', '/faq')]),
+        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', APP)]),
+        ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
+        ('Company', [('About', '/about'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Contact', '/contact')]),
+        ('Partners', [('Work with Concerto', '/partners'), ('Venues', '/partners/venues'), ('Restaurants', '/partners/restaurants'), ('Hotels', '/partners/hotels'), ('Partner Console', '/console/')]),
+        ('Support', [('Help Center', '/help'), ('FAQ', '/faq')]),
     ]
-
-    def col(title, items):
-        links = ''.join(
-            f'<a href="{h}"{" target=_blank rel=noopener" if h.startswith("http") else ""}>{_e(l)}</a>'
-            for l, h in items)
-        return f'<div class="footer-col"><h3>{title}</h3>{links}</div>'
-
+    col_html = ''.join(
+        f'<div class="ftr-col"><h2>{_e(t)}</h2><ul>' + ''.join(f'<li><a href="{h}">{_e(l)}</a></li>' for l, h in links) + '</ul></div>'
+        for t, links in cols)
     return (
-        f'{FOOTER_START}'
-        '<footer class="site-footer"><div class="site-shell footer-statement" aria-hidden="true">See you at the show.</div>'
-        '<div class="site-shell footer-top">'
-        '<div class="footer-brand">'
-        '<img src="/img/lockup.png" alt="Concerto" width="250" height="52">'
-        '<p class="footer-kicker">From the Concert to the City®</p>'
-        f'<a class="footer-app" href="{APP}" target="_blank" rel="noopener">Get Concerto for iPhone</a>'
-        '</div>'
-        f'<div class="footer-nav">{"".join(col(t, i) for t, i in cols)}</div>'
-        '</div>'
-        '<div class="site-shell footer-bottom">'
-        '<span>© 2026 Concerto LLC. Independent from artists, venues, teams, and promoters.</span>'
-        '<div class="footer-bottom-links">'
-        '<a href="https://instagram.com/theconcertoapp" target="_blank" rel="noopener">Instagram</a>'
-        '<a href="https://www.tiktok.com/@theconcertoapp" target="_blank" rel="noopener">TikTok</a>'
-        '<a href="https://www.youtube.com/@theconcertoapp" target="_blank" rel="noopener">YouTube</a>'
-        '<a href="/privacy">Privacy</a><a href="/terms">Terms</a>'
-        '</div></div>'
-        '</footer>'
-        f'{FOOTER_END}'
+        f'{FOOTER_START}<footer class="site-footer"><div class="ftr">'
+        '<div class="ftr-brand"><a class="site-logo" href="/" aria-label="Concerto home"><img src="/img/lockup.png" alt="Concerto" width="200" height="42" loading="lazy"></a>'
+        '<p>From the Concert to the City®</p></div>'
+        f'<div class="ftr-cols">{col_html}</div>'
+        '<div class="ftr-base"><span>© 2026 Concerto LLC. Independent from artists, venues, teams, and promoters.</span>'
+        '<span class="ftr-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a>'
+        '<a href="https://instagram.com/theconcertoapp" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" rel="noopener">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" rel="noopener">YouTube</a></span></div>'
+        f'</div></footer>{FOOTER_END}'
     )
-
-
-SCREENS_DIR = 'img/product/screens'
-
 
 def product_screen(name):
     """Path to a cropped app capture, resolved through img/product/screens/manifest.json

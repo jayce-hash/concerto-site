@@ -519,3 +519,33 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* V8: reveal on scroll, and the venue guide's current-section marker. */
+(function () {
+  'use strict';
+  var d = document, reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(d.querySelectorAll('[data-reveal]'));
+  if (!els.length) return;
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-in'); }); }
+  else {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+})();
+(function () {
+  'use strict';
+  var links = [].slice.call(document.querySelectorAll('.c-toc a'));
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var byId = {}; links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting && byId[x.target.id]) { links.forEach(function (a) { a.classList.remove('is-current'); }); byId[x.target.id].classList.add('is-current'); } }); }, { rootMargin: '-30% 0px -60% 0px' });
+  Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+})();
+(function () {
+  'use strict';
+  /* Directory filter: hide group headings whose entries are all filtered out. */
+  document.querySelectorAll('[data-filter-target]').forEach(function (input) {
+    input.addEventListener('input', function () {
+      setTimeout(function () { document.querySelectorAll('.c-group').forEach(function (g) { var any = [].some.call(g.querySelectorAll('.c-entry'), function (li) { return !li.hidden; }); g.hidden = !any; }); }, 120);
+    });
+  });
+})();

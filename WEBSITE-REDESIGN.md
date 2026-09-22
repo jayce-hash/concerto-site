@@ -97,3 +97,18 @@ real data (`night_components.py`) or a live interaction:
 - Reveal, count-up, and marquee all disabled under Reduce Motion.
 Library pages (venue, tour, setlist) keep their URLs, canonicals, structured data, and
 sitemap; their layout uses the same card system (`venue_section_card`, `setlist_card_for`).
+
+## V8 (Sep 21, 2026): the company site, written from zero
+`scripts/site_v8.py` runs last in `rebuild-consumer-site.py`. For every public page it keeps
+the `<head>` exactly as generated (title, description, robots, canonical, Open Graph, smart
+banner, structured data) and authors a new body, so Search Console sees the same 624 URLs
+and the same metadata. Verified: 631 of 631 heads identical to the prior site.
+- No screenshots, no imitation app UI. The site sells with a point of view (the name, the
+  principles), real venue photography (`img/cityguides/*/<Venue>.webp`), and the guide itself.
+- Madison-Square-Garden.webp is a watermarked Getty image and must never be used.
+- Design system: the `.v8` layer at the end of `css/public-v6.css`; behaviors appended to
+  `js/public-v6.js` (reveal, guide table of contents, directory group filtering).
+- Venue guide sections keep `.info-card[data-section]`, `p`, `.verified`, `.link-row a` so the
+  Partner Console overlay and Report wrong info keep working.
+- Secondary pages (press, partners, investors, creators, help, faq, contact, legal, near-me,
+  perks, search) keep their content inside the new chrome (`body.v8.v8-legacy`).

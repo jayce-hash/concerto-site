@@ -54,7 +54,7 @@ def close(title='Your next show<br>starts here.', ct='website-footer'):
     return f'<section class="v7-close"><div class="v7-shell reveal"><h2>{title}</h2><div class="v7-close-actions">{cta(ct)}<img class="v7-qr" src="/img/appstore-qr.png" width="96" height="96" alt="QR code for Concerto on the App Store" loading="lazy"></div><p class="v7-fine">Free to download. Concerto+ available in the app.</p></div></section>'
 
 def home_page(head, schema):
-    return head('Concerto | Everything After the Ticket, in One Place','Save your show. Concerto keeps the venue rules, setlist, timing, places nearby, and the way home on one page. 346 verified venue guides.','/',schema)+V7_JS+'<main class="v7">'+hero_home()+try_it()+night_timeline()+marquee()+numbers()+plus()+close()+'</main>'+page_end()
+    return head('Concerto | Everything After the Ticket, in One Place','Save your show. Bring venue guidance, setlists, nearby places, and the way home together with Concerto.','/',schema)+V7_JS+'<main class="v7">'+hero_home()+try_it()+night_timeline()+marquee()+numbers()+plus()+close()+'</main>'+page_end()
 
 def your_night_page(head):
     hero=f'''<section class="v7-hero v7-hero-short"><div class="v7-shell"><div class="v7-hero-copy reveal"><p class="v7-eyebrow">Your Night · Free in Concerto</p><h1>The show is yours.<br>So is the night.</h1><p class="v7-lead">Save a concert and the evening gets a home. It changes as show day gets closer, so the top of the page always says what to do next.</p><div class="v7-actions">{cta('website-your-night','Save your next show')}</div></div></div></section>'''

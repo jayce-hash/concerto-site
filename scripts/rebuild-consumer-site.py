@@ -32,3 +32,7 @@ for path in pages:
         source = re.sub(r'<main\b', '<main id="main-content"', source, count=1)
     path.write_text(source)
 print('Consumer templates and shared public chrome rebuilt.')
+
+# V8: author every public page's body from scratch, keeping each <head> exactly as generated.
+import site_v8
+site_v8.build()
