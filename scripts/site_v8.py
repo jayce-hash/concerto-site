@@ -458,9 +458,15 @@ def legacy_body(src):
     return body
 
 def doc_page(src, kicker, h1, lead, tone='cream', legal=False):
-    eff = re.search(r'Effective Date:\s*([A-Z][a-z]+ \d{1,2}, \d{4})', src)
+    eff = re.search(r'Effective(?: Date:)?\s*([A-Z][a-z]+ \d{1,2}, \d{4})', src)
     items = [f'Effective {eff.group(1)}'] if (legal and eff) else None
-    body = legacy_body(src)
+    # Idempotent: Privacy, Terms, and Help are hand-written files, so on a rebuild the
+    # source is our own previous output. Reuse its document body exactly instead of
+    # wrapping it again (which nested one level deeper on every build).
+    if 'c-doc-section' in src:
+        body = src.split('<div class="c-wrap c-doc">', 1)[1].rsplit('</div></section></main>', 1)[0]
+    else:
+        body = legacy_body(src)
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, '', items, tone, 'c-hero-doc') + f'<section class="c-section c-white c-doc-section"><div class="c-wrap c-doc">{body}</div></section></main>'
 
 def build():

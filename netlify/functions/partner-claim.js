@@ -23,6 +23,10 @@ function venueDomain(slug) {
 }
 const FOUNDING_UNTIL = process.env.FOUNDING_PLAN_UNTIL || '2026-12-31';
 exports.handler = async (event) => {
+  const guard = require('./lib/guard');
+  if (!guard.originOf(event).ok) return guard.refuse(event, 403, 'forbidden', 'POST, OPTIONS');
+  if (event.httpMethod === 'POST' && guard.limited(event, 5, 600000)) return guard.refuse(event, 429, 'too many claims, try again later', 'POST, OPTIONS');
+  if (String(event.body || '').length > 8192) return guard.refuse(event, 413, 'too large', 'POST, OPTIONS');
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: H, body: '' };
   const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   const q = event.queryStringParameters || {};

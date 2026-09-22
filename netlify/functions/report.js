@@ -6,8 +6,13 @@ const { createClient } = require('@supabase/supabase-js');
 const H = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS' };
 const FIELDS = new Set(['bagPolicy','parking','rideshare','concessions','accessibility','reEntry','ticketPickup','gates','showTime','doors','headliner','setlist','distance','weather','other']);
 exports.handler = async (event) => {
+  const guard = require('./lib/guard');
+  const H = { ...guard.corsHeaders(event, 'POST, OPTIONS'), 'Content-Type': 'application/json' };
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: H, body: '' };
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers: H, body: '' };
+  if (!guard.originOf(event).ok) return guard.refuse(event, 403, 'forbidden', 'POST, OPTIONS');
+  if (guard.limited(event, 10, 60000)) return guard.refuse(event, 429, 'slow down', 'POST, OPTIONS');
+  if (String(event.body || '').length > 4096) return guard.refuse(event, 413, 'too large', 'POST, OPTIONS');
   try {
     const b = JSON.parse(event.body || '{}');
     const field = FIELDS.has(b.field) ? b.field : 'other';

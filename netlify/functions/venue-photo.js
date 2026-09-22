@@ -59,6 +59,7 @@ function metersBetween(lat1, lng1, lat2, lng2) {
 // own Google Places key.
 const CORS = { 'Access-Control-Allow-Origin': '*' };
 const { createClient } = require('@supabase/supabase-js');
+const guard = require('./lib/guard');
 
 // 25 days, not 30 -- real margin under Google's ceiling rather than
 // an implementation that only works if every clock and cron involved
@@ -66,9 +67,12 @@ const { createClient } = require('@supabase/supabase-js');
 const CACHE_DAYS = 25;
 
 exports.handler = async function (event) {
+  const CORS = guard.corsHeaders(event, 'GET, OPTIONS');
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: CORS, body: '' };
   }
+  if (!guard.originOf(event).ok) return guard.refuse(event, 403, 'forbidden');
+  if (guard.limited(event, 40, 60000)) return guard.refuse(event, 429, 'slow down');
   const key = process.env.GOOGLE_PLACES_SERVER_KEY;
   if (!key) {
     return { statusCode: 500, headers: CORS, body: JSON.stringify({ error: 'GOOGLE_PLACES_SERVER_KEY not configured' }) };
@@ -79,6 +83,10 @@ exports.handler = async function (event) {
   }
   const vLat = parseFloat(lat);
   const vLng = parseFloat(lng);
+  // Every lookup spends Google Places quota: accept only well-formed venue queries.
+  if (String(name).length > 120 || String(city || '').length > 80 || !Number.isFinite(vLat) || !Number.isFinite(vLng) || Math.abs(vLat) > 90 || Math.abs(vLng) > 180 || (placeId && !/^[A-Za-z0-9_-]{8,256}$/.test(String(placeId)))) {
+    return guard.refuse(event, 400, 'invalid venue query');
+  }
 
   // Supabase is optional here on purpose: if the env vars aren't
   // set for some reason, this falls through to the pre-cache
@@ -101,7 +109,7 @@ exports.handler = async function (event) {
         if (ageMs < CACHE_DAYS * 86400000) {
           return {
             statusCode: 200,
-            headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=900' },
+            headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=900', 'Netlify-CDN-Cache-Control': 'public, durable, s-maxage=86400' },
             body: JSON.stringify({ src: cached.src, credit: cached.credit }),
           };
         }
@@ -183,7 +191,7 @@ exports.handler = async function (event) {
 
     return {
       statusCode: 200,
-      headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=900' },
+      headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'private, max-age=900', 'Netlify-CDN-Cache-Control': 'public, durable, s-maxage=86400' },
       body: JSON.stringify(result),
     };
   } catch (err) {
