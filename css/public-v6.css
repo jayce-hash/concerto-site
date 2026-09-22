@@ -1587,3 +1587,13 @@ h1,h2{font-weight:700}
 .v8 .c-doc section[id^="help-"]:first-child h2{margin-top:0}
 .v8 .c-doc summary span{display:none}
 @media (max-width:860px){.v8 .c-doc section > div:has(> aside){grid-template-columns:1fr;gap:28px}.v8 .c-doc aside{position:static;flex-direction:row;flex-wrap:wrap;gap:8px 18px}.v8 .c-doc aside p{width:100%;margin-bottom:4px}.v8 .c-doc aside a{margin:0;padding:4px 0;border-left:0;border-bottom:1px solid var(--gold)}}
+/* Apple's official App Store badge: fixed proportions, never below 40px tall, clear space = 1/4 its height */
+.v8 .c-store{display:inline-flex;line-height:0;border-radius:10px;transition:transform .2s ease,opacity .2s ease}
+.v8 .c-store img{height:54px;width:auto;display:block}
+.v8 .c-store:hover{transform:translateY(-1px);opacity:.92}
+.v8 .c-store:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.v8 .c-actions .c-store{margin-right:14px}
+.v8 .c-appicon{display:block;width:96px;height:96px;margin:0 auto 32px;border-radius:22%;box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.v8 .c-close .c-qr{width:96px;height:96px;padding:6px;border-radius:12px;background:#fff}
+@media (max-width:560px){.v8 .c-store img{height:48px}.v8 .c-appicon{width:80px;height:80px;margin-bottom:24px}}
+@media (max-height:560px){.v8 .c-store img{height:44px}}

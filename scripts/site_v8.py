@@ -47,12 +47,17 @@ def first_sentence(t, n=190):
     return t if len(t) <= n else t[:n].rsplit(' ', 1)[0] + '…'
 
 # ---------------- shared blocks ----------------
-def store_button(ct, label='Download on the App Store'):
-    return f'<a class="c-btn c-btn-gold" href="{STORE(ct)}" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.19-1.73-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.08 2.66-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.31-.89-2.3-3.55zM14.2 6.13c.61-.74 1.02-1.76.9-2.78-.88.04-1.94.58-2.57 1.32-.56.65-1.06 1.7-.93 2.7.98.08 1.98-.5 2.6-1.24z"/></svg>{label}</a>'
+def store_button(ct, label='Download on the App Store', tone='black'):
+    # Apple's official badge, unmodified, per the App Store marketing guidelines: black on light
+    # backgrounds, white on dark. Never recolored, never below 40px tall, with clear space around it.
+    return (f'<a class="c-store" href="{STORE(ct)}" target="_blank" rel="noopener" aria-label="Download Concerto on the App Store">'
+            f'<img src="/img/badges/app-store-{tone}.svg" alt="Download on the App Store" width="160" height="53" loading="eager"></a>')
 
 def close(title='See you at the show.', ct='website-close'):
-    return (f'<section class="c-close" data-reveal><div class="c-wrap"><h2>{title}</h2><div class="c-close-row">{store_button(ct)}'
-            f'<img class="c-qr" src="/img/appstore-qr.png" width="96" height="96" alt="QR code: Concerto on the App Store" loading="lazy"></div>'
+    return (f'<section class="c-close" data-reveal><div class="c-wrap">'
+            '<img class="c-appicon" src="/img/app-icon-256.png" width="96" height="96" alt="Concerto app icon" loading="lazy">'
+            f'<h2>{title}</h2><div class="c-close-row">{store_button(ct, tone="white")}'
+            '<img class="c-qr" src="/img/appstore-qr.png" width="104" height="104" alt="QR code: Concerto on the App Store" loading="lazy"></div>'
             '<p class="c-fine">Free on iPhone. Concerto+ available in the app.</p></div></section>')
 
 def eyebrow(t): return f'<p class="c-eyebrow">{e(t)}</p>'
@@ -294,7 +299,7 @@ def mail(addr): return f'<a href="mailto:{addr}">{addr}</a>'
 def home():
     h = hero('The concert-night companion', 'From the concert<br>to the city.',
              'Concerto keeps everything around a live show in one place: the venue’s rules, the music, the city, and the way home. So the night can be about the night.',
-             store_button('website-home') + '<a class="c-link c-link-light" href="#what">What Concerto does</a>',
+             store_button('website-home', tone='white') + '<a class="c-link c-link-light" href="#what">What Concerto does</a>',
              [f'{N_V} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'navy', 'c-hero-home')
     what = section('white', 'What Concerto does', 'Three things, done carefully.', rows([
         ('Know the venue.', e(f'Bag policy, entrances, parking, rideshare, and accessibility for {N_V} venues, each researched from official sources and dated.'), f'<a class="c-link" href="/venues">Browse {N_V} venue guides</a>'),
@@ -427,7 +432,7 @@ def contact_page(form_html):
 # ----- product and utility -----
 def near_me():
     h = hero('Near Me', 'Something good.<br>Somewhere near you.', 'Discover concerts by location and date in Concerto. Save the one you are going to, and the rest of the night comes together.',
-             store_button('website-near-me'), ['Shows by location and date', 'In the app'], 'navy')
+             store_button('website-near-me', tone='white'), ['Shows by location and date', 'In the app'], 'navy')
     r = rows([('Find a show.', 'Explore what is happening around you. Choose a date and find a reason to go.', '<a class="c-link" href="/tours">Browse tours</a>'),
               ('Give the night a home.', 'A saved concert opens Your Night: the venue’s rules, the setlist, the places nearby, and the way home.', '<a class="c-link" href="/your-night">How Your Night works</a>'),
               ('Know the room.', e(f'Every venue guide is researched from official sources and dated, for {N_V} venues.'), '<a class="c-link" href="/venues">Browse venues</a>')])
