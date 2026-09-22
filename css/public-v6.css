@@ -1462,3 +1462,128 @@ h1,h2{font-weight:700}
 .v8 .c-guide .info-card.c-guide-sec:last-child{border-bottom:0}
 .v8 .c-guide .info-card.c-guide-sec:hover{transform:none;box-shadow:none}
 .v8 .c-rules ul{max-width:none}
+
+/* ---------- V8.1 hero system: one structure, four tones, sized to the real screen ---------- */
+.v8 .c-hero{padding:0;overflow:hidden}
+.v8 .c-hero-inner{padding:clamp(56px,11svh,152px) 0 clamp(48px,9svh,120px)}
+.v8 .c-hero:has(.c-hero-strip) .c-hero-inner{padding-bottom:clamp(40px,7svh,96px)}
+.v8 .c-page h1{font-size:clamp(40px,min(7.2vw,12svh),112px)}
+.v8 .c-hero .c-lead{margin-top:clamp(18px,3svh,30px)}
+.v8 .c-hero .c-actions{margin-top:clamp(24px,4.5svh,44px)}
+.v8 .c-hero-strip{display:flex;flex-wrap:wrap;gap:10px 36px;padding:22px 0 26px;border-top:1px solid rgba(18,30,54,.12);font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.v8 .c-hero-strip span:first-child{color:var(--gold-ink);font-weight:700}
+.v8 .c-hero-navy{background:var(--navy);color:#fff}
+.v8 .c-hero-navy h1{color:#fff}
+.v8 .c-hero-navy .c-lead{color:rgba(255,255,255,.72)}
+.v8 .c-hero-navy .c-hero-strip{border-top-color:rgba(255,255,255,.12);color:rgba(255,255,255,.6)}
+.v8 .c-hero-navy .c-hero-strip span:first-child{color:var(--gold)}
+.v8 .c-hero-navy .c-btn-navy{background:#fff;color:var(--navy)}
+.v8 .c-hero-cream{background:var(--cream);color:var(--navy)}
+.v8 .c-hero-white{background:#fff;color:var(--navy)}
+.v8 .c-hero-gold{background:var(--gold-soft);color:var(--navy)}
+.v8 .c-hero-cream h1,.v8 .c-hero-white h1,.v8 .c-hero-gold h1{color:var(--navy)}
+.v8 .c-hero-cream .c-lead,.v8 .c-hero-white .c-lead,.v8 .c-hero-gold .c-lead{color:var(--muted)}
+.v8 .c-hero-gold .c-hero-strip{border-top-color:rgba(18,30,54,.14)}
+
+/* Home: fills the first screen on any device, never clips, never floats in empty space */
+.v8 .c-hero-home{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);display:flex;flex-direction:column}
+.v8 .c-hero-home .c-hero-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,8svh,120px) 0}
+.v8 .c-hero-home h1{font-size:clamp(46px,min(10.4vw,17svh),176px);line-height:.92;letter-spacing:-.045em;max-width:12ch}
+.v8 .c-hero-home .c-lead{max-width:52ch}
+.v8 .c-hero-home .c-eyebrow{margin-bottom:clamp(14px,3svh,28px)}
+@media (min-width:1100px){.v8 .c-hero-home .c-hero-inner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);grid-template-rows:auto auto auto;align-content:center;column-gap:72px}
+  .v8 .c-hero-home .c-eyebrow,.v8 .c-hero-home h1{grid-column:1/-1}
+  .v8 .c-hero-home .c-lead{grid-column:2;grid-row:3;margin-top:clamp(20px,4svh,40px);align-self:start}
+  .v8 .c-hero-home .c-actions{grid-column:1;grid-row:3;margin-top:clamp(20px,4svh,40px);align-self:start}}
+
+/* Hubs, documents, and simple pages */
+.v8 .c-hero-hub .c-hero-inner{padding-bottom:clamp(40px,7svh,80px)}
+.v8 .c-hero-doc .c-hero-inner{padding-bottom:clamp(40px,6svh,72px)}
+.v8 .c-hero-simple{min-height:calc(70vh - 72px);min-height:calc(70svh - 72px);display:flex}
+.v8 .c-hero-simple .c-hero-inner{display:flex;flex-direction:column;justify-content:center;flex:1}
+.v8 .c-hero-hub .c-actions{display:block}
+.v8 .c-filter-lg{max-width:720px}.v8 .c-filter-lg input{font-size:24px}
+
+/* Short screens (landscape phones, small laptops): tighter vertical rhythm */
+@media (max-height:560px){.v8 .c-hero-home{min-height:0}.v8 .c-hero-inner{padding:36px 0 32px}.v8 .c-hero-strip{padding:14px 0 16px}.v8 .c-page h1{font-size:clamp(34px,min(6vw,14svh),72px)}}
+
+/* Fact lists */
+.v8 .c-facts-list{margin:0;border-top:1px solid rgba(18,30,54,.12)}
+.v8 .c-facts-list > div{display:grid;grid-template-columns:minmax(140px,.35fr) 1fr;gap:24px;padding:18px 0;border-bottom:1px solid rgba(18,30,54,.1)}
+.v8 .c-facts-list dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);padding-top:3px}
+.v8 .c-facts-list dd{margin:0;font-size:17px;line-height:1.6}
+.v8 .c-facts-list a{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+
+/* Forms: the original Netlify forms, restyled */
+.v8 .c-form form{display:grid;gap:18px}
+.v8 .c-form .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.v8 .c-form label.field,.v8 .c-form label:not(.hidden-field label){display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:var(--navy)}
+.v8 .c-form input:not([type=hidden]):not([type=checkbox]),.v8 .c-form select,.v8 .c-form textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;font-weight:400;color:var(--navy);background:#fff;border:1px solid rgba(18,30,54,.18);border-radius:10px;padding:14px 16px;min-height:52px;transition:border-color .2s ease,box-shadow .2s ease}
+.v8 .c-form textarea{min-height:140px;resize:vertical}
+.v8 .c-form input:focus,.v8 .c-form select:focus,.v8 .c-form textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.22)}
+.v8 .c-form button,.v8 .c-form [type=submit]{justify-self:start;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:var(--navy);color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.v8 .c-form .hidden-field{position:absolute;left:-9999px}
+.v8 .c-form small,.v8 .c-form .form-note{font-size:13px;color:var(--muted)}
+
+/* Documents: Help, FAQ, Privacy, Terms (their exact text, new typography) */
+.v8 .c-doc{max-width:760px;font-size:17px;line-height:1.75;color:var(--navy)}
+.v8 .c-doc h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);letter-spacing:-.02em;line-height:1.15;margin:56px 0 16px;scroll-margin-top:96px}
+.v8 .c-doc > :first-child,.v8 .c-doc section:first-child h2{margin-top:0}
+.v8 .c-doc h3{font-family:var(--display);font-weight:500;font-size:22px;margin:32px 0 10px}
+.v8 .c-doc p{margin:0 0 16px;color:rgba(18,30,54,.86)}
+.v8 .c-doc ul,.v8 .c-doc ol{margin:0 0 18px;padding-left:22px}
+.v8 .c-doc li{margin:6px 0}
+.v8 .c-doc a{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.v8 .c-doc nav,.v8 .c-doc nav ul{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;padding:0;margin:0 0 40px}
+.v8 .c-doc nav a{font-size:14.5px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold)}
+.v8 .c-doc details{border-bottom:1px solid rgba(18,30,54,.12);padding:0}
+.v8 .c-doc details:first-of-type{border-top:1px solid rgba(18,30,54,.12)}
+.v8 .c-doc summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;font-weight:600;font-size:17px}
+.v8 .c-doc summary::-webkit-details-marker{display:none}
+.v8 .c-doc summary:after{content:'+';position:absolute;right:4px;top:16px;font-family:var(--display);font-size:26px;color:var(--gold);transition:transform .2s ease}
+.v8 .c-doc details[open] summary:after{transform:rotate(45deg)}
+.v8 .c-doc details > :not(summary){margin:0 0 20px}
+.v8 .c-doc section{margin:0}
+.v8 .c-doc-section{padding-top:clamp(56px,7vw,96px)}
+
+/* Live widgets: Perks and Search results inherit the directory look */
+.v8 .c-search-section{padding-top:48px;min-height:40vh}
+.v8 .c-search-results a{font-weight:600;text-decoration:none}
+.v8 .c-perks a{text-decoration:underline;text-decoration-color:var(--gold)}
+
+@media (max-width:860px){.v8 .c-hero-home{min-height:calc(100svh - 64px)}.v8 .c-form .form-grid{grid-template-columns:1fr}.v8 .c-facts-list > div{grid-template-columns:1fr;gap:6px}}
+/* V8.1 fit pass: the whole home hero, strip included, inside the first screen */
+.v8 .c-hero-home .c-hero-inner{padding:clamp(24px,5svh,100px) 0}
+.v8 .c-hero-home h1{font-size:clamp(40px,min(10vw,14.5svh),176px)}
+.v8 .c-hero-home .c-eyebrow{margin-bottom:clamp(10px,2svh,28px)}
+.v8 .c-hero-home .c-lead{margin-top:clamp(14px,3svh,40px)}
+.v8 .c-hero-home .c-actions{margin-top:clamp(18px,3.4svh,40px)}
+.v8 .c-hero-home .c-hero-strip{padding:clamp(12px,2.4svh,22px) 0}
+@media (max-width:560px){.v8 .c-hero-home .c-lead{font-size:16px;line-height:1.55}.v8 .c-hero-home .c-hero-strip{gap:6px 18px;font-size:12px}}
+@media (max-height:560px){
+  .v8 .c-hero-inner,.v8 .c-hero-home .c-hero-inner{padding:24px 0 22px}
+  .v8 .c-page h1,.v8 .c-hero-home h1{font-size:clamp(30px,min(6vw,13svh),64px)}
+  .v8 .c-hero .c-eyebrow{margin-bottom:10px}
+  .v8 .c-hero .c-lead{font-size:15px;line-height:1.5;margin-top:10px;max-width:70ch}
+  .v8 .c-hero .c-actions{margin-top:14px}
+  .v8 .c-btn{min-height:44px}
+  .v8 .c-hero-home{min-height:calc(100svh - 64px)}
+  .v8 .c-hero-home .c-hero-inner{display:block}
+  .v8 .c-filter{margin-top:14px}
+}
+@media (max-height:560px){.v8 .c-hero-home .c-hero-strip{display:none}}
+/* Home headline breaks where it is written: "From the concert / to the city." */
+.v8 .c-hero-home h1{max-width:none}
+/* Help: topic sidebar, sticky on wide screens */
+.v8 .c-doc:has(aside){max-width:1120px}
+.v8 .c-doc section > div:has(> aside){display:grid;grid-template-columns:220px minmax(0,1fr);gap:64px;align-items:start}
+.v8 .c-doc aside{position:sticky;top:104px;display:flex;flex-direction:column;gap:2px}
+.v8 .c-doc aside p{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.v8 .c-doc aside a{font-size:14.5px;color:var(--muted);text-decoration:none;padding:7px 0 7px 14px;border-left:2px solid transparent;margin-left:-16px}
+.v8 .c-doc aside a:hover{color:var(--navy);border-left-color:var(--gold)}
+.v8 .c-doc aside a[href^="mailto"]{margin-top:14px;color:var(--navy);font-weight:700}
+.v8 .c-doc section[id^="help-"]{padding-bottom:24px}
+.v8 .c-doc section[id^="help-"] > p:first-child{display:none}
+.v8 .c-doc section[id^="help-"]:first-child h2{margin-top:0}
+.v8 .c-doc summary span{display:none}
+@media (max-width:860px){.v8 .c-doc section > div:has(> aside){grid-template-columns:1fr;gap:28px}.v8 .c-doc aside{position:static;flex-direction:row;flex-wrap:wrap;gap:8px 18px}.v8 .c-doc aside p{width:100%;margin-bottom:4px}.v8 .c-doc aside a{margin:0;padding:4px 0;border-left:0;border-bottom:1px solid var(--gold)}}

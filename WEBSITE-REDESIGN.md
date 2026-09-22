@@ -112,3 +112,16 @@ and the same metadata. Verified: 631 of 631 heads identical to the prior site.
   Partner Console overlay and Report wrong info keep working.
 - Secondary pages (press, partners, investors, creators, help, faq, contact, legal, near-me,
   perks, search) keep their content inside the new chrome (`body.v8.v8-legacy`).
+
+## V8.1 (Sep 21, 2026): heroes that fit, and every page in the new voice
+- One hero system, `hero()` in `scripts/site_v8.py`: navy, cream, white, or gold tone; type sized by
+  width and screen height together (`min(vw, svh)`), so the first screen fits on 2560x1440 down to
+  a 360x640 phone and a sideways phone. The home hero fills the first screen exactly; its stats
+  strip hides on screens under 560px tall. The Kia Forum photo is off the home hero.
+- Rewritten in the V8 voice: Press, Investors, Creators, Partners and the four partner pages,
+  Contact, Near Me, Perks, Search, the thank-you pages, and 404. Facts are carried over from the
+  previous pages; nothing new is claimed.
+- Help, FAQ, Privacy, and Terms keep their exact text (FAQ matches its FAQPage schema, 15 of 15)
+  inside a new document layout; the legal effective date shows in the hero.
+- Netlify forms, the Perks feed, and site search keep their original markup and hooks.
+- Tested: 377 heroes (13 screens x 29 pages) fit with no overflow; the pipeline runs on Python 3.9.
