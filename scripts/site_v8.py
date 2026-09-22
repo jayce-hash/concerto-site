@@ -28,6 +28,9 @@ PHOTOS = [('kia-forum', 'Kia-Forum'), ('bridgestone-arena', 'Bridgestone-Arena')
 FEATURED_VENUES = ['american-airlines-center', 'madison-square-garden', 'kia-forum', 'red-rocks-amphitheatre', 'sphere', 'bridgestone-arena',
                    'td-garden', 'united-center', 'moody-center', 'chase-center', 'the-o2', 'sofi-stadium']
 STORE = lambda ct: app_link_campaign(ct)
+# 37 venues store "USA" and 18 store "UK"; Ticketmaster only understands ISO codes, so tonight's
+# lookup on those pages returned nothing. Normalize at the point of use.
+ISO = {'USA': 'US', 'UK': 'GB'}
 
 def place(v): return ', '.join(x for x in [v.get('city'), v.get('state') or v.get('country')] if x)
 def pretty_date(d):
@@ -221,7 +224,7 @@ def venue_page(v):
             f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>{eyebrow("Venue guide · " + place(v))}<h1>{e(v["name"])}</h1>'
             f'<p class="c-lead">What to know before a show at {e(v["name"])}: the bag policy, entrances, parking, rideshare, and accessibility, from official sources.</p>'
             f'<div class="c-actions">{app_link("venue", v["id"], "Open in Concerto", "c-btn c-btn-navy")}</div>'
-            f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(v.get("country") or "")}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
+            f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
             f'<div class="c-wrap">{photo}</div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')

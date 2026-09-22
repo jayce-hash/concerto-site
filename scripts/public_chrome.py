@@ -109,6 +109,12 @@ def footer_html():
         '<div class="ftr-brand"><a class="site-logo" href="/" aria-label="Concerto home"><img src="/img/lockup.png" alt="Concerto" width="200" height="42" loading="lazy"></a>'
         '<p>From the Concert to the City®</p></div>'
         f'<div class="ftr-cols">{col_html}</div>'
+        # Required attributions, as plain text: Google Places terms require "Powered by Google"
+        # wherever its data appears outside a Google map, and Ticketmaster's API terms require
+        # attributing event data with a link back. Neither partner's logo is used, because
+        # neither is a partner: logos would imply an endorsement Concerto does not have.
+        '<div class="ftr-attrib"><span>Event information from <a href="https://www.ticketmaster.com" rel="noopener nofollow" target="_blank">Ticketmaster</a>.</span>'
+        '<span>Venue places and photos powered by Google.</span></div>'
         '<div class="ftr-base"><span>© 2026 Concerto LLC. Independent from artists, venues, teams, and promoters.</span>'
         '<span class="ftr-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a>'
         '<a href="https://instagram.com/theconcertoapp" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" rel="noopener">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" rel="noopener">YouTube</a></span></div>'
