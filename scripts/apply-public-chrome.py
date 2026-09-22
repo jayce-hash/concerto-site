@@ -50,7 +50,7 @@ def fix_head(head):
     # Fonts + public-v6.css + analytics, once, in a known order.
     head = re.sub(r'<link[^>]*rel="preconnect"[^>]*>\s*', '', head)
     head = re.sub(r'<link[^>]*fonts\.googleapis\.com/css2[^>]*>\s*', '', head)
-    head = re.sub(r'<link[^>]*href="/css/(?:public-v6|experience)\.css"[^>]*>\s*', '', head)
+    head = re.sub(r'<link[^>]*href="/css/public-v6\.css"[^>]*>\s*', '', head)
     return head + HEAD_ASSETS
 
 

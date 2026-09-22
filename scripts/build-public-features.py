@@ -3,17 +3,23 @@ from pathlib import Path
 import html, sys, re
 ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT/'scripts'))
-from public_chrome import header_html, page_end, HEAD_ASSETS
+from public_chrome import header_html, page_end, HEAD_ASSETS, product_screen
 SITE='https://concertocity.com'; APP='https://apps.apple.com/us/app/concerto-show-go/id6744903414'
 def e(x): return html.escape(str(x),quote=True)
 def head(title,desc,canonical): return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="apple-itunes-app" content="app-id=6744903414"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{SITE+canonical}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{SITE+canonical}"><meta property="og:image" content="{SITE}/ConcertoSocialPreview.png"><meta property="og:site_name" content="Concerto"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{SITE}/ConcertoSocialPreview.png"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">{HEAD_ASSETS}</head><body class="public-site">'''+header_html(canonical)
 def end(): return page_end()
-from experience_pages import close
+from experience_pages import capture, close
 def feature_page(slug,eyebrow,title,desc,visual,sections,secondary='/venues'):
+    keys={'bags':'venue-essentials','parking':'getting-there','bagcheck':'bag-check','rideshare':'getting-home'}
+    actual=keys.get(visual,visual)
+    import json
+    manifest=json.loads((ROOT/'img/product/screens/manifest.json').read_text())
     plain_title=re.sub(r'<[^>]+>', ' ', title)
+    picture=capture(actual,plain_title+' in Concerto') if actual in manifest else ''
     features=''.join(f'<div><span class="eyebrow">{num}</span><h3>{h}</h3><p>{p}</p>{("<a class=text-link href="+href+">"+link+" ↗</a>") if href else ""}</div>' for num,h,p,klass,href,link in sections)
     body=f'<section class="type-hero"><div class="site-shell"><p class="eyebrow">{eyebrow}</p><h1>{title}</h1><div class="hero-bottom"><p>{desc}</p><a class="btn-primary" href="{APP}">Get Concerto for iPhone ↗</a></div></div></section>'
-    body+=f'<section class="product-story"><div class="site-shell feature-explainer">{features}</div><div class="site-shell"><a class="text-link" href="{secondary}">Explore the venue guides ↗</a></div></section>'
+    layout='product-story-grid' if picture else 'product-story-grid no-capture'
+    body+=f'<section class="product-story"><div class="site-shell {layout}"><div class="feature-lines">{features}<a class="text-link" href="{secondary}">Explore the venue guides ↗</a></div>{picture}</div></section>'
     return head(f'{plain_title} | Concerto',desc,'/'+slug)+'<main class="experience-product">'+body+close()+'</main>'+end()
 
 near=feature_page('near-me','Find your next night out','Something good.<br>Somewhere near you.','Discover concerts by location and date. Save the one you’re going to, then bring the rest of the night together.','near-me',[
