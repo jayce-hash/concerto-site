@@ -72,7 +72,10 @@ exports.handler = async function (event) {
     return { statusCode: 204, headers: CORS, body: '' };
   }
   if (!guard.originOf(event).ok) return guard.refuse(event, 403, 'forbidden');
-  if (guard.limited(event, 40, 60000)) return guard.refuse(event, 429, 'slow down');
+  // A fan browsing Home, the Venues hub and a few venue pages legitimately fires dozens of
+  // photo lookups a minute, and every card has its own. 40/min was throttling real use; this
+  // still stops a script, and the 24h edge cache means repeats never reach Google at all.
+  if (guard.limited(event, 240, 60000)) return guard.refuse(event, 429, 'slow down');
   const key = process.env.GOOGLE_PLACES_SERVER_KEY;
   if (!key) {
     return { statusCode: 500, headers: CORS, body: JSON.stringify({ error: 'GOOGLE_PLACES_SERVER_KEY not configured' }) };
