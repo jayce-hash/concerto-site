@@ -291,7 +291,13 @@
     if (img) a.querySelector('img').src = img;
     a.querySelector('.live-day').textContent = day ? fmtDay(day) : '';
     a.querySelector('h3').textContent = ev.name || '';
-    a.querySelector('p').textContent = [v.name, ev.dates && ev.dates.start && ev.dates.start.timeTBA ? 'Time to be announced' : time].filter(Boolean).join(' · ');
+    // Ticketmaster's start time is the SHOW time: always labeled, never shown bare, since a bare
+    // "8:00 PM" reads as doors. Doors appear only when the ticketing record publishes them.
+    var clock = function (lt) { return new Date('1970-01-01T' + lt).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }); };
+    var doorsAt = ev.doorsTimes && ev.doorsTimes.localTime ? clock(ev.doorsTimes.localTime) : '';
+    var when = ev.dates && ev.dates.start && ev.dates.start.timeTBA ? 'Time to be announced'
+      : [doorsAt ? 'Doors ' + doorsAt : null, time ? 'Show ' + time : null].filter(Boolean).join(' · ');
+    a.querySelector('p').textContent = [v.name, when].filter(Boolean).join(' · ');
     if (ev.url && /^https:\/\//.test(ev.url)) {
       var t = document.createElement('a'); t.className = 'live-tickets'; t.href = ev.url; t.target = '_blank'; t.rel = 'noopener nofollow'; t.textContent = 'Tickets';
       t.addEventListener('click', function (e) { e.stopPropagation(); });

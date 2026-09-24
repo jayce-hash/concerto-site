@@ -10,6 +10,93 @@ APP='https://apps.apple.com/us/app/concerto-show-go/id6744903414'
 
 # Several venues share a name in different cities (four Orpheum Theatres, two 3Arenas). Their
 # pages need the city in the title and description, or search engines see duplicates.
+# Search Console, Sep 2026: "[venue] bag policy" is 28% of all impressions, at ~0.2% CTR from
+# position ~9. The old title ("X Bag Policy, Parking & Venue Guide") looked like every other
+# guide and gave no sign it was current. Titles now lead with the bag policy and the year, and
+# descriptions give the actual rule and the date it was checked: the two things a searcher
+# scanning ten results needs to pick this one.
+import datetime as _dt
+_YEAR = _dt.date.today().year
+# Names fans actually type. Only add an alias when search data shows people use it.
+ALIASES = {'madison-square-garden': 'MSG', 'wells-fargo-center': 'Wells Fargo Center'}  # renamed 2025; fans still search the old name
+
+def venue_title(v, shown):
+    alias = ALIASES.get(v.get('id') or v.get('slug') or '')
+    name = f"{shown} ({alias})" if alias else shown
+    t = f"{name} Bag Policy {_YEAR} | Concerto"
+    if len(t) <= 60:
+        t2 = f"{name} Bag Policy {_YEAR} & Parking | Concerto"
+        if len(t2) <= 62: t = t2
+    return t
+
+def _best_rule(bag, limit=118):
+    """The one sentence a searcher needs: the actual bag rule, with its sizes, not the preamble."""
+    import re as _re
+    text = ' '.join((bag.get('summary') or '').split())
+    sentences = [x.strip().rstrip('.') for x in _re.split(r'(?<=[.!?])\s+', text) if x.strip()]
+    def score(x):
+        l = x.lower(); sc = 0
+        if 'bag' in l or 'purse' in l or 'backpack' in l or 'clutch' in l: sc += 4
+        if _re.search(r'\d', x): sc += 3
+        if 'clear' in l: sc += 2
+        if _re.search(r'\b(no|not|only|prohibit|allowed|permitted|must)\b', l): sc += 1
+        if _re.search(r'safety|security|ensure|encourag|experience|recommend', l): sc -= 3
+        if _re.search(r'\bpage\b|confirm|check the|mixes answers|listing', l): sc -= 6
+        return sc
+    about_bags = [x for x in sentences if _re.search(r'bag|purse|backpack|clutch|fanny', x, _re.I)]
+    best = max(about_bags, key=score) if about_bags else ''
+    best = _re.sub(r'^(the )?official (venue )?guidance (states|applies|says|lists|allows)( that)? ', '', best, flags=_re.I)
+    best = best[:1].upper() + best[1:] if best else best
+    if not best or score(best) < 3:
+        allowed = [a for a in (bag.get('allowed') or []) if a][:2]
+        prohibited = [a for a in (bag.get('prohibited') or []) if a][:2]
+        parts = ([('Allowed: ' + ', '.join(allowed))] if allowed else []) + ([('Not allowed: ' + ', '.join(prohibited))] if prohibited else [])
+        best = '. '.join(parts)
+    if len(best) > limit: best = best[:limit].rsplit(' ', 1)[0].rstrip(',;:') + '…'
+    return best
+
+_RC = None
+def _RULE_COUNTS():
+    """How many venues share each rule sentence, computed once."""
+    global _RC
+    if _RC is None:
+        from collections import Counter
+        _RC = Counter()
+        for _vid, _rec in INFO_FOR_DESC.items():
+            _b = (_rec or {}).get('bagPolicy') or {}
+            if _b.get('verificationStatus') == 'official_source_confirmed':
+                _RC[_best_rule(_b)] += 1
+    return _RC
+
+def venue_description(v, shown):
+    rec = INFO_FOR_DESC.get(v.get('id') or '', {}) if 'INFO_FOR_DESC' in globals() else {}
+    bag = rec.get('bagPolicy') or {}
+    try: when = _dt.date.fromisoformat(bag.get('verified') or '').strftime('%b %Y')
+    except Exception: when = ''
+    rule = _best_rule(bag) if bag.get('verificationStatus') == 'official_source_confirmed' else ''
+    # Date first, so a long rule can never cut it off; the title already names the venue.
+    lead = f"Checked {when}: " if when else ''
+    if rule and _RULE_COUNTS().get(rule, 0) > 1:
+        rule = f"{shown}. {rule}" if len(shown) + len(rule) < 125 else f"{shown}: bag rules, parking, entry, and rideshare"
+    if rule:
+        d = lead + rule + ('' if rule.endswith('…') else '.')
+        if len(d) <= 118: d += ' Plus parking, entry, and rideshare.'
+    else:
+        d = f"{lead}the bag policy, parking, entry, and rideshare for {shown}, from the venue's official guidance."
+    return d
+
+# 122 of 166 tour titles read "... World Tour Tour & Setlist" because the template appended
+# "Tour" to names that already end in it. Setlist searches are the best-performing queries in
+# Search Console, so the title leads with the setlist and never repeats a word.
+def tour_title(t):
+    artist, name = t['artist'].strip(), t['tourName'].strip()
+    # Some tour names repeat the artist's name ("Allman Betts Family Revival: Family Revival Tour").
+    if name.lower().startswith(artist.lower()): name = name[len(artist):].lstrip(' :-–')
+    base = f"{artist} {name}".strip()
+    suffix = 'Setlist & Dates' if 'tour' in name.lower() else 'Tour Setlist & Dates'
+    return f"{base} {suffix} | Concerto"
+
+
 def shown_name(v):
     from collections import Counter
     global _NAME_COUNTS
@@ -25,6 +112,7 @@ def end(): return page_end()
 
 tours=json.loads((ROOT/'data/tours.json').read_text())
 venues=json.loads((ROOT/'data/venues.json').read_text())
+INFO_FOR_DESC=json.loads((ROOT/'data/venue_info.json').read_text())
 vi=json.loads((ROOT/'data/venue_info.json').read_text())
 setlists=json.loads((ROOT/'setlists.json').read_text())
 stage_times=json.loads((ROOT/'data/stage_times.json').read_text()) if (ROOT/'data/stage_times.json').exists() else {}
@@ -187,13 +275,13 @@ for v in venues:
         card=venue_section_card(info,key,label)
         if card: sections.append(card)
     shown=shown_name(v)
-    desc=f"{shown} concert guide with bag policy, parking, rideshare, concessions, accessibility, entrances, and other show-night information."
+    desc=venue_description(v, shown)
     ld={'@context':'https://schema.org','@type':'MusicVenue','name':v['name'],'address':{'@type':'PostalAddress','addressLocality':v.get('city') or '','addressRegion':v.get('state') or '','addressCountry':v.get('country') or ''},'url':SITE+'/venue/'+slug}
     ld['geo']={'@type':'GeoCoordinates','latitude':v.get('lat'),'longitude':v.get('lng')} if v.get('lat') else None
     ld={k:x for k,x in ld.items() if x is not None}
     extra=ld_json(ld)+breadcrumb_ld([('Venues','/venues'),(v['name'],f'/venue/{slug}')])
     fb=venue_fallback(v)
-    page=head(f"{shown} Bag Policy, Parking & Venue Guide | Concerto",desc,f'/venue/{slug}',extra,banner=smart_banner('venue',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/venues">Venues</a> &nbsp;/&nbsp; {esc(v['name'])}</div><p class="eyebrow">Venue guide</p><h1>{esc(v['name'])}</h1><p class="lead">{esc(v.get('city'))}{', '+esc(v.get('state')) if v.get('state') else ''}{' · '+esc(v.get('country')) if v.get('country') else ''}</p><div class="hero-actions">{app_link('venue',slug,'Save a show here in Concerto')}</div><div class="tonight" data-venue-tonight data-name="{esc(v['name'])}" data-country="{esc(v.get('country') or '')}" data-lat="{esc(v.get('lat'))}" data-lng="{esc(v.get('lng'))}"></div></div><div class="site-shell wide"><div class="detail-media library-media" data-vphoto data-vname="{esc(v['name'])}" data-vcity="{esc(v.get('city'))}" data-vlat="{esc(v.get('lat'))}" data-vlng="{esc(v.get('lng'))}"{fallback_attr(fb)}></div></div></section><section class="library-body"><div class="site-shell"><div class="section-lead"><p class="eyebrow">Know before you go</p><h2>What matters at {esc(v['name'])}.</h2><p>Each section shows its source and the date it was last checked. When something is not confirmed, it says so.</p></div><div class="card-grid">{''.join(sections)}</div></div></section>{related_list(related_venues(v),'venue')}<section class="last-call"><div class="site-shell"><h2>Going to a show here?</h2><div class="last-call-actions">{app_link('venue',slug,'Open in Concerto')}</div><p class="small-print">Your Night keeps these rules, the setlist, and the way home on one page.</p></div></section></main>'''+end()
+    page=head(venue_title(v, shown),desc,f'/venue/{slug}',extra,banner=smart_banner('venue',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/venues">Venues</a> &nbsp;/&nbsp; {esc(v['name'])}</div><p class="eyebrow">Venue guide</p><h1>{esc(v['name'])}</h1><p class="lead">{esc(v.get('city'))}{', '+esc(v.get('state')) if v.get('state') else ''}{' · '+esc(v.get('country')) if v.get('country') else ''}</p><div class="hero-actions">{app_link('venue',slug,'Save a show here in Concerto')}</div><div class="tonight" data-venue-tonight data-name="{esc(v['name'])}" data-country="{esc(v.get('country') or '')}" data-lat="{esc(v.get('lat'))}" data-lng="{esc(v.get('lng'))}"></div></div><div class="site-shell wide"><div class="detail-media library-media" data-vphoto data-vname="{esc(v['name'])}" data-vcity="{esc(v.get('city'))}" data-vlat="{esc(v.get('lat'))}" data-vlng="{esc(v.get('lng'))}"{fallback_attr(fb)}></div></div></section><section class="library-body"><div class="site-shell"><div class="section-lead"><p class="eyebrow">Know before you go</p><h2>What matters at {esc(v['name'])}.</h2><p>Each section shows its source and the date it was last checked. When something is not confirmed, it says so.</p></div><div class="card-grid">{''.join(sections)}</div></div></section>{related_list(related_venues(v),'venue')}<section class="last-call"><div class="site-shell"><h2>Going to a show here?</h2><div class="last-call-actions">{app_link('venue',slug,'Open in Concerto')}</div><p class="small-print">Your Night keeps these rules, the setlist, and the way home on one page.</p></div></section></main>'''+end()
     (ROOT/'venue'/f'{slug}.html').write_text(page)
 
 (ROOT/'tour').mkdir(exist_ok=True); (ROOT/'setlist').mkdir(exist_ok=True)
@@ -215,7 +303,7 @@ for t in tours:
     else: set_teaser=''
     official=f'<a class="btn-secondary" href="{esc(t.get("tourWebsite"))}" target="_blank" rel="noopener">Official tour site ↗</a>' if t.get('tourWebsite') else ''
     setlist_card=setlist_card_for(slug,t['artist']) if songs else (f'''<figure class="night-card night-card-paper night-card-full"><div class="nc-head"><h3>Setlist Coming Soon!</h3><span class="nc-kicker">Tracking</span></div><p class="nc-body">Concerto is tracking this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p></figure>''' if s else '')
-    page=head(f"{t['artist']} {t['tourName']} Tour & Setlist | Concerto",desc,f'/tour/{slug}',extra,banner=smart_banner('tour',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/tours">Tours</a> &nbsp;/&nbsp; {esc(t['artist'])}</div><p class="eyebrow">On tour</p><h1>{esc(t['artist'])}</h1><p class="lead">{esc(t['tourName'])}</p><div class="hero-actions">{app_link('tour',slug,'Open in Concerto')}{official}</div></div><div class="site-shell wide"><div class="detail-media library-media" data-artist="{esc(t['artist'])}"></div></div></section><section class="library-body"><div class="site-shell"><div class="card-grid card-grid-single">{setlist_card}</div></div></section>{related_list(related_tours(t),'tour')}<section class="last-call"><div class="site-shell"><h2>Going to this tour?</h2><div class="last-call-actions">{app_link('tour',slug,'Save your date in Concerto')}</div><p class="small-print">Your Night keeps the setlist, the venue rules, and the way home together.</p></div></section></main>'''+end()
+    page=head(tour_title(t),desc,f'/tour/{slug}',extra,banner=smart_banner('tour',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/tours">Tours</a> &nbsp;/&nbsp; {esc(t['artist'])}</div><p class="eyebrow">On tour</p><h1>{esc(t['artist'])}</h1><p class="lead">{esc(t['tourName'])}</p><div class="hero-actions">{app_link('tour',slug,'Open in Concerto')}{official}</div></div><div class="site-shell wide"><div class="detail-media library-media" data-artist="{esc(t['artist'])}"></div></div></section><section class="library-body"><div class="site-shell"><div class="card-grid card-grid-single">{setlist_card}</div></div></section>{related_list(related_tours(t),'tour')}<section class="last-call"><div class="site-shell"><h2>Going to this tour?</h2><div class="last-call-actions">{app_link('tour',slug,'Save your date in Concerto')}</div><p class="small-print">Your Night keeps the setlist, the venue rules, and the way home together.</p></div></section></main>'''+end()
     (ROOT/'tour'/f'{slug}.html').write_text(page)
     if songs:
         note=s.get('note') or ''
