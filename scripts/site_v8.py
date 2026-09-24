@@ -497,7 +497,26 @@ def doc_page(src, kicker, h1, lead, tone='cream', legal=False):
         body = legacy_body(src)
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, '', items, tone, 'c-hero-doc') + f'<section class="c-section c-white c-doc-section"><div class="c-wrap c-doc">{body}</div></section></main>'
 
+
+def write_app_data():
+    """Small data files the app reads instead of the 1.5 MB venue_info map.
+
+    Home and the Venues hub only need a verified flag per venue; a venue page only needs its
+    own record. Pulling the whole map for either blocks the JS thread while it parses.
+    """
+    out = ROOT / 'data'
+    verified = {vid: ((rec.get('bagPolicy') or {}).get('verified') or '')
+                for vid, rec in INFO.items() if (rec.get('bagPolicy') or {}).get('verified')}
+    (out / 'venue_verified.json').write_text(json.dumps(verified, separators=(',', ':')) + '\n')
+    per = out / 'venue_info'
+    per.mkdir(exist_ok=True)
+    for vid, rec in INFO.items():
+        (per / f'{vid}.json').write_text(json.dumps(rec, separators=(',', ':'), ensure_ascii=False) + '\n')
+    kb = (out / 'venue_verified.json').stat().st_size // 1024
+    print(f'app data: venue_verified.json ({kb} KB) and {len(INFO)} per-venue files')
+
 def build():
+    write_app_data()
     legacy = {f: (ROOT / f).read_text() for f in ['help.html', 'faq.html', 'privacy.html', 'terms.html', 'contact.html', 'partner-venues.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-artists.html']}
     form_of = lambda f: re.search(r'<form.*?</form>', legacy[f], re.S).group(0)
     rewrite('index.html', home()); rewrite('your-night.html', your_night()); rewrite('premium.html', premium()); rewrite('about.html', about())
