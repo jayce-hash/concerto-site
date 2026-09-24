@@ -8,6 +8,16 @@ from public_chrome import header_html, page_end, HEAD_ASSETS, product_screen, ph
 SITE='https://concertocity.com'
 APP='https://apps.apple.com/us/app/concerto-show-go/id6744903414'
 
+# Several venues share a name in different cities (four Orpheum Theatres, two 3Arenas). Their
+# pages need the city in the title and description, or search engines see duplicates.
+def shown_name(v):
+    from collections import Counter
+    global _NAME_COUNTS
+    try: _NAME_COUNTS
+    except NameError:
+        _NAME_COUNTS = Counter(x['name'].strip().lower() for x in venues)
+    return f"{v['name']} {v['city']}" if _NAME_COUNTS[v['name'].strip().lower()] > 1 else v['name']
+
 def esc(x): return html.escape(str(x or ''), quote=True)
 def head(title,desc,canonical,extra='',robots='index,follow,max-image-preview:large',banner=None):
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">{banner or smart_banner()}<title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><meta name="robots" content="{esc(robots)}"><link rel="canonical" href="{esc(SITE+canonical)}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{esc(SITE+canonical)}"><meta property="og:image" content="{SITE}/ConcertoSocialPreview.png"><meta property="og:site_name" content="Concerto"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{SITE}/ConcertoSocialPreview.png"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png">{HEAD_ASSETS}{extra}</head><body class="public-site">'''+header_html(canonical)
@@ -176,13 +186,14 @@ for v in venues:
     for key,label in order:
         card=venue_section_card(info,key,label)
         if card: sections.append(card)
-    desc=f"{v['name']} concert guide with bag policy, parking, rideshare, concessions, accessibility, entrances, and other show-night information."
+    shown=shown_name(v)
+    desc=f"{shown} concert guide with bag policy, parking, rideshare, concessions, accessibility, entrances, and other show-night information."
     ld={'@context':'https://schema.org','@type':'MusicVenue','name':v['name'],'address':{'@type':'PostalAddress','addressLocality':v.get('city') or '','addressRegion':v.get('state') or '','addressCountry':v.get('country') or ''},'url':SITE+'/venue/'+slug}
     ld['geo']={'@type':'GeoCoordinates','latitude':v.get('lat'),'longitude':v.get('lng')} if v.get('lat') else None
     ld={k:x for k,x in ld.items() if x is not None}
     extra=ld_json(ld)+breadcrumb_ld([('Venues','/venues'),(v['name'],f'/venue/{slug}')])
     fb=venue_fallback(v)
-    page=head(f"{v['name']} Bag Policy, Parking & Venue Guide | Concerto",desc,f'/venue/{slug}',extra,banner=smart_banner('venue',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/venues">Venues</a> &nbsp;/&nbsp; {esc(v['name'])}</div><p class="eyebrow">Venue guide</p><h1>{esc(v['name'])}</h1><p class="lead">{esc(v.get('city'))}{', '+esc(v.get('state')) if v.get('state') else ''}{' · '+esc(v.get('country')) if v.get('country') else ''}</p><div class="hero-actions">{app_link('venue',slug,'Save a show here in Concerto')}</div><div class="tonight" data-venue-tonight data-name="{esc(v['name'])}" data-country="{esc(v.get('country') or '')}" data-lat="{esc(v.get('lat'))}" data-lng="{esc(v.get('lng'))}"></div></div><div class="site-shell wide"><div class="detail-media library-media" data-vphoto data-vname="{esc(v['name'])}" data-vcity="{esc(v.get('city'))}" data-vlat="{esc(v.get('lat'))}" data-vlng="{esc(v.get('lng'))}"{fallback_attr(fb)}></div></div></section><section class="library-body"><div class="site-shell"><div class="section-lead"><p class="eyebrow">Know before you go</p><h2>What matters at {esc(v['name'])}.</h2><p>Each section shows its source and the date it was last checked. When something is not confirmed, it says so.</p></div><div class="card-grid">{''.join(sections)}</div></div></section>{related_list(related_venues(v),'venue')}<section class="last-call"><div class="site-shell"><h2>Going to a show here?</h2><div class="last-call-actions">{app_link('venue',slug,'Open in Concerto')}</div><p class="small-print">Your Night keeps these rules, the setlist, and the way home on one page.</p></div></section></main>'''+end()
+    page=head(f"{shown} Bag Policy, Parking & Venue Guide | Concerto",desc,f'/venue/{slug}',extra,banner=smart_banner('venue',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/venues">Venues</a> &nbsp;/&nbsp; {esc(v['name'])}</div><p class="eyebrow">Venue guide</p><h1>{esc(v['name'])}</h1><p class="lead">{esc(v.get('city'))}{', '+esc(v.get('state')) if v.get('state') else ''}{' · '+esc(v.get('country')) if v.get('country') else ''}</p><div class="hero-actions">{app_link('venue',slug,'Save a show here in Concerto')}</div><div class="tonight" data-venue-tonight data-name="{esc(v['name'])}" data-country="{esc(v.get('country') or '')}" data-lat="{esc(v.get('lat'))}" data-lng="{esc(v.get('lng'))}"></div></div><div class="site-shell wide"><div class="detail-media library-media" data-vphoto data-vname="{esc(v['name'])}" data-vcity="{esc(v.get('city'))}" data-vlat="{esc(v.get('lat'))}" data-vlng="{esc(v.get('lng'))}"{fallback_attr(fb)}></div></div></section><section class="library-body"><div class="site-shell"><div class="section-lead"><p class="eyebrow">Know before you go</p><h2>What matters at {esc(v['name'])}.</h2><p>Each section shows its source and the date it was last checked. When something is not confirmed, it says so.</p></div><div class="card-grid">{''.join(sections)}</div></div></section>{related_list(related_venues(v),'venue')}<section class="last-call"><div class="site-shell"><h2>Going to a show here?</h2><div class="last-call-actions">{app_link('venue',slug,'Open in Concerto')}</div><p class="small-print">Your Night keeps these rules, the setlist, and the way home on one page.</p></div></section></main>'''+end()
     (ROOT/'venue'/f'{slug}.html').write_text(page)
 
 (ROOT/'tour').mkdir(exist_ok=True); (ROOT/'setlist').mkdir(exist_ok=True)

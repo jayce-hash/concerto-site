@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'..'); const errors=[]; const ok=(c,m)=>{if(!c
 const J=(p)=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const venues=J('data/venues.json'), info=J('data/venue_info.json'), tours=J('data/tours.json'), setlists=J('setlists.json');
 const ids=venues.map(v=>v.id); ok(new Set(ids).size===ids.length,'duplicate venue ids');
-ok(venues.length===346,`expected 346 venues, got ${venues.length}`); ok(Object.keys(info).length===346,`expected 346 venue info records, got ${Object.keys(info).length}`);
+ok(venues.length===673,`expected 673 venues, got ${venues.length}`); ok(Object.keys(info).length===673,`expected 673 venue info records, got ${Object.keys(info).length}`);
 for(const id of ids){ok(info[id],`venue_info missing ${id}`); ok(fs.existsSync(path.join(root,'data/nearby',`${id}.json`)),`nearby missing ${id}`)}
 const fields=['bagPolicy','parking','rideshare','concessions','accessibility','reEntry','ticketPickup','gates'];
 for(const [id,v] of Object.entries(info)) for(const f of fields){const x=v[f]; ok(x&&typeof x==='object',`${id}.${f} missing`); if(x){ok(/^https:\/\//.test(x.officialLink||''),`${id}.${f} officialLink missing/non-https`); ok(/^\d{4}-\d{2}-\d{2}$/.test(x.verified||''),`${id}.${f} verified date invalid`);}}
