@@ -1,0 +1,1188 @@
+{
+  "venueName": "Agora Theatre",
+  "city": "Cleveland",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Hungry Hut",
+          "address": "5498 Chester Ave, Cleveland, OH 44103, USA",
+          "price": 2,
+          "lat": 41.5056759,
+          "lng": -81.65222899999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJWWHfxOP6MIgR7YQk4vazVMQ",
+          "types": [
+            "american_restaurant",
+            "burrito_restaurant",
+            "hamburger_restaurant",
+            "chicken_restaurant",
+            "breakfast_restaurant",
+            "seafood_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "salad_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fin and Fish",
+          "address": "Carnegie Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5014021,
+          "lng": -81.65387729999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJVYVBVQD7MIgRyu35TWRBdfY",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grandpa's Abe Kitchen",
+          "address": "1905 E 55th St, Cleveland, OH 44103, USA",
+          "price": 2,
+          "lat": 41.5071754,
+          "lng": -81.65150020000002,
+          "distance_mi": 0.25,
+          "place_id": "ChIJ4yQtdVL6MIgR20PWJeu1OSY",
+          "types": [
+            "american_restaurant",
+            "convenience_store",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Marathon Gas",
+          "address": "2165 E 55th St, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.500177099999995,
+          "lng": -81.6514804,
+          "distance_mi": 0.28,
+          "place_id": "ChIJVVUFNlT6MIgRvniRiLlBHyo",
+          "types": [
+            "gas_station",
+            "grocery_store",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brothers Subs",
+          "address": "2165 E 55th St, Cleveland, OH 44103, USA",
+          "price": 1,
+          "lat": 41.500189299999995,
+          "lng": -81.6513159,
+          "distance_mi": 0.28,
+          "place_id": "ChIJyeRhNlT6MIgRLbLfgaXd04E",
+          "types": [
+            "sandwich_shop",
+            "atm",
+            "gas_station",
+            "finance",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Yanna's Dough Spot",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": 2,
+          "lat": 41.5012888,
+          "lng": -81.65794629999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJV23f03L7MIgRkq5UzYNilLg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Carnegie Food Hub",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": 2,
+          "lat": 41.5012888,
+          "lng": -81.65794629999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ8dVzfKX7MIgR580_M-KoKFM",
+          "types": [
+            "restaurant",
+            "food_court",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Greedys 2",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5012888,
+          "lng": -81.65794629999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJdfFhGlX7MIgRzYu02zzVDKc",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Big Starchy Bihhhh",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": 2,
+          "lat": 41.5012888,
+          "lng": -81.65794629999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJIVLoYVz7MIgRBbqaXXyPYp4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crazy Potato",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJOxML3tL7MIgRaFum_0kC72Q",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gago Jamaican",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJH6edie_7MIgRxmJ2TZuFtYE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chimichanga Street Food",
+          "address": "3915 Carnegie Ave K123, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ1-iQkFb7MIgRQZFnHlgVPFA",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CAMY's Caribbean Mart & Eatery",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": 2,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ3abhcgMDMYgR10Qo9ezRUSQ",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "OUR FAVORITE AUNTIE'S KITCHEN",
+          "address": "3915 Carnegie Ave K116, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJteRjoKj7MIgRG5Q1UeujyDQ",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Spot 216",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJGbR1wfP7MIgRmzJ30uWfa-M",
+          "types": [
+            "brunch_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sweet T's Cuisine",
+          "address": "3915 Carnegie Ave K8, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJRdt-zq_7MIgRueJ8L8odvLc",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "OH BOY CUISINE",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJDSYs-vb7MIgRVJ25lxQ-TZ4",
+          "types": [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Roosta Meat N' Fries",
+          "address": "3915 Carnegie Ave K5, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJT0SSvfT7MIgRD4WmMJsVuRk",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little italia",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": 2,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ1d3_Gaf7MIgRU2xjQbCqFcE",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Krejuns",
+          "address": "3915 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.501114099999995,
+          "lng": -81.65775769999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJD7FNjG_7MIgRGUsMGeGWegs",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Landing Furnished Apartments Central Cleveland - Standard Apartment (2 Bedrooms)",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.503570499999995,
+          "lng": -81.6539001,
+          "distance_mi": 0.03,
+          "place_id": "ChIJH_2cQVH6MIgRdMNS5aF-xdQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Landing Spectacular 2BD Courtyard Gym - Two-Bedroom Apartment",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5033798,
+          "lng": -81.6541596,
+          "distance_mi": 0.05,
+          "place_id": "ChIJiQ9aR1H6MIgRjRpKpoNMYzU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Boulevard Stay - Three-Bedroom House",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5050087,
+          "lng": -81.65708920000002,
+          "distance_mi": 0.2,
+          "place_id": "ChIJNeEGi1D6MIgRfYbAj7RxQbY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The East Side Hub",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5050354,
+          "lng": -81.6571579,
+          "distance_mi": 0.2,
+          "place_id": "ChIJcTuzi1D6MIgRpVo9uhTucVk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Handwriting On the Wall Institute",
+          "address": "4600 Carnegie Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5009825,
+          "lng": -81.65447759999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJvcdH-MH7MIgRO4zn2Zi7VJQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown Modern: 3BR Near Cleveland Clinic & Downtown CLE",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.505096400000006,
+          "lng": -81.6573639,
+          "distance_mi": 0.21,
+          "place_id": "ChIJQWIyDVr6MIgR0jGSnbxgU2o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sleek & Spacious 3BR Near CLE Clinic + Downtown CLE",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5053482,
+          "lng": -81.6572113,
+          "distance_mi": 0.21,
+          "place_id": "ChIJncKdYVD6MIgR5lfw7c2G3gI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet-Friendly Cleveland Townhome, 2 Mi to Downtown! - Holiday Home",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5053901,
+          "lng": -81.6571884,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ56lyYVD6MIgRzPR5MC5kynU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trendy Midtown Loft",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5032196,
+          "lng": -81.65975190000002,
+          "distance_mi": 0.32,
+          "place_id": "ChIJwYIfIlr6MIgRjQsg841aA2k",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown Hideaway - One-Bedroom Apartment",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5032387,
+          "lng": -81.6597595,
+          "distance_mi": 0.32,
+          "place_id": "ChIJU2ciIlr6MIgREcTZNvJG5TQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brownstone Inn",
+          "address": "3649 Prospect Ave E, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.502027399999996,
+          "lng": -81.6616104,
+          "distance_mi": 0.43,
+          "place_id": "ChIJFyLNEln6MIgRuwN-WHqUofc",
+          "types": [
+            "bed_and_breakfast",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "New location as of 6 /1 8 minutes from CLE Clinic",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.502250599999996,
+          "lng": -81.662239,
+          "distance_mi": 0.46,
+          "place_id": "ChIJRUOnaVn6MIgR96ZLXy97rLs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CAL KING BED, FREE PARKING PASS FOR 1 CAR, BY DOWNTOWN & CLINIC",
+          "address": "Cleveland, OH 44114, USA",
+          "price": null,
+          "lat": 41.506298099999995,
+          "lng": -81.6627121,
+          "distance_mi": 0.5,
+          "place_id": "ChIJh13dbVv6MIgR8YmjiKjfBO0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luckman Condos by Barsala - Two-Bedroom Apartment",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5046501,
+          "lng": -81.6635132,
+          "distance_mi": 0.52,
+          "place_id": "ChIJqcjqi1v6MIgRbT4SHdgakVk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Playhouse Square District Apartments by Barsala - Studio Apartment",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5046501,
+          "lng": -81.6635132,
+          "distance_mi": 0.52,
+          "place_id": "ChIJqcjqi1v6MIgRarhs_FMh67E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luckman Condos by Barsala - One-Bedroom Apartment",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5046501,
+          "lng": -81.6635132,
+          "distance_mi": 0.52,
+          "place_id": "ChIJqcjqi1v6MIgRsSC0fR8oVBE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "quiet and comfortable",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.4965439,
+          "lng": -81.6582794,
+          "distance_mi": 0.56,
+          "place_id": "ChIJt3NF6_f6MIgRJMAigHQPNQk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet Friendly Loft 40",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.510768899999995,
+          "lng": -81.65986629999999,
+          "distance_mi": 0.58,
+          "place_id": "ChIJwWqxo0X6MIgRQoAX3kFNJE8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Loft 40",
+          "address": "Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5107727,
+          "lng": -81.659874,
+          "distance_mi": 0.58,
+          "place_id": "ChIJK_qwo0X6MIgR5EESGnWDHwE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Loft 40",
+          "address": "1668 E 40th St, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5107804,
+          "lng": -81.65985979999999,
+          "distance_mi": 0.58,
+          "place_id": "ChIJ_yIdwGv7MIgRRxbFlLzRsFU",
+          "types": [
+            "event_venue",
+            "bed_and_breakfast",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "X building parking",
+          "address": "Carnegie Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5014021,
+          "lng": -81.65387729999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJZcFBKAD7MIgR51vbZ7yZL3w",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Truck Parking Club",
+          "address": "1918 E 55th St, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.506689,
+          "lng": -81.65213,
+          "distance_mi": 0.21,
+          "place_id": "ChIJX-gaP1P7MIgRwmVcvSHitSQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Truck Parking Club",
+          "address": "5000 Perkins Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.506935999999996,
+          "lng": -81.653838,
+          "distance_mi": 0.21,
+          "place_id": "ChIJyzB21lv7MIgRdAzAU5NHL08",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Truck Parking Club",
+          "address": "1873 E 55th St, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.507836,
+          "lng": -81.65129999999999,
+          "distance_mi": 0.3,
+          "place_id": "ChIJnzBmfeP7MIgRfvgegbidRBA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cleveland Masonic Performance Arts Center Parking",
+          "address": "3669 Euclid Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.5037186,
+          "lng": -81.6620526,
+          "distance_mi": 0.44,
+          "place_id": "ChIJ6_uoxFv6MIgRMJ-fVINU2qQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Hive Cafe, Powered by DigitalC",
+          "address": "6815 Euclid Ave, Cleveland, OH 44103, USA",
+          "price": 1,
+          "lat": 41.5048314,
+          "lng": -81.6423431,
+          "distance_mi": 0.59,
+          "place_id": "ChIJn1Ghatr7MIgRL3QujYd9iXs",
+          "types": [
+            "cafe",
+            "coffee_shop",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DigitalC",
+          "address": "6815 Euclid Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5048025,
+          "lng": -81.64225979999999,
+          "distance_mi": 0.59,
+          "place_id": "ChIJL4ZZGX36MIgR447gPZuZxnk",
+          "types": [
+            "non_profit_organization",
+            "coworking_space",
+            "cafe",
+            "event_venue",
+            "association_or_organization",
+            "educational_institution",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Koko Bakery",
+          "address": "3710 Payne Ave, Cleveland, OH 44114, USA",
+          "price": 2,
+          "lat": 41.509355299999996,
+          "lng": -81.66244230000001,
+          "distance_mi": 0.59,
+          "place_id": "ChIJt-2y60T6MIgR53CwpWsBmqE",
+          "types": [
+            "bakery",
+            "cake_shop",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "manufacturer",
+            "confectionery",
+            "food_store",
+            "wholesaler",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "3050 Carnegie Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.499626299999996,
+          "lng": -81.66541289999999,
+          "distance_mi": 0.68,
+          "place_id": "ChIJCfE5a1_6MIgRzimV7Sxn4aw",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot AA 90",
+          "address": "Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.503953599999996,
+          "lng": -81.66677159999999,
+          "distance_mi": 0.68,
+          "place_id": "ChIJVVUV0l36MIgRAvAe90ZNkG8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Square Dancing Parking Lot - Asiatown",
+          "address": "3236 Payne Ave, Cleveland, OH 44114, USA",
+          "price": null,
+          "lat": 41.5085844,
+          "lng": -81.66554529999999,
+          "distance_mi": 0.7,
+          "place_id": "ChIJM4VTbr37MIgRsQdj5hs4SRE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "City of Cleveland",
+          "address": "2301 E 65th St, Cleveland, OH 44104, USA",
+          "price": null,
+          "lat": 41.4949358,
+          "lng": -81.6448616,
+          "distance_mi": 0.77,
+          "place_id": "ChIJ7Q5oawD7MIgRCNwuCGm10kc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Euphoria Restaurant & Oxygen Lounge",
+          "address": "1812 E 30th St, Cleveland, OH 44103, USA",
+          "price": 2,
+          "lat": 41.505462099999995,
+          "lng": -81.66831189999999,
+          "distance_mi": 0.77,
+          "place_id": "ChIJT4sEXJj7MIgRWYWmTSsolA4",
+          "types": [
+            "restaurant",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7208 Euclid Ave Parking",
+          "address": "7208 Euclid Ave, Cleveland, OH 44103, USA",
+          "price": null,
+          "lat": 41.5030133,
+          "lng": -81.63866589999999,
+          "distance_mi": 0.78,
+          "place_id": "ChIJIyu6G6_7MIgRog5W6Zsug44",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Marjees Bar & Grill",
+          "address": "3604 Superior Ave, Cleveland, OH 44114, USA",
+          "price": 1,
+          "lat": 41.5122609,
+          "lng": -81.6653832,
+          "distance_mi": 0.84,
+          "place_id": "ChIJwcVuwUP6MIgRbNuCeiDta68",
+          "types": [
+            "bar",
+            "bar_and_grill",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Galaxy Karaoke",
+          "address": "1593 E 30th St, Cleveland, OH 44114, USA",
+          "price": 2,
+          "lat": 41.508964999999996,
+          "lng": -81.668931,
+          "distance_mi": 0.87,
+          "place_id": "ChIJed4tqUL6MIgRTtCzBC8IPxs",
+          "types": [
+            "karaoke",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Bake Shop & Café",
+          "address": "3615 Superior Ave, Cleveland, OH 44114, USA",
+          "price": 1,
+          "lat": 41.5128956,
+          "lng": -81.6654452,
+          "distance_mi": 0.87,
+          "place_id": "ChIJeRea9iz7MIgRvSIznf4J6eM",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CSU East Garage (Visitor & Permit)",
+          "address": "2506 Chester Ave, Cleveland, OH 44115, USA",
+          "price": null,
+          "lat": 41.503735999999996,
+          "lng": -81.67060049999999,
+          "distance_mi": 0.88,
+          "place_id": "ChIJq6pqNWf6MIgRUgXcnZzAIzo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "1540 E 55th St, Cleveland, OH 44103, USA",
+          "price": 1,
+          "lat": 41.516750800000004,
+          "lng": -81.6524754,
+          "distance_mi": 0.89,
+          "place_id": "ChIJh02BBEr6MIgRqIOsjqzxOmU",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ball Ball Waffle",
+          "address": "2999 Payne Ave Ste 126, Cleveland, OH 44114, USA",
+          "price": 1,
+          "lat": 41.5085099,
+          "lng": -81.669681,
+          "distance_mi": 0.89,
+          "place_id": "ChIJMyxy-I77MIgRq7CF7F2sMrc",
+          "types": [
+            "fast_food_restaurant",
+            "tea_store",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

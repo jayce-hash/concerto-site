@@ -1,0 +1,1184 @@
+{
+  "venueName": "Veltins-Arena",
+  "city": "Gelsenkirchen",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Green Olive",
+          "address": "Parkallee 3, 45891 Gelsenkirchen, Germany",
+          "price": 2,
+          "lat": 51.5575445,
+          "lng": 7.067734799999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ4zkxmuHluEcRWuz5d2qO8iQ",
+          "types": [
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bistro AufSchalke",
+          "address": "Parkallee 1, 45891 Gelsenkirchen, Germany",
+          "price": 2,
+          "lat": 51.5579188,
+          "lng": 7.0665996,
+          "distance_mi": 0.24,
+          "place_id": "ChIJrWbfg-HluEcR-r8qbPxroeI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "georgs - Café. Galerie. Bar.",
+          "address": "Parkallee 5, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.5579433,
+          "lng": 7.068628299999999,
+          "distance_mi": 0.25,
+          "place_id": "ChIJi_TvDc3luEcRgxrJlGvtcOI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charly's Schalker | Sportsbar • Restaurant • Biergarten",
+          "address": "Ernst-Kuzorra-Weg 1, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.5588674,
+          "lng": 7.062894,
+          "distance_mi": 0.36,
+          "place_id": "ChIJaY3GYuUwcEERqraLv7Tp6VQ",
+          "types": [
+            "restaurant",
+            "beer_garden",
+            "cafe",
+            "sports_bar",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "L'Osteria Gelsenkirchen",
+          "address": "Willy-Brandt-Allee 63, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.550833700000005,
+          "lng": 7.075615399999999,
+          "distance_mi": 0.43,
+          "place_id": "ChIJ9V3fRHTmuEcR9CjfLX1074w",
+          "types": [
+            "italian_restaurant",
+            "pizza_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "Adenauerallee 126a, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.551756999999995,
+          "lng": 7.0765191,
+          "distance_mi": 0.43,
+          "place_id": "ChIJiTTrEXXmuEcROnO-0npmHOQ",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cafe Del Sol",
+          "address": "Adenauerallee 128, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.55156890000001,
+          "lng": 7.0777101,
+          "distance_mi": 0.48,
+          "place_id": "ChIJiTTrEXXmuEcR8pr9M4BkbUI",
+          "types": [
+            "restaurant",
+            "cafe",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kentucky Fried Chicken",
+          "address": "Willy-Brandt-Allee 52a, 45891 Gelsenkirchen, Germany",
+          "price": 2,
+          "lat": 51.548572,
+          "lng": 7.073741,
+          "distance_mi": 0.49,
+          "place_id": "ChIJx02wUQDnuEcRYt8Kf23U0Zg",
+          "types": [
+            "fast_food_restaurant",
+            "hamburger_restaurant",
+            "chicken_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "XIAO Gelsenkirchen",
+          "address": "Willy-Brandt-Allee 65, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.550314099999994,
+          "lng": 7.076712799999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJz3uvBXTmuEcR8p7gUfcNxgM",
+          "types": [
+            "restaurant",
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "meal_takeaway",
+            "chinese_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Burger King Gelsenkirchen",
+          "address": "Willy-Brandt-Allee 54, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.5486984,
+          "lng": 7.074802,
+          "distance_mi": 0.51,
+          "place_id": "ChIJkzTuenPmuEcRpC9LMLUcSQg",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "YUMINI",
+          "address": "Willy-Brandt-Allee 54, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 3,
+          "lat": 51.548837,
+          "lng": 7.0754179,
+          "distance_mi": 0.52,
+          "place_id": "ChIJjW7Zj3PmuEcRAxKIbKQ2uU0",
+          "types": [
+            "japanese_restaurant",
+            "sushi_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Imbiss - Schalker Currystop",
+          "address": "Schweidnitzer Str. 27-29, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 1,
+          "lat": 51.561769899999994,
+          "lng": 7.0734316999999995,
+          "distance_mi": 0.57,
+          "place_id": "ChIJ42y-nPfluEcR6jS_RMcGLi0",
+          "types": [
+            "snack_bar",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gaststätte Berger Krug",
+          "address": "Surkampstraße 60, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.5585461,
+          "lng": 7.0798095,
+          "distance_mi": 0.6,
+          "place_id": "ChIJ0QLstd7luEcRnjvJt6z5EuU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Curry Heinz Imbiss und Online-SHOP",
+          "address": "Theodor-Otte-Straße 81B, 45897 Gelsenkirchen-West, Germany",
+          "price": 1,
+          "lat": 51.545941799999994,
+          "lng": 7.0629155,
+          "distance_mi": 0.62,
+          "place_id": "ChIJoy76DQ7muEcR1MM2vwdeYYw",
+          "types": [
+            "snack_bar",
+            "fast_food_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gaststätte, Restaurant \"ZUM RUHRPOTT\"",
+          "address": "Surkampstraße 66, 45891 Gelsenkirchen, Germany",
+          "price": 2,
+          "lat": 51.5594179,
+          "lng": 7.079581999999999,
+          "distance_mi": 0.62,
+          "place_id": "ChIJ4_HomwLluEcR0_CpmpH8Hq0",
+          "types": [
+            "western_restaurant",
+            "beer_garden",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Grill",
+          "address": "Pannhütte 80a, 45891 Gelsenkirchen, Germany",
+          "price": 1,
+          "lat": 51.5567679,
+          "lng": 7.083335699999999,
+          "distance_mi": 0.7,
+          "place_id": "ChIJW_yVVNjluEcRrqIX_xTtIus",
+          "types": [
+            "snack_bar",
+            "fast_food_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "45 Burger's Gelsenkirchen",
+          "address": "Theodor-Otte-Straße 109/45Burgers, 45897 Gelsenkirchen-Burgerrestaurant, Germany",
+          "price": 2,
+          "lat": 51.543590699999996,
+          "lng": 7.064673699999999,
+          "distance_mi": 0.76,
+          "place_id": "ChIJSeNCScfnuEcR5sy5ujzNMbM",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "meal_takeaway",
+            "food_delivery",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Salar Kebab & Antipasti",
+          "address": "Emscherstraße 37, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 1,
+          "lat": 51.544267299999994,
+          "lng": 7.075237899999999,
+          "distance_mi": 0.78,
+          "place_id": "ChIJYxRfpd_nuEcRHxEQJjgSbVw",
+          "types": [
+            "kebab_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Broasters Fried Chicken",
+          "address": "Theodor-Otte-Straße 123, 45897 Gelsenkirchen, Germany",
+          "price": 2,
+          "lat": 51.5430758,
+          "lng": 7.0652684,
+          "distance_mi": 0.79,
+          "place_id": "ChIJE0y9vcTvuEcRRVTgWts1foA",
+          "types": [
+            "fast_food_restaurant",
+            "hamburger_restaurant",
+            "meal_takeaway",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "INTZeit-Arbeit gGmbH",
+          "address": "Emscherstraße 41, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.546085999999995,
+          "lng": 7.080139699999999,
+          "distance_mi": 0.79,
+          "place_id": "ChIJIZJirHHmuEcRsaYZWdBzy7U",
+          "types": [
+            "garden",
+            "association_or_organization",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Welcome Hotel Gelsenkirchen",
+          "address": "Parkallee 3, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.557631,
+          "lng": 7.067749999999999,
+          "distance_mi": 0.22,
+          "place_id": "ChIJ4QUtnOHluEcR6MsqdSMERi4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Die Welt zu Gast bei Freunden - Three-Bedroom Apartment",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5593491,
+          "lng": 7.0768399,
+          "distance_mi": 0.53,
+          "place_id": "ChIJBbLjfN7luEcRopXlO6u2ktU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Privatzimmer Krogmann",
+          "address": "Theodor-Otte-Straße 60, 45897 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.547764099999995,
+          "lng": 7.061562800000001,
+          "distance_mi": 0.53,
+          "place_id": "ChIJYf8V-A7muEcRlSRLzETgS2c",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arena Hotel",
+          "address": "Willy-Brandt-Allee 54, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.548617,
+          "lng": 7.075523800000001,
+          "distance_mi": 0.53,
+          "place_id": "ChIJ6Su3kXPmuEcRdKx8RsbH19A",
+          "types": [
+            "hotel",
+            "bed_and_breakfast",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Villa Positano EG Parkplatz Balkon Veltins Arena",
+          "address": "Gelsenkirchen-West, 45897 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.546752899999994,
+          "lng": 7.0651584,
+          "distance_mi": 0.54,
+          "place_id": "ChIJa_CbyA3muEcRJ8_QhvYMze4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Privatzimmer Makowiecki - One-Bedroom Apartment",
+          "address": "Gelsenkirchen-West, 45897 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5464592,
+          "lng": 7.0620299,
+          "distance_mi": 0.6,
+          "place_id": "ChIJoYx5ag7muEcR3w9Ql_eTGdg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Privatzimmer Makowiecki",
+          "address": "Theodor-Otte-Straße 82, 45897 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.5464663,
+          "lng": 7.0618646,
+          "distance_mi": 0.6,
+          "place_id": "ChIJb523QQ7muEcR0Z3T9mZZews",
+          "types": [
+            "hotel",
+            "apartment_building",
+            "lodging",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holiday-Ruhr - Ferienwohnungen und Monteursunterkünfte in Essen",
+          "address": "Flurstraße 130, 45899 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.5494638,
+          "lng": 7.0551961,
+          "distance_mi": 0.63,
+          "place_id": "ChIJAQB8yAXmuEcRQaarzPzWuCc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HOLIDAY Ruhr - Sylke Schacht",
+          "address": "Flurstraße 130, 45899 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.5494638,
+          "lng": 7.0551961,
+          "distance_mi": 0.63,
+          "place_id": "ChIJQUhgyAXmuEcRpCmj1_-ihyE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holiday Ruhr Ferienwohnungsvermittlung",
+          "address": "Flurstraße 130, 45899 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.5494638,
+          "lng": 7.0551961,
+          "distance_mi": 0.63,
+          "place_id": "ChIJQUhgyAXmuEcR5ysl-6xq3ZY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ferienwohnung Gelsenkirchen an der Veltins Arena",
+          "address": "Flurstraße 130, 45899 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.5494638,
+          "lng": 7.0551961,
+          "distance_mi": 0.63,
+          "place_id": "ChIJ4-dhyAXmuEcRiCUFEdP2fiA",
+          "types": [
+            "cottage",
+            "real_estate_agency",
+            "travel_agency",
+            "lodging",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boardinghouse am Stadt",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.559677099999995,
+          "lng": 7.080514399999999,
+          "distance_mi": 0.67,
+          "place_id": "ChIJEwAAANzluEcRkGh0BLqZ07Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arena meets suite @CordisSky directly at the arena",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5535316,
+          "lng": 7.083099799999999,
+          "distance_mi": 0.67,
+          "place_id": "ChIJbbz6z3fmuEcRRQPHgoANPyo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holiday apartment Berger Stollen - Two-Bedroom Apartment",
+          "address": "Gelsenkirchen-Nord, 45894 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.563831300000004,
+          "lng": 7.0627498,
+          "distance_mi": 0.68,
+          "place_id": "ChIJf-u9I-XluEcRy_R8HSNCwzU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holiday apartment Yin Yang - Apartment",
+          "address": "Gelsenkirchen-Nord, 45894 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.563831300000004,
+          "lng": 7.0627498,
+          "distance_mi": 0.68,
+          "place_id": "ChIJf-u9I-XluEcR-yQ9hBcuwF8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Top 3 Zimmer Appartment bei der Schalke Arena, Sport und Natur nähe Dortmund Essen Düsseldorf Oberhausen - Two-Bedroom Apartment",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5525704,
+          "lng": 7.0833802,
+          "distance_mi": 0.69,
+          "place_id": "ChIJ8wyovnfmuEcRVMrLtSlbXGc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Top 3 Zimmer Appartment bei der Schalke Arena, Sport und Natur nähe Dortmund Essen Düsseldorf Oberhausen - Two-Bedroom Apartment",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5525589,
+          "lng": 7.0833802,
+          "distance_mi": 0.69,
+          "place_id": "ChIJCzMdvHfmuEcR1V9mrSq3lL8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Apartment with garden",
+          "address": "Gelsenkirchen-West, 45897 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5452805,
+          "lng": 7.060418599999999,
+          "distance_mi": 0.7,
+          "place_id": "ChIJKQfeKw7muEcRkiat-jNA_z0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "gelsenbett",
+          "address": "Theodor-Otte-Straße 105, 45897 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5440671,
+          "lng": 7.0644713,
+          "distance_mi": 0.73,
+          "place_id": "ChIJ5b9nEhLmuEcRTdPxXRzwfMI",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gästehaus Sutum",
+          "address": "Theodor-Otte-Straße 105, 45897 Gelsenkirchen-West, Germany",
+          "price": null,
+          "lat": 51.54405,
+          "lng": 7.0645,
+          "distance_mi": 0.73,
+          "place_id": "ChIJ5b9nEhLmuEcR1FsYGBkzSWU",
+          "types": [
+            "guest_house",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "SFCV Club Heim",
+          "address": "Berni-Klodt-Weg 1, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.552500699999996,
+          "lng": 7.0692813999999995,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ_5aQ6PLnuEcRiYuUF4g5iug",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkplatz Veltins-Arena",
+          "address": "Berni-Klodt-Weg 1, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5523764,
+          "lng": 7.069263599999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJHeiwlQzmuEcRB0J6oBWty7c",
+          "types": [
+            "parking_lot",
+            "parking",
+            "live_music_venue",
+            "event_venue",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkplatz SFCV",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.551830599999995,
+          "lng": 7.0694363,
+          "distance_mi": 0.2,
+          "place_id": "ChIJhfOMGgvmuEcRpz8L-9d7L0s",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkhaus 1",
+          "address": "Stan-Libuda-Weg 1, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5559296,
+          "lng": 7.0628872,
+          "distance_mi": 0.22,
+          "place_id": "ChIJM9rEfQDluEcRYOJ_S0z8S9w",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vital Cafe",
+          "address": "Parkallee 1, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.557887099999995,
+          "lng": 7.0667839,
+          "distance_mi": 0.24,
+          "place_id": "ChIJDe-Df-HluEcRY2u_Er5b7ys",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Zugang Bus Parkplatz an der VELTINS-Arena",
+          "address": "Arena AufSchalke, Gelsenkirchen-West, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5549618,
+          "lng": 7.0618788,
+          "distance_mi": 0.24,
+          "place_id": "ChIJu4ozk-jnuEcR8lUb6fa-vH8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Schalke Parkplatz",
+          "address": "Adenauerallee 110, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.555895899999996,
+          "lng": 7.072962400000001,
+          "distance_mi": 0.26,
+          "place_id": "ChIJnyGR4d_luEcRXHrHMV5LL00",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkhaus 2",
+          "address": "Stan-Libuda-Weg 4, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5566205,
+          "lng": 7.0624967,
+          "distance_mi": 0.26,
+          "place_id": "ChIJzwxvEwDluEcRUXqlqLumiPk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Veltins-Arena Parkplatz C1",
+          "address": "Adenauerallee 110/116, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.5556791,
+          "lng": 7.0734257,
+          "distance_mi": 0.27,
+          "place_id": "ChIJPUvo_OzluEcRdAl8EtUz-rI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Veltinsarena D4",
+          "address": "Berni-Klodt-Weg 1, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5509007,
+          "lng": 7.0700736,
+          "distance_mi": 0.27,
+          "place_id": "ChIJ94ryOADnuEcROKO3qzpYqT0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P6 VELTINS-Arena",
+          "address": "Kurt-Schumacher-Straße, 45897 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.555973599999994,
+          "lng": 7.061115099999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJU5-0mOLluEcRYHVHC1IILN8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkplatz",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.557254699999994,
+          "lng": 7.0622919,
+          "distance_mi": 0.3,
+          "place_id": "ChIJH1Q4vTjluEcRDNzUhLd_HJU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkhaus 3",
+          "address": "Stan-Libuda-Weg, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.557246799999994,
+          "lng": 7.062187,
+          "distance_mi": 0.3,
+          "place_id": "ChIJ0Xi6agDluEcR1bpUTywc07k",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkplatz Berger Feld",
+          "address": "Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.5556033,
+          "lng": 7.074408399999999,
+          "distance_mi": 0.31,
+          "place_id": "ChIJV2zU7N_luEcR9IyFD-8BByE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Veltins-Arena Parkplatz B",
+          "address": "Adenauerallee 112, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.557706599999996,
+          "lng": 7.0734056,
+          "distance_mi": 0.34,
+          "place_id": "ChIJBeDz5kfluEcRNC3ei9W3lcU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Schalke Bazar",
+          "address": "Adenauerallee 102o, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.557738699999994,
+          "lng": 7.0734338,
+          "distance_mi": 0.34,
+          "place_id": "ChIJTa71cADluEcRm3ibYYIQ44o",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkplatz",
+          "address": "Willy-Brandt-Allee 49, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.5494902,
+          "lng": 7.069999900000001,
+          "distance_mi": 0.36,
+          "place_id": "ChIJbZSpqZ3nuEcR8v-d0Ud2jLM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pazar gergenkisen",
+          "address": "G3X9+QQ Veltins Arena Parkplatz E, Gelsenkirchen-Ost, 45891 Gelsenkirchen, Germany",
+          "price": null,
+          "lat": 51.549485499999996,
+          "lng": 7.0700201,
+          "distance_mi": 0.36,
+          "place_id": "ChIJb-yfcgDnuEcREPGfJXlMvG4",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking E2 - Away visitors Veltins-Arena",
+          "address": "Berni-Klodt-Weg, 45891 Gelsenkirchen-Ost, Germany",
+          "price": null,
+          "lat": 51.5494631,
+          "lng": 7.0700012,
+          "distance_mi": 0.36,
+          "place_id": "ChIJC5ajpgzmuEcRVa7WL1EiKLg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charly's Schalker | Sportsbar • Restaurant • Biergarten",
+          "address": "Ernst-Kuzorra-Weg 1, 45891 Gelsenkirchen-Ost, Germany",
+          "price": 2,
+          "lat": 51.5588674,
+          "lng": 7.062894,
+          "distance_mi": 0.36,
+          "place_id": "ChIJaY3GYuUwcEERqraLv7Tp6VQ",
+          "types": [
+            "restaurant",
+            "sports_bar",
+            "beer_garden",
+            "bar",
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

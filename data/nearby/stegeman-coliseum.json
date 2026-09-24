@@ -1,0 +1,1206 @@
+{
+  "venueName": "Stegeman Coliseum",
+  "city": "Athens",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Einstein Bros. Bagels",
+          "address": "130 Carlton St, Athens, GA 30602, USA",
+          "price": 1,
+          "lat": 33.9428634,
+          "lng": -83.37626470000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJR9FWu-Rs9ogRSXmYYBE14sU",
+          "types": [
+            "bagel_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Savannah Room Restaurant",
+          "address": "1197 S Lumpkin St, Athens, GA 30602, USA",
+          "price": 2,
+          "lat": 33.9444527,
+          "lng": -83.3784936,
+          "distance_mi": 0.12,
+          "place_id": "ChIJs2LCgB1t9ogRyAXPuqUMV8g",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bulldog Bistro",
+          "address": "1197 S Lumpkin St, Athens, GA 30605, USA",
+          "price": 1,
+          "lat": 33.944856099999996,
+          "lng": -83.3779435,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQRKgk5xt9ogRvt_0QL5SICI",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Snelling Dining Commons",
+          "address": "200 W Green St, Athens, GA 30602, USA",
+          "price": 2,
+          "lat": 33.9446839,
+          "lng": -83.37640019999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ2ZZxVeJs9ogRTliY_iCeNd4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blenz Bowls University of Georgia",
+          "address": "150 E Green St, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.9433212,
+          "lng": -83.3748092,
+          "distance_mi": 0.19,
+          "place_id": "ChIJ1xjlEFpt9ogR_I_qLlQLlG8",
+          "types": [
+            "acai_shop",
+            "brazilian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Campus Kitchen at UGA",
+          "address": "1242 1/2 S Lumpkin St, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.945418,
+          "lng": -83.3811113,
+          "distance_mi": 0.25,
+          "place_id": "ChIJW6hUrh1t9ogRXAoM83GOBgE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Circle K",
+          "address": "1333 S Lumpkin St, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9424233,
+          "lng": -83.3832755,
+          "distance_mi": 0.3,
+          "place_id": "ChIJXZTpsxxt9ogRQnyq_0BEldw",
+          "types": [
+            "convenience_store",
+            "atm",
+            "snack_bar",
+            "meal_takeaway",
+            "food_store",
+            "finance",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oglethorpe Dining Commons",
+          "address": "160 University Ct, Athens, GA 30602, USA",
+          "price": 2,
+          "lat": 33.9471175,
+          "lng": -83.37939999999999,
+          "distance_mi": 0.31,
+          "place_id": "ChIJKdtELeNs9ogRUAge6fOXiIU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cali N Tito's",
+          "address": "1427 S Lumpkin St, Athens, GA 30605, USA",
+          "price": 1,
+          "lat": 33.942378000000005,
+          "lng": -83.38378399999999,
+          "distance_mi": 0.32,
+          "place_id": "ChIJ9X4trRxt9ogRiY0csnD3MNg",
+          "types": [
+            "latin_american_restaurant",
+            "spanish_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hillside Dining Commons",
+          "address": "301 E Cloverhurst Ave, Athens, GA 30605, USA",
+          "price": 2,
+          "lat": 33.9488143,
+          "lng": -83.3799813,
+          "distance_mi": 0.43,
+          "place_id": "ChIJdTIEKABt9ogRtrorIRPA0PQ",
+          "types": [
+            "buffet_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grindhouse Killer Burgers",
+          "address": "1553 S Lumpkin St, Athens, GA 30605, USA",
+          "price": 1,
+          "lat": 33.9408405,
+          "lng": -83.38554529999999,
+          "distance_mi": 0.45,
+          "place_id": "ChIJxX1IlQRt9ogRVHVUJgxI_lI",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "ZZ & Simone's",
+          "address": "1540 S Lumpkin St Ste 4, Athens, GA 30605, USA",
+          "price": 2,
+          "lat": 33.9411497,
+          "lng": -83.38582869999999,
+          "distance_mi": 0.45,
+          "place_id": "ChIJoeSy7ZVt9ogR3eBbtYn2ewE",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "1573 S Lumpkin St, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9399437,
+          "lng": -83.385893,
+          "distance_mi": 0.49,
+          "place_id": "ChIJCVb19wRt9ogRR8lFzf5P-n0",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kelly's Jamaican Foods",
+          "address": "1583 S Lumpkin St, Athens, GA 30605, USA",
+          "price": 2,
+          "lat": 33.9397435,
+          "lng": -83.3859286,
+          "distance_mi": 0.49,
+          "place_id": "ChIJnSUKslRs9ogR-pCgZ6RinqI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Village Summit Dining Commons",
+          "address": "80 Carlton St, Athens, GA 30605, USA",
+          "price": 2,
+          "lat": 33.9392645,
+          "lng": -83.37054189999999,
+          "distance_mi": 0.5,
+          "place_id": "ChIJv7mA_vps9ogRBW1kWgemb24",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Baddies Burger House - 5 Points",
+          "address": "1591 S Lumpkin St Ste A, Athens, GA 30606, USA",
+          "price": 1,
+          "lat": 33.9397059,
+          "lng": -83.3860266,
+          "distance_mi": 0.5,
+          "place_id": "ChIJE1l79gRt9ogRlC4R9f3B4f8",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mediterranean Grill",
+          "address": "1591 S Lumpkin St, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9396258,
+          "lng": -83.38598089999999,
+          "distance_mi": 0.5,
+          "place_id": "ChIJ0dv99QRt9ogROf2ICnkyk34",
+          "types": [
+            "mediterranean_restaurant",
+            "halal_restaurant",
+            "falafel_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "sandwich_shop",
+            "middle_eastern_restaurant",
+            "gyro_restaurant",
+            "greek_restaurant",
+            "vegetarian_restaurant",
+            "food_delivery",
+            "european_restaurant",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Smoothie King",
+          "address": "1591 S Lumpkin St Ste. B, Athens, GA 30605, USA",
+          "price": 1,
+          "lat": 33.93961,
+          "lng": -83.38602999999999,
+          "distance_mi": 0.5,
+          "place_id": "ChIJ0dv99QRt9ogRMHPILwWpfpc",
+          "types": [
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "acai_shop",
+            "brazilian_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "store",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Golden Pantry",
+          "address": "1205 S Milledge Ave, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.939265999999996,
+          "lng": -83.38623799999999,
+          "distance_mi": 0.52,
+          "place_id": "ChIJ4faRWQRt9ogRpaVM0ILeX1g",
+          "types": [
+            "convenience_store",
+            "gas_station",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Pine Bar",
+          "address": "1235 S Milledge Ave, Athens, GA 30606, USA",
+          "price": 2,
+          "lat": 33.9389817,
+          "lng": -83.3860906,
+          "distance_mi": 0.53,
+          "place_id": "ChIJvWwiWwRt9ogRQRx_EofcUi8",
+          "types": [
+            "tapas_restaurant",
+            "wine_bar",
+            "bar",
+            "spanish_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "University of Georgia Center for Continuing Education & Hotel",
+          "address": "1197 South Lumpkin Street Athens, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.9447632,
+          "lng": -83.3777637,
+          "distance_mi": 0.14,
+          "place_id": "ChIJs2LCgB1t9ogR6OIbTqCW5_4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steps to Sanford, Stegman and Five Points!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.944621999999995,
+          "lng": -83.3819962,
+          "distance_mi": 0.26,
+          "place_id": "ChIJEdZE-Rxt9ogRzHta8r82jyo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming Bulldog Cottage in heart of campus and short stroll to Five Points",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9445496,
+          "lng": -83.38210289999999,
+          "distance_mi": 0.26,
+          "place_id": "ChIJK-PS-xxt9ogR-yOF4igXobo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Dugout, Walk to All UGA Sports!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9398384,
+          "lng": -83.3815384,
+          "distance_mi": 0.28,
+          "place_id": "ChIJkQSZ_QJt9ogRJFvh2oRO3Ug",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "0.5 mi UGA Stadium & Campus– 2 BR 2.5 BA Athens Townhome with King, Queen + Twin",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.945442199999995,
+          "lng": -83.3821335,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ19b4UBxt9ogRvE_OlFNa49c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "UGA Bulldog Basecamp- Prime Five Points Stay",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9401474,
+          "lng": -83.382576,
+          "distance_mi": 0.31,
+          "place_id": "ChIJdUHwEQNt9ogRuujITRLBQy8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Newly renovated 3 bedroom 5 points house /short walk to UGA stadium",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.93824,
+          "lng": -83.3796997,
+          "distance_mi": 0.33,
+          "place_id": "ChIJFQFzbgJt9ogRQwGJA0uyCxw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful 3Bed, 3Bath 5 points home with short walk to UGA , ️, stadiums.",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.93824,
+          "lng": -83.37970729999999,
+          "distance_mi": 0.33,
+          "place_id": "ChIJp85zbgJt9ogReYNZfSAAl_U",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dawgwood Den- Walk to Sanford Stadium & 5 Points Athens!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9380989,
+          "lng": -83.3795166,
+          "distance_mi": 0.33,
+          "place_id": "ChIJ0bBBcgJt9ogRrwph-2t5oqI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Five Points Dawg Crib On Campus",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9417496,
+          "lng": -83.3844833,
+          "distance_mi": 0.37,
+          "place_id": "ChIJN-H8qARt9ogRRxm7QeAvm-k",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Five Points Dawg Crib On Campus",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9417076,
+          "lng": -83.384491,
+          "distance_mi": 0.37,
+          "place_id": "ChIJvSzuqARt9ogRyP3mLE4nBoA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Athens Cottage: Walk to Sanford Stadium!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.936740799999995,
+          "lng": -83.3768387,
+          "distance_mi": 0.42,
+          "place_id": "ChIJDw_B0P1s9ogRrRPBV5_Q6GE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Athens Cottage: Walk to Sanford Stadium!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.936737,
+          "lng": -83.3768387,
+          "distance_mi": 0.42,
+          "place_id": "ChIJbz3B0P1s9ogRHwusCHcZqms",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming House in the Heart of Five Points. Walk to Five Points and UGA",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.939228,
+          "lng": -83.3842544,
+          "distance_mi": 0.43,
+          "place_id": "ChIJaUCigANt9ogRWMIOIrGFN_E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Historic 5 bedroom home on Milledge Avenue, Heart of Athens!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.94701,
+          "lng": -83.3837585,
+          "distance_mi": 0.44,
+          "place_id": "ChIJTRyiDxxt9ogRxKirdLbOd1s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Delightful Five Points 2-bedroom apartment - walk to UGA stadiums!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.937629699999995,
+          "lng": -83.38273620000001,
+          "distance_mi": 0.44,
+          "place_id": "ChIJB1_FwwNt9ogRZh_7hydiaKE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steps to UGA campus/Sanford Stadium - Lg 1BR + SofaBed",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9480934,
+          "lng": -83.3841934,
+          "distance_mi": 0.51,
+          "place_id": "ChIJf2tqqx5t9ogRs564m4wMCT4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1 BR Condo - Location, Location, Location! Easy Walk to Campus & Stadium!",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9479599,
+          "lng": -83.3844986,
+          "distance_mi": 0.51,
+          "place_id": "ChIJ-Yu6VRlt9ogR9aGGVeZtd-M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet Friendly 1BR Condo - Easy Walk to Campus & Stadium",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9479599,
+          "lng": -83.3844986,
+          "distance_mi": 0.51,
+          "place_id": "ChIJ-Yu6VRlt9ogRm-lnr-k7uXA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Zen Palace...The Coolest Place to Stay in Athens",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9461174,
+          "lng": -83.3861084,
+          "distance_mi": 0.51,
+          "place_id": "ChIJ_XDLuxtt9ogR0qW4LUqYx38",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Carlton Street Parking Deck",
+          "address": "125 Smith St, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9415872,
+          "lng": -83.3778703,
+          "distance_mi": 0.08,
+          "place_id": "ChIJkU9mT_1s9ogRQmF1_D9x-kQ",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "S12- Hoke Smith",
+          "address": "300 Smith St, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.9439129,
+          "lng": -83.3789552,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ63GrZh1t9ogRVAQMKACdAzA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Einstein Bros. Bagels",
+          "address": "130 Carlton St, Athens, GA 30602, USA",
+          "price": 1,
+          "lat": 33.9428634,
+          "lng": -83.37626470000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJR9FWu-Rs9ogRSXmYYBE14sU",
+          "types": [
+            "bagel_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "South Deck Parking Lot",
+          "address": "100 W Green St, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.9455978,
+          "lng": -83.3769212,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ5_HlQuJs9ogRUfB51CEilfI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "East Green Street Car Park",
+          "address": "Parking lot, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.943303199999995,
+          "lng": -83.37355060000002,
+          "distance_mi": 0.27,
+          "place_id": "ChIJl746nuRs9ogRAkm3MdAOtM4",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dooley Plaza Visitor Spaces",
+          "address": "Pinecrest Dr, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9420454,
+          "lng": -83.3826833,
+          "distance_mi": 0.27,
+          "place_id": "ChIJi6uNNANt9ogRCx3LBD29qCk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jittery Joe's Coffee - UGA Science Library",
+          "address": "215 D. W. Brooks Drive, Athens, GA 30602, USA",
+          "price": 1,
+          "lat": 33.945983399999996,
+          "lng": -83.3749703,
+          "distance_mi": 0.29,
+          "place_id": "ChIJMQnbkuNs9ogRD49xRQ4wTMA",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cloverhurst Lot W11",
+          "address": "Parking lot, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9472553,
+          "lng": -83.38010709999999,
+          "distance_mi": 0.33,
+          "place_id": "ChIJxaAq4R1t9ogRp94pz06Vmdo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "S04 Conner Hall Lot",
+          "address": "Conner Hall, Parking lot, 147 Cedar St, Athens, GA 30602, USA",
+          "price": null,
+          "lat": 33.947024,
+          "lng": -83.3737475,
+          "distance_mi": 0.39,
+          "place_id": "ChIJSd6r_-Ns9ogRHIcmzhGNgiE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boggs Hall Lot W11",
+          "address": "Parking lot, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9486151,
+          "lng": -83.3790898,
+          "distance_mi": 0.41,
+          "place_id": "ChIJMWd8Hh5t9ogRK2BH-Z4kC-A",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "West Campus Parking Deck",
+          "address": "146 E Cloverhurst Ave, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9485471,
+          "lng": -83.3814541,
+          "distance_mi": 0.44,
+          "place_id": "ChIJD3kTbB5t9ogRkH8MkBgZ1Ss",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "West Campus Parking Deck II",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.948300599999996,
+          "lng": -83.3825086,
+          "distance_mi": 0.46,
+          "place_id": "ChIJaTwzZgBt9ogRs4ieTCRHdqA",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Building L Parking S18",
+          "address": "113 College Station Rd, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.936998599999995,
+          "lng": -83.3739185,
+          "distance_mi": 0.47,
+          "place_id": "ChIJUZ0nilVt9ogRAudScVsKxwA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "E12 East Campus Lot",
+          "address": "Parking lot, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9458033,
+          "lng": -83.37061539999999,
+          "distance_mi": 0.48,
+          "place_id": "ChIJ-egjyuVs9ogRX1TJqeEB9b8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Building K Car Park",
+          "address": "Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9366938,
+          "lng": -83.37375879999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJPV2rB_xs9ogRIE2kii8KXJY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Legion Lot",
+          "address": "Parking lot, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.950142899999996,
+          "lng": -83.3779469,
+          "distance_mi": 0.51,
+          "place_id": "ChIJu7WdzOFs9ogRe_lihIKzYmQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot E12 UGA",
+          "address": "112-212 River Rd, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.9475759,
+          "lng": -83.3711628,
+          "distance_mi": 0.52,
+          "place_id": "ChIJ82XshuZs9ogRdKQllxhYuZg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Root",
+          "address": "1235 S Milledge Ave, Athens, GA 30606, USA",
+          "price": null,
+          "lat": 33.9389945,
+          "lng": -83.38605070000001,
+          "distance_mi": 0.52,
+          "place_id": "ChIJvcRzWwRt9ogRh5D1dx9N83w",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Golden Pantry",
+          "address": "1205 S Milledge Ave, Athens, GA 30605, USA",
+          "price": null,
+          "lat": 33.939265999999996,
+          "lng": -83.38623799999999,
+          "distance_mi": 0.52,
+          "place_id": "ChIJ4faRWQRt9ogRpaVM0ILeX1g",
+          "types": [
+            "convenience_store",
+            "gas_station",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Pine Bar",
+          "address": "1235 S Milledge Ave, Athens, GA 30606, USA",
+          "price": 2,
+          "lat": 33.9389817,
+          "lng": -83.3860906,
+          "distance_mi": 0.53,
+          "place_id": "ChIJvWwiWwRt9ogRQRx_EofcUi8",
+          "types": [
+            "tapas_restaurant",
+            "wine_bar",
+            "bar",
+            "spanish_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

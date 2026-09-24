@@ -1,0 +1,997 @@
+{
+  "venueName": "Greek Theatre",
+  "city": "Los Angeles",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Franklin's Cafe - Griffith Park",
+          "address": "2650 N Vermont Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1183146,
+          "lng": -118.29372079999997,
+          "distance_mi": 0.18,
+          "place_id": "ChIJB-cSD9nBwoARXivgc_aUeGE",
+          "types": [
+            "cafe",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Nashfin",
+          "address": "2134 N Vermont Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.11085,
+          "lng": -118.291597,
+          "distance_mi": 0.66,
+          "place_id": "ChIJ-XL6ihnHwoARzbSNvRfbfx4",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Messhall Kitchen",
+          "address": "4500 Los Feliz Blvd, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1116175,
+          "lng": -118.2878652,
+          "distance_mi": 0.73,
+          "place_id": "ChIJAwZAM7vAwoARPgwThrK5X-4",
+          "types": [
+            "american_restaurant",
+            "gastropub",
+            "brunch_restaurant",
+            "barbecue_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CASA LEO",
+          "address": "4500 Los Feliz Blvd Ste c, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.111469,
+          "lng": -118.2876817,
+          "distance_mi": 0.75,
+          "place_id": "ChIJ4WpfIPTBwoARcEUx0OQb93E",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Encanto Restaurant",
+          "address": "2121 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1106391,
+          "lng": -118.28770960000001,
+          "distance_mi": 0.79,
+          "place_id": "ChIJxYZFLcDBwoARNBaAsc5wkPE",
+          "types": [
+            "restaurant",
+            "brunch_restaurant",
+            "mexican_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little Dom's",
+          "address": "2128 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1109262,
+          "lng": -118.2872174,
+          "distance_mi": 0.79,
+          "place_id": "ChIJJd_jKbvAwoARfexmBv-1ZV0",
+          "types": [
+            "italian_restaurant",
+            "deli",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheech's Pizza",
+          "address": "2116 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.1105373,
+          "lng": -118.2872957,
+          "distance_mi": 0.81,
+          "place_id": "ChIJM3K01rrAwoAR6xgONp2ShDE",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Yen Sushi & Sake",
+          "address": "2081 Hillhurst Ave a, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1098334,
+          "lng": -118.28792759999997,
+          "distance_mi": 0.83,
+          "place_id": "ChIJG2cUM6XAwoARsUzj7AARfmM",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "El Ruso #1",
+          "address": "2081 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.109831899999996,
+          "lng": -118.28792750000001,
+          "distance_mi": 0.83,
+          "place_id": "ChIJ-URtEy_PwoARpHuRchShY4Q",
+          "types": [
+            "taco_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Special Hot Dog",
+          "address": "Hillhurst Avenue &, Ambrose Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.109966199999995,
+          "lng": -118.2874472,
+          "distance_mi": 0.84,
+          "place_id": "ChIJsUeKtnzBwoARc9lBriga0cA",
+          "types": [
+            "hot_dog_stand",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Civico 2064",
+          "address": "2064 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1093895,
+          "lng": -118.28715169999998,
+          "distance_mi": 0.88,
+          "place_id": "ChIJeeZxOwDBwoARijCROZGytTU",
+          "types": [
+            "italian_restaurant",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "ZENSHI Handcrafted Sushi",
+          "address": "2035 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1088351,
+          "lng": -118.2880226,
+          "distance_mi": 0.88,
+          "place_id": "ChIJvWbrXjbBwoAR2KUhSKVSIrQ",
+          "types": [
+            "restaurant",
+            "meal_takeaway",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Yuca's",
+          "address": "2056 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.109128,
+          "lng": -118.2872897,
+          "distance_mi": 0.89,
+          "place_id": "ChIJXXJtsbrAwoARtU5DtgcD4_M",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Part Time",
+          "address": "2044 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1089639,
+          "lng": -118.2871745,
+          "distance_mi": 0.9,
+          "place_id": "ChIJrVJ6NEfBwoAR7DWLA3AjkpM",
+          "types": [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bella Luna Pizza",
+          "address": "2060 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.1087189,
+          "lng": -118.2875529,
+          "distance_mi": 0.9,
+          "place_id": "ChIJhz0rSzu_woARecxZLZEANlo",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "All Time",
+          "address": "2040 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.108849,
+          "lng": -118.28721250000001,
+          "distance_mi": 0.9,
+          "place_id": "ChIJFRNKrrrAwoARy7DkaVr5P9E",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Black Forest Bakery",
+          "address": "2000 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1078835,
+          "lng": -118.28731150000002,
+          "distance_mi": 0.96,
+          "place_id": "ChIJ6autPkXBwoARcaBh3Ek9oXE",
+          "types": [
+            "bakery",
+            "bagel_shop",
+            "market",
+            "grocery_store",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trattoria Farfalla Los Feliz",
+          "address": "1978 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.107579,
+          "lng": -118.28721399999999,
+          "distance_mi": 0.98,
+          "place_id": "ChIJ8WkOHLDAwoARYXl0t99IOgI",
+          "types": [
+            "italian_restaurant",
+            "pizza_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushi Ai",
+          "address": "1972 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.107450899999996,
+          "lng": -118.2873026,
+          "distance_mi": 0.98,
+          "place_id": "ChIJs8ueG7DAwoARui8Sn1bv00s",
+          "types": [
+            "japanese_restaurant",
+            "sushi_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Making Music",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1161995,
+          "lng": -118.29785160000002,
+          "distance_mi": 0.24,
+          "place_id": "ChIJ07OdjJ_AwoARHSTVFyEisCU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Resort Style Hollywood Hills Villa",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1146011,
+          "lng": -118.2951126,
+          "distance_mi": 0.35,
+          "place_id": "ChIJK-uwoqHAwoAR-dr-PB3xR3Y",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1920's Los Feliz Villa with Pool and Spa.",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1110916,
+          "lng": -118.29312139999999,
+          "distance_mi": 0.61,
+          "place_id": "ChIJEye9G6TAwoARozTFEc5dNRc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Vacation Villa - family, swim, work, play etc.. NOW AVAILABLE MONTHLY",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1146087,
+          "lng": -118.3054428,
+          "distance_mi": 0.62,
+          "place_id": "ChIJh_GBUme_woARLywtuSq-tQI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Vacation Villa - family, swim, work, play & etc.. NOW AVAILABLE MONTHLY",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1130905,
+          "lng": -118.30436709999998,
+          "distance_mi": 0.63,
+          "place_id": "ChIJbYICE16_woARtDfRzIloG88",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Striking Los Feliz Pool/Spa Home – Close to Hollywood Bowl - Villa Siena",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.109588599999995,
+          "lng": -118.29811099999998,
+          "distance_mi": 0.69,
+          "place_id": "ChIJ7QD6QKfAwoARjNVz5cMsnSQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Villa Siena",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.109588599999995,
+          "lng": -118.29811099999998,
+          "distance_mi": 0.69,
+          "place_id": "ChIJ7QD6QKfAwoARkD7UeANmzbo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Los Feliz Home with Heated Pool",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.108894299999996,
+          "lng": -118.29575349999999,
+          "distance_mi": 0.73,
+          "place_id": "ChIJ_0J596bAwoARNo_xvGjQZvg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Friendly Hobbit Hole at Griffith Park",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1089325,
+          "lng": -118.29866030000001,
+          "distance_mi": 0.74,
+          "place_id": "ChIJywVSb6fAwoAR2Ni68TLSoeg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Whimsical Los Feliz House - Pool - Fire Pit - Dogs OK - Apartment",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1134796,
+          "lng": -118.28466789999999,
+          "distance_mi": 0.79,
+          "place_id": "ChIJYbDdgrvAwoARQjWL6bRGK8U",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Whimsical Los Feliz House - Pool - Fire Pit - Dogs OK",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.113475799999996,
+          "lng": -118.28466789999999,
+          "distance_mi": 0.79,
+          "place_id": "ChIJ3R3dgrvAwoAR8nAsBnsdFgM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming studio in Los Feliz",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1091805,
+          "lng": -118.2899017,
+          "distance_mi": 0.8,
+          "place_id": "ChIJZ4AFEqXAwoARcZbsuNgECR0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mid-Century Gem House in Hollywood Hills",
+          "address": "Los Angeles, CA 90068, USA",
+          "price": null,
+          "lat": 34.1155395,
+          "lng": -118.3098984,
+          "distance_mi": 0.82,
+          "place_id": "ChIJyW3V-Ge_woARhUFj5IRT9gM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spanish-Style Retreat Near Trails and Cafes",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1147385,
+          "lng": -118.28279109999998,
+          "distance_mi": 0.85,
+          "place_id": "ChIJLVvhCLzAwoARGv4HAkzy9Rs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spanish-Style Retreat Near Trails and Cafes",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1147385,
+          "lng": -118.28279109999998,
+          "distance_mi": 0.85,
+          "place_id": "ChIJLVvhCLzAwoARAZn4NRa1cLo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet Friendly 3/2 Townhouse with Fireplace",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1071625,
+          "lng": -118.29695129999999,
+          "distance_mi": 0.85,
+          "place_id": "ChIJ7UAZtqfAwoARki76eJJkoUI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Old Hollywood Spanish home with amazing entertaining and outdoor spaces",
+          "address": "Los Angeles, CA 90068, USA",
+          "price": null,
+          "lat": 34.112606,
+          "lng": -118.3094788,
+          "distance_mi": 0.89,
+          "place_id": "ChIJKbAULFy_woARLD4LhSq9FIw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Los Feliz Stay • Live • Work • Unwind",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.113636,
+          "lng": -118.2825623,
+          "distance_mi": 0.89,
+          "place_id": "ChIJIRDk5bvAwoARS5FTXYfD3Sc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful Historical Los Feliz- walking distance to so much!",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1132965,
+          "lng": -118.2819367,
+          "distance_mi": 0.93,
+          "place_id": "ChIJ3-mC37vAwoARdQ_drIZ1bZY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet Friendly Stunning Los Feliz Custom Pool Home",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1089172,
+          "lng": -118.3066635,
+          "distance_mi": 0.94,
+          "place_id": "ChIJf_y8DFy_woARow5rZi_rZKY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "The Greek Theater Parking F",
+          "address": "2700 N Vermont Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1196547,
+          "lng": -118.29628890000001,
+          "distance_mi": 0.01,
+          "place_id": "ChIJ-SKvUwDBwoARPJbDxow39xo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Lot G",
+          "address": "Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.1211313,
+          "lng": -118.2969538,
+          "distance_mi": 0.12,
+          "place_id": "ChIJFVV0BwDBwoARFYkyVhiNbzg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Franklin's Cafe - Griffith Park",
+          "address": "2650 N Vermont Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1183146,
+          "lng": -118.29372079999997,
+          "distance_mi": 0.18,
+          "place_id": "ChIJB-cSD9nBwoARXivgc_aUeGE",
+          "types": [
+            "cafe",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "General parking",
+          "address": "2650 N Vermont Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.117924099999996,
+          "lng": -118.2938219,
+          "distance_mi": 0.18,
+          "place_id": "ChIJfxS9SADBwoAR4FTNFkdnz2Y",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café at the End of the Universe",
+          "address": "2800 E Observatory Rd, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1183569,
+          "lng": -118.3008335,
+          "distance_mi": 0.26,
+          "place_id": "ChIJ_xvkx2G_woAR_DxQ8H2qGCs",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Messhall Kitchen",
+          "address": "4500 Los Feliz Blvd, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1116175,
+          "lng": -118.2878652,
+          "distance_mi": 0.73,
+          "place_id": "ChIJAwZAM7vAwoARPgwThrK5X-4",
+          "types": [
+            "american_restaurant",
+            "brunch_restaurant",
+            "barbecue_restaurant",
+            "gastropub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Trails",
+          "address": "2333 Fern Dell Dr, Los Angeles, CA 90068, USA",
+          "price": 2,
+          "lat": 34.1139633,
+          "lng": -118.3076866,
+          "distance_mi": 0.75,
+          "place_id": "ChIJ4970dl2_woARLYtxV9AJbLw",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks",
+          "address": "2138 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 1,
+          "lat": 34.111215699999995,
+          "lng": -118.28712549999999,
+          "distance_mi": 0.78,
+          "place_id": "ChIJ8d_DLrvAwoARkMvEC6F_kTo",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Philz Coffee",
+          "address": "2117 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.110530499999996,
+          "lng": -118.2876639,
+          "distance_mi": 0.8,
+          "place_id": "ChIJOSIDRgDBwoARIRx0c6YGw4c",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cafe Los Feliz",
+          "address": "2118 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.110580399999996,
+          "lng": -118.2873114,
+          "distance_mi": 0.81,
+          "place_id": "ChIJxZ6-1rrAwoARTELadIUlIdE",
+          "types": [
+            "bakery",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Coffee Bean & Tea Leaf",
+          "address": "2081 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": null,
+          "lat": 34.10984510000001,
+          "lng": -118.2879077,
+          "distance_mi": 0.83,
+          "place_id": "ChIJeSEUyrrAwoARLxKn6Nd4Pys",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "tea_house",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blue Bottle Coffee",
+          "address": "2066 Hillhurst Ave, Los Angeles, CA 90027, USA",
+          "price": 2,
+          "lat": 34.1095317,
+          "lng": -118.28723249999999,
+          "distance_mi": 0.87,
+          "place_id": "ChIJx8Q4trrAwoARvPLhP-ihFHg",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1233 @@
+{
+  "venueName": "Mackey Arena",
+  "city": "West Lafayette",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Freddy's Frozen Custard & Steakburgers",
+          "address": "900 John R Wooden Dr, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.433223399999996,
+          "lng": -86.9157668,
+          "distance_mi": 0.02,
+          "place_id": "ChIJp7JmjVz9EogRDRPyb_Vf1yk",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "720 Northwestern Ave Suites 3-4, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4324904,
+          "lng": -86.91430679999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJp92u40z9EogRlRQoPIvO2SU",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cary Knight Spot Grill",
+          "address": "1016 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.431764799999996,
+          "lng": -86.9170053,
+          "distance_mi": 0.12,
+          "place_id": "ChIJtRxEpkz9EogREZ1wGBtSvgM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jimmy John's",
+          "address": "720 Northwestern Ave Ste. 2, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4325684,
+          "lng": -86.91417969999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJG-U1J6niEogRIiKcuvw5DrE",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ohana Eats",
+          "address": "620 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4315358,
+          "lng": -86.91361359999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJx1zc5n_9EogRw4igzA4fO7I",
+          "types": [
+            "restaurant",
+            "donut_shop",
+            "hawaiian_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "tea_house",
+            "bakery",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Domino's Pizza",
+          "address": "616 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4315802,
+          "lng": -86.91337539999999,
+          "distance_mi": 0.19,
+          "place_id": "ChIJwzMmRk39EogRlvZoLffCa1k",
+          "types": [
+            "pizza_delivery",
+            "chicken_wings_restaurant",
+            "pizza_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Discount Den",
+          "address": "618 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4314836,
+          "lng": -86.9134175,
+          "distance_mi": 0.19,
+          "place_id": "ChIJ6SGX2a7iEogRB9SBtwD2Gv4",
+          "types": [
+            "clothing_store",
+            "snack_bar",
+            "candy_store",
+            "convenience_store",
+            "confectionery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ford Dining Court",
+          "address": "1122 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4321089,
+          "lng": -86.9195574,
+          "distance_mi": 0.2,
+          "place_id": "ChIJd0HbJkv9EogRJDldtOaaPy8",
+          "types": [
+            "food_court",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "605 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4310486,
+          "lng": -86.9131621,
+          "distance_mi": 0.22,
+          "place_id": "ChIJkdzxTE39EogRZn0rc9l0k4o",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Station Food Market",
+          "address": "516 Northwestern Ave #1700, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.4305585,
+          "lng": -86.9128793,
+          "distance_mi": 0.26,
+          "place_id": "ChIJb4MpkZ3jEogR8JjjRErTVtU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Another Broken Egg Cafe",
+          "address": "516 Northwestern Ave #1500, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.4305573,
+          "lng": -86.91269419999999,
+          "distance_mi": 0.27,
+          "place_id": "ChIJP4h8rrLiEogRnrun7hJ9v9g",
+          "types": [
+            "brunch_restaurant",
+            "breakfast_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jersey Mike's Subs",
+          "address": "401 N Russell St, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.428475,
+          "lng": -86.919535,
+          "distance_mi": 0.38,
+          "place_id": "ChIJiaAf1lnjEogRkrib-yNSAKk",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "deli",
+            "food_delivery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chick-fil-A",
+          "address": "401 N Russell St, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4284648,
+          "lng": -86.91952959999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJ_-Ge5SLjEogR5cEpUISuVFo",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "catering_service",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "shipping_service",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Windsor Dining Court",
+          "address": "205 N Russell St, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.426971099999996,
+          "lng": -86.9210313,
+          "distance_mi": 0.51,
+          "place_id": "ChIJy8hmwbXiEogRxGe1llybuMY",
+          "types": [
+            "cafeteria",
+            "vegan_restaurant",
+            "food_court",
+            "vegetarian_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1Bowl",
+          "address": "Purdue University, Meredith (Virginia C.) Residence Hall, 201 N Martin Jischke Dr, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.426595999999996,
+          "lng": -86.9231207,
+          "distance_mi": 0.59,
+          "place_id": "ChIJDTcTc0PjEogRLonNFaiUOQs",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "John Purdue Room",
+          "address": "900 W State St #101, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.424578,
+          "lng": -86.916974,
+          "distance_mi": 0.61,
+          "place_id": "ChIJtw5tNrHiEogRzp3yJFUHi4w",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "QDOBA Mexican Eats",
+          "address": "Meredith Residence Hall, 201 N Martin Jischke Dr, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4263058,
+          "lng": -86.92326349999999,
+          "distance_mi": 0.61,
+          "place_id": "ChIJZQV5QcvjEogRCTGdFOZwshY",
+          "types": [
+            "mexican_restaurant",
+            "bar_and_grill",
+            "catering_service",
+            "tex_mex_restaurant",
+            "shipping_service",
+            "brunch_restaurant",
+            "fast_food_restaurant",
+            "bar",
+            "food_delivery",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Gathering Place",
+          "address": "201 N Martin Jischke Dr, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4263207,
+          "lng": -86.9233258,
+          "distance_mi": 0.61,
+          "place_id": "ChIJadlPGcriEogRG6k-5mLOLOQ",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boiler Bistro",
+          "address": "900 W State St, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.4244033,
+          "lng": -86.9169861,
+          "distance_mi": 0.62,
+          "place_id": "ChIJrRejNrHiEogRHSCnnJNd4Qg",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Greyhouse Coffee & Supply Co. - Campus",
+          "address": "1000 Mitch Daniels Blvd, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.424473899999995,
+          "lng": -86.91823199999999,
+          "distance_mi": 0.62,
+          "place_id": "ChIJZ2yztpXjEogRvYEWtRhDANs",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Purdue, Ross-Ade, and Mackey in your backyard!",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4354019,
+          "lng": -86.914772,
+          "distance_mi": 0.16,
+          "place_id": "ChIJMeRbzU39EogRIv8Al2wxv9M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Destination Station - Three-Bedroom House",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.435421000000005,
+          "lng": -86.914772,
+          "distance_mi": 0.16,
+          "place_id": "ChIJTbtYzU39EogRRS0kMPfKu-k",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Destination Station",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4354286,
+          "lng": -86.914772,
+          "distance_mi": 0.16,
+          "place_id": "ChIJpzin0k39EogRjd65RWecJh8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Adorable Comfy 4Bd3Ba Cottage walk to Purdue with Game Arcade + Ping Pong Table!",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4347687,
+          "lng": -86.9088898,
+          "distance_mi": 0.4,
+          "place_id": "ChIJn1Apx1P9EogRicm6xv9Sop4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "★Golf Course Views★ Ranch ★ Fire Pit ★Bring Pets!★",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4393616,
+          "lng": -86.9185028,
+          "distance_mi": 0.43,
+          "place_id": "ChIJ-fLJwkj9EogRhPFG6QMnszQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "★Golf Course Views★ Ranch ★ Fire Pit ★Bring Pets!★",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4393616,
+          "lng": -86.9185028,
+          "distance_mi": 0.43,
+          "place_id": "ChIJ-fLJwkj9EogRoIBU65BgDow",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Purdue Bell Tower views, Central WL location, Walk 2 Purdue",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4378052,
+          "lng": -86.910347,
+          "distance_mi": 0.43,
+          "place_id": "ChIJ2cdopVH9EogRm0uTvyUnA3k",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Golf Course Views! Ranch! Fire Pit ! Bring Pets!",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4391213,
+          "lng": -86.92295070000002,
+          "distance_mi": 0.54,
+          "place_id": "ChIJkVYB0jf9EogR5Q9v-lFrizA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blue House, Blocks from Ross-Aide, Mackey, Samara House, Birck Golf Complex - Four-Bedroom House",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.440879800000005,
+          "lng": -86.9189987,
+          "distance_mi": 0.54,
+          "place_id": "ChIJrVKRm0j9EogRb3SiyUtA498",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blocks from Purdue, Ross-Ade, Mackey, Samara House, Birck Golf Complex",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4408836,
+          "lng": -86.9189987,
+          "distance_mi": 0.54,
+          "place_id": "ChIJrVKRm0j9EogRoFibyNLZeCA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blue House, Blocks from Ross-Aide, Mackey, Samara House, Birck Golf Complex",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4408836,
+          "lng": -86.9189987,
+          "distance_mi": 0.54,
+          "place_id": "ChIJrVKRm0j9EogRYnTaXFD-sBo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steps From Campus Adorable 3-Bedroom/2 Bathroom Home West Lafayette",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.440166500000004,
+          "lng": -86.9219818,
+          "distance_mi": 0.56,
+          "place_id": "ChIJh37GGEj9EogREmEWQ877Fok",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming 1-bedroom building in marvelous West Lafayette with fitness room, AC",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4311981,
+          "lng": -86.90579230000002,
+          "distance_mi": 0.57,
+          "place_id": "ChIJ06onyVT9EogRbP9esM4C6Mk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steps From Campus Adorable 3-Bedroom /2 Bathroom Home West Lafayette",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4411316,
+          "lng": -86.9197312,
+          "distance_mi": 0.57,
+          "place_id": "ChIJJ_5YgEj9EogRUDka7NA3CSA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Comfy 3Bd House with Arcade, Ping Pong, Fire Pit, Walk to Purdue, Golf, Sports!",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.439720099999995,
+          "lng": -86.9232636,
+          "distance_mi": 0.58,
+          "place_id": "ChIJ_6oexDf9EogRu2kGsVkUDuo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheerful Spacious 4 bd Home Walks to Purdue, Sports, and Golf, & Game Arcade!",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.441139199999995,
+          "lng": -86.92087550000001,
+          "distance_mi": 0.59,
+          "place_id": "ChIJz3dMdEj9EogRF_OGQakQEAU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boiler View Retreat - Your Purdue Campus Haven",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.442073799999996,
+          "lng": -86.91815179999999,
+          "distance_mi": 0.61,
+          "place_id": "ChIJ0fcPEUb9EogRFX9GGTdKIlI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ross-Ade, Mackey Arena, and a Purdue Themed House",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4337693,
+          "lng": -86.9041214,
+          "distance_mi": 0.63,
+          "place_id": "ChIJG05ppVX9EogRl7ps602TMuA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Huddle, Cuddle, and Boiler Up - Steps from Purdue Campus",
+          "address": "West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4424782,
+          "lng": -86.9139099,
+          "distance_mi": 0.64,
+          "place_id": "ChIJW6hnE0X9EogRa9uqELZc8qg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Union Club Hotel at Purdue University, Autograph Collection",
+          "address": "201 Grant St, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4249442,
+          "lng": -86.9106786,
+          "distance_mi": 0.65,
+          "place_id": "ChIJtwn2EK7iEogRvhahHjIz9i4",
+          "types": [
+            "hotel",
+            "wedding_venue",
+            "event_venue",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Ghost Coffee Roaster",
+          "address": "750 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4318999,
+          "lng": -86.9151263,
+          "distance_mi": 0.11,
+          "place_id": "ChIJMVob4gj9EogRp4Tbx0Zg_9M",
+          "types": [
+            "coffee_roastery",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Circle K",
+          "address": "706 Northwestern Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.431804199999995,
+          "lng": -86.91399369999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJfaVZOk39EogR1jdZy10Gpy0",
+          "types": [
+            "convenience_store",
+            "atm",
+            "gas_station",
+            "coffee_shop",
+            "cafe",
+            "finance",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saxbys at Purdue University",
+          "address": "Lower Level, 701 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4310341,
+          "lng": -86.91487409999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJGbNrKwD9EogRN1RyCQpxJWc",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A lot",
+          "address": "713-799 Steven Beering Dr, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.433180899999996,
+          "lng": -86.9195152,
+          "distance_mi": 0.18,
+          "place_id": "ChIJjyd_BEv9EogReSoj9roX2SI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "605 W Stadium Ave, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.4310486,
+          "lng": -86.9131621,
+          "distance_mi": 0.22,
+          "place_id": "ChIJkdzxTE39EogRZn0rc9l0k4o",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hilltop C Parking",
+          "address": "12 Ross-Ade Dr #12, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.433104,
+          "lng": -86.920769,
+          "distance_mi": 0.24,
+          "place_id": "ChIJg1f5PgD9EogRhkQ4JRO49bY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SPS Lounge",
+          "address": "Room 236 Physics Building, 525 Northwestern Ave, West Lafayette, IN 47907, USA",
+          "price": null,
+          "lat": 40.430137099999996,
+          "lng": -86.9133092,
+          "distance_mi": 0.27,
+          "place_id": "ChIJCf1YoSLjEogRQuaIwj-BatQ",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hilltop Resident Permit Parking Lot",
+          "address": "Ross-Ade Dr, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.434663900000004,
+          "lng": -86.9216206,
+          "distance_mi": 0.3,
+          "place_id": "ChIJPc7ebUr9EogRERKffe3Uq5I",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "University street parking garage",
+          "address": "421 N University St, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4287776,
+          "lng": -86.9169922,
+          "distance_mi": 0.32,
+          "place_id": "ChIJR9wBUADjEogR4fUDZL10H_U",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beans",
+          "address": "Materials and Electrical Engineering Bldg, 504 Northwestern Ave, West Lafayette, IN 47907, USA",
+          "price": null,
+          "lat": 40.429324799999996,
+          "lng": -86.9126151,
+          "distance_mi": 0.33,
+          "place_id": "ChIJ0ZGrnrLiEogRgu44-zEbcbM",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks",
+          "address": "501 Northwestern Ave, West Lafayette, IN 47907, USA",
+          "price": 1,
+          "lat": 40.4292833,
+          "lng": -86.91256949999999,
+          "distance_mi": 0.34,
+          "place_id": "ChIJgWHUJAHjEogRVP5ahY-KsAM",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Northwestern Avenue Garage",
+          "address": "504 Northwestern Ave, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4296188,
+          "lng": -86.91104539999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJxfX7P63iEogRqxyso_Zx6jM",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pi Tau Sigma Lounge",
+          "address": "Mechanical Engineering Bldg, Purdue Mall, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.428263199999996,
+          "lng": -86.9128648,
+          "distance_mi": 0.39,
+          "place_id": "ChIJK7YXfbLiEogR36L5V6oueOc",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Eta Kappa Nu (HKN) Lounge",
+          "address": "465 Northwestern Ave, West Lafayette, IN 47907, USA",
+          "price": 1,
+          "lat": 40.4286429,
+          "lng": -86.9119188,
+          "distance_mi": 0.39,
+          "place_id": "ChIJ_6tDcK3iEogR367vZF_rlHk",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fuel West",
+          "address": "460 Northwestern Ave, West Lafayette, IN 47906, USA",
+          "price": 2,
+          "lat": 40.4288652,
+          "lng": -86.9110427,
+          "distance_mi": 0.41,
+          "place_id": "ChIJMV9mNbbjEogRhcHRDNeTnSo",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Centennial Station",
+          "address": "340 Centennial Mall Dr, West Lafayette, IN 47907, USA",
+          "price": 1,
+          "lat": 40.4272625,
+          "lng": -86.91313780000002,
+          "distance_mi": 0.45,
+          "place_id": "ChIJGZ94CtXjEogR8s3TvKni2rY",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Freshëns",
+          "address": "355 N Martin Jischke Dr, West Lafayette, IN 47906, USA",
+          "price": 1,
+          "lat": 40.428522099999995,
+          "lng": -86.9220174,
+          "distance_mi": 0.45,
+          "place_id": "ChIJjTm2EK7iEogRNZwD0809uLE",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1196 3rd Street, West Lafayette, IN 47907, USA",
+          "price": 1,
+          "lat": 40.42754,
+          "lng": -86.92042,
+          "distance_mi": 0.46,
+          "place_id": "ChIJ4fG-ubXiEogREmVNIvvzuuA",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "University Street North Garage",
+          "address": "201 N University St, West Lafayette, IN 47907, USA",
+          "price": null,
+          "lat": 40.4267505,
+          "lng": -86.9172859,
+          "distance_mi": 0.46,
+          "place_id": "ChIJXfoy9rPiEogR0ak_09JX3b4",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Salisbury Market",
+          "address": "920 N Salisbury St, West Lafayette, IN 47906, USA",
+          "price": null,
+          "lat": 40.4347577,
+          "lng": -86.905537,
+          "distance_mi": 0.57,
+          "place_id": "ChIJSZkGpSz9EogRkVM-_gJw3Zw",
+          "types": [
+            "supermarket",
+            "donut_shop",
+            "liquor_store",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "grocery_store",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

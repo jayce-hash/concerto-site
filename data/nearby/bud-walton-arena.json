@@ -1,0 +1,1244 @@
+{
+  "venueName": "Bud Walton Arena",
+  "city": "Fayetteville",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Pomfret Dining Hall",
+          "address": "Pomfret Honors Quarters, 31 S Stadium Dr, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.062826799999996,
+          "lng": -94.1766905,
+          "distance_mi": 0.12,
+          "place_id": "ChIJVdxwcABvyYcRU91v4Z-e0Xk",
+          "types": [
+            "food_court",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Five Guys",
+          "address": "1229 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0563644,
+          "lng": -94.17786249999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJSawdvixvyYcRpb8O7oQhAio",
+          "types": [
+            "hamburger_restaurant",
+            "hot_dog_restaurant",
+            "fast_food_restaurant",
+            "hot_dog_stand",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "ThepThai Express",
+          "address": "1241 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 2,
+          "lat": 36.056355599999996,
+          "lng": -94.1781601,
+          "distance_mi": 0.36,
+          "place_id": "ChIJex3ZnCZvyYcR9tOHBEllyR4",
+          "types": [
+            "thai_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Salathai",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0563512,
+          "lng": -94.17815039999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJubgOPxxvyYcRltCTeyl2KhA",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arby's",
+          "address": "1263 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0563311,
+          "lng": -94.1786226,
+          "distance_mi": 0.36,
+          "place_id": "ChIJAXgYOBxvyYcRAh0evaOLtxw",
+          "types": [
+            "fast_food_restaurant",
+            "deli",
+            "sandwich_shop",
+            "food_delivery",
+            "american_restaurant",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wingstop",
+          "address": "1237 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 2,
+          "lat": 36.0563001,
+          "lng": -94.1780395,
+          "distance_mi": 0.36,
+          "place_id": "ChIJGQBpYg5vyYcRhfLwYuHxaUo",
+          "types": [
+            "chicken_wings_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ohana Poke",
+          "address": "1135 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0563535,
+          "lng": -94.17675489999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJj_yPODZvyYcRfRvgN5x64R8",
+          "types": [
+            "hawaiian_restaurant",
+            "american_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Savory Hibachi",
+          "address": "1113 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 2,
+          "lat": 36.056442,
+          "lng": -94.17622779999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJXb3DJQBvyYcRJr8cKQQhWHc",
+          "types": [
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sonic Drive-In",
+          "address": "1321 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.056283799999996,
+          "lng": -94.17927639999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJw-5xWhxvyYcRTdnakhzjHuM",
+          "types": [
+            "fast_food_restaurant",
+            "hot_dog_restaurant",
+            "chicken_restaurant",
+            "ice_cream_shop",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "dessert_shop",
+            "confectionery",
+            "shipping_service",
+            "hot_dog_stand",
+            "american_restaurant",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tropical Smoothie Cafe",
+          "address": "1109 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.056368,
+          "lng": -94.176408,
+          "distance_mi": 0.37,
+          "place_id": "ChIJbSg4e-dvyYcRiWvj0OyTUG4",
+          "types": [
+            "juice_shop",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "1100-1250 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0563335,
+          "lng": -94.1765482,
+          "distance_mi": 0.37,
+          "place_id": "ChIJM0VyOhxvyYcRbQoRJgz6fQg",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Eureka Pizza",
+          "address": "1021 W Dickson St, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0665079,
+          "lng": -94.1752717,
+          "distance_mi": 0.38,
+          "place_id": "ChIJXSRJQztvyYcR_2ez-2JGouw",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chick-fil-A",
+          "address": "1369 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0562329,
+          "lng": -94.1798943,
+          "distance_mi": 0.38,
+          "place_id": "ChIJmQGQ8xxvyYcRw5zSYX-r1gQ",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "breakfast_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "food_delivery",
+            "shipping_service",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Slim Chickens",
+          "address": "1050 W Dickson St, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.066466,
+          "lng": -94.1748071,
+          "distance_mi": 0.39,
+          "place_id": "ChIJZx122-ZuyYcRE2rqzJQD8q8",
+          "types": [
+            "chicken_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wendy's",
+          "address": "1473 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.056401,
+          "lng": -94.18153370000002,
+          "distance_mi": 0.41,
+          "place_id": "ChIJpfM7zhxvyYcRwzdCvjMrznM",
+          "types": [
+            "fast_food_restaurant",
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Andy's Frozen Custard",
+          "address": "1523 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0563664,
+          "lng": -94.1825839,
+          "distance_mi": 0.44,
+          "place_id": "ChIJG9guMQNvyYcRe8ue6dTyMS8",
+          "types": [
+            "dessert_shop",
+            "ice_cream_shop",
+            "dessert_restaurant",
+            "confectionery",
+            "food_store",
+            "korean_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Torchy's Tacos",
+          "address": "1561 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0563637,
+          "lng": -94.1832386,
+          "distance_mi": 0.46,
+          "place_id": "ChIJ4R12bF5vyYcRrf5sgXy3r88",
+          "types": [
+            "mexican_restaurant",
+            "fast_food_restaurant",
+            "vegetarian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Panera Bread",
+          "address": "1634 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 2,
+          "lat": 36.0570188,
+          "lng": -94.18425959999999,
+          "distance_mi": 0.47,
+          "place_id": "ChIJNSuRRrJvyYcRIHdt492GAww",
+          "types": [
+            "cafe",
+            "salad_shop",
+            "breakfast_restaurant",
+            "soup_restaurant",
+            "catering_service",
+            "sandwich_shop",
+            "coffee_shop",
+            "bakery",
+            "food_delivery",
+            "shipping_service",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Zaxbys Chicken Fingers & Buffalo Wings",
+          "address": "1670 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0570204,
+          "lng": -94.18465250000001,
+          "distance_mi": 0.48,
+          "place_id": "ChIJxyL5pwNvyYcRVWKvAF9Stnw",
+          "types": [
+            "chicken_restaurant",
+            "catering_service",
+            "fast_food_restaurant",
+            "chicken_wings_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chartwells",
+          "address": "435 Garland Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0686289,
+          "lng": -94.1758959,
+          "distance_mi": 0.5,
+          "place_id": "ChIJ1zSh9OZuyYcRBg-EOMC3U6c",
+          "types": [
+            "restaurant",
+            "catering_service",
+            "food_delivery",
+            "service",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Stadium House-ON UofA Campus-1.5 miles to Downtown",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0622215,
+          "lng": -94.1820374,
+          "distance_mi": 0.22,
+          "place_id": "ChIJfy7H0uJuyYcRWnTAW9KPa5g",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fayetteville Home Luxury Living Walk to University of Arkansas",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.062198599999995,
+          "lng": -94.1821823,
+          "distance_mi": 0.23,
+          "place_id": "ChIJAepqLf1uyYcRz8X2kSnGXKc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walk to Razorback stadium!",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.064411199999995,
+          "lng": -94.1812286,
+          "distance_mi": 0.26,
+          "place_id": "ChIJx-_oRuNuyYcRtltjRXAczpY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Jambon-Walk to Bud Walton - Family Room",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.061321299999996,
+          "lng": -94.1841889,
+          "distance_mi": 0.34,
+          "place_id": "ChIJR_gmc_1uyYcRG7ziAfP-cCw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Campus 3 Bedroom House",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0594101,
+          "lng": -94.1839905,
+          "distance_mi": 0.36,
+          "place_id": "ChIJJwe0mgJvyYcRjoqITxdVkVA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Campus Core-Half mi to Bud Walton-2 mi to Downtown - Vacation Home",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.059188899999995,
+          "lng": -94.18421169999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJoWADjwJvyYcRt5XDkkQWfhM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Campus Core-0.5 mi to Bud Walton-2 mi to Downtown",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.059188899999995,
+          "lng": -94.18421169999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJoWADjwJvyYcRpT8b498qf_s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Tailgater Walkable to U of A - Holiday Home",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.059970899999996,
+          "lng": -94.1716309,
+          "distance_mi": 0.38,
+          "place_id": "ChIJT-KjAyBvyYcR5W8QJnjO7lY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Idyllic Fayetteville Home - Walk to UA Campus!",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0585212,
+          "lng": -94.18462369999999,
+          "distance_mi": 0.42,
+          "place_id": "ChIJYzpl9QJvyYcR26cqoEqJknk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Idyllic Fayetteville Home - Walk to UA Campus!",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0585212,
+          "lng": -94.18462369999999,
+          "distance_mi": 0.42,
+          "place_id": "ChIJYzpl9QJvyYcRHzdWjQ2emCg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 3-bedroom Townhouse, Walk to Razorback Games! 3 Parking spots!\\n",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.057869,
+          "lng": -94.1841736,
+          "distance_mi": 0.42,
+          "place_id": "ChIJYTr2-gJvyYcRek2wvP22VLM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ultimate Razorback Game Day Condo",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.055400899999995,
+          "lng": -94.1751251,
+          "distance_mi": 0.46,
+          "place_id": "ChIJA601zh5vyYcRonMbLIuy9h8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Faye Social House at U of A",
+          "address": "331 S Hill Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.058931699999995,
+          "lng": -94.1701835,
+          "distance_mi": 0.48,
+          "place_id": "ChIJl2hhvx5vyYcRdzvPpq1LGj0",
+          "types": [
+            "guest_house",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Private Apartment in the heart of Fayetteville",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0622712,
+          "lng": -94.1694107,
+          "distance_mi": 0.49,
+          "place_id": "ChIJn6Y6p99uyYcRRpokwgbwhG4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Contemporary DWTN Townhome Free Parking - Two-Bedroom House",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0587082,
+          "lng": -94.16973109999999,
+          "distance_mi": 0.51,
+          "place_id": "ChIJXSa7WyBvyYcRmeMzN-TSpVA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hillside Haven in Fayetteville",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0584984,
+          "lng": -94.1697464,
+          "distance_mi": 0.51,
+          "place_id": "ChIJEQ55WiBvyYcRtTRzPUvhYzk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Retreat+Free Scooter - Next to Greenway!",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0605584,
+          "lng": -94.16896059999999,
+          "distance_mi": 0.52,
+          "place_id": "ChIJJbEEqSBvyYcRX6E0sLYIeDQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PRIVATE LODGE on acreage in the woods just STEPS away from The UofA!",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0679016,
+          "lng": -94.1834411,
+          "distance_mi": 0.53,
+          "place_id": "ChIJE41GH_tuyYcROParotWH_UY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Secluded Woodland Retreat Walkable to UofA",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.06790540000001,
+          "lng": -94.1834488,
+          "distance_mi": 0.53,
+          "place_id": "ChIJRSNHH_tuyYcRk691m3ttVIU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Secluded Woodland Retreat near UofA",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.06790540000001,
+          "lng": -94.1834488,
+          "distance_mi": 0.53,
+          "place_id": "ChIJRSNHH_tuyYcRikkUQaG7zw8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Lot MSPG",
+          "address": "1306 Meadow St, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.063972799999995,
+          "lng": -94.1789529,
+          "distance_mi": 0.17,
+          "place_id": "ChIJSX7ldQBvyYcRmLa2zylwEU0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot 74",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.064042,
+          "lng": -94.1806557,
+          "distance_mi": 0.22,
+          "place_id": "ChIJVVVVFONuyYcRzywaEvoyBJQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1481 W Hotz Dr Parking",
+          "address": "1481 W Hotz Dr, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0649656,
+          "lng": -94.18084089999999,
+          "distance_mi": 0.28,
+          "place_id": "ChIJsZJdXeNuyYcRx32jjO0hyQg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot 82A",
+          "address": "Maine St, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.060548499999996,
+          "lng": -94.1831014,
+          "distance_mi": 0.29,
+          "place_id": "ChIJq2pjXP1uyYcRavUkxnE0h1Y",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7 Brew Coffee",
+          "address": "1195 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.0563404,
+          "lng": -94.17778229999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJKdPdfdBvyYcRtliEVW3zqog",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tropical Smoothie Cafe",
+          "address": "1109 W Martin Luther King Junior Blvd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.056368,
+          "lng": -94.176408,
+          "distance_mi": 0.37,
+          "place_id": "ChIJbSg4e-dvyYcRiWvj0OyTUG4",
+          "types": [
+            "juice_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1021 W Dickson St, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.06646,
+          "lng": -94.17511999999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJc9EeIuFuyYcRJJKPHE2-iVI",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Harmon Avenue Parking Garage",
+          "address": "146 N Harmon Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.06463,
+          "lng": -94.1721587,
+          "distance_mi": 0.39,
+          "place_id": "ChIJg2f9p-BuyYcRuWR-V9yjA3s",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot 6",
+          "address": "Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.067186,
+          "lng": -94.1753203,
+          "distance_mi": 0.42,
+          "place_id": "ChIJI-rNJspvyYcRyAjbNTQ1fIk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arsaga's Drive-Thru",
+          "address": "1509 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.056341499999995,
+          "lng": -94.18228599999999,
+          "distance_mi": 0.43,
+          "place_id": "ChIJH7GO6ZRvyYcR8AaspB8Ls4Y",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stadium Drive Parking Garage",
+          "address": "Intermodal Transit & Parking Facility, 380 N Stadium Dr, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.06813,
+          "lng": -94.17643,
+          "distance_mi": 0.46,
+          "place_id": "ChIJ5XOMFS1vyYcRdszQuExDJFk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Panera Bread",
+          "address": "1634 M.L.K. Jr Blvd, Fayetteville, AR 72701, USA",
+          "price": 2,
+          "lat": 36.0570188,
+          "lng": -94.18425959999999,
+          "distance_mi": 0.47,
+          "place_id": "ChIJNSuRRrJvyYcRIHdt492GAww",
+          "types": [
+            "cafe",
+            "salad_shop",
+            "catering_service",
+            "breakfast_restaurant",
+            "soup_restaurant",
+            "shipping_service",
+            "sandwich_shop",
+            "coffee_shop",
+            "bakery",
+            "food_delivery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hill Coffee Company",
+          "address": "435 Garland Ave A345, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.06851160000001,
+          "lng": -94.17531420000002,
+          "distance_mi": 0.5,
+          "place_id": "ChIJJxKtFdZvyYcRsKOQi7MN-hk",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot 201",
+          "address": "301 N Razorback Rd, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0688552,
+          "lng": -94.18021689999999,
+          "distance_mi": 0.52,
+          "place_id": "ChIJcYe8SgBvyYcRA0zmNPjMfhY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fowler's Nook Cafe",
+          "address": "365 N McIlroy Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.068366499999996,
+          "lng": -94.1742002,
+          "distance_mi": 0.52,
+          "place_id": "ChIJ1fioEwBvyYcRmyBdRcLBOHo",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1910 Club",
+          "address": "410 N Oliver Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0688436,
+          "lng": -94.18126009999999,
+          "distance_mi": 0.53,
+          "place_id": "ChIJz6l2I-VuyYcRmbumjG3aAtE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot 71",
+          "address": "204 N Duncan Ave, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0663388,
+          "lng": -94.1704786,
+          "distance_mi": 0.54,
+          "place_id": "ChIJZRZz5t1uyYcRDNqXawdRMmk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arsaga's at the U of A",
+          "address": "1045 W Maple St, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.069370899999996,
+          "lng": -94.1745385,
+          "distance_mi": 0.57,
+          "place_id": "ChIJLzYAMeZuyYcR88BlgbVmoyk",
+          "types": [
+            "coffee_shop",
+            "coffee_roastery",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arsaga's at the School of Art",
+          "address": "645 AR-180, Fayetteville, AR 72701, USA",
+          "price": null,
+          "lat": 36.0564708,
+          "lng": -94.1697674,
+          "distance_mi": 0.58,
+          "place_id": "ChIJIQNVXhJvyYcRy49BYMxMo3E",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "464 N Campus Walk, Fayetteville, AR 72701, USA",
+          "price": 1,
+          "lat": 36.069488500000006,
+          "lng": -94.1715742,
+          "distance_mi": 0.66,
+          "place_id": "ChIJwcs9iclvyYcR26vrJ8ecx9Q",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

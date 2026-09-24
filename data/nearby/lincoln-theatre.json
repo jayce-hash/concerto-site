@@ -1,0 +1,1198 @@
+{
+  "venueName": "Lincoln Theatre",
+  "city": "Washington",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Ben's Chili Bowl",
+          "address": "1213 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.917166400000006,
+          "lng": -77.0287555,
+          "distance_mi": 0.02,
+          "place_id": "ChIJM_l-a-a3t4kRQa_lW1A7W8k",
+          "types": [
+            "american_restaurant",
+            "family_restaurant",
+            "hamburger_restaurant",
+            "diner",
+            "fast_food_restaurant",
+            "hot_dog_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ben's Next Door",
+          "address": "1211 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9171565,
+          "lng": -77.0286876,
+          "distance_mi": 0.02,
+          "place_id": "ChIJBXkJbOa3t4kR-wZt42uAQgw",
+          "types": [
+            "american_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saloon",
+          "address": "1205 U St NW, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9171705,
+          "lng": -77.02845789999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJC0enbea3t4kRA3d4haN7HMQ",
+          "types": [
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La Pâte",
+          "address": "1250 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.916861499999996,
+          "lng": -77.0292778,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ4Z2FQsW3t4kROLOYwfqDrg0",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chi Cha Lounge",
+          "address": "1214 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916737999999995,
+          "lng": -77.028655,
+          "distance_mi": 0.05,
+          "place_id": "ChIJTXk4rSC3t4kRE9jA1TCbGVo",
+          "types": [
+            "bar_and_grill",
+            "latin_american_restaurant",
+            "hookah_bar",
+            "lounge_bar",
+            "family_restaurant",
+            "fusion_restaurant",
+            "bar",
+            "pizza_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "night_club",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pedestrian Global Street Food",
+          "address": "1214 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.916737999999995,
+          "lng": -77.028655,
+          "distance_mi": 0.05,
+          "place_id": "ChIJk9MI_rG3t4kRbVgrgmQT3jk",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tipsy",
+          "address": "1212 U St NW, Washington, DC 20009, USA",
+          "price": 4,
+          "lat": 38.9167706,
+          "lng": -77.0285497,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ54d45eu3t4kR4etfue2yZgQ",
+          "types": [
+            "lounge_bar",
+            "hookah_bar",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Indulj",
+          "address": "1208 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9167656,
+          "lng": -77.0284922,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ6ymWjle3t4kR2SmLmeILzHE",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Eatopia Eatery",
+          "address": "1301 U St NW #111, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.917151,
+          "lng": -77.0301404,
+          "distance_mi": 0.06,
+          "place_id": "ChIJQd557C-3t4kRvbJKyzclF8o",
+          "types": [
+            "ethiopian_restaurant",
+            "cocktail_bar",
+            "brunch_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dukem Ethiopian Restaurant",
+          "address": "1114-1118 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9168121,
+          "lng": -77.0278451,
+          "distance_mi": 0.07,
+          "place_id": "ChIJKygWdea3t4kRjTkmjB6IMUU",
+          "types": [
+            "ethiopian_restaurant",
+            "african_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Roaming Rooster",
+          "address": "1301 U St NW #111, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9171733,
+          "lng": -77.03042099999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJa9Xs0vq3t4kReKC0squrNao",
+          "types": [
+            "chicken_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Italian Kitchen",
+          "address": "1110 U St NW, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9168388,
+          "lng": -77.0276627,
+          "distance_mi": 0.08,
+          "place_id": "ChIJTwJTdea3t4kRiDd7et-ymlk",
+          "types": [
+            "pizza_restaurant",
+            "chicken_wings_restaurant",
+            "sandwich_shop",
+            "italian_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "354 Restaurant",
+          "address": "1301 U St NW #113, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9172898,
+          "lng": -77.0305036,
+          "distance_mi": 0.08,
+          "place_id": "ChIJD4WxlH-3t4kRWgoJc9HjO1c",
+          "types": [
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sports & Social DC",
+          "address": "1314 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916864499999996,
+          "lng": -77.0304273,
+          "distance_mi": 0.09,
+          "place_id": "ChIJSzhtnRS3t4kR_o78OXXSwzI",
+          "types": [
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Izakaya Seki",
+          "address": "1117 V St NW, Washington, DC 20009, USA",
+          "price": 3,
+          "lat": 38.9182511,
+          "lng": -77.02774649999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJFdhxgOa3t4kRXOvzEq6c_tw",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lulu’s Wine Garden",
+          "address": "1940 11th St NW, Washington, DC 20001, USA",
+          "price": 2,
+          "lat": 38.9167993,
+          "lng": -77.0273504,
+          "distance_mi": 0.1,
+          "place_id": "ChIJv8m_Oou3t4kR_jLWjs7FwcQ",
+          "types": [
+            "restaurant",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Highlight",
+          "address": "1336 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9168734,
+          "lng": -77.0310697,
+          "distance_mi": 0.12,
+          "place_id": "ChIJqXeokOW3t4kRptgzCn3ogIE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spicy Water African Grill",
+          "address": "2019 11th St NW, Washington, DC 20001, USA",
+          "price": 2,
+          "lat": 38.917587499999996,
+          "lng": -77.0267942,
+          "distance_mi": 0.12,
+          "place_id": "ChIJqyAcoga3t4kRDqRAP1Z5Wqk",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Greek Spot",
+          "address": "2017 11th St NW, Washington, DC 20001, USA",
+          "price": 1,
+          "lat": 38.917544,
+          "lng": -77.026754,
+          "distance_mi": 0.12,
+          "place_id": "ChIJw7ciz-W3t4kRB4pYKeKepos",
+          "types": [
+            "greek_restaurant",
+            "sandwich_shop",
+            "mediterranean_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Space DC Lounge",
+          "address": "1355 U St NW, Washington, DC 20009, USA",
+          "price": 3,
+          "lat": 38.9173336,
+          "lng": -77.0312582,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ8fkyu4y3t4kRe5mqBMIl0lI",
+          "types": [
+            "restaurant",
+            "lounge_bar",
+            "bar",
+            "night_club",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "U Street Hostel",
+          "address": "1931 13th St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9166612,
+          "lng": -77.0293469,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ40z0xQK3t4kRW1QkpGM6Ugw",
+          "types": [
+            "hotel",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "lodging",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Impeccable U Street 1BR w / Gym W /D, nr Metro Dining, by Blueground",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.917339299999995,
+          "lng": -77.0306015,
+          "distance_mi": 0.09,
+          "place_id": "ChIJNUA7tee3t4kRd2yhRwj_4x0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A Cozy-kept Secret Studio Located In The Heart Of 14/u St/logan Corridors",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164619,
+          "lng": -77.0301132,
+          "distance_mi": 0.09,
+          "place_id": "ChIJZ_MTLua3t4kRx5s0W6xXgkk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A Cozy-kept Secret Studio Located In The Heart Of 14 /u St /logan Corridors",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164581,
+          "lng": -77.0301132,
+          "distance_mi": 0.09,
+          "place_id": "ChIJGYQTLua3t4kR1JAez6kNwYE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Victorian Oasis in the heart of U ST, Logan 14th ST Corridors!!!",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164314,
+          "lng": -77.0301132,
+          "distance_mi": 0.09,
+          "place_id": "ChIJrwxsLua3t4kROKbjf97TuDY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Victorian Oasis in the heart of U ST, Logan & 14th ST Corridors!!!",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164314,
+          "lng": -77.0301132,
+          "distance_mi": 0.09,
+          "place_id": "ChIJrwxsLua3t4kRzer9sjygaB8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern 1 block from Metro subway Minutes to Capital, Museums and National Mall",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164772,
+          "lng": -77.030693,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ09_40ue3t4kRjykl78iMqkQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Parking - Metro 1/2 blk 99 Walkscore",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164772,
+          "lng": -77.030693,
+          "distance_mi": 0.11,
+          "place_id": "ChIJr8fw0ue3t4kRYja3-ECisXs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn The 13th St Flats",
+          "address": "1901 13th St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9158042,
+          "lng": -77.0294001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJl606nui3t4kRWGk5FQDWxyY",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern - Parking - Metro 1 /2 blk 99 Walk score Minutes to Capital, Museums and National Mall",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9164582,
+          "lng": -77.0307083,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ09_40ue3t4kRK865sMMpDTU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats unit 12",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157791,
+          "lng": -77.0293884,
+          "distance_mi": 0.11,
+          "place_id": "ChIJC0MZnui3t4kRO2t2JwFiJ48",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157791,
+          "lng": -77.0293884,
+          "distance_mi": 0.11,
+          "place_id": "ChIJC0MZnui3t4kR19ft0ETeIz4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157791,
+          "lng": -77.0294266,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ71YEnui3t4kRQIxtABI8Tzc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats 2",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157601,
+          "lng": -77.02932740000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJrbI6nui3t4kR_W-8kh0jirk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats unit 8",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157601,
+          "lng": -77.02932740000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJUUMlnui3t4kRgIcXbTKwTaQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157601,
+          "lng": -77.02932740000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJUUMlnui3t4kRHrY_vwGErGM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn | Modern Stays on 13th Street",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157601,
+          "lng": -77.02932740000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJUUMlnui3t4kRLjf5IVnJ56E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sojourn the 13th Street Flats 3",
+          "address": "Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9157601,
+          "lng": -77.02932740000001,
+          "distance_mi": 0.11,
+          "place_id": "ChIJUUMlnui3t4kRs6ZS4SQomCE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Landing | Chic 1BD in Columbia Heights",
+          "address": "Washington, DC 20001, USA",
+          "price": null,
+          "lat": 38.917255399999995,
+          "lng": -77.0267258,
+          "distance_mi": 0.12,
+          "place_id": "ChIJW0xSxOW3t4kRRrn4fP5dUPU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Landing | Incredible 1BD in Columbia Heights",
+          "address": "Washington, DC 20001, USA",
+          "price": null,
+          "lat": 38.917255399999995,
+          "lng": -77.0267258,
+          "distance_mi": 0.12,
+          "place_id": "ChIJW0xSxOW3t4kR8PHNxErY9_s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Ben's Next Door",
+          "address": "1211 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9171565,
+          "lng": -77.0286876,
+          "distance_mi": 0.02,
+          "place_id": "ChIJBXkJbOa3t4kR-wZt42uAQgw",
+          "types": [
+            "american_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saloon",
+          "address": "1205 U St NW, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9171705,
+          "lng": -77.02845789999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJC0enbea3t4kRA3d4haN7HMQ",
+          "types": [
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chi Cha Lounge",
+          "address": "1214 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916737999999995,
+          "lng": -77.028655,
+          "distance_mi": 0.05,
+          "place_id": "ChIJTXk4rSC3t4kRE9jA1TCbGVo",
+          "types": [
+            "bar_and_grill",
+            "latin_american_restaurant",
+            "fusion_restaurant",
+            "hookah_bar",
+            "pizza_delivery",
+            "lounge_bar",
+            "night_club",
+            "pizza_restaurant",
+            "meal_takeaway",
+            "meal_delivery",
+            "food_delivery",
+            "bar",
+            "family_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tipsy",
+          "address": "1212 U St NW, Washington, DC 20009, USA",
+          "price": 4,
+          "lat": 38.9167706,
+          "lng": -77.0285497,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ54d45eu3t4kR4etfue2yZgQ",
+          "types": [
+            "lounge_bar",
+            "hookah_bar",
+            "night_club",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amsterdam Lounge",
+          "address": "1208 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9167755,
+          "lng": -77.0284523,
+          "distance_mi": 0.05,
+          "place_id": "ChIJU8BoEua3t4kRIs8luQNTUXM",
+          "types": [
+            "lounge_bar",
+            "night_club",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brew on U",
+          "address": "1931 13th St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9166612,
+          "lng": -77.0293469,
+          "distance_mi": 0.05,
+          "place_id": "ChIJg0un9iy3t4kRDp6s_KkhsGY",
+          "types": [
+            "coffee_shop",
+            "pastry_shop",
+            "cafe",
+            "dessert_shop",
+            "bakery",
+            "confectionery",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "U Street Hostel",
+          "address": "1931 13th St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9166612,
+          "lng": -77.0293469,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ40z0xQK3t4kRW1QkpGM6Ugw",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "hotel",
+            "lodging",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Eatopia Eatery",
+          "address": "1301 U St NW #111, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.917151,
+          "lng": -77.0301404,
+          "distance_mi": 0.06,
+          "place_id": "ChIJQd557C-3t4kRvbJKyzclF8o",
+          "types": [
+            "ethiopian_restaurant",
+            "brunch_restaurant",
+            "cocktail_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "UR MART",
+          "address": "1115 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.917188599999996,
+          "lng": -77.027795,
+          "distance_mi": 0.07,
+          "place_id": "ChIJX0vOaDC3t4kReuvmzRjQw6M",
+          "types": [
+            "convenience_store",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dukem Ethiopian Restaurant",
+          "address": "1114-1118 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9168121,
+          "lng": -77.0278451,
+          "distance_mi": 0.07,
+          "place_id": "ChIJKygWdea3t4kRjTkmjB6IMUU",
+          "types": [
+            "ethiopian_restaurant",
+            "african_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Barkada Wine and Cocktail Bar",
+          "address": "1939 12th St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916626900000004,
+          "lng": -77.027795,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ4TmpkMC3t4kRanrDx-SCaPM",
+          "types": [
+            "wine_bar",
+            "cocktail_bar",
+            "event_venue",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sports & Social DC",
+          "address": "1314 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916864499999996,
+          "lng": -77.0304273,
+          "distance_mi": 0.09,
+          "place_id": "ChIJSzhtnRS3t4kR_o78OXXSwzI",
+          "types": [
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Upstate FTW",
+          "address": "1314 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.916810999999996,
+          "lng": -77.0305296,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ3xHVYAC3t4kRy4Wl-z0GV2o",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bin 1301 Wine Bar",
+          "address": "1301 U St NW #111, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.917204999999996,
+          "lng": -77.0306854,
+          "distance_mi": 0.09,
+          "place_id": "ChIJTZfCSua3t4kRZPPPbFzZbuY",
+          "types": [
+            "wine_bar",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DNA social house",
+          "address": "1102 U St NW, Washington, DC 20009, USA",
+          "price": null,
+          "lat": 38.9168479,
+          "lng": -77.0274088,
+          "distance_mi": 0.09,
+          "place_id": "ChIJTS1H_E-3t4kRR-xL0kZ2rSo",
+          "types": [
+            "lounge_bar",
+            "night_club",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lulu’s Wine Garden",
+          "address": "1940 11th St NW, Washington, DC 20001, USA",
+          "price": 2,
+          "lat": 38.9167993,
+          "lng": -77.0273504,
+          "distance_mi": 0.1,
+          "place_id": "ChIJv8m_Oou3t4kR_jLWjs7FwcQ",
+          "types": [
+            "restaurant",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Solly's",
+          "address": "1942 11th St NW, Washington, DC 20001, USA",
+          "price": 1,
+          "lat": 38.916852299999995,
+          "lng": -77.02731639999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJG4Z35-W3t4kRL4fJQyEvuig",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pure Lounge",
+          "address": "1326 U St NW, Washington, DC 20009, USA",
+          "price": 1,
+          "lat": 38.9168123,
+          "lng": -77.0307466,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ6eOxzee3t4kRSR1rajxxxiU",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "GameOn bar+arcade",
+          "address": "1330 U St NW, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9167908,
+          "lng": -77.0308618,
+          "distance_mi": 0.11,
+          "place_id": "ChIJu6I9zOa3t4kRM-yx3hD3s3I",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Craft DC",
+          "address": "1334 U St NW #2, Washington, DC 20009, USA",
+          "price": 2,
+          "lat": 38.9168756,
+          "lng": -77.0310284,
+          "distance_mi": 0.12,
+          "place_id": "ChIJe758n863t4kRsF9JbSgi9QQ",
+          "types": [
+            "cocktail_bar",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

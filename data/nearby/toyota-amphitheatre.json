@@ -1,0 +1,40 @@
+{
+  "venueName": "Toyota Amphitheatre",
+  "city": "Wheatland",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": []
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": []
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Parking",
+          "address": "2FJV+H2, Wheatland, CA 95692, USA",
+          "price": null,
+          "lat": 39.0314668,
+          "lng": -121.507402,
+          "distance_mi": 0.3,
+          "place_id": "ChIJRW31VwBJm4ARqh45wWy8VNc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1239 @@
+{
+  "venueName": "Wang Theatre",
+  "city": "Boston",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Montien Thai Restaurant",
+          "address": "63 Stuart St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.351194,
+          "lng": -71.064414,
+          "distance_mi": 0.05,
+          "place_id": "ChIJtVC2q3d644kRXSkDh4XNwG4",
+          "types": [
+            "thai_restaurant",
+            "cocktail_bar",
+            "catering_service",
+            "asian_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock & Rye American Bar",
+          "address": "57 Stuart St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3512272,
+          "lng": -71.0642158,
+          "distance_mi": 0.05,
+          "place_id": "ChIJQ9D5bDF744kR-SbyJ0-jSA4",
+          "types": [
+            "bar",
+            "gastropub",
+            "pub",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Gallery",
+          "address": "100 Stuart St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.350832,
+          "lng": -71.0652192,
+          "distance_mi": 0.05,
+          "place_id": "ChIJZ_Qe8XZ644kRt838O1coN4o",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Genki Ya - Boston",
+          "address": "232 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3512323,
+          "lng": -71.0646103,
+          "distance_mi": 0.06,
+          "place_id": "ChIJb5LCVHZ644kRxRiTfd2DGKw",
+          "types": [
+            "japanese_restaurant",
+            "sushi_restaurant",
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "230 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3512846,
+          "lng": -71.0646462,
+          "distance_mi": 0.06,
+          "place_id": "ChIJb8-kVHZ644kReEyiujufiq8",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vivi Bubble Tea on Tremont",
+          "address": "230 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351284,
+          "lng": -71.0646569,
+          "distance_mi": 0.06,
+          "place_id": "ChIJX9Iqj9h744kRCNwzYhjtQ8M",
+          "types": [
+            "ramen_restaurant",
+            "taiwanese_restaurant",
+            "tea_house",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "japanese_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Post No. 10",
+          "address": "275 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3500654,
+          "lng": -71.0654299,
+          "distance_mi": 0.06,
+          "place_id": "ChIJyQaSsxF744kR0INYZHEF5xU",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "4th Wall Restaurant & Bar",
+          "address": "228 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.351343,
+          "lng": -71.0646221,
+          "distance_mi": 0.06,
+          "place_id": "ChIJa_yJf5R744kRy_UhozQrWOQ",
+          "types": [
+            "gastropub",
+            "bar_and_grill",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "750 Washington St Proger Building, Boston, MA 02111, USA",
+          "price": 1,
+          "lat": 42.3498064,
+          "lng": -71.0632873,
+          "distance_mi": 0.07,
+          "place_id": "ChIJHbNtg3d644kR8lZ0UhSMT7o",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Burrito Classico",
+          "address": "226 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3513874,
+          "lng": -71.0646105,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ64O0p2V744kRYgMxW7ODRgg",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Maria's Taqueria",
+          "address": "226 Tremont St, Boston, MA 02116, USA",
+          "price": 1,
+          "lat": 42.3513963,
+          "lng": -71.0645851,
+          "distance_mi": 0.07,
+          "place_id": "ChIJE_K4rHd644kRqGM1bzPVrkg",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "New York Pizza",
+          "address": "224 Tremont St, Boston, MA 02116, USA",
+          "price": 1,
+          "lat": 42.351448999999995,
+          "lng": -71.06455799999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJET7crHd644kRJYDD5yile2w",
+          "types": [
+            "pizza_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "italian_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "american_restaurant",
+            "european_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boston Kitchen Pizza",
+          "address": "1 Stuart St, Boston, MA 02116, USA",
+          "price": 1,
+          "lat": 42.3510742,
+          "lng": -71.0631645,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ7V9fn3d644kRzotUsPPwfik",
+          "types": [
+            "pizza_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Farmer's Fridge",
+          "address": "Atrium, 800 Washington St 3rd floor, Boston, MA 02111, USA",
+          "price": null,
+          "lat": 42.349591499999995,
+          "lng": -71.0633519,
+          "distance_mi": 0.08,
+          "place_id": "ChIJvYNYjsF744kRawVf-E_PLLo",
+          "types": [
+            "salad_shop",
+            "cafeteria",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Happy Lamb Hot Pot, Boston",
+          "address": "693 Washington St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3512002,
+          "lng": -71.06310119999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJZd027-B744kRE01pZp-Xd2Q",
+          "types": [
+            "hot_pot_restaurant",
+            "buffet_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock Bottom Restaurant & Brewery",
+          "address": "115 Stuart St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3513672,
+          "lng": -71.0652957,
+          "distance_mi": 0.08,
+          "place_id": "ChIJIegW9nZ644kRMSI43hrbxjE",
+          "types": [
+            "brewery",
+            "brewpub",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ashley's Test Kitchen",
+          "address": "217 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351664,
+          "lng": -71.064625,
+          "distance_mi": 0.08,
+          "place_id": "ChIJb5SFp5d744kRnpWO2zPxzMI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Liuyishou Hotpot Boston",
+          "address": "702 Washington St, Boston, MA 02111, USA",
+          "price": 2,
+          "lat": 42.351059199999995,
+          "lng": -71.0628295,
+          "distance_mi": 0.09,
+          "place_id": "ChIJNV_xBgd744kRIn4AzdC3J8E",
+          "types": [
+            "hot_pot_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Panera Bread",
+          "address": "115 Stuart St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.351606,
+          "lng": -71.06495199999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJNwTNtXR644kRj6FhHHejDx0",
+          "types": [
+            "cafe",
+            "salad_shop",
+            "catering_service",
+            "breakfast_restaurant",
+            "soup_restaurant",
+            "shipping_service",
+            "sandwich_shop",
+            "coffee_shop",
+            "bakery",
+            "food_delivery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dumpling Cafe",
+          "address": "695 Washington St, Boston, MA 02111, USA",
+          "price": 1,
+          "lat": 42.3512693,
+          "lng": -71.06299109999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJAxAcmXd644kRVJO136272ok",
+          "types": [
+            "chinese_restaurant",
+            "asian_restaurant",
+            "dumpling_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Your Perfect Boston Getaway—Pet-Friendly Access and Close to Everything",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3508492,
+          "lng": -71.0645523,
+          "distance_mi": 0.03,
+          "place_id": "ChIJe6rJAXd644kR4n25iYIPMvE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Moxy Boston Downtown",
+          "address": "240 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.350892099999996,
+          "lng": -71.0646016,
+          "distance_mi": 0.03,
+          "place_id": "ChIJXZnSAXd644kRuICXqkMmVnA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pet-Friendly Furnished 1BR in Boston w Gym - One-Bedroom Apartment",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351138999999996,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ8ynpqHd644kRhJVrF14XCng",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 1BR w / Luxury Amenities and Rooftop Views by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351181,
+          "lng": -71.0640106,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRAMaF5ZaZwko",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bright Theatre District 1BR w/ Gym & W/D, near Boylston T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRrVAz-HTX6s4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground | Boston Theater District, rooftop, nr Boston Common",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRdluVsV90S8c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 1BR w/ Luxury Amenities and Rooftop Views by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kR1-gVzQ-kbd8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground ChinatownTheater Dist gym nr food BOS-1069",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ-TDEqHd644kR5o8791V1pxE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground | Boston Theater District, rooftop, nr Boston Common",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRqXHoNOoCTpo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dreamy Chinatown/Theater District 2BR w/ Gym & W/D, nr T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRsy2TVfBNPvA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Airy Chinatown/Theater District 2BR w/ Gym & W/D, nr T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRDJy4P7kDCTA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Exceptional Theater District 2BR w/ Gym, nr Shops & T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRyXt6pzfdrqI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sweet Chinatown/Theater Dist 2BR w/ Gym, close to Bars, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRIFN_25eZ_HY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious Theatre District 2BR w/ Gym & W/D, near Boylston T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRVr7YUcpc6wo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 1BR w/ Luxury Amenities and Rooftop Views by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJF6DFqHd644kREWLplCPyLVw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 1BR w/ Luxury Amenities and Rooftop Views by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRZVQ8S1FptE8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxe Theater Dist 2BR w/ Gym, Lounge, Rooftop & A/C, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ-TDEqHd644kRodU2U0bXOdI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Chinatown/Theater District 2BR w/ W/D & Gym, nr T, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRz3hsyOXCqjs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amazing Theatre District 2BR w/ W/D & Gym, nr Theaters, by Blueground",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511848,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJYarFqHd644kRJcpDf44xPeM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground ChinatownTheater Dist gym nr bars BOS-1068 - Two-Bedroom Apartment",
+          "address": "Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3511886,
+          "lng": -71.06401819999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJF6DFqHd644kRBQQ7ioDmIJ8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Bar Moxy",
+          "address": "240 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3509108,
+          "lng": -71.06468370000002,
+          "distance_mi": 0.04,
+          "place_id": "ChIJwRgq5O1744kRxu4EzLpwi1Y",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tufts Medical Center - Garage/Parking",
+          "address": "274 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3497777,
+          "lng": -71.0646488,
+          "distance_mi": 0.05,
+          "place_id": "ChIJGfnA33Z644kRDlWjWgwvyFU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Montien Thai Restaurant",
+          "address": "63 Stuart St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.351194,
+          "lng": -71.064414,
+          "distance_mi": 0.05,
+          "place_id": "ChIJtVC2q3d644kRXSkDh4XNwG4",
+          "types": [
+            "thai_restaurant",
+            "cocktail_bar",
+            "catering_service",
+            "asian_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "ParkRight - Luka Theater District Garage",
+          "address": "45 Stuart St #2307, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351192999999995,
+          "lng": -71.0640251,
+          "distance_mi": 0.05,
+          "place_id": "ChIJKcy8r3d644kR-uxa-FtCGSc",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock & Rye American Bar",
+          "address": "57 Stuart St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3512272,
+          "lng": -71.0642158,
+          "distance_mi": 0.05,
+          "place_id": "ChIJQ9D5bDF744kR-SbyJ0-jSA4",
+          "types": [
+            "bar",
+            "gastropub",
+            "pub",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ghost Light Tavern",
+          "address": "253 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3504699,
+          "lng": -71.0653578,
+          "distance_mi": 0.05,
+          "place_id": "ChIJTTMwCm1744kRAxjcnTjNqzo",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking",
+          "address": "265 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3503392,
+          "lng": -71.0653509,
+          "distance_mi": 0.05,
+          "place_id": "ChIJxbS953Z644kR8UwYhpOAp20",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vivi Bubble Tea on Tremont",
+          "address": "230 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.351284,
+          "lng": -71.0646569,
+          "distance_mi": 0.06,
+          "place_id": "ChIJX9Iqj9h744kRCNwzYhjtQ8M",
+          "types": [
+            "ramen_restaurant",
+            "taiwanese_restaurant",
+            "tea_house",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "japanese_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Post No. 10",
+          "address": "275 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3500654,
+          "lng": -71.0654299,
+          "distance_mi": 0.06,
+          "place_id": "ChIJyQaSsxF744kR0INYZHEF5xU",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "4th Wall Restaurant & Bar",
+          "address": "228 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.351343,
+          "lng": -71.0646221,
+          "distance_mi": 0.06,
+          "place_id": "ChIJa_yJf5R744kRy_UhozQrWOQ",
+          "types": [
+            "gastropub",
+            "bar_and_grill",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "750 Washington St Proger Building, Boston, MA 02111, USA",
+          "price": 1,
+          "lat": 42.3498064,
+          "lng": -71.0632873,
+          "distance_mi": 0.07,
+          "place_id": "ChIJHbNtg3d644kR8lZ0UhSMT7o",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crown Night Club",
+          "address": "275 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3500124,
+          "lng": -71.06550399999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ0Y0BVgB744kRmFhlABFPRHM",
+          "types": [
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "LUKA on the Common - Parking Lot",
+          "address": "LUKA on the Common, 45 Stuart St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3514293,
+          "lng": -71.0640052,
+          "distance_mi": 0.07,
+          "place_id": "ChIJuQ68r3d644kRG69QpUV-wjY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royale",
+          "address": "279 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3499921,
+          "lng": -71.0655563,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ7VHBwnZ644kRKRWP5Qe27v4",
+          "types": [
+            "night_club",
+            "lounge_bar",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "W Lounge",
+          "address": "100 Stuart St, Boston, MA 02116, USA",
+          "price": 3,
+          "lat": 42.3508419,
+          "lng": -71.0656551,
+          "distance_mi": 0.07,
+          "place_id": "ChIJVecp-HZ644kRyfWaXzIseIA",
+          "types": [
+            "lounge_bar",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Tam",
+          "address": "222 Tremont St, Boston, MA 02116, USA",
+          "price": 2,
+          "lat": 42.3515166,
+          "lng": -71.0646491,
+          "distance_mi": 0.08,
+          "place_id": "ChIJgRPEVHZ644kRdLHsr2CClRs",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fresh Life Cafe",
+          "address": "800 Washington St Atrium 1, Boston, MA 02111, USA",
+          "price": 2,
+          "lat": 42.349463,
+          "lng": -71.063541,
+          "distance_mi": 0.08,
+          "place_id": "ChIJiwu7l6J744kRI5tc56t1MRQ",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock Bottom Restaurant & Brewery",
+          "address": "115 Stuart St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3513672,
+          "lng": -71.0652957,
+          "distance_mi": 0.08,
+          "place_id": "ChIJIegW9nZ644kRMSI43hrbxjE",
+          "types": [
+            "brewery",
+            "brewpub",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Centerfolds Boston",
+          "address": "12 Lagrange St, Boston, MA 02116, USA",
+          "price": 4,
+          "lat": 42.351421599999995,
+          "lng": -71.0632299,
+          "distance_mi": 0.09,
+          "place_id": "ChIJczTtpsJ744kRagmJso3hoq0",
+          "types": [
+            "night_club",
+            "bar",
+            "association_or_organization",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "290 Tremont Street Lot (Pilgrim Parking)",
+          "address": "290 Tremont St, Boston, MA 02116, USA",
+          "price": null,
+          "lat": 42.3493336,
+          "lng": -71.0650832,
+          "distance_mi": 0.09,
+          "place_id": "ChIJI8K52XZ644kRJ5dR9wcN2u0",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

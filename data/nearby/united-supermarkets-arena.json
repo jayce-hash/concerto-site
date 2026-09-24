@@ -1,0 +1,1241 @@
+{
+  "venueName": "United Supermarkets Arena",
+  "city": "Lubbock",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Chick-fil-A",
+          "address": "Sam's Place Wiggins, 3211 18th St, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5798334,
+          "lng": -101.883691,
+          "distance_mi": 0.19,
+          "place_id": "ChIJnVnj56wS_oYRM8V3q3P8foo",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "catering_service",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "shipping_service",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ol' Reds @ Wiggins Complex",
+          "address": "3211 18th St, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.579661699999996,
+          "lng": -101.8836596,
+          "distance_mi": 0.2,
+          "place_id": "ChIJh1EvrLYS_oYRbPBUh4-BoMw",
+          "types": [
+            "cafeteria",
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fazoli's",
+          "address": "3009 Main St, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5838507,
+          "lng": -101.8802967,
+          "distance_mi": 0.4,
+          "place_id": "ChIJRx3Tka4S_oYRYDtnCmyPISo",
+          "types": [
+            "restaurant",
+            "catering_service",
+            "pizza_restaurant",
+            "italian_restaurant",
+            "food_delivery",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hayashi Midtown",
+          "address": "3701 19th St, Lubbock, TX 79410, USA",
+          "price": 2,
+          "lat": 33.57750000000001,
+          "lng": -101.89472219999999,
+          "distance_mi": 0.54,
+          "place_id": "ChIJvV8pVKty_oYRC6rrRkY5GoM",
+          "types": [
+            "sushi_restaurant",
+            "family_restaurant",
+            "asian_restaurant",
+            "bar",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Thai Pepper",
+          "address": "3702 20th St, Lubbock, TX 79410, USA",
+          "price": 2,
+          "lat": 33.5772293,
+          "lng": -101.89462770000002,
+          "distance_mi": 0.54,
+          "place_id": "ChIJCfYZr6xy_oYRHT59vDOoxoQ",
+          "types": [
+            "thai_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jazz A Louisiana Kitchen",
+          "address": "3703 19th St, Lubbock, TX 79410, USA",
+          "price": 2,
+          "lat": 33.5774537,
+          "lng": -101.8949372,
+          "distance_mi": 0.55,
+          "place_id": "ChIJdahgU1MN_oYR1YQPSbuCUE4",
+          "types": [
+            "cajun_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jersey Mike's Subs",
+          "address": "3711 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.577541,
+          "lng": -101.89532609999999,
+          "distance_mi": 0.57,
+          "place_id": "ChIJg3f6awBz_oYRcsIDBrjmgVw",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "deli",
+            "food_delivery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HubCity Burger Bar",
+          "address": "3711 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.577541,
+          "lng": -101.89532609999999,
+          "distance_mi": 0.57,
+          "place_id": "ChIJNQIlZk1z_oYRob-BLTjZTNE",
+          "types": [
+            "hamburger_restaurant",
+            "sports_bar",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Schlotzsky's Deli",
+          "address": "3715 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.5774492,
+          "lng": -101.8955805,
+          "distance_mi": 0.58,
+          "place_id": "ChIJIVb-TFMN_oYRC-ILK78Iye0",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chick-fil-A",
+          "address": "College of Business, 703 Flint Ave, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5875767,
+          "lng": -101.8798789,
+          "distance_mi": 0.58,
+          "place_id": "ChIJw2o1tK8S_oYR-c-U6-R78l4",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "catering_service",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "shipping_service",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Smoothie King",
+          "address": "3723 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.57757,
+          "lng": -101.89609999999999,
+          "distance_mi": 0.6,
+          "place_id": "ChIJazsntaxy_oYREVjUzFsnKJE",
+          "types": [
+            "acai_shop",
+            "breakfast_restaurant",
+            "brazilian_restaurant",
+            "fast_food_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "store",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Einstein Bros. Bagels",
+          "address": "703 Flint Ave, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5877943,
+          "lng": -101.87876399999999,
+          "distance_mi": 0.64,
+          "place_id": "ChIJzwVDvq4S_oYRRzQsMbe_CCI",
+          "types": [
+            "bagel_shop",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pizza Hut Express",
+          "address": "15th Street &, Texas Tech University, Student Union Building, Akron Ave, Lubbock, TX 79409, USA",
+          "price": null,
+          "lat": 33.5815285,
+          "lng": -101.8747593,
+          "distance_mi": 0.68,
+          "place_id": "ChIJu78tfHMT_oYRt1SCQJ1OI2A",
+          "types": [
+            "pizza_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sbarro",
+          "address": "15th St Student Union, Lubbock, TX 79409, USA",
+          "price": null,
+          "lat": 33.581483999999996,
+          "lng": -101.874684,
+          "distance_mi": 0.68,
+          "place_id": "ChIJDdBsgbMS_oYRHQyaEHNbJOM",
+          "types": [
+            "pizza_restaurant",
+            "catering_service",
+            "fast_food_restaurant",
+            "italian_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "food_store",
+            "european_restaurant",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chick-fil-A",
+          "address": "15th and Akron Housing and Dining Services, Akron Ave, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.581672,
+          "lng": -101.87456,
+          "distance_mi": 0.69,
+          "place_id": "ChIJy5MBDLMS_oYRfDo0fOY30Zs",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "catering_service",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "shipping_service",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copper Lounge Lubbock",
+          "address": "3901 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.577509899999995,
+          "lng": -101.89817269999999,
+          "distance_mi": 0.72,
+          "place_id": "ChIJV3Eu1fQN_oYRipQ2H6cb2n4",
+          "types": [
+            "bar",
+            "karaoke",
+            "lounge_bar",
+            "event_venue",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jumbo Joe's Burgers",
+          "address": "3310 4th St, Lubbock, TX 79415, USA",
+          "price": 1,
+          "lat": 33.592653999999996,
+          "lng": -101.887073,
+          "distance_mi": 0.79,
+          "place_id": "ChIJx2VTD6cS_oYR68Q7VoS5c8A",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blue Sky Texas",
+          "address": "3216 4th St, Lubbock, TX 79415, USA",
+          "price": 2,
+          "lat": 33.5927304,
+          "lng": -101.88600249999999,
+          "distance_mi": 0.79,
+          "place_id": "ChIJQ3NBWKYS_oYR1elBY1Pm1p4",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DoubleDave's Pizzaworks",
+          "address": "4206 19th St Ste 400, Lubbock, TX 79407, USA",
+          "price": 1,
+          "lat": 33.5785847,
+          "lng": -101.90235609999999,
+          "distance_mi": 0.93,
+          "place_id": "ChIJ6ShTzhcN_oYRtq9QzcGJhVg",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little Panda",
+          "address": "1221 University Ave, Lubbock, TX 79401, USA",
+          "price": 1,
+          "lat": 33.5836983,
+          "lng": -101.8703918,
+          "distance_mi": 0.95,
+          "place_id": "ChIJYbpcQrQS_oYRJN3lZ7VwT1k",
+          "types": [
+            "chinese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "The Oasis on 19th Street",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5773964,
+          "lng": -101.8846741,
+          "distance_mi": 0.29,
+          "place_id": "ChIJV_wvvlRt_oYRfitjPGzl0ck",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Oasis on 19th Street",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5773888,
+          "lng": -101.8846664,
+          "distance_mi": 0.29,
+          "place_id": "ChIJV_wvvlRt_oYR0N-cpvvyfH0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Red Raiders Fans' Dream in Tech Terrace (Walk to Campus Stadium)",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5768318,
+          "lng": -101.8870773,
+          "distance_mi": 0.31,
+          "place_id": "ChIJ9ZNEF1Vt_oYRiUBfr5GyAqg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Casa Celaje - Historic Adobe Casita",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.576320599999995,
+          "lng": -101.88234709999999,
+          "distance_mi": 0.42,
+          "place_id": "ChIJOxvFdVNt_oYRQoRwHPYzg3s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shaikh's",
+          "address": "3012 20th St, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.576831,
+          "lng": -101.88030409999999,
+          "distance_mi": 0.47,
+          "place_id": "ChIJlyP3aPxt_oYRLzLBiUUAH-k",
+          "types": [
+            "guest_house",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tech Terrace Cottage-Just 3 Blocks from TTU!",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.574260699999996,
+          "lng": -101.8853302,
+          "distance_mi": 0.49,
+          "place_id": "ChIJZ6lBOVRt_oYRA-kKCC-Kn1E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Good Vibes Lubbock! Close to TTU and Covenant Hospital",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5734901,
+          "lng": -101.8855133,
+          "distance_mi": 0.54,
+          "place_id": "ChIJiw2k-1Vt_oYRpGA7BMGm1zk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Historic Governor’s Mansion across from Texas Tech",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5774612,
+          "lng": -101.87790679999999,
+          "distance_mi": 0.56,
+          "place_id": "ChIJW7YaFK0S_oYR-StwYHzlgTU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "4 Bedroom Home in Lubbock - close to TTU and major hospitals",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5747795,
+          "lng": -101.89286039999999,
+          "distance_mi": 0.58,
+          "place_id": "ChIJ3a3Fpaty_oYRbh2xf6ACG1E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Renovated Lubbock Home - Walk to Texas Tech!",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5753822,
+          "lng": -101.87879180000002,
+          "distance_mi": 0.6,
+          "place_id": "ChIJgwFwbFJt_oYR5xG6viXPLro",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Renovated Lubbock Home - Walk to Texas Tech! - Vacation Home",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.575378400000005,
+          "lng": -101.87879180000002,
+          "distance_mi": 0.6,
+          "place_id": "ChIJf616bFJt_oYRY60anfdLHaE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Renovated Lubbock Home - Walk to Texas Tech!",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.575378400000005,
+          "lng": -101.87879180000002,
+          "distance_mi": 0.6,
+          "place_id": "ChIJf616bFJt_oYRfNIFIcHajnk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Renovated Lubbock Home - Walk to Texas Tech!",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.575378400000005,
+          "lng": -101.87879180000002,
+          "distance_mi": 0.6,
+          "place_id": "ChIJf616bFJt_oYRX5CK-GNlfjs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tech Terrace Terrain: 3 /3 right across from TTU",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5727616,
+          "lng": -101.88197319999999,
+          "distance_mi": 0.64,
+          "place_id": "ChIJqRcMaFFt_oYRFP5inO_9f3Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Holly Golightly",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.571674300000005,
+          "lng": -101.8885651,
+          "distance_mi": 0.67,
+          "place_id": "ChIJ_V-3GVZt_oYRFtczcnaHML4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Magnolia at the Medical District",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5739288,
+          "lng": -101.8946533,
+          "distance_mi": 0.69,
+          "place_id": "ChIJLf7Pi6ty_oYRpX5ngclgfTY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "️Heart of Med District Lit’l Sister 3/2 Remodeled",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5734482,
+          "lng": -101.8940506,
+          "distance_mi": 0.69,
+          "place_id": "ChIJE1W57aty_oYRuWDTlpg1GLA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "️Heart of Med District Lit’l Sister 3 /2 Remodeled",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5734406,
+          "lng": -101.8940506,
+          "distance_mi": 0.69,
+          "place_id": "ChIJmzK57aty_oYR0GUp-8EuqpI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mermaid House--Newly remodeled 2-bedroom 2-bath house in Tech Terrace",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5712471,
+          "lng": -101.8857879,
+          "distance_mi": 0.69,
+          "place_id": "ChIJj44H8VZt_oYR4NELrcPbgqI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tech Terrace Retreat-Walk to Tech+Games-BBQ+Patio",
+          "address": "Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5733604,
+          "lng": -101.8789978,
+          "distance_mi": 0.7,
+          "place_id": "ChIJLfeb81Ft_oYR3G-FPi7fgcw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Commuter West",
+          "address": "Main St, Lubbock, TX 79415, USA",
+          "price": null,
+          "lat": 33.5825222,
+          "lng": -101.8864988,
+          "distance_mi": 0.09,
+          "place_id": "ChIJTZX1NaoS_oYR07ZpQ1e5ZKU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Texas Tech University Parking Lot Z4",
+          "address": "Lot Z4, 18th St, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5786824,
+          "lng": -101.8846798,
+          "distance_mi": 0.21,
+          "place_id": "ChIJG5kSVqsS_oYRY7060GxY8VY",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Flint Avenue Parking Facility",
+          "address": "1838-1842 Flint Ave, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5793195,
+          "lng": -101.88101979999999,
+          "distance_mi": 0.35,
+          "place_id": "ChIJHWFz1KwS_oYROsk64U-uI3A",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Texas Tech tennis courts parking",
+          "address": "3511 10th St, Lubbock, TX 79415, USA",
+          "price": null,
+          "lat": 33.5858576,
+          "lng": -101.8927934,
+          "distance_mi": 0.48,
+          "place_id": "ChIJj3zgHVcN_oYR0COAcYePq_o",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "East Parking Garage",
+          "address": "2101-2199 Knoxville Ave, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5753128,
+          "lng": -101.89192240000001,
+          "distance_mi": 0.51,
+          "place_id": "ChIJZZnp_qpy_oYRrB5lGC7t9jo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "UMC East Parking Garage",
+          "address": "Lubbock, TX 79415, USA",
+          "price": null,
+          "lat": 33.5886876,
+          "lng": -101.8887567,
+          "distance_mi": 0.53,
+          "place_id": "ChIJhaVAFQAT_oYRMDbVcljXfx8",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hayashi Midtown",
+          "address": "3701 19th St, Lubbock, TX 79410, USA",
+          "price": 2,
+          "lat": 33.57750000000001,
+          "lng": -101.89472219999999,
+          "distance_mi": 0.54,
+          "place_id": "ChIJvV8pVKty_oYRC6rrRkY5GoM",
+          "types": [
+            "sushi_restaurant",
+            "family_restaurant",
+            "asian_restaurant",
+            "bar",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jazz A Louisiana Kitchen",
+          "address": "3703 19th St, Lubbock, TX 79410, USA",
+          "price": 2,
+          "lat": 33.5774537,
+          "lng": -101.8949372,
+          "distance_mi": 0.55,
+          "place_id": "ChIJdahgU1MN_oYR1YQPSbuCUE4",
+          "types": [
+            "cajun_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee",
+          "address": "901 Flint Ave, Lubbock, TX 79406, USA",
+          "price": 1,
+          "lat": 33.58714,
+          "lng": -101.88013,
+          "distance_mi": 0.55,
+          "place_id": "ChIJ6XoW664S_oYR8FlLlr7W7X0",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "West Garage",
+          "address": "3621 21st St, Lubbock, TX 79410, USA",
+          "price": null,
+          "lat": 33.5756607,
+          "lng": -101.8935241,
+          "distance_mi": 0.56,
+          "place_id": "ChIJ4fvXc6ty_oYRCHDe77grrfE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HubCity Burger Bar",
+          "address": "3711 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.577541,
+          "lng": -101.89532609999999,
+          "distance_mi": 0.57,
+          "place_id": "ChIJNQIlZk1z_oYRob-BLTjZTNE",
+          "types": [
+            "hamburger_restaurant",
+            "sports_bar",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sam’s Place Murray",
+          "address": "903 Flint Ave, Lubbock, TX 79409, USA",
+          "price": null,
+          "lat": 33.586533300000006,
+          "lng": -101.8787222,
+          "distance_mi": 0.58,
+          "place_id": "ChIJz5tnra8T_oYR64jcDG8iiTs",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Einstein Bros. Bagels",
+          "address": "703 Flint Ave, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5877943,
+          "lng": -101.87876399999999,
+          "distance_mi": 0.64,
+          "place_id": "ChIJzwVDvq4S_oYRRzQsMbe_CCI",
+          "types": [
+            "bagel_shop",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "2625 15th St, Lubbock, TX 79409, USA",
+          "price": null,
+          "lat": 33.58164,
+          "lng": -101.87518999999999,
+          "distance_mi": 0.66,
+          "place_id": "ChIJQwdPA7MS_oYR5CSWTFSSkOY",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copper Lounge Lubbock",
+          "address": "3901 19th St, Lubbock, TX 79410, USA",
+          "price": 1,
+          "lat": 33.577509899999995,
+          "lng": -101.89817269999999,
+          "distance_mi": 0.72,
+          "place_id": "ChIJV3Eu1fQN_oYRipQ2H6cb2n4",
+          "types": [
+            "bar",
+            "karaoke",
+            "lounge_bar",
+            "event_venue",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Einstein Bros. Bagels",
+          "address": "1801 Boston Ave, Lubbock, TX 79409, USA",
+          "price": 1,
+          "lat": 33.5795459,
+          "lng": -101.87406879999999,
+          "distance_mi": 0.73,
+          "place_id": "ChIJj2GozUxt_oYRmxYztX_76Z0",
+          "types": [
+            "bagel_shop",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hoop tea tent",
+          "address": "Boston Ave, Lubbock, TX 79415, USA",
+          "price": null,
+          "lat": 33.5856943,
+          "lng": -101.8748313,
+          "distance_mi": 0.74,
+          "place_id": "ChIJd6puEQAT_oYRzUJ_HYFhx70",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bar EO",
+          "address": "2918 4th St, Lubbock, TX 79415, USA",
+          "price": 1,
+          "lat": 33.5928466,
+          "lng": -101.88003859999999,
+          "distance_mi": 0.89,
+          "place_id": "ChIJB7zDaY4T_oYRicnmVEbGKTU",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "OXXO",
+          "address": "2902 4th St, Lubbock, TX 79415, USA",
+          "price": null,
+          "lat": 33.5929042,
+          "lng": -101.87948709999999,
+          "distance_mi": 0.9,
+          "place_id": "ChIJgaFQAnsT_oYRpdiXt3GjToA",
+          "types": [
+            "convenience_store",
+            "liquor_store",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7 Brew Coffee",
+          "address": "1415 University Ave, Lubbock, TX 79401, USA",
+          "price": 1,
+          "lat": 33.5819177,
+          "lng": -101.8702959,
+          "distance_mi": 0.94,
+          "place_id": "ChIJO_Zhbt4T_oYRQqvnnIXc5y4",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

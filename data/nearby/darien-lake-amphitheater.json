@@ -1,0 +1,322 @@
+{
+  "venueName": "Darien Lake Amphitheater",
+  "city": "Darien Center",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Macho Nacho",
+          "address": "Corfu, NY 14036, USA",
+          "price": null,
+          "lat": 42.9277715,
+          "lng": -78.3826413,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ5Qd8bwCV04kRWdSjkXHhuSg",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Campfire Grill",
+          "address": "9993 Alleghany Rd, Corfu, NY 14036, USA",
+          "price": null,
+          "lat": 42.9276856,
+          "lng": -78.3816792,
+          "distance_mi": 0.1,
+          "place_id": "ChIJx561EQCV04kRadLsPwAjpjY",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tim Hortons",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.927158999999996,
+          "lng": -78.38545700000002,
+          "distance_mi": 0.11,
+          "place_id": "ChIJOzNhan-W04kRG8Xcnbt8y7A",
+          "types": [
+            "coffee_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Anchor Bar Wings",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": 2,
+          "lat": 42.9296286,
+          "lng": -78.3848374,
+          "distance_mi": 0.13,
+          "place_id": "ChIJx2G2hiaX04kR8VhVj42sjEE",
+          "types": [
+            "chicken_wings_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Timber Ridge Pizza",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.929116,
+          "lng": -78.3858398,
+          "distance_mi": 0.14,
+          "place_id": "ChIJjTgfMQCX04kRS9uA1gFSHY8",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beaver Brother's - Lakeside Cafe",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": 2,
+          "lat": 42.930816899999996,
+          "lng": -78.383999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJz8VkqSqU04kR3QssygcVzUM",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jo's Eatery",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.9296959,
+          "lng": -78.3873141,
+          "distance_mi": 0.22,
+          "place_id": "ChIJd3hpIgCX04kRI3I-WyGsCb0",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Six flags",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.9271561,
+          "lng": -78.3854439,
+          "distance_mi": 0.11,
+          "place_id": "ChIJvax572-V04kRZ1fZzq8Uhmc",
+          "types": [
+            "hotel",
+            "general_store",
+            "food_store",
+            "lodging",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Six Flags Darien Lake",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.9311791,
+          "lng": -78.3829605,
+          "distance_mi": 0.22,
+          "place_id": "ChIJdyqql82V04kRywQNTwLxqC4",
+          "types": [
+            "campground",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lodge on the Lake",
+          "address": "9997 Alleghany Rd, Corfu, NY 14036, USA",
+          "price": null,
+          "lat": 42.93208,
+          "lng": -78.39050499999999,
+          "distance_mi": 0.45,
+          "place_id": "ChIJ_THaaYeW04kRRxENc_F8JPU",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cherry Hill Campground",
+          "address": "1516 Sumner Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.9216882,
+          "lng": -78.37878580000002,
+          "distance_mi": 0.5,
+          "place_id": "ChIJJwA6JNeV04kRKHSGvL-jBLw",
+          "types": [
+            "campground",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Potato Works",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.9272756,
+          "lng": -78.38346489999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJB9m3GSWV04kRLzijF9jLRlM",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tim Hortons",
+          "address": "9993 Alleghany Rd, Darien Center, NY 14040, USA",
+          "price": null,
+          "lat": 42.927158999999996,
+          "lng": -78.38545700000002,
+          "distance_mi": 0.11,
+          "place_id": "ChIJOzNhan-W04kRG8Xcnbt8y7A",
+          "types": [
+            "coffee_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Darien Lake Parking",
+          "address": "Corfu, NY 14036, USA",
+          "price": null,
+          "lat": 42.9252011,
+          "lng": -78.38598069999999,
+          "distance_mi": 0.23,
+          "place_id": "ChIJ4yVv_b6X04kRGsOgv_EirkY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Darien Lake Amphitheatre Parking",
+          "address": "Corfu, NY 14036, USA",
+          "price": null,
+          "lat": 42.9260689,
+          "lng": -78.3889813,
+          "distance_mi": 0.3,
+          "place_id": "ChIJ25EJFQCX04kRy-sY0bIUjSY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

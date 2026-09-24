@@ -1,0 +1,1246 @@
+{
+  "venueName": "Terminal 5",
+  "city": "New York",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "White Noise Coffee - Coffee Shop & Roastery",
+          "address": "829 11th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7700919,
+          "lng": -73.9918502,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ3ziX-h9ZwokRgTE-XdwJuIQ",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "coffee_roastery",
+            "cafe",
+            "wholesaler",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pizza Shack",
+          "address": "600 W 57th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7703578,
+          "lng": -73.9919304,
+          "distance_mi": 0.06,
+          "place_id": "ChIJBYxcNyJZwokRNpEDfnISfYQ",
+          "types": [
+            "pizza_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "ice_cream_shop",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "IL BARETTO TO GO",
+          "address": "790 11th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7686371,
+          "lng": -73.9922751,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ10pd-VpYwokRXLdIbX45jKc",
+          "types": [
+            "italian_restaurant",
+            "sandwich_shop",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "coffee_shop",
+            "cafe",
+            "meal_takeaway",
+            "salad_shop",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "service",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PSD Hospitality Consulting",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7686973,
+          "lng": -73.9918181,
+          "distance_mi": 0.09,
+          "place_id": "ChIJV1oXo_gl6IkRu9B4DJ5AbQk",
+          "types": [
+            "consultant",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Playa Bowls",
+          "address": "550 W 54th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767808,
+          "lng": -73.99169479999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJ9YHLXlpYwokRWQnRi3MzDqY",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grilled Cheese Society",
+          "address": "550 W 54th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767725299999995,
+          "lng": -73.9915642,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ4wKvQVRZwokRyc_jJir4_Hw",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Miss Mazy's Amazin' Chicken",
+          "address": "550 W 54th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.767725299999995,
+          "lng": -73.9915642,
+          "distance_mi": 0.15,
+          "place_id": "ChIJWa7ICqNZwokRtVM8boDU2iY",
+          "types": [
+            "chicken_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mofongos",
+          "address": "550 W 54th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.767725299999995,
+          "lng": -73.9915642,
+          "distance_mi": 0.15,
+          "place_id": "ChIJnansSDdZwokRrqLa2qPY47Q",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "600 W 52nd St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767142,
+          "lng": -73.9940419,
+          "distance_mi": 0.19,
+          "place_id": "ChIJK0xdR0VYwokR1QU0nvsTLks",
+          "types": [
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "catering_service",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shinn WEST",
+          "address": "525 W 53rd St, New York, NY 10019, USA",
+          "price": 4,
+          "lat": 40.7669983,
+          "lng": -73.9915956,
+          "distance_mi": 0.2,
+          "place_id": "ChIJoxNAKatZwokR2hw_vq2HafE",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Captain Limo",
+          "address": "811 W 52nd St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677899,
+          "lng": -73.99555699999999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJExGvXwBZwokR-5B7SZlGbJA",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jerk House Caribbean Restaurant",
+          "address": "503 W 57th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.769478199999995,
+          "lng": -73.9888845,
+          "distance_mi": 0.2,
+          "place_id": "ChIJJ65Ao4pZwokRwVZNDyN6Ldo",
+          "types": [
+            "caribbean_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "815 10th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.76766,
+          "lng": -73.989947,
+          "distance_mi": 0.21,
+          "place_id": "ChIJbaGLGzZZwokRCr9uoVj0Pg8",
+          "types": [
+            "coffee_shop",
+            "donut_shop",
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "cafe",
+            "bagel_shop",
+            "bakery",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Healthy Habits",
+          "address": "501 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.769410099999995,
+          "lng": -73.9888418,
+          "distance_mi": 0.21,
+          "place_id": "ChIJE1AvYFlYwokRWlj8mfeNBZ4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bagel Market",
+          "address": "875 10th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7693631,
+          "lng": -73.98869669999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJVaTls3RZwokRiXzUa1pjk0E",
+          "types": [
+            "bagel_shop",
+            "sandwich_shop",
+            "juice_shop",
+            "breakfast_restaurant",
+            "deli",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "salad_shop",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Plant-Blossom",
+          "address": "881 10th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7694985,
+          "lng": -73.9886272,
+          "distance_mi": 0.22,
+          "place_id": "ChIJub-cMlVZwokReHxiSKmB02E",
+          "types": [
+            "vegetarian_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Casa Louie Waterline",
+          "address": "645 W 59th St, New York, NY 10069, USA",
+          "price": null,
+          "lat": 40.7727965,
+          "lng": -73.9916478,
+          "distance_mi": 0.22,
+          "place_id": "ChIJY7J4dkRZwokRPnmJALcp_vo",
+          "types": [
+            "restaurant",
+            "italian_restaurant",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chipotle Mexican Grill",
+          "address": "885 10th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.769749999999995,
+          "lng": -73.988481,
+          "distance_mi": 0.22,
+          "place_id": "ChIJOealtlBZwokRSuLO63dnRqk",
+          "types": [
+            "fast_food_restaurant",
+            "burrito_restaurant",
+            "catering_service",
+            "food_delivery",
+            "meal_takeaway",
+            "mexican_restaurant",
+            "taco_restaurant",
+            "shipping_service",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Farmers Cafe & Market",
+          "address": "721 11th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7667243,
+          "lng": -73.9943661,
+          "distance_mi": 0.23,
+          "place_id": "ChIJSYPKPABZwokRbb6xXvWpfvM",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "grocery_store",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "852 10th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.768464699999996,
+          "lng": -73.98876899999999,
+          "distance_mi": 0.23,
+          "place_id": "ChIJP3tRfllYwokRfL82yEVQ8gQ",
+          "types": [
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "catering_service",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Charming 1-Bed, 1-Full Bath Home in the Heart of NYC",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7698555,
+          "lng": -73.9920273,
+          "distance_mi": 0.04,
+          "place_id": "ChIJD3gbC1tYwokRp6UVQfmnjSo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kimme",
+          "address": "Kimberly Hall, 606 W 57th St Apt 339, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7706999,
+          "lng": -73.9927181,
+          "distance_mi": 0.07,
+          "place_id": "ChIJPxFeRwBbwokRc-qT-lduK4U",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stunning 2 Bedroom Residence| Manhattan|New York",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7686997,
+          "lng": -73.9918213,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ6RoAAFtYwokRVCciIAojz0Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Global Luxury Suites at Via 57 - One-Bedroom Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7710915,
+          "lng": -73.9923325,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ0RutfVtYwokRbvGANPp0Ibk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury NYC Apartment With Huge Private Balcony",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7714997,
+          "lng": -73.9937897,
+          "distance_mi": 0.13,
+          "place_id": "ChIJExhup1xYwokRSvFFGbbdcKI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tripvion",
+          "address": "555 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7704561,
+          "lng": -73.9903111,
+          "distance_mi": 0.14,
+          "place_id": "ChIJSy13Z6ZZwokR4-KZOH5APWc",
+          "types": [
+            "travel_agency",
+            "bed_and_breakfast",
+            "guest_house",
+            "tourist_information_center",
+            "hotel",
+            "tour_agency",
+            "lodging",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Forte Select XXV by Rove Apt w Private Terrace - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677918,
+          "lng": -73.9919129,
+          "distance_mi": 0.14,
+          "place_id": "ChIJBdp09lpYwokRisewBoBv9dE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground Midtown West 2bd apartment NYC-1600 - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677803,
+          "lng": -73.9919129,
+          "distance_mi": 0.14,
+          "place_id": "ChIJcejf9VpYwokRcsbtBDKdRzY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rove Travel | Forte Select XXII | Midtown West Apt",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677803,
+          "lng": -73.9919129,
+          "distance_mi": 0.14,
+          "place_id": "ChIJcejf9VpYwokRqdOqNOCIHzc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Forte Select by Rove Travel 2BR Midtown West Apt - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677689,
+          "lng": -73.9919129,
+          "distance_mi": 0.14,
+          "place_id": "ChIJrxDe9VpYwokRymfJsS1EWrE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown W 2BR w Gym Pools WD Doorman NYC-360 - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677917,
+          "lng": -73.9917298,
+          "distance_mi": 0.15,
+          "place_id": "ChIJCcO3WFpYwokRg2k3limsNBk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground Midtown W gym nr hudson river park NYC-1459 - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677917,
+          "lng": -73.9917298,
+          "distance_mi": 0.15,
+          "place_id": "ChIJCcO3WFpYwokRL6sd9ARwkBU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown West 2br w gym wd nr hudson river NYC-1243 - Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677917,
+          "lng": -73.9917298,
+          "distance_mi": 0.15,
+          "place_id": "ChIJCcO3WFpYwokROyxhTlY7SBg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground Midtown West AC nr landmarks NYC-1709 - Three-Bedroom Apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677917,
+          "lng": -73.9917298,
+          "distance_mi": 0.15,
+          "place_id": "ChIJCcO3WFpYwokR3tr97Mr0j9w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lovely Midtown W 1BR w/ Gym & Elev, near Hell's Kitchen, by Blueground",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767787899999995,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJl1W2WFpYwokRuAvY4cChbG8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxe Midtown West 2BR w/ Gym, W/D & Doorman, nr Pier 96, by Blueground",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767787899999995,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJl1W2WFpYwokR0XdxHS918bA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground | Midtown West 2bd apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767787899999995,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJl1W2WFpYwokRDsNLPKpQuek",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground | Jersey City 1bd apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767787899999995,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJl1W2WFpYwokRBauv9y2-A_0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cool Midtown West 1BR w/ Gym & W/D, nr Hell's Kitchen, by Blueground",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.767787899999995,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJl1W2WFpYwokR_M9NP5dNbBw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blueground | Midtown West 1bd apartment",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7677803,
+          "lng": -73.99173739999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ4X22WFpYwokRPGSo6NoiNf0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "The Reserve",
+          "address": "801 11th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.769643099999996,
+          "lng": -73.99221179999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJV960-v5ZwokRFkH1IdZ0kMk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "storage",
+            "event_venue",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "White Noise Coffee - Coffee Shop & Roastery",
+          "address": "829 11th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7700919,
+          "lng": -73.9918502,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ3ziX-h9ZwokRgTE-XdwJuIQ",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "coffee_roastery",
+            "cafe",
+            "food_store",
+            "wholesaler",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Prestige Cafe & Deli II",
+          "address": "837 11th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7702922,
+          "lng": -73.9918256,
+          "distance_mi": 0.06,
+          "place_id": "ChIJgfwmdFtYwokR9rJqzWHXj-c",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "IL BARETTO TO GO",
+          "address": "790 11th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7686371,
+          "lng": -73.9922751,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ10pd-VpYwokRXLdIbX45jKc",
+          "types": [
+            "italian_restaurant",
+            "salad_shop",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "confectionery",
+            "food_store",
+            "european_restaurant",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dickensond's Rooftop Bar/",
+          "address": "Midtown Manhattan, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7686973,
+          "lng": -73.9918181,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ99lIZQBZwokR0lb5VGaljlU",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Enterprise 57 Parking LLC",
+          "address": "640 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7709172,
+          "lng": -73.9934018,
+          "distance_mi": 0.09,
+          "place_id": "ChIJc-A0oOhZwokRNtbGkde3KdA",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "615 W 57th St Parking",
+          "address": "615 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7709738,
+          "lng": -73.9922868,
+          "distance_mi": 0.09,
+          "place_id": "ChIJbfxsfFtYwokRb36F0IS92aA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "MTP Parking",
+          "address": "601 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7708662,
+          "lng": -73.99189539999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJC9hygltYwokRP3aqak5ODzo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Cafe Coffee",
+          "address": "629 W 57th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.771094,
+          "lng": -73.9928723,
+          "distance_mi": 0.09,
+          "place_id": "ChIJie9jeOBZwokReP4itMkqepk",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Metropolis",
+          "address": "838 11th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7709155,
+          "lng": -73.99135,
+          "distance_mi": 0.11,
+          "place_id": "ChIJqQ9SjFtYwokRi3VzvOaPqds",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "vallet parking",
+          "address": "668 W 58th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.771462199999995,
+          "lng": -73.9924247,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ99IoIgBZwokRLKtH0Bn1XWI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "VIA 57 West Apartments Parking Lot",
+          "address": "625 W 58th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7715447,
+          "lng": -73.9925569,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ8SVFnlxYwokRtk_HnspzG38",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking at 555 West 57th St.",
+          "address": "555 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7703923,
+          "lng": -73.9904802,
+          "distance_mi": 0.13,
+          "place_id": "ChIJx87pOlxYwokRMzEfxDyySo4",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Afficionado Coffee Roasters",
+          "address": "750 11th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7676039,
+          "lng": -73.9931737,
+          "distance_mi": 0.15,
+          "place_id": "ChIJf2O7ky_Tw4kRlyj-Jpsxlm8",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Li'l Jay's Cafe",
+          "address": "860 11th Ave, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7712109,
+          "lng": -73.9905141,
+          "distance_mi": 0.15,
+          "place_id": "ChIJfZXpdVxYwokRbjLwlQQLtgU",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bar 58",
+          "address": "538 W 58th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7702236,
+          "lng": -73.98976019999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJZ8te8FtYwokR4TgoRMJHqDA",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "IPark",
+          "address": "615 W 59th St, New York, NY 10069, USA",
+          "price": null,
+          "lat": 40.7719069,
+          "lng": -73.9908277,
+          "distance_mi": 0.18,
+          "place_id": "ChIJOyUmke1ZwokRy-fhXq75JsU",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Westport Luxury Apartments - Parking Lots",
+          "address": "The Westport Luxury Apartments, 500 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7681592,
+          "lng": -73.98998999999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJD6YHNFpYwokR5LuQg4KTDN0",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "MPG Parking",
+          "address": "509 W 54th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7676916,
+          "lng": -73.990541,
+          "distance_mi": 0.18,
+          "place_id": "ChIJuavm-EJZwokRE61wyORxumQ",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Kwik",
+          "address": "545 W 53rd St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7671943,
+          "lng": -73.99160309999999,
+          "distance_mi": 0.19,
+          "place_id": "ChIJT9EwilpYwokR9PEFgUOiQc0",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

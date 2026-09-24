@@ -1,0 +1,1211 @@
+{
+  "venueName": "Royal Arena",
+  "city": "Copenhagen",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Burger King",
+          "address": "Hannemanns Allé 30, 2770 Kastrup, Denmark",
+          "price": 2,
+          "lat": 55.626093,
+          "lng": 12.577242,
+          "distance_mi": 0.15,
+          "place_id": "ChIJBbxu1NFVUkYR54JTw-Kuz3E",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brasserie Storm",
+          "address": "Ørestads Blvd. 114/118, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6268643,
+          "lng": 12.5771961,
+          "distance_mi": 0.18,
+          "place_id": "ChIJmQ6DOLhUUkYRnKxXw7VSgUc",
+          "types": [
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crowne Plaza Copenhagen Towers by IHG",
+          "address": "Copenhagen Towers, Ørestads Blvd. 114, 118, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6270439,
+          "lng": 12.5772724,
+          "distance_mi": 0.19,
+          "place_id": "ChIJm804NLhUUkYRx4rp2lBLj_c",
+          "types": [
+            "hotel",
+            "fitness_center",
+            "business_center",
+            "lodging",
+            "gym",
+            "event_venue",
+            "swimming_pool",
+            "bar",
+            "sports_activity_location",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Restaurant Bark",
+          "address": "Crowne Plaza Copenhagen Towers, Ørestads Blvd. 114, 118, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6269519,
+          "lng": 12.5775274,
+          "distance_mi": 0.2,
+          "place_id": "ChIJa04dSLhUUkYRg1dRHRMB6FQ",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Burger & Shawarma",
+          "address": "Ørestads Blvd. 102c, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6292809,
+          "lng": 12.5788751,
+          "distance_mi": 0.35,
+          "place_id": "ChIJ530ho9hVUkYRrGSbU2J541Q",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "KFC (Inside Fields Mall)",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6298082,
+          "lng": 12.5773911,
+          "distance_mi": 0.35,
+          "place_id": "ChIJM1egmrlUUkYRz-waGXnESGY",
+          "types": [
+            "chicken_restaurant",
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Five Guys",
+          "address": "Field's, Arne Jacobsens Allé 12, 1-503, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.629372,
+          "lng": 12.5788412,
+          "distance_mi": 0.35,
+          "place_id": "ChIJoWJpGwBVUkYR5tubHoOps3s",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chili Sharwarma",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": 1,
+          "lat": 55.6299417,
+          "lng": 12.577049899999999,
+          "distance_mi": 0.35,
+          "place_id": "ChIJPaV2iLlUUkYR3_rrlYgtNjU",
+          "types": [
+            "fast_food_restaurant",
+            "middle_eastern_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "WOK - Fields",
+          "address": "Arne Jacobsens Allé 12, Plan 1, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.629857799999996,
+          "lng": 12.5775568,
+          "distance_mi": 0.36,
+          "place_id": "ChIJBfCRHvtVUkYRcBUQUuIvtJM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Burger King",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": 1,
+          "lat": 55.629996,
+          "lng": 12.577214999999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJA8Wk2btUUkYRZs1jf6s9gyA",
+          "types": [
+            "hamburger_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The American",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6298989,
+          "lng": 12.5776913,
+          "distance_mi": 0.36,
+          "place_id": "ChIJp_Tlj7lUUkYRHJD3fAV1acQ",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Centerkiosken Fields",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6297419,
+          "lng": 12.5782221,
+          "distance_mi": 0.36,
+          "place_id": "ChIJZxeFkrlUUkYRODoAJsyofDo",
+          "types": [
+            "convenience_store",
+            "candy_store",
+            "ice_cream_shop",
+            "dessert_shop",
+            "sandwich_shop",
+            "book_store",
+            "confectionery",
+            "food_store",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oakberry Açaí",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": 1,
+          "lat": 55.629831800000005,
+          "lng": 12.577989500000001,
+          "distance_mi": 0.36,
+          "place_id": "ChIJVyDAEwBVUkYRFlQJmVvFy_M",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fiesta Mexican Cuisine",
+          "address": "Asger Jorns Allé 20, 2300 København, Denmark",
+          "price": 1,
+          "lat": 55.6202878,
+          "lng": 12.569949099999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJ3fO6jxlVUkYRFK0uzmle73k",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pad Thai Boys - Ørestad",
+          "address": "Asger Jorns Allé 20, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6202878,
+          "lng": 12.569949099999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJhxmQ9kdVUkYRmTdXCs46eds",
+          "types": [
+            "thai_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Angelo's Burger",
+          "address": "Asger Jorns Allé 20, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6202209,
+          "lng": 12.5699855,
+          "distance_mi": 0.37,
+          "place_id": "ChIJf2WwtFVVUkYRT1HE8ZpJFIA",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Takeaway",
+          "address": "Arne Jacobsens Allé 20, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.629947699999995,
+          "lng": 12.577948899999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJD85EjrlUUkYRlmTENd7AJG8",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chimichurri I/S",
+          "address": "Asger Jorns Allé 20, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.620250999999996,
+          "lng": 12.569728999999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJURCly5JVUkYRzCnHM5wxRoI",
+          "types": [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DELHI I Autentisk Indisk Foodtruck",
+          "address": "Asger Jorns Allé 20, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.6201357,
+          "lng": 12.5701501,
+          "distance_mi": 0.37,
+          "place_id": "ChIJr87-OaxVUkYRZLoLO8NXxM0",
+          "types": [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "RAGU fields",
+          "address": "Arne Jacobsens Allé 12, 2 sal, 2300 København, Denmark",
+          "price": 2,
+          "lat": 55.630245599999995,
+          "lng": 12.5772173,
+          "distance_mi": 0.38,
+          "place_id": "ChIJ128XMMlVUkYRLKn8ZAbbJeo",
+          "types": [
+            "restaurant",
+            "italian_restaurant",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Two-bedroom Apartment with Amazing View and Sunny Balcony next to Royal Arena - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.62538910000001,
+          "lng": 12.571490299999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJeQn_WMdUUkYR6F73AD2eFkE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Three-bedroom Apartment next to Royal Arena and Copenhagen Airport - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.62538910000001,
+          "lng": 12.571490299999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJeQn_WMdUUkYR5sksNh03w34",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ama Hyg Atelier Copenhagen Royal Arena 2 Bedrooms Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6237411,
+          "lng": 12.5754462,
+          "distance_mi": 0.12,
+          "place_id": "ChIJa3p-lcdUUkYRuje_FPkxCKo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ama Hyg Atelier Copenhagen Royal Arena 2 Bedrooms Apartment - Two-Bedroom Apartment with Balcony",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6237412,
+          "lng": 12.575449899999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJcR2Dv8dUUkYRMt1yCK1gqPU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copenhagen modern, fully equipped 2 bedrooms apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6237259,
+          "lng": 12.5755463,
+          "distance_mi": 0.13,
+          "place_id": "ChIJ-dZ9lcdUUkYRFE3U_9QKjJw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Spacious 3 Bedroom Apartment With Balcony At Richard Mortensens Vej Close To The Royal Arena And Fields - Three-Bedroom Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6236992,
+          "lng": 12.5712996,
+          "distance_mi": 0.14,
+          "place_id": "ChIJdRu8PcdUUkYRSJ_03ehlxPE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious 3 Bedroom Apartment With Balcony At Richard Mortensens Vej - One-Bedroom Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6236992,
+          "lng": 12.5712996,
+          "distance_mi": 0.14,
+          "place_id": "ChIJdRu8PcdUUkYRFgRFzHap9sI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Four Points Flex by Sheraton Copenhagen Arena",
+          "address": "Ørestads Blvd. 124, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.625480599999996,
+          "lng": 12.577134899999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJBWZzh1ZVUkYRX6T6Y-I86zU",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A charming apartment in the heart of Copenhagen - Three-Bedroom Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6259003,
+          "lng": 12.5772695,
+          "distance_mi": 0.15,
+          "place_id": "ChIJXVVhEbhUUkYRRUQvKozrXp0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CT",
+          "address": "Hannemanns Allé 25, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6265048,
+          "lng": 12.576806,
+          "distance_mi": 0.15,
+          "place_id": "ChIJQb7rOgBVUkYRAcUZj4SpCxA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crowen plaza hotel copenhagen",
+          "address": "Ørestads Blvd. 114, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6268643,
+          "lng": 12.5771961,
+          "distance_mi": 0.18,
+          "place_id": "ChIJFVloNQBVUkYRgmUqwkNXvlM",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copenhagen Meetings",
+          "address": "Ørestads Blvd. 114-118, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6268643,
+          "lng": 12.5771961,
+          "distance_mi": 0.18,
+          "place_id": "ChIJmQ6DOLhUUkYRPLesd-Qjc3E",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crowne Plaza Copenhagen Towers by IHG",
+          "address": "Copenhagen Towers, Ørestads Blvd. 114, 118, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6270439,
+          "lng": 12.5772724,
+          "distance_mi": 0.19,
+          "place_id": "ChIJm804NLhUUkYRx4rp2lBLj_c",
+          "types": [
+            "hotel",
+            "business_center",
+            "fitness_center",
+            "swimming_pool",
+            "bar",
+            "gym",
+            "event_venue",
+            "sports_activity_location",
+            "lodging",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Arena - Brand New Fully Furnished Apartment - Two-Bedroom Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.622879,
+          "lng": 12.569560099999999,
+          "distance_mi": 0.22,
+          "place_id": "ChIJ39IR1sZUUkYRKeRgELHxdBE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Townhouse With Private Outdoor Area - 2BR - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6230583,
+          "lng": 12.568889599999999,
+          "distance_mi": 0.24,
+          "place_id": "ChIJSdRo1cBUUkYRopmjfiZulQk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sanders Arena - Inviting Three-Bedroom Apartment Close to Metro Station - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.621330199999996,
+          "lng": 12.5743503,
+          "distance_mi": 0.27,
+          "place_id": "ChIJ05XFQMZUUkYRcFa8v1dQF5M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sanders Arena - Lovely Three-Bedroom Apartment Close to Metro Station - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.62117,
+          "lng": 12.574139599999999,
+          "distance_mi": 0.28,
+          "place_id": "ChIJPaixQcZUUkYRLa7xW2DOYPE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sanders Arena - Petite 1-bdr Apt Close to Metro",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6209831,
+          "lng": 12.574247399999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ4bO9asZUUkYRfFlLoCUn83A",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sanders Arena - Adorable Two-Bedroom Apartment Close to Metro Station - Apartment",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.620979299999995,
+          "lng": 12.5742502,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ42e8asZUUkYRt2ljzWDlWWo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Single Room in SHARED APARTMENT with single bed - Single Room with Shared Bathroom",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.6207504,
+          "lng": 12.571450299999999,
+          "distance_mi": 0.32,
+          "place_id": "ChIJ0b8Qj8ZUUkYRObCkTrmskZc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "P-Hus Arena",
+          "address": "Parkeringsplads, Hannemanns Allé 20, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6257029,
+          "lng": 12.57531,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ5dCHrXJVUkYRClEIYOg8qqY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P-plads Nordre Fælled Nord",
+          "address": "Hannemanns Allé 15, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6267254,
+          "lng": 12.573251299999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJycbkD6JVUkYRIQUfpLoIMnM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P-plads Nordre Fælled Syd",
+          "address": "2300 Copenhagen, Denmark",
+          "price": null,
+          "lat": 55.626250899999995,
+          "lng": 12.571140199999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJZRG6KABVUkYREQXosnQeIvM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkering Hannemanns Allé 46 | APCOA PARKING",
+          "address": "Hannemanns Allé 46, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6259605,
+          "lng": 12.576579299999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJ-WGKm7hUUkYR2Y2gx_gQQQc",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkering Hannemanns Allé 21 | APCOA PARKING",
+          "address": "Hannemanns Allé 21, 2300 Kastrup, Denmark",
+          "price": null,
+          "lat": 55.627159,
+          "lng": 12.574800999999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJRyb5TDRVUkYRF42NAtHFRww",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copenhagen Towers Parking (easyPark 3571)",
+          "address": "Ørestads Blvd. 114, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6272829,
+          "lng": 12.5763815,
+          "distance_mi": 0.18,
+          "place_id": "ChIJKUF5XgBVUkYR6KIUKEBY6_Q",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crowne Plaza Copenhagen Towers by IHG",
+          "address": "Copenhagen Towers, Ørestads Blvd. 114, 118, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6270439,
+          "lng": 12.5772724,
+          "distance_mi": 0.19,
+          "place_id": "ChIJm804NLhUUkYRx4rp2lBLj_c",
+          "types": [
+            "hotel",
+            "business_center",
+            "fitness_center",
+            "swimming_pool",
+            "bar",
+            "gym",
+            "event_venue",
+            "sports_activity_location",
+            "lodging",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P-hus Ejler Bille",
+          "address": "Ejler Billes Allé 10, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.622237299999995,
+          "lng": 12.5747056,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ7wGvSsZUUkYRPD4ybiu2Cdc",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkering P-hus Ejler Billes Allé, København S | APCOA PARKING",
+          "address": "Ejler Billes Allé 10, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.622232999999994,
+          "lng": 12.574721,
+          "distance_mi": 0.21,
+          "place_id": "ChIJQxJ-MKpVUkYR1lOehCur9HY",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkhaus",
+          "address": "Ejler Billes Allé f2, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6221368,
+          "lng": 12.5754782,
+          "distance_mi": 0.22,
+          "place_id": "ChIJ56WBUQBVUkYRaFJLEjeutGw",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkering Ejler Billes Allé | APCOA PARKING",
+          "address": "Ejler Billes Allé, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6226948,
+          "lng": 12.5693539,
+          "distance_mi": 0.24,
+          "place_id": "ChIJ94O_OOhVUkYRu4TUxNiXuBw",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ejler Billes Allé 5 Parking",
+          "address": "Ejler Billes Allé 5, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.621787399999995,
+          "lng": 12.575161500000002,
+          "distance_mi": 0.24,
+          "place_id": "ChIJtRIjN8ZUUkYRGwDOXTAm6B4",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkering Hannemanns Allé Syd, København S | APCOA PARKING",
+          "address": "Hannemanns Allé 50, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.626159699999995,
+          "lng": 12.5798667,
+          "distance_mi": 0.25,
+          "place_id": "ChIJXb-vkrdUUkYRX1CF0wkraj0",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Area",
+          "address": "Richard Mortensens Vej 20, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6224834,
+          "lng": 12.569046,
+          "distance_mi": 0.26,
+          "place_id": "ChIJO_Kp08ZUUkYR7O8feClueuI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ørestad Parking, Hannemanns Alle North",
+          "address": "Hannemanns Allé 51, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.626451200000005,
+          "lng": 12.580769,
+          "distance_mi": 0.29,
+          "place_id": "ChIJWazBlrdUUkYRzAnD1pdwdXQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fields Parkeringskælder",
+          "address": "Ove Arups Vej, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.629724100000004,
+          "lng": 12.5755497,
+          "distance_mi": 0.32,
+          "place_id": "ChIJ38LndQlVUkYRv9nXCPZGd7A",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Espresso House",
+          "address": "Ørestads Blvd. 102, Plan 0, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6291892,
+          "lng": 12.578577,
+          "distance_mi": 0.34,
+          "place_id": "ChIJD-ki-OVVUkYR4cV3Znmb8nU",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P-hus Asger Jorn",
+          "address": "Robert Jacobsens Vej 55, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.620131,
+          "lng": 12.5735649,
+          "distance_mi": 0.35,
+          "place_id": "ChIJnyzveQBVUkYRnjPmAUA53sA",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Centerkiosken Fields",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.6297419,
+          "lng": 12.5782221,
+          "distance_mi": 0.36,
+          "place_id": "ChIJZxeFkrlUUkYRODoAJsyofDo",
+          "types": [
+            "ice_cream_shop",
+            "sandwich_shop",
+            "book_store",
+            "bar",
+            "candy_store",
+            "dessert_shop",
+            "convenience_store",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "[P] GoParking Field´s Copenhagen Airport",
+          "address": "Arne Jacobsens Allé 12, 2300 København, Denmark",
+          "price": null,
+          "lat": 55.630415199999995,
+          "lng": 12.5745136,
+          "distance_mi": 0.36,
+          "place_id": "ChIJ911HxNNVUkYRoNWFdv3qjIM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

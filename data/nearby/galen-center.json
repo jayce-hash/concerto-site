@@ -1,0 +1,1239 @@
+{
+  "venueName": "Galen Center",
+  "city": "Los Angeles",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "The Lab Gastropub",
+          "address": "3500 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0199351,
+          "lng": -118.2809083,
+          "distance_mi": 0.1,
+          "place_id": "ChIJX1NVnOHHwoARNeXgS3YaVTM",
+          "types": [
+            "gastropub",
+            "bar_and_grill",
+            "bar",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rosso Oro's Pizzeria",
+          "address": "3522 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0195763,
+          "lng": -118.2811234,
+          "distance_mi": 0.13,
+          "place_id": "ChIJP3yvmuHHwoARkg6_NQ9TZAY",
+          "types": [
+            "pizza_restaurant",
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McKay's",
+          "address": "Radisson Mid-City Hotel, 3540 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0195045,
+          "lng": -118.28104400000001,
+          "distance_mi": 0.13,
+          "place_id": "ChIJieGyj-HHwoARK-hwrwbi76E",
+          "types": [
+            "american_restaurant",
+            "breakfast_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "3335 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0229494,
+          "lng": -118.27961459999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJxV19wqDHwoARQMs8JZBAn0g",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "3335 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0232244,
+          "lng": -118.27949559999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJj2qdPuHHwoAR7YhpFcHmKX8",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blaze Pizza",
+          "address": "3335 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0232437,
+          "lng": -118.2795185,
+          "distance_mi": 0.16,
+          "place_id": "ChIJwWI6MuHHwoARfTZNTBXzECQ",
+          "types": [
+            "pizza_restaurant",
+            "fast_food_restaurant",
+            "italian_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "european_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pho N Mor | Vietnamese Restaurant",
+          "address": "3335 S Figueroa St Unit P, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.023326499999996,
+          "lng": -118.2793454,
+          "distance_mi": 0.16,
+          "place_id": "ChIJu1AzR5vHwoAR7TcmgGf5fBE",
+          "types": [
+            "vietnamese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Movita Juice Bar",
+          "address": "3584 S Figueroa St Suite 5, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0187056,
+          "lng": -118.28175829999999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJZQG0iuHHwoARw-hvviXWwpk",
+          "types": [
+            "juice_shop",
+            "acai_shop",
+            "brazilian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wingstop",
+          "address": "3584 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.018706099999996,
+          "lng": -118.28177849999999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJIW3OiuHHwoAR6paZISsjQ7Q",
+          "types": [
+            "chicken_wings_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jersey Mike's Subs",
+          "address": "3584 S Figueroa St #2, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0185276,
+          "lng": -118.2816256,
+          "distance_mi": 0.2,
+          "place_id": "ChIJ990lJlXHwoARQzs51fWmXjs",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "deli",
+            "food_delivery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wolfgang Puck Catering",
+          "address": "665 W Jefferson Blvd, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0236612,
+          "lng": -118.2812202,
+          "distance_mi": 0.2,
+          "place_id": "ChIJq8ilpObHwoARHXYB5yn4QxA",
+          "types": [
+            "restaurant",
+            "catering_service",
+            "food_delivery",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "3584 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.01858,
+          "lng": -118.28175999999998,
+          "distance_mi": 0.2,
+          "place_id": "ChIJReuNieHHwoARy-MkukW0UWY",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amy King Dundon-Berchtold University Club of USC",
+          "address": "705 W 34th St, Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.0226087,
+          "lng": -118.2831317,
+          "distance_mi": 0.23,
+          "place_id": "ChIJ8WRxkcnHwoAR9_2aAGgOEZE",
+          "types": [
+            "association_or_organization",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks",
+          "address": "3026 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.024119999999996,
+          "lng": -118.27818,
+          "distance_mi": 0.23,
+          "place_id": "ChIJgQgwhjPHwoARaBKgpMlc8ug",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vistango",
+          "address": "3031 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.0243366,
+          "lng": -118.2787532,
+          "distance_mi": 0.24,
+          "place_id": "ChIJ34n9F-fHwoARchKQEMKPPnA",
+          "types": [
+            "italian_restaurant",
+            "breakfast_restaurant",
+            "bar",
+            "pizza_restaurant",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Farmer's Fridge",
+          "address": "Located in the basement outside of the theater room, 817 W 34th St, Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.022162,
+          "lng": -118.28363299999998,
+          "distance_mi": 0.24,
+          "place_id": "ChIJc5yfeWDHwoARUzv8gNK9VJA",
+          "types": [
+            "salad_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Cornhole",
+          "address": "3029 Flower St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.023877299999995,
+          "lng": -118.2773806,
+          "distance_mi": 0.24,
+          "place_id": "ChIJvY1-4OjHwoARRnXDOaLJcuY",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "al'pastor (the restaurant) (USC)",
+          "address": "3655 S Grand Ave Unit 210, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.017436599999996,
+          "lng": -118.2784441,
+          "distance_mi": 0.26,
+          "place_id": "ChIJE3mYaJPJwoARFJJ9D7HAq7w",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taqueria Vista Hermosa",
+          "address": "3655 S Grand Ave C-5, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.017426199999996,
+          "lng": -118.27816659999998,
+          "distance_mi": 0.26,
+          "place_id": "ChIJGyYzkgrIwoAR5zXwQ4j0tCM",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holbox",
+          "address": "3655 S Grand Ave c9, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.017356,
+          "lng": -118.278405,
+          "distance_mi": 0.26,
+          "place_id": "ChIJMc9-jgrIwoARvFaE32ZlJzA",
+          "types": [
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "USC Hotel",
+          "address": "3540 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0192398,
+          "lng": -118.28140679999998,
+          "distance_mi": 0.15,
+          "place_id": "ChIJS-TgfNbHwoARMl16DsEuxH0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotels",
+          "address": "665 W Jefferson Blvd, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0229584,
+          "lng": -118.28193750000001,
+          "distance_mi": 0.19,
+          "place_id": "ChIJo_sPQQDHwoAR1pnef8zRqGY",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vagabond Inn - Los Angeles at USC",
+          "address": "3101 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0240953,
+          "lng": -118.27889359999999,
+          "distance_mi": 0.22,
+          "place_id": "ChIJ94DDJufHwoARxnB-MpmpRs4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shrine Auditorium and Expo Hall, 665 W Jefferson Blvd, Los Angeles, CA 90007, United States",
+          "address": "665 W Jefferson Blvd, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0239858,
+          "lng": -118.28127169999999,
+          "distance_mi": 0.23,
+          "place_id": "ChIJ-VSSfQDHwoARdG4NVTbgCd0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lorenzo Shuttle",
+          "address": "800 W Jefferson Blvd, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.023271699999995,
+          "lng": -118.28337709999998,
+          "distance_mi": 0.26,
+          "place_id": "ChIJL63MQ-THwoARKcM_8l796d4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shawn Manor",
+          "address": "702 W 30th St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.025762199999996,
+          "lng": -118.2799076,
+          "distance_mi": 0.33,
+          "place_id": "ChIJw5T-WObHwoAR_Iu45u871Eg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "New Aster Motel",
+          "address": "2901 Flower St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0250814,
+          "lng": -118.2766088,
+          "distance_mi": 0.34,
+          "place_id": "ChIJV01-Z-fHwoARMxQf84qHgzE",
+          "types": [
+            "motel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Troy East",
+          "address": "3025 Royal St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0257088,
+          "lng": -118.28173539999997,
+          "distance_mi": 0.35,
+          "place_id": "ChIJuY0mf-bHwoAR1N57hbAc9p4",
+          "types": [
+            "apartment_complex",
+            "hostel",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Traveling Healthcare-workers, NURSES, Corporate Travelers. a 60 Night Minimum.",
+          "address": "Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.024738299999996,
+          "lng": -118.27481850000001,
+          "distance_mi": 0.38,
+          "place_id": "ChIJJaTo5t3HwoARdVbFm-Z5EnE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Traveling Healthcare-workers, NURSES, Corporate Travelers. a 60 Night Minimum.",
+          "address": "Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.024738299999996,
+          "lng": -118.27481850000001,
+          "distance_mi": 0.38,
+          "place_id": "ChIJJaTo5t3HwoAR01RSKtHpwcM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amistad",
+          "address": "3745 S Grand Ave, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0154267,
+          "lng": -118.27958290000001,
+          "distance_mi": 0.38,
+          "place_id": "ChIJt1YfkcnJwoARH6CMoMA86nA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Urban Oasis in the Heart of LA Near USC Major Attractions - Queen Room",
+          "address": "Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.0234185,
+          "lng": -118.2877884,
+          "distance_mi": 0.49,
+          "place_id": "ChIJlX03K_vHwoARWNYq30e8iC8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Urban Retreat near Downtown LA USC - Private room with shared Living room and kitchen - Double Room with Private Bathroom",
+          "address": "Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.0234185,
+          "lng": -118.2877884,
+          "distance_mi": 0.49,
+          "place_id": "ChIJlX03K_vHwoARJDEKZi6nF9Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Urban Retreat near Downtown LA & USC - Private room with shared Living room and kitchen",
+          "address": "Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.023429799999995,
+          "lng": -118.28779610000001,
+          "distance_mi": 0.49,
+          "place_id": "ChIJuzg6K_vHwoARenJz81vnBFk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Urban Oasis in the Heart of LA Near USC & Major Attractions",
+          "address": "Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.023429799999995,
+          "lng": -118.28779610000001,
+          "distance_mi": 0.49,
+          "place_id": "ChIJuzg6K_vHwoARe6UudYk21mE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bright Chic Stay Near USC DTLA - Room 1345565301",
+          "address": "Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.0234184,
+          "lng": -118.2878036,
+          "distance_mi": 0.49,
+          "place_id": "ChIJIW05K_vHwoARVGOtLSmlwco",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Traveling Healthcare-workers, NURSES, Corporate Travelers. a 60 Night Minimum.",
+          "address": "Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.026908899999995,
+          "lng": -118.2732544,
+          "distance_mi": 0.55,
+          "place_id": "ChIJ6WaQrN3HwoAR2EcaIbp8eyU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grace Apartment Hotel",
+          "address": "234 W Adams Blvd, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0259913,
+          "lng": -118.27200719999999,
+          "distance_mi": 0.56,
+          "place_id": "ChIJdZeaPtzHwoARfqrkXROFAhU",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "ostel | figueroa corridor",
+          "address": "217 E 29th St, Los Angeles, CA 90011, USA",
+          "price": null,
+          "lat": 34.0219033,
+          "lng": -118.2683417,
+          "distance_mi": 0.66,
+          "place_id": "ChIJu2O-hC_HwoARTaHGAzmME4U",
+          "types": [
+            "hostel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Ostel",
+          "address": "Los Angeles, CA 90011, USA",
+          "price": null,
+          "lat": 34.0220299,
+          "lng": -118.26824189999999,
+          "distance_mi": 0.66,
+          "place_id": "ChIJv4QXk9jHwoARxF9duwI8AZM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "The Lab Gastropub",
+          "address": "3500 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0199351,
+          "lng": -118.2809083,
+          "distance_mi": 0.1,
+          "place_id": "ChIJX1NVnOHHwoARNeXgS3YaVTM",
+          "types": [
+            "gastropub",
+            "bar_and_grill",
+            "bar",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Metropolis",
+          "address": "3335 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.02278520000001,
+          "lng": -118.27986790000001,
+          "distance_mi": 0.13,
+          "place_id": "ChIJodCZd1THwoARd3Wrum_PVBE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McKay's",
+          "address": "Radisson Mid-City Hotel, 3540 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0195045,
+          "lng": -118.28104400000001,
+          "distance_mi": 0.13,
+          "place_id": "ChIJieGyj-HHwoARK-hwrwbi76E",
+          "types": [
+            "american_restaurant",
+            "breakfast_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "3335 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 1,
+          "lat": 34.0229494,
+          "lng": -118.27961459999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJxV19wqDHwoARQMs8JZBAn0g",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "USC Figueroa Parking",
+          "address": "3533 Flower St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0191022,
+          "lng": -118.2806345,
+          "distance_mi": 0.14,
+          "place_id": "ChIJecnQbQDHwoARKjqPfRs7ZSk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Figueroa Street Structure Garage",
+          "address": "Exposition Parking Structure, 3533 Flower St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0191022,
+          "lng": -118.2806345,
+          "distance_mi": 0.14,
+          "place_id": "ChIJe15zJADHwoAR9axCr2QPRNE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gateway Parking",
+          "address": "5123009008, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.023189599999995,
+          "lng": -118.28011540000001,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ7ywoKKPHwoARFumcE9ePc2c",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Art District Parking",
+          "address": "3200 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0231044,
+          "lng": -118.278811,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ1UP2UwDHwoARF6tzfQVbGoA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trojan Grounds (illy)",
+          "address": "642 W 34th St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.0213252,
+          "lng": -118.2824911,
+          "distance_mi": 0.16,
+          "place_id": "ChIJOZwB5-PHwoARD28HBxUNRfU",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Street Structure, USC",
+          "address": "Jefferson / Royal, Los Angeles, CA 90089, USA",
+          "price": null,
+          "lat": 34.02248,
+          "lng": -118.2819019,
+          "distance_mi": 0.16,
+          "place_id": "ChIJg3xYXwDHwoARu7iqV1SJcQY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "University Gateway",
+          "address": "708 W 32nd St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0234291,
+          "lng": -118.2800571,
+          "distance_mi": 0.17,
+          "place_id": "ChIJd6HLzubHwoARJxVFV82XT3U",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grand Avenue Structure Garage",
+          "address": "357 W 35th St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.019134799999996,
+          "lng": -118.2777692,
+          "distance_mi": 0.17,
+          "place_id": "ChIJyZ6HIADHwoARUVwCcbQB9aw",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shrine Auditorium",
+          "address": "754W W 32nd St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0235694,
+          "lng": -118.28137869999999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJtZ21IeTHwoAR7EOrcXYl9ho",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "3584 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.01858,
+          "lng": -118.28175999999998,
+          "distance_mi": 0.2,
+          "place_id": "ChIJReuNieHHwoARy-MkukW0UWY",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "USC Shrine Parking Structure",
+          "address": "686 W 32nd St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.023908999999996,
+          "lng": -118.28041510000001,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ9cjeMxPHwoARu2SZBO40-RQ",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Urbnmrkt",
+          "address": "3434 S Grand Ave #1, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0191942,
+          "lng": -118.27663539999999,
+          "distance_mi": 0.22,
+          "place_id": "ChIJ3zSwBeDHwoARvABQYFIAmXo",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fertitta Cafe",
+          "address": "3601 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.018711599999996,
+          "lng": -118.28245249999999,
+          "distance_mi": 0.22,
+          "place_id": "ChIJP6dYIOLHwoAR1QK-53XvyW0",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks",
+          "address": "3026 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.024119999999996,
+          "lng": -118.27818,
+          "distance_mi": 0.23,
+          "place_id": "ChIJgQgwhjPHwoARaBKgpMlc8ug",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vistango",
+          "address": "3031 S Figueroa St, Los Angeles, CA 90007, USA",
+          "price": 2,
+          "lat": 34.0243366,
+          "lng": -118.2787532,
+          "distance_mi": 0.24,
+          "place_id": "ChIJ34n9F-fHwoARchKQEMKPPnA",
+          "types": [
+            "italian_restaurant",
+            "breakfast_restaurant",
+            "bar",
+            "pizza_restaurant",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Classic Parking Inc",
+          "address": "Parking lot, Los Angeles, CA 90007, USA",
+          "price": null,
+          "lat": 34.0238693,
+          "lng": -118.28209229999999,
+          "distance_mi": 0.24,
+          "place_id": "ChIJjTgxIOTHwoARdWNZ1x87CEQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

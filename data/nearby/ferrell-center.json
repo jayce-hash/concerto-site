@@ -1,0 +1,898 @@
+{
+  "venueName": "Ferrell Center",
+  "city": "Waco",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Subway",
+          "address": "24 La Salle Ave Suite 2B, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.543961399999997,
+          "lng": -97.10733809999999,
+          "distance_mi": 0.3,
+          "place_id": "ChIJuSxDOROCT4YRT_7RWZ3r27w",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copperhead Jack’s",
+          "address": "101 Bagby Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5483502,
+          "lng": -97.1132265,
+          "distance_mi": 0.44,
+          "place_id": "ChIJQXaqKACDT4YRvIyaELqPCtU",
+          "types": [
+            "tex_mex_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rising Roll",
+          "address": "1621 S 3rd St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5451864,
+          "lng": -97.1153118,
+          "distance_mi": 0.6,
+          "place_id": "ChIJ7b-_WwCDT4YRVUy9EVNZp8I",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Trompo King - Taqueria & Grill",
+          "address": "1700 S 5th St Ste b, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.5432141,
+          "lng": -97.11627,
+          "distance_mi": 0.71,
+          "place_id": "ChIJ29jIcACDT4YRTSW35TCBbYE",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chick-fil-A",
+          "address": "1311 S 5th St, Waco, TX 76798, USA",
+          "price": 1,
+          "lat": 31.5469022,
+          "lng": -97.1209727,
+          "distance_mi": 0.9,
+          "place_id": "ChIJzd8f2EaCT4YRjq4dwwQFVwY",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "breakfast_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "food_delivery",
+            "shipping_service",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushic",
+          "address": "1311 S 5th St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5469132,
+          "lng": -97.12110129999999,
+          "distance_mi": 0.91,
+          "place_id": "ChIJ707hbOSDT4YRaxoIHqYpbzE",
+          "types": [
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Panda Express",
+          "address": "1311 S 5th St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5469132,
+          "lng": -97.12110129999999,
+          "distance_mi": 0.91,
+          "place_id": "ChIJu9GK10aCT4YRAggaykCnFzw",
+          "types": [
+            "chinese_restaurant",
+            "chinese_noodle_restaurant",
+            "catering_service",
+            "fast_food_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "asian_restaurant",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Penland Dining Hall",
+          "address": "1120 S 5th St, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.5482506,
+          "lng": -97.12140880000001,
+          "distance_mi": 0.93,
+          "place_id": "ChIJcd6WlEaCT4YRAUOSyFTbyEc",
+          "types": [
+            "cafeteria",
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jess Soul Food",
+          "address": "810 La Salle Ave, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.537402099999994,
+          "lng": -97.1157403,
+          "distance_mi": 0.94,
+          "place_id": "ChIJaaD1Qj2DT4YRRHCEl0ngQQ0",
+          "types": [
+            "soul_food_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "food_delivery",
+            "american_restaurant",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Baylor Club",
+          "address": "1001 S M.L.K. Jr Blvd, Waco, TX 76704, USA",
+          "price": null,
+          "lat": 31.558323,
+          "lng": -97.11674889999999,
+          "distance_mi": 0.97,
+          "place_id": "ChIJj7xMkF2CT4YRrrJPKaLDFmA",
+          "types": [
+            "fine_dining_restaurant",
+            "swimming_pool",
+            "tennis_court",
+            "wedding_venue",
+            "event_venue",
+            "fitness_center",
+            "gym",
+            "athletic_field",
+            "sports_activity_location",
+            "association_or_organization",
+            "health",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1845 at Memorial",
+          "address": "1425 S 8th St, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.544087,
+          "lng": -97.12149160000001,
+          "distance_mi": 0.97,
+          "place_id": "ChIJcYeInTiCT4YRMY70bM6EEFM",
+          "types": [
+            "cafeteria",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Charming 2-bedroom apartment in awesome Waco near Baylor and McLane Stadium.",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.542100899999998,
+          "lng": -97.10465239999999,
+          "distance_mi": 0.41,
+          "place_id": "ChIJ_SiBYRKCT4YRHxBlXT_CJ9A",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Baylor House - 4 Bedroom /4Bath - 2nd Street",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5419292,
+          "lng": -97.1076126,
+          "distance_mi": 0.43,
+          "place_id": "ChIJOYA0oBOCT4YRVJv401c_tJ4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1700 South 2nd - Two-Bedroom Apartment",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.546110199999998,
+          "lng": -97.1128006,
+          "distance_mi": 0.44,
+          "place_id": "ChIJmWAN6mqCT4YR7xZeHi6YXNc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1700 South 2nd",
+          "address": "1700 S 2nd St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5461058,
+          "lng": -97.1128025,
+          "distance_mi": 0.44,
+          "place_id": "ChIJBbdd6mqCT4YRSin1yPBYg00",
+          "types": [
+            "hotel",
+            "inn",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1700 South 2nd",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.546159699999997,
+          "lng": -97.1128617,
+          "distance_mi": 0.44,
+          "place_id": "ChIJBbtd6mqCT4YRuslbGx8qld8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1700 South 2nd",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.546159699999997,
+          "lng": -97.1128617,
+          "distance_mi": 0.44,
+          "place_id": "ChIJBbtd6mqCT4YRmgGKWt94WSE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Waco's only Boutique Hotel - Location Location Location !!!!",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.546159699999997,
+          "lng": -97.1128617,
+          "distance_mi": 0.44,
+          "place_id": "ChIJBbtd6mqCT4YRoxJRhlRQ0zk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brand New Residence Close to Baylor and Magnolia Market",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.541719500000003,
+          "lng": -97.1018295,
+          "distance_mi": 0.49,
+          "place_id": "ChIJ8aHNpA2CT4YRG6k_U35z9lc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Duet 1 BR- Just Steps from Baylor University and Minutes from The Silos",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.543159499999998,
+          "lng": -97.11631009999999,
+          "distance_mi": 0.71,
+          "place_id": "ChIJLRa7lz-CT4YRJcvZH4JEASM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walk to Baylor University: Waco Townhome",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.537576699999995,
+          "lng": -97.10776519999999,
+          "distance_mi": 0.73,
+          "place_id": "ChIJMZNAPhGCT4YR7Mp9TrCXwy8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Adorable condo near Baylor /Magnolia Table /Silos",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.539850199999997,
+          "lng": -97.1158676,
+          "distance_mi": 0.82,
+          "place_id": "ChIJ2_ycbD6CT4YR8hKyiu6Jzs0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Adorable condo near Baylor/Magnolia Table/Silos",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5398522,
+          "lng": -97.11587519999999,
+          "distance_mi": 0.82,
+          "place_id": "ChIJjyydbD6CT4YR8ss1QJhgakk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Duet- Just Steps from Baylor University and Minutes from The Magnolia Silos",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.540309899999997,
+          "lng": -97.1167526,
+          "distance_mi": 0.84,
+          "place_id": "ChIJH7fXXT6CT4YRuaEDv1MFc4E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Hines House-Walk to Baylor",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5361996,
+          "lng": -97.1123429,
+          "distance_mi": 0.9,
+          "place_id": "ChIJhay6UhaCT4YRGAmPGMAyYbg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Hines House- Walk to Baylor/minutes from Downtown",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.536191999999996,
+          "lng": -97.11233519999999,
+          "distance_mi": 0.9,
+          "place_id": "ChIJwVywUhaCT4YRYT4CPX88Ybo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Less than half mile to Baylor and 1.7 to Magnolia! - Two-Bedroom House",
+          "address": "Waco, TX 76704, USA",
+          "price": null,
+          "lat": 31.5612507,
+          "lng": -97.1100082,
+          "distance_mi": 0.95,
+          "place_id": "ChIJ-33OsGaCT4YRMsTh_8Pfkx4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Waco Nest Monthly Stay Near Baylor & Stadium",
+          "address": "Waco, TX 76704, USA",
+          "price": null,
+          "lat": 31.5612907,
+          "lng": -97.1100082,
+          "distance_mi": 0.95,
+          "place_id": "ChIJV5nWsGaCT4YR1GMY6F3FYO4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Silos and Stadium Family Oasis Awaits home - Three-Bedroom House",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.535499599999998,
+          "lng": -97.1130981,
+          "distance_mi": 0.97,
+          "place_id": "ChIJ99AiyBeCT4YRS_4LM7GXk3U",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Silos And Stadium Family Oasis Awaits 3 Bedroom Home",
+          "address": "818 Hines Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.535499999999995,
+          "lng": -97.1131,
+          "distance_mi": 0.97,
+          "place_id": "ChIJXdMiyBeCT4YRkgV9eUZV02c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Brick House /Gated parking /Keyless Smart lock",
+          "address": "Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5407505,
+          "lng": -97.1201935,
+          "distance_mi": 0.99,
+          "place_id": "ChIJ-ZoWLjmCT4YROvmhFQg7ch0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Clinger Cafe",
+          "address": "Baylor Sciences Building, 101 Bagby Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5480922,
+          "lng": -97.1126127,
+          "distance_mi": 0.41,
+          "place_id": "ChIJ12PcbQCDT4YRAlVqGJDKK3s",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "101 Bagby Ave, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.54789,
+          "lng": -97.11318,
+          "distance_mi": 0.44,
+          "place_id": "ChIJo-7xXWqCT4YRub4dRo3bAT4",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "East Village Parking Garage",
+          "address": "204 Bagby Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.544659899999996,
+          "lng": -97.1126711,
+          "distance_mi": 0.47,
+          "place_id": "ChIJh_yAZwCDT4YRADoHyuaYiuU",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Neighbor Car Storage",
+          "address": "2501 S University Parks Dr, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.541650899999993,
+          "lng": -97.1018509,
+          "distance_mi": 0.49,
+          "place_id": "ChIJWYyE9S-DT4YRzxJfcPOBbfQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "storage",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Daily Bread Cafe",
+          "address": "1706 S 3rd St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5449979,
+          "lng": -97.1135829,
+          "distance_mi": 0.51,
+          "place_id": "ChIJs9chIwCDT4YRxhk7O-RBzSE",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "For Keeps Coffee & Bakery",
+          "address": "1815 S 4th St, Waco, TX 76706, USA",
+          "price": 1,
+          "lat": 31.5428764,
+          "lng": -97.1138022,
+          "distance_mi": 0.59,
+          "place_id": "ChIJ7XU2PO6DT4YRR1ZGNSvWfeQ",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Corner Tailgate",
+          "address": "1001 S M.L.K. Jr Blvd, Waco, TX 76704, USA",
+          "price": null,
+          "lat": 31.5562519,
+          "lng": -97.11238949999999,
+          "distance_mi": 0.69,
+          "place_id": "ChIJGVP4dgCDT4YRUvNoUwR4Sjc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1301 S 2nd St, Waco, TX 76798, USA",
+          "price": 1,
+          "lat": 31.54872,
+          "lng": -97.11761,
+          "distance_mi": 0.7,
+          "place_id": "ChIJ2R0PREGCT4YRSGpj8Njs2tM",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Baylor University Visitor Parking",
+          "address": "1340-1468 S 4th St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5467142,
+          "lng": -97.11771639999999,
+          "distance_mi": 0.71,
+          "place_id": "ChIJ32lB-0CCT4YRiiW_E6FmU5Y",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vaporium",
+          "address": "500 Bagby Ave B, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.542966999999997,
+          "lng": -97.1169333,
+          "distance_mi": 0.75,
+          "place_id": "ChIJ2bWgGc-DT4YRj2ZRnYJSYnw",
+          "types": [
+            "lounge_bar",
+            "night_club",
+            "bar",
+            "store",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Buckle",
+          "address": "500 Bagby Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.5429635,
+          "lng": -97.1169432,
+          "distance_mi": 0.75,
+          "place_id": "ChIJ7WzChEWDT4YRCucEOC40mn8",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brazos Parking",
+          "address": "1400 S M.L.K. Jr Blvd, Waco, TX 76704, USA",
+          "price": null,
+          "lat": 31.5592409,
+          "lng": -97.1106598,
+          "distance_mi": 0.83,
+          "place_id": "ChIJIXkX9GaCT4YRLGrGAN3QCgk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Truett Seminary Parking",
+          "address": "Dutton Avenue Office and Parking Facility, 1001 Dutton Ave, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.551268399999994,
+          "lng": -97.11956510000002,
+          "distance_mi": 0.85,
+          "place_id": "ChIJRbMpDACDT4YRM-WVjT3aP-E",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Common Grounds Baylor SUB",
+          "address": "1311 S 5th St, Waco, TX 76706, USA",
+          "price": null,
+          "lat": 31.546910999999998,
+          "lng": -97.121151,
+          "distance_mi": 0.91,
+          "place_id": "ChIJaQp-cReDT4YR7xNUF3iA8oA",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

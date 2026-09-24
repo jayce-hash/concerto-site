@@ -1,0 +1,538 @@
+{
+  "venueName": "Tech Port Center + Arena",
+  "city": "San Antonio",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Provisions Food Hall & Bar",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3815401,
+          "lng": -98.5653201,
+          "distance_mi": 0.0,
+          "place_id": "ChIJ-4ftizRZXIYRufykY8SUr48",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Smokin Cocina",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": 2,
+          "lat": 29.3815401,
+          "lng": -98.5653201,
+          "distance_mi": 0.0,
+          "place_id": "ChIJi5UwDB5ZXIYRnzXtLNjfHzM",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Capos Pizzeria",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3815401,
+          "lng": -98.5653201,
+          "distance_mi": 0.0,
+          "place_id": "ChIJS7J3i59ZXIYREkzsuqpjieE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "TK Teriyaki Kitchen",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": 2,
+          "lat": 29.3815149,
+          "lng": -98.5653785,
+          "distance_mi": 0.0,
+          "place_id": "ChIJ9WhCjL9fXIYRejBFOfNiDXo",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taquería Lupita's Mexican Food",
+          "address": "1502 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": 1,
+          "lat": 29.374415199999998,
+          "lng": -98.55454329999999,
+          "distance_mi": 0.81,
+          "place_id": "ChIJF884F55ZXIYRk_jCpvRZSqw",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La Quintana Mexican Restaurant",
+          "address": "1402 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": 1,
+          "lat": 29.3750742,
+          "lng": -98.5539965,
+          "distance_mi": 0.81,
+          "place_id": "ChIJP6eVIJ5ZXIYRkwZJ9XBViOA",
+          "types": [
+            "mexican_restaurant",
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": ".",
+          "address": "1009 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.379143999999997,
+          "lng": -98.5518254,
+          "distance_mi": 0.83,
+          "place_id": "ChIJpbuVDrBZXIYRRdzT2HfNbYw",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taqueria La Laguna",
+          "address": "1106 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.377646799999997,
+          "lng": -98.5519478,
+          "distance_mi": 0.85,
+          "place_id": "ChIJPUzPG3VZXIYRV7MHcMZ-EQo",
+          "types": [
+            "mexican_restaurant",
+            "latin_american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mendez Cafe",
+          "address": "201 Bartholomew Ave, San Antonio, TX 78211, USA",
+          "price": 1,
+          "lat": 29.370030000000003,
+          "lng": -98.55799739999999,
+          "distance_mi": 0.91,
+          "place_id": "ChIJty6DZJxZXIYROHz19clEIcA",
+          "types": [
+            "mexican_restaurant",
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cuba 1918",
+          "address": "2809 W Southcross Blvd, San Antonio, TX 78211, USA",
+          "price": 2,
+          "lat": 29.3693662,
+          "lng": -98.5583444,
+          "distance_mi": 0.94,
+          "place_id": "ChIJC6mgD0xZXIYRvktiwV2uw10",
+          "types": [
+            "cuban_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blanquita Mexican Restaurant",
+          "address": "2110 Cupples Rd, San Antonio, TX 78226, USA",
+          "price": 1,
+          "lat": 29.3867171,
+          "lng": -98.5501766,
+          "distance_mi": 0.98,
+          "place_id": "ChIJ_78lq3JZXIYR101uuXj9boQ",
+          "types": [
+            "mexican_restaurant",
+            "tex_mex_restaurant",
+            "breakfast_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Cozy 1-bedroom apartment with WiFi, fitness room in enchanting San Antonio",
+          "address": "San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3814583,
+          "lng": -98.5652923,
+          "distance_mi": 0.0,
+          "place_id": "ChIJv0jKpnpZXIYRsQINYGujVcw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Texas-themed bungalow casita. Pet friendly.",
+          "address": "San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.375681,
+          "lng": -98.55445859999999,
+          "distance_mi": 0.77,
+          "place_id": "ChIJxWVS8nVZXIYRzOklNCmGFsQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Texas-themed bungalow casita. Pet friendly.",
+          "address": "San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.372718799999998,
+          "lng": -98.55270379999999,
+          "distance_mi": 0.97,
+          "place_id": "ChIJT_5_q59ZXIYRL-DSXeYIGuc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Savage Coffee Co.",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": 1,
+          "lat": 29.3815401,
+          "lng": -98.5653201,
+          "distance_mi": 0.0,
+          "place_id": "ChIJMcoV9XNpXIYRusk2QuDDliw",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P1102",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3815149,
+          "lng": -98.5653785,
+          "distance_mi": 0.0,
+          "place_id": "ChIJKdQvJ55ZXIYRW_GhRv02gTo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P1103",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3815149,
+          "lng": -98.5653785,
+          "distance_mi": 0.0,
+          "place_id": "ChIJhyI-2CdZXIYROYdXrKVaBrE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P1101",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3815149,
+          "lng": -98.5653785,
+          "distance_mi": 0.0,
+          "place_id": "ChIJOVy7rntZXIYRamHbtCamyOU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tech Port Gaming",
+          "address": "3331 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.381191800000003,
+          "lng": -98.5653603,
+          "distance_mi": 0.02,
+          "place_id": "ChIJS9Oi_9tZXIYRfNJyjgWJowI",
+          "types": [
+            "video_arcade",
+            "lounge_bar",
+            "internet_cafe",
+            "bar",
+            "event_venue",
+            "night_club",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Lot",
+          "address": "3130 General Hudnell Dr, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.3814707,
+          "lng": -98.559483,
+          "distance_mi": 0.35,
+          "place_id": "ChIJsXbTRABZXIYRqs-qa1ZDdWU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "White Buffalo Coffee Bar",
+          "address": "3515 S General McMullen, San Antonio, TX 78226, USA",
+          "price": 1,
+          "lat": 29.376758199999998,
+          "lng": -98.56039709999999,
+          "distance_mi": 0.44,
+          "place_id": "ChIJN0EBWwBZXIYRQQ0Ef7VwBxE",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La Bamba Club",
+          "address": "782111146, 1621 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": 1,
+          "lat": 29.373059500000004,
+          "lng": -98.5560466,
+          "distance_mi": 0.81,
+          "place_id": "ChIJL7pUw51ZXIYRrbIzoY5yAd4",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CJ AUTO STORAGE AND FULL SERVICES",
+          "address": "1003 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.379562000000004,
+          "lng": -98.5519477,
+          "distance_mi": 0.82,
+          "place_id": "ChIJFc9CSQBZXIYRbvqERJzLvpw",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SirVezas San Antonio",
+          "address": "1322 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.3756645,
+          "lng": -98.5534539,
+          "distance_mi": 0.82,
+          "place_id": "ChIJh1jnevxZXIYRmiXB8pVQpk8",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hunter's Corner Sport Bar",
+          "address": "1806 Quintana Rd, San Antonio, TX 78211, USA",
+          "price": 1,
+          "lat": 29.371787700000002,
+          "lng": -98.55654009999999,
+          "distance_mi": 0.85,
+          "place_id": "ChIJX93vr2tZXIYR2a4S0huaFwA",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Protec South Parking",
+          "address": "363 Berman Rd, San Antonio, TX 78226, USA",
+          "price": null,
+          "lat": 29.368984899999994,
+          "lng": -98.5652224,
+          "distance_mi": 0.86,
+          "place_id": "ChIJoyPjCI9ZXIYR6qsIhS0WX30",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Angel's Sports Bar",
+          "address": "2802 W Southcross Blvd, San Antonio, TX 78211, USA",
+          "price": null,
+          "lat": 29.3690744,
+          "lng": -98.55818939999999,
+          "distance_mi": 0.96,
+          "place_id": "ChIJ8egGgZtZXIYRRsf3nvt1Nbw",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

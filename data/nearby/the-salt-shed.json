@@ -1,0 +1,1204 @@
+{
+  "venueName": "The Salt Shed",
+  "city": "Chicago",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Goose IslandBrewpub",
+          "address": "1221 W Blackhawk St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.907010199999995,
+          "lng": -87.65856769999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJzx9NGgDTD4gRVNhD_RZAiaM",
+          "types": [
+            "brewpub",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Goose Island Salt Shed Pub",
+          "address": "1221 W Blackhawk St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.907010199999995,
+          "lng": -87.65856769999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJOQcEYT7TD4gRJC_VhMegzvs",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mixteco Grill (Wicker Park)",
+          "address": "1209 N Noble St, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.9038867,
+          "lng": -87.66238159999999,
+          "distance_mi": 0.26,
+          "place_id": "ChIJqVzeXT7TD4gR4vlZ4_hqlJs",
+          "types": [
+            "mexican_restaurant",
+            "tex_mex_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Azul",
+          "address": "1177 N Elston Ave, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9031646,
+          "lng": -87.6576126,
+          "distance_mi": 0.26,
+          "place_id": "ChIJx6qly3rTD4gRLJDyWfXS5vY",
+          "types": [
+            "latin_american_restaurant",
+            "spanish_restaurant",
+            "mexican_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vaca’s Creamery",
+          "address": "1436 W Blackhawk St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9072483,
+          "lng": -87.66424169999999,
+          "distance_mi": 0.26,
+          "place_id": "ChIJU26m5-bTD4gRhpj9jDOekZs",
+          "types": [
+            "ice_cream_shop",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stanley's Grill",
+          "address": "1543 N Elston Ave, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.9102264,
+          "lng": -87.6615561,
+          "distance_mi": 0.27,
+          "place_id": "ChIJfXWIMNnSD4gRS7RwZCotnlQ",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Art's Drive In",
+          "address": "1333 W North Ave, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.910480899999996,
+          "lng": -87.66168549999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ4V-XNNnSD4gRSGC5AkrEpiw",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Poke Bowl Co",
+          "address": "1550 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.9087408,
+          "lng": -87.6527413,
+          "distance_mi": 0.36,
+          "place_id": "ChIJf3R8LyTTD4gREV2TlhDUspY",
+          "types": [
+            "hawaiian_restaurant",
+            "health_food_store",
+            "american_restaurant",
+            "grocery_store",
+            "food_store",
+            "health",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Market Sandwich",
+          "address": "1550 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.908678699999996,
+          "lng": -87.65264119999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJd1ATJiTTD4gRCjmbx1bTC2Y",
+          "types": [
+            "sandwich_shop",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tuk Tuk Thai Isan Street Food (Wicker Park)",
+          "address": "1500 W Division St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9036274,
+          "lng": -87.66522239999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJDyv9KzjTD4gRzKyS02azA0Q",
+          "types": [
+            "thai_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Deep Purpl Acai Bowls",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.910520999999996,
+          "lng": -87.6536047,
+          "distance_mi": 0.39,
+          "place_id": "ChIJpYdS3bnTD4gRVeQ9L14dd3c",
+          "types": [
+            "acai_shop",
+            "brazilian_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Forklift",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.910520999999996,
+          "lng": -87.6536047,
+          "distance_mi": 0.39,
+          "place_id": "ChIJMx4P7B3TD4gRNJ1Dt4s5zAE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amedicano",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.910520999999996,
+          "lng": -87.6536047,
+          "distance_mi": 0.39,
+          "place_id": "ChIJx4dDaGnTD4gRl4aIBqGfMbE",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Olive Mediterranean Grill",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9103736,
+          "lng": -87.65340839999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJvWFhqSbTD4gRGD58UkrCHW4",
+          "types": [
+            "mediterranean_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Corey's NYC Bagel Deli",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.9104317,
+          "lng": -87.65346339999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJXeVrUyHTD4gRY79UzUTGDQ0",
+          "types": [
+            "bagel_shop",
+            "sandwich_shop",
+            "deli",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Goose Island Shrimp House",
+          "address": "1011 W Division St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9033515,
+          "lng": -87.6530157,
+          "distance_mi": 0.4,
+          "place_id": "ChIJiztfKi_TD4gR2eyBY1DKrTQ",
+          "types": [
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jiang Niu BBQ House Lincoln Park",
+          "address": "1523 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.908981999999995,
+          "lng": -87.6520024,
+          "distance_mi": 0.4,
+          "place_id": "ChIJIQWvmCTTD4gRWrrEo0k2efo",
+          "types": [
+            "barbecue_restaurant",
+            "korean_barbecue_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "chinese_restaurant",
+            "korean_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mott St",
+          "address": "1401 N Ashland Ave, Chicago, IL 60622, USA",
+          "price": 2,
+          "lat": 41.9071223,
+          "lng": -87.6672277,
+          "distance_mi": 0.41,
+          "place_id": "ChIJKRH5t9rSD4gRCcziAsL8HuI",
+          "types": [
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Botanero",
+          "address": "1413 N Ashland Ave, Chicago, IL 60622, USA",
+          "price": 2,
+          "lat": 41.9074515,
+          "lng": -87.66726369999999,
+          "distance_mi": 0.42,
+          "place_id": "ChIJbZKrrCTTD4gR8fUtToHNXvg",
+          "types": [
+            "mexican_restaurant",
+            "cocktail_bar",
+            "lounge_bar",
+            "night_club",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Joe's on Weed St.",
+          "address": "940 W Weed St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9099108,
+          "lng": -87.6521578,
+          "distance_mi": 0.42,
+          "place_id": "ChIJr2GMEiTTD4gRt5EY1kGRI3c",
+          "types": [
+            "live_music_venue",
+            "bar_and_grill",
+            "concert_hall",
+            "auditorium",
+            "sports_bar",
+            "bar",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Ultra Modern Wicker Park Pad w / HUGE Outdoor Space",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9073105,
+          "lng": -87.6585236,
+          "distance_mi": 0.05,
+          "place_id": "ChIJV2HZc9jSD4gR_7ndxYroYrw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pristine Paradise Haven. Free Parking \\n",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.908481599999995,
+          "lng": -87.6626205,
+          "distance_mi": 0.21,
+          "place_id": "ChIJXbT8eNnSD4gR9m65H2f1FRU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious 4BR Near Wicker Park",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.907230399999996,
+          "lng": -87.6635285,
+          "distance_mi": 0.22,
+          "place_id": "ChIJJc_wItrSD4gRd9yVY_Gab1k",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "4BR Classy Radiant Apt in Wicker Park - Blackhawk 3F - Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.907298999999995,
+          "lng": -87.66359709999999,
+          "distance_mi": 0.23,
+          "place_id": "ChIJ48QjI9rSD4gRRCjBf3MtLQ4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pristine Paradise Chicago 3BD 2BA Free Parking - One-Bedroom Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.907981899999996,
+          "lng": -87.66368109999999,
+          "distance_mi": 0.25,
+          "place_id": "ChIJmTTnMdrSD4gRB9TcQdiiuWs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Unique + Creative Loft (Hidden Gem) in Chicago - Two-Bedroom Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.904140399999996,
+          "lng": -87.6629105,
+          "distance_mi": 0.26,
+          "place_id": "ChIJX-L7MtfSD4gRdkV5B2DSX2Y",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 2-bedroom apartment in welcoming Chicago in the Wicker Park area",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.905910500000005,
+          "lng": -87.6646576,
+          "distance_mi": 0.29,
+          "place_id": "ChIJT-ASMsXSD4gR4tEbWtVkjnE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious Duplex - 4BD/3BA - Sleeps 12!",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.907215099999995,
+          "lng": -87.66475679999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJCR9_78TSD4gRIOBSQYyrUGQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wicker Park 1-BR Walk to Train & Grocery Easy Downtown Access",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.906143199999995,
+          "lng": -87.6648712,
+          "distance_mi": 0.29,
+          "place_id": "ChIJNexdd9rSD4gR1kVdEMl4OnM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wicker Park 1-BR Walk to Train Grocery Easy Downtown Access - One-Bedroom Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9061394,
+          "lng": -87.6648712,
+          "distance_mi": 0.29,
+          "place_id": "ChIJ3V5nd9rSD4gRH_oZ8tuU6E8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "✪ Cozy 1 Bedroom close to Downtown Chicago ✪ - One-Bedroom Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9061203,
+          "lng": -87.6648788,
+          "distance_mi": 0.29,
+          "place_id": "ChIJj0Nhd9rSD4gRGmpCUHwmbsU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Star Hotel Laundry",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.903853000000005,
+          "lng": -87.6548744,
+          "distance_mi": 0.3,
+          "place_id": "ChIJh4N_7yjTD4gRXyzlKMaq1c4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Relax in Winter Park - You Will LOVE the Garden Access and the Classic, Comfortable Feeling by AllSet Turnover",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.905017799999996,
+          "lng": -87.6647033,
+          "distance_mi": 0.31,
+          "place_id": "ChIJdSJwkdDSD4gReP8WusU89r8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lovely 1 bedroom in Charming Neighborhood Wicker Park - Apartment",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9042282,
+          "lng": -87.66535950000001,
+          "distance_mi": 0.36,
+          "place_id": "ChIJ2e1V9tDSD4gRW_VByaDLucc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Light n' Bright City Stay",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9010811,
+          "lng": -87.6604309,
+          "distance_mi": 0.4,
+          "place_id": "ChIJTaFfftbSD4gRSrs_ZCMXLPY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chicago Shared Living Space with Office Space",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9109115,
+          "lng": -87.6537781,
+          "distance_mi": 0.4,
+          "place_id": "ChIJIa0IUiHTD4gR9koDzyCGfPM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stay Pineapple",
+          "address": "1501 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9084947,
+          "lng": -87.6517609,
+          "distance_mi": 0.4,
+          "place_id": "ChIJN8tpSwDTD4gRcmK78I1InLk",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Foundry Unmatched Skyline Views at Lincoln Park",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9079361,
+          "lng": -87.65153509999999,
+          "distance_mi": 0.4,
+          "place_id": "ChIJtUiksyXTD4gRAOrtb32LchY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Foundry Unmatched Skyline Views at Lincoln Park",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9079361,
+          "lng": -87.65153509999999,
+          "distance_mi": 0.4,
+          "place_id": "ChIJkWulsyXTD4gRw0PYxA1mKD8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2 Rooftops, 2 Car Garage, 4 Stories|Down-Townhome",
+          "address": "Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9085197,
+          "lng": -87.651741,
+          "distance_mi": 0.4,
+          "place_id": "ChIJoaMTSSTTD4gR0KG1bzDs7jY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Three Top Lounge at The Salt Shed",
+          "address": "1357 N Elston Ave, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9067328,
+          "lng": -87.65918860000001,
+          "distance_mi": 0.0,
+          "place_id": "ChIJ8YH9SyfTD4gRbnbYIfA4Nbw",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Elston Electric",
+          "address": "1357 N Elston Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9069189,
+          "lng": -87.659622,
+          "distance_mi": 0.02,
+          "place_id": "ChIJw707FobTD4gRST4gxWp3BH0",
+          "types": [
+            "video_arcade",
+            "amusement_center",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Goose IslandBrewpub",
+          "address": "1221 W Blackhawk St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.907010199999995,
+          "lng": -87.65856769999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJzx9NGgDTD4gRVNhD_RZAiaM",
+          "types": [
+            "brewpub",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P5314",
+          "address": "1401 N Magnolia Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.907340700000006,
+          "lng": -87.65901079999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJDyw5QtXTD4gRW4K752m21sQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jack's Big City Ranch",
+          "address": "1261 W Le Moyne St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9086036,
+          "lng": -87.66017149999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJXZt_ZgLTD4gRTdjbI2EMslI",
+          "types": [
+            "miniature_golf_course",
+            "bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1177 N Elston Ave Chicago Parking",
+          "address": "1177n N Elston Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.903190599999995,
+          "lng": -87.65759690000002,
+          "distance_mi": 0.26,
+          "place_id": "ChIJn2qc0inTD4gR5bVQfTriEi4",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vaca’s Creamery",
+          "address": "1436 W Blackhawk St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9072483,
+          "lng": -87.66424169999999,
+          "distance_mi": 0.26,
+          "place_id": "ChIJU26m5-bTD4gRhpj9jDOekZs",
+          "types": [
+            "ice_cream_shop",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SP+ Parking",
+          "address": "1300 W North Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9109358,
+          "lng": -87.6605773,
+          "distance_mi": 0.3,
+          "place_id": "ChIJWVir_zTTD4gRS5mS-QKGc20",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chicago Parking - CTA Blue Line 1300 West North Avenue",
+          "address": "1300 W North Ave, Chicago, IL 60622, USA",
+          "price": null,
+          "lat": 41.91099,
+          "lng": -87.6604748,
+          "distance_mi": 0.3,
+          "place_id": "ChIJkemmKt_SD4gRTVmEyEyR03U",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1302 W North Ave Parking",
+          "address": "1302 W North Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9109696,
+          "lng": -87.6606182,
+          "distance_mi": 0.3,
+          "place_id": "ChIJ-cqa1d7SD4gRWjvs8qZoSDg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Lot L",
+          "address": "1409 N Greenview Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9080344,
+          "lng": -87.66494229999999,
+          "distance_mi": 0.31,
+          "place_id": "ChIJJW8oTtrSD4gRsvLuQ6PRETs",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wine Bar",
+          "address": "1550 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.908678699999996,
+          "lng": -87.65264119999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJzxaLtkTTD4gRz_tE_9WD6NQ",
+          "types": [
+            "wine_bar",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "WFM Coffee Bar",
+          "address": "1550 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9091813,
+          "lng": -87.65287339999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJ3eoL1GPTD4gR7aYU7dXfkRE",
+          "types": [
+            "coffee_shop",
+            "juice_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Prefer Valet Parking Service",
+          "address": "1440 N Kingsbury St #221, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.908380799999996,
+          "lng": -87.65218750000001,
+          "distance_mi": 0.38,
+          "place_id": "ChIJF8VkqCXTD4gR4_HlVclhyqE",
+          "types": [
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PRYSM Chicago",
+          "address": "1543 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.909366299999995,
+          "lng": -87.6525434,
+          "distance_mi": 0.39,
+          "place_id": "ChIJKbhQPSTTD4gRVW0a0Mvp_I8",
+          "types": [
+            "night_club",
+            "lounge_bar",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Corey's NYC Bagel Deli",
+          "address": "1001 W North Ave, Chicago, IL 60642, USA",
+          "price": 1,
+          "lat": 41.9104317,
+          "lng": -87.65346339999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJXeVrUyHTD4gRY79UzUTGDQ0",
+          "types": [
+            "bagel_shop",
+            "sandwich_shop",
+            "deli",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1547 N Kingsbury Street",
+          "address": "Parking lot, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.9096038,
+          "lng": -87.65261009999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJsczcGSTTD4gRny3X0SU3VJ4",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "No.9 Chicago",
+          "address": "1543 N Kingsbury St, Chicago, IL 60642, USA",
+          "price": 2,
+          "lat": 41.9094182,
+          "lng": -87.6524611,
+          "distance_mi": 0.39,
+          "place_id": "ChIJFdNL9pPTD4gR1_ElR0rGdaI",
+          "types": [
+            "lounge_bar",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1531 N Kingsbury St Parking",
+          "address": "1551 N Sheffield Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.909912399999996,
+          "lng": -87.6528094,
+          "distance_mi": 0.4,
+          "place_id": "ChIJAXS1PSTTD4gRxcKIzP9Ck5s",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1001 W North Ave Parking",
+          "address": "1001W W North Ave, Chicago, IL 60642, USA",
+          "price": null,
+          "lat": 41.910489999999996,
+          "lng": -87.65338489999999,
+          "distance_mi": 0.4,
+          "place_id": "ChIJ3wUJqybTD4gRrIkyPmemDYU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

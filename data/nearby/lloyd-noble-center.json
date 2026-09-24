@@ -1,0 +1,872 @@
+{
+  "venueName": "Lloyd Noble Center",
+  "city": "Norman",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Pizza Hut Express",
+          "address": "Lloyd Noble Center, 2900 S Jenkins Ave, Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.1871666,
+          "lng": -97.44425059999999,
+          "distance_mi": 0.01,
+          "place_id": "ChIJfSFRxSNosocRyDmmfEqTJB8",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sonic Drive-In",
+          "address": "2850 Chautauqua Ave, Norman, OK 73072, USA",
+          "price": 1,
+          "lat": 35.1885547,
+          "lng": -97.4507004,
+          "distance_mi": 0.38,
+          "place_id": "ChIJDYd5nDxosocREUYWiRFy1yw",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "breakfast_restaurant",
+            "ice_cream_shop",
+            "hamburger_restaurant",
+            "shipping_service",
+            "hot_dog_stand",
+            "dessert_shop",
+            "hot_dog_restaurant",
+            "american_restaurant",
+            "confectionery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Flying Cow Cafe",
+          "address": "120 David L Boren Blvd, Norman, OK 73072, USA",
+          "price": 1,
+          "lat": 35.1812974,
+          "lng": -97.4400079,
+          "distance_mi": 0.46,
+          "place_id": "ChIJfZ6OGl8UsocRZGjtAZYhT0w",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rudy's \"Country Store\" and Bar-B-Q",
+          "address": "3450 Chautauqua Ave, Norman, OK 73072, USA",
+          "price": 2,
+          "lat": 35.1811089,
+          "lng": -97.4509621,
+          "distance_mi": 0.55,
+          "place_id": "ChIJSzFbpRdosocRIWgWZvEGdnI",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushi with Gusto",
+          "address": "1695 Asp Ave, Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.1987062,
+          "lng": -97.44393130000002,
+          "distance_mi": 0.81,
+          "place_id": "ChIJL3EGu5xpsocRBh91oXUPi7w",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Basic Knead",
+          "address": "1695 Asp Ave, Norman, OK 73019, USA",
+          "price": 1,
+          "lat": 35.1987062,
+          "lng": -97.44393130000002,
+          "distance_mi": 0.81,
+          "place_id": "ChIJC_El4sVpsocRnZZwCgO12IA",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Glow Kitchen",
+          "address": "1691 Asp Ave, Norman, OK 73019, USA",
+          "price": 1,
+          "lat": 35.199263699999996,
+          "lng": -97.44391139999999,
+          "distance_mi": 0.85,
+          "place_id": "ChIJa8eAuhBpsocRLNJE2A7eZIg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Credo Kitchen",
+          "address": "1691 Asp Ave, Norman, OK 73019, USA",
+          "price": 1,
+          "lat": 35.1994642,
+          "lng": -97.44391440000001,
+          "distance_mi": 0.86,
+          "place_id": "ChIJG2TbuvppsocRpIgtV2re3zQ",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Nosh on the Green at the OU Jimmie Austin Golf Club in Norman",
+          "address": "4 Ransom Dr, Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.1945863,
+          "lng": -97.4317554,
+          "distance_mi": 0.88,
+          "place_id": "ChIJ68ILrIBDsocRKEzfwQmja7w",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jimmie Austin OU Clubhouse Grill",
+          "address": "4 Ransom Dr, Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.1945863,
+          "lng": -97.4317554,
+          "distance_mi": 0.88,
+          "place_id": "ChIJV0UepuhDsocRlma6Gx169lo",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Couch Restaurants",
+          "address": "333 3rd St, Norman, OK 73072, USA",
+          "price": 1,
+          "lat": 35.2000141,
+          "lng": -97.44569,
+          "distance_mi": 0.9,
+          "place_id": "ChIJKW87KSxosocRZ1GBpOj3XHc",
+          "types": [
+            "cafeteria",
+            "breakfast_restaurant",
+            "diner",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Soonervillage",
+          "address": "Lloyd Noble Center, 2900 S Jenkins Ave, Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.1877245,
+          "lng": -97.4444617,
+          "distance_mi": 0.05,
+          "place_id": "ChIJpdZBwiNosocRM9xuAKqtxNE",
+          "types": [
+            "rv_park",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "< 1 Mi to OU Campus - Norman Vacation Rental",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.183635699999996,
+          "lng": -97.4535523,
+          "distance_mi": 0.57,
+          "place_id": "ChIJzUX68D1osocRfL0ZXnmJM34",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious 5-Bed by OU Campus – Modern, Fully Renovated, Game Day Ready!",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.185890199999996,
+          "lng": -97.45439909999999,
+          "distance_mi": 0.57,
+          "place_id": "ChIJl0EagD5osocRccws-PW9xr4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "All American Casa",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1937141,
+          "lng": -97.4506912,
+          "distance_mi": 0.59,
+          "place_id": "ChIJ5UkwmjposocRqZJgSzi8Lvc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Just Like Home 10 Pool in Norman, Billiards",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1890869,
+          "lng": -97.45471189999999,
+          "distance_mi": 0.6,
+          "place_id": "ChIJK6fTUDlosocRMQjREKc2g1M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "OU Game Day Get-Away / 6BR Light-Filled Home / Sleeps 12",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.191978399999996,
+          "lng": -97.4537964,
+          "distance_mi": 0.64,
+          "place_id": "ChIJ_wiMLzposocRY_ppVFqCbjM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Light-filled 6BR home near OU campus",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1919975,
+          "lng": -97.45378880000001,
+          "distance_mi": 0.64,
+          "place_id": "ChIJ_wiMLzposocRg-Kvw8XWfEE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "--- NEW LISTING --- The Pickard at OU - a LUXURY family entertaining retreat!",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1908112,
+          "lng": -97.4548492,
+          "distance_mi": 0.65,
+          "place_id": "ChIJVSqyezlosocRrzETbLJMaxw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Poppy's Place - Campus Home w / Pool",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1916886,
+          "lng": -97.4548187,
+          "distance_mi": 0.68,
+          "place_id": "ChIJ4_hohDlosocRxAAPMJ4BqbU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Gameroom | 2,400 Sq Ft Party House | 1.4 Mi to OU Stadium",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.194564799999995,
+          "lng": -97.45195,
+          "distance_mi": 0.68,
+          "place_id": "ChIJXw6whjBosocRwVB4uWSit4E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming Fenced Casita Walk to OU Campus, Stadium & Sam Noble Museum",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1946182,
+          "lng": -97.4519959,
+          "distance_mi": 0.68,
+          "place_id": "ChIJ14EghDBosocRMrk4ORYVKRs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sooner Suites",
+          "address": "1775 Maple, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1971025,
+          "lng": -97.4467399,
+          "distance_mi": 0.71,
+          "place_id": "ChIJOecnrS9osocR-sXPGnfpUpk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Super close to campus and Lloyd Noble Center. Clean home with updated kitchen.",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1891288,
+          "lng": -97.4570694,
+          "distance_mi": 0.73,
+          "place_id": "ChIJTQQI2DhosocRuqxG13Z9NII",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "University Home - 6BRs - Sleeps 10",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1913834,
+          "lng": -97.45652009999999,
+          "distance_mi": 0.75,
+          "place_id": "ChIJr1HlqDlosocRzKnNsnQbDdo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spectacular home near OU campus, museums, baseball, soccer, tennis, and arena.",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1927796,
+          "lng": -97.4557877,
+          "distance_mi": 0.76,
+          "place_id": "ChIJHzTIwTlosocRE5UqIcj1xuw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful Spacious Home near OU Campus",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1876793,
+          "lng": -97.4581757,
+          "distance_mi": 0.78,
+          "place_id": "ChIJZwNnNz9osocR2BVNdf6cnVQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Quiet tree lined street just a short walk from the OU Campus",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.196548500000006,
+          "lng": -97.454277,
+          "distance_mi": 0.87,
+          "place_id": "ChIJLTHd1DBosocRT2eJDNEsgDk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Sooner Retreat: Walk to OU, Game Day Ready!",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1978493,
+          "lng": -97.4520568,
+          "distance_mi": 0.87,
+          "place_id": "ChIJo6i4DjFosocR_AuptJAWres",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Quiet tree lined street just a short walk to the OU Campus",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1965599,
+          "lng": -97.45428470000002,
+          "distance_mi": 0.87,
+          "place_id": "ChIJVRv0TzFosocRirBRmJEmZAc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Newly Renovated 3 bedroom home…5 minute walk to the OU Campus sports venues",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1910896,
+          "lng": -97.45899969999999,
+          "distance_mi": 0.88,
+          "place_id": "ChIJD1aUYjhosocRfqVUH0Q4AC8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Visitor Parking",
+          "address": "Norman, OK 73019, USA",
+          "price": null,
+          "lat": 35.186126099999996,
+          "lng": -97.4385685,
+          "distance_mi": 0.33,
+          "place_id": "ChIJgV5lMgBpsocRSPahxBn24-w",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Visitor Parking",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1840536,
+          "lng": -97.4394016,
+          "distance_mi": 0.34,
+          "place_id": "ChIJg1KxaQBpsocRnMH8IesGREc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café 201",
+          "address": "201 David L Boren Blvd, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1837224,
+          "lng": -97.438125,
+          "distance_mi": 0.42,
+          "place_id": "ChIJnWDmldhDsocRyDjbnmbCPv4",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Youth Baseball parking",
+          "address": "Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.191510199999996,
+          "lng": -97.4387191,
+          "distance_mi": 0.44,
+          "place_id": "ChIJvSiU_3NpsocRQyrP_Ux_wBQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "215 E Constitution St, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.192726199999996,
+          "lng": -97.4397779,
+          "distance_mi": 0.47,
+          "place_id": "ChIJUdUbFQBpsocRfKQD5ZWWd6k",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Reaves North Parking Lot",
+          "address": "Reaves Park Rd, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1929456,
+          "lng": -97.43940599999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJ9-E2OwBpsocRxnCf_l9_RaQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amicus Café",
+          "address": "300 W Timberdell Rd, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1961277,
+          "lng": -97.44625200000002,
+          "distance_mi": 0.64,
+          "place_id": "ChIJCdddRh5psocRbgEMuBFEs2Y",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "5HV6+WP, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1948718,
+          "lng": -97.438232,
+          "distance_mi": 0.64,
+          "place_id": "ChIJUwJBfQBpsocRU34ya-JdGko",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Timberdell Road Parking Facility",
+          "address": "1798 S Jenkins Ave, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.1970229,
+          "lng": -97.44269949999999,
+          "distance_mi": 0.7,
+          "place_id": "ChIJJ0ErHgBpsocRHQ-IgUaWfMQ",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "119 E Timberdell Rd, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.19667,
+          "lng": -97.4394611,
+          "distance_mi": 0.72,
+          "place_id": "ChIJocEbNgBpsocRqhnGMuoLUY4",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Hive",
+          "address": "1695 Asp Ave, Norman, OK 73019, USA",
+          "price": 1,
+          "lat": 35.1987289,
+          "lng": -97.4436997,
+          "distance_mi": 0.81,
+          "place_id": "ChIJ5xfFQCFpsocR2qKad9vJcCc",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PMC | Public Parking",
+          "address": "1203 Elm Ave, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.200178,
+          "lng": -97.4476059,
+          "distance_mi": 0.93,
+          "place_id": "ChIJOaZwuEBpsocR1WnFhsA3rrQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "parkingmgt.com",
+          "address": "1203 Elm Ave, Norman, OK 73072, USA",
+          "price": null,
+          "lat": 35.200481599999996,
+          "lng": -97.4476364,
+          "distance_mi": 0.95,
+          "place_id": "ChIJfdAT-slpsocRdT4j2ZfOKZ0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HAYSTACK Coffee",
+          "address": "1203 Elm Ave, Norman, OK 73072, USA",
+          "price": 1,
+          "lat": 35.2006547,
+          "lng": -97.4477297,
+          "distance_mi": 0.96,
+          "place_id": "ChIJwXxn4yZpsocRtM43Pw3JHUw",
+          "types": [
+            "coffee_shop",
+            "coffee_roastery",
+            "cafe",
+            "food_store",
+            "event_venue",
+            "association_or_organization",
+            "wholesaler",
+            "food",
+            "point_of_interest",
+            "service",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

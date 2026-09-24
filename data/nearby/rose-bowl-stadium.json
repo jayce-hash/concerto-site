@@ -1,0 +1,894 @@
+{
+  "venueName": "Rose Bowl Stadium",
+  "city": "Pasadena",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Dog Haus",
+          "address": "1001 Rose Bowl Dr, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1606642,
+          "lng": -118.1675328,
+          "distance_mi": 0.05,
+          "place_id": "ChIJpfmX4RzDwoARVpCHTeHMpDM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brookside Restaurant",
+          "address": "1133 Rosemont Ave, Pasadena, CA 91103, USA",
+          "price": 2,
+          "lat": 34.165193599999995,
+          "lng": -118.16709779999998,
+          "distance_mi": 0.27,
+          "place_id": "ChIJRUjnR6zDwoARXl6UPlyg7RU",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dave's Chillin N Grillin",
+          "address": "360 N Arroyo Blvd, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.1509899,
+          "lng": -118.1647577,
+          "distance_mi": 0.73,
+          "place_id": "ChIJta91HGfBwoAR-w7pvCXnleM",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "deli",
+            "food_delivery",
+            "shipping_service",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "market",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La Cocina Vallarta",
+          "address": "655 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1567375,
+          "lng": -118.15441109999999,
+          "distance_mi": 0.82,
+          "place_id": "ChIJH60FrOjDwoARLD8FoppsynY",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Perry’s Joint",
+          "address": "715 N Orange Grove Blvd, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.156033199999996,
+          "lng": -118.15468750000001,
+          "distance_mi": 0.83,
+          "place_id": "ChIJ8WaGawDDwoAROgZTd5KKcw4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blaze Pizza",
+          "address": "643 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.156577299999995,
+          "lng": -118.15161830000001,
+          "distance_mi": 0.98,
+          "place_id": "ChIJsTpLPAzDwoARG8pMLunEHBg",
+          "types": [
+            "pizza_restaurant",
+            "pizza_delivery",
+            "fast_food_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "italian_restaurant",
+            "meal_takeaway",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Red Corner Restaurant",
+          "address": "701 N Fair Oaks Ave #3045, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1579462,
+          "lng": -118.15106949999999,
+          "distance_mi": 0.98,
+          "place_id": "ChIJQYzshA7DwoAR09b_CnlwwX0",
+          "types": [
+            "chinese_restaurant",
+            "seafood_restaurant",
+            "vegetarian_restaurant",
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Los Primos mariscos Restaurant",
+          "address": "951 N Orange Grove Blvd, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.1579562,
+          "lng": -118.15103099999999,
+          "distance_mi": 0.98,
+          "place_id": "ChIJX2Py4_bDwoARXoMEJDvBAFI",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "671 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 2,
+          "lat": 34.157469999999996,
+          "lng": -118.15099999999998,
+          "distance_mi": 0.99,
+          "place_id": "ChIJCV56KAzDwoARxHl6h-E3ZhI",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "internet_cafe",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Y&J Gourmet",
+          "address": "701 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.1579987,
+          "lng": -118.15080949999998,
+          "distance_mi": 0.99,
+          "place_id": "ChIJVS_uZ_vDwoARJuT56n5QZA4",
+          "types": [
+            "chinese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hong Kong Express",
+          "address": "623 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.156366,
+          "lng": -118.1513892,
+          "distance_mi": 0.99,
+          "place_id": "ChIJX4_rMwzDwoARHN7Icc7PDFk",
+          "types": [
+            "chinese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mi Casa Mexican Food",
+          "address": "812 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 1,
+          "lat": 34.159812099999996,
+          "lng": -118.1503742,
+          "distance_mi": 0.99,
+          "place_id": "ChIJEch5-A7DwoARXbg7AxVSwd4",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "4-bedroom vacation home just 15-minute walk to Rose Bowl Stadium",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.163681,
+          "lng": -118.16915899999998,
+          "distance_mi": 0.18,
+          "place_id": "ChIJq_PR3a3DwoARImGxvQzavRI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stunning Mansion 5min Walk to Rose Bowl \\nThe area is not affected by the fire!\\n",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1635017,
+          "lng": -118.16503149999998,
+          "distance_mi": 0.21,
+          "place_id": "ChIJCVUWs67DwoARv0o_aLjwu98",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stunning Rose Bowl Mansion 5 Minutes Walk!",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.163497899999996,
+          "lng": -118.16500090000001,
+          "distance_mi": 0.21,
+          "place_id": "ChIJDaU-s67DwoARXOQoCxZfiSg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "5-Min Walk To Rose Bowl - Luxe Estate!",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1635017,
+          "lng": -118.16499329999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJU185s67DwoARGbiYMJpdsC4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rose Bowl VIP Guests",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1639862,
+          "lng": -118.1643601,
+          "distance_mi": 0.26,
+          "place_id": "ChIJG2sVN6zDwoARo4fzfoBhRU0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming Pasadena Pre-war Gem",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1619491,
+          "lng": -118.1611099,
+          "distance_mi": 0.38,
+          "place_id": "ChIJB67-RKjDwoARLH-si2uholY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Private Rose Bowl Oasis - Mountain Views - 3BR Home with Parking",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1654815,
+          "lng": -118.1617127,
+          "distance_mi": 0.44,
+          "place_id": "ChIJr2z0K6rDwoARZUFk7qif3Ks",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "4-bedroom vacation home just 15-minute walk to Rose Bowl Stadium",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1676369,
+          "lng": -118.1654052,
+          "distance_mi": 0.45,
+          "place_id": "ChIJPVuhm6zDwoARt998yzFfA0o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming 2-bedroom condo in fabulous Pasadena with AC",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1610374,
+          "lng": -118.15964509999999,
+          "distance_mi": 0.46,
+          "place_id": "ChIJycGrBajDwoARnn2q3szeo44",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rose Bowl Resort-Style Retreat, Pasadena",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1660003,
+          "lng": -118.16059109999999,
+          "distance_mi": 0.52,
+          "place_id": "ChIJI0SXIqrDwoARxqAUS_L5ydw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1 Mi to Rose Bowl! Updated Home w/ Furnished Deck",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.167327799999995,
+          "lng": -118.1618271,
+          "distance_mi": 0.53,
+          "place_id": "ChIJld11U6rDwoARKESOa2K6d-o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Circuit Overseer's Residence",
+          "address": "464 W Claremont St, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1671851,
+          "lng": -118.16024480000002,
+          "distance_mi": 0.59,
+          "place_id": "ChIJy9n9PwDDwoARsk0GCJD9TF0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Amazing Studio in Pasadena!",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.159931199999995,
+          "lng": -118.15727989999999,
+          "distance_mi": 0.6,
+          "place_id": "ChIJFaEbagjDwoARmJjeQa3MccI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mid-Century Modern, Zen Hideaway Hillside Home W / Private Canyon View.",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1610908,
+          "lng": -118.1782302,
+          "distance_mi": 0.6,
+          "place_id": "ChIJwwh6ILTDwoARiIMX16Or554",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "MCM Tree House, Zen Hideaway Hillside Home W/ Private Canyon View & Pool",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1610909,
+          "lng": -118.17823790000001,
+          "distance_mi": 0.6,
+          "place_id": "ChIJ4Td6ILTDwoARIkBfMMxp_8A",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rose Bowl Bungalow. Cozy 2BR Retreat w/ Patio, BBQ & Near Rose Bowl",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1565933,
+          "lng": -118.15656279999997,
+          "distance_mi": 0.71,
+          "place_id": "ChIJdyIOhAnDwoARYGVDIbBxQdo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pasadena Guest House near Rose Bowl",
+          "address": "Pasadena, CA 91105, USA",
+          "price": null,
+          "lat": 34.153389,
+          "lng": -118.17608639999999,
+          "distance_mi": 0.73,
+          "place_id": "ChIJFzj20LvDwoARq6fn3Ypk2cc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pasadena Guest House near Rose Bowl",
+          "address": "Pasadena, CA 91105, USA",
+          "price": null,
+          "lat": 34.1533928,
+          "lng": -118.1760941,
+          "distance_mi": 0.73,
+          "place_id": "ChIJJw_30LvDwoAR63JBdHDpdJE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1 Mi to Rose Bowl: Pasadena Home w / Fenced Yard!",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1575814,
+          "lng": -118.15561679999998,
+          "distance_mi": 0.74,
+          "place_id": "ChIJOfgAcwnDwoAR6n4eNr5dtrw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxe Pasadena Casita with Fireplace and Grill - Vacation Home",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1722794,
+          "lng": -118.16651150000001,
+          "distance_mi": 0.76,
+          "place_id": "ChIJGb7OolPCwoARo5w4cM6HMas",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Lot D",
+          "address": "Parking lot, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.162471,
+          "lng": -118.16587439999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJdWhAxK7DwoARdPQHxOkE47E",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "M crew parking / MJZ / 8/10",
+          "address": "1001 Rose Bowl Dr, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.160529499999996,
+          "lng": -118.1654608,
+          "distance_mi": 0.14,
+          "place_id": "ChIJhQPtIDTDwoARYVptlOeklIA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot F",
+          "address": "Unnamed Road, Pasadena, CA 91105, USA",
+          "price": null,
+          "lat": 34.1586546,
+          "lng": -118.16829219999998,
+          "distance_mi": 0.19,
+          "place_id": "ChIJs5vOqaXDwoARBy13Wl41hrU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rose Bowl Parking - Lot 5A",
+          "address": "998 West Dr, Pasadena, CA 91105, USA",
+          "price": null,
+          "lat": 34.1604696,
+          "lng": -118.1711627,
+          "distance_mi": 0.21,
+          "place_id": "ChIJdSqCTADDwoAR-jLb2VKu2Fc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot I",
+          "address": "1153 Rosemont Ave, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1663947,
+          "lng": -118.1669028,
+          "distance_mi": 0.35,
+          "place_id": "ChIJtZyRbwDDwoARkXq5xRuqK-M",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kidspace Parking Lot",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1548126,
+          "lng": -118.1667466,
+          "distance_mi": 0.45,
+          "place_id": "ChIJcVkdNQDDwoARHzUCbqZlQM8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bean Sprouts",
+          "address": "480 N Arroyo Blvd, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.155122399999996,
+          "lng": -118.1642649,
+          "distance_mi": 0.47,
+          "place_id": "ChIJ_eZZvKbDwoARjhLchVUnxF4",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot I",
+          "address": "Parking lot, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1542628,
+          "lng": -118.166446,
+          "distance_mi": 0.49,
+          "place_id": "ChIJATDacqTDwoARf9uAl3IEXb0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "OASIS PARKING SPOT",
+          "address": "578-676 N Arroyo Blvd, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.154147800000004,
+          "lng": -118.1667033,
+          "distance_mi": 0.5,
+          "place_id": "ChIJHejPIQDDwoARYt467vGSSfU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stark Spirits Craft Distillery",
+          "address": "1260 Lincoln Ave #1100, Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1685541,
+          "lng": -118.15864409999999,
+          "distance_mi": 0.72,
+          "place_id": "ChIJ-1hyfgDDwoARePBav5jkLKk",
+          "types": [
+            "bar",
+            "manufacturer",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Discapacitados",
+          "address": "Pasadena, CA 91103, USA",
+          "price": null,
+          "lat": 34.1577402,
+          "lng": -118.1516568,
+          "distance_mi": 0.95,
+          "place_id": "ChIJKSTtVQDDwoARcCRbcSEREDc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Discapacitados",
+          "address": "Pasadena, CA 91109, USA",
+          "price": null,
+          "lat": 34.156958599999996,
+          "lng": -118.15148409999999,
+          "distance_mi": 0.97,
+          "place_id": "ChIJs6uHJgDDwoARdC4of_bkSQg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Discapacitados",
+          "address": "Pasadena, CA 91109, USA",
+          "price": null,
+          "lat": 34.1566729,
+          "lng": -118.1514848,
+          "distance_mi": 0.98,
+          "place_id": "ChIJdQz8VADDwoAR0NL3ymCx4o8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "671 N Fair Oaks Ave, Pasadena, CA 91103, USA",
+          "price": 2,
+          "lat": 34.157469999999996,
+          "lng": -118.15099999999998,
+          "distance_mi": 0.99,
+          "place_id": "ChIJCV56KAzDwoARxHl6h-E3ZhI",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

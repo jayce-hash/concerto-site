@@ -1,0 +1,1235 @@
+{
+  "venueName": "Crystal Ballroom",
+  "city": "Portland",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "McMenamins Ringlers Pub",
+          "address": "1332 W Burnside St, Portland, OR 97209, USA",
+          "price": 2,
+          "lat": 45.5228189,
+          "lng": -122.68471780000002,
+          "distance_mi": 0.01,
+          "place_id": "ChIJuew95AIKlVQRSkLwtpfmB60",
+          "types": [
+            "pub",
+            "brewpub",
+            "brewery",
+            "bar",
+            "american_restaurant",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Crystal Brewery",
+          "address": "1332 W Burnside St Brewery, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522828999999994,
+          "lng": -122.6847173,
+          "distance_mi": 0.01,
+          "place_id": "ChIJwSNd8LgLlVQRbwc1SIxaMXI",
+          "types": [
+            "brewery",
+            "bar",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Nong's Khao Man Gai (Downtown)",
+          "address": "417 SW 13th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.52261310000001,
+          "lng": -122.68441720000001,
+          "distance_mi": 0.02,
+          "place_id": "ChIJFVKvnQQKlVQRHxy8hJZXsZ8",
+          "types": [
+            "thai_restaurant",
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Scooter McQuades",
+          "address": "1321 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5224713,
+          "lng": -122.6850226,
+          "distance_mi": 0.02,
+          "place_id": "ChIJO5luIAMKlVQROaeeelC4xz0",
+          "types": [
+            "cocktail_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cassidy's Restaurant",
+          "address": "1331 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5224614,
+          "lng": -122.68523839999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJnXRn3wIKlVQRMquzKmfvhbw",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Masu Sushi",
+          "address": "406 SW 13th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522503,
+          "lng": -122.6840921,
+          "distance_mi": 0.04,
+          "place_id": "ChIJY3UF_QIKlVQRvIlkdcNiFmk",
+          "types": [
+            "sushi_restaurant",
+            "cocktail_bar",
+            "asian_restaurant",
+            "bar",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Leaky Roof Tavern",
+          "address": "1538 SW Washington St, Portland, OR 97201, USA",
+          "price": null,
+          "lat": 45.522439999999996,
+          "lng": -122.68546429999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ7fWQ8WsLlVQRTEFj5rv_aEc",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Ringlers Annex",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.522838899999996,
+          "lng": -122.68370329999998,
+          "distance_mi": 0.05,
+          "place_id": "ChIJxzAqBwMKlVQROMVhsB8ExPE",
+          "types": [
+            "brewpub",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jake's Famous Crawfish",
+          "address": "401 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5225,
+          "lng": -122.68347000000001,
+          "distance_mi": 0.06,
+          "place_id": "ChIJe8P1AwMKlVQRhUubOgPTqmA",
+          "types": [
+            "seafood_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beer O'Clock",
+          "address": "1205 SW Washington St, Portland, OR 97205, USA",
+          "price": 1,
+          "lat": 45.5220852,
+          "lng": -122.6837468,
+          "distance_mi": 0.06,
+          "place_id": "ChIJE6rkEAMKlVQRvWpoRbfrvpI",
+          "types": [
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grassa",
+          "address": "1205 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5220579,
+          "lng": -122.68367980000001,
+          "distance_mi": 0.07,
+          "place_id": "ChIJKd1PEQMKlVQRr19hj5i9phg",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Hal's Café",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5227447,
+          "lng": -122.68335499999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJGzEqBwMKlVQRhuRmbWk8LkY",
+          "types": [
+            "american_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Crystal Hotel",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5228246,
+          "lng": -122.6833342,
+          "distance_mi": 0.07,
+          "place_id": "ChIJxzAqBwMKlVQRp-Qml3mv6aQ",
+          "types": [
+            "hotel",
+            "bar",
+            "cafe",
+            "event_venue",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bamboo Sushi",
+          "address": "404 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5224019,
+          "lng": -122.68293579999998,
+          "distance_mi": 0.09,
+          "place_id": "ChIJeTluBgMKlVQRMlEyE-oSSAU",
+          "types": [
+            "sushi_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "fine_dining_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheryl's on 12th",
+          "address": "1135 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.521955999999996,
+          "lng": -122.6831603,
+          "distance_mi": 0.09,
+          "place_id": "ChIJb2s7EgMKlVQRwGOchKwvZPA",
+          "types": [
+            "catering_service",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "deli",
+            "coffee_shop",
+            "cafe",
+            "food_delivery",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Market Sandwich",
+          "address": "1210 NW Couch St, Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.523544199999996,
+          "lng": -122.68330879999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJEWFITwALlVQRNy01ScMzzG4",
+          "types": [
+            "sandwich_shop",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dolly Olive",
+          "address": "527 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5213826,
+          "lng": -122.68391380000001,
+          "distance_mi": 0.1,
+          "place_id": "ChIJRafABQ8LlVQRK_PdEH4464Q",
+          "types": [
+            "italian_restaurant",
+            "cocktail_bar",
+            "brunch_restaurant",
+            "bar",
+            "mediterranean_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hearth & Vine",
+          "address": "10 NW 12th Ave, Portland, OR 97209, USA",
+          "price": 2,
+          "lat": 45.523303,
+          "lng": -122.6829435,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ6fJ7btQLlVQRHpt4Vxd3pL4",
+          "types": [
+            "american_restaurant",
+            "wine_bar",
+            "bar",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hachi",
+          "address": "580 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.521302399999996,
+          "lng": -122.683436,
+          "distance_mi": 0.12,
+          "place_id": "ChIJD5PAcAALlVQR-MzpgpJWhEc",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Screen Door Pearl District",
+          "address": "1131 NW Couch St, Portland, OR 97209, USA",
+          "price": 2,
+          "lat": 45.523796,
+          "lng": -122.68270509999998,
+          "distance_mi": 0.13,
+          "place_id": "ChIJLU7eCV0LlVQRFraHfst6uiM",
+          "types": [
+            "family_restaurant",
+            "brunch_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Stunning 1BR Apartment with Modern Amenities in Prime Location- Available Now!",
+          "address": "Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522411299999995,
+          "lng": -122.6841431,
+          "distance_mi": 0.04,
+          "place_id": "ChIJgSsSHAMKlVQRhljB45mOT0Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury 1Bedroom 1Bath Pearl District - One-Bedroom Apartment",
+          "address": "Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5223885,
+          "lng": -122.68411259999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ1_oLHAMKlVQRDwey8fchOZU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Crystal Hotel",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5228246,
+          "lng": -122.6833342,
+          "distance_mi": 0.07,
+          "place_id": "ChIJxzAqBwMKlVQRp-Qml3mv6aQ",
+          "types": [
+            "hotel",
+            "bar",
+            "cafe",
+            "event_venue",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Deluxe Room with Access to State-Of-The-Art Gym",
+          "address": "Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5227012,
+          "lng": -122.68630209999998,
+          "distance_mi": 0.07,
+          "place_id": "ChIJNb9ZxQIKlVQRAPmshK3Ekf4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Georgia Hotel",
+          "address": "308 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522622899999995,
+          "lng": -122.68294879999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJDYrLAAMKlVQRjIkqVYqHjVc",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Washington Plaza - Portland",
+          "address": "1129 SW Washington St, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.521988,
+          "lng": -122.68305199999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJZ-YQcAALlVQR52Leo6BAads",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "NW Studio w/ A View - Close to Everything!",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.523201,
+          "lng": -122.68699649999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ7yOJtwIKlVQRi9l-y_9YthU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy tastefully decorated vintage inspired studio condo",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.523201,
+          "lng": -122.68704220000001,
+          "distance_mi": 0.12,
+          "place_id": "ChIJy7GatwIKlVQRgFzLF5vB0UQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy, fully furnished studio located in the Historic empress building!",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.523223900000005,
+          "lng": -122.68704220000001,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ47-DtwIKlVQR5SbyGUS8TiM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mark Spencer Hotel",
+          "address": "409 SW 11th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5221966,
+          "lng": -122.6824248,
+          "distance_mi": 0.12,
+          "place_id": "ChIJzwpCCgMKlVQRAdcxZZ7bCVM",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy, fully furnished studio located in the Historic empress building!",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.524681099999995,
+          "lng": -122.68524929999998,
+          "distance_mi": 0.14,
+          "place_id": "ChIJH_ZvfgIKlVQR0D73NZoYK44",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pelicanstay in Portland Pearl District",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.5242996,
+          "lng": -122.68299859999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJleLKQQIKlVQRmzU9S-OlnAg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hyatt Centric Downtown Portland",
+          "address": "601 SW 11th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5208879,
+          "lng": -122.68297159999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ-ddVXAMKlVQRgTC-zPXVYD4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Clyde Hotel Portland by Kasa",
+          "address": "1022 SW Harvey Milk St, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522058699999995,
+          "lng": -122.6815998,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ0X43nwMKlVQR1F422Jkrvqo",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "201 - The Clyde by Kasa",
+          "address": "Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5220108,
+          "lng": -122.68160999999998,
+          "distance_mi": 0.16,
+          "place_id": "ChIJjYHgngMKlVQRh5zfHdn63ss",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury condo, 240 degree views of Portland and hills.",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.5224304,
+          "lng": -122.68807989999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJUxY0Nx0KlVQRJ9kUAUPFaaY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Streetcar Lofts in the Pearl",
+          "address": "Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.5248184,
+          "lng": -122.6832962,
+          "distance_mi": 0.16,
+          "place_id": "ChIJzWLFEgIKlVQRqMxtZpK0xNQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sentinel",
+          "address": "614 SW 11th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.520611599999995,
+          "lng": -122.68268599999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJz9RBXwMKlVQRWmFwjF8obHc",
+          "types": [
+            "resort_hotel",
+            "business_center",
+            "shopping_mall",
+            "hotel",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PR Premier Two Double Beds",
+          "address": "Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5206108,
+          "lng": -122.68268579999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJiwe-XwMKlVQRJ1eNrbJX7T4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Governor Hotel",
+          "address": "614 SW 11th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5206108,
+          "lng": -122.68268579999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJeTX4oQQKlVQRZvfBQ-9rByk",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "McMenamins Ringlers Pub",
+          "address": "1332 W Burnside St, Portland, OR 97209, USA",
+          "price": 2,
+          "lat": 45.5228189,
+          "lng": -122.68471780000002,
+          "distance_mi": 0.01,
+          "place_id": "ChIJuew95AIKlVQRSkLwtpfmB60",
+          "types": [
+            "pub",
+            "brewpub",
+            "brewery",
+            "american_restaurant",
+            "bar",
+            "manufacturer",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Crystal Brewery",
+          "address": "1332 W Burnside St Brewery, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522828999999994,
+          "lng": -122.6847173,
+          "distance_mi": 0.01,
+          "place_id": "ChIJwSNd8LgLlVQRbwc1SIxaMXI",
+          "types": [
+            "brewery",
+            "bar",
+            "manufacturer",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1325 SW Washington St Parking",
+          "address": "1325 SW Washington St, Portland, OR 97236, USA",
+          "price": null,
+          "lat": 45.522455699999995,
+          "lng": -122.68464820000001,
+          "distance_mi": 0.02,
+          "place_id": "ChIJu_jIHwMKlVQR5Ii6jZTfyNc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking NW - SW 13th & Washington - L157",
+          "address": "455 SW 13th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5224287,
+          "lng": -122.6846997,
+          "distance_mi": 0.02,
+          "place_id": "ChIJ64toIUELlVQR7omjAosuhfw",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Scooter McQuades",
+          "address": "1321 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5224713,
+          "lng": -122.6850226,
+          "distance_mi": 0.02,
+          "place_id": "ChIJO5luIAMKlVQROaeeelC4xz0",
+          "types": [
+            "cocktail_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cassidy's Restaurant",
+          "address": "1331 SW Washington St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5224614,
+          "lng": -122.68523839999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJnXRn3wIKlVQRMquzKmfvhbw",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "City Center Parking",
+          "address": "1313 W Burnside St, Portland, OR 97201, USA",
+          "price": null,
+          "lat": 45.5230509,
+          "lng": -122.6845928,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ-3KS5QIKlVQRLzvAG4CsiYA",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Masu Sushi",
+          "address": "406 SW 13th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.522503,
+          "lng": -122.6840921,
+          "distance_mi": 0.04,
+          "place_id": "ChIJY3UF_QIKlVQRvIlkdcNiFmk",
+          "types": [
+            "sushi_restaurant",
+            "cocktail_bar",
+            "asian_restaurant",
+            "bar",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mako Matcha Mill",
+          "address": "414 SW 13th Ave, Portland, OR 97205, USA",
+          "price": 1,
+          "lat": 45.5225757,
+          "lng": -122.6839835,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ71F0zkgLlVQRzcEBmeBKiYY",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking NW - 14th & W Burnside Garage",
+          "address": "14 NW 14th Ave, Portland, OR 97209, USA",
+          "price": null,
+          "lat": 45.523312399999995,
+          "lng": -122.68497950000001,
+          "distance_mi": 0.04,
+          "place_id": "ChIJv2A1RhwLlVQR8SIUoG2omPk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Ringlers Annex",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.522838899999996,
+          "lng": -122.68370329999998,
+          "distance_mi": 0.05,
+          "place_id": "ChIJxzAqBwMKlVQROMVhsB8ExPE",
+          "types": [
+            "brewpub",
+            "american_restaurant",
+            "pub",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lot #123",
+          "address": "1232 SW Washington St, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.521876899999995,
+          "lng": -122.68426069999998,
+          "distance_mi": 0.06,
+          "place_id": "ChIJpQtyPQMKlVQR3FxlF7ktGQo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Al's Den",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5228079,
+          "lng": -122.6835036,
+          "distance_mi": 0.06,
+          "place_id": "ChIJM1g-5wIKlVQRzKDtLozlSsM",
+          "types": [
+            "live_music_venue",
+            "cocktail_bar",
+            "bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jake's Famous Crawfish",
+          "address": "401 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5225,
+          "lng": -122.68347000000001,
+          "distance_mi": 0.06,
+          "place_id": "ChIJe8P1AwMKlVQRhUubOgPTqmA",
+          "types": [
+            "seafood_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beer O'Clock",
+          "address": "1205 SW Washington St, Portland, OR 97205, USA",
+          "price": 1,
+          "lat": 45.5220852,
+          "lng": -122.6837468,
+          "distance_mi": 0.06,
+          "place_id": "ChIJE6rkEAMKlVQRvWpoRbfrvpI",
+          "types": [
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking NW - Indigo Parking Garage - L30",
+          "address": "411-417 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5222335,
+          "lng": -122.68357599999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJyew0EAMKlVQRiCzH9ylh8OY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Hal's Café",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5227447,
+          "lng": -122.68335499999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJGzEqBwMKlVQRhuRmbWk8LkY",
+          "types": [
+            "american_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McMenamins Crystal Hotel",
+          "address": "303 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5228246,
+          "lng": -122.6833342,
+          "distance_mi": 0.07,
+          "place_id": "ChIJxzAqBwMKlVQRp-Qml3mv6aQ",
+          "types": [
+            "hotel",
+            "cafe",
+            "bar",
+            "event_venue",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bamboo Sushi",
+          "address": "404 SW 12th Ave, Portland, OR 97205, USA",
+          "price": null,
+          "lat": 45.5224019,
+          "lng": -122.68293579999998,
+          "distance_mi": 0.09,
+          "place_id": "ChIJeTluBgMKlVQRMlEyE-oSSAU",
+          "types": [
+            "sushi_restaurant",
+            "seafood_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "bar",
+            "fine_dining_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bar Dolly",
+          "address": "1215 SW Alder St, Portland, OR 97205, USA",
+          "price": 2,
+          "lat": 45.5214436,
+          "lng": -122.68411180000001,
+          "distance_mi": 0.09,
+          "place_id": "ChIJP2-kTAALlVQRbNWQLRSKeoA",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

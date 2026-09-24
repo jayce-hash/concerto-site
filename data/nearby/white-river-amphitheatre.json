@@ -1,0 +1,96 @@
+{
+  "venueName": "White River Amphitheatre",
+  "city": "Auburn",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": []
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "8 MILE STATION",
+          "address": "Muckleshoot Reservation, Enumclaw, WA 98022, USA",
+          "price": null,
+          "lat": 47.2364593,
+          "lng": -122.10333049999998,
+          "distance_mi": 0.41,
+          "place_id": "ChIJeW_AAd3xkFQRfn7iXP9nLDs",
+          "types": [
+            "store",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Muckleshoot casino",
+          "address": "Muckleshoot Reservation, Auburn, WA 98092, USA",
+          "price": null,
+          "lat": 47.247045299999996,
+          "lng": -122.12067139999998,
+          "distance_mi": 0.79,
+          "place_id": "ChIJb6D5FQD3kFQRlSHIz-1MHno",
+          "types": [
+            "hotel",
+            "casino",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Paddles Up Cafe",
+          "address": "17500 SE 392nd St, Auburn, WA 98092, USA",
+          "price": 2,
+          "lat": 47.250809,
+          "lng": -122.10784899999999,
+          "distance_mi": 0.95,
+          "place_id": "ChIJ_0_rLdT3kFQRMVzqSMfwzFY",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Muckleshoot Wellness (Gym Side)",
+          "address": "17500 SE 392nd St, Auburn, WA 98092, USA",
+          "price": null,
+          "lat": 47.250809,
+          "lng": -122.10784899999999,
+          "distance_mi": 0.95,
+          "place_id": "ChIJZU71nMz2kFQRVEkfjk77AsY",
+          "types": [
+            "wellness_center",
+            "cafe",
+            "health",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

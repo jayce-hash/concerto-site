@@ -1,0 +1,1248 @@
+{
+  "venueName": "Auditorium Theatre",
+  "city": "Chicago",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Rafael's Restaurant",
+          "address": "520 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": 2,
+          "lat": 41.87543060000001,
+          "lng": -87.62453819999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJU3R5NxYtDogRom_xqP0JZ9w",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "406 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.876814499999995,
+          "lng": -87.62465809999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJTYz4obksDogRb8cDTGZH2B8",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Osaka Sushi & Fresh Fruit Smoothies",
+          "address": "400 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": 2,
+          "lat": 41.8768501,
+          "lng": -87.6245734,
+          "distance_mi": 0.06,
+          "place_id": "ChIJKYy9QKIsDogRwugOgMR561M",
+          "types": [
+            "sushi_restaurant",
+            "fast_food_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cafecito",
+          "address": "26 E Congress Pkwy, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.875820499999996,
+          "lng": -87.6264566,
+          "distance_mi": 0.06,
+          "place_id": "ChIJCUYrhKIsDogRnAk-Hb0sVBM",
+          "types": [
+            "cuban_restaurant",
+            "sandwich_shop",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pinewoods restaurant group llc",
+          "address": "332 S Michigan Ave, Chicago, IL 60604, USA",
+          "price": null,
+          "lat": 41.8772932,
+          "lng": -87.6246153,
+          "distance_mi": 0.09,
+          "place_id": "ChIJOzrdNqIsDogRDFBKDsgOeQ0",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Smokin' King Turkey Leggs LLC",
+          "address": "332 S Michigan Ave, Chicago, IL 60604, USA",
+          "price": null,
+          "lat": 41.8772942,
+          "lng": -87.624614,
+          "distance_mi": 0.09,
+          "place_id": "ChIJyTtnbwAtDogRRi9kakkkc44",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vending Queens LLC",
+          "address": "332 S Michigan Ave, Chicago, IL 60604, USA",
+          "price": null,
+          "lat": 41.8772942,
+          "lng": -87.624614,
+          "distance_mi": 0.09,
+          "place_id": "ChIJOzkhEa8tDogR4CO31DrQ0xo",
+          "types": [
+            "snack_bar",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fontano's Subs & Pizzeria",
+          "address": "332 S Michigan Ave, Chicago, IL 60604, USA",
+          "price": 1,
+          "lat": 41.8772942,
+          "lng": -87.624614,
+          "distance_mi": 0.09,
+          "place_id": "ChIJtVc3Y-QtDogRUuc-XoS3eUY",
+          "types": [
+            "pizza_restaurant",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Budlong Southern Chicken",
+          "address": "Bay #3, 333 S Wabash Ave Fl 2, Chicago, IL 60604, USA",
+          "price": null,
+          "lat": 41.8774278,
+          "lng": -87.6257456,
+          "distance_mi": 0.1,
+          "place_id": "ChIJCQa7PNYtDogRl4iT-NHTEeI",
+          "types": [
+            "chicken_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Maharaj Indian Grill",
+          "address": "333 S State St, 8 E Van Buren St Unit C13, Chicago, IL 60604, USA",
+          "price": 2,
+          "lat": 41.8770787,
+          "lng": -87.62720639999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJfZJhgDstDogRTXB7jKZ79_c",
+          "types": [
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Panda Express",
+          "address": "515 S State St, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8752315,
+          "lng": -87.6273521,
+          "distance_mi": 0.12,
+          "place_id": "ChIJW06ES1PTD4gRYST1DyBOhaI",
+          "types": [
+            "chinese_restaurant",
+            "catering_service",
+            "asian_restaurant",
+            "chinese_noodle_restaurant",
+            "fast_food_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luna Cafe Restaurant",
+          "address": "63 E Harrison St, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.874266399999996,
+          "lng": -87.6253065,
+          "distance_mi": 0.13,
+          "place_id": "ChIJaUO6k5gsDogRw73wkldmlcw",
+          "types": [
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Potbelly",
+          "address": "55 E Jackson Blvd, Chicago, IL 60604, USA",
+          "price": 1,
+          "lat": 41.8778678,
+          "lng": -87.62577639999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJNyTxq6MsDogRl_Dtx1eQ4pY",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "deli",
+            "supplier",
+            "food_delivery",
+            "manufacturer",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Thai Spoon and Sushi",
+          "address": "601 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": 2,
+          "lat": 41.874282,
+          "lng": -87.625755,
+          "distance_mi": 0.13,
+          "place_id": "ChIJdxokPaAtDogRwy7RMkjsfM0",
+          "types": [
+            "thai_restaurant",
+            "sushi_restaurant",
+            "asian_restaurant",
+            "bar",
+            "japanese_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Epic Burger",
+          "address": "517 S State St, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.875041499999995,
+          "lng": -87.62729689999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJb4nfC5gsDogRPqiyoNJ9UxI",
+          "types": [
+            "hamburger_restaurant",
+            "chicken_restaurant",
+            "fast_food_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "Depaul Center University, 333 S State St, Chicago, IL 60604, USA",
+          "price": 1,
+          "lat": 41.877024899999995,
+          "lng": -87.62742039999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJvcI82bwsDogRD_NS15K0fck",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "600 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.8742352,
+          "lng": -87.6262223,
+          "distance_mi": 0.14,
+          "place_id": "ChIJzwicdxktDogRF3KbfOAKu9A",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wingstop",
+          "address": "12 E Harrison St, Chicago, IL 60605, USA",
+          "price": 2,
+          "lat": 41.8746363,
+          "lng": -87.62716309999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJa8CXFJgsDogRc2PZMtC-foc",
+          "types": [
+            "chicken_wings_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "55 E Jackson Blvd, Chicago, IL 60604, USA",
+          "price": 2,
+          "lat": 41.878099999999996,
+          "lng": -87.62588,
+          "distance_mi": 0.14,
+          "place_id": "ChIJkzR9sqMsDogRJQ2rN0wekq8",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "604 S Wabash Ave Ste D, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.87415,
+          "lng": -87.6263087,
+          "distance_mi": 0.14,
+          "place_id": "ChIJBaOIipgsDogRsiIUn-3no9I",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 5",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogRo1KBdph4tmM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 6",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogR1qaGXXEE-SE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 3",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogRHIjlpDBSSZk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 4",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogR42bIAfJbVUc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 1",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogRhh7niJBhr5o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 3",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogRC0MDimalQII",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking-2",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogRxKqmB0hs278",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 6",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogR6L-dkN9pUC0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Chicago Stay with Free In & Out Parking 5",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768883,
+          "lng": -87.62549589999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJP5FfW6IsDogR2qml2CdVs4M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel Chicago",
+          "address": "820-828 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8758471,
+          "lng": -87.6265033,
+          "distance_mi": 0.07,
+          "place_id": "ChIJVz_ChqIsDogRcLqapnrEgbA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hi Chicago",
+          "address": "24 E Congress Pkwy, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8758255,
+          "lng": -87.62653750000001,
+          "distance_mi": 0.07,
+          "place_id": "ChIJn3GJRwAtDogRSIOdJ6sAJGQ",
+          "types": [
+            "hostel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HI Chicago, The J. Ira and Nicki Harris Family Hostel",
+          "address": "24 East Ida B. Wells Drive, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.875828399999996,
+          "lng": -87.6265633,
+          "distance_mi": 0.07,
+          "place_id": "ChIJeV1VhKIsDogRIl9F2EXvlsE",
+          "types": [
+            "hostel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Congress Plaza Hotel & Convention Center",
+          "address": "520 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8751616,
+          "lng": -87.6246539,
+          "distance_mi": 0.07,
+          "place_id": "ChIJqZszAaIsDogRwiOmrl_GX7g",
+          "types": [
+            "hotel",
+            "wedding_venue",
+            "convention_center",
+            "event_venue",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dtown Penthouse 3bd /2.5ba - Best location VIEWS +Parking, Gym + Pool",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.875309,
+          "lng": -87.6242066,
+          "distance_mi": 0.08,
+          "place_id": "ChIJleYBCKIsDogRD7c4u8ezc1M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Congress Hotel",
+          "address": "546 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8745669,
+          "lng": -87.62471029999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJGxWjGwAtDogRiVWzWngTR3I",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel chicago",
+          "address": "70 E Harrison St, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8743196,
+          "lng": -87.62526360000001,
+          "distance_mi": 0.12,
+          "place_id": "ChIJZT_QFQAtDogRs1fgvwI7ucE",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Travelodge by Wyndham Downtown Chicago",
+          "address": "65 E Harrison St, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8742849,
+          "lng": -87.6253866,
+          "distance_mi": 0.12,
+          "place_id": "ChIJua_pjZgsDogR_RPj0hIZHhA",
+          "types": [
+            "hotel",
+            "inn",
+            "motel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Car park 01",
+          "address": "315 S Michigan Ave, Chicago, IL 60603, USA",
+          "price": null,
+          "lat": 41.877877999999995,
+          "lng": -87.624026,
+          "distance_mi": 0.14,
+          "place_id": "ChIJ2-Y-LQAtDogR3H0ATqlzXVM",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown 5bd Penthouse - Sleep 12",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.87574,
+          "lng": -87.6284027,
+          "distance_mi": 0.16,
+          "place_id": "ChIJzYiarKIsDogR-gRm5Lsof6g",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wabash 4BR - Pool, Free In & Out Parking 1",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8737755,
+          "lng": -87.6263046,
+          "distance_mi": 0.17,
+          "place_id": "ChIJW11OWZgsDogR06VU2GhadBk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Groundswell Coffee Roasters",
+          "address": "410 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.876441199999995,
+          "lng": -87.62469039999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJGfe0OgAtDogRybZknw9n2Cg",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Congress Lounge",
+          "address": "Congress Lounge, Chicago, IL 60605, USA",
+          "price": 2,
+          "lat": 41.875569899999995,
+          "lng": -87.62471169999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJgzO_BqUtDogRjb_CFfS2Q9U",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park 1 Auditorium Garage",
+          "address": "63 W Ida B. Wells Dr, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8754211,
+          "lng": -87.6253213,
+          "distance_mi": 0.05,
+          "place_id": "ChIJAXglDZ4tDogRR1ucJ54aC7w",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "430 S Wabash Ave Parking",
+          "address": "430 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8761885,
+          "lng": -87.626181,
+          "distance_mi": 0.05,
+          "place_id": "ChIJqW6kiaIsDogR4yClo2CSLXc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "434 South Wabash",
+          "address": "434 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8759976,
+          "lng": -87.6261981,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ6XzBWE8tDogR3VTrTBPUJ1A",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "501 S Wabash Ave Parking",
+          "address": "501 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.875470799999995,
+          "lng": -87.62580679999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJHW_6nZgsDogRL5R7Kbw4714",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bronca cofi",
+          "address": "Downtown, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8756719,
+          "lng": -87.62434689999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJEykvMAAtDogR-fOmKDtTFEA",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café",
+          "address": "Downtown, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8756719,
+          "lng": -87.62434689999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ4_kyaQAtDogRXzk9jqasTT8",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Van Buren & Wabash",
+          "address": "401 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.876835799999995,
+          "lng": -87.625766,
+          "distance_mi": 0.06,
+          "place_id": "ChIJT5GkXqIsDogRnaB1SFOLXK0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "LAZ Parking - 401 S Wabash",
+          "address": "401 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768423,
+          "lng": -87.6257485,
+          "distance_mi": 0.06,
+          "place_id": "ChIJRyCmEMEtDogRqP-GyZov6MQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "406 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.876814499999995,
+          "lng": -87.62465809999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJTYz4obksDogRb8cDTGZH2B8",
+          "types": [
+            "coffee_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "bagel_shop",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "meal_takeaway",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "402 S Wabash Ave Parking",
+          "address": "402 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.876684499999996,
+          "lng": -87.626195,
+          "distance_mi": 0.06,
+          "place_id": "ChIJmQUf9aIsDogRSe8veq7QsxM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cafecito",
+          "address": "26 E Congress Pkwy, Chicago, IL 60605, USA",
+          "price": 1,
+          "lat": 41.875820499999996,
+          "lng": -87.6264566,
+          "distance_mi": 0.06,
+          "place_id": "ChIJCUYrhKIsDogRnAk-Hb0sVBM",
+          "types": [
+            "cuban_restaurant",
+            "cafe",
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grant Park South Parking Stairs",
+          "address": "Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8768472,
+          "lng": -87.6244411,
+          "distance_mi": 0.07,
+          "place_id": "ChIJdxvujuQtDogRHbTtZrnpQlI",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PARKWHIZ",
+          "address": "426 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8763088,
+          "lng": -87.6265435,
+          "distance_mi": 0.07,
+          "place_id": "ChIJzcTSDX4tDogRmbecwkW-Rus",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grant Park South Parking Elevator",
+          "address": "402 S Michigan Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.876905199999996,
+          "lng": -87.62447069999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJcYECFAwtDogR8nzQRK-eUx8",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park 1 Chicago - 525 S Wabash Ave",
+          "address": "525 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8750651,
+          "lng": -87.62551649999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJJeAaUv4tDogRa8FV8A1Gdtk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Auditorium Garage",
+          "address": "525s S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.8750363,
+          "lng": -87.6254964,
+          "distance_mi": 0.07,
+          "place_id": "ChIJE0Zeg5gsDogRx8AO-BFiHc8",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ella Mia",
+          "address": "55 E Jackson Blvd, Chicago, IL 60604, USA",
+          "price": null,
+          "lat": 41.877130799999996,
+          "lng": -87.6256224,
+          "distance_mi": 0.08,
+          "place_id": "ChIJYzbeTbotDogRh1FYKIlyb4s",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "410 S Wabash Ave Parking",
+          "address": "410 S Wabash Ave, Chicago, IL 60605, USA",
+          "price": null,
+          "lat": 41.876661999999996,
+          "lng": -87.626533,
+          "distance_mi": 0.08,
+          "place_id": "ChIJBVfc8qIsDogR3qYZwrmF-Dk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

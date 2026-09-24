@@ -1,0 +1,1278 @@
+{
+  "venueName": "L'Olympia",
+  "city": "Paris",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Cuvée Noire - Madeleine - Coffee Shop",
+          "address": "2 Rue de Caumartin, 75009 Paris, France",
+          "price": 1,
+          "lat": 48.870269699999994,
+          "lng": 2.32822,
+          "distance_mi": 0.01,
+          "place_id": "ChIJG31qqxNv5kcRKiFhzofuXu4",
+          "types": [
+            "coffee_shop",
+            "cake_shop",
+            "breakfast_restaurant",
+            "coffee_stand",
+            "cafe",
+            "bakery",
+            "manufacturer",
+            "dessert_shop",
+            "confectionery",
+            "wholesaler",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CAFÉ DE L'OLYMPIA",
+          "address": "2 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8701261,
+          "lng": 2.3278429,
+          "distance_mi": 0.02,
+          "place_id": "ChIJ00AAxTNu5kcRGE7r61i69x0",
+          "types": [
+            "french_restaurant",
+            "coffee_shop",
+            "cafe",
+            "bar",
+            "food_store",
+            "store",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Petit Olympia",
+          "address": "6 Rue de Caumartin, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.870644299999995,
+          "lng": 2.3281853999999997,
+          "distance_mi": 0.03,
+          "place_id": "ChIJeRUKHrZv5kcR3tW-dNCxRjA",
+          "types": [
+            "restaurant",
+            "french_restaurant",
+            "wine_bar",
+            "bar",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Carrefour City",
+          "address": "7 Rue de Caumartin, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8706409,
+          "lng": 2.3278922,
+          "distance_mi": 0.03,
+          "place_id": "ChIJK9gj6TNu5kcRVVdPRknR89Y",
+          "types": [
+            "supermarket",
+            "cosmetics_store",
+            "fast_food_restaurant",
+            "general_store",
+            "bakery",
+            "market",
+            "manufacturer",
+            "grocery_store",
+            "food_store",
+            "supplier",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Grain de Moutarde",
+          "address": "1 Bd de la Madeleine, 75001 Paris, France",
+          "price": null,
+          "lat": 48.86971330000001,
+          "lng": 2.327773,
+          "distance_mi": 0.05,
+          "place_id": "ChIJL1JszzNu5kcR8e4UnXRweKk",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cojean",
+          "address": "4 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.870345099999994,
+          "lng": 2.3273169,
+          "distance_mi": 0.05,
+          "place_id": "ChIJH2GNwDNu5kcRSYHuL4f-3DA",
+          "types": [
+            "restaurant",
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "juice_shop",
+            "cafe",
+            "brunch_restaurant",
+            "salad_shop",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Les Capucines",
+          "address": "39 Bd des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.8698694,
+          "lng": 2.3292033,
+          "distance_mi": 0.05,
+          "place_id": "ChIJI5qpeDFu5kcRmJi31Zovv1w",
+          "types": [
+            "restaurant",
+            "french_restaurant",
+            "brewery",
+            "bar",
+            "manufacturer",
+            "service",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La table du VII",
+          "address": "2 Rue Édouard VII, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8705782,
+          "lng": 2.3293008,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ54CyZjFu5kcRnwfV3Fb-4Bw",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cantinetta Ventura",
+          "address": "23 Rue des Capucines, 75001 Paris, France",
+          "price": 2,
+          "lat": 48.869520099999995,
+          "lng": 2.3284290999999997,
+          "distance_mi": 0.05,
+          "place_id": "ChIJndkrxTNu5kcRlX2gKujmFfA",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Made in Italy Capucines",
+          "address": "22 Rue des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.869564000000004,
+          "lng": 2.3287391,
+          "distance_mi": 0.05,
+          "place_id": "ChIJkwiAo1xv5kcRXlMf-9CUe-A",
+          "types": [
+            "restaurant",
+            "fast_food_restaurant",
+            "italian_restaurant",
+            "meal_takeaway",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bagelstein",
+          "address": "23 Rue des Capucines, 75001 Paris, France",
+          "price": 2,
+          "lat": 48.869510899999995,
+          "lng": 2.3283335,
+          "distance_mi": 0.05,
+          "place_id": "ChIJLfyZ1jNu5kcRV9Lv6xJrk80",
+          "types": [
+            "fast_food_restaurant",
+            "pastry_shop",
+            "american_restaurant",
+            "bagel_shop",
+            "bakery",
+            "salad_shop",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "JOUR - Paris Capucines",
+          "address": "22 Rue des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.869569,
+          "lng": 2.328826,
+          "distance_mi": 0.05,
+          "place_id": "ChIJD672fTFu5kcRrBBXHWClDAU",
+          "types": [
+            "salad_shop",
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "hawaiian_restaurant",
+            "coffee_stand",
+            "meal_delivery",
+            "food_delivery",
+            "american_restaurant",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel Indigo Paris - Opera by IHG",
+          "address": "2 Rue Édouard VII, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8706578,
+          "lng": 2.3294516,
+          "distance_mi": 0.06,
+          "place_id": "ChIJkTCyZjFu5kcRnJPL8F8MaFQ",
+          "types": [
+            "hotel",
+            "business_center",
+            "wedding_venue",
+            "fitness_center",
+            "gym",
+            "event_venue",
+            "lodging",
+            "sports_activity_location",
+            "health",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushi House",
+          "address": "3 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8702,
+          "lng": 2.3270634,
+          "distance_mi": 0.06,
+          "place_id": "ChIJFz6UvjNu5kcRJCFuAg7AwK0",
+          "types": [
+            "japanese_restaurant",
+            "sushi_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jil",
+          "address": "13 Rue de Caumartin, 75009 Paris, France",
+          "price": null,
+          "lat": 48.871071,
+          "lng": 2.3279609999999997,
+          "distance_mi": 0.06,
+          "place_id": "ChIJA-Qt8DNu5kcRcv6BsFNQd9I",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kurry Up Seze",
+          "address": "1 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8702064,
+          "lng": 2.3270499,
+          "distance_mi": 0.06,
+          "place_id": "ChIJcfNB7_9v5kcRQj9agujYuUY",
+          "types": [
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Versailles",
+          "address": "8 Bd de la Madeleine, 75009 Paris, France",
+          "price": 3,
+          "lat": 48.8700477,
+          "lng": 2.3270672,
+          "distance_mi": 0.06,
+          "place_id": "ChIJjyPFYwBv5kcR1NAgpzghADk",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Maddy",
+          "address": "8 Bd de la Madeleine, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8700477,
+          "lng": 2.3270672,
+          "distance_mi": 0.06,
+          "place_id": "ChIJO7K_C4Vv5kcRPBmTgYcA6SI",
+          "types": [
+            "french_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushic",
+          "address": "20 Rue des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.8694476,
+          "lng": 2.3289003999999998,
+          "distance_mi": 0.06,
+          "place_id": "ChIJA8NefjFu5kcRLxSg5RTRR_U",
+          "types": [
+            "sushi_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mocate",
+          "address": "Rue des Capucines, 75002 Paris, France",
+          "price": null,
+          "lat": 48.8694149,
+          "lng": 2.328821,
+          "distance_mi": 0.06,
+          "place_id": "ChIJfV96fjFu5kcRmdUP4EVaxhg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Parisian Lifestyle",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8704185,
+          "lng": 2.32815,
+          "distance_mi": 0.01,
+          "place_id": "ChIJEbP05zNu5kcRm8X27UZwQSY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hôtel Radix de Sainte-Foix",
+          "address": "1 Rue de Caumartin, 75009 Paris, France",
+          "price": null,
+          "lat": 48.87032,
+          "lng": 2.3278871999999997,
+          "distance_mi": 0.02,
+          "place_id": "ChIJk3CUwjNu5kcRcCp1l1lByqg",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel Dress Code",
+          "address": "5 Rue de Caumartin, 75009 Paris, France",
+          "price": null,
+          "lat": 48.870511,
+          "lng": 2.327937,
+          "distance_mi": 0.02,
+          "place_id": "ChIJEzJc6DNu5kcRKFeSlZ8JG1M",
+          "types": [
+            "hotel",
+            "spa",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Augustin",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.870841999999996,
+          "lng": 2.3282537,
+          "distance_mi": 0.04,
+          "place_id": "ChIJAe6H3TJu5kcR-iELKKu9lqE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Honore",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8708305,
+          "lng": 2.3280176999999997,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ90a7xsxv5kcRQdpIkXAerP8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Appartement d'exception en plein de centre de Paris Quartier OPERA - Two-Bedroom Apartment",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8706894,
+          "lng": 2.3276,
+          "distance_mi": 0.04,
+          "place_id": "ChIJuVOF6zNu5kcR5NYEQb0xjr8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parisian Treat",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8708191,
+          "lng": 2.3291519,
+          "distance_mi": 0.05,
+          "place_id": "ChIJuefXWzFu5kcRKGs-BOHFj3I",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel Indigo Paris - Opera by IHG",
+          "address": "2 Rue Édouard VII, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8706578,
+          "lng": 2.3294516,
+          "distance_mi": 0.06,
+          "place_id": "ChIJkTCyZjFu5kcRnJPL8F8MaFQ",
+          "types": [
+            "hotel",
+            "business_center",
+            "fitness_center",
+            "wedding_venue",
+            "gym",
+            "event_venue",
+            "sports_activity_location",
+            "lodging",
+            "health",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Place Vendome 1 BR and 1 BA - up to 4. Air conditionning",
+          "address": "75001 Paris, France",
+          "price": null,
+          "lat": 48.86943060000001,
+          "lng": 2.32815,
+          "distance_mi": 0.06,
+          "place_id": "ChIJk-Us0jNu5kcR27ayOJCloX0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PRIME LOCATION, with LIFT , HUGE FLAT, LOUVRE /OPERA /MADELEINE / VENDOME",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.871120399999995,
+          "lng": 2.3287201,
+          "distance_mi": 0.06,
+          "place_id": "ChIJcY4T_TNu5kcRoN5Q0Wk6duY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Elegant Studio for 2 People - Palais Garnier",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8707199,
+          "lng": 2.32951,
+          "distance_mi": 0.06,
+          "place_id": "ChIJz8utRDFu5kcROifP55drt6g",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "PRIME LOCATION, with LIFT , HUGE FLAT, LOUVRE/OPERA/MADELEINE/ VENDOME",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8700294,
+          "lng": 2.3270049,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ02dnuTNu5kcRBuYDlQ0biNA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious 3BR flat / Madeleine",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8704109,
+          "lng": 2.3297,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ_ShuQjFu5kcRnQWVK92C2O4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "De France Apartment",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8700104,
+          "lng": 2.3269824999999997,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ6yRiuTNu5kcRBLlMPYKGFrU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Résidence Prestige Madeleine Opéra",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8699989,
+          "lng": 2.3269663,
+          "distance_mi": 0.07,
+          "place_id": "ChIJO0bYuzNu5kcREUTP0zkq1Qk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Residence Prestige Madeleine Opera",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8699989,
+          "lng": 2.3269661,
+          "distance_mi": 0.07,
+          "place_id": "ChIJJ0bYuzNu5kcRN652WQMK7HQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Studio Madeleine",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8698006,
+          "lng": 2.32708,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQ1nYuTNu5kcR0memJw_AawU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Holiday apartment | Near Place de la Concorde",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8699837,
+          "lng": 2.3269390999999997,
+          "distance_mi": 0.07,
+          "place_id": "ChIJSavRuzNu5kcReTf8G-AMq_E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Madeleine Studio - Studio Apartment, Sleeps 2",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8699837,
+          "lng": 2.3269390999999997,
+          "distance_mi": 0.07,
+          "place_id": "ChIJSavRuzNu5kcRZsbGZjbOMnI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Madeleine Flat - One Bedroom Apartment, Sleeps 4",
+          "address": "75009 Paris, France",
+          "price": null,
+          "lat": 48.8699837,
+          "lng": 2.3269390999999997,
+          "distance_mi": 0.07,
+          "place_id": "ChIJzxLruzNu5kcR7ZrIgJH-CIY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Cuvée Noire - Madeleine - Coffee Shop",
+          "address": "2 Rue de Caumartin, 75009 Paris, France",
+          "price": 1,
+          "lat": 48.870269699999994,
+          "lng": 2.32822,
+          "distance_mi": 0.01,
+          "place_id": "ChIJG31qqxNv5kcRKiFhzofuXu4",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "coffee_stand",
+            "cake_shop",
+            "cafe",
+            "dessert_shop",
+            "bakery",
+            "manufacturer",
+            "confectionery",
+            "food_store",
+            "wholesaler",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "BAM Karaoke Box Madeleine",
+          "address": "4 Rue de Caumartin, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8705521,
+          "lng": 2.3282116,
+          "distance_mi": 0.02,
+          "place_id": "ChIJ0-l6MHZv5kcR3u1A0WugKwU",
+          "types": [
+            "cocktail_bar",
+            "karaoke",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CAFÉ DE L'OLYMPIA",
+          "address": "2 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8701261,
+          "lng": 2.3278429,
+          "distance_mi": 0.02,
+          "place_id": "ChIJ00AAxTNu5kcRGE7r61i69x0",
+          "types": [
+            "french_restaurant",
+            "bar",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Petit Olympia",
+          "address": "6 Rue de Caumartin, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.870644299999995,
+          "lng": 2.3281853999999997,
+          "distance_mi": 0.03,
+          "place_id": "ChIJeRUKHrZv5kcR3tW-dNCxRjA",
+          "types": [
+            "restaurant",
+            "wine_bar",
+            "bar",
+            "french_restaurant",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kalve",
+          "address": "6 Rue de Caumartin, 75009 Paris, France",
+          "price": 1,
+          "lat": 48.8706761,
+          "lng": 2.3282156,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ6bSaL29v5kcR79tG6kCdywE",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Olympia",
+          "address": "7 Rue de Caumartin, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8706653,
+          "lng": 2.3279277,
+          "distance_mi": 0.03,
+          "place_id": "ChIJR53XxDNu5kcRe4cPpZG2TTk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cojean",
+          "address": "4 Rue de Sèze, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.870345099999994,
+          "lng": 2.3273169,
+          "distance_mi": 0.05,
+          "place_id": "ChIJH2GNwDNu5kcRSYHuL4f-3DA",
+          "types": [
+            "restaurant",
+            "salad_shop",
+            "brunch_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "juice_shop",
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Les Capucines",
+          "address": "39 Bd des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.8698694,
+          "lng": 2.3292033,
+          "distance_mi": 0.05,
+          "place_id": "ChIJI5qpeDFu5kcRmJi31Zovv1w",
+          "types": [
+            "restaurant",
+            "brewery",
+            "bar",
+            "french_restaurant",
+            "manufacturer",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AUBURN PARIS",
+          "address": "2 Rue Édouard VII, 75009 Paris, France",
+          "price": 1,
+          "lat": 48.8706284,
+          "lng": 2.329284,
+          "distance_mi": 0.05,
+          "place_id": "ChIJC8WNM4Zv5kcRNqDvWTanAfo",
+          "types": [
+            "wine_bar",
+            "bar",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café Lumière",
+          "address": "14 Bd des Capucines, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8702815,
+          "lng": 2.3294951,
+          "distance_mi": 0.05,
+          "place_id": "ChIJA6MvcABv5kcRfh2fqw8UYns",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Raym",
+          "address": "10 Rue de Sèze, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8704177,
+          "lng": 2.3270741,
+          "distance_mi": 0.06,
+          "place_id": "ChIJm3hLKHBv5kcRUej_8s9CTLM",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café Caumartin",
+          "address": "13 Rue de Caumartin, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.8710709,
+          "lng": 2.3279609,
+          "distance_mi": 0.06,
+          "place_id": "ChIJlUOP5TNu5kcRDRxMwZUpM7w",
+          "types": [
+            "coffee_shop",
+            "bar",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Scribe & Cie.",
+          "address": "1 Rue Scribe, 75009 Paris, France",
+          "price": 2,
+          "lat": 48.870572599999996,
+          "lng": 2.3297664000000005,
+          "distance_mi": 0.07,
+          "place_id": "ChIJO67gEMtv5kcR5aiwDHVKcBM",
+          "types": [
+            "coffee_shop",
+            "tea_house",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "GoodNews",
+          "address": "7 Bd de la Madeleine, 75001 Paris, France",
+          "price": 1,
+          "lat": 48.8696136,
+          "lng": 2.327165,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ5eHateFv5kcRZTG5CO3qaLo",
+          "types": [
+            "coffee_stand",
+            "snack_bar",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Qpark - Accès piéton",
+          "address": "9 Pl. Édouard VII, 75009 Paris, France",
+          "price": null,
+          "lat": 48.8712332,
+          "lng": 2.3289613,
+          "distance_mi": 0.07,
+          "place_id": "ChIJv9wIk69v5kcRyIlJoe4iZ2k",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mon Paris !",
+          "address": "6 Rue Édouard VII, 75009 Paris, France",
+          "price": 3,
+          "lat": 48.871049299999996,
+          "lng": 2.3294213999999998,
+          "distance_mi": 0.07,
+          "place_id": "ChIJyxZFUDFu5kcRQusse1jDsHs",
+          "types": [
+            "french_restaurant",
+            "bar",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blu Café",
+          "address": "35 Bd des Capucines, 75002 Paris, France",
+          "price": 2,
+          "lat": 48.8699234,
+          "lng": 2.3298757,
+          "distance_mi": 0.07,
+          "place_id": "ChIJL5NiQ9dv5kcRahttD6dZ85Y",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Terre de Cafe",
+          "address": "20 Rue des Capucines, 75002 Paris, France",
+          "price": 1,
+          "lat": 48.8693003,
+          "lng": 2.3291345999999997,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ7bHKEwBv5kcR6jSQlKKx1cc",
+          "types": [
+            "coffee_shop",
+            "coffee_roastery",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7J/7J TABAC CIGARIUM : FDJ, CBD, IQOS TEREA, PUFF, JNR, LIQUIDEO,VAPE SHOP, CIGARES, PMU, NICKEL",
+          "address": "5 Rue Godot de Mauroy, 75009 Paris, France",
+          "price": null,
+          "lat": 48.870509,
+          "lng": 2.326688,
+          "distance_mi": 0.08,
+          "place_id": "ChIJPSQ9kTNu5kcRT6UFz-eLeZs",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Yespark",
+          "address": "37 Bd des Capucines, 75002 Paris, France",
+          "price": null,
+          "lat": 48.87,
+          "lng": 2.33,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ_6aMmmNv5kcRh6Ow2kZ-qPs",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

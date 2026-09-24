@@ -1,0 +1,1237 @@
+{
+  "venueName": "Minglewood Hall",
+  "city": "Memphis",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Smok'd Meats",
+          "address": "1555 Madison Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.137971199999996,
+          "lng": -90.01004100000002,
+          "distance_mi": 0.01,
+          "place_id": "ChIJmWsLHRB-1YcRefs84DlDRJM",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CRU LOUNGE",
+          "address": "1532 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1385569,
+          "lng": -90.0101548,
+          "distance_mi": 0.05,
+          "place_id": "ChIJw1BICEZ_1YcRYveLlIpGadI",
+          "types": [
+            "lounge_bar",
+            "hookah_bar",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Murphy's",
+          "address": "1589 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1379204,
+          "lng": -90.0083272,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ69T9tBp-1YcRg-y39GnBv6k",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Exquisite Taste",
+          "address": "1586 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1382872,
+          "lng": -90.0083246,
+          "distance_mi": 0.09,
+          "place_id": "ChIJIbPeGS1_1YcR2SyculVVeeg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Krave Kitchen Midtown",
+          "address": "1586 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1382872,
+          "lng": -90.0083246,
+          "distance_mi": 0.09,
+          "place_id": "ChIJe4xVWEp_1YcRAW29ad_OeWg",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "1540 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1365311,
+          "lng": -90.00982839999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJWQ32DN5_1YcROl-gghE5yfw",
+          "types": [
+            "coffee_shop",
+            "fast_food_restaurant",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "1558 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1365516,
+          "lng": -90.00947760000001,
+          "distance_mi": 0.1,
+          "place_id": "ChIJE9ZX9A9-1YcRNzP11wYD6KM",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Domino's Pizza",
+          "address": "1560 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.136472999999995,
+          "lng": -90.00942599999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJE1166Kt_1YcRKJ7nbgrF3Ss",
+          "types": [
+            "pizza_delivery",
+            "chicken_wings_restaurant",
+            "pizza_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HALAL BOYZ MIDTOWN",
+          "address": "1550 Union Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1364345,
+          "lng": -90.0097388,
+          "distance_mi": 0.1,
+          "place_id": "ChIJo1e4JwB_1YcRVWUfmsWxhek",
+          "types": [
+            "mediterranean_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wingstop",
+          "address": "1556 Union Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1363964,
+          "lng": -90.0096363,
+          "distance_mi": 0.11,
+          "place_id": "ChIJwesiBFJ_1YcRqm-ZzCa9i3M",
+          "types": [
+            "restaurant",
+            "chicken_wings_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crumpys Midtown",
+          "address": "1607 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1376427,
+          "lng": -90.00766879999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJP-fbEHd_1YcRPfl6SUTMo5M",
+          "types": [
+            "chicken_wings_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pho 4ever - Memphis",
+          "address": "1615 Madison Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.137664199999996,
+          "lng": -90.0074684,
+          "distance_mi": 0.13,
+          "place_id": "ChIJp0AqagB_1YcRm3WBnYysEAE",
+          "types": [
+            "vietnamese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "El Mezcal",
+          "address": "1492 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1366667,
+          "lng": -90.01166669999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJt-wgyw9-1YcRBWSvfpUqTzs",
+          "types": [
+            "mexican_restaurant",
+            "latin_american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Firehouse Subs Union Ave-Memphis",
+          "address": "1571 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.135802999999996,
+          "lng": -90.00931,
+          "distance_mi": 0.15,
+          "place_id": "ChIJY0w0YgV-1YcRHhMy5PwgIJU",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cook Out",
+          "address": "1468 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1367287,
+          "lng": -90.0120707,
+          "distance_mi": 0.15,
+          "place_id": "ChIJLRG2OQ5-1YcRHY4Op33ABwQ",
+          "types": [
+            "restaurant",
+            "chicken_restaurant",
+            "hamburger_restaurant",
+            "barbecue_restaurant",
+            "fast_food_restaurant",
+            "hot_dog_restaurant",
+            "american_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Apple bees",
+          "address": "Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1363674,
+          "lng": -90.0120231,
+          "distance_mi": 0.17,
+          "place_id": "ChIJB6f0MAB_1YcRpV04cHuUO6A",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wendy's",
+          "address": "1593 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.135691099999995,
+          "lng": -90.0085639,
+          "distance_mi": 0.17,
+          "place_id": "ChIJGxsCbgV-1YcRHrNgdsnYWlQ",
+          "types": [
+            "fast_food_restaurant",
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little Italy Midtown",
+          "address": "1495 Union Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1360302,
+          "lng": -90.01167319999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJc5q9TA5-1YcRjiAl0HWhmWI",
+          "types": [
+            "italian_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "sandwich_shop",
+            "pizza_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "american_restaurant",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Papa Johns Pizza",
+          "address": "1436 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1368472,
+          "lng": -90.0136177,
+          "distance_mi": 0.23,
+          "place_id": "ChIJ_eBXDA5-1YcRaJ3M3q-kaGM",
+          "types": [
+            "pizza_restaurant",
+            "chicken_wings_restaurant",
+            "fast_food_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco Bell",
+          "address": "1447 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1361486,
+          "lng": -90.0132989,
+          "distance_mi": 0.23,
+          "place_id": "ChIJCTS6bQ5-1YcRpUj62exLq_E",
+          "types": [
+            "fast_food_restaurant",
+            "taco_restaurant",
+            "tex_mex_restaurant",
+            "mexican_restaurant",
+            "burrito_restaurant",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Vintage Boho Apartment in Great Midtown Location!",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.138031,
+          "lng": -90.01023099999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJY1FjHhB-1YcR33TkZY0AuCA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Landing | Chic 1BD, Gym, Clubhouse",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1389083,
+          "lng": -90.00962059999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJm6WqDhB-1YcRrXiFnBEkYKU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Landing Stylish 1BD Clubhouse Gym",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1389083,
+          "lng": -90.00962059999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJm6WqDhB-1YcRbCYsI8k5Ayg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Memphis Getaway",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1376686,
+          "lng": -90.0114746,
+          "distance_mi": 0.1,
+          "place_id": "ChIJredP1A9-1YcRkbLVvV73dYw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Memphis Getaway - One-Bedroom Apartment",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1376686,
+          "lng": -90.01148219999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJgWlQ1A9-1YcRJdiiLn6_GbQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "5 · Classic woodwork details in 1912 Colonial!",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.138401099999996,
+          "lng": -90.0079422,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ8XXgyBp-1YcREbqjCx79JyE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Comfort 2 BR Midtown 2mins to Overton Park",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.136230499999996,
+          "lng": -90.0094604,
+          "distance_mi": 0.12,
+          "place_id": "ChIJOT01ig9-1YcRTuNdLHZN_JY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Exquisite two-story home located in Midtown - Three-Bedroom House",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1397896,
+          "lng": -90.00908659999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJo06JnBp-1YcRUW-6VkAz4VA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walkable Treetop Studio In Heart Of Midtown",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1395416,
+          "lng": -90.0112228,
+          "distance_mi": 0.14,
+          "place_id": "ChIJE3snSRB-1YcRWBkbMI3JCAc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bluff City Luxe",
+          "address": "1470 Monroe Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1377666,
+          "lng": -90.0123201,
+          "distance_mi": 0.14,
+          "place_id": "ChIJBYrvCQB_1YcR_D-NRLBTh3Y",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bluff City Luxe - Vacation Home",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.137760199999995,
+          "lng": -90.0123215,
+          "distance_mi": 0.14,
+          "place_id": "ChIJ81e4Jw5-1YcRbuYWsc-YOE8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "3 · Urban Zen w / Great Central Location",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1365318,
+          "lng": -90.00782769999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJdevwPQV-1YcR7EpbZBAB9c8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Clark at Midtown Memphis - Four-Bedroom House",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1402207,
+          "lng": -90.0099335,
+          "distance_mi": 0.16,
+          "place_id": "ChIJVcu2ZBB-1YcRZEOIVkaM8WI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walk to Live Music! Midtown Memphis Home w/ Yard",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.140239699999995,
+          "lng": -90.0099487,
+          "distance_mi": 0.16,
+          "place_id": "ChIJb7C6ZBB-1YcReVpg-gOpRuY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Vintage Apartment in Midtown Close to All!",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1391716,
+          "lng": -90.0069809,
+          "distance_mi": 0.18,
+          "place_id": "ChIJ22wLIBt-1YcRwwH1Eid8xKw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Cobalt Sunroom",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1406288,
+          "lng": -90.0099335,
+          "distance_mi": 0.19,
+          "place_id": "ChIJWa-ylBB-1YcRU-BumOeNKAI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Historic Apartment in Midtown Memphis",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.140449499999995,
+          "lng": -90.01127629999999,
+          "distance_mi": 0.19,
+          "place_id": "ChIJYdj1VhB-1YcR_0t7Z-RF61s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Urban Comfort Nook - Walk to Overton Park",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1407776,
+          "lng": -90.0084686,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ41ApYhp-1YcRcj9r5ruXr94",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Central Hideaway in Midtown Memphis",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1407776,
+          "lng": -90.0084686,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ41ApYhp-1YcRohvhF0BUfLo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vibrant Memphis Retreat | Steps from Local Spots",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1407776,
+          "lng": -90.0084686,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ41ApYhp-1YcRhbm4bFvHHtY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "B-SIDE Bar",
+          "address": "Inside Minglewood Plaza, 1553 Madison Ave Ste 101, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.137926,
+          "lng": -90.00956400000001,
+          "distance_mi": 0.01,
+          "place_id": "ChIJn3wWI7F_1YcRJMIDFqMYhgk",
+          "types": [
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Minglewood Hall",
+          "address": "1555 Madison Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1379546,
+          "lng": -90.01010389999999,
+          "distance_mi": 0.02,
+          "place_id": "ChIJc_HVBhB-1YcRDrbF0qTWCdw",
+          "types": [
+            "live_music_venue",
+            "banquet_hall",
+            "lounge_bar",
+            "concert_hall",
+            "auditorium",
+            "wedding_venue",
+            "bar",
+            "event_venue",
+            "night_club",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "19 S Willett St, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.137664199999996,
+          "lng": -90.00912489999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJM0WPJwB_1YcRwkyHYZQwgXc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "CRU LOUNGE",
+          "address": "1532 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1385569,
+          "lng": -90.0101548,
+          "distance_mi": 0.05,
+          "place_id": "ChIJw1BICEZ_1YcRYveLlIpGadI",
+          "types": [
+            "lounge_bar",
+            "hookah_bar",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Murphy's",
+          "address": "1589 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1379204,
+          "lng": -90.0083272,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ69T9tBp-1YcRg-y39GnBv6k",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "1540 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1365311,
+          "lng": -90.00982839999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJWQ32DN5_1YcROl-gghE5yfw",
+          "types": [
+            "coffee_shop",
+            "fast_food_restaurant",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "1551 Court Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.139360499999995,
+          "lng": -90.0094585,
+          "distance_mi": 0.1,
+          "place_id": "ChIJkVunNwB_1YcREG2G01hXOlE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "West Clinic - Midtown (SP+ Parking)",
+          "address": "1588 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1363917,
+          "lng": -90.0087356,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ1endxrV_1YcRD-Y6Kc08Oaw",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DRUS Bar (DRUS Place)",
+          "address": "1474 Madison Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1386409,
+          "lng": -90.01213589999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJf9Iy0BF-1YcRhCVw1d44xlY",
+          "types": [
+            "karaoke",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7 Brew Coffee",
+          "address": "1625 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.135692,
+          "lng": -90.00722789999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ0eyAXSp_1YcRSY46ND_n0ks",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Takashi Bistro",
+          "address": "1680 Union Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1361266,
+          "lng": -90.0056886,
+          "distance_mi": 0.26,
+          "place_id": "ChIJh5masoZ_1YcRvxMyuFDVVfU",
+          "types": [
+            "japanese_restaurant",
+            "cocktail_bar",
+            "thai_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks",
+          "address": "1420 Union Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.136759999999995,
+          "lng": -90.01428,
+          "distance_mi": 0.27,
+          "place_id": "ChIJtTW2ppF_1YcRnCHqaz1lOxA",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "1680 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1360934,
+          "lng": -90.00552429999999,
+          "distance_mi": 0.27,
+          "place_id": "ChIJB6l4UQB_1YcRlv72TjHOfvg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Zinnie's",
+          "address": "1688 Madison Ave, Memphis, TN 38104, USA",
+          "price": 1,
+          "lat": 35.1381428,
+          "lng": -90.0048936,
+          "distance_mi": 0.28,
+          "place_id": "ChIJs0sCsRx-1YcRzG_i6poqpBU",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1410809,
+          "lng": -90.0066344,
+          "distance_mi": 0.28,
+          "place_id": "ChIJmU-jFQB_1YcR6SWRzyc7Nyk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lamplighter Lounge",
+          "address": "1702 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1382317,
+          "lng": -90.0044846,
+          "distance_mi": 0.3,
+          "place_id": "ChIJ_TCzrhx-1YcRCcNEMRT3ZSc",
+          "types": [
+            "restaurant",
+            "bar_and_grill",
+            "vegan_restaurant",
+            "shipping_service",
+            "vegetarian_restaurant",
+            "bar",
+            "live_music_venue",
+            "coffee_shop",
+            "cafe",
+            "event_venue",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tropical Smoothie Cafe",
+          "address": "1708 Union Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.135999,
+          "lng": -90.004615,
+          "distance_mi": 0.32,
+          "place_id": "ChIJjc3Qh_t_1YcRJ19pSLzi8jM",
+          "types": [
+            "juice_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "cafe",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Frida's Restaurante Mexicano",
+          "address": "1718 Madison Ave, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.138383999999995,
+          "lng": -90.00392719999999,
+          "distance_mi": 0.33,
+          "place_id": "ChIJTcgDsRx-1YcRQWwoJBcB-E8",
+          "types": [
+            "mexican_restaurant",
+            "chicken_wings_restaurant",
+            "taco_restaurant",
+            "latin_american_restaurant",
+            "chicken_restaurant",
+            "tex_mex_restaurant",
+            "bar",
+            "burrito_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jamrack Restaurant and Bar",
+          "address": "150 N Avalon St, Memphis, TN 38104, USA",
+          "price": 2,
+          "lat": 35.1420047,
+          "lng": -90.00625819999999,
+          "distance_mi": 0.35,
+          "place_id": "ChIJJ83aI8F_1YcRMT0cuUvtzeo",
+          "types": [
+            "sports_bar",
+            "cocktail_bar",
+            "caribbean_restaurant",
+            "bar_and_grill",
+            "chicken_restaurant",
+            "hookah_bar",
+            "lounge_bar",
+            "seafood_restaurant",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking lot",
+          "address": "1631 Poplar Ave, Memphis, TN 38104, USA",
+          "price": null,
+          "lat": 35.1424125,
+          "lng": -90.0066308,
+          "distance_mi": 0.36,
+          "place_id": "ChIJZW5xagB_1YcRvX0aGqA22Rc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

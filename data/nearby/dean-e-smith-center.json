@@ -1,0 +1,832 @@
+{
+  "venueName": "Dean E. Smith Center",
+  "city": "Chapel Hill",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Overlook Café",
+          "address": "101 Manning Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9043681,
+          "lng": -79.04938709999999,
+          "distance_mi": 0.46,
+          "place_id": "ChIJ2e1gQ-7CrIkRlCYgHnNZ3e4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Subway",
+          "address": "Ram's Head Market, 104 Ridge Rd, Chapel Hill, NC 27514, USA",
+          "price": 1,
+          "lat": 35.9061401,
+          "lng": -79.04537069999999,
+          "distance_mi": 0.47,
+          "place_id": "ChIJ3fmCXezCrIkR_4trpeVyKuc",
+          "types": [
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Carolina Club",
+          "address": "150 Stadium Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9069319,
+          "lng": -79.04577789999999,
+          "distance_mi": 0.53,
+          "place_id": "ChIJEVoTf-zCrIkRFgnAtnphecY",
+          "types": [
+            "wedding_venue",
+            "fine_dining_restaurant",
+            "event_venue",
+            "association_or_organization",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Corner Café",
+          "address": "Ground floor, North Carolina Women's And Children's Hospital, 101 Manning Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.904962,
+          "lng": -79.05071219999999,
+          "distance_mi": 0.54,
+          "place_id": "ChIJn4o-bxDDrIkR9rFMmy-aWdM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beach Cafe",
+          "address": "160 Medical Dr, Chapel Hill, NC 27514, USA",
+          "price": 1,
+          "lat": 35.9059301,
+          "lng": -79.05163950000001,
+          "distance_mi": 0.62,
+          "place_id": "ChIJ03n2cu_CrIkRqkcqxIhLBVQ",
+          "types": [
+            "food_court",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bojangles",
+          "address": "209 South Rd, Chapel Hill, NC 27599, USA",
+          "price": 2,
+          "lat": 35.9102853,
+          "lng": -79.0477178,
+          "distance_mi": 0.78,
+          "place_id": "ChIJbyhqVkjDrIkRnJQc86MaTDs",
+          "types": [
+            "restaurant",
+            "chicken_restaurant",
+            "family_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "american_restaurant",
+            "meal_takeaway",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saladelia - FedEx Global Education Center @ UNC",
+          "address": "301 Pittsboro St, Chapel Hill, NC 27516, USA",
+          "price": null,
+          "lat": 35.907827999999995,
+          "lng": -79.0541772,
+          "distance_mi": 0.82,
+          "place_id": "ChIJq6pq5OXCrIkRYDJeAEloCsc",
+          "types": [
+            "restaurant",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Merritt's Grill",
+          "address": "1009 S Columbia St, Chapel Hill, NC 27514, USA",
+          "price": 2,
+          "lat": 35.8960441,
+          "lng": -79.0582735,
+          "distance_mi": 0.84,
+          "place_id": "ChIJmQDxMPnCrIkRQiTIUxQNQu8",
+          "types": [
+            "catering_service",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "food_delivery",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crossroads Chapel Hill",
+          "address": "211 Pittsboro St, Chapel Hill, NC 27516, USA",
+          "price": 2,
+          "lat": 35.9095588,
+          "lng": -79.0547069,
+          "distance_mi": 0.93,
+          "place_id": "ChIJK8e_aubCrIkRC8Qk_qBfiCQ",
+          "types": [
+            "american_restaurant",
+            "breakfast_restaurant",
+            "brunch_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Guest Suite near UNC!",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8961907,
+          "lng": -79.04151159999999,
+          "distance_mi": 0.26,
+          "place_id": "ChIJ86Z6VovCrIkRky2my1cSecE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walk to UNC Stadiums & Hospital",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8964996,
+          "lng": -79.0404968,
+          "distance_mi": 0.28,
+          "place_id": "ChIJYRnioYzCrIkRyCQVGiSl9Kg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious House Walkable to UNC",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8964996,
+          "lng": -79.0404968,
+          "distance_mi": 0.28,
+          "place_id": "ChIJYRnioYzCrIkRqmScJyAH22w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Heel House-Walk to UNC stadiums!",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8964996,
+          "lng": -79.0404892,
+          "distance_mi": 0.28,
+          "place_id": "ChIJY7BYn4zCrIkRZQ8USTDKhvs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Heel House Apartment-Walk to UNC stadiums!",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8964996,
+          "lng": -79.0404892,
+          "distance_mi": 0.28,
+          "place_id": "ChIJY7BYn4zCrIkRlUrUYoYkMH0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming 2BR apt feet from UNC-Chapel Hill, Dean Dome, and NC Botanical Garden",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8969155,
+          "lng": -79.0382843,
+          "distance_mi": 0.36,
+          "place_id": "ChIJsSsTb4zCrIkRyShrI3WHhmE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chic Asian-Mid Century Home",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8969421,
+          "lng": -79.037117,
+          "distance_mi": 0.41,
+          "place_id": "ChIJy_srF4zCrIkRJuy0UXRiY_I",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Snuggery: Light, new studio in charming Chapel Hill",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.8935928,
+          "lng": -79.03878019999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJE1qQq4vCrIkRgs2tMIyETlY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1 bedroom apt near unc Chapel Hill - One-Bedroom Apartment",
+          "address": "Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.8992691,
+          "lng": -79.05634309999999,
+          "distance_mi": 0.7,
+          "place_id": "ChIJOdgitPvCrIkRWRrse8S9FUk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Carolina Inn, a Destination by Hyatt Hotel",
+          "address": "211 Pittsboro St, Chapel Hill, NC 27516, USA",
+          "price": null,
+          "lat": 35.9097578,
+          "lng": -79.0542753,
+          "distance_mi": 0.92,
+          "place_id": "ChIJ8QLIa-bCrIkR3UfK1Z7K98U",
+          "types": [
+            "resort_hotel",
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stunning Mid-Century Gem Near Campus and Gardens",
+          "address": "Chapel Hill, NC 27517, USA",
+          "price": null,
+          "lat": 35.9042587,
+          "lng": -79.0284576,
+          "distance_mi": 0.92,
+          "place_id": "ChIJAbGmSJrCrIkRqHkt_UIn1J4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dedicated room with terrace",
+          "address": "Chapel Hill, NC 27516, USA",
+          "price": null,
+          "lat": 35.9071006,
+          "lng": -79.0587005,
+          "distance_mi": 0.99,
+          "place_id": "ChIJXSaydeTCrIkRYvgWWPQ_H2c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Near UNC Campus & Chapel Hill Wedding Venues",
+          "address": "Chapel Hill, NC 27599, USA",
+          "price": null,
+          "lat": 35.9063187,
+          "lng": -79.0593949,
+          "distance_mi": 0.99,
+          "place_id": "ChIJs0asg-PCrIkRZeap5wPT3ss",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Williamson Lot (S11 Permit)",
+          "address": "Williamson Lot, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.900585899999996,
+          "lng": -79.043145,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ0e6fv_LCrIkRRw34176UAa0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dean E. Smith Center Lot (S9 Permit)",
+          "address": "S9 Lot, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.8989002,
+          "lng": -79.0425011,
+          "distance_mi": 0.08,
+          "place_id": "ChIJfYDxKPPCrIkRZrorcmgCe-8",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Manning Lot (S11 Permit)",
+          "address": "238 Manning Dr, Chapel Hill, NC 27599, USA",
+          "price": null,
+          "lat": 35.900087299999996,
+          "lng": -79.0395874,
+          "distance_mi": 0.24,
+          "place_id": "ChIJOzPnDI3CrIkRxcScu-YTXJE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Craige Lot (L Permit)",
+          "address": "Parking lot, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9030579,
+          "lng": -79.045746,
+          "distance_mi": 0.27,
+          "place_id": "ChIJLe1cke3CrIkRGbV2e5iFO4E",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Craige Parking Deck",
+          "address": "Craige Deck, Manning Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.902927,
+          "lng": -79.0469869,
+          "distance_mi": 0.3,
+          "place_id": "ChIJFb6l-u3CrIkR-T6VfS8pP9U",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Family Practice Lot",
+          "address": "Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.8987104,
+          "lng": -79.0382194,
+          "distance_mi": 0.32,
+          "place_id": "ChIJwVjTso3CrIkRopEdpf4R56c",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Morrison Circle (L Permit)",
+          "address": "Morrison Circle, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9045713,
+          "lng": -79.0466276,
+          "distance_mi": 0.39,
+          "place_id": "ChIJsag6zO3CrIkRqm0WNMDtoP0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jackson Parking Deck",
+          "address": "Jackson Deck, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9018872,
+          "lng": -79.050332,
+          "distance_mi": 0.4,
+          "place_id": "ChIJH8ev0vHCrIkR6W5mnAxPOT0",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Public Safety Parking Lot (S1 Permit)",
+          "address": "Public Safety, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9046275,
+          "lng": -79.0476553,
+          "distance_mi": 0.42,
+          "place_id": "ChIJ9yIFee7CrIkR9OjAtHcNBUk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "101 Manning Dr, Chapel Hill, NC 27514, USA",
+          "price": 2,
+          "lat": 35.90396,
+          "lng": -79.04939,
+          "distance_mi": 0.44,
+          "place_id": "ChIJQ-MGw-_CrIkRWUJQYL1c_MI",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boshamer Stadium Parking Lot",
+          "address": "Boshamer, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9059592,
+          "lng": -79.0420819,
+          "distance_mi": 0.46,
+          "place_id": "ChIJeWfjtOzCrIkR3UjM-asVsQM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Terrace Cafe",
+          "address": "101 Manning Dr, Chapel Hill, NC 27514, USA",
+          "price": 1,
+          "lat": 35.9046397,
+          "lng": -79.0499519,
+          "distance_mi": 0.49,
+          "place_id": "ChIJcdANJHjDrIkRTgXb-V6pNys",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blue Zone",
+          "address": "150 Stadium Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9069319,
+          "lng": -79.04577789999999,
+          "distance_mi": 0.53,
+          "place_id": "ChIJ-a1Ky7TDrIkROxnN02N9uWk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cardinal Parking Deck",
+          "address": "3 West Dr, Chapel Hill, NC 27599, USA",
+          "price": null,
+          "lat": 35.902738299999996,
+          "lng": -79.0525122,
+          "distance_mi": 0.54,
+          "place_id": "ChIJ57NM_e_CrIkR3Y4nuB67R-Y",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saladelia - Marsico Hall @ UNC",
+          "address": "125 Mason Farm Rd, Chapel Hill, NC 27514, USA",
+          "price": 2,
+          "lat": 35.9023944,
+          "lng": -79.0537749,
+          "distance_mi": 0.59,
+          "place_id": "ChIJ-0aJsfrCrIkR8tzNTEU7sNY",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bell Tower Parking Deck",
+          "address": "Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9067323,
+          "lng": -79.0500382,
+          "distance_mi": 0.61,
+          "place_id": "ChIJISGM3u7CrIkRrJvmz7nULjo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Mad Hatter's Cafe @ UNC Beach",
+          "address": "160 Medical Dr, Chapel Hill, NC 27514, USA",
+          "price": 1,
+          "lat": 35.905990599999996,
+          "lng": -79.0518417,
+          "distance_mi": 0.64,
+          "place_id": "ChIJi5Yn-5zDrIkRkcfMwilPrWg",
+          "types": [
+            "cafe",
+            "coffee_shop",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tap Tea Bar Chapel Hill",
+          "address": "150 Medical Dr, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9063575,
+          "lng": -79.0516749,
+          "distance_mi": 0.65,
+          "place_id": "ChIJG_bhNoPDrIkRAOg1vQEwcjc",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Courtyard Café",
+          "address": "ACC Building, UNC Medical Center, 102 Mason Farm Rd, Chapel Hill, NC 27514, USA",
+          "price": null,
+          "lat": 35.9000787,
+          "lng": -79.0553748,
+          "distance_mi": 0.65,
+          "place_id": "ChIJ4ct2V_rCrIkRGxFJbB8L2HA",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Friends Cafe",
+          "address": "335 S Columbia St, Chapel Hill, NC 27514, USA",
+          "price": 1,
+          "lat": 35.905580799999996,
+          "lng": -79.0530454,
+          "distance_mi": 0.67,
+          "place_id": "ChIJIZmof-_CrIkRUNwu3NBZY3w",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

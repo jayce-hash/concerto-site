@@ -1,0 +1,1256 @@
+{
+  "venueName": "Royal Oak Music Theatre",
+  "city": "Royal Oak",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Ronin Sushi",
+          "address": "326 W 4th St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.487325,
+          "lng": -83.14757399999999,
+          "distance_mi": 0.0,
+          "place_id": "ChIJjW8NQUHPJIgRcdSP933HGco",
+          "types": [
+            "sushi_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bijou",
+          "address": "316 W 4th St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4873184,
+          "lng": -83.1472787,
+          "distance_mi": 0.01,
+          "place_id": "ChIJs078iYnPJIgRF1g_AiY_95Y",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "D'Amato's Restaurant",
+          "address": "222 Sherman Dr, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4877877,
+          "lng": -83.1469663,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ-ckbZkHPJIgR_pBQotcfuQA",
+          "types": [
+            "italian_restaurant",
+            "brunch_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café Muse",
+          "address": "418 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4866698,
+          "lng": -83.1469374,
+          "distance_mi": 0.05,
+          "place_id": "ChIJz7YgDEHPJIgRsOd__yxzKVk",
+          "types": [
+            "breakfast_restaurant",
+            "cocktail_bar",
+            "salad_shop",
+            "catering_service",
+            "vegetarian_restaurant",
+            "brunch_restaurant",
+            "sandwich_shop",
+            "bar",
+            "cafe",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lily's Seafood Grill & Brewery",
+          "address": "410 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486717,
+          "lng": -83.1467769,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ15VxDUHPJIgROjPz5_uUOAU",
+          "types": [
+            "seafood_restaurant",
+            "brewpub",
+            "pub",
+            "brewery",
+            "brunch_restaurant",
+            "bar",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café De Olla Restaurant",
+          "address": "418 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4866923,
+          "lng": -83.146817,
+          "distance_mi": 0.06,
+          "place_id": "ChIJSW68O1LPJIgRLjC6yRH2cYU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Le Crepe",
+          "address": "317 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4875954,
+          "lng": -83.1463749,
+          "distance_mi": 0.06,
+          "place_id": "ChIJN8KYcEHPJIgRLEzAH0aqWXs",
+          "types": [
+            "french_restaurant",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "european_restaurant",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kaizen Ramen",
+          "address": "411 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4868475,
+          "lng": -83.1463193,
+          "distance_mi": 0.07,
+          "place_id": "ChIJh0ByC87PJIgRtQGZQHGP0TQ",
+          "types": [
+            "ramen_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trattoria Da Luigi",
+          "address": "415 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486753,
+          "lng": -83.146236,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ7yMBCkHPJIgRKaabMeXdM9A",
+          "types": [
+            "italian_restaurant",
+            "wine_bar",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Nomad Asian Eatery",
+          "address": "200 W 4th St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4873954,
+          "lng": -83.1455725,
+          "distance_mi": 0.1,
+          "place_id": "ChIJI3eznRPPJIgRixVoLrHrBOI",
+          "types": [
+            "asian_restaurant",
+            "thai_restaurant",
+            "tea_house",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little Brothers Burgers",
+          "address": "201 W 4th St, Royal Oak, MI 48067, USA",
+          "price": 1,
+          "lat": 42.487114999999996,
+          "lng": -83.145568,
+          "distance_mi": 0.1,
+          "place_id": "ChIJUfTpmUHPJIgRGzzg8yJ-NmI",
+          "types": [
+            "hamburger_restaurant",
+            "ice_cream_shop",
+            "fast_food_restaurant",
+            "dessert_shop",
+            "american_restaurant",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock & Brews Royal Oak",
+          "address": "208 W Fifth St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486567699999995,
+          "lng": -83.1458116,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ22Y6YgDPJIgRSdyqng36JFQ",
+          "types": [
+            "american_restaurant",
+            "sports_bar",
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fifth Avenue",
+          "address": "215 W Fifth St, Royal Oak, MI 48067, USA",
+          "price": 1,
+          "lat": 42.4862442,
+          "lng": -83.14598079999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJw2PCqEHPJIgRfdjq8klQSio",
+          "types": [
+            "bar",
+            "sports_bar",
+            "bar_and_grill",
+            "event_venue",
+            "sports_complex",
+            "sports_club",
+            "sports_activity_location",
+            "association_or_organization",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Saab Sis Thai",
+          "address": "Parking ramp across street, 515 S Lafayette Ave #514, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.485744,
+          "lng": -83.14756729999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJuwprXKfPJIgRpn71mZkJ-Go",
+          "types": [
+            "thai_restaurant",
+            "catering_service",
+            "noodle_shop",
+            "asian_restaurant",
+            "vegetarian_restaurant",
+            "seafood_restaurant",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Detroit Eatery",
+          "address": "200 W Fifth St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.48651840000001,
+          "lng": -83.1456164,
+          "distance_mi": 0.11,
+          "place_id": "ChIJBXWMX7_PJIgR7IldCaA9XnQ",
+          "types": [
+            "restaurant",
+            "fusion_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tokyo Sushi & Grill",
+          "address": "315 S Center St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.487581500000005,
+          "lng": -83.14517459999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJC0jAj0HPJIgRVfW9iJAWRGU",
+          "types": [
+            "sushi_restaurant",
+            "asian_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oak City Grille",
+          "address": "212 W 6th St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4857229,
+          "lng": -83.1460123,
+          "distance_mi": 0.13,
+          "place_id": "ChIJmwsAVUDPJIgRL1pJZdPN51k",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chipotle Mexican Grill",
+          "address": "305 W 11 Mile Rd, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4894416,
+          "lng": -83.1470214,
+          "distance_mi": 0.15,
+          "place_id": "ChIJeceQ1_vPJIgRUUX-l36UUQE",
+          "types": [
+            "fast_food_restaurant",
+            "taco_restaurant",
+            "catering_service",
+            "shipping_service",
+            "mexican_restaurant",
+            "food_delivery",
+            "burrito_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pronto! Lounge & Showbar",
+          "address": "608 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.485276,
+          "lng": -83.1467624,
+          "distance_mi": 0.15,
+          "place_id": "ChIJpQQEbRHPJIgRDDqycbV4PHE",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "sports_club",
+            "association_or_organization",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pronto! Diner",
+          "address": "610 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4852436,
+          "lng": -83.14687649999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJv2jy-0DPJIgR5YJHFSZpekw",
+          "types": [
+            "restaurant",
+            "bar_and_grill",
+            "catering_service",
+            "breakfast_restaurant",
+            "diner",
+            "bar",
+            "food_delivery",
+            "american_restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Luxury Downtown Royal Oak Home with \\\"Patio\\\" \\\"Propane Fire Pit \\\" \\\"Game Room\\\"!!",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4880905,
+          "lng": -83.1484298,
+          "distance_mi": 0.07,
+          "place_id": "ChIJj1O6VkHPJIgRBJJ1YbtiHYE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury 2-bedroom apartment in awesome Downtown Royal Oak with fWiFi",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.48666,
+          "lng": -83.145073,
+          "distance_mi": 0.13,
+          "place_id": "ChIJCVnlQUTPJIgR-PeGmLrfhdg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 2BR – Luxury Comfort & Views",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4852905,
+          "lng": -83.1462402,
+          "distance_mi": 0.16,
+          "place_id": "ChIJG3Bc-EDPJIgR6L7lDNTGlrs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mariocore Downtown Royal Oak Apartment - 2 BDRM",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4850044,
+          "lng": -83.14628599999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJV4dU9kDPJIgRZMHNQmcl8EY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Downtown 2BR Luxury Comfort and Views - One-Bedroom Apartment",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4850006,
+          "lng": -83.1462784,
+          "distance_mi": 0.17,
+          "place_id": "ChIJQbxT9kDPJIgRGWLTIpY6MhI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A short walk to downtown Royal Oak",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4891892,
+          "lng": -83.14985659999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJn1YoF0TPJIgRM3-EyilQW4w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mid-Century Modern Home in Downtown Royal Oak!",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4900017,
+          "lng": -83.1500015,
+          "distance_mi": 0.22,
+          "place_id": "ChIJXeKCaUTPJIgRkNGkzXPoWoU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2-bedroom vacation home just 17 minutes drive to Ford Field",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.490051300000005,
+          "lng": -83.15048209999999,
+          "distance_mi": 0.24,
+          "place_id": "ChIJrYz2Q0TPJIgRdYUJk3SFqkE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7th Street Retreat: Restored 1925 Gem w / Game Room 1 Block to Downtown Royal Oak",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4855003,
+          "lng": -83.1424637,
+          "distance_mi": 0.29,
+          "place_id": "ChIJef72iWrPJIgRDbnX-JidgN4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful Royal Oak Townhouse",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4868126,
+          "lng": -83.1536102,
+          "distance_mi": 0.31,
+          "place_id": "ChIJOTB5JUbPJIgRIiId030Clv8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oakdale Luxury Living",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.488102,
+          "lng": -83.15357209999999,
+          "distance_mi": 0.31,
+          "place_id": "ChIJ8QFEBUbPJIgRsyx_rWJqYZk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful Royal Oak Townhouse",
+          "address": "911 W 4th St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4868454,
+          "lng": -83.1536651,
+          "distance_mi": 0.32,
+          "place_id": "ChIJ__97JUbPJIgR0kvRA0fth8w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Main Street Luxury One Bedroom Apartment bedroom Downtown Royal Oak",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.489601199999996,
+          "lng": -83.1531906,
+          "distance_mi": 0.33,
+          "place_id": "ChIJ2wFMb0PPJIgR429k0Z3HOtA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Main Street Luxury 1 bedroom apartment",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.492248499999995,
+          "lng": -83.1490402,
+          "distance_mi": 0.35,
+          "place_id": "ChIJG3wRoUTPJIgROKYzMtDXJsg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "LARGE LOFT DOWNTOWN ROYAL OAK",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.490009300000004,
+          "lng": -83.1536102,
+          "distance_mi": 0.36,
+          "place_id": "ChIJAT4MjUXPJIgR1kL8wx2dGC8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hyatt Place Detroit / Royal Oak",
+          "address": "422 N Main St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4920018,
+          "lng": -83.144149,
+          "distance_mi": 0.36,
+          "place_id": "ChIJ5ZmM9aTPJIgRAJZT30ENcu4",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Loft in Downtown Royal Oak",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4928398,
+          "lng": -83.1470184,
+          "distance_mi": 0.38,
+          "place_id": "ChIJr8tiMUPPJIgRJXp8vBp8xz8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Loft in Vibrant Downtown Royal Oak - Just a Block Away!",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.492878,
+          "lng": -83.1470795,
+          "distance_mi": 0.38,
+          "place_id": "ChIJQ37mM0PPJIgRWFg8HGQ7aCs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Executive Suite - Prime Location - Sleeps 6 - Two-Bedroom House",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4929084,
+          "lng": -83.1470032,
+          "distance_mi": 0.39,
+          "place_id": "ChIJje7IM0PPJIgRKQ5x0KnHgGo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Downtown Retreat - Prime Spot - Sleeps 6 - Two-Bedroom House",
+          "address": "Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4929085,
+          "lng": -83.1469726,
+          "distance_mi": 0.39,
+          "place_id": "ChIJvdk0MkPPJIgR5NBmi1r9Cn4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Goodnite Gracie",
+          "address": "224 Sherman Dr, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4877033,
+          "lng": -83.14694829999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJDZ8MZUHPJIgR0nfFO53vA2Q",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Café Muse",
+          "address": "418 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4866698,
+          "lng": -83.1469374,
+          "distance_mi": 0.05,
+          "place_id": "ChIJz7YgDEHPJIgRsOd__yxzKVk",
+          "types": [
+            "breakfast_restaurant",
+            "brunch_restaurant",
+            "cocktail_bar",
+            "salad_shop",
+            "vegetarian_restaurant",
+            "cafe",
+            "catering_service",
+            "sandwich_shop",
+            "food_delivery",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lily's Seafood Grill & Brewery",
+          "address": "410 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486717,
+          "lng": -83.1467769,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ15VxDUHPJIgROjPz5_uUOAU",
+          "types": [
+            "seafood_restaurant",
+            "brunch_restaurant",
+            "brewpub",
+            "pub",
+            "brewery",
+            "bar",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lafayette Avenue Parking Structure A",
+          "address": "290 S Lafayette Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4881331,
+          "lng": -83.14798250000001,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ-bWCVUHPJIgRrUtBWhiFX2w",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trattoria Da Luigi",
+          "address": "415 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486753,
+          "lng": -83.146236,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ7yMBCkHPJIgRKaabMeXdM9A",
+          "types": [
+            "italian_restaurant",
+            "wine_bar",
+            "european_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Goldfish Tea",
+          "address": "417 S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.486672,
+          "lng": -83.1462427,
+          "distance_mi": 0.08,
+          "place_id": "ChIJzaSOlEHPJIgRpblmb6zjkn8",
+          "types": [
+            "tea_house",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "S Washington Ave Parking",
+          "address": "S Washington Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.488667,
+          "lng": -83.1473656,
+          "distance_mi": 0.09,
+          "place_id": "ChIJV33H3UPPJIgRICgWXxVc1vI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sherman Drive Parking Lot",
+          "address": "286S N Washington Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.488667,
+          "lng": -83.1473656,
+          "distance_mi": 0.09,
+          "place_id": "ChIJV33H3UPPJIgRaFx3EbdwhLU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "North Sol Solar Contractors",
+          "address": "290 S Lafayette Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.488354799999996,
+          "lng": -83.14867699999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ9x0pyAPPJIgRvR2Kt-U1JtI",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rock & Brews Royal Oak",
+          "address": "208 W Fifth St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.486567699999995,
+          "lng": -83.1458116,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ22Y6YgDPJIgRSdyqng36JFQ",
+          "types": [
+            "american_restaurant",
+            "bar_and_grill",
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Oak",
+          "address": "300 S Center St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4881149,
+          "lng": -83.14575860000001,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ3d5Z1UPPJIgRqBRj-OKs0IY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Center Street Car Park",
+          "address": "300 S Center St, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4881149,
+          "lng": -83.14575860000001,
+          "distance_mi": 0.1,
+          "place_id": "ChIJf2Mhh0HPJIgR3BrHe8tS0mk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fifth Avenue",
+          "address": "215 W Fifth St, Royal Oak, MI 48067, USA",
+          "price": 1,
+          "lat": 42.4862442,
+          "lng": -83.14598079999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJw2PCqEHPJIgRfdjq8klQSio",
+          "types": [
+            "bar",
+            "bar_and_grill",
+            "night_club",
+            "sports_bar",
+            "sports_complex",
+            "sports_club",
+            "event_venue",
+            "association_or_organization",
+            "sports_activity_location",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "South Lafayette Parking",
+          "address": "514 S Lafayette Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4856911,
+          "lng": -83.14798739999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJmSgqKEHPJIgRMZMHDNQ-oAE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Rite Parking",
+          "address": "514 S Lafayette Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4857462,
+          "lng": -83.148316,
+          "distance_mi": 0.12,
+          "place_id": "ChIJWz-mt83PJIgRc_u86nr8MfM",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gusoline Alley",
+          "address": "309 S Center St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4877342,
+          "lng": -83.14517459999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJV26ij0HPJIgRa9A0wjFBv64",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rehla Coffee House",
+          "address": "117 W 4th St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4871433,
+          "lng": -83.145021,
+          "distance_mi": 0.13,
+          "place_id": "ChIJ1cINyGbPJIgRDxVRpVaZl-s",
+          "types": [
+            "coffee_shop",
+            "coffee_roastery",
+            "pastry_shop",
+            "cafe",
+            "dessert_shop",
+            "bakery",
+            "tea_house",
+            "confectionery",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "O'Tooles",
+          "address": "205 W Fifth Ave, Royal Oak, MI 48067, USA",
+          "price": 1,
+          "lat": 42.4861923,
+          "lng": -83.14555759999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJ5TS1r0HPJIgRwWky8A_HY-0",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P9",
+          "address": "190 Lafayette Ave, Royal Oak, MI 48067, USA",
+          "price": null,
+          "lat": 42.4892654,
+          "lng": -83.14785030000002,
+          "distance_mi": 0.13,
+          "place_id": "ChIJa0IF7EPPJIgRFyMhjej4qGA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oak City Grille",
+          "address": "212 W 6th St, Royal Oak, MI 48067, USA",
+          "price": 2,
+          "lat": 42.4857229,
+          "lng": -83.1460123,
+          "distance_mi": 0.13,
+          "place_id": "ChIJmwsAVUDPJIgRL1pJZdPN51k",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

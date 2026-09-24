@@ -1,0 +1,813 @@
+{
+  "venueName": "Bramlage Coliseum",
+  "city": "Manhattan",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "JP's Sports Bar and Grill",
+          "address": "2000 Tunstall Circle, Manhattan, KS 66502, USA",
+          "price": 2,
+          "lat": 39.197618999999996,
+          "lng": -96.589173,
+          "distance_mi": 0.31,
+          "place_id": "ChIJ86MZUO3NvYcRp8tRBZd9Wic",
+          "types": [
+            "bar_and_grill",
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rockin K's",
+          "address": "1880 Kimball Ave #100, Manhattan, KS 66502, USA",
+          "price": 2,
+          "lat": 39.2047265,
+          "lng": -96.58804909999999,
+          "distance_mi": 0.43,
+          "place_id": "ChIJ38VaUd_NvYcR94c93lLBxks",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "smoodi - Fresh Smoothie Kiosk at Dara's Corner Market",
+          "address": "1816 Claflin Rd, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.193435699999995,
+          "lng": -96.5863055,
+          "distance_mi": 0.62,
+          "place_id": "ChIJ1YAiM6HNvYcRAba0NtmKJhA",
+          "types": [
+            "restaurant",
+            "juice_shop",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pizza Shuttle Delivers",
+          "address": "1800 Claflin Rd Ste 120, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.1934261,
+          "lng": -96.5858047,
+          "distance_mi": 0.64,
+          "place_id": "ChIJy7gZwo3NvYcRmcmSZOuwq48",
+          "types": [
+            "pizza_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco Bell",
+          "address": "1155 Westport Dr, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.1925637,
+          "lng": -96.6067007,
+          "distance_mi": 0.87,
+          "place_id": "ChIJ4UJuGrnNvYcRxtBacpvcaU8",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "tex_mex_restaurant",
+            "vegetarian_restaurant",
+            "mexican_restaurant",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Papa Murphy's | Take 'N' Bake Pizza",
+          "address": "2745 Claflin Rd, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1925555,
+          "lng": -96.6072216,
+          "distance_mi": 0.89,
+          "place_id": "ChIJSSaVBbnNvYcR8wZNgNrKjYk",
+          "types": [
+            "pizza_restaurant",
+            "family_restaurant",
+            "vegetarian_restaurant",
+            "italian_restaurant",
+            "european_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "2700 Anderson Ave, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.19046,
+          "lng": -96.60553,
+          "distance_mi": 0.92,
+          "place_id": "ChIJO1DRTw_NvYcRnC7gB1dWEM8",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chens Chinese Restaurant",
+          "address": "2704 Anderson Ave, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.190368899999996,
+          "lng": -96.6057642,
+          "distance_mi": 0.94,
+          "place_id": "ChIJk8NGkbnNvYcRFQSggbJsesc",
+          "types": [
+            "chinese_restaurant",
+            "asian_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Papa Johns Pizza",
+          "address": "2615 Anderson Ave, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.189820499999996,
+          "lng": -96.60541049999999,
+          "distance_mi": 0.95,
+          "place_id": "ChIJmV0vBbzNvYcRzcHIm4yiloA",
+          "types": [
+            "pizza_restaurant",
+            "chicken_wings_restaurant",
+            "fast_food_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kstate Derby Dining Hall",
+          "address": "Derby Dining Center, 1498 Old Claflin Rd, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1942544,
+          "lng": -96.5775879,
+          "distance_mi": 0.97,
+          "place_id": "ChIJMXONkSDTvYcRDO_-6N1skDg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jimmy John's",
+          "address": "2707 Anderson Ave, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1898206,
+          "lng": -96.6058077,
+          "distance_mi": 0.97,
+          "place_id": "ChIJ6TNH7rvNvYcRdfY8QbMoS-A",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Stadium House",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.198349,
+          "lng": -96.5984268,
+          "distance_mi": 0.28,
+          "place_id": "ChIJSbjejOrNvYcRZF-kzCMRZWo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Don’s Den",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1952858,
+          "lng": -96.5939331,
+          "distance_mi": 0.35,
+          "place_id": "ChIJn0KQXZPNvYcRC-iaPTLpobA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Established listing! KSU Sports & Events! Great location for all! 4bd 2ba",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.195262899999996,
+          "lng": -96.59225459999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJqfJzGJPNvYcRilwnmQhA9UQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stadium View Condo",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204341899999996,
+          "lng": -96.59861,
+          "distance_mi": 0.38,
+          "place_id": "ChIJQ3GYNujNvYcRnrbnSjDEO1o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stadium View Condo",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2043457,
+          "lng": -96.59861,
+          "distance_mi": 0.38,
+          "place_id": "ChIJQw-YNujNvYcRsPsdmBd1ZTM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Halftime Landing",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204368599999995,
+          "lng": -96.59869379999999,
+          "distance_mi": 0.38,
+          "place_id": "ChIJ3bW0NujNvYcR_0s0AzFQCyQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Right across from Bill Snyder Stadium w / parking! Family size condo.",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204341899999996,
+          "lng": -96.598732,
+          "distance_mi": 0.38,
+          "place_id": "ChIJT-BPMejNvYcRRJ1DrQqrYK0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Right across from Bill Snyder Stadium w/ parking! Family size condo.",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204341899999996,
+          "lng": -96.598732,
+          "distance_mi": 0.38,
+          "place_id": "ChIJT-BPMejNvYcRHLKKYvp4StU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Condo at Stadium Place",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204368599999995,
+          "lng": -96.5987473,
+          "distance_mi": 0.38,
+          "place_id": "ChIJD_hGMejNvYcRX4nUsZTKh_c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Powercat Penthouse",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.204410599999996,
+          "lng": -96.5993728,
+          "distance_mi": 0.41,
+          "place_id": "ChIJhXUrKejNvYcRBJRDZHPkK1I",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 3-bedroom Condo at Stadium Place",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2044182,
+          "lng": -96.5993805,
+          "distance_mi": 0.41,
+          "place_id": "ChIJFTAqKejNvYcRCPRvEbvaU4o",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Walk to the Wildcats | 4BR Game Day HQ | Sleeps 8",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2047844,
+          "lng": -96.59893799999999,
+          "distance_mi": 0.41,
+          "place_id": "ChIJo6cfO-jNvYcRvQdwMssKc2Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bright 3BR with Pool Access Near K-State Stadium",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2047692,
+          "lng": -96.59898369999999,
+          "distance_mi": 0.41,
+          "place_id": "ChIJyxHYOujNvYcRo2i8PgKqcZI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Game Day Stay! Walk to the stadium! - 3 Bed/1 Bath Apt",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.20467,
+          "lng": -96.5997543,
+          "distance_mi": 0.44,
+          "place_id": "ChIJn7duncLNvYcRKe-OwBJ4Gxk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stadium View Condo in wonderful Manhattan",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2053566,
+          "lng": -96.5989075,
+          "distance_mi": 0.44,
+          "place_id": "ChIJ48O5F-jNvYcRQSwOzmSRgtY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Gameday Landing",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2042694,
+          "lng": -96.6004639,
+          "distance_mi": 0.45,
+          "place_id": "ChIJN5Q-j8LNvYcR0ezBmt9XdyM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming 2-bedroom within walking distance of Football, Basketball & Baseball.",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1999054,
+          "lng": -96.6022644,
+          "distance_mi": 0.45,
+          "place_id": "ChIJydKLn8HNvYcR6xzTcWGc21Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Base Camp | MHK",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2008018,
+          "lng": -96.6025009,
+          "distance_mi": 0.46,
+          "place_id": "ChIJA_7aeMHNvYcRz6RllVL_H-I",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 4-bedroom 2-bath home near KSU Stadium",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1935234,
+          "lng": -96.59336859999999,
+          "distance_mi": 0.47,
+          "place_id": "ChIJryfem5PNvYcRC97x72vHvTA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stadium Station | MHK",
+          "address": "Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.2010994,
+          "lng": -96.60289759999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJEwlxfcHNvYcRZOGPTL0DQTc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "JP's Sports Bar and Grill",
+          "address": "2000 Tunstall Circle, Manhattan, KS 66502, USA",
+          "price": 2,
+          "lat": 39.197618999999996,
+          "lng": -96.589173,
+          "distance_mi": 0.31,
+          "place_id": "ChIJ86MZUO3NvYcRp8tRBZd9Wic",
+          "types": [
+            "bar_and_grill",
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cornerstone Café at Jardine",
+          "address": "Building 5, Tunstall Circle, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1976356,
+          "lng": -96.5891534,
+          "distance_mi": 0.31,
+          "place_id": "ChIJJ170W-3NvYcRsBFdx2RLBsc",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brothers Coffee at The Edge",
+          "address": "1960 Kimball Ave, Manhattan, KS 66502, USA",
+          "price": 2,
+          "lat": 39.2045935,
+          "lng": -96.5889515,
+          "distance_mi": 0.39,
+          "place_id": "ChIJEf_jd4bNvYcRwat1gzyWsXU",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cenex",
+          "address": "1816 Claflin Rd, Manhattan, KS 66502, USA",
+          "price": null,
+          "lat": 39.1931989,
+          "lng": -96.5862705,
+          "distance_mi": 0.64,
+          "place_id": "ChIJMXEgS4zNvYcRqg-VtvMQKls",
+          "types": [
+            "gas_station",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cornerstone Café at Wefald",
+          "address": "1805 Claflin Rd, Manhattan, KS 66506, USA",
+          "price": null,
+          "lat": 39.191674,
+          "lng": -96.5865443,
+          "distance_mi": 0.71,
+          "place_id": "ChIJ7dsiOIzNvYcRQd00aQwv4M0",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Radina's Coffeehouse",
+          "address": "1736-1758 College Heights Rd, Manhattan, KS 66506, USA",
+          "price": null,
+          "lat": 39.190342799999996,
+          "lng": -96.584232,
+          "distance_mi": 0.86,
+          "place_id": "ChIJHcoOz47NvYcR7bQH_7i5j3k",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "2700 Anderson Ave, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.19046,
+          "lng": -96.60553,
+          "distance_mi": 0.92,
+          "place_id": "ChIJO1DRTw_NvYcRnC7gB1dWEM8",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Radina's on the Hill",
+          "address": "2809 Claflin Rd, Manhattan, KS 66502, USA",
+          "price": 1,
+          "lat": 39.1925203,
+          "lng": -96.60813569999999,
+          "distance_mi": 0.94,
+          "place_id": "ChIJRXQlsLnNvYcRkur06hx003s",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Full Well Café",
+          "address": "1300 Mid-Campus Dr, Manhattan, KS 66506, USA",
+          "price": null,
+          "lat": 39.192690999999996,
+          "lng": -96.579324,
+          "distance_mi": 0.94,
+          "place_id": "ChIJF5EyQOXNvYcRCeuUDb-V_i4",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Joyce and Joe's Cornerstone Café at Hale Library",
+          "address": "1117 Mid Campus Dr N #137, Manhattan, KS 66506, USA",
+          "price": null,
+          "lat": 39.190581099999996,
+          "lng": -96.5801822,
+          "distance_mi": 0.99,
+          "place_id": "ChIJL_GKnDvNvYcRTmsLjDS4LJc",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "convenience_store",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

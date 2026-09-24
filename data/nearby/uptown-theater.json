@@ -1,0 +1,1209 @@
+{
+  "venueName": "Uptown Theater",
+  "city": "Kansas City",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Hamburger Mary's Kansas City",
+          "address": "3700 Broadway Blvd #110, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0608052,
+          "lng": -94.5907221,
+          "distance_mi": 0.02,
+          "place_id": "ChIJzzAHhUHwwIcR5N3E80jKRD8",
+          "types": [
+            "hamburger_restaurant",
+            "bar_and_grill",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Phở Tower",
+          "address": "3623 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0615753,
+          "lng": -94.5903084,
+          "distance_mi": 0.06,
+          "place_id": "ChIJca1GA9nvwIcR2vRU5T4iIdo",
+          "types": [
+            "vietnamese_restaurant",
+            "asian_fusion_restaurant",
+            "fusion_restaurant",
+            "asian_restaurant",
+            "french_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Peking Chinese Restaurant",
+          "address": "3609 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0618284,
+          "lng": -94.5902759,
+          "distance_mi": 0.08,
+          "place_id": "ChIJo-kBLePvwIcRFAW-f2YxOhk",
+          "types": [
+            "chinese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Black Garlic Restaurant & Rum Bar",
+          "address": "3601 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.062016899999996,
+          "lng": -94.5902711,
+          "distance_mi": 0.09,
+          "place_id": "ChIJD9Z8MPX6wIcR_PjsuN0MT-c",
+          "types": [
+            "caribbean_restaurant",
+            "cocktail_bar",
+            "bar_and_grill",
+            "ethiopian_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crazy Crab",
+          "address": "3756 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0589826,
+          "lng": -94.5908723,
+          "distance_mi": 0.13,
+          "place_id": "ChIJr54i_YrvwIcRqa-HgW7_Efo",
+          "types": [
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "3741 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0589458,
+          "lng": -94.59024699999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJI1mxDcbvwIcRhJC396w-X-Q",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Krab Kingz",
+          "address": "3805 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.058311599999996,
+          "lng": -94.59048639999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJhV84ztvvwIcR-7gPwM-6oPc",
+          "types": [
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "InnaCup Café",
+          "address": "3701 SW Trafficway, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.059433899999995,
+          "lng": -94.59499269999999,
+          "distance_mi": 0.24,
+          "place_id": "ChIJ-XF1JwDvwIcRElBdz9Ao7Ko",
+          "types": [
+            "ice_cream_shop",
+            "donut_shop",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "dessert_shop",
+            "bakery",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Teetasty Foods - African Restaurant and Bar",
+          "address": "3711 SW Trafficway, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.059117199999996,
+          "lng": -94.59512459999999,
+          "distance_mi": 0.25,
+          "place_id": "ChIJux930Yr_wIcR2tcgqD0c53Q",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Whole Person Catering",
+          "address": "3710 Main St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0596853,
+          "lng": -94.5862774,
+          "distance_mi": 0.27,
+          "place_id": "ChIJwYpAC-PvwIcRQYHsvmpbjQk",
+          "types": [
+            "restaurant",
+            "salad_shop",
+            "catering_service",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "food_delivery",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jimmy John's",
+          "address": "3900 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.056447999999996,
+          "lng": -94.5911558,
+          "distance_mi": 0.31,
+          "place_id": "ChIJW0ayfPbwwIcRK16Rw1uucpk",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Goods by Good",
+          "address": "3731 Main St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0590895,
+          "lng": -94.5857108,
+          "distance_mi": 0.31,
+          "place_id": "ChIJ7TvXaervwIcRnfwNwRZXjE8",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sama Zama",
+          "address": "3906 Central St, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0563705,
+          "lng": -94.5897322,
+          "distance_mi": 0.32,
+          "place_id": "ChIJoTT0J8XvwIcRT9JdC1FDem8",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DanRose African Cuisine",
+          "address": "518 W 39th Terrace Apt 1, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.056078299999996,
+          "lng": -94.5924481,
+          "distance_mi": 0.34,
+          "place_id": "ChIJ1VELV4DvwIcRt0ucKm7Jqb8",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Haha's Pizza Hub",
+          "address": "3834 Main St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.057153199999995,
+          "lng": -94.5864454,
+          "distance_mi": 0.36,
+          "place_id": "ChIJkT6xW9zvwIcRZmnJ2oJv0pk",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wings Cafe Westport",
+          "address": "3927 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.055558999999995,
+          "lng": -94.5906306,
+          "distance_mi": 0.37,
+          "place_id": "ChIJhzc2HNvvwIcR7rjUwTDJ2xY",
+          "types": [
+            "chicken_wings_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Island Spice",
+          "address": "10 W 39th St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0567436,
+          "lng": -94.5866546,
+          "distance_mi": 0.37,
+          "place_id": "ChIJDa0CX9zvwIcReqLWjU53mEQ",
+          "types": [
+            "caribbean_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blanc Champagne Bar",
+          "address": "3835 Main St, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.057023199999996,
+          "lng": -94.58574589999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJ04WOMyzvwIcRJGxm8uSk82w",
+          "types": [
+            "restaurant",
+            "cocktail_bar",
+            "wine_bar",
+            "lounge_bar",
+            "bar",
+            "french_restaurant",
+            "fine_dining_restaurant",
+            "event_venue",
+            "american_restaurant",
+            "night_club",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taqueria La Nueva- Westport",
+          "address": "3906 Waddell Ave, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.056641,
+          "lng": -94.5958714,
+          "distance_mi": 0.39,
+          "place_id": "ChIJ0y2DdM3vwIcRD3CF8eM2V68",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sunrise on 39th Brunch Restaurant",
+          "address": "809 W 39th St #110, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.056841999999996,
+          "lng": -94.5961768,
+          "distance_mi": 0.39,
+          "place_id": "ChIJF07HVYzvwIcRO2huzpgYOP4",
+          "types": [
+            "brunch_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "2BR Luxury New Apartment with Outdoor Pool - Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0619393,
+          "lng": -94.5917892,
+          "distance_mi": 0.08,
+          "place_id": "ChIJB09VSdjvwIcRSi2Ojc7Kk10",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2BR Luxury New Apartment with Outdoor Pool",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0619393,
+          "lng": -94.5917892,
+          "distance_mi": 0.08,
+          "place_id": "ChIJB09VSdjvwIcRa4qCT7NsAjg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Central House",
+          "address": "3704 Central St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0600497,
+          "lng": -94.5896278,
+          "distance_mi": 0.1,
+          "place_id": "ChIJVVWJadnvwIcRlboDqT52cKc",
+          "types": [
+            "bed_and_breakfast",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Opulence Boho Chic Loft in Downtown - One-Bedroom Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0625115,
+          "lng": -94.59078219999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJOyUl9tjvwIcRMFSlp_9R9KI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Apartment in Prime Location ID7655X45 - One-Bedroom Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0625115,
+          "lng": -94.59078219999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJOyUl9tjvwIcRtEO8LhSlFkA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Comfy MW 1BR with Gym WD by Zencity - Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0625115,
+          "lng": -94.59078219999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJOyUl9tjvwIcRrQ73deWtw0c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cada nueva",
+          "address": "3712 Central St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.059812799999996,
+          "lng": -94.5895642,
+          "distance_mi": 0.11,
+          "place_id": "ChIJy4D898DvwIcRElAh14lqnyc",
+          "types": [
+            "bed_and_breakfast",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steps to Shops, Eats - Easy Access + W&D - Zen@Ambassador",
+          "address": "3560 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.06259,
+          "lng": -94.59082,
+          "distance_mi": 0.12,
+          "place_id": "ChIJPSeoWNjvwIcR_zCMZM8mREY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown 2 bedroom Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.062664,
+          "lng": -94.5901566,
+          "distance_mi": 0.13,
+          "place_id": "ChIJHZr-7djvwIcRQ7_s-7zITMY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Work Remote! King Bed Midtown KC",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0627403,
+          "lng": -94.5899353,
+          "distance_mi": 0.14,
+          "place_id": "ChIJEwhA7NjvwIcR9TIyX6ZDWiQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "King Bed Uptown Theater",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0627403,
+          "lng": -94.5899353,
+          "distance_mi": 0.14,
+          "place_id": "ChIJEwhA7NjvwIcRUzICq9OAssw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Work Remote! King Bed <br>Midtown KC",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0627403,
+          "lng": -94.5899353,
+          "distance_mi": 0.14,
+          "place_id": "ChIJEwhA7NjvwIcROn9hrOTUY0w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Renovated Art Deco retreat with porch and 2 King Beds, walk to coffee and food!",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0627899,
+          "lng": -94.5922394,
+          "distance_mi": 0.14,
+          "place_id": "ChIJJdGwP9jvwIcRjyAf0Kazh6I",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy Comfy suite 10 Min from Downtown - One-Bedroom Apartment",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0586586,
+          "lng": -94.59072870000001,
+          "distance_mi": 0.16,
+          "place_id": "ChIJsaxr09vvwIcRlJsE1fY2WW8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mini Streetcar Central - Near Westport/Plaza",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0605049,
+          "lng": -94.58793639999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJhy8Dyt7vwIcRuKUMu98MkQc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stay on Main Mini - Home Near Plaza/Westport",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.060611699999995,
+          "lng": -94.5879135,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ4ZaAyd7vwIcRvbWwxVqM7p8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stay on Main - Large Home Near Plaza/Westport",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.060611699999995,
+          "lng": -94.5879135,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ4ZaAyd7vwIcR7JAAxTGZkIM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Super Clean!!! Private-Gated-Secure-Modern",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0621796,
+          "lng": -94.5883255,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ40AW09jvwIcR6JrBa0TDRxA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Super Clean!!! Private-Gated-Secure-Modern",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0621796,
+          "lng": -94.5883255,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ40AW09jvwIcR1lXC8SFQZlk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Super Clean!!! Private Gated, Secure, Modern, Clean, 6 bdr, 4 bth, Near everything",
+          "address": "Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0621796,
+          "lng": -94.5883255,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ40AW09jvwIcRN8KO4uWjwvI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Hamburger Mary's Kansas City",
+          "address": "3700 Broadway Blvd #110, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0608052,
+          "lng": -94.5907221,
+          "distance_mi": 0.02,
+          "place_id": "ChIJzzAHhUHwwIcR5N3E80jKRD8",
+          "types": [
+            "hamburger_restaurant",
+            "bar_and_grill",
+            "american_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Black Garlic Restaurant & Rum Bar",
+          "address": "3601 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.062016899999996,
+          "lng": -94.5902711,
+          "distance_mi": 0.09,
+          "place_id": "ChIJD9Z8MPX6wIcR_PjsuN0MT-c",
+          "types": [
+            "caribbean_restaurant",
+            "bar_and_grill",
+            "cocktail_bar",
+            "bar",
+            "ethiopian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Woody’s KC",
+          "address": "3740 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0596775,
+          "lng": -94.59082699999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJHcUJeNnvwIcRUAVjcjmxGEs",
+          "types": [
+            "night_club",
+            "pub",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Post Coffee Company",
+          "address": "3550 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0625952,
+          "lng": -94.5906084,
+          "distance_mi": 0.12,
+          "place_id": "ChIJq-ia5r7vwIcRsMHpnDYIZw0",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arts on Broadway",
+          "address": "3550 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0626025,
+          "lng": -94.5905846,
+          "distance_mi": 0.12,
+          "place_id": "ChIJLQrCE63vwIcRMjhE-768YVw",
+          "types": [
+            "event_venue",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "3741 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0589458,
+          "lng": -94.59024699999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJI1mxDcbvwIcRhJC396w-X-Q",
+          "types": [
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "hamburger_restaurant",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fitz’s Blarney Stone",
+          "address": "3801 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.058409999999995,
+          "lng": -94.59047070000001,
+          "distance_mi": 0.18,
+          "place_id": "ChIJ85BX0tvvwIcRKGLFRndJi7U",
+          "types": [
+            "bar",
+            "sports_bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chez Charlie",
+          "address": "3809 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0582396,
+          "lng": -94.5904857,
+          "distance_mi": 0.19,
+          "place_id": "ChIJq9T5zNvvwIcRV9eQ2Q-1OCQ",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "miniBar",
+          "address": "3810 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0575859,
+          "lng": -94.59099049999999,
+          "distance_mi": 0.23,
+          "place_id": "ChIJwzbetNvvwIcRHKgfgXaIZA0",
+          "types": [
+            "bar",
+            "lounge_bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Whiskers Cat Cafe & Coffeehouse",
+          "address": "3705-3707 SW Trafficway, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0593023,
+          "lng": -94.5949426,
+          "distance_mi": 0.24,
+          "place_id": "ChIJc6ArzKv1wIcRqjCtaWr5_g4",
+          "types": [
+            "coffee_shop",
+            "yoga_studio",
+            "fitness_center",
+            "gym",
+            "cafe",
+            "sports_complex",
+            "sports_school",
+            "food_store",
+            "pet_care",
+            "sports_activity_location",
+            "health",
+            "store",
+            "service",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Side Kicks Saloon",
+          "address": "3707 Main St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.05989830000001,
+          "lng": -94.58571119999999,
+          "distance_mi": 0.3,
+          "place_id": "ChIJVUeeiN7vwIcRGVZMadbwYAk",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mainstreet Tavern",
+          "address": "3715 Main St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.059714899999996,
+          "lng": -94.58566479999999,
+          "distance_mi": 0.3,
+          "place_id": "ChIJ5UM5lkvvwIcROHDQiMntgH4",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P5026",
+          "address": "3816 Main St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0577213,
+          "lng": -94.5865954,
+          "distance_mi": 0.33,
+          "place_id": "ChIJLeVqYf3vwIcRy85odzAdOkc",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Aura",
+          "address": "3832 Main St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.0571844,
+          "lng": -94.58632039999999,
+          "distance_mi": 0.36,
+          "place_id": "ChIJ0RT1UNzvwIcRoSAcdIVvM_E",
+          "types": [
+            "night_club",
+            "bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hookah Sahara Sheesha Lounge",
+          "address": "3929 Broadway Blvd, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.055521999999996,
+          "lng": -94.59052319999999,
+          "distance_mi": 0.37,
+          "place_id": "ChIJVVFPjizuwIcRf87DbRrGGA8",
+          "types": [
+            "hookah_bar",
+            "tea_house",
+            "lounge_bar",
+            "sports_bar",
+            "night_club",
+            "coffee_shop",
+            "cafe",
+            "bar",
+            "food_store",
+            "supplier",
+            "store",
+            "association_or_organization",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Missie B's",
+          "address": "805 W 39th St, Kansas City, MO 64111, USA",
+          "price": 1,
+          "lat": 39.0567673,
+          "lng": -94.5959973,
+          "distance_mi": 0.39,
+          "place_id": "ChIJYWQwHdHvwIcRnOiKbQ20jtc",
+          "types": [
+            "bar",
+            "night_club",
+            "sports_club",
+            "association_or_organization",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blanc Champagne Bar",
+          "address": "3835 Main St, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.057023199999996,
+          "lng": -94.58574589999999,
+          "distance_mi": 0.39,
+          "place_id": "ChIJ04WOMyzvwIcRJGxm8uSk82w",
+          "types": [
+            "restaurant",
+            "cocktail_bar",
+            "french_restaurant",
+            "wine_bar",
+            "lounge_bar",
+            "night_club",
+            "american_restaurant",
+            "bar",
+            "event_venue",
+            "fine_dining_restaurant",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Uptown Lounge",
+          "address": "3400 Main St, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0654252,
+          "lng": -94.5858559,
+          "distance_mi": 0.42,
+          "place_id": "ChIJo6bHIkHxwIcRPOaOpBfxipY",
+          "types": [
+            "cocktail_bar",
+            "live_music_venue",
+            "bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Parking - P5010",
+          "address": "3901 Main St, Kansas City, MO 64111, USA",
+          "price": null,
+          "lat": 39.056390799999996,
+          "lng": -94.58588139999999,
+          "distance_mi": 0.42,
+          "place_id": "ChIJQ0_detvvwIcRWkNvKK7eN9k",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hammers Dueling Piano Bar",
+          "address": "3901 Main St, Kansas City, MO 64111, USA",
+          "price": 2,
+          "lat": 39.0564483,
+          "lng": -94.5857845,
+          "distance_mi": 0.42,
+          "place_id": "ChIJdZ9Z5Y_vwIcR-xOAKpX8OR4",
+          "types": [
+            "live_music_venue",
+            "bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

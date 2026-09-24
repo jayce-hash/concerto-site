@@ -1,0 +1,1208 @@
+{
+  "venueName": "Strawberry Arena",
+  "city": "Solna",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Lion Bar Arenastaden",
+          "address": "Evemangsgatan 26, 169 56 Stockholm, Sweden",
+          "price": 2,
+          "lat": 59.3717994,
+          "lng": 17.998371799999997,
+          "distance_mi": 0.08,
+          "place_id": "ChIJp44AvDWdX0YR3HZMxySV1zM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "A Bistro Bar",
+          "address": "Råsta Strandväg 1, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371693,
+          "lng": 18.001758,
+          "distance_mi": 0.08,
+          "place_id": "ChIJpaULgsidX0YRVylc8ZVpbuY",
+          "types": [
+            "restaurant",
+            "bistro",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "GREKISKA grill & bar",
+          "address": "Evenemangsgatan 18, 169 56 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371432199999994,
+          "lng": 17.998658799999998,
+          "distance_mi": 0.09,
+          "place_id": "ChIJi1ChoFydX0YROxiFyhKXk4c",
+          "types": [
+            "greek_restaurant",
+            "mediterranean_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Social Bar & Bistro",
+          "address": "Råsta Strandväg 1, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.372123499999994,
+          "lng": 18.002719799999998,
+          "distance_mi": 0.1,
+          "place_id": "ChIJhxVXe8idX0YROIKGaIPtgks",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "O'Learys",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37121080000001,
+          "lng": 18.0016136,
+          "distance_mi": 0.11,
+          "place_id": "ChIJbZFuLMadX0YRGioOlOgq5rs",
+          "types": [
+            "american_restaurant",
+            "sports_bar",
+            "bowling_alley",
+            "bar_and_grill",
+            "bar",
+            "sports_complex",
+            "sports_activity_location",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stekt Burger & Stuff (Mall Of Scandinavia)",
+          "address": "Mall of Scandinavia, Råsta Strandväg 19A, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37125589999999,
+          "lng": 18.0018986,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ7wCaAGudX0YRl1vtPVa5OSU",
+          "types": [
+            "hamburger_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Quality Hotel Strawberry Arena",
+          "address": "Råsta Strandväg 1, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.372141,
+          "lng": 18.0030422,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ8erxpcidX0YRIJ0TBEEt78w",
+          "types": [
+            "hotel",
+            "bar",
+            "event_venue",
+            "lodging",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "BING WANG by Bing",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3714107,
+          "lng": 18.0022912,
+          "distance_mi": 0.11,
+          "place_id": "ChIJJ6dYpXGdX0YRcsZ6Uwn6Hr0",
+          "types": [
+            "chinese_restaurant",
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SEN Street Kitchen MOS",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37123450000001,
+          "lng": 18.0019167,
+          "distance_mi": 0.11,
+          "place_id": "ChIJly5tpTKdX0YR5qtjgAp12dg",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Döner kebab",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3715346,
+          "lng": 18.002515499999998,
+          "distance_mi": 0.11,
+          "place_id": "ChIJtWqakumdX0YRFIw-fZpDluA",
+          "types": [
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Little India Solna",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371207,
+          "lng": 18.001938799999998,
+          "distance_mi": 0.11,
+          "place_id": "ChIJQet4KqidX0YRTAXTWWZCnZQ",
+          "types": [
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mangal MOS",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371272999999995,
+          "lng": 18.0022413,
+          "distance_mi": 0.12,
+          "place_id": "ChIJL006kyidX0YRFBlHDcOgDRc",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SO Sushi MOS",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3712454,
+          "lng": 18.0022382,
+          "distance_mi": 0.12,
+          "place_id": "ChIJndwr782dX0YRqiU91SphHvo",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "HABIBI BROTHERS - S2",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3714366,
+          "lng": 18.0025987,
+          "distance_mi": 0.12,
+          "place_id": "ChIJZQ5aPgCdX0YRfu1zqQSP7CY",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sushi Revolution MoS",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3711619,
+          "lng": 18.0020612,
+          "distance_mi": 0.12,
+          "place_id": "ChIJJ9IxIwCdX0YRhdU1RE67Z-o",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vapiano",
+          "address": "Evenemangsgatan 14c, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3708783,
+          "lng": 18.001178900000003,
+          "distance_mi": 0.12,
+          "place_id": "ChIJkShLMMadX0YRoT21Esv381U",
+          "types": [
+            "italian_restaurant",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Raamen Noodles & Rice MOS",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3712152,
+          "lng": 18.002284500000002,
+          "distance_mi": 0.12,
+          "place_id": "ChIJr-7suH-dX0YRr_9_m3lRWU8",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crying Tiger",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371359399999996,
+          "lng": 18.0025956,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ81ux4XGdX0YR04MnXRf-rdc",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Top Floor Asian Fusion",
+          "address": "Evenemangsgatan 14c, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37075679999999,
+          "lng": 17.9998886,
+          "distance_mi": 0.12,
+          "place_id": "ChIJIeGhPBGdX0YRIh3NLTu5IZI",
+          "types": [
+            "asian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Marrakech Mall of Scandinavia",
+          "address": "Evenemangsgatan 14c, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3707463,
+          "lng": 17.9998742,
+          "distance_mi": 0.12,
+          "place_id": "ChIJiQLpzSqdX0YR03It-Cy9ces",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Quality Hotel Strawberry Arena",
+          "address": "Råsta Strandväg 1, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.372141,
+          "lng": 18.0030422,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ8erxpcidX0YRIJ0TBEEt78w",
+          "types": [
+            "hotel",
+            "bar",
+            "event_venue",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Comfort Hotel Solna",
+          "address": "Evenemangsgatan 48, 169 56 Solna, Sweden",
+          "price": null,
+          "lat": 59.3733802,
+          "lng": 17.9972761,
+          "distance_mi": 0.11,
+          "place_id": "ChIJvwNeVM-dX0YR2eV4U6M-ESA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Företagsbostäder Accommodation Stockholm AB",
+          "address": "Evenemangsgatan 48, 169 56 Solna, Sweden",
+          "price": null,
+          "lat": 59.3733802,
+          "lng": 17.9972761,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ2d5Yn2GdX0YRWlNgRxuSgMQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Home hotel Tapetfabriken",
+          "address": "Evenemangsgatan, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3705493,
+          "lng": 17.999686999999998,
+          "distance_mi": 0.14,
+          "place_id": "ChIJv5MBfwCdX0YR2MI2S9h6Wlk",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Villa Solna, Private Pool, Lake View, 300Sq",
+          "address": "169 55 Solna, Sweden",
+          "price": null,
+          "lat": 59.3694458,
+          "lng": 17.9913197,
+          "distance_mi": 0.37,
+          "place_id": "ChIJ89OgUMSdX0YRsgXlZRXHyvg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2 bed flat, lake view in solna! - One-Bedroom Apartment",
+          "address": "169 55 Solna, Sweden",
+          "price": null,
+          "lat": 59.3694115,
+          "lng": 17.9913406,
+          "distance_mi": 0.37,
+          "place_id": "ChIJkaN0WsSdX0YR6pSxWwCNhmc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotell & Restaurang Jouren HRJ",
+          "address": "Ballonggatan 10, 169 71 Solna, Sweden",
+          "price": null,
+          "lat": 59.36937210000001,
+          "lng": 18.0110278,
+          "distance_mi": 0.44,
+          "place_id": "ChIJISDhzLmdX0YRek7g_XfVYPU",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Signalistgatan 12",
+          "address": "Signalistgatan 12, 169 72 Solna, Sweden",
+          "price": null,
+          "lat": 59.37058630000001,
+          "lng": 18.013283899999998,
+          "distance_mi": 0.49,
+          "place_id": "ChIJH6zV-lGdX0YRrMJ_6jbRMuQ",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fantastic apartment with good location - One-Bedroom Apartment",
+          "address": "170 67 Solna, Sweden",
+          "price": null,
+          "lat": 59.378280600000004,
+          "lng": 18.0082302,
+          "distance_mi": 0.49,
+          "place_id": "ChIJC3zAScqdX0YR45kZFGkxPJY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "300 Year Old Mansion Villa in Solna Mall of Scandinavia - Villa",
+          "address": "169 72 Solna, Sweden",
+          "price": null,
+          "lat": 59.368320499999996,
+          "lng": 18.0127202,
+          "distance_mi": 0.53,
+          "place_id": "ChIJB7SJwLmdX0YRAYhNOVmezAQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Historic Mansion Near Stockholm for stays or event",
+          "address": "169 72 Solna, Sweden",
+          "price": null,
+          "lat": 59.36831660000001,
+          "lng": 18.0127183,
+          "distance_mi": 0.53,
+          "place_id": "ChIJ0XhsvrmdX0YR7eiF9n5VKOc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Winery Hotel, WorldHotels Crafted",
+          "address": "Rosenborgsgatan 20, 169 74 Solna, Sweden",
+          "price": null,
+          "lat": 59.3775128,
+          "lng": 18.0123131,
+          "distance_mi": 0.55,
+          "place_id": "ChIJezgr8bWdX0YRb-aFasY1kpQ",
+          "types": [
+            "hotel",
+            "wine_bar",
+            "bar",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lägenhet hos Jonny - Three-Bedroom Apartment",
+          "address": "169 38 Solna, Sweden",
+          "price": null,
+          "lat": 59.367359099999994,
+          "lng": 17.98773,
+          "distance_mi": 0.56,
+          "place_id": "ChIJgxWrfMOdX0YRr5Sx2uHmPHU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Crippe",
+          "address": "Uppfartsvägen 7, 169 38 Solna, Sweden",
+          "price": null,
+          "lat": 59.366958000000004,
+          "lng": 17.9882721,
+          "distance_mi": 0.56,
+          "place_id": "ChIJ-RLElKCdX0YRok0j3GI71CY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Solna - Three-Bedroom Apartment",
+          "address": "169 59 Solna, Sweden",
+          "price": null,
+          "lat": 59.36454009999999,
+          "lng": 18.0052299,
+          "distance_mi": 0.58,
+          "place_id": "ChIJn4mbN7-dX0YRjX9nY95KeAg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AC Hotel Stockholm Ulriksdal",
+          "address": "Kolonnvägen 41, 170 67 Solna, Sweden",
+          "price": null,
+          "lat": 59.380931399999994,
+          "lng": 18.0014798,
+          "distance_mi": 0.58,
+          "place_id": "ChIJ2z_SyoudX0YR2qN-454-P9w",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Solna Park & Hotel",
+          "address": "Vallgatan 7, 170 67 Solna, Sweden",
+          "price": null,
+          "lat": 59.38000529999999,
+          "lng": 18.007727,
+          "distance_mi": 0.59,
+          "place_id": "ChIJWba9A8udX0YRrXXLTXw1mWE",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premium Stay Kista Stockholm",
+          "address": "169 57 Solna, Sweden",
+          "price": null,
+          "lat": 59.365093200000004,
+          "lng": 18.0083503,
+          "distance_mi": 0.59,
+          "place_id": "ChIJJQzFK7mdX0YRj1CQSDI4ZMQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Injoy Premium Solna",
+          "address": "Vallgatan 7, 170 67 Solna, Sweden",
+          "price": null,
+          "lat": 59.380224000000005,
+          "lng": 18.007329,
+          "distance_mi": 0.59,
+          "place_id": "ChIJ43QwD8udX0YRKQ6k9bx-nO0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Injoy Compact Hotel Solna",
+          "address": "Vallgatan 7, 170 67 Solna, Sweden",
+          "price": null,
+          "lat": 59.380229199999995,
+          "lng": 18.0073431,
+          "distance_mi": 0.59,
+          "place_id": "ChIJ8waC7jCdX0YRlLi8vEX05lw",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Arenagaraget",
+          "address": "Evenemangsgatan 32, 169 56 Solna, Sweden",
+          "price": null,
+          "lat": 59.372433699999995,
+          "lng": 17.9982676,
+          "distance_mi": 0.06,
+          "place_id": "ChIJm-AbOcadX0YRiXZAcA_3l80",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Solna Bryggeribar",
+          "address": "Evenemangsgatan, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3714617,
+          "lng": 18.001590500000002,
+          "distance_mi": 0.09,
+          "place_id": "ChIJN3XYYgCdX0YRlq92EeXFklo",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "O'Learys",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37121080000001,
+          "lng": 18.0016136,
+          "distance_mi": 0.11,
+          "place_id": "ChIJbZFuLMadX0YRGioOlOgq5rs",
+          "types": [
+            "american_restaurant",
+            "sports_bar",
+            "bar_and_grill",
+            "bowling_alley",
+            "bar",
+            "sports_complex",
+            "sports_activity_location",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stekt Burger & Stuff (Mall Of Scandinavia)",
+          "address": "Mall of Scandinavia, Råsta Strandväg 19A, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37125589999999,
+          "lng": 18.0018986,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ7wCaAGudX0YRl1vtPVa5OSU",
+          "types": [
+            "hamburger_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Quality Hotel Strawberry Arena",
+          "address": "Råsta Strandväg 1, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.372141,
+          "lng": 18.0030422,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ8erxpcidX0YRIJ0TBEEt78w",
+          "types": [
+            "hotel",
+            "bar",
+            "event_venue",
+            "lodging",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vapiano",
+          "address": "Evenemangsgatan 14c, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3708783,
+          "lng": 18.001178900000003,
+          "distance_mi": 0.12,
+          "place_id": "ChIJkShLMMadX0YRoT21Esv381U",
+          "types": [
+            "italian_restaurant",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "S2 Restauranghall",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371247999999994,
+          "lng": 18.0025115,
+          "distance_mi": 0.12,
+          "place_id": "ChIJxQbSDmedX0YRVwm76U_KcZI",
+          "types": [
+            "restaurant",
+            "karaoke",
+            "bar",
+            "night_club",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "society works",
+          "address": "Evenemangsgatan 31, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3705852,
+          "lng": 17.999526799999998,
+          "distance_mi": 0.13,
+          "place_id": "ChIJy5xSR8adX0YRysiuZwwSnwU",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Restaurang Drama",
+          "address": "Stjärnvägen 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.37129649999999,
+          "lng": 18.003235399999998,
+          "distance_mi": 0.14,
+          "place_id": "ChIJlY2y18edX0YR2ZVgASIc-rQ",
+          "types": [
+            "restaurant",
+            "bar",
+            "spanish_restaurant",
+            "italian_restaurant",
+            "european_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Åhléns",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.371317999999995,
+          "lng": 18.003607,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ1-LKxcedX0YRwe6HfeKIQIk",
+          "types": [
+            "department_store",
+            "hair_salon",
+            "womens_clothing_store",
+            "hair_care",
+            "cafe",
+            "furniture_store",
+            "home_improvement_store",
+            "beauty_salon",
+            "home_goods_store",
+            "clothing_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gelato Frost & Cafe",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3712277,
+          "lng": 18.003567699999998,
+          "distance_mi": 0.15,
+          "place_id": "ChIJO4nq2cedX0YRUBQG5Pjk7jc",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "JOE & THE JUICE - Åhléns Mall of Scandinavia",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.371337600000004,
+          "lng": 18.0038013,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ-3kNvbGdX0YRwZWN0uM_sJc",
+          "types": [
+            "juice_shop",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mall of Scandinavias parkeringshus",
+          "address": "Råsta Strandväg 19-13, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3714733,
+          "lng": 18.004210999999998,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ9Yb8AjedX0YRBPPDBd-9kvw",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mall of Scandinavia",
+          "address": "Råsta Strandväg, 169 56 Solna, Sweden",
+          "price": null,
+          "lat": 59.37069640000001,
+          "lng": 18.003257500000004,
+          "distance_mi": 0.17,
+          "place_id": "ChIJGU80xcedX0YRnDE3V2zGeDQ",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Designer Gallery - Work Lounge",
+          "address": "Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3706351,
+          "lng": 18.0032612,
+          "distance_mi": 0.17,
+          "place_id": "ChIJc_kr4uCdX0YRmsUgCKO55aM",
+          "types": [
+            "lounge_bar",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fluffy House",
+          "address": "Westfield Mall of Scandinavia, Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.3703148,
+          "lng": 18.0034337,
+          "distance_mi": 0.19,
+          "place_id": "ChIJoX2TY-adX0YRdOAPCyLMbiQ",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Espresso House",
+          "address": "Westfield Mall of Scandinavia, Stjärntorget 2, 169 79 Solna, Sweden",
+          "price": 2,
+          "lat": 59.3703148,
+          "lng": 18.003433599999997,
+          "distance_mi": 0.19,
+          "place_id": "ChIJSf1bzx6dX0YR8WnFJKxol2k",
+          "types": [
+            "cafe",
+            "coffee_stand",
+            "coffee_shop",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Solna Minigolf",
+          "address": "Vintervägen 45, 169 54 Solna, Sweden",
+          "price": null,
+          "lat": 59.370077200000004,
+          "lng": 17.9971571,
+          "distance_mi": 0.2,
+          "place_id": "ChIJ8custCSdX0YR73SMlx3Q3Cw",
+          "types": [
+            "miniature_golf_course",
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Caffè Nero Mall of Scandinavia",
+          "address": "Lastkaj 1 MOS, Råsta Strandväg 19A, 169 79 Solna, Sweden",
+          "price": 1,
+          "lat": 59.37006899999999,
+          "lng": 18.004016300000004,
+          "distance_mi": 0.22,
+          "place_id": "ChIJi3mkMZadX0YReo7e7yupl10",
+          "types": [
+            "cafe",
+            "pastry_shop",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "dessert_shop",
+            "bakery",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parkman i Sverige AB, Vattenfalls besöksparkering",
+          "address": "Dalvägen 18, 169 79 Solna, Sweden",
+          "price": null,
+          "lat": 59.36952469999999,
+          "lng": 18.0022317,
+          "distance_mi": 0.22,
+          "place_id": "ChIJux56nY2dX0YRRhq_kX16C9s",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1226 @@
+{
+  "venueName": "The Bomb Factory",
+  "city": "Dallas",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Angry Dog",
+          "address": "2726 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.782886399999995,
+          "lng": -96.7835593,
+          "distance_mi": 0.04,
+          "place_id": "ChIJP9rrfN2YToYRM-YLi3Ov7T4",
+          "types": [
+            "bar_and_grill",
+            "hamburger_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ichigoh Ramen Lounge",
+          "address": "2724 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7829382,
+          "lng": -96.7836999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ8xY_HiiZToYRxSIF-HTFtaI",
+          "types": [
+            "ramen_restaurant",
+            "diner",
+            "bar",
+            "meal_takeaway",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "White Rhino Coffee",
+          "address": "2700 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7827437,
+          "lng": -96.78444669999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJTyLcVTeZToYR6gn29s4h2Jg",
+          "types": [
+            "coffee_shop",
+            "bistro",
+            "brunch_restaurant",
+            "breakfast_restaurant",
+            "cafe",
+            "food_store",
+            "store",
+            "wholesaler",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "St. Pete's Dancing Marlin",
+          "address": "2730 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7829062,
+          "lng": -96.7832988,
+          "distance_mi": 0.05,
+          "place_id": "ChIJsywTYt2YToYRSyCp5JcQoZ4",
+          "types": [
+            "bar_and_grill",
+            "pizza_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hibiki Sushi",
+          "address": "2651 Commerce St #120, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7831358,
+          "lng": -96.7842263,
+          "distance_mi": 0.06,
+          "place_id": "ChIJj020ZJiZToYRfmmH3jOt7do",
+          "types": [
+            "sushi_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brick & Bones",
+          "address": "2651 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7831201,
+          "lng": -96.7843176,
+          "distance_mi": 0.06,
+          "place_id": "ChIJJ3zyp92YToYRW3gorI9q_4c",
+          "types": [
+            "chicken_restaurant",
+            "cocktail_bar",
+            "bar",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kanpai Dallas",
+          "address": "215 Henry St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7822526,
+          "lng": -96.7848319,
+          "distance_mi": 0.06,
+          "place_id": "ChIJqQaClOmZToYRatHqUzPyTqw",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ruins",
+          "address": "2653 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7832174,
+          "lng": -96.7841129,
+          "distance_mi": 0.06,
+          "place_id": "ChIJtZC8_0OZToYRQr_bitBI9KM",
+          "types": [
+            "bar",
+            "cocktail_bar",
+            "mexican_restaurant",
+            "live_music_venue",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Free Man Cajun Cafe & Lounge",
+          "address": "2630 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7826364,
+          "lng": -96.7849502,
+          "distance_mi": 0.07,
+          "place_id": "ChIJrZ7Xid2YToYRqT2ZtSxPSPU",
+          "types": [
+            "live_music_venue",
+            "cajun_restaurant",
+            "bar",
+            "event_venue",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pecan Lodge",
+          "address": "2702 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7836494,
+          "lng": -96.7838379,
+          "distance_mi": 0.09,
+          "place_id": "ChIJGXYxd92YToYR7yV_BSMQ2Xk",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "At Club Hush",
+          "address": "2642 Main St Ste 150, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.783449,
+          "lng": -96.78469079999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ_QXwmt2YToYRUsYK9VuzU88",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Westlake Brewing Company",
+          "address": "2816 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.783183199999996,
+          "lng": -96.7825058,
+          "distance_mi": 0.09,
+          "place_id": "ChIJqyKqWd2YToYR-Kp3e2R5xUc",
+          "types": [
+            "brewery",
+            "beer_garden",
+            "bar",
+            "event_venue",
+            "manufacturer",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cane Rosso",
+          "address": "2612 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.78262,
+          "lng": -96.785405,
+          "distance_mi": 0.09,
+          "place_id": "ChIJJbq93SURTIYRDWBNzh6sWpQ",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Will Call Bar",
+          "address": "2712 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7837293,
+          "lng": -96.78350309999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ_d0wad2YToYRqP92Dzr2ZTo",
+          "types": [
+            "cocktail_bar",
+            "sports_bar",
+            "bar_and_grill",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vidorra",
+          "address": "2642 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7835179,
+          "lng": -96.7847214,
+          "distance_mi": 0.1,
+          "place_id": "ChIJKSE5u42ZToYRWxFYRL3T78E",
+          "types": [
+            "mexican_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Crab Station - Oyster Bar (Deep Ellum)",
+          "address": "2813 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7834459,
+          "lng": -96.78263,
+          "distance_mi": 0.1,
+          "place_id": "ChIJRYx7VMSZToYR0lCPlKH0GDE",
+          "types": [
+            "seafood_restaurant",
+            "oyster_bar_restaurant",
+            "cajun_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hawkers Asian Street Food",
+          "address": "2800 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7837488,
+          "lng": -96.7831633,
+          "distance_mi": 0.1,
+          "place_id": "ChIJZyDW1_OZToYRFNAib7RDwzs",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Revolver Taco Lounge TO GO",
+          "address": "2701 Main St #120, Dallas, TX 75226, USA",
+          "price": 4,
+          "lat": 32.783939,
+          "lng": -96.78419029999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJ80jTn92YToYRnBA135RFLD0",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheba Hut \"Toasted\" Subs",
+          "address": "2808 Main St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7838285,
+          "lng": -96.78289029999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJl4YGnq2ZToYRKd5CFr_nUpo",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "deli",
+            "family_restaurant",
+            "bar",
+            "meal_delivery",
+            "food_delivery",
+            "american_restaurant",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Wings By The Pound",
+          "address": "2707 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.78408050000001,
+          "lng": -96.7839412,
+          "distance_mi": 0.12,
+          "place_id": "ChIJQ22_H3mZToYRaiml1t5-JRM",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Downtown luxury condo- convention center- central",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7823486,
+          "lng": -96.7838135,
+          "distance_mi": 0.0,
+          "place_id": "ChIJud5shOeYToYR5mHcJDhRh-g",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 1bd in the heart of downtown Dallas!(w/parking) - One-Bedroom Apartment",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782009099999996,
+          "lng": -96.7840195,
+          "distance_mi": 0.03,
+          "place_id": "ChIJjcbenOeYToYR6II1_5f4vpw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chic, Cozy, Comfortable, Luxe 1 bedroom Estate with smart TV’s, Wifi plus more",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7829285,
+          "lng": -96.7835083,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ-TJaTOiYToYRw8pRwIPtdUY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1-bedroom apartment Suite w / fitness room, WiFi in wonderful Dallas /Deep Ellum.",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7831688,
+          "lng": -96.7837219,
+          "distance_mi": 0.06,
+          "place_id": "ChIJbamGe92YToYRT4iurftTPhQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Stay /Best View of Dallas!",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7820816,
+          "lng": -96.78482059999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJh9C6eueYToYR7AUVsM1S9tw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Long Term Medical Stays Welcome! Walk to Baylor\\nFree Parking! Resort-style Pool",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7825012,
+          "lng": -96.78508,
+          "distance_mi": 0.07,
+          "place_id": "ChIJu1KlY-eYToYRRxncMGoR1Ns",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "DeepEllum /Downtown Cozy 1BDR w / Stunning Pool View",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7835503,
+          "lng": -96.784523,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ5RGfnN2YToYRhC42CItoxtc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy 1-bedroom apartment in Downtown Dallas.",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7831802,
+          "lng": -96.78215019999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJi5NaV92YToYRE-uwbUyOo3M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Upscale Spacious Cozy Loft in the Heart of Downtown Dallas",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7814293,
+          "lng": -96.7854919,
+          "distance_mi": 0.12,
+          "place_id": "ChIJSdmPaueYToYRhm75LI3qQKU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sleeps6 /PerfectLocation /Walk to Baylor /FreeParking\\nGym /Newly Renovated Pool",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7828483,
+          "lng": -96.78163909999999,
+          "distance_mi": 0.13,
+          "place_id": "ChIJc9-Q_-eYToYRn0AhzxNzrBI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Downtown Dallas Living - One-Bedroom Apartment",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7839813,
+          "lng": -96.7825318,
+          "distance_mi": 0.13,
+          "place_id": "ChIJTVlLQd2YToYRUYHJQSoUZQw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Stylish Loft / Deep Ellum / Downtown Dallas",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7843704,
+          "lng": -96.7839889,
+          "distance_mi": 0.14,
+          "place_id": "ChIJe8-nC92YToYRUt5sSF6PhGE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Co-Hosted Properties • Indie Deep Ellum",
+          "address": "2900 Canton St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782289899999995,
+          "lng": -96.78141049999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJN7_CTgCZToYR8x9GrUkmdUo",
+          "types": [
+            "private_guest_room",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy, chic deep Ellum apartment! - One-Bedroom Apartment",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQ_PGB-iYToYRSzCdKIuiGNs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Heart of Deep Ellum 2 Bedroom Pool and Gym - Two-Bedroom Apartment",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQ_PGB-iYToYRYEIgcQCbIQU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lovely 1-bedroom minutes away from the State Fair of Texas",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQ_PGB-iYToYRJ4jhWl2og1c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Deep Ellum Lux",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQ_PGB-iYToYRLLjGLESEnfI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Deep Ellum Theatre Suite - The Black Collection",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJwxSI3eaYToYRuSRdb1jf8oM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy, chic deep Ellum apartment!",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJQ_PGB-iYToYRmoEgOqekU1c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Long term stay, Downtown Dallas Near Medical District and ATT Stadium - One-Bedroom Apartment with Balcony",
+          "address": "Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7822914,
+          "lng": -96.7814102,
+          "distance_mi": 0.14,
+          "place_id": "ChIJzUZKBuiYToYRNgD2H1nE4Z4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "2700 Commerce Car Park",
+          "address": "2700 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782747,
+          "lng": -96.78408600000002,
+          "distance_mi": 0.03,
+          "place_id": "ChIJld58gOeYToYRybYpwaLPvoM",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Angry Dog",
+          "address": "2726 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.782886399999995,
+          "lng": -96.7835593,
+          "distance_mi": 0.04,
+          "place_id": "ChIJP9rrfN2YToYRM-YLi3Ov7T4",
+          "types": [
+            "bar_and_grill",
+            "hamburger_restaurant",
+            "bar",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ichigoh Ramen Lounge",
+          "address": "2724 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7829382,
+          "lng": -96.7836999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ8xY_HiiZToYRxSIF-HTFtaI",
+          "types": [
+            "ramen_restaurant",
+            "diner",
+            "bar",
+            "japanese_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "White Rhino Coffee",
+          "address": "2700 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7827437,
+          "lng": -96.78444669999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJTyLcVTeZToYR6gn29s4h2Jg",
+          "types": [
+            "coffee_shop",
+            "bistro",
+            "breakfast_restaurant",
+            "brunch_restaurant",
+            "cafe",
+            "food_store",
+            "wholesaler",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "St. Pete's Dancing Marlin",
+          "address": "2730 Commerce St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7829062,
+          "lng": -96.7832988,
+          "distance_mi": 0.05,
+          "place_id": "ChIJsywTYt2YToYRSyCp5JcQoZ4",
+          "types": [
+            "bar_and_grill",
+            "seafood_restaurant",
+            "bar",
+            "pizza_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brick & Bones",
+          "address": "2651 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7831201,
+          "lng": -96.7843176,
+          "distance_mi": 0.06,
+          "place_id": "ChIJJ3zyp92YToYRW3gorI9q_4c",
+          "types": [
+            "chicken_restaurant",
+            "cocktail_bar",
+            "bar",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Night Rider Coffee",
+          "address": "215 Henry St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782254,
+          "lng": -96.7848291,
+          "distance_mi": 0.06,
+          "place_id": "ChIJF6J2QBmZToYR_TO96ufoBq0",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lambeth Lot",
+          "address": "2711 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.783237199999995,
+          "lng": -96.78361369999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ-VHYp_KZToYR3ITtPTnDII8",
+          "types": [
+            "parking_lot",
+            "parking_garage",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ruins",
+          "address": "2653 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7832174,
+          "lng": -96.7841129,
+          "distance_mi": 0.06,
+          "place_id": "ChIJtZC8_0OZToYRQr_bitBI9KM",
+          "types": [
+            "bar",
+            "cocktail_bar",
+            "mexican_restaurant",
+            "live_music_venue",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Free Man Cajun Cafe & Lounge",
+          "address": "2630 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7826364,
+          "lng": -96.7849502,
+          "distance_mi": 0.07,
+          "place_id": "ChIJrZ7Xid2YToYRqT2ZtSxPSPU",
+          "types": [
+            "live_music_venue",
+            "cajun_restaurant",
+            "bar",
+            "event_venue",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Company/Systems of America",
+          "address": "2836 Clover St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782660899999996,
+          "lng": -96.78258149999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJtRXqGgCZToYRGNNonZYH_3U",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Adair's Saloon",
+          "address": "2624 Commerce St, Dallas, TX 75226, USA",
+          "price": 1,
+          "lat": 32.7826704,
+          "lng": -96.78516979999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJe5CtY-eYToYR9vKBY6QYo0M",
+          "types": [
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Private Rickhouse",
+          "address": "2815 Canton St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782647499999996,
+          "lng": -96.7824064,
+          "distance_mi": 0.08,
+          "place_id": "ChIJr8_0qCCZToYRz1Am32CmRI4",
+          "types": [
+            "bar",
+            "manufacturer",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Paid Public Parking",
+          "address": "2616 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.782351,
+          "lng": -96.78530099999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJJ-uXtceZToYR_LQt50RhPcg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Shot Topic",
+          "address": "108 S Crowdus St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7835296,
+          "lng": -96.7831957,
+          "distance_mi": 0.09,
+          "place_id": "ChIJPaQOVrKZToYR3gHACIOxmq0",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Deep Ellum Lot C",
+          "address": "2611 Canton St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.781856399999995,
+          "lng": -96.7851783,
+          "distance_mi": 0.09,
+          "place_id": "ChIJy1aDXeeYToYRdoV7nsqNTFk",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2625 Commerce St Parking",
+          "address": "2625 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.7831961,
+          "lng": -96.7850858,
+          "distance_mi": 0.09,
+          "place_id": "ChIJI6Lvjt2YToYRnpH0WDXUp_k",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Westlake Brewing Company",
+          "address": "2816 Commerce St, Dallas, TX 75226, USA",
+          "price": null,
+          "lat": 32.783183199999996,
+          "lng": -96.7825058,
+          "distance_mi": 0.09,
+          "place_id": "ChIJqyKqWd2YToYR-Kp3e2R5xUc",
+          "types": [
+            "brewery",
+            "beer_garden",
+            "bar",
+            "event_venue",
+            "manufacturer",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Will Call Bar",
+          "address": "2712 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7837293,
+          "lng": -96.78350309999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ_d0wad2YToYRqP92Dzr2ZTo",
+          "types": [
+            "cocktail_bar",
+            "sports_bar",
+            "bar_and_grill",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vidorra",
+          "address": "2642 Main St, Dallas, TX 75226, USA",
+          "price": 2,
+          "lat": 32.7835179,
+          "lng": -96.7847214,
+          "distance_mi": 0.1,
+          "place_id": "ChIJKSE5u42ZToYRWxFYRL3T78E",
+          "types": [
+            "mexican_restaurant",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

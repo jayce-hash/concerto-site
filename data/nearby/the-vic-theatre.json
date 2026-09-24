@@ -1,0 +1,1249 @@
+{
+  "venueName": "The Vic Theatre",
+  "city": "Chicago",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Chicago Bagel Authority - Belmont",
+          "address": "955 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.9397914,
+          "lng": -87.6537359,
+          "distance_mi": 0.02,
+          "place_id": "ChIJF5wG-6vTD4gReNOFHHOYm6Y",
+          "types": [
+            "bagel_shop",
+            "breakfast_restaurant",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hot Chi Chicken - Lakeview",
+          "address": "953 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9397966,
+          "lng": -87.6536239,
+          "distance_mi": 0.02,
+          "place_id": "ChIJtRkDkKLTD4gRbsPXuDCKCSQ",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "945 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.939754,
+          "lng": -87.6535013,
+          "distance_mi": 0.02,
+          "place_id": "ChIJfW7fV6nTD4gREdoNdrOD3Rc",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pedestrian Coffee",
+          "address": "939 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9397655,
+          "lng": -87.6530987,
+          "distance_mi": 0.04,
+          "place_id": "ChIJpWKcgH7TD4gRKGIyIG0SyKM",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Devil Dawgs Belmont",
+          "address": "937 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.9397367,
+          "lng": -87.653044,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ04AoSBLTD4gR_Gk1r8PJfYA",
+          "types": [
+            "fast_food_restaurant",
+            "hamburger_restaurant",
+            "hot_dog_restaurant",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheesie's Pub & Grub - Lakeview",
+          "address": "958 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.940110499999996,
+          "lng": -87.6538072,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ6z5a_KvTD4gRHdSiXi6GRLU",
+          "types": [
+            "american_restaurant",
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Figo Wine Bar",
+          "address": "3207 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": 3,
+          "lat": 41.9402282,
+          "lng": -87.6539734,
+          "distance_mi": 0.05,
+          "place_id": "ChIJaUA2b6bTD4gR16K-yMe0LTo",
+          "types": [
+            "restaurant",
+            "wine_bar",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fresh Stop Produce and Market",
+          "address": "930 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9400528,
+          "lng": -87.652709,
+          "distance_mi": 0.06,
+          "place_id": "ChIJYcvecdrTD4gR4c2oW0x8aOM",
+          "types": [
+            "supermarket",
+            "liquor_store",
+            "market",
+            "sandwich_shop",
+            "deli",
+            "grocery_store",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Fresh Stop Deli",
+          "address": "930 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.940189,
+          "lng": -87.6527138,
+          "distance_mi": 0.07,
+          "place_id": "ChIJhShN6rbTD4gRxiyclp_m-BY",
+          "types": [
+            "deli",
+            "liquor_store",
+            "fast_food_restaurant",
+            "sandwich_shop",
+            "supermarket",
+            "grocery_store",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Slice Shop",
+          "address": "928 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.9400531,
+          "lng": -87.6525764,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ78ZLLR_TD4gRHGrkMrgCFsw",
+          "types": [
+            "pizza_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rangoli Kabob",
+          "address": "1023 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9397972,
+          "lng": -87.65507869999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJZxvoAW_TD4gRBRP6uGuRuyM",
+          "types": [
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Potbelly",
+          "address": "924 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.940110399999995,
+          "lng": -87.6525601,
+          "distance_mi": 0.07,
+          "place_id": "ChIJReO3UanTD4gRiA2wJHteqF4",
+          "types": [
+            "sandwich_shop",
+            "catering_service",
+            "fast_food_restaurant",
+            "deli",
+            "supplier",
+            "food_delivery",
+            "manufacturer",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chipotle Mexican Grill",
+          "address": "1025 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9397309,
+          "lng": -87.6551454,
+          "distance_mi": 0.07,
+          "place_id": "ChIJV04ThavTD4gRwTED9qi2cXk",
+          "types": [
+            "fast_food_restaurant",
+            "taco_restaurant",
+            "catering_service",
+            "shipping_service",
+            "mexican_restaurant",
+            "food_delivery",
+            "burrito_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "404 Burgers",
+          "address": "1020 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.940083,
+          "lng": -87.6549616,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ5SI88QXTD4gRFSh6pUjKGcc",
+          "types": [
+            "hamburger_restaurant",
+            "halal_restaurant",
+            "barbecue_area",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco Bell",
+          "address": "920 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.9401374,
+          "lng": -87.65236,
+          "distance_mi": 0.08,
+          "place_id": "ChIJwSqAhsjTD4gRlLoQWGglh50",
+          "types": [
+            "fast_food_restaurant",
+            "taco_restaurant",
+            "mexican_restaurant",
+            "burrito_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Matilda",
+          "address": "3101 N Sheffield Ave #1, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9382358,
+          "lng": -87.6538731,
+          "distance_mi": 0.09,
+          "place_id": "ChIJIb2GzqvTD4gRkpZfPDH-ByI",
+          "types": [
+            "american_restaurant",
+            "cocktail_bar",
+            "bar_and_grill",
+            "fusion_restaurant",
+            "hamburger_restaurant",
+            "pub",
+            "sandwich_shop",
+            "bar",
+            "pizza_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Naz's Halal Food - Lakeview",
+          "address": "907 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.939830099999995,
+          "lng": -87.6518902,
+          "distance_mi": 0.1,
+          "place_id": "ChIJDb0cS1rTD4gR2WRPj9ol6DI",
+          "types": [
+            "halal_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Seoul Taco",
+          "address": "1034 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9401444,
+          "lng": -87.65548659999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJJ5K3XZfTD4gR4xcZBF7dOkk",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cumin Restaurant - Lakeview",
+          "address": "1039 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.939679,
+          "lng": -87.65574289999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJlbSrrn_TD4gR261JuhnDc9E",
+          "types": [
+            "indian_restaurant",
+            "event_venue",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Oberweis Ice Cream and Dairy Store",
+          "address": "3055 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9379589,
+          "lng": -87.65387009999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJBTHFMqrTD4gR9Fk3ZTfvPYQ",
+          "types": [
+            "ice_cream_shop",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Entire house w / free parking, close to Wrigley!",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9392509,
+          "lng": -87.6534195,
+          "distance_mi": 0.03,
+          "place_id": "ChIJHVfC4KvTD4gRW88_6IVK09M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hip Stylish 2BR Apartment in Belmont - Belmont 606 - Two-Bedroom Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9396705,
+          "lng": -87.65321349999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJqbmZ4qvTD4gRmUT8lo8oqog",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Lux 1BR/1BA Apartment in Belmont - One-Bedroom Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9396705,
+          "lng": -87.65321349999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJqbmZ4qvTD4gRsqT-jRgMV4Y",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Uplifting Studio Apartment in Belmont - Belmont 301 - One-Bedroom Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9396705,
+          "lng": -87.65321349999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJqbmZ4qvTD4gRPsYmgK9YD4c",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sonder — The Bel",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9399109,
+          "lng": -87.6533279,
+          "distance_mi": 0.03,
+          "place_id": "ChIJDUUA_avTD4gRpFsx_5yYclc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK Cozy Studio Apt in Wrigleyville - Studio",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9397812,
+          "lng": -87.65315249999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ9c37V6nTD4gR6TsFTsrJ1h0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK Chic Open Wrigleyville Studio Apt - Studio",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9397812,
+          "lng": -87.65315249999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ9c37V6nTD4gRylFB1w7qTYE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "City Suites Hotel",
+          "address": "933 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9398099,
+          "lng": -87.6528851,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ03dIV6nTD4gRQ8o2_F8cqAw",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Comfy room in northside Chicago BB - 1c - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.940639499999996,
+          "lng": -87.6543731,
+          "distance_mi": 0.08,
+          "place_id": "ChIJv-VHC6zTD4gRzAVjvQHOr8s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Den Hotel",
+          "address": "3222 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406483,
+          "lng": -87.65442060000001,
+          "distance_mi": 0.09,
+          "place_id": "ChIJWXe7C-zTD4gR7wx-_hOasYY",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Private room with Private bath in BB in Lakeview - 2d - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gR_rjVuw8Kxkk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Queen Bed w private ensuite bathroom in Lakeview - 3d - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRl1N22wIGLko",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Queen bed with Private bathroom in Lakeview -2e - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRcj_iwYzlplA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Private room with full size bed in Lakeview - 3c - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRAnflwxKlYN0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1c-Full private bed w/ priv. bath across the hall",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRPZp_H5UI6oI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Queen Bed with Shared Bathroom in Lakeview - 2b - Double Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRfns0oBv6dRU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Large Private room with Queen bed - 2a - Triple Room",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9406586,
+          "lng": -87.6544266,
+          "distance_mi": 0.09,
+          "place_id": "ChIJQ46zdKzTD4gRrvlBJf7Nhqs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Near Wrigley Boystown, Bright Spacious by Zencity - Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9401589,
+          "lng": -87.65547939999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ_2t3gavTD4gRFEr6ss2ejY8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chicago Apt with Balcony, Walk to Wrigley Field - Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9393082,
+          "lng": -87.6517487,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ8cPvPqnTD4gRLydLqfF4NWc",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cozy-Chic Home Walkable Area, Near Wrigley! - Apartment",
+          "address": "Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9393082,
+          "lng": -87.6517487,
+          "distance_mi": 0.1,
+          "place_id": "ChIJ8cPvPqnTD4gR12Bd40mLDJo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Dunkin'",
+          "address": "945 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.939754,
+          "lng": -87.6535013,
+          "distance_mi": 0.02,
+          "place_id": "ChIJfW7fV6nTD4gREdoNdrOD3Rc",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pedestrian Coffee",
+          "address": "939 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9397655,
+          "lng": -87.6530987,
+          "distance_mi": 0.04,
+          "place_id": "ChIJpWKcgH7TD4gRKGIyIG0SyKM",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SP+ Parking",
+          "address": "950 W Fletcher St, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9390025,
+          "lng": -87.6534762,
+          "distance_mi": 0.04,
+          "place_id": "ChIJq1eC3qvTD4gR_I2Ty1G-soY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Metropolis",
+          "address": "950 W Fletcher St, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.939045,
+          "lng": -87.65331359999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJT994OTTTD4gRmq7Si85NID0",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cheesie's Pub & Grub - Lakeview",
+          "address": "958 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.940110499999996,
+          "lng": -87.6538072,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ6z5a_KvTD4gRHdSiXi6GRLU",
+          "types": [
+            "american_restaurant",
+            "sports_bar",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Residences at the Vic",
+          "address": "3140N N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.939229399999995,
+          "lng": -87.6544531,
+          "distance_mi": 0.04,
+          "place_id": "ChIJwSFGlavTD4gR3g5LlyXQ6lg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SP+ Parking",
+          "address": "3130 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.939284199999996,
+          "lng": -87.6545276,
+          "distance_mi": 0.04,
+          "place_id": "ChIJicbn6qvTD4gRqBX2VnYnHDY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Figo Wine Bar",
+          "address": "3207 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": 3,
+          "lat": 41.9402282,
+          "lng": -87.6539734,
+          "distance_mi": 0.05,
+          "place_id": "ChIJaUA2b6bTD4gR16K-yMe0LTo",
+          "types": [
+            "restaurant",
+            "wine_bar",
+            "bar",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Big City Tap",
+          "address": "1010 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.9400289,
+          "lng": -87.654545,
+          "distance_mi": 0.05,
+          "place_id": "ChIJi7MxjKvTD4gR9wzX9tnK37I",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "3113 N Sheffield Ave Parking",
+          "address": "3113 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9387295,
+          "lng": -87.65334539999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJGVIc2avTD4gRFZ1o5COjAhM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Barry To Fletcher",
+          "address": "3113 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9387189,
+          "lng": -87.6533257,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ8dbi2KvTD4gRK9tS-l68EDI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trader Todd's",
+          "address": "3216 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.940442399999995,
+          "lng": -87.65436969999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJG39EdazTD4gRF8wgReRZb4U",
+          "types": [
+            "karaoke",
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Ancient Grounds",
+          "address": "1022 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": 2,
+          "lat": 41.94009090000001,
+          "lng": -87.6550367,
+          "distance_mi": 0.08,
+          "place_id": "ChIJy7S0AofTD4gReb8DG17PRQY",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Blind Wolf Speakeasy",
+          "address": "3222 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": 1,
+          "lat": 41.940644999999996,
+          "lng": -87.65438549999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJXVG83NnTD4gRPmcf8MybJ7g",
+          "types": [
+            "bar",
+            "cocktail_bar",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "3230 North Wilton Avenue Parking",
+          "address": "940 W School St, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.940686299999996,
+          "lng": -87.6531667,
+          "distance_mi": 0.09,
+          "place_id": "ChIJnTb2AazTD4gRFB2ppXi4rPs",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Matilda",
+          "address": "3101 N Sheffield Ave #1, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9382358,
+          "lng": -87.6538731,
+          "distance_mi": 0.09,
+          "place_id": "ChIJIb2GzqvTD4gRkpZfPDH-ByI",
+          "types": [
+            "american_restaurant",
+            "cocktail_bar",
+            "bar_and_grill",
+            "fusion_restaurant",
+            "hamburger_restaurant",
+            "pub",
+            "sandwich_shop",
+            "bar",
+            "pizza_restaurant",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "3144 N Kenmore Ave Parking",
+          "address": "3144N N Kenmore Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.93942,
+          "lng": -87.655648,
+          "distance_mi": 0.1,
+          "place_id": "ChIJeaaKdavTD4gRns3I3jMPhqA",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Steep stairs spot",
+          "address": "3055 N Sheffield Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9379638,
+          "lng": -87.6537626,
+          "distance_mi": 0.11,
+          "place_id": "ChIJy9G1fwDTD4gR2vXD1qOJWtE",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Around The World Tobacco",
+          "address": "1044 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.940034399999995,
+          "lng": -87.65584729999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJrYOEeavTD4gRs8rxk5TWd4c",
+          "types": [
+            "lounge_bar",
+            "bar",
+            "building_materials_store",
+            "manufacturer",
+            "wholesaler",
+            "night_club",
+            "store",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Coffee, Hip-Hop & Mental Health Cafe",
+          "address": "1051 W Belmont Ave, Chicago, IL 60657, USA",
+          "price": null,
+          "lat": 41.9396275,
+          "lng": -87.65607039999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJQccwmgbTD4gRpJ98sqtF_9I",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "medical_clinic",
+            "health",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

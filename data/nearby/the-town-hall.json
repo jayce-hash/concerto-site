@@ -1,0 +1,1212 @@
+{
+  "venueName": "The Town Hall",
+  "city": "New York",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Bar Mexicana",
+          "address": "127A W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7561441,
+          "lng": -73.9844404,
+          "distance_mi": 0.01,
+          "place_id": "ChIJ6TtZm3VZwokRwtUSCBkvYFE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "BXL Cafe",
+          "address": "125 W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7561809,
+          "lng": -73.98462479999999,
+          "distance_mi": 0.01,
+          "place_id": "ChIJDUW-a1VYwokR4XGhIeW6Dao",
+          "types": [
+            "belgian_restaurant",
+            "bistro",
+            "bar",
+            "french_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Long Room",
+          "address": "120 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.756410699999996,
+          "lng": -73.9843398,
+          "distance_mi": 0.03,
+          "place_id": "ChIJWZVoalVYwokRnPIXV2adxKA",
+          "types": [
+            "irish_restaurant",
+            "bar_and_grill",
+            "lounge_bar",
+            "pub",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "american_restaurant",
+            "night_club",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gatsby's Landing",
+          "address": "120 W 44th St, New York, NY 10036, USA",
+          "price": 3,
+          "lat": 40.756409999999995,
+          "lng": -73.98418939999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJXXaez3pZwokRWUp7GFTiXO0",
+          "types": [
+            "italian_restaurant",
+            "steak_house",
+            "seafood_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mermaid Oyster Bar Times Square",
+          "address": "127 W 43rd St, New York, NY 10036, USA",
+          "price": 3,
+          "lat": 40.7562524,
+          "lng": -73.9851331,
+          "distance_mi": 0.03,
+          "place_id": "ChIJqVqIovlZwokRXJegKVQWhZQ",
+          "types": [
+            "seafood_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Burger & Lobster Bryant Park",
+          "address": "132 W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7559517,
+          "lng": -73.9851995,
+          "distance_mi": 0.03,
+          "place_id": "ChIJd44fMFVYwokRqpXE6s9gnV4",
+          "types": [
+            "british_restaurant",
+            "cocktail_bar",
+            "oyster_bar_restaurant",
+            "hamburger_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sơn MGI",
+          "address": "Bank of America Tower, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.755607999999995,
+          "lng": -73.9849349,
+          "distance_mi": 0.03,
+          "place_id": "ChIJAdvbagBZwokRK_SfCWeg04E",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vàpi",
+          "address": "Bank of America Tower, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.755607999999995,
+          "lng": -73.9849349,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ82TYdB9ZwokR8ARNDprF4MU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1101-1109 6th Ave, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.75552,
+          "lng": -73.98407999999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJRyJOSVVYwokR0_vPEyCpcY4",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Osteria al Doge",
+          "address": "142 WEST 44th St Times Square, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.756627200000004,
+          "lng": -73.98491369999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJe-MbFlVYwokRIPak_2F4KzY",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kappo Sono menu",
+          "address": "135 W 42nd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.755514,
+          "lng": -73.98528569999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ8_ObcQBZwokRgCKATxfWNHo",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kappo Sono",
+          "address": "135 W 42nd St, New York, NY 10036, USA",
+          "price": 4,
+          "lat": 40.755514,
+          "lng": -73.98528569999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJd5tUFQBZwokRQktz6ZJ5_m0",
+          "types": [
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hunt & Fish Club",
+          "address": "125 W 44th St, New York, NY 10036, USA",
+          "price": 4,
+          "lat": 40.756771,
+          "lng": -73.9842496,
+          "distance_mi": 0.05,
+          "place_id": "ChIJR-CHa1VYwokRKTaWr1rLqLc",
+          "types": [
+            "steak_house",
+            "seafood_restaurant",
+            "fine_dining_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tony's Di Napoli",
+          "address": "147 W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.756484199999996,
+          "lng": -73.9853808,
+          "distance_mi": 0.05,
+          "place_id": "ChIJVS2qI1VYwokRFo18YsKvHYM",
+          "types": [
+            "italian_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Grill Halal Food",
+          "address": "44TH St And, 6th Ave, New York, NY 10018, USA",
+          "price": 1,
+          "lat": 40.7561882,
+          "lng": -73.9834742,
+          "distance_mi": 0.06,
+          "place_id": "ChIJveZ6ihlZwokRe1ZnKSr_7gE",
+          "types": [
+            "halal_restaurant",
+            "fast_food_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Virgil's Real BBQ",
+          "address": "152 W 44th St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7567595,
+          "lng": -73.9851662,
+          "distance_mi": 0.06,
+          "place_id": "ChIJNe_8fqtz5okR_V-vTEVkjqs",
+          "types": [
+            "barbecue_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Royal Biryani Pakistani Halal Food",
+          "address": "106-100 W 44th St, New York, NY 10036, USA",
+          "price": 1,
+          "lat": 40.756135,
+          "lng": -73.983375,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ4V8vZ0hZwokRPdJDV4631ok",
+          "types": [
+            "halal_restaurant",
+            "pakistani_restaurant",
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kimo’s Halal Food",
+          "address": "1153 6th Ave, New York, NY 10036, USA",
+          "price": 1,
+          "lat": 40.7563137,
+          "lng": -73.98335490000001,
+          "distance_mi": 0.07,
+          "place_id": "ChIJmdy62bVZwokR12wkLGW8b4E",
+          "types": [
+            "halal_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "FunkDiscoLove",
+          "address": "123 W 43rd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7561203,
+          "lng": -73.98445579999999,
+          "distance_mi": 0.01,
+          "place_id": "ChIJ_zhkSz5ZwokRerRHV2HgV4Q",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The ROW",
+          "address": "124 W 43rd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.755867599999995,
+          "lng": -73.9849002,
+          "distance_mi": 0.02,
+          "place_id": "ChIJo5gEeChZwokRM1ZJtR8UOxg",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "120 west 44th street,New York",
+          "address": "120 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7563856,
+          "lng": -73.984353,
+          "distance_mi": 0.03,
+          "place_id": "ChIJgwzhHwBZwokRYnmulTZGJ7U",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Aura Hotel Times Square",
+          "address": "120 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7564316,
+          "lng": -73.98428679999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJWZVoalVYwokRiKS594qHz1g",
+          "types": [
+            "hotel",
+            "business_center",
+            "extended_stay_hotel",
+            "event_venue",
+            "clothing_store",
+            "store",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Chatwal - The Unbound Collection by Hyatt",
+          "address": "130 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.756518299999996,
+          "lng": -73.9846017,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ613balVYwokR2Sd7fEqauZs",
+          "types": [
+            "resort_hotel",
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AKA Residences Luxurious Premium Studio w / Custom Furnishings, Den Space WiFi",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7565193,
+          "lng": -73.9841003,
+          "distance_mi": 0.04,
+          "place_id": "ChIJbWb4aVVYwokRmWfWtV31tzk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AKA Residences Elegant Studio Suite w / Full Kitchen, Office Space, WiFi",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7565193,
+          "lng": -73.9841003,
+          "distance_mi": 0.04,
+          "place_id": "ChIJbWb4aVVYwokRRH23wUa4E3Q",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Citi Suites",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7566025,
+          "lng": -73.9839911,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ7cy-46pZwokRlefhRFKTn2s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AKA Times Square",
+          "address": "123 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7567625,
+          "lng": -73.98415709999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJDUW-a1VYwokR6L1u9X92HSM",
+          "types": [
+            "extended_stay_hotel",
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "AKA Times Square - Studio with Office",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7568016,
+          "lng": -73.9842606,
+          "distance_mi": 0.06,
+          "place_id": "ChIJeaGGa1VYwokRPWrSpyZ5wHU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Times Square Suite",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.75679780000001,
+          "lng": -73.9841614,
+          "distance_mi": 0.06,
+          "place_id": "ChIJUaz3a1VYwokRLcaUbEUG9vI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Casablanca Hotel",
+          "address": "147 W 43rd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7564251,
+          "lng": -73.9855534,
+          "distance_mi": 0.06,
+          "place_id": "ChIJZ6wMJFVYwokRfoSIFactWm0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Millennium Hotel Broadway Times Square",
+          "address": "120 W 45th St #9, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7567026,
+          "lng": -73.9838236,
+          "distance_mi": 0.06,
+          "place_id": "ChIJF3XfWABZwokRvFPRJodxoX0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Time Sq House",
+          "address": "152 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7567841,
+          "lng": -73.98512830000001,
+          "distance_mi": 0.06,
+          "place_id": "ChIJRzaeF1VYwokRUimRx5bcNzI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Millennium Premier New York Times Square",
+          "address": "133 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.75692,
+          "lng": -73.984421,
+          "distance_mi": 0.06,
+          "place_id": "ChIJg56VbFVYwokRWbuhFlj0ZEY",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Duplex Penthouse at Historic Mansfield Residence, City Views Luxury",
+          "address": "New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.755218500000005,
+          "lng": -73.9839325,
+          "distance_mi": 0.06,
+          "place_id": "ChIJT1Mqs6pZwokRzTg_PyWMHWw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hotel",
+          "address": "55 W 39th St, New York, NY 10018, USA",
+          "price": null,
+          "lat": 40.755333,
+          "lng": -73.9856356,
+          "distance_mi": 0.07,
+          "place_id": "ChIJE6-nOwBZwokRGCOnd1ugiA0",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Millennium Hotel Broadway Times Square",
+          "address": "145 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7571942,
+          "lng": -73.98466549999999,
+          "distance_mi": 0.08,
+          "place_id": "ChIJZzUSDFVYwokR4lM11cyBpxE",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kensington Hotel Associates",
+          "address": "132 W 45th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7571766,
+          "lng": -73.9842133,
+          "distance_mi": 0.08,
+          "place_id": "ChIJR-etc1VYwokRwNkWCX2yR68",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Night Hotel at Times Square",
+          "address": "132 W 45th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7571967,
+          "lng": -73.9841967,
+          "distance_mi": 0.08,
+          "place_id": "ChIJR-etc1VYwokRaDhSYw8Jd5I",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "BXL Cafe",
+          "address": "125 W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7561809,
+          "lng": -73.98462479999999,
+          "distance_mi": 0.01,
+          "place_id": "ChIJDUW-a1VYwokR4XGhIeW6Dao",
+          "types": [
+            "belgian_restaurant",
+            "bistro",
+            "bar",
+            "french_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "City Parking",
+          "address": "113 W 43rd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7560334,
+          "lng": -73.9842707,
+          "distance_mi": 0.02,
+          "place_id": "ChIJKwYYNwBZwokRVsz5zGyzQAM",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Long Room",
+          "address": "120 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.756410699999996,
+          "lng": -73.9843398,
+          "distance_mi": 0.03,
+          "place_id": "ChIJWZVoalVYwokRnPIXV2adxKA",
+          "types": [
+            "irish_restaurant",
+            "bar_and_grill",
+            "lounge_bar",
+            "pub",
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "american_restaurant",
+            "night_club",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "100 West 44th Street",
+          "address": "100 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7561888,
+          "lng": -73.98396050000001,
+          "distance_mi": 0.03,
+          "place_id": "ChIJqTTkXlVYwokRNIVs9perFvU",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Burger & Lobster Bryant Park",
+          "address": "132 W 43rd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7559517,
+          "lng": -73.9851995,
+          "distance_mi": 0.03,
+          "place_id": "ChIJd44fMFVYwokRqpXE6s9gnV4",
+          "types": [
+            "british_restaurant",
+            "cocktail_bar",
+            "oyster_bar_restaurant",
+            "hamburger_restaurant",
+            "seafood_restaurant",
+            "bar",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking Garage",
+          "address": "1133 6th Ave, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.756017,
+          "lng": -73.9838449,
+          "distance_mi": 0.04,
+          "place_id": "ChIJN1uT6k5ZwokRg6WL5R4Wf6U",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1101-1109 6th Ave, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.75552,
+          "lng": -73.98407999999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJRyJOSVVYwokR0_vPEyCpcY4",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jimmy's Corner",
+          "address": "140 W 44th St, New York, NY 10036, USA",
+          "price": 1,
+          "lat": 40.756729899999996,
+          "lng": -73.9847643,
+          "distance_mi": 0.05,
+          "place_id": "ChIJqz-3FVVYwokRo_z9ZJDCM3g",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Meyers Parking (MP Times Square Garage)",
+          "address": "146 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7567176,
+          "lng": -73.9850197,
+          "distance_mi": 0.05,
+          "place_id": "ChIJrfLbalVYwokR514I77Pq4_k",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Rosetta Bakery",
+          "address": "120 W 42nd St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7551634,
+          "lng": -73.9852502,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ40SO6-1ZwokRq58sBdwAOqU",
+          "types": [
+            "bakery",
+            "sandwich_shop",
+            "pizza_restaurant",
+            "coffee_shop",
+            "cafe",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "O'Donoghue’s Times Square",
+          "address": "156 W 44th St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.756942699999996,
+          "lng": -73.9852828,
+          "distance_mi": 0.07,
+          "place_id": "ChIJWVh7F1VYwokRG50ZNb_73zk",
+          "types": [
+            "irish_pub",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bluestone Lane Bryant Park Coffee Shop",
+          "address": "1120 6th Ave, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7554698,
+          "lng": -73.9831779,
+          "distance_mi": 0.08,
+          "place_id": "ChIJ69HpqapZwokRifH42t_Dkzk",
+          "types": [
+            "coffee_shop",
+            "bar",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Paul’s on Times Square",
+          "address": "136 W 42nd St, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7553294,
+          "lng": -73.9857901,
+          "distance_mi": 0.08,
+          "place_id": "ChIJMcM6KqtZwokRRBfXOw3SDjo",
+          "types": [
+            "italian_restaurant",
+            "cocktail_bar",
+            "breakfast_restaurant",
+            "wedding_venue",
+            "bar",
+            "pizza_restaurant",
+            "event_venue",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1500 Broadway, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.75664,
+          "lng": -73.9859,
+          "distance_mi": 0.08,
+          "place_id": "ChIJs7xxIFVYwokRGt4Tw5wSx1w",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gumption Coffee",
+          "address": "106 W 45th St, New York, NY 10036, USA",
+          "price": 1,
+          "lat": 40.7569259,
+          "lng": -73.983446,
+          "distance_mi": 0.09,
+          "place_id": "ChIJUfk89QNZwokRjzQ5y6vjx8I",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "MPG: Manhattan Parking West 45 Street Corp.",
+          "address": "120 W 45th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7571878,
+          "lng": -73.9840054,
+          "distance_mi": 0.09,
+          "place_id": "ChIJCWIZ2gFZwokRoxLsKDADDic",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "City Parking",
+          "address": "1114 6th Ave, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7551662,
+          "lng": -73.9832852,
+          "distance_mi": 0.09,
+          "place_id": "ChIJt5HXGtlZwokR0gSe0MP66dQ",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "News Agency",
+          "address": "1095 6th Ave, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.754716599999995,
+          "lng": -73.98485819999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJPbENxqpZwokRXg8zU5rZ5_w",
+          "types": [
+            "coffee_shop",
+            "juice_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "St. Cloud Rooftop",
+          "address": "6 Times Sq 17th Floor, New York, NY 10036, USA",
+          "price": 2,
+          "lat": 40.7554473,
+          "lng": -73.986184,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ0RgRK6tZwokRCLFUDGW-JqI",
+          "types": [
+            "bar",
+            "lounge_bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "LAZ at Edison ParkFast",
+          "address": "50 W 44th St, New York, NY 10036, USA",
+          "price": null,
+          "lat": 40.7555796,
+          "lng": -73.98283479999999,
+          "distance_mi": 0.1,
+          "place_id": "ChIJyYktV1VYwokRKXJRvUHsZgE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

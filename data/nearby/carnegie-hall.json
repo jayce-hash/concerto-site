@@ -1,0 +1,1257 @@
+{
+  "venueName": "Carnegie Hall",
+  "city": "New York",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Carnegie John’s",
+          "address": "7th Ave &, W 56th St, New York, NY 10011, USA",
+          "price": 1,
+          "lat": 40.765261699999996,
+          "lng": -73.9800617,
+          "distance_mi": 0.02,
+          "place_id": "ChIJWY7UhfdYwokRMnhu_4fcm2s",
+          "types": [
+            "sandwich_shop",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Weill Café",
+          "address": "154 W 57th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765181,
+          "lng": -73.9795894,
+          "distance_mi": 0.02,
+          "place_id": "ChIJDUNQrAZZwokRtRd2g5_pSOU",
+          "types": [
+            "cafe",
+            "coworking_space",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Russian Tea Room",
+          "address": "150 W 57th St, New York, NY 10019, USA",
+          "price": 4,
+          "lat": 40.7648698,
+          "lng": -73.9794271,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ_816e_dYwokROMvaQpsyemk",
+          "types": [
+            "fine_dining_restaurant",
+            "brunch_restaurant",
+            "wedding_venue",
+            "bar",
+            "event_venue",
+            "european_restaurant",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Souvlaki GR – Midtown West",
+          "address": "162 W 56th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7645929,
+          "lng": -73.9801477,
+          "distance_mi": 0.03,
+          "place_id": "ChIJwWOZgPdYwokReZQwuNp4Lhg",
+          "types": [
+            "greek_restaurant",
+            "brunch_restaurant",
+            "catering_service",
+            "family_restaurant",
+            "mediterranean_restaurant",
+            "food_delivery",
+            "meal_takeaway",
+            "european_restaurant",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trattoria Dell'Arte",
+          "address": "900 7th Ave, New York, NY 10106, USA",
+          "price": 3,
+          "lat": 40.7653677,
+          "lng": -73.9803759,
+          "distance_mi": 0.03,
+          "place_id": "ChIJNaoHnvdYwokRFxwsSD4urZg",
+          "types": [
+            "italian_restaurant",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Club Metropolitan Tower",
+          "address": "Metropolitan Tower, 146 W 57th St Apt 30, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7648614,
+          "lng": -73.9792586,
+          "distance_mi": 0.03,
+          "place_id": "ChIJv-dTb_dYwokRKbBpMiYUC9g",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "fresh&co",
+          "address": "200 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7654918,
+          "lng": -73.98041239999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ6Qaud_dYwokRBCFYp87oDpg",
+          "types": [
+            "restaurant",
+            "juice_shop",
+            "salad_shop",
+            "brunch_restaurant",
+            "breakfast_restaurant",
+            "sandwich_shop",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Living Room Restaurant & Bar",
+          "address": "153 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7653969,
+          "lng": -73.9791906,
+          "distance_mi": 0.04,
+          "place_id": "ChIJeYnTkLtZwokRiesE8qhg4hI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Carnegie Diner & Cafe",
+          "address": "205 W 57th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765753,
+          "lng": -73.98012109999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJN98vqLZZwokRnXnKsKuEc-w",
+          "types": [
+            "diner",
+            "brunch_restaurant",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "meal_takeaway",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Playa Bowls",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7648489,
+          "lng": -73.9808895,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ28PNRQBZwokR8DpziWvsLx4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "taïm mediterranean kitchen",
+          "address": "156 W 56th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7642306,
+          "lng": -73.9796369,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ_aQTIttZwokRHOEyjXradd4",
+          "types": [
+            "mediterranean_restaurant",
+            "falafel_restaurant",
+            "middle_eastern_restaurant",
+            "greek_restaurant",
+            "vegan_restaurant",
+            "vegetarian_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Twenty-Sevens",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7645895,
+          "lng": -73.9809119,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ9Ytf1ihZwokRs1ex-x_AHGU",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P.J. Carney’s Pub",
+          "address": "906 7th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765916999999995,
+          "lng": -73.980065,
+          "distance_mi": 0.06,
+          "place_id": "ChIJD81nnvdYwokRbq9qfuo-L-0",
+          "types": [
+            "irish_pub",
+            "soup_restaurant",
+            "sports_bar",
+            "bar_and_grill",
+            "hamburger_restaurant",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brooklyn Diner USA",
+          "address": "212 W 57th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765626,
+          "lng": -73.98081909999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJj19umPdYwokRM3HY382Gz1o",
+          "types": [
+            "diner",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kin ramen",
+          "address": "129 W 56th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7643664,
+          "lng": -73.9790366,
+          "distance_mi": 0.06,
+          "place_id": "ChIJd4V0ClVZwokR5Z_ZiTr_Iso",
+          "types": [
+            "ramen_restaurant",
+            "japanese_izakaya_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Topaz Thai Authentic",
+          "address": "127 W 56th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.764421,
+          "lng": -73.978911,
+          "distance_mi": 0.07,
+          "place_id": "ChIJA8LkYfdYwokRyPWfIKO10ac",
+          "types": [
+            "thai_restaurant",
+            "catering_service",
+            "performing_arts_theater",
+            "food_delivery",
+            "shipping_service",
+            "event_venue",
+            "meal_takeaway",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Yeero Greek Eatery",
+          "address": "209 W 57th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.7659178,
+          "lng": -73.9804941,
+          "distance_mi": 0.07,
+          "place_id": "ChIJd1KUDilZwokRLpkKNddEBls",
+          "types": [
+            "greek_restaurant",
+            "gyro_restaurant",
+            "mediterranean_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Indian Accent",
+          "address": "123 W 56th St, New York, NY 10019, USA",
+          "price": 4,
+          "lat": 40.7642889,
+          "lng": -73.9788444,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ5zM53_lYwokREUcpQkveG1w",
+          "types": [
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.764379999999996,
+          "lng": -73.98107,
+          "distance_mi": 0.08,
+          "place_id": "ChIJs-HtJfhYwokRcpzgdE8Qn-Y",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "cafe",
+            "internet_cafe",
+            "food_store",
+            "store",
+            "service",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Central Park Cafe",
+          "address": "910 7th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.7661278,
+          "lng": -73.9799349,
+          "distance_mi": 0.08,
+          "place_id": "ChIJoX2bmntZwokRpqoCyes0gGs",
+          "types": [
+            "european_restaurant",
+            "brunch_restaurant",
+            "cafe",
+            "bakery",
+            "american_restaurant",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Pan Pacific Hotels & Resorts",
+          "address": "152 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.76505230000001,
+          "lng": -73.9796382,
+          "distance_mi": 0.01,
+          "place_id": "ChIJe_j1e_dYwokRfFrGhtAaIzA",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Carnegie Hotel",
+          "address": "160 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7645342,
+          "lng": -73.979976,
+          "distance_mi": 0.03,
+          "place_id": "ChIJA-_6LfhYwokROUBMo0Hs8lk",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Carnagie Business Suites",
+          "address": "162 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7645708,
+          "lng": -73.98034489999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJwWOZgPdYwokR8l4FSEodTfM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Enjoy Christmas at Carnegie New Years in Time Square in this swanky 1 br suite",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7651596,
+          "lng": -73.9790726,
+          "distance_mi": 0.04,
+          "place_id": "ChIJC5kZb_dYwokRMHekHEeZGDU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury Apartment / Central Park",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.765716499999996,
+          "lng": -73.9800873,
+          "distance_mi": 0.05,
+          "place_id": "ChIJDwren_dYwokRSauaJD8jjLM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "1-Bedroom Suite + Connecting Room at a 5️ Hotel",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7653694,
+          "lng": -73.9790726,
+          "distance_mi": 0.05,
+          "place_id": "ChIJX5QjbPdYwokR4SjUz-B9HMA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Hyatt New York",
+          "address": "153 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7653375,
+          "lng": -73.97904059999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJpQr2a_dYwokRoYDzhaXxroc",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "StayatShala: 1 BR in the heart of Times Square",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764499699999995,
+          "lng": -73.9790879,
+          "distance_mi": 0.06,
+          "place_id": "ChIJWXxCYvdYwokRKWyXPpMj2-Y",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Apartment located by Columbus Circle",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7652092,
+          "lng": -73.9787979,
+          "distance_mi": 0.06,
+          "place_id": "ChIJdeILafdYwokRIHgs_qP8-y0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "מלון סנטרל פארק",
+          "address": "861 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7643594,
+          "lng": -73.9806839,
+          "distance_mi": 0.06,
+          "place_id": "ChIJVaZ5DQBZwokRxKb6Bfdg9AM",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Central Hotel New York",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764595799999995,
+          "lng": -73.9809508,
+          "distance_mi": 0.06,
+          "place_id": "ChIJjUGQIPhYwokRHeD9KPkNSfE",
+          "types": [
+            "hotel",
+            "wedding_venue",
+            "event_venue",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "studio unit in the heart of NYC, walk to central park",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649231,
+          "lng": -73.9811248,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ3wtmifdYwokRPoGrPKJJvUE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764904,
+          "lng": -73.98115539999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJFyd9ifdYwokRKHzSENG9NQY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club- One Bedroom Suite with Two Bathrooms",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649574,
+          "lng": -73.98117069999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJXzPgi_dYwokRzcC-T3un5tE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club - Penthouse Suite",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649574,
+          "lng": -73.98117069999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJXzPgi_dYwokRLza7fXUVdgw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club - Metropolitan Suite",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649574,
+          "lng": -73.98117069999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJXzPgi_dYwokRbvq9JuhAV2M",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club- Executive Jr. Suite",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649574,
+          "lng": -73.98117069999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJXzPgi_dYwokRiAHVNbfXPdk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Manhattan Club",
+          "address": "200 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7649575,
+          "lng": -73.9811732,
+          "distance_mi": 0.07,
+          "place_id": "ChIJtxZJIPhYwokR61Ynm-nHnnk",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Midtown West One Bedroom near Central Park",
+          "address": "New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764240199999996,
+          "lng": -73.98068239999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJ41ARL_hYwokRxoip3AvlbWw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Viezbutis hotel 57",
+          "address": "130 W 57th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764702,
+          "lng": -73.9786718,
+          "distance_mi": 0.07,
+          "place_id": "ChIJebh08YNZwokRq7Y5imgMYWM",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Weill Café",
+          "address": "154 W 57th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765181,
+          "lng": -73.9795894,
+          "distance_mi": 0.02,
+          "place_id": "ChIJDUNQrAZZwokRtRd2g5_pSOU",
+          "types": [
+            "cafe",
+            "coworking_space",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Inès",
+          "address": "155 W 56th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.764691,
+          "lng": -73.9797131,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ61t86tdZwokReFEp9XveXEQ",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Russian Tea Room",
+          "address": "150 W 57th St, New York, NY 10019, USA",
+          "price": 4,
+          "lat": 40.7648698,
+          "lng": -73.9794271,
+          "distance_mi": 0.03,
+          "place_id": "ChIJ_816e_dYwokROMvaQpsyemk",
+          "types": [
+            "fine_dining_restaurant",
+            "brunch_restaurant",
+            "wedding_venue",
+            "bar",
+            "event_venue",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Trattoria Dell'Arte",
+          "address": "900 7th Ave, New York, NY 10106, USA",
+          "price": 3,
+          "lat": 40.7653677,
+          "lng": -73.9803759,
+          "distance_mi": 0.03,
+          "place_id": "ChIJNaoHnvdYwokRFxwsSD4urZg",
+          "types": [
+            "italian_restaurant",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "NYC Parking 142 West 57th Street Parking Corp",
+          "address": "145 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7646339,
+          "lng": -73.979338,
+          "distance_mi": 0.04,
+          "place_id": "ChIJq6raZPdYwokRQXrLfOibBMo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Central Parking System",
+          "address": "145 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7646339,
+          "lng": -73.979338,
+          "distance_mi": 0.04,
+          "place_id": "ChIJ30Pt1_lYwokRm5koTWukJFo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Meyers Parking System Inc",
+          "address": "145 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7646339,
+          "lng": -73.979338,
+          "distance_mi": 0.04,
+          "place_id": "ChIJyT4vffdYwokRI2o7POM0Spk",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Carnegie Club",
+          "address": "156 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7643351,
+          "lng": -73.979813,
+          "distance_mi": 0.05,
+          "place_id": "ChIJf1Qu2PlYwokRqH_b4rWvgT0",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "888 7th Avenue Parking",
+          "address": "200 W 57th St #710, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7653794,
+          "lng": -73.9806833,
+          "distance_mi": 0.05,
+          "place_id": "ChIJoXRfmvdYwokRAYERtGE4454",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "888 Seventh Garage LLC",
+          "address": "888 7th Ave, New York, NY 10106, USA",
+          "price": null,
+          "lat": 40.7652747,
+          "lng": -73.9807922,
+          "distance_mi": 0.05,
+          "place_id": "ChIJq_QmwKBZwokRpCCsOCDdOdM",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Carnegie Diner & Cafe",
+          "address": "205 W 57th St, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765753,
+          "lng": -73.98012109999999,
+          "distance_mi": 0.05,
+          "place_id": "ChIJN98vqLZZwokRnXnKsKuEc-w",
+          "types": [
+            "diner",
+            "breakfast_restaurant",
+            "family_restaurant",
+            "brunch_restaurant",
+            "coffee_shop",
+            "cafe",
+            "american_restaurant",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SP+ Parking",
+          "address": "150 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764284599999996,
+          "lng": -73.9796854,
+          "distance_mi": 0.05,
+          "place_id": "ChIJH-PBZPdYwokRM1zA5ci9hOw",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cityspire Parking",
+          "address": "150 W 56th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.764284599999996,
+          "lng": -73.9796854,
+          "distance_mi": 0.05,
+          "place_id": "ChIJe_T71flYwokReMBGrP-4WF0",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Cafe Cordelia",
+          "address": "142 W 57th St, New York, NY 10019, USA",
+          "price": 1,
+          "lat": 40.764873,
+          "lng": -73.9788787,
+          "distance_mi": 0.05,
+          "place_id": "ChIJD_eCZgBZwokRumv6gGoQZd4",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "NYC Parking 300 Parking Inc. - Park Central Hotel Valet",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7645895,
+          "lng": -73.9809119,
+          "distance_mi": 0.06,
+          "place_id": "ChIJhyECr6xZwokRBYHX80ko4tM",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "NOYAL CAFE",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.7645895,
+          "lng": -73.9809119,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ69GmLQBZwokRTygq0-8LnWg",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "P.J. Carney’s Pub",
+          "address": "906 7th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.765916999999995,
+          "lng": -73.980065,
+          "distance_mi": 0.06,
+          "place_id": "ChIJD81nnvdYwokRbq9qfuo-L-0",
+          "types": [
+            "irish_pub",
+            "sports_bar",
+            "bar_and_grill",
+            "soup_restaurant",
+            "hamburger_restaurant",
+            "pub",
+            "bar",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Icon Parking",
+          "address": "166 W 58th St, New York, NY 10019, USA",
+          "price": null,
+          "lat": 40.765719,
+          "lng": -73.979005,
+          "distance_mi": 0.07,
+          "place_id": "ChIJOeqYbPdYwokRGQAF1r-iw5k",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dock Parking at 888 Seventh Avenue",
+          "address": "207 W 56th St, New York, NY 10106, USA",
+          "price": null,
+          "lat": 40.765302,
+          "lng": -73.9811598,
+          "distance_mi": 0.07,
+          "place_id": "ChIJbzkmQWVZwokRhbNOE_eqZZs",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "870 7th Ave, New York, NY 10019, USA",
+          "price": 2,
+          "lat": 40.764379999999996,
+          "lng": -73.98107,
+          "distance_mi": 0.08,
+          "place_id": "ChIJs-HtJfhYwokRcpzgdE8Qn-Y",
+          "types": [
+            "coffee_shop",
+            "breakfast_restaurant",
+            "internet_cafe",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

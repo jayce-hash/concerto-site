@@ -1,0 +1,1214 @@
+{
+  "venueName": "Emo's Austin",
+  "city": "Austin",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "ThunderCloud Subs",
+          "address": "2021 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.240084900000003,
+          "lng": -97.72759289999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJNaq-r0W0RIYRf6cmZCd5Fow",
+          "types": [
+            "sandwich_shop",
+            "fast_food_restaurant",
+            "deli",
+            "american_restaurant",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pizza Hut",
+          "address": "2021B E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.240124599999994,
+          "lng": -97.72763979999999,
+          "distance_mi": 0.04,
+          "place_id": "ChIJNaq-r0W0RIYRCG17Y0A39JQ",
+          "types": [
+            "pizza_delivery",
+            "chicken_wings_restaurant",
+            "pizza_restaurant",
+            "meal_delivery",
+            "food_delivery",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco More - Austin",
+          "address": "2015 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.2402546,
+          "lng": -97.72808020000001,
+          "distance_mi": 0.05,
+          "place_id": "ChIJEZZMpkW0RIYRgFBV8faz1Ms",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Raising Cane's Chicken Fingers",
+          "address": "2109 E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2395685,
+          "lng": -97.72699519999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJo0TKtEW0RIYRDZjH9rvU1QA",
+          "types": [
+            "fast_food_restaurant",
+            "chicken_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "RICA CHICA PA VOZ",
+          "address": "2237 E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.238284699999994,
+          "lng": -97.7270037,
+          "distance_mi": 0.11,
+          "place_id": "ChIJa3lQMRW1RIYRdPPFUABirM4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Nimto kitchen and Bar (Nepali, Indian and south Indian)",
+          "address": "2237 E Riverside Dr 78741, 101-A, Austin, TX 78741, USA",
+          "price": 2,
+          "lat": 30.238284699999994,
+          "lng": -97.7270037,
+          "distance_mi": 0.11,
+          "place_id": "ChIJd31r2rO1RIYRuc4nMkhcg4U",
+          "types": [
+            "south_indian_restaurant",
+            "indian_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Arandinas Mexican Restaurant & Bar",
+          "address": "2110 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.240614,
+          "lng": -97.72656099999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJjwQgtkW0RIYRgZAW6Nna9DY",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "TORTAS Y TACOS EL CHILANGO # 3",
+          "address": "2001 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.2413164,
+          "lng": -97.728369,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ58VAkJ61RIYRUHcF5DjCcO0",
+          "types": [
+            "taco_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "La Michoacana Meat Market",
+          "address": "2237B E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.237796900000003,
+          "lng": -97.726644,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ87fFRkS0RIYR-iHiC8sHG6s",
+          "types": [
+            "butcher_shop",
+            "taco_restaurant",
+            "atm",
+            "mexican_restaurant",
+            "market",
+            "bakery",
+            "finance",
+            "supermarket",
+            "grocery_store",
+            "manufacturer",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Santo Patio Taco Trailer",
+          "address": "1505 Town Creek Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.241425199999995,
+          "lng": -97.72665339999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJ0U2QR3K1RIYR201vO9d1heo",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco Master Austin Tx",
+          "address": "2237 Riverside/Willow Creek, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.238081700000002,
+          "lng": -97.72605449999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJy8nQKCi1RIYRGdEfBvRFUbs",
+          "types": [
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "All Heart Culinary Creations",
+          "address": "2101 Elmont Dr Apt 204, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240828399999998,
+          "lng": -97.7258063,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ04Qnqai1RIYRZc_Cd4FyTp8",
+          "types": [
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bun Intended",
+          "address": "1505 Town Creek Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.241702099999998,
+          "lng": -97.7268643,
+          "distance_mi": 0.16,
+          "place_id": "ChIJmepn9V21RIYRirC_GJeumPc",
+          "types": [
+            "hamburger_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brooklyn Breakfast Shop",
+          "address": "1505 Town Creek Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.241702099999998,
+          "lng": -97.7268643,
+          "distance_mi": 0.16,
+          "place_id": "ChIJ6S3p3qlNW4YRqrDQD_ZBvjE",
+          "types": [
+            "breakfast_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Callejeros Riverside",
+          "address": "2237 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.237873499999996,
+          "lng": -97.72604419999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJrejtQES0RIYRgNKjx-5fhTA",
+          "types": [
+            "taco_restaurant",
+            "mexican_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dairy Queen",
+          "address": "1501 Town Creek Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.241793899999998,
+          "lng": -97.7267402,
+          "distance_mi": 0.17,
+          "place_id": "ChIJh33jjEW0RIYROn03g6XssGU",
+          "types": [
+            "fast_food_restaurant",
+            "ice_cream_shop",
+            "dessert_shop",
+            "confectionery",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "KFC",
+          "address": "2224 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.238517899999998,
+          "lng": -97.72538349999999,
+          "distance_mi": 0.17,
+          "place_id": "ChIJ256RJ0S0RIYRwpx1QlV78rY",
+          "types": [
+            "chicken_restaurant",
+            "fast_food_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "El Pastorcito Taqueria",
+          "address": "1221 Willow Creek Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.237683099999998,
+          "lng": -97.7260769,
+          "distance_mi": 0.17,
+          "place_id": "ChIJhaFDGAC1RIYRqnweFlsPnR0",
+          "types": [
+            "taco_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Taco Bell",
+          "address": "2308 E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2381694,
+          "lng": -97.7252897,
+          "distance_mi": 0.19,
+          "place_id": "ChIJZdOvoUa0RIYRPpEav26gE4E",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "tex_mex_restaurant",
+            "vegetarian_restaurant",
+            "mexican_restaurant",
+            "american_restaurant",
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Pokeworks",
+          "address": "1920 E Riverside Dr Ste 110, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.242345,
+          "lng": -97.727485,
+          "distance_mi": 0.19,
+          "place_id": "ChIJt_oaYg21RIYROEcTfl5_I38",
+          "types": [
+            "salad_shop",
+            "chicken_restaurant",
+            "hawaiian_restaurant",
+            "sushi_restaurant",
+            "asian_restaurant",
+            "tea_house",
+            "seafood_restaurant",
+            "american_restaurant",
+            "japanese_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "Charming King Bed 1BR, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2410945,
+          "lng": -97.7259064,
+          "distance_mi": 0.16,
+          "place_id": "ChIJA1ib50W0RIYRn2e2oqTy6rE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chic King Bed 1BR Suite, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2410945,
+          "lng": -97.7259064,
+          "distance_mi": 0.16,
+          "place_id": "ChIJA1ib50W0RIYRXfhYY687Yp4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Economy King Bed Suites w Pool, Next to Downtown",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2410945,
+          "lng": -97.7259064,
+          "distance_mi": 0.16,
+          "place_id": "ChIJA1ib50W0RIYRxNLk3K6iGuY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Charming King Bed 1BR w Pool 5 Min to DT - Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.241090800000002,
+          "lng": -97.7258987,
+          "distance_mi": 0.16,
+          "place_id": "ChIJIzKD50W0RIYR8dIaPwGLuYM",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Vivant - Efficiency 2BR King Bed Suites Next to Downtown - Two-Bedroom Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.241140399999995,
+          "lng": -97.73046869999999,
+          "distance_mi": 0.18,
+          "place_id": "ChIJyR4ATEW0RIYRWBZceQpOFT4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Studio Retreat Downtown View - One-Bedroom Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240360199999998,
+          "lng": -97.7310562,
+          "distance_mi": 0.19,
+          "place_id": "ChIJp1cLzFq0RIYR9dUnKBDDHrU",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious and Fun King Bed 2BR w Pool 5 Min to DT",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYR1tQnz8wBhMk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious and Fun King Bed 2BR, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYRHsW3I5VwjnE",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious and Fun King Bed 2BR w/ pool, 5 Min to DT",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYRA7MD0kGti60",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Quaint King Bed 1BR, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYR4JRDtr_a-0g",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chic Comfy King Bed 2BR Suite, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYRcS0kntxuMEo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious King Bed 2BR Suite, 5 Min to DT w/ pool",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240587200000004,
+          "lng": -97.7249756,
+          "distance_mi": 0.2,
+          "place_id": "ChIJKx0kcUa0RIYRtdcjS5534c0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Hidden 3BDR, 2BA w/Pool King Bed 6 mins from DT - Three-Bedroom Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2406102,
+          "lng": -97.7249222,
+          "distance_mi": 0.2,
+          "place_id": "ChIJZ3oacUa0RIYRoTOwyZQtPPw",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Chic Suite near DT w/Comfy King Bed Free Parking - One-Bedroom Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2406102,
+          "lng": -97.7249222,
+          "distance_mi": 0.2,
+          "place_id": "ChIJZ3oacUa0RIYRsRpHVvR-M2E",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "2br/2bath King House 5 minutes to Downtown ATX!",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2385826,
+          "lng": -97.73126219999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJvXknLlu0RIYRCYZsJeVPDaQ",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury 1BR + Sofa Bed With an Infinity Pool & Downtown Views",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.236694300000003,
+          "lng": -97.72694399999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJE9GHdUS0RIYRVQPB1EgXmPY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "WanderJaunt - Apts East Riverside - One-Bedroom Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2413998,
+          "lng": -97.72519679999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ7XnNC0a0RIYRlS_y_9wQAUI",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "WanderJaunt - Apts East Riverside - Apartment",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2413998,
+          "lng": -97.72519679999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJ7XnNC0a0RIYRu9yOIr8txWY",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxe Townhome | 4bd 5ba Elevator | 1 mile from DT",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.242380099999995,
+          "lng": -97.72657009999999,
+          "distance_mi": 0.21,
+          "place_id": "ChIJpUF29UW0RIYRHe-uA-FiJ_8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxe Townhome | 4bd 5ba Elevator | 1 mile from DT",
+          "address": "Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.242384,
+          "lng": -97.7265778,
+          "distance_mi": 0.21,
+          "place_id": "ChIJAeN29UW0RIYRRy4_thZjauA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Come and Take It Live",
+          "address": "2015 E Riverside Dr bldg 4, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240854600000002,
+          "lng": -97.7288765,
+          "distance_mi": 0.1,
+          "place_id": "ChIJOWTgCUW0RIYRx9-k6LhUmrk",
+          "types": [
+            "live_music_venue",
+            "night_club",
+            "event_venue",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Copperhead Club",
+          "address": "2120 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 2,
+          "lat": 30.240110899999998,
+          "lng": -97.7262033,
+          "distance_mi": 0.11,
+          "place_id": "ChIJD8eCjdG1RIYRF6DmHj-yDk4",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Jackalope South Shore",
+          "address": "1523 Tinnin Ford Rd, Austin, TX 78741, USA",
+          "price": 2,
+          "lat": 30.2404692,
+          "lng": -97.725985,
+          "distance_mi": 0.14,
+          "place_id": "ChIJvfPc2kW0RIYR-fKLxgqZWXQ",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Showpony Lounge & Karaoke",
+          "address": "1523 Tinnin Ford Rd, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.240481799999998,
+          "lng": -97.7259912,
+          "distance_mi": 0.14,
+          "place_id": "ChIJfclAN0q1RIYRUp_vg5NB_qM",
+          "types": [
+            "night_club",
+            "karaoke",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Club Carnaval",
+          "address": "2237 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 2,
+          "lat": 30.237503199999995,
+          "lng": -97.72670869999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJvYseEkS0RIYRXi0if_lx-uE",
+          "types": [
+            "bar",
+            "night_club",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Buzz Mill",
+          "address": "1505 Town Creek Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.241735400000003,
+          "lng": -97.7269,
+          "distance_mi": 0.16,
+          "place_id": "ChIJTzmFkkW0RIYRZhkrPHixqNA",
+          "types": [
+            "bar",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Starbucks Coffee Company",
+          "address": "1920 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.2424,
+          "lng": -97.72740999999999,
+          "distance_mi": 0.2,
+          "place_id": "ChIJH9JpeU-0RIYR0qV1CBULtho",
+          "types": [
+            "coffee_shop",
+            "internet_cafe",
+            "breakfast_restaurant",
+            "cafe",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Black Rock Coffee Bar",
+          "address": "2301 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.236472300000003,
+          "lng": -97.72601949999999,
+          "distance_mi": 0.24,
+          "place_id": "ChIJibykfwC1RIYROd772fyJcOU",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Gen Bobabee & Coffee House",
+          "address": "1333 Shore District Dr Ste 606, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.243528800000004,
+          "lng": -97.727812,
+          "distance_mi": 0.27,
+          "place_id": "ChIJyc62NwC1RIYR4dZiKlG9iiM",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Family Nutrition",
+          "address": "2410 E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2373222,
+          "lng": -97.72403489999999,
+          "distance_mi": 0.28,
+          "place_id": "ChIJxV80qfm1RIYRNv7RZoG9Oz4",
+          "types": [
+            "cafe",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Car Parking",
+          "address": "2410 E Riverside Dr g2, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2367617,
+          "lng": -97.72440859999999,
+          "distance_mi": 0.29,
+          "place_id": "ChIJKRVkYQC1RIYRZW9rY8rvF9w",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Car Parking",
+          "address": "1801 1/2 Willow Creek Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.235339399999997,
+          "lng": -97.7270237,
+          "distance_mi": 0.3,
+          "place_id": "ChIJfaRnOwC1RIYR-ge6wiWZvNI",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dumpster Fire Cocktail Lounge",
+          "address": "1330 Shore District Dr Suite 100, Austin, TX 78741, USA",
+          "price": 2,
+          "lat": 30.2438425,
+          "lng": -97.7275454,
+          "distance_mi": 0.3,
+          "place_id": "ChIJPc9EJyO1RIYR4yZnzS6pvCI",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Boston Donuts",
+          "address": "1725 E Riverside Dr Unit A, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.2434517,
+          "lng": -97.730319,
+          "distance_mi": 0.3,
+          "place_id": "ChIJD6kamYu1RIYRoGmTuoixLLI",
+          "types": [
+            "donut_shop",
+            "breakfast_restaurant",
+            "coffee_shop",
+            "cafe",
+            "bakery",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "El Taquito",
+          "address": "1713 E Riverside Dr, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2437155,
+          "lng": -97.7304039,
+          "distance_mi": 0.32,
+          "place_id": "ChIJrQ6Q4E-0RIYRGqaRBqw--ww",
+          "types": [
+            "mexican_restaurant",
+            "brunch_restaurant",
+            "cocktail_bar",
+            "breakfast_restaurant",
+            "vegetarian_restaurant",
+            "tex_mex_restaurant",
+            "burrito_restaurant",
+            "catering_service",
+            "taco_restaurant",
+            "food_delivery",
+            "american_restaurant",
+            "bar",
+            "family_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "McDonald's",
+          "address": "2426 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.235705499999998,
+          "lng": -97.7241141,
+          "distance_mi": 0.35,
+          "place_id": "ChIJEYOvQEG0RIYRHZQUlkW_q-Y",
+          "types": [
+            "fast_food_restaurant",
+            "breakfast_restaurant",
+            "hamburger_restaurant",
+            "coffee_shop",
+            "cafe",
+            "sandwich_shop",
+            "american_restaurant",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7-Eleven",
+          "address": "1705 S Lakeshore Blvd, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.244590600000002,
+          "lng": -97.7296189,
+          "distance_mi": 0.36,
+          "place_id": "ChIJ24-3tU-0RIYRDWD9TRrwHAg",
+          "types": [
+            "convenience_store",
+            "coffee_shop",
+            "cafe",
+            "pizza_restaurant",
+            "liquor_store",
+            "food_store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Car Parking",
+          "address": "1845 Burton Dr #238, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.234143699999997,
+          "lng": -97.7300684,
+          "distance_mi": 0.39,
+          "place_id": "ChIJhVKQRgC1RIYRSGmXcaUF_wY",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Noble Joe Coffee Co.",
+          "address": "Southshore Eatery Food Truck Park, 1620 E Riverside Dr, Austin, TX 78741, USA",
+          "price": 1,
+          "lat": 30.2452688,
+          "lng": -97.72896109999999,
+          "distance_mi": 0.4,
+          "place_id": "ChIJHaKo_Ne1RIYRVe0vtF_aNMs",
+          "types": [
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "food",
+            "point_of_interest",
+            "store",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Car Parking",
+          "address": "67PG+8V, Austin, TX 78741, USA",
+          "price": null,
+          "lat": 30.2358266,
+          "lng": -97.7227547,
+          "distance_mi": 0.41,
+          "place_id": "ChIJEbPMXwC1RIYRWK2f2eTyNQE",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

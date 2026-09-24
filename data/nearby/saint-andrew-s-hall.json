@@ -1,0 +1,1203 @@
+{
+  "venueName": "Saint Andrew's Hall",
+  "city": "Detroit",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Legends",
+          "address": "415 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.332121799999996,
+          "lng": -83.0417228,
+          "distance_mi": 0.02,
+          "place_id": "ChIJFaJSLC8tO4gRW42BbvAiRqE",
+          "types": [
+            "sports_bar",
+            "steak_house",
+            "seafood_restaurant",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Jacoby's",
+          "address": "624 Brush St, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.332267699999996,
+          "lng": -83.04212179999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJv3HnLi8tO4gRPBO0NF_tpgY",
+          "types": [
+            "german_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mix Bricktown (M!X)",
+          "address": "641 Beaubien, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.332901299999996,
+          "lng": -83.0414448,
+          "distance_mi": 0.04,
+          "place_id": "ChIJg3iOKyktO4gRsj9YE2pWRT8",
+          "types": [
+            "bar_and_grill",
+            "lounge_bar",
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Sweetwater Tavern",
+          "address": "400 E Congress St, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3316532,
+          "lng": -83.0416966,
+          "distance_mi": 0.05,
+          "place_id": "ChIJbVPtNC8tO4gRhFfaggoxqy0",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Niki's Pizza",
+          "address": "735 Beaubien, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.3336878,
+          "lng": -83.04189579999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJEaL1yy4tO4gRNLkdX4xK8Tg",
+          "types": [
+            "pizza_restaurant",
+            "bar",
+            "greek_restaurant",
+            "mediterranean_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Bouzouki",
+          "address": "432 E Lafayette St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.333671200000005,
+          "lng": -83.0423934,
+          "distance_mi": 0.1,
+          "place_id": "ChIJe5CUwS4tO4gRvelNw0z-C9Q",
+          "types": [
+            "bar",
+            "night_club",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "7-Eleven",
+          "address": "139 Cadillac Square, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3319821,
+          "lng": -83.043649,
+          "distance_mi": 0.11,
+          "place_id": "ChIJJYg7Di8tO4gRZAYOI9L9c2A",
+          "types": [
+            "convenience_store",
+            "liquor_store",
+            "pizza_restaurant",
+            "coffee_shop",
+            "cafe",
+            "food_store",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Loco's Tex-Mex Grille",
+          "address": "454 E Lafayette St, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.3338865,
+          "lng": -83.0420707,
+          "distance_mi": 0.11,
+          "place_id": "ChIJjwi118otO4gRcBp6af-4LuQ",
+          "types": [
+            "mexican_restaurant",
+            "tex_mex_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Crab Sports Bar",
+          "address": "519 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312866,
+          "lng": -83.03973739999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ67aXDBYtO4gR9JtqtGg4zTE",
+          "types": [
+            "sports_bar",
+            "bar_and_grill",
+            "steak_house",
+            "fish_and_chips_restaurant",
+            "family_restaurant",
+            "seafood_restaurant",
+            "british_restaurant",
+            "bar",
+            "fine_dining_restaurant",
+            "american_restaurant",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Checkmate Detroit",
+          "address": "546 Larned St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3317056,
+          "lng": -83.03939319999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJMeIboywtO4gRI9qcQmn8Jk0",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Applebee's Grill + Bar",
+          "address": "333 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3305356,
+          "lng": -83.0416841,
+          "distance_mi": 0.13,
+          "place_id": "ChIJmd1rU74tO4gR1p7hDVuy_88",
+          "types": [
+            "restaurant",
+            "bar_and_grill",
+            "steak_house",
+            "family_restaurant",
+            "hamburger_restaurant",
+            "diner",
+            "bar",
+            "american_restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "IHOP",
+          "address": "333 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3305356,
+          "lng": -83.0416841,
+          "distance_mi": 0.13,
+          "place_id": "ChIJj2nW7S8tO4gRj96_Cjo8TRs",
+          "types": [
+            "breakfast_restaurant",
+            "family_restaurant",
+            "diner",
+            "brunch_restaurant",
+            "american_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Just Smash it DETROIT",
+          "address": "529 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.331341099999996,
+          "lng": -83.0395034,
+          "distance_mi": 0.13,
+          "place_id": "ChIJB4v1BfotO4gR-z0wDwRqiDI",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Red Lotus Asian Kitchen",
+          "address": "555 E Lafayette St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.334237099999996,
+          "lng": -83.0418401,
+          "distance_mi": 0.13,
+          "place_id": "ChIJrdlk7aMtO4gROdU03oT9WRE",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Greenwich Time Pub",
+          "address": "130 Cadillac Square, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3312373,
+          "lng": -83.04387750000001,
+          "distance_mi": 0.14,
+          "place_id": "ChIJt_uOcS8tO4gR0zy4IYcEbAY",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Checker Bar Detroit",
+          "address": "124 Cadillac Square, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3312434,
+          "lng": -83.04401829999999,
+          "distance_mi": 0.15,
+          "place_id": "ChIJK_LFdi8tO4gRCyuZDeliopY",
+          "types": [
+            "bar_and_grill",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Creole Soul Detroit",
+          "address": "557 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331483399999996,
+          "lng": -83.0388361,
+          "distance_mi": 0.15,
+          "place_id": "ChIJe6YRc14tO4gRjt9p6ufx0Mo",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Greek Town",
+          "address": "1211 Chrysler Dr, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.334607,
+          "lng": -83.04155759999999,
+          "distance_mi": 0.16,
+          "place_id": "ChIJH1OgUiktO4gRJOsIbpeSUt4",
+          "types": [
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Flood's Bar and Grille",
+          "address": "731 St Antoine, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3343827,
+          "lng": -83.0402764,
+          "distance_mi": 0.16,
+          "place_id": "ChIJueqwBSktO4gRv8j37B6RaS8",
+          "types": [
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Dunkin'",
+          "address": "555 E Lafayette St, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.3346187,
+          "lng": -83.0412389,
+          "distance_mi": 0.16,
+          "place_id": "ChIJJQWYAlItO4gRgAg27RZRVOM",
+          "types": [
+            "coffee_shop",
+            "bagel_shop",
+            "donut_shop",
+            "breakfast_restaurant",
+            "fast_food_restaurant",
+            "cafe",
+            "bakery",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "FRONTDESK 555 Brush Street Apts Downtown Detroit - One-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gR2CojLJcYBqo",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK 555 Brush Street Apts Downtown Detroit - Two-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gRCdlrV_pm2Q0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK 555 Brush Street Apts Downtown Detroit - One-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gRtJng2cEEAs0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Modern Downtown Luxury - 2 Minutes to Stadiums Venues - One-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gRFdSydkzMCuk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK 555 Brush Street Apts Downtown Detroit - Two-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gRVN01qewpSm4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "FRONTDESK 555 Brush Street Apts Downtown Detroit - Two-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3312912,
+          "lng": -83.0418778,
+          "distance_mi": 0.07,
+          "place_id": "ChIJQU14SS8tO4gRKiAun-sl9Os",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kasa Cadillac Square Detroit - King Studio - Self Check-in with Virtual Front Desk",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3319817,
+          "lng": -83.0436478,
+          "distance_mi": 0.11,
+          "place_id": "ChIJHataDi8tO4gR5DA0wQIRsSg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kasa Cadillac Square Detroit - King Studio - Self Check-in with Virtual Front Desk",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3319817,
+          "lng": -83.0436478,
+          "distance_mi": 0.11,
+          "place_id": "ChIJqbhbDi8tO4gRMi91Zmo4g64",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kasa Cadillac Square Detroit",
+          "address": "139 Cadillac Square, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3318536,
+          "lng": -83.04372029999999,
+          "distance_mi": 0.11,
+          "place_id": "ChIJqwX-hJ4tO4gRt6OHZQcxfLw",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Beautiful place downtown - Two-Bedroom Apartment",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.330539699999996,
+          "lng": -83.04167939999999,
+          "distance_mi": 0.12,
+          "place_id": "ChIJ-_GBUy8tO4gRUC3kEkpUs0s",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Inkster mi 420 friendly pets ok gathering friendly",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3331413,
+          "lng": -83.0439377,
+          "distance_mi": 0.13,
+          "place_id": "ChIJlcg3-S4tO4gRD0uLqaoPHO8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Atheneum Suite Hotel",
+          "address": "1000 Brush St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.33397480000001,
+          "lng": -83.0429434,
+          "distance_mi": 0.13,
+          "place_id": "ChIJJQ6cvy4tO4gRxsxJR-_Ii5E",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Courtyard by Marriott Detroit Downtown",
+          "address": "333 E Jefferson Ave, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3303927,
+          "lng": -83.0413689,
+          "distance_mi": 0.14,
+          "place_id": "ChIJETWVUy8tO4gRntyoyMpZh1g",
+          "types": [
+            "hotel",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Luxury 1 bedroom, 1 Bath apt. in the middle of downtown Detroit w/parking spot!",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3320122,
+          "lng": -83.0442581,
+          "distance_mi": 0.14,
+          "place_id": "ChIJB9Btpy8tO4gR6-z67tFUJk0",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious & historic residence in downtown, a 15-min walk to most venues & events",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331462800000004,
+          "lng": -83.0391083,
+          "distance_mi": 0.14,
+          "place_id": "ChIJlfJk9CgtO4gRdlHnUEZLEjk",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Spacious historic residence in downtown, a 15-min walk to most venues events",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331458999999995,
+          "lng": -83.03910069999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJ1XJk9CgtO4gRZBeIXHxSsy8",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Upper-Level Suite, w /in a 15-min walk to all sports, entertainment conf venues",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3314514,
+          "lng": -83.03910069999999,
+          "distance_mi": 0.14,
+          "place_id": "ChIJWb9j9CgtO4gRnxX8oLyW3J4",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Tickets Away",
+          "address": "400 Renaissance Center, Detroit, MI 48243, USA",
+          "price": null,
+          "lat": 42.3297756,
+          "lng": -83.0403853,
+          "distance_mi": 0.19,
+          "place_id": "ChIJCeT0regtO4gRVuQNy6v3bRM",
+          "types": [
+            "travel_agency",
+            "car_rental",
+            "hotel",
+            "transportation_service",
+            "lodging",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "NFL draft 2 bedroom 2bath right on Woodward in the heart of the action",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3321305,
+          "lng": -83.04530330000001,
+          "distance_mi": 0.19,
+          "place_id": "ChIJ79WguS8tO4gRgIfCzkzkvyA",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Potf",
+          "address": "Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331427,
+          "lng": -83.0457538,
+          "distance_mi": 0.22,
+          "place_id": "ChIJi0x_SXgtO4gRdlVprV1pB74",
+          "types": [
+            "motel",
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "The Shelter",
+          "address": "431 E Congress St, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3322139,
+          "lng": -83.0413988,
+          "distance_mi": 0.01,
+          "place_id": "ChIJVVVlKy8tO4gRJ1EJUGUvA-c",
+          "types": [
+            "bar",
+            "live_music_venue",
+            "event_venue",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Legends",
+          "address": "415 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.332121799999996,
+          "lng": -83.0417228,
+          "distance_mi": 0.02,
+          "place_id": "ChIJFaJSLC8tO4gRW42BbvAiRqE",
+          "types": [
+            "steak_house",
+            "sports_bar",
+            "seafood_restaurant",
+            "night_club",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "449 E Congress St Parking",
+          "address": "449 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3324838,
+          "lng": -83.0412748,
+          "distance_mi": 0.02,
+          "place_id": "ChIJuWdL1CgtO4gRBMaz1k1lRBo",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "624 Brush St Parking",
+          "address": "624 Brush St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3321274,
+          "lng": -83.0419806,
+          "distance_mi": 0.02,
+          "place_id": "ChIJJSYxLi8tO4gRxqwZ3bn4R0g",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Room 1904",
+          "address": "624 Brush St, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.3322867,
+          "lng": -83.0421844,
+          "distance_mi": 0.03,
+          "place_id": "ChIJpZmUGW8tO4gR_a0dmY4RBAU",
+          "types": [
+            "cocktail_bar",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Park Rite Parking",
+          "address": "686 Brush St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3326916,
+          "lng": -83.04193959999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJF2k7oSstO4gR9oHSldQp3uE",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "686 Brush St Parking",
+          "address": "686 Brush St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3326916,
+          "lng": -83.04193959999999,
+          "distance_mi": 0.03,
+          "place_id": "ChIJr_0g1i4tO4gRf9UFE2q5CZg",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Brush & Congress",
+          "address": "414 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331784999999996,
+          "lng": -83.041485,
+          "distance_mi": 0.04,
+          "place_id": "ChIJZXmxzCgtO4gRzgLLs_IVJFs",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "SANDBOX Outdoor Bar & Lounge",
+          "address": "641 Beaubien, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.332901299999996,
+          "lng": -83.0414448,
+          "distance_mi": 0.04,
+          "place_id": "ChIJk2iGBs0tO4gRC2eH36qWKOM",
+          "types": [
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Mix Bricktown (M!X)",
+          "address": "641 Beaubien, Detroit, MI 48226, USA",
+          "price": 2,
+          "lat": 42.332901299999996,
+          "lng": -83.0414448,
+          "distance_mi": 0.04,
+          "place_id": "ChIJg3iOKyktO4gRsj9YE2pWRT8",
+          "types": [
+            "bar_and_grill",
+            "lounge_bar",
+            "night_club",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking",
+          "address": "690 Brush St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.332586,
+          "lng": -83.0423431,
+          "distance_mi": 0.04,
+          "place_id": "ChIJDRzjflMtO4gRAslTOhLER_E",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Detroiter Bar",
+          "address": "655 Beaubien, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.3330619,
+          "lng": -83.0414861,
+          "distance_mi": 0.05,
+          "place_id": "ChIJ63t8LCktO4gR1244Tnglhnk",
+          "types": [
+            "pub",
+            "bar",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking",
+          "address": "360 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3316515,
+          "lng": -83.04201370000001,
+          "distance_mi": 0.05,
+          "place_id": "ChIJK0vQPKktO4gRHAfbeN0MmCY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking",
+          "address": "520 E Congress St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.332481900000005,
+          "lng": -83.0405207,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ57ATCyotO4gRa_XZAH6KTY0",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Metropolis",
+          "address": "455 E Fort St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.333168,
+          "lng": -83.04199349999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJy1ULDXwtO4gRB_NrqPvXTDo",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Premier Parking Bricktown Garage",
+          "address": "455 E Fort St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.333168,
+          "lng": -83.04199349999999,
+          "distance_mi": 0.06,
+          "place_id": "ChIJcZFEwMYtO4gR0pLRVCxMYfY",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "411 Larned St Parking",
+          "address": "411 Larned St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3315027,
+          "lng": -83.0410891,
+          "distance_mi": 0.06,
+          "place_id": "ChIJ2QOWySgtO4gRbVNKWXDHGVU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Parking",
+          "address": "433 Larned St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.331338599999995,
+          "lng": -83.04115929999999,
+          "distance_mi": 0.07,
+          "place_id": "ChIJpUJjO6stO4gR8Na9ySM-t7Y",
+          "types": [
+            "parking_garage",
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "422 E Lafayette St Parking",
+          "address": "422 E Lafayette St, Detroit, MI 48226, USA",
+          "price": null,
+          "lat": 42.3334588,
+          "lng": -83.0426653,
+          "distance_mi": 0.09,
+          "place_id": "ChIJ_WkDwy4tO4gRv4-n7k-nJQU",
+          "types": [
+            "parking_lot",
+            "parking",
+            "transportation_service",
+            "service",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Niki's Pizza",
+          "address": "735 Beaubien, Detroit, MI 48226, USA",
+          "price": 1,
+          "lat": 42.3336878,
+          "lng": -83.04189579999999,
+          "distance_mi": 0.09,
+          "place_id": "ChIJEaL1yy4tO4gRNLkdX4xK8Tg",
+          "types": [
+            "pizza_restaurant",
+            "greek_restaurant",
+            "mediterranean_restaurant",
+            "bar",
+            "european_restaurant",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}

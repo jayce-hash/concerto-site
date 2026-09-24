@@ -1,0 +1,206 @@
+{
+  "venueName": "Azura Amphitheater",
+  "city": "Bonner Springs",
+  "updated": "2026-09-24",
+  "tabs": {
+    "restaurants": {
+      "label": "Restaurants",
+      "items": [
+        {
+          "name": "Casey's",
+          "address": "13000 State Ave, Kansas City, KS 66109, USA",
+          "price": 1,
+          "lat": 39.116790099999996,
+          "lng": -94.8823348,
+          "distance_mi": 0.34,
+          "place_id": "ChIJAW52tUKPwIcR5xh93ZOMCOw",
+          "types": [
+            "pizza_restaurant",
+            "atm",
+            "liquor_store",
+            "gas_station",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "finance",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "convenience_store",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "QuikTrip",
+          "address": "389 N 130th St, Bonner Springs, KS 66012, USA",
+          "price": null,
+          "lat": 39.104428899999995,
+          "lng": -94.88096379999999,
+          "distance_mi": 0.68,
+          "place_id": "ChIJdWoFKHCPwIcReaq3lTPsB3w",
+          "types": [
+            "gas_station",
+            "breakfast_restaurant",
+            "snack_bar",
+            "liquor_store",
+            "convenience_store",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "hotels": {
+      "label": "Hotels",
+      "items": [
+        {
+          "name": "To Legends! 3BD with 2.5 Bath House!",
+          "address": "Kansas City, KS 66109, USA",
+          "price": null,
+          "lat": 39.1176643,
+          "lng": -94.88471220000001,
+          "distance_mi": 0.47,
+          "place_id": "ChIJV55wwV2PwIcROV_LBaFKXmg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Kansas City Home w/ Game Lounge and Movie Lounge, King Beds & Grill Sleeps 6",
+          "address": "Kansas City, KS 66109, USA",
+          "price": null,
+          "lat": 39.1192704,
+          "lng": -94.88332369999999,
+          "distance_mi": 0.49,
+          "place_id": "ChIJncODslyPwIcRvUzupiy4KYg",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Azura Amphitheater Home — Sleeps 6",
+          "address": "Kansas City, KS 66109, USA",
+          "price": null,
+          "lat": 39.118618,
+          "lng": -94.8849334,
+          "distance_mi": 0.52,
+          "place_id": "ChIJcx8lk1yPwIcRxz2RNtuLU6w",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "Perfect 3-bedroom house with AC in charming Kansas City Kansas",
+          "address": "Kansas City, KS 66109, USA",
+          "price": null,
+          "lat": 39.1182594,
+          "lng": -94.8900757,
+          "distance_mi": 0.75,
+          "place_id": "ChIJsYeV6V6PwIcR-OhB6tCMtAs",
+          "types": [
+            "lodging",
+            "point_of_interest",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    },
+    "more": {
+      "label": "More",
+      "items": [
+        {
+          "name": "Casey's",
+          "address": "13000 State Ave, Kansas City, KS 66109, USA",
+          "price": 1,
+          "lat": 39.116790099999996,
+          "lng": -94.8823348,
+          "distance_mi": 0.34,
+          "place_id": "ChIJAW52tUKPwIcR5xh93ZOMCOw",
+          "types": [
+            "pizza_restaurant",
+            "atm",
+            "liquor_store",
+            "gas_station",
+            "sandwich_shop",
+            "coffee_shop",
+            "cafe",
+            "finance",
+            "pizza_delivery",
+            "meal_delivery",
+            "food_delivery",
+            "convenience_store",
+            "food_store",
+            "meal_takeaway",
+            "store",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        },
+        {
+          "name": "The Thirsty Chariot Mobile Bar",
+          "address": "399 N 130th St #9062, Bonner Springs, KS 66012, USA",
+          "price": null,
+          "lat": 39.1051248,
+          "lng": -94.8794155,
+          "distance_mi": 0.61,
+          "place_id": "ChIJHTM2uxeJwIcRtg8NeDpH6hg",
+          "types": [
+            "bar",
+            "catering_service",
+            "food_delivery",
+            "food",
+            "point_of_interest",
+            "service",
+            "establishment"
+          ],
+          "sponsored": false,
+          "partnerId": null,
+          "notes": null
+        }
+      ]
+    }
+  }
+}
