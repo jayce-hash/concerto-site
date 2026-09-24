@@ -382,6 +382,18 @@ def press():
     res = section('white', 'Media resources', 'Logos, interviews, and figures.', '<p class="c-body">Logo files, product images, interviews, confirmed figures. Ask and we will send them.</p><div class="c-actions"><a class="c-link" href="/contact?topic=media">Contact for media</a><a class="c-link" href="/about">Read the founder story</a></div>')
     return '<main id="main-content" class="c-page">' + h + boiler + kit + res + close() + '</main>'
 
+
+def where_help():
+    # Named plainly: what a partner would actually do, not what the company lacks. No amounts,
+    # no terms, no "we are raising" — a public page stays about experience and introductions.
+    items = [('Getting in front of fans.', 'Concerto is found by people who already have a ticket. Growth experience in consumer apps is what we would use fastest.', ''),
+             ('The rooms.', 'Introductions to venues, promoters, and the teams who run buildings. That is how a guide becomes a partnership.', ''),
+             ('The brands around the night.', 'Restaurants, hotels, and rideshare are already part of a concert night. We want the people who know how those deals get done.', ''),
+             ('Operating in live music.', 'Anyone who has run a tour, a venue, or a ticketing product sees problems a fan-side app cannot.', '')]
+    return section('white', 'Where help goes furthest', 'Four things, named plainly.', rows(items) +
+                   '<p class="c-body">Concerto is founder-led, and the product is built. These are the areas where another set of hands or one good introduction moves the most.</p>'
+                   '<div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
+
 def investors():
     h = hero('Investors', 'A focused product.<br>A practical next step.', 'Concerto prepares fans for the night around the ticket.<br>We welcome people who know live music, hospitality, and consumer products.',
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Dallas–Fort Worth'], 'navy')
@@ -389,7 +401,7 @@ def investors():
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show. The app and website are built.</p>'
              '<p class="c-body">Concerto+ is the paid tier. The partner program is in development. Coverage is not a measure of users or revenue.</p></div></div></section>')
     conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Figures, priorities, and terms are discussed directly, not inferred from the website.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
-    return '<main id="main-content" class="c-page">' + h + today + principles() + conv + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + today + where_help() + principles() + conv + close() + '</main>'
 
 def creators():
     h = hero('Creators', 'Help fans see<br>the whole night.', 'A useful point of view on a concert, a venue, or a city.<br>Music, food, travel, and local creators welcome.',
