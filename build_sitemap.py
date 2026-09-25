@@ -8,7 +8,7 @@ SITE='https://concertocity.com'
 
 HUBS=[
  '/', '/venues', '/tours', '/setlists', '/near-me', '/your-night', '/perks', '/premium',
- '/about', '/partners', '/partners/restaurants', '/partners/hotels',
+ '/about', '/founder', '/partners', '/partners/restaurants', '/partners/hotels',
  '/partners/venues', '/partners/artists', '/creators', '/press', '/investors',
  '/contact', '/faq', '/help', '/bagcheck', '/bags', '/parking', '/rideshare',
  '/concessions', '/privacy', '/terms'
@@ -16,7 +16,7 @@ HUBS=[
 
 FILE_FOR={
  '/':'index.html','/venues':'venues.html','/tours':'tours.html','/setlists':'setlists.html',
- '/near-me':'near-me.html','/your-night':'your-night.html','/perks':'perks.html','/premium':'premium.html','/about':'about.html',
+ '/near-me':'near-me.html','/your-night':'your-night.html','/perks':'perks.html','/premium':'premium.html','/about':'about.html','/founder':'founder.html',
  '/partners':'partners.html','/partners/restaurants':'partner-restaurants.html',
  '/partners/hotels':'partner-hotels.html','/partners/venues':'partner-venues.html',
  '/partners/artists':'partner-artists.html','/creators':'creators.html','/press':'press.html',

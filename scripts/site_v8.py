@@ -165,13 +165,13 @@ def premium():
             + close('Start with the app.', 'website-premium') + '</main>')
 
 def about():
-    facts = [('Founded', 'Dallas–Fort Worth'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
+    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type"><div class="c-wrap c-narrow">{eyebrow("About Concerto")}<h1>The ticket is the start<br>of the night.</h1><p class="c-lead">The practical details around a concert, in one place.<br>Less piecing it together. More of the show.</p></div></section>'
             + name_section() +
             '<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The founder') + '<h2 class="c-h2">Jayce Wells</h2><p class="c-role">Founder</p></div>'
             '<div><p class="c-body">A ticket does not mean the night is figured out. The bag policy, the parking, dinner, the setlist, the ride home: each sends a fan somewhere different.</p>'
-            '<p class="c-body">Concerto brings those questions back to the show. Founder-led, from Dallas–Fort Worth.</p></div></div></section>'
+            '<p class="c-body">Concerto brings those questions back to the show. Founder-led.</p></div></div></section>'
             + principles() +
             '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
             '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
@@ -349,11 +349,12 @@ def premium():
 
 def about():
     h = hero('About Concerto', 'The ticket is the start<br>of the night.', 'The practical details around a concert, in one place.<br>Less piecing it together. More of the show.',
-             '', ['Founded in Dallas–Fort Worth', 'Concerto LLC', 'Concerto for iPhone'], 'navy')
-    founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The founder') + '<h2 class="c-h2">Jayce Wells</h2><p class="c-role">Founder</p></div>'
-               '<div><p class="c-body">A ticket does not mean the night is figured out. The bag policy, the parking, dinner, the setlist, the ride home: each sends a fan somewhere different.</p>'
-               '<p class="c-body">Concerto brings those questions back to the show. Founder-led, from Dallas–Fort Worth.</p></div></div></section>')
-    facts = [('Founded', 'Dallas–Fort Worth'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
+             '', ['Founded 2025', 'Concerto LLC', 'Concerto for iPhone'], 'navy')
+    founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
+               '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
+               '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 600 venues worldwide.</p>'
+               '<div class="c-actions"><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
+    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
     fx = '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
     links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
     return '<main id="main-content" class="c-page">' + h + name_section() + founder + principles() + fx + links + close() + '</main>'
@@ -370,17 +371,48 @@ def bagcheck():
               ('Leave with context.', 'It explains the rule it used and what is uncertain. The venue always makes the final call.', '')])
     return '<main id="main-content" class="c-page">' + h + section('white', 'How it works', 'Three steps, one answer.', r) + close('Pack once.', 'website-bagcheck') + '</main>'
 
+# ----- from the founder -----
+# Modeled on the founder letter as its own page (Patagonia: signed, dated, first person) with the
+# origin told in the company's voice on About (Warby Parker). The three Canva drafts are the one
+# exception to "no app imagery": dated historical artifacts, labeled, on this page only.
+def founder():
+    h = hero('From the founder', 'It started with<br>one night in Toronto.', 'Why Concerto exists, and what it took to build it.',
+             '', ['Jayce Wells', 'September 2026'], 'navy')
+    P = lambda t: f'<p class="c-letter-p">{t}</p>'
+    drafts = ('<figure class="c-drafts">'
+              '<div class="c-drafts-row">'
+              '<img src="/img/founder/first-design-your-event.jpg" width="560" height="724" loading="lazy" alt="First Concerto design: a Your Event screen for a show at AT&amp;T Stadium, with restaurants, hotels, shops and transportation">'
+              '<img src="/img/founder/first-design-transportation.jpg" width="560" height="724" loading="lazy" alt="First Concerto design: transportation, with a rideshare pickup map around the venue">'
+              '<img src="/img/founder/first-design-restaurants.jpg" width="560" height="724" loading="lazy" alt="First Concerto design: restaurants near the venue">'
+              '</div><figcaption>The first designs, made in Canva in October 2024.</figcaption></figure>')
+    letter = (
+      '<section class="c-section c-white" data-reveal><div class="c-wrap c-letter">'
+      + P("In November 2024, I had tickets to night six of the Eras Tour in Toronto. I&#8217;d lived in Toronto, but I didn&#8217;t know the area around the Rogers Centre, and I spent the weeks before the show bouncing between Google, Apple Maps and OpenTable, trying to figure out where to eat, where to stay and what to do around one specific night.")
+      + P("I kept thinking: there should be one app for this. Not for the city in general, but for the exact show you&#8217;re going to. So on October 25, 2024, I opened Canva and started designing it. The name Concerto and the line <em>From the Concert to the City</em> came right after.")
+      + drafts
+      + P("I started with 112 venues, every NFL, NBA and MLB stadium in the country. I entered each venue&#8217;s policies and official links into a spreadsheet by hand, then went venue by venue finding the restaurants and hotels nearby. In March 2025 Concerto became a company, and in April the first version launched on the App Store and Google Play.")
+      + P("By that summer the guide had grown to 346 venues. I&#8217;d love to say it got easier. It didn&#8217;t. I spent hours, days and weeks researching venues, entering data, sketching new features, redesigning screens and making social content, even while paying for a developer and a PR agency. When neither was moving the needle, I made the hardest call so far: I cut both, took Concerto back, and rebuilt it from the ground up myself.")
+      + P(f"Today Concerto covers more than 600 venues worldwide, from college arenas to stadiums and clubs across North America, the U.K. and Europe. Every guide is researched from the venue&#8217;s own official sources and dated, because the night deserves accuracy. It&#8217;s still built by one person.")
+      + P('Where this goes next is bigger than one app. I want Concerto to know your night from the moment you buy the ticket to the moment you get home, and to share it with the people you&#8217;re going with. That means working with the people who make those nights happen: <a href="/partners/venues">venues</a> that want their guests to arrive knowing the rules, <a href="/partners">restaurants, hotels and brands</a> that want to be part of the night, and <a href="/creators">creators</a> who live for live music. If that&#8217;s you, I&#8217;d love to talk, and if you&#8217;d like to help build what comes next, <a href="/investors">start here</a>.')
+      + P("If you&#8217;ve ever stood outside a venue wondering what you&#8217;re allowed to bring in, or how you&#8217;re getting home, Concerto is for you. Thank you for being here.")
+      + '<p class="c-letter-sign">Jayce</p><p class="c-letter-role">Jayce Wells, Founder, Concerto</p>'
+      + '<div class="c-actions"><a class="c-btn c-btn-navy" href="/contact">Write to Jayce</a><a class="c-link" href="/press">Press</a></div>'
+      + '</div></section>')
+    return '<main id="main-content" class="c-page">' + h + letter + close() + '</main>'
+
+
 # ----- company -----
 def press():
-    h = hero('Press and media', 'Concerto, in brief.', 'Concerto helps concert fans plan the night around their ticket.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded in Dallas–Fort Worth', 'Concerto for iPhone and the web'], 'cream')
-    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded in', 'Dallas–Fort Worth'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{N_V} venue guides, {N_T} tours'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
+    h = hero('Press and media', 'Concerto, in brief.', 'Concerto helps concert fans plan the night around their ticket.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
+    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{N_V} venue guides, {N_T} tours'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">One show. The night around it.</h2></div><div>'
-              '<p class="c-body">An iPhone app and website, founded by Jayce Wells in Dallas–Fort Worth.<br>Fans save a show and get venue guidance, setlists, nearby places, and how to get there. Concerto+ adds planning.</p>'
+              '<p class="c-body">An iPhone app and website, founded by Jayce Wells in 2025.<br>Fans save a show and get venue guidance, setlists, nearby places, and how to get there. Concerto+ adds planning.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
+    bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 600+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
     res = section('white', 'Media resources', 'Logos, interviews, and figures.', '<p class="c-body">Logo files, product images, interviews, confirmed figures. Ask and we will send them.</p><div class="c-actions"><a class="c-link" href="/contact?topic=media">Contact for media</a><a class="c-link" href="/about">Read the founder story</a></div>')
-    return '<main id="main-content" class="c-page">' + h + boiler + kit + res + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + boiler + kit + bio + res + close() + '</main>'
 
 
 def where_help():
@@ -396,10 +428,10 @@ def where_help():
 
 def investors():
     h = hero('Investors', 'A focused product.<br>A practical next step.', 'Concerto prepares fans for the night around the ticket.<br>We welcome people who know live music, hospitality, and consumer products.',
-             '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Dallas–Fort Worth'], 'navy')
+             '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show. The app and website are built.</p>'
-             '<p class="c-body">Concerto+ is the paid tier. The partner program is in development. Coverage is not a measure of users or revenue.</p></div></div></section>')
+             '<p class="c-body">Concerto+ is the paid tier. The partner program is in development. Coverage is not a measure of users or revenue.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
     conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Figures, priorities, and terms are discussed directly, not inferred from the website.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
     return '<main id="main-content" class="c-page">' + h + today + where_help() + principles() + conv + close() + '</main>'
 
@@ -528,6 +560,8 @@ def build():
     for v in VENUES: rewrite(f'venue/{v["id"]}.html', venue_page(v))
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
+    ensure_page('founder.html', 'From the Founder | Concerto', 'Why Concerto exists: Jayce Wells on the Eras Tour night that started it, and what it took to build a concert guide to 600+ venues.', '/founder')
+    rewrite('founder.html', founder());
     rewrite('press.html', press()); rewrite('investors.html', investors()); rewrite('creators.html', creators()); rewrite('partners.html', partners_hub())
     for k in PARTNER: rewrite(f'{k}.html', partner_page(k, form_of(f'{k}.html')))
     rewrite('contact.html', contact_page(form_of('contact.html')))
@@ -544,6 +578,21 @@ def build():
 
 
 # ---------------- writer ----------------
+def ensure_page(rel, title, desc, path):
+    """A new page takes About's shell with its own head: title, description, canonical, social."""
+    import re as _re, html as _h
+    src = (ROOT / 'about.html').read_text()
+    url = f'https://concertocity.com{path}'
+    t, d = _h.escape(title, quote=True), _h.escape(desc, quote=True)
+    src = _re.sub(r'<title>.*?</title>', f'<title>{t}</title>', src, count=1, flags=_re.S)
+    src = _re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{d}">', src, count=1)
+    src = _re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{url}">', src, count=1)
+    src = _re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{t}">', src, count=1)
+    src = _re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{d}">', src, count=1)
+    src = _re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', src, count=1)
+    (ROOT / rel).write_text(src)
+
+
 def rewrite(rel, main):
     path = ROOT / rel
     src = path.read_text()
