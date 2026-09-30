@@ -1654,43 +1654,44 @@ h1,h2{font-weight:700}
 @media (max-width:820px){.v8 .c-around{grid-template-columns:1fr;gap:22px}}
 .v8 .c-around + .c-source{display:block;clear:both;margin-top:26px;position:static}
 
-/* Jingle Ball hub, holiday edition: deep red into navy, snowfall, ticket-style cards with a stub. */
-.v8 .c-jb{position:relative;overflow:hidden;color:#F8F9F9;background:radial-gradient(90% 60% at 50% 0%,rgba(209,249,243,.14),rgba(209,249,243,0) 60%),linear-gradient(165deg,#4330BA 0%,#761B8F 34%,#831E6E 68%,#121E36 100%)}
-.v8 .c-jb>.c-wrap{position:relative;z-index:1}
-.v8 .c-jb .c-eyebrow{color:#D1F9F3;letter-spacing:.14em}
-.v8 .c-jb .c-h2,.v8 .c-jb>.c-wrap>.c-body{color:#F8F9F9}
-.v8 .c-jb .c-source,.v8 .c-jb .c-jb-tv{color:rgba(248,249,249,.72)}
-.v8 .c-jb-chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 30px}
-.v8 .c-jb-chip{padding:8px 14px;border-radius:999px;border:1px solid rgba(209,249,243,.6);color:#F8F9F9;font-size:14px;text-decoration:none;background:rgba(255,255,255,.06)}
-.v8 .c-jb-chip:hover{background:rgba(209,249,243,.18)}
-.v8 .c-jb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.v8 .c-jb-card{position:relative;display:flex;flex-direction:column;background:#FBF8F1;color:#121E36;border-radius:18px;overflow:hidden;scroll-margin-top:90px;box-shadow:0 14px 34px rgba(0,0,0,.22)}
-.v8 .c-jb-card:target{outline:3px solid #D1F9F3;outline-offset:3px}
-.v8 .c-jb-stub{position:relative;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding:18px 24px;background:linear-gradient(120deg,#761B8F,#831E6E);color:#F8F9F9;border-bottom:3px solid #D1F9F3}
 
+.v8 .c-request{display:flex;gap:10px;margin-top:16px;max-width:560px}.v8 .c-request input{flex:1;min-width:0;padding:12px 16px;border-radius:999px;border:1px solid rgba(18,30,54,.2);font:inherit;background:#fff;color:#121E36}.v8 .c-request-note{margin-top:10px;font-size:14px;color:#5B6478}.v8 .c-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}@media (max-width:480px){.v8 .c-request{flex-direction:column}}
+/* Jingle Ball hub: the same cream section and narrow column as every tour page. Holiday color lives
+   in the header, the city selector and each card's band. One city at a time, with a link per city. */
+.v8 .c-jb-chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 22px}
+.v8 .c-jb-chip{font:inherit;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid rgba(118,27,143,.35);background:#fff;color:#121E36;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.v8 .c-jb-chip:hover{border-color:#761B8F}
+.v8 .c-jb-chip[aria-selected="true"]{background:#761B8F;border-color:#761B8F;color:#fff}
+.v8 .c-jb-chip:focus-visible{outline:3px solid #D1F9F3;outline-offset:2px}
+.v8 .c-jb-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:26px}
+.v8 .c-jb.is-tabbed .c-jb-card{display:none}
+.v8 .c-jb.is-tabbed .c-jb-card.is-active{display:flex;animation:c-jb-in .25s ease}
+@keyframes c-jb-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.v8 .c-jb.is-tabbed .c-jb-card.is-active{animation:none}}
+.v8 .c-jb-card{display:flex;flex-direction:column;background:#fff;color:#121E36;border-radius:18px;overflow:hidden;scroll-margin-top:96px;border:1px solid rgba(18,30,54,.08);box-shadow:0 10px 30px rgba(18,30,54,.08)}
+.v8 .c-jb-stub{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding:18px 24px;background:linear-gradient(120deg,#4330BA 0%,#761B8F 45%,#831E6E 100%);color:#fff;border-bottom:3px solid #D1F9F3}
+.v8 .c-jb-stub h3{order:1;font-family:"Playfair Display",Georgia,serif;font-size:28px;font-weight:500;margin:0;color:#fff;line-height:1.15}
 .v8 .c-jb-when{order:2;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#D1F9F3;margin:0;line-height:1.5;text-align:right}
-.v8 .c-jb-stub h3{order:1;font-family:"Playfair Display",Georgia,serif;font-size:26px;font-weight:500;margin:0;color:#fff;line-height:1.15}
-.v8 .c-jb-show{order:3;flex-basis:100%;font-size:13px;color:rgba(248,249,249,.82);margin:0}
-.v8 .c-jb-body{padding:20px 24px 20px;flex:1}
-.v8 .c-jb-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#761B8F;margin:0 0 8px;font-weight:600}
+.v8 .c-jb-show{order:3;flex-basis:100%;font-size:13px;color:rgba(255,255,255,.85);margin:0}
+.v8 .c-jb-body{padding:22px 24px 22px}
+.v8 .c-jb-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#761B8F;margin:0 0 10px;font-weight:600}
 .v8 .c-jb-acts{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.v8 .c-jb-acts li{font-size:13px;background:#fff;border:1px solid rgba(18,30,54,.12);border-radius:999px;padding:5px 10px}
+.v8 .c-jb-acts li{font-size:14px;background:#F8F9F9;border:1px solid rgba(18,30,54,.1);border-radius:999px;padding:6px 12px}
 .v8 .c-jb-acts li:first-child{background:#D1F9F3;color:#5A1466;border-color:#9EE6DD;font-weight:600}
-.v8 .c-jb-sets{font-size:12px;color:#5B6478;margin:0 0 16px;font-style:italic}
-.v8 .c-jb-rules{list-style:none;margin:0 0 14px;padding:0}
-.v8 .c-jb-rules li{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:7px 0;border-top:1px solid rgba(18,30,54,.08);font-size:13px;line-height:1.45}
+.v8 .c-jb-sets{font-size:13px;color:#5B6478;margin:0 0 20px;font-style:italic}
+.v8 .c-jb-rules{list-style:none;margin:0 0 18px;padding:0}
+.v8 .c-jb-rules li{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:10px 0;border-top:1px solid rgba(18,30,54,.08);font-size:15px;line-height:1.5}
 .v8 .c-jb-rules b{font-weight:600;color:#121E36}
 .v8 .c-jb-rules span{color:#3B4458}
-.v8 .c-jb-partner{margin:0 0 14px;padding:12px 14px;border:1px dashed #761B8F;border-radius:12px;background:#fff}
+.v8 .c-jb-partner{margin:0 0 16px;padding:12px 14px;border:1px dashed #761B8F;border-radius:12px;background:#FBF8F1}
 .v8 .c-jb-partner span{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#761B8F;margin-bottom:4px}
 .v8 .c-jb-partner a{font-weight:600;color:#121E36}
 .v8 .c-jb-partner p{margin:4px 0 0;font-size:13px;color:#3B4458}
-.v8 .c-jb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:8px}
-.v8 .c-jb-tix{display:inline-block;padding:10px 18px;border-radius:999px;background:#831E6E;color:#fff;font-weight:600;font-size:14px;text-decoration:none}
+.v8 .c-jb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}
+.v8 .c-jb-tix{display:inline-block;padding:11px 20px;border-radius:999px;background:#831E6E;color:#fff;font-weight:600;font-size:15px;text-decoration:none}
 .v8 .c-jb-tix:hover{background:#761B8F}
-.v8 .c-jb-venue{font-weight:600;font-size:14px;color:#121E36;text-decoration:underline;text-decoration-color:#761B8F;text-underline-offset:3px;text-decoration-thickness:2px}
-.v8 .c-jb-gives{font-size:12px;color:#5B6478;margin:6px 0 0}
-@media (max-width:980px){.v8 .c-jb-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.v8 .c-jb-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.v8 .c-jb-chip{flex:0 0 auto}.v8 .c-jb-body{padding:18px}}
-.v8 .c-request{display:flex;gap:10px;margin-top:16px;max-width:560px}.v8 .c-request input{flex:1;min-width:0;padding:12px 16px;border-radius:999px;border:1px solid rgba(18,30,54,.2);font:inherit;background:#fff;color:#121E36}.v8 .c-request-note{margin-top:10px;font-size:14px;color:#5B6478}.v8 .c-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}@media (max-width:480px){.v8 .c-request{flex-direction:column}}
-.v8 .c-jb-grid{align-items:start;margin-bottom:34px}.v8 .c-jb .c-source{position:relative;margin-top:0;clear:both}
+.v8 .c-jb-ride{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid rgba(18,30,54,.2);color:#121E36;font-weight:600;font-size:14px;text-decoration:none;background:#fff}
+.v8 .c-jb-ride:hover{border-color:#761B8F}
+.v8 .c-jb-venue{margin-left:6px;font-weight:600;font-size:14px;color:#121E36;text-decoration:underline;text-decoration-color:#761B8F;text-underline-offset:3px;text-decoration-thickness:2px}
+.v8 .c-jb-gives{font-size:12px;color:#5B6478;margin:8px 0 0}
+@media (max-width:560px){.v8 .c-jb-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-2px;padding:0 2px 6px}.v8 .c-jb-chip{flex:0 0 auto}.v8 .c-jb-body{padding:18px}.v8 .c-jb-rules li{grid-template-columns:84px 1fr;font-size:14px}.v8 .c-jb-venue{margin-left:0}}

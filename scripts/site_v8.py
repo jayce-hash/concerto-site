@@ -310,6 +310,12 @@ def jingle_ball_data():
     for c in d['cities']:
         info = INFO.get(c['venue'], {})
         c['venueName'] = vname.get(c['venue'], c['venue'])
+        vv = next((v for v in VENUES if v['id'] == c['venue']), {})
+        c['lat'], c['lng'] = vv.get('lat'), vv.get('lng')
+        if c['lat'] is not None:
+            c['uber'] = (f"https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]={c['lat']}"
+                         f"&dropoff[longitude]={c['lng']}&dropoff[nickname]={quote(c['venueName'])}")
+            c['lyft'] = f"https://ride.lyft.com/ridetype?id=lyft&destination[latitude]={c['lat']}&destination[longitude]={c['lng']}"
         # Verified per-city lines win; otherwise fall back to the venue's guide.
         lines = c.get('ruleLines') or {}
         c['rules'] = [{'label': lab, 'text': lines[lab] if lab in lines else _rule_line(info.get(key))} for key, lab in RULES]
@@ -322,7 +328,6 @@ def jingle_ball_data():
 def jingle_ball_hub():
     """Jingle Ball is nine different nights. Each city gets a ticket-style card with what that night needs."""
     d = jingle_ball_data()
-    chips = ''.join(f'<a class="c-jb-chip" href="#{c["anchor"]}">{e(c["city"])}</a>' for c in d['cities'])
     def card(c):
         acts = ''.join(f'<li>{e(a)}</li>' for a in c['lineup'])
         rules = ''.join(f'<li><b>{e(r["label"])}</b><span>{e(r["text"]) if r["text"] else "Not published by the venue"}</span></li>' for r in c['rules'])
@@ -336,12 +341,14 @@ def jingle_ball_hub():
                 f'<p class="c-jb-label">At {e(c["venueName"])}</p><ul class="c-jb-rules">{rules}</ul>'
                 f'{partner}'
                 f'<div class="c-jb-actions"><a class="c-jb-tix" href="{e(c["tickets"])}" target="_blank" rel="noopener nofollow">Get tickets</a>'
+                + (f'<a class="c-jb-ride" href="{e(c["uber"])}" target="_blank" rel="noopener nofollow">Uber</a><a class="c-jb-ride" href="{e(c["lyft"])}" target="_blank" rel="noopener nofollow">Lyft</a>' if c.get('uber') else '') +
                 f'<a class="c-jb-venue" href="/venue/{c["venue"]}">Full venue guide \u2192</a></div>'
                 f'<p class="c-jb-gives">Benefits {e(c["benefits"])}</p></div></article>')
-    return ('<section class="c-section c-jb" data-reveal><div class="c-snow" aria-hidden="true"><i></i><i></i></div><div class="c-wrap">'
-            + eyebrow('\u2726 Nine cities, nine nights') + '<h2 class="c-h2">Every Jingle Ball,<br>in one place.</h2>'
-            + '<p class="c-body">Pick your city: the lineup, the arena\u2019s rules for the night, and your tickets.</p>'
-            + f'<nav class="c-jb-chips" aria-label="Jump to a city">{chips}</nav>'
+    tabs = ''.join(f'<button type="button" class="c-jb-chip" role="tab" data-city="{c["anchor"]}" aria-controls="{c["anchor"]}">{e(c["city"])}</button>' for c in d['cities'])
+    return ('<section class="c-section c-cream c-jb" data-reveal><div class="c-wrap c-narrow">'
+            + eyebrow('\u2726 Nine cities, nine nights') + '<h2 class="c-h2 c-h2-sm">Every Jingle Ball,<br>in one place.</h2>'
+            + '<p class="c-body">Pick your city for the lineup, the arena\u2019s rules for the night, your tickets and your ride.</p>'
+            + f'<div class="c-jb-chips" role="tablist" aria-label="Choose a city">{tabs}</div>'
             + '<div class="c-jb-grid">' + ''.join(card(c) for c in d['cities']) + '</div>'
             + f'<p class="c-source">Lineups from {e(d["source"])}, {e(d["sourceDate"])}. Venue rules checked against each arena\u2019s own guest guide on September 30, 2026. {e(d["onSale"])}</p>'
             + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p></div></section>')

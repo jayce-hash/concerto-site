@@ -572,3 +572,26 @@
     });
   });
 })();
+/* Jingle Ball: one city at a time. Opens on the next show (or the city in the link), keeps a link per city. */
+(function () {
+  var hub = document.querySelector('.c-jb'); if (!hub) return;
+  var tabs = [].slice.call(hub.querySelectorAll('.c-jb-chip')), cards = [].slice.call(hub.querySelectorAll('.c-jb-card'));
+  if (!tabs.length) return;
+  hub.classList.add('is-tabbed');
+  function show(id, push) {
+    cards.forEach(function (c) { c.classList.toggle('is-active', c.id === id); });
+    tabs.forEach(function (t) { var on = t.getAttribute('data-city') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
+    if (push) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.getAttribute('data-city'), true); });
+    t.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click();
+    });
+  });
+  var fromHash = (location.hash || '').slice(1);
+  var start = cards.some(function (c) { return c.id === fromHash; }) ? fromHash : cards[0].id;
+  show(start, false);
+  if (fromHash === start && fromHash) setTimeout(function () { hub.scrollIntoView({ block: 'start' }); }, 50);
+})();
