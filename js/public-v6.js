@@ -579,7 +579,7 @@
   if (!tabs.length) return;
   hub.classList.add('is-tabbed');
   function show(id, push) {
-    cards.forEach(function (c) { c.classList.toggle('is-active', c.id === id); });
+    cards.forEach(function (c) { c.classList.toggle('is-active', c.id === id); c.hidden = c.id !== id; });
     tabs.forEach(function (t) { var on = t.getAttribute('data-city') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; });
     if (push) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
   }
@@ -593,5 +593,6 @@
   var fromHash = (location.hash || '').slice(1);
   var start = cards.some(function (c) { return c.id === fromHash; }) ? fromHash : cards[0].id;
   show(start, false);
+  window.addEventListener('hashchange', function () { var id = location.hash.slice(1); if (cards.some(function(c) { return c.id === id; })) show(id, false); });
   if (fromHash === start && fromHash) setTimeout(function () { hub.scrollIntoView({ block: 'start' }); }, 50);
 })();
