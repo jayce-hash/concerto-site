@@ -4,7 +4,7 @@
 // tap, and that venue moves to the front of the re-verification queue.
 const { createClient } = require('@supabase/supabase-js');
 const H = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS' };
-const FIELDS = new Set(['bagPolicy','parking','rideshare','concessions','accessibility','reEntry','ticketPickup','gates','showTime','doors','headliner','setlist','distance','weather','other']);
+const FIELDS = new Set(['bagPolicy','parking','rideshare','concessions','accessibility','reEntry','ticketPickup','gates','showTime','doors','headliner','setlist','distance','weather','other', 'request']);
 exports.handler = async (event) => {
   const guard = require('./lib/guard');
   const H = { ...guard.corsHeaders(event, 'POST, OPTIONS'), 'Content-Type': 'application/json' };

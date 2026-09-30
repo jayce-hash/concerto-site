@@ -555,3 +555,20 @@
     });
   });
 })();
+/* "Missing a venue or tour?" requests go to the report inbox as field "request". */
+(function () {
+  document.querySelectorAll('form[data-request]').forEach(function (f) {
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var input = f.querySelector('input'); var note = f.parentNode.querySelector('.c-request-note');
+      var text = (input.value || '').trim(); if (!text) return;
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/.netlify/functions/report', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ field: 'request', surface: 'web', message: (f.getAttribute('data-request') === 'tour' ? 'Tour request: ' : 'Venue request: ') + text.slice(0, 200) }) })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (j && j.ok) { f.reset(); if (note) note.textContent = 'Thank you. We read every request.'; } else throw 0; })
+        .catch(function () { if (note) note.textContent = 'That didn\u2019t send. Please try again in a moment.'; })
+        .finally(function () { btn.disabled = false; });
+    });
+  });
+})();

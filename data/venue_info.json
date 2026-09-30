@@ -6460,26 +6460,36 @@
     "lat": 32.7503,
     "lng": -97.3645,
     "bagPolicy": {
-      "summary": "Dickies Arena does not publish one universal bag rule for every event. Review the official event information before arrival because size and type restrictions may vary.",
-      "allowed": [],
-      "prohibited": [],
+      "summary": "Bags can be no larger than 12 x 6 x 12 in. Backpacks, luggage, duffel bags and messenger or laptop bags are not allowed, and clear bags are encouraged for faster entry.",
+      "allowed": [
+        "Bags up to 12 x 6 x 12 in",
+        "Clear bags (encouraged)"
+      ],
+      "prohibited": [
+        "Backpacks",
+        "Luggage",
+        "Duffel bags",
+        "Messenger and laptop bags"
+      ],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
       "officialLink": "https://dickiesarena.com/event-policies-and-faqs/",
-      "verified": "2026-08-20",
+      "verified": "2026-09-30",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking information is not explicitly detailed on the provided page. Visitors are encouraged to check the official website for updates on parking options and pricing.",
+      "note": "Parking prices depend on the event. Prepaid parking is available for the Chevrolet Garage and Yellow Lots.",
       "lots": [],
       "officialLink": "https://dickiesarena.com/directions-and-parking/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
+      "verified": "2026-09-30",
+      "verificationStatus": "official_source_confirmed",
+      "summary": "Park in the 2,200-space Chevrolet Garage at 3464 Trail Drive or the Yellow Lots across Trail Drive. Prices depend on the event, lots take cash or card, and they open 3.5 hours before showtime. Prepaid parking is available."
     },
     "rideshare": {
       "note": "Guests who are using ride share services should be dropped off at the west entrance of the arena, in the drop off lane at Dickies Way. Guests can be picked up for ride share on Harley Avenue, which is located on the north end of the building.",
       "officialLink": "https://dickiesarena.com/directions-and-parking/",
       "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
+      "verificationStatus": "official_source_confirmed",
+      "summary": "Pickup is on Harley Avenue on the north side of the arena, and drop-off is at the west entrance on Dickies Way."
     },
     "concessions": {
       "note": "Dickies Arena offers a variety of food and beverage options for event attendees, including traditional concession stands and specialty vendors. Guests can enjoy a range of snacks, meals, and drinks to enhance their event experience.",
@@ -6497,10 +6507,12 @@
     },
     "reEntry": {
       "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in Dickies Arena's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
+      "body": "Re-entry is not permitted at Dickies Arena.",
       "officialLink": "https://dickiesarena.com/event-policies-and-faqs/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "verified": "2026-09-30",
+      "verificationStatus": "official_source_confirmed",
+      "summary": "Re-entry is not permitted at Dickies Arena.",
+      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival."
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",

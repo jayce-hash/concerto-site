@@ -182,6 +182,18 @@ def hub_intro(kicker, h1, lead, placeholder, target):
             f'<label class="c-filter"><span class="c-sr">{e(placeholder)}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
             f'<input type="search" placeholder="{e(placeholder)}" data-filter-target="{target}" autocomplete="off"></label></div></section>')
 
+def request_form(kind):
+    """'Missing a venue or tour? Tell us.' Posts to the existing report inbox as a request."""
+    noun = 'venue' if kind == 'venue' else 'tour'
+    ph = 'Venue name and city' if kind == 'venue' else 'Artist and tour name'
+    return (f'<section class="c-section c-cream"><div class="c-wrap c-narrow">{eyebrow("Not here yet?")}'
+            f'<h2 class="c-h2 c-h2-sm">Missing a {noun}?<br>Tell us.</h2>'
+            f'<form class="c-request" data-request="{noun}"><label class="c-sr" for="req-{noun}">{ph}</label>'
+            f'<input id="req-{noun}" name="message" maxlength="200" required placeholder="{ph}">'
+            f'<button class="c-btn c-btn-navy" type="submit">Send</button></form>'
+            f'<p class="c-request-note" aria-live="polite">We read every request.</p></div></section>')
+
+
 def venues_hub():
     groups = {}
     for v in sorted(VENUES, key=lambda x: (x.get('country') != 'US', x.get('state') or x.get('country') or '', x['name'])):
@@ -189,7 +201,7 @@ def venues_hub():
         groups.setdefault(key, []).append(v)
     body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(f'<li class="c-entry"><a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>' for v in vs) + '</ul></div>' for k, vs in groups.items())
     return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry')
-            + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + close() + '</main>')
+            + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('venue') + close() + '</main>')
 
 def tours_hub():
     groups = {}
@@ -201,7 +213,7 @@ def tours_hub():
         return f'<li class="c-entry"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a><span>{e(t["tourName"])}{" · " + songs_word(n) if n else ""}</span></li>'
     body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(row(t) for t in ts) + '</ul></div>' for k, ts in groups.items())
     return ('<main id="main-content" class="c-page">' + hub_intro('Tours', f'{N_T} tours<br>on the road.', f'Dates, the official tour site, and {N_S} setlists, labeled by source.', 'Search artists or tours', '.c-entry')
-            + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + close() + '</main>')
+            + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('tour') + close() + '</main>')
 
 def setlists_hub():
     items = sorted(LIVE.items(), key=lambda kv: (kv[1].get('artist') or '').lower())
@@ -270,28 +282,67 @@ def venue_page(v):
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
             + close('Going to a show here?', 'website-venue') + '</main>')
 
-def jingle_ball_hub():
-    """Jingle Ball is nine different nights. One card per city, each linked to its venue guide."""
+RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
+
+def _rule_line(sec):
+    """One short line from a confirmed guide section; None when the venue has not published it."""
+    if not sec: return None
+    # Newer guides use "summary"; the original 346 keep the text in "body" or "note".
+    t = ' '.join((sec.get('summary') or sec.get('body') or sec.get('note') or '').split())
+    # A line saying the venue has not published this is not a rule, whatever the status says.
+    if t and re.search(r"(may |can )?var(y|ies) (by|for each|from) (event|show)|event-specific|does not publish one universal", t, re.I) and not re.search(r"\d", t):
+        return 'Varies by event. Check your event details before you go'
+    if not t or re.search(r"not (explicitly |specifically )?(detailed|confirmed|stated|published|specified|listed)|does not (state|specify|publish)|check the (event|show) listing", t, re.I): return None
+    t = re.split(r'(?<=[.!?])\s', t)[0].rstrip('.') if t else ''
+    if len(t) > 118: t = t[:118].rsplit(' ', 1)[0].rstrip(',;:') + '\u2026'
+    return t or None
+
+def city_html(city):
+    """Keep each part of a city name together; allow a break only after "/" or ", ". No widows."""
+    parts = re.split(r'(/|, )', city)
+    return ''.join((e(x) + '<wbr>') if x in ('/', ', ') else e(x).replace(' ', '\u00a0') for x in parts)
+
+def jingle_ball_data():
+    """The one file both the website and the app read: lineup, rules, tickets, partner per city."""
+    from urllib.parse import quote
     d = json.loads((ROOT / 'data' / 'jingle-ball-2026.json').read_text())
     vname = {v['id']: v['name'] for v in VENUES}
+    for c in d['cities']:
+        info = INFO.get(c['venue'], {})
+        c['venueName'] = vname.get(c['venue'], c['venue'])
+        c['rules'] = [{'label': lab, 'text': _rule_line(info.get(key))} for key, lab in RULES]
+        c['tickets'] = c.get('tickets') or f"https://www.ticketmaster.com/search?q={quote('Jingle Ball ' + c['venueName'])}"
+        c['setTimes'] = c.get('setTimes') or None
+        c['partner'] = c.get('partner') or None
+    (ROOT / 'data' / 'jingle-ball-2026-hub.json').write_text(json.dumps(d, ensure_ascii=False, separators=(',', ':')) + '\n')
+    return d
+
+def jingle_ball_hub():
+    """Jingle Ball is nine different nights. Each city gets a ticket-style card with what that night needs."""
+    d = jingle_ball_data()
     chips = ''.join(f'<a class="c-jb-chip" href="#{c["anchor"]}">{e(c["city"])}</a>' for c in d['cities'])
     def card(c):
         acts = ''.join(f'<li>{e(a)}</li>' for a in c['lineup'])
-        return (f'<article class="c-jb-card" id="{c["anchor"]}"><p class="c-jb-when">{e(c["date"])} \u00b7 {e(c["time"])}</p>'
-                f'<h3>{e(c["city"])}</h3><p class="c-jb-show">{e(c["show"])}</p>'
-                f'<ul class="c-jb-acts">{acts}</ul>'
-                f'<a class="c-jb-venue" href="/venue/{c["venue"]}">{e(vname.get(c["venue"], c["venue"]))} guide \u2192</a>'
-                f'<p class="c-jb-gives">Benefits {e(c["benefits"])}</p></article>')
-    when = d['sourceDate']
-    return ('<section class="c-section c-white c-jb" data-reveal><div class="c-wrap">'
-            + eyebrow('Nine cities, nine nights') + '<h2 class="c-h2">Every Jingle Ball,<br>in one place.</h2>'
-            + '<p class="c-body">Pick your city for the lineup, then open the venue guide for bag rules, parking and the way home.</p>'
+        rules = ''.join(f'<li><b>{e(r["label"])}</b><span>{e(r["text"]) if r["text"] else "Not published by the venue"}</span></li>' for r in c['rules'])
+        partner = (f'<div class="c-jb-partner"><span>Before the show \u00b7 Concerto Partner</span><a href="{e(c["partner"].get("url",""))}" target="_blank" rel="noopener">{e(c["partner"]["name"])}</a>'
+                   + (f'<p>{e(c["partner"].get("offer",""))}</p>' if c["partner"].get("offer") else '') + '</div>') if c.get('partner') else ''
+        sets = e(c['setTimes']) if c.get('setTimes') else 'Set times not posted yet'
+        return (f'<article class="c-jb-card" id="{c["anchor"]}">'
+                f'<div class="c-jb-stub"><p class="c-jb-when">{e(c["date"])}<br>{e(c["time"])}</p><h3>{city_html(c["city"])}</h3><p class="c-jb-show">{e(c["show"])}</p></div>'
+                f'<div class="c-jb-body"><p class="c-jb-label">Lineup</p><ul class="c-jb-acts">{acts}</ul>'
+                f'<p class="c-jb-sets">{sets}</p>'
+                f'<p class="c-jb-label">At {e(c["venueName"])}</p><ul class="c-jb-rules">{rules}</ul>'
+                f'{partner}'
+                f'<div class="c-jb-actions"><a class="c-jb-tix" href="{e(c["tickets"])}" target="_blank" rel="noopener nofollow">Get tickets</a>'
+                f'<a class="c-jb-venue" href="/venue/{c["venue"]}">Full venue guide \u2192</a></div>'
+                f'<p class="c-jb-gives">Benefits {e(c["benefits"])}</p></div></article>')
+    return ('<section class="c-section c-jb" data-reveal><div class="c-snow" aria-hidden="true"><i></i><i></i></div><div class="c-wrap">'
+            + eyebrow('\u2726 Nine cities, nine nights') + '<h2 class="c-h2">Every Jingle Ball,<br>in one place.</h2>'
+            + '<p class="c-body">Pick your city: the lineup, the arena\u2019s rules for the night, and your tickets.</p>'
             + f'<nav class="c-jb-chips" aria-label="Jump to a city">{chips}</nav>'
             + '<div class="c-jb-grid">' + ''.join(card(c) for c in d['cities']) + '</div>'
-            + f'<p class="c-source">Lineups from {e(d["source"])}, {e(when)}. {e(d["onSale"])}</p>'
-            + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p>'
-            + '</div></section>')
-
+            + f'<p class="c-source">Lineups from {e(d["source"])}, {e(d["sourceDate"])}. Venue rules from each arena\u2019s official guidance, dated in its guide. {e(d["onSale"])}</p>'
+            + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p></div></section>')
 
 HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}
 
