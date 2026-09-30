@@ -45,4 +45,5 @@
 # of the ~30-second ceiling a standard function hit on its first real
 # run. The schedule config still applies the same way regardless.
 [functions."alerts-poll-background"]
-  schedule = "0 */6 * * *"
+  # Once a day (12:00 UTC) instead of every 6 hours: the job was ~700 Ticketmaster calls a day on its own.
+  schedule = "0 12 * * *"

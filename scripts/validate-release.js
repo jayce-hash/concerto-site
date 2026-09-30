@@ -9,7 +9,8 @@ const fields=['bagPolicy','parking','rideshare','concessions','accessibility','r
 for(const [id,v] of Object.entries(info)) for(const f of fields){const x=v[f]; ok(x&&typeof x==='object',`${id}.${f} missing`); if(x){ok(/^https:\/\//.test(x.officialLink||''),`${id}.${f} officialLink missing/non-https`); ok(/^\d{4}-\d{2}-\d{2}$/.test(x.verified||''),`${id}.${f} verified date invalid`);}}
 ok(new Set(tours.map(t=>t.tourId)).size===tours.length,'duplicate tour ids');
 const unmatched=[]; for(const t of tours){const matches=Object.keys(setlists).filter(k=>t.tourId.startsWith(k)); if(matches.length!==1) unmatched.push([t.tourId,matches.length]);}
-const allowed=new Set(['franklin-jonas-the-byzantines-first-of-many-tour']);
+// Tours that never get a setlist: multi-artist events with a different lineup every night.
+const allowed=new Set(['franklin-jonas-the-byzantines-first-of-many-tour','jingle-ball-2026-tour']);
 for(const [id,n] of unmatched) ok(allowed.has(id)&&n===0,`setlist mapping ${id}: ${n} matches`);
 
 const netlify=fs.readFileSync(path.join(root,'netlify.toml'),'utf8');

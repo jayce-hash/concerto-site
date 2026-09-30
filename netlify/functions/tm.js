@@ -1,13 +1,16 @@
 // netlify/functions/tm.js
 // Server-side proxy for the Ticketmaster Discovery API. Keeps the API key out of client code.
 // Pages call /.netlify/functions/tm/<resource>.json?<params>  (no apikey needed);
-// this injects the real key from the TM_API_KEY env var and forwards to Ticketmaster.
+// this injects the real key from the TM_API_KEY env var and forwards to Ticketmaster
+// through the shared cache in lib/tm-cache.js (see there for TTLs and the stale fallback).
 
-const TM_BASE = 'https://app.ticketmaster.com/discovery/v2';
+const { tmFetch } = require('./lib/tm-cache');
+
 const ALLOWED = new Set(['attractions', 'events', 'venues']);
 const ALLOW_REFERER = ['concertocity.com', '.netlify.app']; // legit callers; lenient (missing referer is allowed)
+const MAX_AGE = { events: 60, venues: 3600, attractions: 3600 };
 
-export async function handler(event) {
+exports.handler = async function (event) {
   const key = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
   if (!key) return { statusCode: 500, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'TM key not configured' }) };
 
@@ -26,21 +29,22 @@ export async function handler(event) {
   const resource = (m ? m[1] : (event.queryStringParameters && event.queryStringParameters.resource) || '').toLowerCase();
   if (!ALLOWED.has(resource)) return { statusCode: 400, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'bad resource' }) };
 
-  // Rebuild the query, drop any client apikey, inject the real one.
+  // Rebuild the query; tmFetch drops any client apikey and injects the real one.
   let qs = event.rawQuery;
   if (!qs && event.queryStringParameters) {
     qs = Object.entries(event.queryStringParameters).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&');
   }
   const params = new URLSearchParams(qs || '');
-  params.delete('apikey');
   params.delete('resource');
-  params.set('apikey', key);
 
-  try {
-    const r = await fetch(`${TM_BASE}/${resource}.json?${params.toString()}`);
-    const body = await r.text();
-    return { statusCode: r.status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=60' }, body };
-  } catch (e) {
-    return { statusCode: 502, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'proxy failed' }) };
-  }
-}
+  const r = await tmFetch(resource, params, { key, event });
+  return {
+    statusCode: r.status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': r.status === 200 ? `public, max-age=${MAX_AGE[resource]}` : 'no-store',
+      'X-Concerto-Cache': r.cache,
+    },
+    body: r.body,
+  };
+};

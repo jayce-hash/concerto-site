@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@netlify/blobs": "^8.2.0",
     "@supabase/supabase-js": "^2.107.0",
     "stripe": "^22.2.0"
   },
@@ -10,6 +11,7 @@
     "validate": "node scripts/validate-release.js",
     "validate:deploy": "node scripts/validate-deploy.js",
     "validate:brand": "node scripts/validate-brand-system.js",
-    "validate:seo": "node scripts/validate-seo.js"
+    "validate:seo": "node scripts/validate-seo.js",
+    "test:tm-cache": "node --test scripts/test-tm-cache.js"
   }
 }

@@ -16,6 +16,7 @@
 
 const { createClient } = require('@supabase/supabase-js');
 const venueInfo = require('../../data/venue_info.json');
+const { tmFetch } = require('./lib/tm-cache');
 
 const ALLOWED_ORIGINS = [
   'https://concertocity.com',
@@ -75,19 +76,17 @@ exports.handler = async function (event) {
           return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing venueName' }) };
         }
         // Step 1 — resolve the Ticketmaster venue id from the name
-        const vRes = await fetch(`${TM}/venues.json?apikey=${process.env.TICKETMASTER_API_KEY}`
-          + `&keyword=${encodeURIComponent(venueName)}&size=1`);
-        const vData = await vRes.json();
+        // Both steps go through the shared Ticketmaster cache (lib/tm-cache.js).
+        const vRes = await tmFetch('venues', { keyword: venueName, size: '1' }, { event });
+        const vData = JSON.parse(vRes.body || '{}');
         const tmVenue = vData?._embedded?.venues?.[0];
         if (!tmVenue?.id) {
           // Return an empty-but-valid shape so the page shows its normal "no events" state
           return { statusCode: 200, headers, body: JSON.stringify({ _embedded: { events: [] } }) };
         }
         // Step 2 — upcoming events at that venue
-        const eRes = await fetch(`${TM}/events.json?apikey=${process.env.TICKETMASTER_API_KEY}`
-          + `&venueId=${encodeURIComponent(tmVenue.id)}&size=${size}&sort=date,asc`);
-        const eData = await eRes.json();
-        return { statusCode: eRes.status, headers, body: JSON.stringify(eData) };
+        const eRes = await tmFetch('events', { venueId: tmVenue.id, size: String(size), sort: 'date,asc' }, { event });
+        return { statusCode: eRes.status, headers, body: eRes.body };
       }
     } catch (err) {
       return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
@@ -177,7 +176,7 @@ Rideshare context: ${venue.ride_note || 'unknown'}`;
 ${policy}
 
 Respond ONLY with valid JSON, no markdown:
-{"verdict":"pass"|"warn"|"fail","bag_type":"e.g. Small Leather Clutch","dims":"e.g. Est. 6\\" × 4\\" · Leather · Metal clasp","confidence":<60-98>,"label":"2-4 word headline","findings":[{"s":"pass"|"warn"|"fail","rule":"Short rule","detail":"1-2 sentence explanation"}],"next_steps":[{"title":"Short action","detail":"1-2 sentences"}]}
+{"verdict":"pass"|"warn"|"fail","bag_type":"e.g. Small Leather Clutch","dims":"e.g. Est. 6 x 4 in · Leather · Metal clasp","confidence":<60-98>,"label":"2-4 word headline","findings":[{"s":"pass"|"warn"|"fail","rule":"Short rule","detail":"1-2 sentence explanation"}],"next_steps":[{"title":"Short action","detail":"1-2 sentences"}]}
 
 Include 3-5 findings citing specific policy rules. Include next_steps ONLY when verdict is warn or fail: 1-3 concrete, venue-specific alternatives (use the parking/rideshare context if it mentions lockers, storage, lots, or leave-in-car options; otherwise suggest practical options like returning the bag to a car, using a nearby bag storage service, or swapping to an allowed clear bag). Never leave a fail without a path forward. Omit next_steps entirely on pass.`;
       const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -194,11 +193,13 @@ Include 3-5 findings citing specific policy rules. Include next_steps ONLY when 
       });
       const data = await response.json();
       const text = (data?.content?.[0]?.text || '').trim().replace(/```json|```/g, '').trim();
-      try {
-        return { statusCode: 200, headers, body: JSON.stringify(JSON.parse(text)) };
-      } catch {
-        return { statusCode: 500, headers, body: JSON.stringify({ error: 'Parse failed', raw: text.slice(0, 200) }) };
+      // The model sometimes writes inches as 5" inside a JSON string, which breaks parsing
+      // (about 1 in 6 checks). Try as written, then with bare inch marks turned into "in".
+      const repairInches = (t) => t.replace(/(\d)\s*(?:\\?")(?=\s*(?:[×xX,.;)·\-]|in\b|$))/g, '$1 in');
+      for (const candidate of [text, repairInches(text)]) {
+        try { return { statusCode: 200, headers, body: JSON.stringify(JSON.parse(candidate)) }; } catch (_) {}
       }
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Parse failed', raw: text.slice(0, 200) }) };
     }
 
     // ── Ticketmaster (authenticated keyword search — used by Concerto+) ──
@@ -206,12 +207,10 @@ Include 3-5 findings citing specific policy rules. Include next_steps ONLY when 
       const tmKey = process.env.TICKETMASTER_API_KEY || process.env.TM_API_KEY;
       if (!tmKey) return { statusCode: 500, headers, body: JSON.stringify({ error: 'TM key not configured' }) };
       const { keyword, size = 10 } = body;
-      const url = `${TM}/events.json?apikey=${tmKey}`
-        + `&keyword=${encodeURIComponent(keyword || '')}`
-        + `&size=${Math.min(Number(size) || 10, 50)}&sort=date,asc&classificationName=music`;
-      const response = await fetch(url);
-      const data = await response.json();
-      return { statusCode: response.status, headers, body: JSON.stringify(data) };
+      const r = await tmFetch('events', {
+        keyword: keyword || '', size: String(Math.min(Number(size) || 10, 50)), sort: 'date,asc', classificationName: 'music',
+      }, { key: tmKey, event });
+      return { statusCode: r.status, headers, body: r.body };
     }
 
     // ── Google Places nearby ──

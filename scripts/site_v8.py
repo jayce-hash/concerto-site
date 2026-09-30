@@ -238,6 +238,31 @@ def venue_page(v):
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
             + close('Going to a show here?', 'website-venue') + '</main>')
 
+def jingle_ball_hub():
+    """Jingle Ball is nine different nights. One card per city, each linked to its venue guide."""
+    d = json.loads((ROOT / 'data' / 'jingle-ball-2026.json').read_text())
+    vname = {v['id']: v['name'] for v in VENUES}
+    chips = ''.join(f'<a class="c-jb-chip" href="#{c["anchor"]}">{e(c["city"])}</a>' for c in d['cities'])
+    def card(c):
+        acts = ''.join(f'<li>{e(a)}</li>' for a in c['lineup'])
+        return (f'<article class="c-jb-card" id="{c["anchor"]}"><p class="c-jb-when">{e(c["date"])} \u00b7 {e(c["time"])}</p>'
+                f'<h3>{e(c["city"])}</h3><p class="c-jb-show">{e(c["show"])}</p>'
+                f'<ul class="c-jb-acts">{acts}</ul>'
+                f'<a class="c-jb-venue" href="/venue/{c["venue"]}">{e(vname.get(c["venue"], c["venue"]))} guide \u2192</a>'
+                f'<p class="c-jb-gives">Benefits {e(c["benefits"])}</p></article>')
+    when = d['sourceDate']
+    return ('<section class="c-section c-white c-jb" data-reveal><div class="c-wrap">'
+            + eyebrow('Nine cities, nine nights') + '<h2 class="c-h2">Every Jingle Ball,<br>in one place.</h2>'
+            + '<p class="c-body">Pick your city for the lineup, then open the venue guide for bag rules, parking and the way home.</p>'
+            + f'<nav class="c-jb-chips" aria-label="Jump to a city">{chips}</nav>'
+            + '<div class="c-jb-grid">' + ''.join(card(c) for c in d['cities']) + '</div>'
+            + f'<p class="c-source">Lineups from {e(d["source"])}, {e(when)}. {e(d["onSale"])}</p>'
+            + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p>'
+            + '</div></section>')
+
+
+HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}
+
 def tour_page(t):
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
     official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
@@ -245,13 +270,28 @@ def tour_page(t):
         setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">{songs_word(len(songs))}.</h2><p class="c-source">{e(source_label(s))}. Setlists change by night.</p>'
                 f'<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
                 + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + '</div></section>')
+    elif t['tourId'] == 'jingle-ball-2026-tour':
+        setl = jingle_ball_hub()
+    elif s and (s.get('note') or '').startswith('Lineups vary'):
+        # Multi-artist events (Jingle Ball): no single setlist, so explain the lineups instead.
+        setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Lineups")}'
+                f'<h2 class="c-h2 c-h2-sm">Every city has its own lineup.</h2>'
+                f'<p class="c-body">Each night brings a different mix of artists. Open a date in Concerto to see who is playing, then plan the night around the venue.</p></div></section>')
     elif s:
         setl = f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">Setlist Coming Soon!</h2><p class="c-body">Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p></div></section>'
     else: setl = ''
     more = [x for x in TOURS if x['tourId'] in LIVE and x['tourId'] != t['tourId']][:6]
+    # Holiday tours get a seasonal header through the end of their season, then return to normal
+    # on the next build. Navy, gold and cream only: festive, never novelty.
+    import datetime as _dt
+    _until = HOLIDAY_TOURS.get(t['tourId'])
+    _on = bool(_until) and _dt.date.today().isoformat() <= _until
+    hol_cls = ' c-holiday' if _on else ''
+    hol_fx = '<div class="c-snow" aria-hidden="true"><i></i><i></i></div>' if _on else ''
+    hol_kicker = '\u2726 Holiday concert season' if _on else 'On tour'
     more_html = ''.join(f'<li class="c-entry"><a href="/tour/{x["tourId"]}">{e(x["artist"])}</a><span>{e(x["tourName"])}</span></li>' for x in more)
     return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow("On tour")}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p>'
+            f'<section class="c-hero c-hero-type c-hero-detail{hol_cls}">{hol_fx}<div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow(hol_kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p>'
             f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
             f'<div class="c-wrap"><div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
             + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
