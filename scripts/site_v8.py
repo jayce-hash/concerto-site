@@ -209,6 +209,37 @@ def setlists_hub():
     return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>labeled by source.', 'Official tour playlists and confirmed setlists, each marked with its source and date. Setlists change by night.', 'Search artists', '.c-entry')
             + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{body}</div></section>' + close() + '</main>')
 
+def around_venue(v):
+    """Restaurants, hotels and more around a venue, from its nearby file, as real HTML so search
+    engines can read it ("restaurants near American Airlines Center"). Same data as the app.
+    Google Places content: attributed beside it, linked by place ID, refreshed monthly."""
+    from urllib.parse import quote
+    f = ROOT / 'data' / 'nearby' / f"{v['id']}.json"
+    try: d = json.loads(f.read_text())
+    except Exception: return ''
+    cols = []
+    for key, title in (('restaurants', 'Restaurants'), ('hotels', 'Hotels'), ('more', 'More nearby')):
+        # Convenience stores, pharmacies, gas and groceries are in Google's results but are not recommendations.
+        skip = {'convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank'}
+        items = [x for x in ((d.get('tabs') or {}).get(key) or {}).get('items') or []
+                 if x.get('name') and not (set(x.get('types') or []) & skip)][:6]
+        if not items: continue
+        lis = []
+        for x in items:
+            mi = x.get('distance_mi'); walk = f"{max(1, round((mi or 0) * 20))} min walk" if mi is not None and mi <= 1.2 else (f"{mi:.1f} mi" if mi is not None else '')
+            price = '$' * int(x['price']) if isinstance(x.get('price'), (int, float)) and x['price'] > 0 else ''
+            meta = ' \u00b7 '.join(z for z in (walk, price) if z)
+            href = f"https://www.google.com/maps/search/?api=1&query={quote(x['name'])}&query_place_id={quote(x['place_id'])}" if x.get('place_id') else ''
+            name = f'<a href="{e(href)}" target="_blank" rel="noopener nofollow">{e(x["name"])}</a>' if href else e(x['name'])
+            lis.append(f'<li>{name}<span>{e(meta)}</span></li>')
+        cols.append(f'<div class="c-around-col"><h3>{title}</h3><ul>' + ''.join(lis) + '</ul></div>')
+    if not cols: return ''
+    return (f'<section class="c-section c-white" data-reveal><div class="c-wrap">{eyebrow("Around the venue")}'
+            f'<h2 class="c-h2 c-h2-sm">Near {e(v["name"])}.</h2>'
+            f'<div class="c-around">' + ''.join(cols) + '</div>'
+            f'<p class="c-source">Places from Google Maps. Walking times are estimates. Open Concerto for the full list and your night plan.</p></div></section>')
+
+
 def venue_page(v):
     info = INFO.get(v['id']) or {}
     toc, secs = '', ''
@@ -235,6 +266,7 @@ def venue_page(v):
             f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
             f'<div class="c-wrap">{photo}</div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
+            + around_venue(v)
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
             + close('Going to a show here?', 'website-venue') + '</main>')
 
