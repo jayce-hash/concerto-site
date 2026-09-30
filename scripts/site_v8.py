@@ -189,7 +189,7 @@ def venues_hub():
         groups.setdefault(key, []).append(v)
     body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(f'<li class="c-entry"><a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>' for v in vs) + '</ul></div>' for k, vs in groups.items())
     return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry')
-            + photo_band('Start with a room.') + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + close() + '</main>')
+            + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + close() + '</main>')
 
 def tours_hub():
     groups = {}
