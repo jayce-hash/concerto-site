@@ -88,7 +88,11 @@ def venue_description(v, shown):
 # 122 of 166 tour titles read "... World Tour Tour & Setlist" because the template appended
 # "Tour" to names that already end in it. Setlist searches are the best-performing queries in
 # Search Console, so the title leads with the setlist and never repeats a word.
+# Multi-artist events are searched by lineup and venue rules, not setlist.
+TOUR_TITLE_OVERRIDES = {'jingle-ball-2026-tour': 'Jingle Ball 2026 Lineups, Dates & Venue Guides | Concerto'}
+
 def tour_title(t):
+    if t.get('tourId') in TOUR_TITLE_OVERRIDES: return TOUR_TITLE_OVERRIDES[t['tourId']]
     artist, name = t['artist'].strip(), t['tourName'].strip()
     # Some tour names repeat the artist's name ("Allman Betts Family Revival: Family Revival Tour").
     if name.lower().startswith(artist.lower()): name = name[len(artist):].lstrip(' :-–')
