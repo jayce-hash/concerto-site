@@ -39,4 +39,7 @@ ok(fs.existsSync(path.join(root,'LAUNCH-2.5.md')),'2.5 launch pack missing');
 
 for(const f of fs.readdirSync(path.join(root,'netlify/functions')).filter(x=>x.endsWith('.js'))){try{cp.execFileSync(process.execPath,['--check',path.join(root,'netlify/functions',f)],{stdio:'ignore'});}catch{errors.push(`syntax error netlify/functions/${f}`)}}
 if(errors.length){console.error('RELEASE VALIDATION FAILED'); for(const e of errors)console.error(' - '+e); process.exit(1)}
+
+// Both search bars read search-index.json: it must list every venue and tour.
+{const si=JSON.parse(fs.readFileSync('search-index.json','utf8'));ok(si.venues.length===venues.length,`search index has ${si.venues.length} of ${venues.length} venues`);ok(si.tours.length===tours.length,`search index has ${si.tours.length} of ${tours.length} tours`);}
 console.log(`PASS: site | ${venues.length} venues | ${tours.length} tours | ${Object.keys(setlists).length} setlists | ${fields.length} verified venue sections each`);

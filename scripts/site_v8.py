@@ -587,8 +587,33 @@ def write_app_data():
     kb = (out / 'venue_verified.json').stat().st_size // 1024
     print(f'app data: venue_verified.json ({kb} KB) and {len(INFO)} per-venue files')
 
+def write_search_index():
+    """search-index.json powers BOTH search bars: the website's and the app's. It was a hand-made
+    snapshot of 346 venues and 165 tours, so everything added later was unfindable. Rebuild it
+    from the real data on every build; keep existing venue types, infer them for new venues."""
+    import re as _re
+    path = ROOT / 'search-index.json'
+    old = {}
+    try: old = {v['slug']: v.get('type') for v in json.loads(path.read_text()).get('venues', [])}
+    except Exception: pass
+    def vtype(name):
+        n = name.lower()
+        for word, t in (('stadium','Stadium'),('field','Stadium'),('bowl','Stadium'),
+                        ('amphithe','Amphitheater'),('pavilion','Amphitheater'),('music center','Amphitheater'),
+                        ('arena','Arena'),('center','Arena'),('centre','Arena'),('coliseum','Arena'),('garden','Arena'),
+                        ('theatre','Theater'),('theater','Theater'),('hall','Theater'),('ballroom','Club'),('club','Club'),
+                        ('festival','Festival'),('fest','Festival')):
+            if word in n: return t
+        return 'Venue'
+    venues = [{'name': v['name'], 'slug': v['id'], 'type': old.get(v['id']) or vtype(v['name'])} for v in VENUES]
+    tours = [{'name': t['tourName'], 'slug': t['tourId'], 'artist': t['artist']} for t in TOURS]
+    path.write_text(json.dumps({'venues': venues, 'tours': tours}, ensure_ascii=False, separators=(',', ':')) + '\n')
+    print(f'search index: {len(venues)} venues, {len(tours)} tours')
+
+
 def build():
     write_app_data()
+    write_search_index()
     legacy = {f: (ROOT / f).read_text() for f in ['help.html', 'faq.html', 'privacy.html', 'terms.html', 'contact.html', 'partner-venues.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-artists.html']}
     form_of = lambda f: re.search(r'<form.*?</form>', legacy[f], re.S).group(0)
     rewrite('index.html', home()); rewrite('your-night.html', your_night()); rewrite('premium.html', premium()); rewrite('about.html', about())
