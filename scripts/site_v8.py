@@ -310,7 +310,9 @@ def jingle_ball_data():
     for c in d['cities']:
         info = INFO.get(c['venue'], {})
         c['venueName'] = vname.get(c['venue'], c['venue'])
-        c['rules'] = [{'label': lab, 'text': _rule_line(info.get(key))} for key, lab in RULES]
+        # Verified per-city lines win; otherwise fall back to the venue's guide.
+        lines = c.get('ruleLines') or {}
+        c['rules'] = [{'label': lab, 'text': lines[lab] if lab in lines else _rule_line(info.get(key))} for key, lab in RULES]
         c['tickets'] = c.get('tickets') or f"https://www.ticketmaster.com/search?q={quote('Jingle Ball ' + c['venueName'])}"
         c['setTimes'] = c.get('setTimes') or None
         c['partner'] = c.get('partner') or None
@@ -341,7 +343,7 @@ def jingle_ball_hub():
             + '<p class="c-body">Pick your city: the lineup, the arena\u2019s rules for the night, and your tickets.</p>'
             + f'<nav class="c-jb-chips" aria-label="Jump to a city">{chips}</nav>'
             + '<div class="c-jb-grid">' + ''.join(card(c) for c in d['cities']) + '</div>'
-            + f'<p class="c-source">Lineups from {e(d["source"])}, {e(d["sourceDate"])}. Venue rules from each arena\u2019s official guidance, dated in its guide. {e(d["onSale"])}</p>'
+            + f'<p class="c-source">Lineups from {e(d["source"])}, {e(d["sourceDate"])}. Venue rules checked against each arena\u2019s own guest guide on September 30, 2026. {e(d["onSale"])}</p>'
             + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p></div></section>')
 
 HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}

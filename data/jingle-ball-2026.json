@@ -1,7 +1,7 @@
 {
   "tourId": "jingle-ball-2026-tour",
   "source": "iHeartRadio's official lineup announcement",
-  "sourceDate": "2026-09-25",
+  "sourceDate": "September 25, 2026",
   "onSale": "General on-sale Friday, October 2 at 12 PM local time on Ticketmaster.",
   "broadcast": "Can’t make it? ABC airs the iHeartRadio Jingle Ball 2026 special in December, streaming the next day on Hulu and Disney+.",
   "cities": [
@@ -22,7 +22,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Kidd's Kids"
+      "benefits": "Kidd's Kids",
+      "ruleLines": {
+        "Bags": "Bags up to 12 x 6 x 12 in; no backpacks, luggage, duffels or laptop bags. Clear bags speed up entry",
+        "Entry": "Entrances are assigned per event; check your ticket",
+        "Re-entry": "No re-entry",
+        "Parking": "Chevrolet Garage (3464 Trail Dr) or the Yellow Lots; lots open 3.5 hours before showtime",
+        "Rideshare": "Pickup on Harley Ave, north side; drop-off at the west entrance on Dickies Way"
+      }
     },
     {
       "city": "Los Angeles",
@@ -42,7 +49,14 @@
         "Stella Lefty",
         "The Beaches"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "Clutches only, clear ones included, up to 10 x 6 x 2 in",
+        "Entry": null,
+        "Re-entry": null,
+        "Parking": "Garage access is guaranteed only with a parking pass bought in advance",
+        "Rideshare": "Only at the Mobility Hub, East Garage level 1 (3700 W Century Blvd)"
+      }
     },
     {
       "city": "Chicago",
@@ -61,7 +75,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "No backpacks, totes or mid-size bags; approved bags up to 12 x 12 in",
+        "Entry": "All guests are screened, and jackets may be searched",
+        "Re-entry": null,
+        "Parking": null,
+        "Rideshare": null
+      }
     },
     {
       "city": "Detroit",
@@ -81,7 +102,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "Bags must be smaller than 4 x 6 x 1.5 in; medical and diaper bags up to 16 x 16 x 8 in",
+        "Entry": "Chevrolet (northeast), Comerica (southeast), Google (south) and northwest entries",
+        "Re-entry": "No re-entry",
+        "Parking": "Reserve ahead at ParkDistrictDetroit.com",
+        "Rideshare": "Fisher Service Drive, west of Woodward Ave"
+      }
     },
     {
       "city": "New York",
@@ -102,7 +130,14 @@
         "Freya Skye",
         "Special guests Bella Kay and The Beaches"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "Bags up to 22 x 14 x 9 in that fit under your seat; no bag or coat check",
+        "Entry": "Main entrance on 7th Avenue",
+        "Re-entry": "No re-entry",
+        "Parking": "No arena lot; nearby garages vary in price by event",
+        "Rideshare": null
+      }
     },
     {
       "city": "Boston",
@@ -122,7 +157,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "Bags, clear ones included, no larger than 6 x 4 x 1.5 in",
+        "Entry": "Mobile tickets only",
+        "Re-entry": "No re-entry",
+        "Parking": "North Station Garage, directly beneath the arena (120 Causeway St)",
+        "Rideshare": "No pickup in front of the arena; evening pickups are on Merrimac St"
+      }
     },
     {
       "city": "Washington, D.C.",
@@ -142,7 +184,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "No bags or purses; wallet-size clutches up to 4 x 6 in only",
+        "Entry": "Medical and parenting bags use the 6th and F St entrance",
+        "Re-entry": "Not allowed at concerts; leaving means buying a new ticket",
+        "Parking": "Arena garage and SpotHero partner lots nearby",
+        "Rideshare": null
+      }
     },
     {
       "city": "Philadelphia",
@@ -162,7 +211,14 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "Clutches up to 4.5 x 6.5 in; bags up to 14 x 14 x 6 in go through X-ray lanes",
+        "Entry": "Bag lanes at the Broad Street and 11th Street entrances",
+        "Re-entry": "No re-entry after your ticket is scanned",
+        "Parking": "Lots are cashless; reserve ahead through SpotHero",
+        "Rideshare": null
+      }
     },
     {
       "city": "Nashville",
@@ -181,7 +237,15 @@
         "The Beaches",
         "JYT"
       ],
-      "benefits": "Ryan Seacrest Foundation"
+      "benefits": "Ryan Seacrest Foundation",
+      "ruleLines": {
+        "Bags": "No backpacks; bags up to 12 x 12 x 6 in are X-rayed, and there is no bag storage",
+        "Entry": "Walk-through metal detectors at every entrance",
+        "Re-entry": "No re-entry",
+        "Parking": "Nearby garages, including Fifth + Broadway",
+        "Rideshare": null
+      }
     }
-  ]
+  ],
+  "rulesChecked": "2026-09-30"
 }
