@@ -596,3 +596,49 @@
   window.addEventListener('hashchange', function () { var id = location.hash.slice(1); if (cards.some(function(c) { return c.id === id; })) show(id, false); });
   if (fromHash === start && fromHash) setTimeout(function () { hub.scrollIntoView({ block: 'start' }); }, 50);
 })();
+/* Jingle Ball countdown: counts up on load, ticks to the showtime, follows the chosen city,
+   moves to the next city after each show, and says "Tonight" on show day. */
+(function () {
+  var box = document.querySelector('.c-jb-count[data-cities]'); if (!box) return;
+  var list; try { list = JSON.parse(box.getAttribute('data-cities')); } catch (e) { return; }
+  var q = function (s) { return box.querySelector(s); };
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pinned = null, shown = null, first = list[0] && list[0].a;
+  function target() {
+    var now = Date.now();
+    if (pinned) { var p = list.filter(function (x) { return x.a === pinned; })[0]; if (p && Date.parse(p.t) + 4 * 3600e3 > now) return { x: p, mine: true }; }
+    for (var i = 0; i < list.length; i++) if (Date.parse(list[i].t) + 4 * 3600e3 > now) return { x: list[i], mine: false };
+    return null;
+  }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function paint(animate) {
+    var t = target(); if (!t) { box.innerHTML = '<strong>That\u2019s a wrap on Jingle Ball 2026.</strong>'; return; }
+    var ms = Date.parse(t.x.t) - Date.now(), live = ms <= 0;
+    var start = new Date(t.x.t), today = new Date(); var d0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var d1 = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+    var days = Math.max(0, Math.round((d1 - d0) / 86400000));
+    var rem = Math.max(0, ms), h = Math.floor(rem / 3600e3) % 24, m = Math.floor(rem / 60e3) % 60, s = Math.floor(rem / 1e3) % 60;
+    var big = q('[data-days]'), unit = q('[data-unit]');
+    if (days === 0) { big.textContent = live ? 'Now' : 'Tonight'; unit.textContent = ''; }
+    else if (animate && !still) {
+      var n = 0, step = Math.max(1, Math.ceil(days / 24)); var iv = setInterval(function () { n = Math.min(days, n + step); big.textContent = n; if (n >= days) clearInterval(iv); }, 28);
+      unit.textContent = days === 1 ? 'day' : 'days';
+    } else { big.textContent = days; unit.textContent = days === 1 ? 'day' : 'days'; }
+    q('[data-h]').textContent = pad(live ? 0 : Math.floor(rem / 3600e3) % 24 + (days ? 0 : 0));
+    q('[data-h]').textContent = pad(h); q('[data-m]').textContent = pad(m); q('[data-s]').textContent = pad(s);
+    if (shown !== t.x.a + t.mine) {
+      q('[data-city]').textContent = t.x.city.replace(/ /g, '\u00a0');
+      q('[data-line]').textContent = (t.mine ? 'your night' : (t.x.a === first ? 'opens the tour' : 'is next')) + ' \u00b7 ' + t.x.date + ' \u00b7 ' + t.x.venue;
+      q('[data-go]').setAttribute('href', '#' + t.x.a);
+      if (shown !== null) { box.classList.remove('is-bump'); void box.offsetWidth; box.classList.add('is-bump'); }
+      shown = t.x.a + t.mine;
+    }
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest && ev.target.closest('.c-jb-chip[data-city]'); if (!b) return;
+    pinned = b.getAttribute('data-city'); paint(false);
+  });
+  window.addEventListener('hashchange', function () { var h = location.hash.slice(1); if (list.some(function (x) { return x.a === h; })) { pinned = h; paint(false); } });
+  var h0 = location.hash.slice(1); if (list.some(function (x) { return x.a === h0; })) pinned = h0;
+  paint(true); setInterval(function () { paint(false); }, 1000);
+})();

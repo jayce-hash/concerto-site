@@ -333,6 +333,31 @@ def jingle_ball_data():
     (ROOT / 'data' / 'jingle-ball-2026-hub.json').write_text(json.dumps(d, ensure_ascii=False, separators=(',', ':')) + '\n')
     return d
 
+def jb_countdown():
+    """Hero countdown: "62 days until Jingle Ball", a live clock to the showtime, following the
+    next show or the city the fan picks. The page script keeps it live."""
+    import datetime as _dt, json as _json
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    tz = {'ET': 5, 'CT': 6, 'MT': 7, 'PT': 8}  # December offsets from UTC (standard time)
+    items = []
+    for c in jingle_ball_data()['cities']:
+        m = re.search(r'([A-Z][a-z]{2}) (\d{1,2})', c['date']); t = re.search(r'(\d{1,2}):(\d{2}) (AM|PM) ([A-Z]T)', c['time'])
+        if not (m and t): continue
+        h = int(t.group(1)) % 12 + (12 if t.group(3) == 'PM' else 0)
+        start = _dt.datetime(2026, months.index(m.group(1)) + 1, int(m.group(2)), h, int(t.group(2))) + _dt.timedelta(hours=tz.get(t.group(4), 6))
+        items.append({'a': c['anchor'], 'city': c['city'], 'date': c['date'], 'venue': c['venueName'], 't': start.strftime('%Y-%m-%dT%H:%M:00Z')})
+    now = _dt.datetime.utcnow()
+    nxt = next((x for x in items if _dt.datetime.strptime(x['t'], '%Y-%m-%dT%H:%M:00Z') > now), None)
+    if not nxt: return '<div class="c-jb-count"><strong>That\u2019s a wrap on Jingle Ball 2026.</strong></div>'
+    days = max(0, (_dt.datetime.strptime(nxt['t'], '%Y-%m-%dT%H:%M:00Z').date() - now.date()).days)
+    lead = 'opens the tour' if nxt['a'] == items[0]['a'] else 'is next'
+    data = e(_json.dumps(items, separators=(',', ':')))
+    return (f'<div class="c-jb-count" data-cities="{data}" aria-live="polite">'
+            f'<div class="c-jb-count-big"><b data-days>{days}</b><span><i data-unit>{"day" if days == 1 else "days"}</i> until<br>Jingle Ball</span></div>'
+            f'<div class="c-jb-clock"><span><b data-h>00</b>hrs</span><span><b data-m>00</b>min</span><span><b data-s>00</b>sec</span></div>'
+            f'<p class="c-jb-count-city"><strong data-city>{city_html(nxt["city"])}</strong> <span data-line>{lead} \u00b7 {e(nxt["date"])} \u00b7 {e(nxt["venue"])}</span></p>'
+            f'<a class="c-jb-count-go" href="#{nxt["a"]}" data-go>See this night \u2192</a></div>')
+
 def jingle_ball_hub():
     """Jingle Ball is nine different nights. Each city gets a ticket-style card with what that night needs."""
     from urllib.parse import quote
@@ -365,7 +390,7 @@ def jingle_ball_hub():
 
 
 def jingle_ball_page(t):
-    return ('<main id="main-content" class="c-page c-jb-page"><section class="c-jb-hero"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>Jingle Ball 2026</nav><div class="c-jb-hero-grid"><div>' + eyebrow('December 1–17, 2026 · iHeartRadio Jingle Ball') + '<h1>Nine nights.<br>One holiday<br><em>soundtrack.</em></h1><p class="c-lead">Your Jingle Ball 2026 companion. Find your city, meet the lineup and plan everything around the show.</p><div class="c-actions"><a class="c-btn c-btn-navy" href="#jingle-cities">Find your night</a>' + app_link('tour',t['tourId'],'Save in Concerto','c-btn c-btn-line') + '</div></div><figure>' + '<div class="c-jb-cal" aria-label="Nine nights">' + ''.join(f'<a class="c-jb-day" href="#{c["anchor"]}" data-city="{c["anchor"]}"><b>{e(c["date"].split(", ")[1].split(" ")[1])}</b><span>{e(c["date"].split(", ")[0])}</span><i>{city_html(c["city"])}</i></a>' for c in jingle_ball_data()['cities']) + '</div>' + '</figure></div><div class="c-jb-statbar"><span><b>9</b> cities</span><span><b>Dec 1–17</b> holiday concert season</span><span><b>Your city.</b> Your lineup.</span></div></div></section><div id="jingle-cities">' + jingle_ball_hub() + '</div>' + close('Make a night of Jingle Ball.','website-tour') + '</main>')
+    return ('<main id="main-content" class="c-page c-jb-page"><section class="c-jb-hero"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>Jingle Ball 2026</nav><div class="c-jb-hero-grid"><div>' + eyebrow('December 1–17, 2026 · iHeartRadio Jingle Ball') + '<h1>Nine nights.<br>One holiday<br><em>soundtrack.</em></h1><p class="c-lead">Your Jingle Ball 2026 companion. Find your city, meet the lineup and plan everything around the show.</p><div class="c-actions"><a class="c-btn c-btn-navy" href="#jingle-cities">Find your night</a>' + app_link('tour',t['tourId'],'Save in Concerto','c-btn c-btn-line') + '</div></div><figure>' + jb_countdown() + '</figure></div><div class="c-jb-statbar"><span><b>9</b> cities</span><span><b>Dec 1–17</b> holiday concert season</span><span><b>Your city.</b> Your lineup.</span></div></div></section><div id="jingle-cities">' + jingle_ball_hub() + '</div>' + close('Make a night of Jingle Ball.','website-tour') + '</main>')
 
 HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}
 
