@@ -1695,3 +1695,66 @@ h1,h2{font-weight:700}
 .v8 .c-jb-venue{margin-left:6px;font-weight:600;font-size:14px;color:#121E36;text-decoration:underline;text-decoration-color:#761B8F;text-underline-offset:3px;text-decoration-thickness:2px}
 .v8 .c-jb-gives{font-size:12px;color:#5B6478;margin:8px 0 0}
 @media (max-width:560px){.v8 .c-jb-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-2px;padding:0 2px 6px}.v8 .c-jb-chip{flex:0 0 auto}.v8 .c-jb-body{padding:18px}.v8 .c-jb-rules li{grid-template-columns:84px 1fr;font-size:14px}.v8 .c-jb-venue{margin-left:0}}
+
+/* Jingle Ball 2026: official purple, berry and icy mint artwork. */
+.v8 .c-jb-hero{background:radial-gradient(ellipse at 90% 15%,#4330BA,transparent 55%),linear-gradient(135deg,#5A1466,#831E6E);color:white;padding:40px 0 0;overflow:hidden}
+.v8 .c-jb-hero .c-crumbs,.v8 .c-jb-hero .c-crumbs a,.v8 .c-jb-hero .c-lead{color:#D1F9F3}
+.v8 .c-jb-hero .c-eyebrow{color:#D1F9F3}.v8 .c-jb-hero h1{color:#fff;font-size:clamp(44px,6vw,82px);line-height:1.06;letter-spacing:-.04em;margin:20px 0}.v8 .c-jb-hero h1 em{color:#D1F9F3}
+.v8 .c-jb-hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;padding:30px 0 44px}.v8 .c-jb-hero figure{margin:0;transform:rotate(2deg)}.v8 .c-jb-hero img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 20px 60px #320b4a80}.v8 .c-jb-hero figcaption{font-size:11px;color:#D1F9F3;margin-top:12px}
+.v8 .c-jb-hero .c-btn-navy{background:#D1F9F3;color:#5A1466}.v8 .c-jb-hero .c-btn-line{color:white;border-color:#ffffff80}
+.v8 .c-jb-statbar{display:flex;justify-content:space-between;gap:20px;padding:24px 0;border-top:1px solid #ffffff40;font-size:13px}.v8 .c-jb-statbar b{color:#D1F9F3;font-size:20px;margin-right:8px}
+.v8 .c-jb-page .c-narrow{max-width:1100px}.v8 .c-jb-acts li{padding:0;background:#fff}.v8 .c-jb-acts a{display:block;padding:12px 16px;color:inherit;text-decoration:none}.v8 .c-jb-acts a span{display:block;font-size:10px;color:#761B8F;margin-top:4px}.v8 .c-jb-acts li:first-child{background:#fff;border-color:rgba(18,30,54,.1);font-weight:400;color:#121E36}.v8 .c-jb-acts{gap:10px;margin-bottom:16px}
+.v8 .c-jb-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;padding:24px;background:#f5f0f8;border-radius:16px}.v8 .c-jb-info-grid h4,.v8 .c-jb-info-grid h3{margin:0 0 10px;font-family:"Playfair Display",Georgia,serif;font-size:24px;color:#5A1466}.v8 .c-jb-info-grid p{font-size:14px;line-height:1.7;margin:0 0 12px}.v8 .c-jb-extras{background:white;border-top:4px solid #D1F9F3}.v8 .c-jb-faq{padding:18px 0;border-bottom:1px solid #ddd}.v8 .c-jb-faq summary{cursor:pointer;font-weight:600}.v8 .c-jb-faq p{line-height:1.6;max-width:700px}
+@media(max-width:760px){.v8 .c-jb-hero-grid{grid-template-columns:1fr;gap:30px}.v8 .c-jb-hero figure{transform:none}.v8 .c-jb-statbar{flex-wrap:wrap}.v8 .c-jb-info-grid{grid-template-columns:1fr;padding:18px}}
+/* Hero "nine nights" calendar: Concerto's own visual, each tile jumps to its city. */
+.v8 .c-jb-cal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:16px;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(209,249,243,.35);backdrop-filter:blur(2px)}
+.v8 .c-jb-day{display:flex;flex-direction:column;align-items:flex-start;padding:12px 12px 11px;border-radius:14px;background:rgba(18,30,54,.28);color:#fff;text-decoration:none;border:1px solid rgba(209,249,243,.18);transition:transform .15s,background .15s,border-color .15s}
+.v8 .c-jb-day:hover{transform:translateY(-2px);background:rgba(209,249,243,.16);border-color:#D1F9F3}
+.v8 .c-jb-day b{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:30px;line-height:1;color:#D1F9F3}
+.v8 .c-jb-day span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:4px}
+.v8 .c-jb-day i{font-style:normal;font-size:13px;font-weight:600;margin-top:6px;line-height:1.25}
+@media (prefers-reduced-motion:reduce){.v8 .c-jb-day{transition:none}.v8 .c-jb-day:hover{transform:none}}
+@media (max-width:560px){.v8 .c-jb-day b{font-size:24px}.v8 .c-jb-day i{font-size:12px}}
+.v8 .c-jb-cal,.v8 .c-jb-hero-art:has(.c-jb-cal),.v8 .c-jb-hero-grid>div:has(.c-jb-cal){transform:none!important;rotate:none!important}
+.v8 .c-jb-hero figure{transform:none!important;rotate:none!important;box-shadow:none!important;background:none!important}
+
+/* Jingle Ball, matched to the app: the whole hub on this year's gradient, snow, frosted glass, mint accents. */
+.v8 .c-jb-glass{position:relative;overflow:hidden;color:#fff;background:linear-gradient(180deg,#4330BA 0%,#761B8F 34%,#831E6E 70%,#2A0D3D 100%)}
+.v8 .c-jb-glass>.c-wrap{position:relative;z-index:1}
+.v8 .c-jb-glass .c-eyebrow{color:#D1F9F3}
+.v8 .c-jb-glass .c-h2,.v8 .c-jb-glass h2,.v8 .c-jb-glass h3{color:#fff}
+.v8 .c-jb-glass .c-body,.v8 .c-jb-glass p{color:rgba(255,255,255,.8)}
+.v8 .c-jb-glass .c-source,.v8 .c-jb-glass .c-jb-gives,.v8 .c-jb-glass .c-jb-sets{color:rgba(255,255,255,.6)}
+.v8 .c-jb-glass .c-jb-chip{background:rgba(255,255,255,.10);border-color:rgba(209,249,243,.35);color:#fff}
+.v8 .c-jb-glass .c-jb-chip:hover{border-color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-chip[aria-selected="true"]{background:#D1F9F3;border-color:#D1F9F3;color:#5A1466;font-weight:600}
+.v8 .c-jb-glass .c-jb-card{background:rgba(255,255,255,.10);border:1px solid rgba(209,249,243,.28);box-shadow:none;color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.v8 .c-jb-glass .c-jb-stub{background:none;border-bottom:1px solid rgba(209,249,243,.28);padding-bottom:14px}
+.v8 .c-jb-glass .c-jb-stub h3{font-size:34px}
+.v8 .c-jb-glass .c-jb-when{color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-show{color:rgba(255,255,255,.78)}
+.v8 .c-jb-glass .c-jb-label{color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-acts li,.v8 .c-jb-glass .c-jb-acts a{background:rgba(255,255,255,.10);border-color:rgba(209,249,243,.28);color:#fff}
+.v8 .c-jb-glass .c-jb-acts li:first-child,.v8 .c-jb-glass .c-jb-acts li:first-child a{background:#D1F9F3;border-color:#D1F9F3;color:#5A1466}
+.v8 .c-jb-glass .c-jb-rules li{border-top-color:rgba(209,249,243,.22)}
+.v8 .c-jb-glass .c-jb-rules b{color:#fff}
+.v8 .c-jb-glass .c-jb-rules span{color:rgba(255,255,255,.8)}
+.v8 .c-jb-glass .c-jb-tix{background:#D1F9F3;color:#5A1466;font-weight:700}
+.v8 .c-jb-glass .c-jb-tix:hover{background:#fff}
+.v8 .c-jb-glass .c-jb-ride{background:rgba(255,255,255,.10);border-color:rgba(209,249,243,.35);color:#fff}
+.v8 .c-jb-glass .c-jb-ride:hover{border-color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-venue{color:#fff;text-decoration-color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-partner{background:rgba(255,255,255,.08);border-color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-partner span{color:#D1F9F3}
+.v8 .c-jb-glass .c-jb-partner a{color:#fff}
+.v8 .c-jb-glass .c-jb-info-grid>*{background:rgba(255,255,255,.10);border-color:rgba(209,249,243,.28);color:#fff}
+.v8 .c-jb-glass .c-jb-info-grid a{color:#fff}
+.v8 .c-jb-glass .c-jb-faq,.v8 .c-jb-glass .c-jb-faq summary{color:#fff;border-color:rgba(209,249,243,.22)}
+.v8 .c-jb-glass a:focus-visible,.v8 .c-jb-glass button:focus-visible{outline:3px solid #D1F9F3;outline-offset:2px}
+.v8 .c-jb-glass .c-jb-info-grid{background:rgba(255,255,255,.10)!important;border:1px solid rgba(209,249,243,.28)!important;box-shadow:none!important}
+.v8 .c-jb-glass .c-jb-info-grid>*{background:none!important;border:0!important}
+.v8 .c-jb-glass .c-jb-info-grid h3,.v8 .c-jb-glass .c-jb-info-grid p,.v8 .c-jb-glass .c-jb-info-grid a{color:#fff!important}
+.v8 .c-jb-glass .c-jb-info-grid .c-jb-label{color:#D1F9F3!important}
+.v8 .c-jb-glass .c-jb-acts li:first-child *{color:#5A1466!important}
+.v8 .c-jb-glass .c-jb-acts li *{color:inherit}
+.v8 .c-jb-glass .c-jb-card h3,.v8 .c-jb-glass .c-jb-card h4,.v8 .c-jb-glass .c-jb-info-grid h3{color:#fff!important}

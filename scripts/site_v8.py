@@ -294,7 +294,7 @@ def _rule_line(sec):
         return 'Varies by event. Check your event details before you go'
     if not t or re.search(r"not (explicitly |specifically )?(detailed|confirmed|stated|published|specified|listed)|does not (state|specify|publish)|check the (event|show) listing", t, re.I): return None
     t = re.split(r'(?<=[.!?])\s', t)[0].rstrip('.') if t else ''
-    if len(t) > 118: t = t[:118].rsplit(' ', 1)[0].rstrip(',;:') + '\u2026'
+    if len(t) > 150: return None  # too long for one line: the full guide covers it
     return t or None
 
 def city_html(city):
@@ -320,6 +320,14 @@ def jingle_ball_data():
         lines = c.get('ruleLines') or {}
         c['rules'] = [{'label': lab, 'text': lines[lab] if lab in lines else _rule_line(info.get(key))} for key, lab in RULES]
         c['tickets'] = c.get('tickets') or f"https://www.ticketmaster.com/search?q={quote('Jingle Ball ' + c['venueName'])}"
+        c['dateISO'] = '2026-12-' + {'dallas':'01','los-angeles':'04','chicago':'07','detroit':'08','new-york':'11','boston':'13','washington-dc':'14','philadelphia':'15','nashville':'17'}[c['anchor']]
+        hour, minute = {'dallas':(19,30),'los-angeles':(19,30),'chicago':(19,0),'detroit':(19,30),'new-york':(19,0),'boston':(18,0),'washington-dc':(19,30),'philadelphia':(19,30),'nashville':(19,30)}[c['anchor']]
+        offset = '-08:00' if c['anchor'] == 'los-angeles' else '-06:00' if c['anchor'] in ('dallas','chicago','nashville') else '-05:00'
+        c['dateTime'] = c['dateISO'] + f'T{hour:02}:{minute:02}:00' + offset
+        c['timezone'] = 'America/Los_Angeles' if c['anchor'] == 'los-angeles' else 'America/Chicago' if offset == '-06:00' else 'America/New_York'
+        c['localTime'] = f'{hour:02}:{minute:02}:00'
+        c['directions'] = 'https://www.google.com/maps/search/?api=1&query=' + quote(c['venueName'] + ' ' + c['city'])
+        c['rules'] += [{'label': lab, 'text': _rule_line(info.get(key))} for key, lab in [('accessibility','Accessibility'),('ticketPickup','Ticket pickup')]]
         c['setTimes'] = c.get('setTimes') or None
         c['partner'] = c.get('partner') or None
     (ROOT / 'data' / 'jingle-ball-2026-hub.json').write_text(json.dumps(d, ensure_ascii=False, separators=(',', ':')) + '\n')
@@ -327,35 +335,42 @@ def jingle_ball_data():
 
 def jingle_ball_hub():
     """Jingle Ball is nine different nights. Each city gets a ticket-style card with what that night needs."""
+    from urllib.parse import quote
     d = jingle_ball_data()
     def card(c):
-        acts = ''.join(f'<li>{e(a)}</li>' for a in c['lineup'])
+        acts = ''.join(f'<li><a href="https://music.apple.com/us/search?term={quote(a)}" target="_blank" rel="noopener">{e(a)}<span>Listen ↗</span></a></li>' for a in c['lineup'])
         rules = ''.join(f'<li><b>{e(r["label"])}</b><span>{e(r["text"]) if r["text"] else "Not published by the venue"}</span></li>' for r in c['rules'])
         partner = (f'<div class="c-jb-partner"><span>Before the show \u00b7 Concerto Partner</span><a href="{e(c["partner"].get("url",""))}" target="_blank" rel="noopener">{e(c["partner"]["name"])}</a>'
                    + (f'<p>{e(c["partner"].get("offer",""))}</p>' if c["partner"].get("offer") else '') + '</div>') if c.get('partner') else ''
-        sets = e(c['setTimes']) if c.get('setTimes') else 'Set times not posted yet'
-        return (f'<article class="c-jb-card" id="{c["anchor"]}">'
+        sets = (e(c['setTimes']) + '. ') if c.get('setTimes') else ''
+        return (f'<article class="c-jb-card" role="tabpanel" aria-labelledby="tab-{c["anchor"]}" id="{c["anchor"]}">'
                 f'<div class="c-jb-stub"><p class="c-jb-when">{e(c["date"])}<br>{e(c["time"])}</p><h3>{city_html(c["city"])}</h3><p class="c-jb-show">{e(c["show"])}</p></div>'
                 f'<div class="c-jb-body"><p class="c-jb-label">Lineup</p><ul class="c-jb-acts">{acts}</ul>'
-                f'<p class="c-jb-sets">{sets}</p>'
+                f'<p class="c-jb-sets">{sets}Lineup order is not performance order.</p>'
+                f'<div class="c-jb-info-grid"><div><p class="c-jb-label">Setlists &amp; stage times</p><h4>A different set for every night.</h4><p>Jingle Ball performances can differ from an artist’s own tour. Set times are usually shared by the station close to show day. The listed time is showtime.</p></div><div><p class="c-jb-label">Plan your night</p><h4>Make room for the whole evening.</h4><p>Save your show in Concerto, then plan dinner, travel and your stay with Concerto+.</p>{app_link("tour", "jingle-ball-2026-tour", "Open your concert companion", "c-link")}</div></div>' 
                 f'<p class="c-jb-label">At {e(c["venueName"])}</p><ul class="c-jb-rules">{rules}</ul>'
                 f'{partner}'
                 f'<div class="c-jb-actions"><a class="c-jb-tix" href="{e(c["tickets"])}" target="_blank" rel="noopener nofollow">Get tickets</a>'
                 + (f'<a class="c-jb-ride" href="{e(c["uber"])}" target="_blank" rel="noopener nofollow">Uber</a><a class="c-jb-ride" href="{e(c["lyft"])}" target="_blank" rel="noopener nofollow">Lyft</a>' if c.get('uber') else '') +
-                f'<a class="c-jb-venue" href="/venue/{c["venue"]}">Full venue guide \u2192</a></div>'
+                f'<a class="c-jb-ride" href="{e(c["directions"])}" target="_blank" rel="noopener">Directions ↗</a><a class="c-jb-venue" href="/venue/{c["venue"]}">Full venue guide \u2192</a></div>'
                 f'<p class="c-jb-gives">Benefits {e(c["benefits"])}</p></div></article>')
-    tabs = ''.join(f'<button type="button" class="c-jb-chip" role="tab" data-city="{c["anchor"]}" aria-controls="{c["anchor"]}">{e(c["city"])}</button>' for c in d['cities'])
-    return ('<section class="c-section c-cream c-jb" data-reveal><div class="c-wrap c-narrow">'
+    tabs = ''.join(f'<button type="button" class="c-jb-chip" id="tab-{c["anchor"]}" role="tab" data-city="{c["anchor"]}" aria-controls="{c["anchor"]}">{e(c["city"])}</button>' for c in d['cities'])
+    return ('<section class="c-section c-jb c-jb-glass" data-reveal><div class="c-snow" aria-hidden="true"><i></i><i></i></div><div class="c-wrap c-narrow">'
             + eyebrow('\u2726 Nine cities, nine nights') + '<h2 class="c-h2 c-h2-sm">Every Jingle Ball,<br>in one place.</h2>'
             + '<p class="c-body">Pick your city for the lineup, the arena\u2019s rules for the night, your tickets and your ride.</p>'
             + f'<div class="c-jb-chips" role="tablist" aria-label="Choose a city">{tabs}</div>'
             + '<div class="c-jb-grid">' + ''.join(card(c) for c in d['cities']) + '</div>'
             + f'<p class="c-source">Lineups from {e(d["source"])}, {e(d["sourceDate"])}. Venue rules checked against each arena\u2019s own guest guide on September 30, 2026. {e(d["onSale"])}</p>'
-            + f'<p class="c-body c-jb-tv">{e(d["broadcast"])}</p></div></section>')
+            + f'<div class="c-jb-info-grid c-jb-extras"><div><p class="c-jb-label">Tickets</p><h3>Know your on-sale.</h3><p>{e(d["onSale"])}</p><a class="c-link" href="https://www.iheart.com/jingle-ball/" target="_blank" rel="noopener">Official event updates ↗</a></div><div><p class="c-jb-label">Watch from home</p><h3>The holiday special.</h3><p>{e(d["broadcast"])}</p><p>Broadcast date and time have not been announced here.</p></div></div><details class="c-jb-faq"><summary>Does every city have the same lineup?</summary><p>No. Choose your city above before buying tickets or planning your night.</p></details><details class="c-jb-faq"><summary>Are doors and artist set times the same as showtime?</summary><p>No. Showtime is the event start. Check the event listing for doors, and do not assume the lineup is listed in performance order.</p></details></div></section>' )
+
+
+def jingle_ball_page(t):
+    return ('<main id="main-content" class="c-page c-jb-page"><section class="c-jb-hero"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>Jingle Ball 2026</nav><div class="c-jb-hero-grid"><div>' + eyebrow('December 1–17, 2026 · iHeartRadio Jingle Ball') + '<h1>Nine nights.<br>One holiday<br><em>soundtrack.</em></h1><p class="c-lead">Your Jingle Ball 2026 companion. Find your city, meet the lineup and plan everything around the show.</p><div class="c-actions"><a class="c-btn c-btn-navy" href="#jingle-cities">Find your night</a>' + app_link('tour',t['tourId'],'Save in Concerto','c-btn c-btn-line') + '</div></div><figure>' + '<div class="c-jb-cal" aria-label="Nine nights">' + ''.join(f'<a class="c-jb-day" href="#{c["anchor"]}" data-city="{c["anchor"]}"><b>{e(c["date"].split(", ")[1].split(" ")[1])}</b><span>{e(c["date"].split(", ")[0])}</span><i>{city_html(c["city"])}</i></a>' for c in jingle_ball_data()['cities']) + '</div>' + '</figure></div><div class="c-jb-statbar"><span><b>9</b> cities</span><span><b>Dec 1–17</b> holiday concert season</span><span><b>Your city.</b> Your lineup.</span></div></div></section><div id="jingle-cities">' + jingle_ball_hub() + '</div>' + close('Make a night of Jingle Ball.','website-tour') + '</main>')
 
 HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}
 
 def tour_page(t):
+    if t['tourId'] == 'jingle-ball-2026-tour': return jingle_ball_page(t)
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
     official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
     if songs:
