@@ -392,10 +392,23 @@ def jingle_ball_hub():
 def jingle_ball_page(t):
     return ('<main id="main-content" class="c-page c-jb-page"><section class="c-jb-hero"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>Jingle Ball 2026</nav><div class="c-jb-hero-grid"><div>' + eyebrow('December 1–17, 2026 · iHeartRadio Jingle Ball') + '<h1>Nine nights.<br>One holiday<br><em>soundtrack.</em></h1><p class="c-lead">Your Jingle Ball 2026 companion. Find your city, meet the lineup and plan everything around the show.</p><div class="c-actions"><a class="c-btn c-btn-navy" href="#jingle-cities">Find your night</a>' + app_link('tour',t['tourId'],'Save in Concerto','c-btn c-btn-line') + '</div></div><figure>' + jb_countdown() + '</figure></div><div class="c-jb-statbar"><span><b>9</b> cities</span><span><b>Dec 1–17</b> holiday concert season</span><span><b>Your city.</b> Your lineup.</span></div></div></section><div id="jingle-cities">' + jingle_ball_hub() + '</div>' + close('Make a night of Jingle Ball.','website-tour') + '</main>')
 
-HOLIDAY_TOURS = {'jingle-ball-2026-tour': '2026-12-31'}
+def jb_lineups():
+    """Jingle Ball has no setlist; its lineups sit where the setlist would, in the same style."""
+    d = jingle_ball_data()
+    parts = []
+    for c in d['cities']:
+        acts = ''.join(f'<li>{e(a)}</li>' for a in c['lineup'])
+        parts.append(f'<div class="c-lineup" id="{c["anchor"]}"><h3 class="c-lineup-city">{city_html(c["city"])}</h3>'
+                     f'<p class="c-source">{e(c["date"])} \u00b7 {e(c["time"])} \u00b7 <a class="c-link" href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>'
+                     f'<div class="c-songs"><ol class="song-list">{acts}</ol></div></div>')
+    return (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Lineups")}'
+            f'<h2 class="c-h2 c-h2-sm">Nine cities,<br>nine lineups.</h2>'
+            f'<p class="c-source">From {e(d["source"])}, {e(d["sourceDate"])}. Lineup order is not performance order.</p>'
+            + ''.join(parts) + '</div></section>')
+
+HOLIDAY_TOURS = {}  # seasonal headers: none active
 
 def tour_page(t):
-    if t['tourId'] == 'jingle-ball-2026-tour': return jingle_ball_page(t)
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
     official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
     if songs:
@@ -403,7 +416,7 @@ def tour_page(t):
                 f'<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
                 + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + '</div></section>')
     elif t['tourId'] == 'jingle-ball-2026-tour':
-        setl = jingle_ball_hub()
+        setl = jb_lineups()
     elif s and (s.get('note') or '').startswith('Lineups vary'):
         # Multi-artist events (Jingle Ball): no single setlist, so explain the lineups instead.
         setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Lineups")}'

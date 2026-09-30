@@ -1781,3 +1781,5 @@ h1,h2{font-weight:700}
 @keyframes c-jb-bump{0%{transform:scale(.92);opacity:.4}100%{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.v8 .c-jb-count.is-bump b[data-days]{animation:none}}
 @media (max-width:560px){.v8 .c-jb-count{padding:22px}.v8 .c-jb-count-big span{font-size:24px}.v8 .c-jb-clock span{min-width:0;flex:1}}
+.v8 .c-lineup{margin-top:36px;scroll-margin-top:96px}.v8 .c-lineup-city{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:26px;line-height:1.2;color:#121E36;margin:0 0 4px}.v8 .c-lineup .c-source{margin:0 0 12px}
+.v8 .c-lineup .c-songs .song-list li::before{content:none!important;display:none!important}
