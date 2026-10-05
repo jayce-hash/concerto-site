@@ -773,14 +773,23 @@ def build():
     ensure_page('founder.html', 'From the Founder | Concerto', 'Why Concerto exists: Jayce Wells on the Eras Tour night that started it, and what it took to build a concert guide to 600+ venues.', '/founder')
     rewrite('founder.html', founder());
     rewrite('press.html', press()); rewrite('investors.html', investors()); rewrite('creators.html', creators()); rewrite('partners.html', partners_hub())
-    for k in PARTNER: rewrite(f'{k}.html', partner_page(k, form_of(f'{k}.html')))
+    for k in PARTNER:
+        # Hand-built pages (scripts/handbuilt/, e.g. the Oct 2026 restaurant partner page) are
+        # copied in as written on every build instead of being generated.
+        hb = ROOT / 'scripts' / 'handbuilt' / f'{k}.html'
+        if hb.exists(): (ROOT / f'{k}.html').write_text(hb.read_text()); continue
+        rewrite(f'{k}.html', partner_page(k, form_of(f'{k}.html')))
     rewrite('contact.html', contact_page(form_of('contact.html')))
     rewrite('near-me.html', near_me()); rewrite('perks.html', perks_page()); rewrite('search.html', search_page())
     rewrite('help.html', doc_page(legacy['help.html'], 'Help Center', 'Answers, in plain terms.', 'How Concerto works, from saving your first show to Your Night, Concerto+, and account controls.'))
     rewrite('faq.html', doc_page(legacy['faq.html'], 'FAQ', 'Questions, answered.', 'What Concerto is, what stays free, what Your Night is, and what Concerto+ adds.'))
     rewrite('privacy.html', doc_page(legacy['privacy.html'], 'Legal', 'Privacy Policy.', 'What we collect, why, and the controls you have over it.', 'white', True))
     rewrite('terms.html', doc_page(legacy['terms.html'], 'Legal', 'Terms of Service.', 'The rules for using Concerto, in plain sections.', 'white', True))
-    rewrite('partners-thank-you.html', simple('Inquiry received', 'Thank you for<br>reaching out.', 'Concerto will review the fit and contact you at the email you provided if there is a next step. This does not activate a partnership or publish an offer.', '<a class="c-link" href="/partners">Back to Partners</a>'))
+    # Hand-built in Oct 2026 (paid-partner welcome after Stripe checkout): copied in as written.
+    _hb = ROOT / 'scripts' / 'handbuilt' / 'partners-thank-you.html'
+    if _hb.exists(): (ROOT / 'partners-thank-you.html').write_text(_hb.read_text())
+    else:
+        rewrite('partners-thank-you.html', simple('Inquiry received', 'Thank you for<br>reaching out.', 'Concerto will review the fit and contact you at the email you provided if there is a next step. This does not activate a partnership or publish an offer.', '<a class="c-link" href="/partners">Back to Partners</a>'))
     if (ROOT / 'contact-thank-you.html').exists():
         rewrite('contact-thank-you.html', simple('Message received', 'We have it.', 'Thanks for reaching out to Concerto. Your message is in the right place, and we will route it from the details you provided.', '<a class="c-link" href="/">Back to Concerto</a><a class="c-link" href="/about">About the company</a>'))
     rewrite('404.html', simple('Error 404', 'This page left<br>before the encore.', f'The page you are looking for does not exist or has moved. Everything else is still here, including guides for {N_V} venues.', '<a class="c-btn c-btn-navy" href="/">Back to Concerto</a><a class="c-link" href="/venues">Venue guides</a><a class="c-link" href="/search">Search</a>'))

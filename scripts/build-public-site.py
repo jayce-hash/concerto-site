@@ -89,7 +89,7 @@ def venue_description(v, shown):
 # "Tour" to names that already end in it. Setlist searches are the best-performing queries in
 # Search Console, so the title leads with the setlist and never repeats a word.
 # Multi-artist events are searched by lineup and venue rules, not setlist.
-TOUR_TITLE_OVERRIDES = {'jingle-ball-2026-tour': 'Jingle Ball 2026 Tour Dates | Concerto'}
+TOUR_TITLE_OVERRIDES = {'jingle-ball-2026-tour': 'Jingle Ball 2026 Tour Dates | Concerto', 'john-mayer-live-at-sphere': 'John Mayer Live At Sphere Setlist & Dates | Concerto'}
 
 def tour_title(t):
     if t.get('tourId') in TOUR_TITLE_OVERRIDES: return TOUR_TITLE_OVERRIDES[t['tourId']]

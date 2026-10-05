@@ -386,6 +386,101 @@
       el.textContent = String(days);
     });
   }
+  /* Every live Perk at a venue, grouped by kind, in a fair daily rotation
+     (same rule as the app) so no paying partner is permanently last. Builds its
+     own section after the hero: venue pages have no .detail-section. */
+  function rotateDaily(list, seed) {
+    if (list.length < 2) return list;
+    var h = 2166136261, str = new Date().toISOString().slice(0, 10) + '|' + seed;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    var off = (h >>> 0) % list.length;
+    return list.slice(off).concat(list.slice(0, off));
+  }
+  /* Concerto Partners on a venue page: the one thing a restaurant or hotel buys.
+     Same card as the app: photo, name, description, the Perk if they have one,
+     Reserve and Directions. Listed partners plus anyone with a live Perk here,
+     one card each, rotating daily. */
+  function partnerCards(perks, partners, kind) {
+    var out = {}, order = [];
+    (partners || []).forEach(function (o) {
+      if (o.kind !== kind) return;
+      out[o.id] = { id: o.id, name: o.name, kind: kind, blurb: o.blurb, address: o.address, url: safeHttps(o.url), lat: o.lat, lng: o.lng };
+      order.push(o.id);
+    });
+    (perks || []).forEach(function (p) {
+      if ((p.kind || 'restaurant') !== kind || p.tour_slug) return;
+      var key = p.org_id && out[p.org_id] ? p.org_id : 'perk:' + (p.org_id || String(p.partner_name).toLowerCase());
+      if (!out[key]) { out[key] = { id: key, name: p.partner_name, kind: kind, address: p.address, lat: p.lat, lng: p.lng }; order.push(key); }
+      if (!out[key].perk) out[key].perk = { offer: p.offer, details: p.details, url: safeHttps(p.url) };
+    });
+    return order.map(function (k) { return out[k]; });
+  }
+  function renderVenuePerks(perks, slug, venueName, partners) {
+    var hero = document.querySelector('.c-hero'); if (!hero || document.querySelector('.partner-venue')) return;
+    var sec = document.createElement('section'); sec.className = 'c-section c-cream partner-venue';
+    var wrap = document.createElement('div'); wrap.className = 'c-wrap'; sec.appendChild(wrap);
+    var any = false;
+    [{ kind: 'restaurant', eyebrow: 'Before the show', title: 'Concerto Partners near ' + venueName + '.' },
+     { kind: 'hotel', eyebrow: 'Stay', title: 'Partner hotels near ' + venueName + '.' }].forEach(function (g) {
+      var list = rotateDaily(partnerCards(perks, partners, g.kind), slug + ':' + g.kind);
+      if (!list.length) return; any = true;
+      var eb = document.createElement('p'); eb.className = 'c-eyebrow'; eb.textContent = g.eyebrow;
+      var h2 = document.createElement('h2'); h2.className = 'c-h2 c-h2-sm'; h2.textContent = g.title;
+      var grid = document.createElement('div'); grid.className = 'partner-grid';
+      wrap.appendChild(eb); wrap.appendChild(h2); wrap.appendChild(grid);
+      list.forEach(function (c, i) { grid.appendChild(partnerCardEl(c, slug, i)); });
+    });
+    if (any) hero.parentNode.insertBefore(sec, hero.nextSibling);
+  }
+  function partnerCardEl(c, slug, i) {
+    var card = document.createElement('article'); card.className = 'partner-card';
+    card.innerHTML = '<div class="partner-photo"><span class="fallback-mark"></span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3></h3><p class="partner-blurb"></p></div>';
+    card.querySelector('.fallback-mark').textContent = c.name.charAt(0);
+    card.querySelector('h3').textContent = c.name;
+    var bl = card.querySelector('.partner-blurb'); if (c.blurb) bl.textContent = c.blurb; else bl.remove();
+    var body = card.querySelector('.partner-body');
+    if (c.perk) {
+      var pk = document.createElement('div'); pk.className = 'partner-perk';
+      pk.innerHTML = '<span>Concerto Perk</span><strong></strong><p></p>';
+      pk.querySelector('strong').textContent = c.perk.offer;
+      if (c.perk.details) pk.querySelector('p').textContent = c.perk.details; else pk.querySelector('p').remove();
+      body.appendChild(pk);
+    }
+    var act = document.createElement('div'); act.className = 'partner-actions';
+    var reserve = (c.perk && c.perk.url) || c.url;
+    var track = function (action) { if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_tap', { venue: slug, partner: c.name, partner_id: c.id, action: action, surface: 'web_venue_' + c.kind }); } catch (_) {} } };
+    if (reserve) { var r = document.createElement('a'); r.className = 'partner-btn'; r.href = reserve; r.target = '_blank'; r.rel = 'noopener nofollow sponsored'; r.textContent = c.kind === 'hotel' ? 'Book' : 'Reserve'; r.addEventListener('click', function () { track('reserve'); }); act.appendChild(r); }
+    var d = document.createElement('a'); d.className = 'partner-btn partner-btn-quiet'; d.target = '_blank'; d.rel = 'noopener';
+    d.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(c.name + ' ' + (c.address || ''));
+    d.textContent = 'Directions'; d.addEventListener('click', function () { track('directions'); }); act.appendChild(d);
+    body.appendChild(act);
+    if (c.lat != null && c.lng != null) {
+      var ph = card.querySelector('.partner-photo');
+      var city = String(c.address || '').split(',').slice(-2, -1)[0] || '';
+      googleVenuePhoto({ name: c.name, city: city.trim(), lat: c.lat, lng: c.lng }).then(function (v) { if (v && v.src) showPhoto(ph, v.src, c.name, v.credit); }).catch(function () {});
+    }
+    if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+    return card;
+  }
+  /* Partners without a live Perk: labeled, no offer line, so they never read as a benefit. */
+  function partnerGrid(list, slug, surface) {
+    var grid = document.createElement('div'); grid.className = 'perk-grid';
+    list.forEach(function (o, i) {
+      var box = document.createElement('article'); box.className = 'ui ui-section perk-web perk-partner';
+      box.innerHTML = '<div class="ui-section-head"><span class="ui-kicker"></span><span class="perk-badge">Concerto Partner</span></div><h3></h3><p class="perk-details"></p>';
+      box.querySelector('.ui-kicker').textContent = o.kind === 'hotel' ? 'Stay' : 'Before the show';
+      box.querySelector('h3').textContent = o.name;
+      box.querySelector('.perk-details').textContent = [o.blurb, o.address].filter(Boolean).join(' · ');
+      var links = document.createElement('div'); links.className = 'perk-links';
+      var u = safeHttps(o.url);
+      if (u) { var a = document.createElement('a'); a.className = 'ui-link'; a.href = u; a.target = '_blank'; a.rel = 'noopener nofollow sponsored'; a.textContent = (o.kind === 'hotel' ? 'Visit / book' : 'Visit / reserve') + ' →'; links.appendChild(a); }
+      if (o.address) { var m = document.createElement('a'); m.className = 'ui-link'; m.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.name + ' ' + o.address); m.target = '_blank'; m.rel = 'noopener'; m.textContent = 'Directions'; links.appendChild(m); }
+      if (links.children.length) box.appendChild(links);
+      grid.appendChild(box);
+      if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug || '', partner: o.name, partner_id: o.id || '', surface: surface, position: String(i + 1) }); } catch (_) {} }
+    });
+    return grid;
+  }
   /* What the venue and its partners published through the Partner Console: same endpoint the app reads */
   function wirePartnerContent() {
     var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
@@ -407,14 +502,7 @@
         sp.textContent = [st.doors ? 'Doors ' + fmt(st.doors) : null, st.headliner ? 'Headliner ' + fmt(st.headliner) : null].filter(Boolean).join(' · ') + ' · set by the venue';
         host.appendChild(sp);
       }
-      if (pc.perks && pc.perks.length) {
-        var sec = document.querySelector('.detail-section'); if (!sec) return;
-        var perk = pc.perks[0]; var box = document.createElement('div'); box.className = 'ui ui-section perk-web';
-        box.innerHTML = '<div class="ui-section-head"><span class="ui-kicker">Concerto Perk · Concerto Partner</span></div><h3></h3><p class="perk-offer"></p><p></p>';
-        box.querySelector('h3').textContent = perk.partner_name; box.querySelector('.perk-offer').textContent = perk.offer; box.querySelectorAll('p')[1].textContent = perk.details || '';
-        var perkUrl = safeHttps(perk.url); if (perkUrl) { var l = document.createElement('a'); l.className = 'ui-link'; l.href = perkUrl; l.target = '_blank'; l.rel = 'noopener nofollow'; l.textContent = 'View Perk →'; box.appendChild(l); }
-        sec.insertBefore(box, sec.querySelector('.info-grid'));
-      }
+      if ((pc.perks && pc.perks.length) || (pc.partners && pc.partners.length)) renderVenuePerks(pc.perks || [], slug, host.getAttribute('data-name') || 'this venue', pc.partners || []);
     }).catch(function () {});
   }
   /* Tonight at this venue: upcoming shows + forecast on venue pages, same functions the app calls */
@@ -464,7 +552,18 @@
         host.textContent = '';
         var today = new Date().toISOString().slice(0, 10);
         var offers = (data.perks || []).filter(function (p) { return p.offer && p.details && (!p.starts_on || p.starts_on <= today) && (!p.ends_on || p.ends_on >= today); });
-        if (!offers.length) { host.textContent = 'No Perks are available right now. New offers will appear here with their dates and redemption terms.'; return; }
+        var withPerk = {};
+        offers.forEach(function (p) { if (p.org_id) withPerk[p.org_id] = true; });
+        var listed = (data.partners || []).filter(function (o) { return !withPerk[o.id]; });
+        if (!offers.length) host.textContent = 'No Perks are available right now. New offers will appear here with their dates and redemption terms.';
+        if (listed.length) {
+          var after = document.createElement('section'); after.className = 'live-partners';
+          var hh = document.createElement('h2'); hh.className = 'c-h2 c-h2-sm'; hh.textContent = 'Concerto Partners';
+          var pp = document.createElement('p'); pp.textContent = 'Restaurants and hotels near the venues, labeled so you always know the relationship.';
+          after.appendChild(hh); after.appendChild(pp); after.appendChild(partnerGrid(rotateDaily(listed, 'perks-page'), '', 'web_perks_partner'));
+          host.parentNode.insertBefore(after, host.nextSibling);
+        }
+        if (!offers.length) return;
         offers.forEach(function (p) {
           var card = document.createElement('article'); card.className = 'live-perk';
           function line(tag, text) { var el = document.createElement(tag); el.textContent = text; card.appendChild(el); }

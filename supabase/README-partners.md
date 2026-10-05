@@ -14,7 +14,7 @@ The Console submits offers as `draft`. In Supabase, review the `perks` row and v
 
 Every Perk must have a specific benefit, redemption terms, applicable venues or a tour, and valid dates. An editorial recommendation or paid placement alone is not a Perk. Use the details field for membership requirements, purchase requirements, exclusions, and eligible show dates. For artist offers, select the exact tour. For venues hosting multiple events on one day, include the Ticketmaster event ID with confirmed stage times.
 
-Venue claims retain the existing email-domain verification flow. Venue guidance publishes directly after that verification. Review unusual changes; do not describe historical estimates as venue-confirmed times.
+Venue claims retain the existing email-domain verification flow. Since Oct 5, 2026 nothing from a partner org (venue guidance, stage times, Perks, partner cards) is public unless the org is plan 'paid'; see PARTNERS-SETUP.md. Review unusual changes; do not describe historical estimates as venue-confirmed times.
 
 ## Data and reporting
 

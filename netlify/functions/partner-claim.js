@@ -21,7 +21,8 @@ function venueDomain(slug) {
     const d = map[slug]; return typeof d === 'string' ? d.toLowerCase().replace(/^www\./, '') : '';
   } catch { return ''; }
 }
-const FOUNDING_UNTIL = process.env.FOUNDING_PLAN_UNTIL || '2026-12-31';
+// No free plans (Oct 5, 2026): new orgs start 'pending'. They can sign in and
+// prepare drafts; nothing is public until Stripe marks them 'paid'.
 exports.handler = async (event) => {
   const guard = require('./lib/guard');
   if (!guard.originOf(event).ok) return guard.refuse(event, 403, 'forbidden', 'POST, OPTIONS');
@@ -40,7 +41,7 @@ exports.handler = async (event) => {
       for (const c of claims || []) {
         if (String(c.venue_slug).startsWith('partner:')) {
           const [, kind, name] = c.venue_slug.split(':');
-          const { data: org } = await sb.from('partner_orgs').insert({ kind, name: name || user.email, email_domain: domainOf(user.email), plan: 'founding', plan_until: FOUNDING_UNTIL }).select().single();
+          const { data: org } = await sb.from('partner_orgs').insert({ kind, name: name || user.email, email_domain: domainOf(user.email), plan: 'pending' }).select().single();
           await sb.from('partner_members').insert({ org_id: org.id, user_id: user.id, role: 'owner' });
           await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id);
           made.push(c.venue_slug); continue;
@@ -50,7 +51,7 @@ exports.handler = async (event) => {
         if (!ok) continue;
         const { data: existing } = await sb.from('partner_orgs').select('id').eq('kind', 'venue').eq('venue_slug', c.venue_slug).maybeSingle();
         if (existing) { await sb.from('partner_members').upsert({ org_id: existing.id, user_id: user.id, role: 'owner' }); await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id); made.push(c.venue_slug); continue; }
-        const { data: org } = await sb.from('partner_orgs').insert({ kind: 'venue', name: c.venue_slug, venue_slug: c.venue_slug, email_domain: ed, plan: 'founding', plan_until: FOUNDING_UNTIL }).select().single();
+        const { data: org } = await sb.from('partner_orgs').insert({ kind: 'venue', name: c.venue_slug, venue_slug: c.venue_slug, email_domain: ed, plan: 'pending' }).select().single();
         await sb.from('partner_members').insert({ org_id: org.id, user_id: user.id, role: 'owner' });
         await sb.from('venue_claims').update({ status: 'approved' }).eq('id', c.id);
         made.push(c.venue_slug);

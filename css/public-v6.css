@@ -1783,3 +1783,39 @@ h1,h2{font-weight:700}
 @media (max-width:560px){.v8 .c-jb-count{padding:22px}.v8 .c-jb-count-big span{font-size:24px}.v8 .c-jb-clock span{min-width:0;flex:1}}
 .v8 .c-lineup{margin-top:36px;scroll-margin-top:96px}.v8 .c-lineup-city{font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:26px;line-height:1.2;color:#121E36;margin:0 0 4px}.v8 .c-lineup .c-source{margin:0 0 12px}
 .v8 .c-lineup .c-songs .song-list li::before{content:none!important;display:none!important}
+
+/* Venue page Concerto Perks: every live Perk, grouped by kind */
+.perk-venue .perk-venue-lead{color:var(--ink-muted,#5b6475);margin:6px 0 22px;max-width:640px}
+.perk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:22px}
+.perk-grid .perk-web{margin:0;display:flex;flex-direction:column}
+.perk-web .ui-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.perk-web .perk-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 8px;white-space:nowrap}
+.perk-web .perk-details{color:var(--ink-muted,#5b6475);margin:0 0 10px}
+.perk-web .perk-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto}
+.perk-partners-head{font-family:var(--display);font-size:20px;margin:6px 0 14px;color:var(--navy)}
+.perk-partner .ui-kicker{color:var(--ink-muted,#5b6475)}
+.live-partners{margin-top:40px}.live-partners>p{color:var(--muted);margin:6px 0 20px}
+/* Concerto Partner cards on venue pages (same card as the app) */
+.partner-venue .c-h2{margin-bottom:22px}
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-bottom:36px}
+.partner-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.partner-photo{position:relative;height:170px;background:var(--navy,#121E36);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.partner-photo .fallback-mark{font-family:var(--display);font-size:56px;color:var(--gold,#C9A84C)}
+.partner-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.partner-photo .photo-credit{position:absolute;right:8px;bottom:6px;font-size:10px;color:#fff;opacity:.8}
+.partner-label{position:absolute;top:10px;left:10px;z-index:2;background:var(--gold,#C9A84C);color:var(--navy,#121E36);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 9px}
+.partner-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.partner-body h3{font-family:var(--display);font-size:22px;margin:0;color:var(--navy,#121E36)}
+.partner-blurb{margin:0;color:var(--ink-muted,#5b6475)}
+.partner-perk{background:var(--gold-soft,#F2EBD6);border-radius:12px;padding:12px 14px}
+.partner-perk span{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9a7a26}
+.partner-perk strong{display:block;color:var(--navy,#121E36);font-size:16px;margin-top:3px}
+.partner-perk p{margin:4px 0 0;font-size:13px;color:var(--navy,#121E36);opacity:.8}
+.partner-actions{display:flex;gap:10px;margin-top:auto;padding-top:6px}
+.partner-btn{background:var(--navy,#121E36);color:#fff;border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px;text-decoration:none}
+.partner-btn-quiet{background:transparent;color:var(--navy,#121E36);border:1px solid var(--line)}
+.partner-example{grid-template-columns:minmax(0,380px);margin:0}
+.partner-example .partner-btn{cursor:default}
+.perk-ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:26px;margin-top:10px}
+.perk-ideas h3{font-family:var(--display);font-size:20px;margin:0 0 6px;color:var(--navy,#121E36)}
+.perk-ideas p{margin:0;color:var(--ink-muted,#5b6475)}
