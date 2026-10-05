@@ -132,7 +132,7 @@ def home():
             '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
-                '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a><a class="c-link" href="/console/">Partner Console</a></div></div></div></section>')
+                '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a></div></div></div></section>')
     return '<main id="main-content" class="c-page">' + hero + name_section() + what + photo_band() + numbers() + principles() + plus + partners + guide_index() + close() + '</main>'
 
 def your_night():
@@ -507,7 +507,7 @@ def home():
             '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
-                '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a><a class="c-link" href="/console/">Partner Console</a></div></div></div></section>')
+                '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a></div></div></div></section>')
     return '<main id="main-content" class="c-page">' + h + problem_section() + what + photo_band() + numbers() + principles() + plus + partners + guide_index() + close() + '</main>'
 
 def your_night():
@@ -647,7 +647,7 @@ STEPS = [('Step one', 'Tell us the fit.', 'Share your business, audience, locati
 
 def partners_hub():
     h = hero('Concerto Partners', 'A better concert night.<br>A useful place in it.', 'Meet fans while they plan the night.<br>Something useful for them. A clear objective for you.',
-             '<a class="c-btn c-btn-navy" href="#categories">Find your fit</a><a class="c-link" href="/console/">Partner Console</a>', ['Restaurants and bars', 'Hotels', 'Venues', 'Artists and tours'], 'gold')
+             '<a class="c-btn c-btn-navy" href="#categories">Find your fit</a>', ['Restaurants and bars', 'Hotels', 'Venues', 'Artists and tours'], 'gold')
     cats = rows([(v[0] + '.', e(v[2]), f'<a class="c-link" href="/partners/{k.split("-",1)[1]}">Explore the fit</a>') for k, v in PARTNER.items()])
     means = section('cream', 'What a partnership means', 'Specific scope. Shared expectations.', '<p class="c-body">Agreed in advance. Labeled for fans. Measured only where measurement is real.<br>Clicks are not purchases. Reach, bookings, and sales are not guaranteed.</p>', narrow=True)
     return '<main id="main-content" class="c-page">' + h + section('white', 'Categories', 'Where you fit in the night.', cats, sid='categories') + section('white', 'Working together', 'A clear path to launch.', timeline(STEPS)) + means + close('Let’s build the night together.', 'website-partners') + '</main>'
@@ -657,7 +657,7 @@ def partner_page(key, form_html):
     h = hero(kicker, h1, lead, '<a class="c-btn c-btn-navy" href="#interest">Discuss a partnership</a><a class="c-link" href="/partners">All partner types</a>', ['Scope agreed in advance', 'Labeled for fans'], 'gold')
     opp = rows([('What fans receive', e(fans), ''), ('What you can explore', e(explore), ''), ('What success can mean', e(success) + ' Confirm measurement capabilities before launch; clicks are not confirmed purchases.', '')])
     form = (f'<section class="c-section c-cream" id="interest"><div class="c-wrap c-split"><div>{eyebrow("Start a conversation")}<h2 class="c-h2">Tell us what you have in mind.</h2>'
-            '<p class="c-body">No proposal needed. We review the fit and follow up.</p><p class="c-body">Already approved? <a href="/console/">Open the Partner Console</a>.</p></div>'
+            '<p class="c-body">No proposal needed. We review the fit and follow up.</p></div>'
             f'<div class="c-form">{form_html}</div></div></section>')
     return '<main id="main-content" class="c-page">' + h + section('white', 'The opportunity', 'Useful for fans. Relevant to you.', opp) + section('white', 'Working together', 'A clear path to launch.', timeline(STEPS)) + form + '</main>'
 

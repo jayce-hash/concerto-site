@@ -1850,3 +1850,28 @@ h1,h2{font-weight:700}
 .c-form .ss-hit span{color:#5B6478!important;font-weight:400}
 .c-form .ss-hit.is-picked{border-color:#121E36!important;box-shadow:0 0 0 2px #121E36 inset!important}
 .c-form .ss-hit[disabled]{opacity:.45}
+/* Self-serve form, refined to match the page: readable labels, even fields, tighter rhythm. */
+#ss-form .field{display:block;margin:0 0 18px}
+#ss-form .field>span:first-child{display:block;font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;color:#121E36;margin:0 0 6px}
+#ss-form select,#ss-form input[name=venue],#ss-form input[name=q],#ss-form input[name=name],#ss-form input[name=url],#ss-form input[name=blurb]{box-sizing:border-box;width:100%;height:52px;font-size:16px;border-radius:12px}
+#ss-form .ss-search{display:flex;gap:8px}
+#ss-form .ss-find{flex:0 0 auto;height:52px;padding:0 22px;font-size:15px}
+#ss-form .ss-results{margin:0 0 18px}
+#ss-form .ss-count{font-weight:400;font-size:12px;margin-top:6px}
+#ss-form .ss-plans{display:block;margin:0 0 18px}
+#ss-form .ss-plans legend{font-size:14px;font-weight:600;color:#121E36;margin:0 0 6px;padding:0}
+#ss-form .ss-plans label{display:inline-flex;flex-direction:row;align-items:center;gap:10px;box-sizing:border-box;width:calc(50% - 5px);height:52px;padding:0 16px;margin:0;font-size:15px;font-weight:400;color:#121E36;vertical-align:top}
+#ss-form .ss-plans label + label{margin-left:10px}
+#ss-form .ss-plans input[type=radio]{width:18px;height:18px;min-width:0;margin:0;padding:0;flex:0 0 auto;accent-color:#121E36}
+#ss-form .ss-plans b{font-weight:700}
+#ss-form .consent{display:flex;align-items:flex-start;gap:10px;margin:0 0 18px;padding:0;border:0;background:none}
+#ss-form .consent input{width:18px;height:18px;min-width:0;margin:3px 0 0;padding:0;flex:0 0 auto;accent-color:#121E36}
+#ss-form .consent span{font-size:14px;font-weight:400;line-height:1.5;color:#3B4458}
+#ss-form .ss-pay{display:block;width:100%;height:54px;font-size:16px}
+#ss-form .form-note{font-size:13px;margin:10px 0 0}
+@media (max-width:480px){#ss-form .ss-plans label{width:100%}#ss-form .ss-plans label + label{margin:8px 0 0}}
+#ss-form .field{margin:0 0 14px!important;padding:0!important}
+#ss-form .ss-results:empty{display:none}
+#ss-form label.consent{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:flex-start!important;gap:10px!important}
+#ss-form label.consent input{display:inline-block!important;width:18px!important;height:18px!important;flex:0 0 18px!important;margin:3px 0 0!important}
+#ss-form label.consent span{display:block;flex:1 1 auto}
