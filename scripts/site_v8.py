@@ -232,7 +232,7 @@ def around_venue(v):
     cols = []
     for key, title in (('restaurants', 'Restaurants'), ('hotels', 'Hotels'), ('more', 'More nearby')):
         # Convenience stores, pharmacies, gas and groceries are in Google's results but are not recommendations.
-        skip = {'convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank'}
+        skip = {'convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank', 'car_wash', 'car_repair', 'parking'}  # same list as the app
         items = [x for x in ((d.get('tabs') or {}).get(key) or {}).get('items') or []
                  if x.get('name') and not (set(x.get('types') or []) & skip)][:6]
         if not items: continue
@@ -242,7 +242,8 @@ def around_venue(v):
             price = '$' * int(x['price']) if isinstance(x.get('price'), (int, float)) and x['price'] > 0 else ''
             meta = ' \u00b7 '.join(z for z in (walk, price) if z)
             href = f"https://www.google.com/maps/search/?api=1&query={quote(x['name'])}&query_place_id={quote(x['place_id'])}" if x.get('place_id') else ''
-            name = f'<a href="{e(href)}" target="_blank" rel="noopener nofollow">{e(x["name"])}</a>' if href else e(x['name'])
+            apple = f"https://maps.apple.com/?q={quote(x['name'])}&ll={x['lat']},{x['lng']}" if x.get('lat') is not None and x.get('lng') is not None else ''
+            name = (f'<a href="{e(href)}"' + (f' data-apple-maps="{e(apple)}"' if apple else '') + f' target="_blank" rel="noopener nofollow">{e(x["name"])}</a>') if href else e(x['name'])
             lis.append(f'<li>{name}<span>{e(meta)}</span></li>')
         cols.append(f'<div class="c-around-col"><h3>{title}</h3><ul>' + ''.join(lis) + '</ul></div>')
     if not cols: return ''

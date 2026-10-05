@@ -27,7 +27,7 @@ exports.handler = async (event) => {
   if (!UUID.test(org)) return page(400, 'Link not recognized', 'Please use the payment link from your Concerto email, or reply to it for a new one.');
   try {
     const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
-    const { data: o, error } = await sb.from('partner_orgs').select('id,kind,name,plan,listed_until,stripe_customer_id').eq('id', org).maybeSingle();
+    const { data: o, error } = await sb.from('partner_orgs').select('id,kind,name,plan,listed_until,stripe_customer_id,venue_slugs').eq('id', org).maybeSingle();
     if (error) throw error;
     if (!o || !['restaurant', 'hotel'].includes(o.kind)) return page(404, 'Link not recognized', 'Please reply to your Concerto email for a new payment link.');
     const today = new Date().toISOString().slice(0, 10);
@@ -42,7 +42,7 @@ exports.handler = async (event) => {
       metadata: { partner_org_id: o.id, partner_name: o.name },
       subscription_data: { metadata: { partner_org_id: o.id, partner_name: o.name }, description: `Concerto Partner: ${o.name}` },
       ...(o.stripe_customer_id ? { customer: o.stripe_customer_id } : {}),
-      success_url: `${SITE}/partners-thank-you?paid=1`,
+      success_url: `${SITE}/partners-thank-you?paid=1&venue=${encodeURIComponent(((o.venue_slugs || [])[0]) || '')}`,
       cancel_url: `${SITE}/partners/restaurants`,
     });
     return { statusCode: 303, headers: { Location: session.url, 'Cache-Control': 'no-store' }, body: '' };

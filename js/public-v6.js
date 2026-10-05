@@ -1,3 +1,14 @@
+/* Maps: Apple Maps first on Apple devices (iPhone, iPad, Mac), Google Maps everywhere else. */
+var CC_APPLE = /iPhone|iPad|iPod|Macintosh/.test((typeof navigator !== 'undefined' && navigator.userAgent) || '');
+function ccMapsUrl(query, lat, lng, directions) {
+  var q = encodeURIComponent(query || ''), at = (lat != null && lng != null) ? lat + ',' + lng : '';
+  if (CC_APPLE) return 'https://maps.apple.com/?' + (directions ? 'daddr=' + (at || q) + (at ? '&q=' + q : '') : 'q=' + q + (at ? '&ll=' + at : ''));
+  return 'https://www.google.com/maps/search/?api=1&query=' + q;
+}
+document.addEventListener('DOMContentLoaded', function () {
+  if (!CC_APPLE) return;
+  [].forEach.call(document.querySelectorAll('a[data-apple-maps]'), function (a) { a.href = a.getAttribute('data-apple-maps'); });
+});
 /* Concerto public web V6 behavior.
  *
  * The header and footer are real HTML on every page (scripts/public_chrome.py).
@@ -420,14 +431,16 @@
     var sec = document.createElement('section'); sec.className = 'c-section c-cream partner-venue';
     var wrap = document.createElement('div'); wrap.className = 'c-wrap'; sec.appendChild(wrap);
     var any = false;
-    [{ kind: 'restaurant', eyebrow: 'Before the show', title: 'Concerto Partners near ' + venueName + '.' },
-     { kind: 'hotel', eyebrow: 'Stay', title: 'Partner hotels near ' + venueName + '.' }].forEach(function (g) {
+    [{ kind: 'restaurant', eyebrow: 'Concerto Partners', title: 'Before the show.' },
+     { kind: 'hotel', eyebrow: 'Concerto Partners', title: 'Where to stay.' }].forEach(function (g) {
       var list = rotateDaily(partnerCards(perks, partners, g.kind), slug + ':' + g.kind);
       if (!list.length) return; any = true;
       var eb = document.createElement('p'); eb.className = 'c-eyebrow'; eb.textContent = g.eyebrow;
       var h2 = document.createElement('h2'); h2.className = 'c-h2 c-h2-sm'; h2.textContent = g.title;
       var grid = document.createElement('div'); grid.className = 'partner-grid';
-      wrap.appendChild(eb); wrap.appendChild(h2); wrap.appendChild(grid);
+      var sub = document.createElement('p'); sub.className = 'partner-sub'; sub.textContent = 'Near ' + venueName + '.';
+      if (list.length === 1) grid.className += ' is-single';
+      wrap.appendChild(eb); wrap.appendChild(h2); wrap.appendChild(sub); wrap.appendChild(grid);
       list.forEach(function (c, i) { grid.appendChild(partnerCardEl(c, slug, i)); });
     });
     if (any) hero.parentNode.insertBefore(sec, hero.nextSibling);
@@ -451,7 +464,7 @@
     var track = function (action) { if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_tap', { venue: slug, partner: c.name, partner_id: c.id, action: action, surface: 'web_venue_' + c.kind }); } catch (_) {} } };
     if (reserve) { var r = document.createElement('a'); r.className = 'partner-btn'; r.href = reserve; r.target = '_blank'; r.rel = 'noopener nofollow sponsored'; r.textContent = c.kind === 'hotel' ? 'Book' : 'Reserve'; r.addEventListener('click', function () { track('reserve'); }); act.appendChild(r); }
     var d = document.createElement('a'); d.className = 'partner-btn partner-btn-quiet'; d.target = '_blank'; d.rel = 'noopener';
-    d.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(c.name + ' ' + (c.address || ''));
+    d.href = ccMapsUrl(c.name + ' ' + (c.address || ''), c.lat, c.lng, true);
     d.textContent = 'Directions'; d.addEventListener('click', function () { track('directions'); }); act.appendChild(d);
     body.appendChild(act);
     if (c.lat != null && c.lng != null) {
@@ -474,7 +487,7 @@
       var links = document.createElement('div'); links.className = 'perk-links';
       var u = safeHttps(o.url);
       if (u) { var a = document.createElement('a'); a.className = 'ui-link'; a.href = u; a.target = '_blank'; a.rel = 'noopener nofollow sponsored'; a.textContent = (o.kind === 'hotel' ? 'Visit / book' : 'Visit / reserve') + ' →'; links.appendChild(a); }
-      if (o.address) { var m = document.createElement('a'); m.className = 'ui-link'; m.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(o.name + ' ' + o.address); m.target = '_blank'; m.rel = 'noopener'; m.textContent = 'Directions'; links.appendChild(m); }
+      if (o.address) { var m = document.createElement('a'); m.className = 'ui-link'; m.href = ccMapsUrl(o.name + ' ' + o.address); m.target = '_blank'; m.rel = 'noopener'; m.textContent = 'Directions'; links.appendChild(m); }
       if (links.children.length) box.appendChild(links);
       grid.appendChild(box);
       if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug || '', partner: o.name, partner_id: o.id || '', surface: surface, position: String(i + 1) }); } catch (_) {} }
@@ -740,4 +753,75 @@
   window.addEventListener('hashchange', function () { var h = location.hash.slice(1); if (list.some(function (x) { return x.a === h; })) { pinned = h; paint(false); } });
   var h0 = location.hash.slice(1); if (list.some(function (x) { return x.a === h0; })) pinned = h0;
   paint(true); setInterval(function () { paint(false); }, 1000);
+})();
+/* Self-serve Concerto Partner signup on /partners/restaurants: venue, find the business,
+   one line for fans, live card preview, then Stripe Checkout. Paid = live automatically. */
+(function () {
+  var f = document.getElementById('ss-form'); if (!f) return;
+  var el = function (n) { return f.elements[n]; };
+  var msg = f.querySelector('.ss-msg'), results = f.querySelector('.ss-results'), dl = document.getElementById('ss-venues');
+  var preview = f.querySelector('.ss-preview'), card = f.querySelector('.ss-preview-card'), count = f.querySelector('.ss-count');
+  var venues = [], picked = null;
+  function esc(t) { return String(t || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function label(v) { return v.name + ' \u00b7 ' + [v.city, v.state || v.country].filter(Boolean).join(', '); }
+  fetch('/data/venues.json').then(function (r) { return r.json(); }).then(function (v) {
+    venues = v || []; dl.innerHTML = venues.map(function (x) { return '<option value="' + esc(label(x)) + '"></option>'; }).join('');
+  }).catch(function () {});
+  function venue() {
+    var t = (el('venue').value || '').trim().toLowerCase();
+    return venues.filter(function (x) { return label(x).toLowerCase() === t || x.name.toLowerCase() === t; })[0] || null;
+  }
+  function say(t, bad) { msg.textContent = t || ''; msg.style.color = bad ? '#A42237' : ''; }
+  function draw() {
+    var name = (el('name').value || '').trim(), blurb = (el('blurb').value || '').trim();
+    count.textContent = blurb.length + ' / 110';
+    if (!picked && !name) { preview.hidden = true; return; }
+    preview.hidden = false;
+    var hotel = el('kind').value === 'hotel';
+    card.innerHTML = '<article class="partner-card"><div class="partner-photo"><span class="fallback-mark">' + esc((name || '?').charAt(0)) +
+      '</span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3>' + esc(name || 'Your name') + '</h3>' +
+      (blurb ? '<p class="partner-blurb">' + esc(blurb) + '</p>' : '') +
+      '<div class="partner-actions"><span class="partner-btn">' + (hotel ? 'Book' : 'Reserve') + '</span><span class="partner-btn partner-btn-quiet">Directions</span></div></div></article>';
+  }
+  ['name', 'blurb', 'kind'].forEach(function (n) { el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
+  function search() {
+    var v = venue(), q = (el('q').value || '').trim();
+    if (!v) { say('Choose your venue from the list first.', true); el('venue').focus(); return; }
+    if (q.length < 2) { say('Type your business name, then search.', true); el('q').focus(); return; }
+    say(''); results.innerHTML = '<p class="form-note">Searching near ' + esc(v.name) + '\u2026</p>'; picked = null;
+    fetch('/.netlify/functions/partner-place-search?venue=' + encodeURIComponent(v.id) + '&kind=' + el('kind').value + '&q=' + encodeURIComponent(q))
+      .then(function (r) { return r.json(); }).then(function (j) {
+        var list = (j && j.results) || [];
+        if (!list.length) { results.innerHTML = '<p class="form-note">' + esc((j && j.error) || 'No matches within 5 miles of ' + v.name + '. Try your exact business name.') + '</p>'; return; }
+        results.innerHTML = list.map(function (p, i) {
+          return '<button type="button" class="ss-hit" data-i="' + i + '"' + (p.fits ? '' : ' disabled') + '><b>' + esc(p.name) + '</b><span>' + esc(p.address) + ' \u00b7 ' + p.miles + ' mi' + (p.fits ? '' : ' \u00b7 not listed as a ' + (el('kind').value === 'hotel' ? 'hotel' : 'restaurant')) + '</span></button>';
+        }).join('');
+        [].forEach.call(results.querySelectorAll('.ss-hit'), function (b) {
+          b.addEventListener('click', function () {
+            picked = list[+b.getAttribute('data-i')];
+            [].forEach.call(results.querySelectorAll('.ss-hit'), function (x) { x.classList.toggle('is-picked', x === b); });
+            if (!el('name').value) el('name').value = picked.name;
+            draw(); say('');
+          });
+        });
+      }).catch(function () { results.innerHTML = '<p class="form-note">Search failed. Try again.</p>'; });
+  }
+  f.querySelector('.ss-find').addEventListener('click', search);
+  el('q').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); search(); } });
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = venue();
+    if (!v) { say('Choose your venue from the list.', true); return; }
+    if (!picked) { say('Search for your business and select it.', true); return; }
+    if (!el('agree').checked) { say('Please agree to the terms.', true); return; }
+    var plan = (f.querySelector('input[name=plan]:checked') || {}).value || 'monthly';
+    var btn = f.querySelector('.ss-pay'); btn.disabled = true; say('Getting your checkout ready\u2026');
+    fetch('/.netlify/functions/partner-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+      kind: el('kind').value, venue: v.id, placeId: picked.id, name: el('name').value, url: el('url').value,
+      blurb: el('blurb').value, plan: plan, agree: true, company: el('company').value }) })
+      .then(function (r) { return r.json(); }).then(function (j) {
+        if (j && j.checkout) { location.href = j.checkout; return; }
+        btn.disabled = false; say((j && j.error) || 'Something went wrong. Try again.', true);
+      }).catch(function () { btn.disabled = false; say('Something went wrong. Try again.', true); });
+  });
 })();

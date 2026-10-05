@@ -52,6 +52,26 @@ function activeStatus(status) {
   return ['active', 'trialing', 'past_due'].includes(status);
 }
 
+// New paid partner: email Jayce through Netlify Forms (form "partner-alerts"), with a one-click
+// Remove link. Never blocks or fails the webhook.
+async function alertNewPartner(orgId, session) {
+  try {
+    const { removeLink } = require('./lib/partner-self-serve');
+    const { data: o } = await supabase.from('partner_orgs').select('name,kind,venue_slugs,url,blurb,address,billing_interval').eq('id', orgId).maybeSingle();
+    if (!o) return;
+    const venue = (o.venue_slugs || [])[0] || '';
+    const body = new URLSearchParams({
+      'form-name': 'partner-alerts',
+      partner: o.name || '', kind: o.kind || '', plan: o.billing_interval || '',
+      amount: session && session.amount_total != null ? `$${(session.amount_total / 100).toFixed(2)}` : '',
+      email: (session && session.customer_details && session.customer_details.email) || '',
+      card: venue ? `https://concertocity.com/venue/${venue}` : '', link: o.url || '', blurb: o.blurb || '', address: o.address || '',
+      remove: removeLink(orgId),
+    });
+    await fetch('https://concertocity.com/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+  } catch (e) { /* alerts are best effort */ }
+}
+
 exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: 'Method Not Allowed' };
 
@@ -75,6 +95,7 @@ exports.handler = async function (event) {
       const orgId = partnerOrgId(obj);
       if (stripeEvent.type === 'checkout.session.completed' && orgId) {
         if (obj.subscription) await syncPartner(await stripe.subscriptions.retrieve(obj.subscription), orgId);
+        await alertNewPartner(orgId, obj);
         return { statusCode: 200, body: JSON.stringify({ received: true, partner: true }) };
       }
       if ((stripeEvent.type === 'customer.subscription.updated' || stripeEvent.type === 'customer.subscription.deleted') && orgId) {
