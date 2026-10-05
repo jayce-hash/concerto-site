@@ -5,7 +5,7 @@
 // It opens Stripe Checkout for that partner's subscription ($99/month or $999/year).
 // On payment, stripe-webhook.js marks the org paid and their card goes live.
 //
-// Env: STRIPE_SECRET_KEY, STRIPE_PRICE_PARTNER_MONTHLY, STRIPE_PRICE_PARTNER_ANNUAL,
+// Env: STRIPE_SECRET_KEY, STRIPE_PRICE_PARTNER_MONTHLY, STRIPE_PRICE_PARTNER_ANNUAL, STRIPE_PRICE_HOTEL_MONTHLY, STRIPE_PRICE_HOTEL_ANNUAL,
 //      SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 const Stripe = require('stripe');
 const { createClient } = require('@supabase/supabase-js');
@@ -32,7 +32,11 @@ exports.handler = async (event) => {
     if (!o || !['restaurant', 'hotel'].includes(o.kind)) return page(404, 'Link not recognized', 'Please reply to your Concerto email for a new payment link.');
     const today = new Date().toISOString().slice(0, 10);
     if (o.plan === 'paid' && (!o.listed_until || o.listed_until >= today)) return page(200, 'You are all set', `${o.name} is already an active Concerto Partner. Thank you.`);
-    const price = plan === 'annual' ? process.env.STRIPE_PRICE_PARTNER_ANNUAL : process.env.STRIPE_PRICE_PARTNER_MONTHLY;
+    // Hotels: $299/month or $2,990/year. Restaurants: $99/month or $999/year.
+    const hotel = o.kind === 'hotel';
+    const price = hotel
+      ? (plan === 'annual' ? process.env.STRIPE_PRICE_HOTEL_ANNUAL : process.env.STRIPE_PRICE_HOTEL_MONTHLY)
+      : (plan === 'annual' ? process.env.STRIPE_PRICE_PARTNER_ANNUAL : process.env.STRIPE_PRICE_PARTNER_MONTHLY);
     if (!price) throw new Error('missing price env');
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.create({

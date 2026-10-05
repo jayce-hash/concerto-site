@@ -1894,3 +1894,5 @@ h1,h2{font-weight:700}
 .v8 .partner-venue a.partner-btn:hover{opacity:.9}
 /* No single-word last lines in partner cards (also balances headings). */
 .v8 .partner-venue .partner-body h3,.v8 .partner-venue .partner-blurb,.v8 .partner-venue .partner-perk strong,.v8 .partner-venue .partner-perk p,.partner-card h3,.partner-perk strong{text-wrap:pretty}
+.v8 .c-partner-cta{padding-top:28px;padding-bottom:28px}.v8 .c-partner-cta .c-body{margin:0;font-size:16px}
+.v8 .c-faq{border-top:1px solid rgba(18,30,54,.1);padding:16px 0}.v8 .c-faq:last-of-type{border-bottom:1px solid rgba(18,30,54,.1)}.v8 .c-faq summary{cursor:pointer;font-weight:600;font-size:17px;color:#121E36;list-style:none}.v8 .c-faq summary::-webkit-details-marker{display:none}.v8 .c-faq summary::after{content:"+";float:right;color:#A8872F}.v8 .c-faq[open] summary::after{content:"\2212"}.v8 .c-faq p{margin:10px 0 0;color:#3B4458;line-height:1.6}

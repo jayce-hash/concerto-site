@@ -285,6 +285,7 @@ def venue_page(v):
             f'<div class="c-wrap">{photo}</div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
             + around_venue(v)
+            + (f'<section class="c-section c-white c-partner-cta"><div class="c-wrap"><p class="c-body"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a class="c-link" href="/partners/restaurants">For restaurants</a> \u00b7 <a class="c-link" href="/partners/hotels">For hotels</a></p></div></section>')
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
             + close('Going to a show here?', 'website-venue') + '</main>')
 
@@ -651,11 +652,20 @@ STEPS = [('Step one', 'Tell us the fit.', 'Share your business, audience, locati
          ('Step four', 'Launch and learn.', 'Activate the agreed placement, keep the offer current, and review available results. Reach, bookings, and sales are not guaranteed.')]
 
 def partners_hub():
-    h = hero('Concerto Partners', 'A better concert night.<br>A useful place in it.', 'Meet fans while they plan the night.<br>Something useful for them. A clear objective for you.',
-             '<a class="c-btn c-btn-navy" href="#categories">Find your fit</a>', ['Restaurants and bars', 'Hotels', 'Venues', 'Artists and tours'], 'gold')
+    """Concerto Partners: a simple, self-serve marketing platform for restaurants and hotels."""
+    h = hero('Concerto Partners', 'Reach concert fans<br>planning their night.',
+             'A simple marketing platform for restaurants and hotels near 600+ venues worldwide. Your place, featured to fans deciding where to eat and stay for the show.',
+             '<a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a><a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a>',
+             ['From $99 a month', 'Live in minutes', 'Cancel anytime'], 'gold')
+    why = section('white', 'Why concert fans', 'They plan the whole night,<br>not just the show.',
+                  '<p class="c-body">Fans drive in and fly in for shows. They eat nearby before doors open, and many need somewhere to stay after. They plan all of it in Concerto, venue by venue. A Concerto Partner card puts your restaurant or hotel right in that plan, on the venue&rsquo;s page in the app and on concertocity.com.</p>')
+    how = section('cream', 'How it works', 'Simple, self-serve,<br>and measured.', rows([
+        ('Pick your venue.', 'Search for your restaurant or hotel near any Concerto venue. Your address, map location and photo fill in automatically.', ''),
+        ('Set up your card.', 'One line for fans, your reservation or booking link, and an optional Perk. You see it exactly as fans will.', ''),
+        ('Pay, and you&rsquo;re live.', 'Restaurants are $99 a month and hotels $299 a month, with savings on annual plans and no commissions or booking fees. Your card appears within minutes, labeled Concerto Partner. Each month you see how many fans viewed it and tapped through.', '')]))
     cats = rows([(v[0] + '.', e(v[2]), f'<a class="c-link" href="/partners/{k.split("-",1)[1]}">Explore the fit</a>') for k, v in PARTNER.items()])
-    means = section('cream', 'What a partnership means', 'Specific scope. Shared expectations.', '<p class="c-body">Agreed in advance. Labeled for fans. Measured only where measurement is real.<br>Clicks are not purchases. Reach, bookings, and sales are not guaranteed.</p>', narrow=True)
-    return '<main id="main-content" class="c-page">' + h + section('white', 'Categories', 'Where you fit in the night.', cats, sid='categories') + section('white', 'Working together', 'A clear path to launch.', timeline(STEPS)) + means + close('Let’s build the night together.', 'website-partners') + '</main>'
+    return ('<main id="main-content" class="c-page">' + h + why + how
+            + section('white', 'All partner types', 'Find your fit.', cats, sid='categories') + close() + '</main>')
 
 def partner_page(key, form_html):
     kicker, h1, lead, fans, explore, success = PARTNER[key]

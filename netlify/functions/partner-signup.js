@@ -29,6 +29,10 @@ exports.handler = async (event) => {
   if (/https?:\/\/|www\./i.test(blurb)) return fail('Please keep links out of your one line for fans.');
   try { const u = new URL(url); if (u.protocol !== 'https:' || !u.hostname.includes('.')) throw 0; url = u.toString(); } catch { return fail('Add a link that starts with https://'); }
   if (!b.agree) return fail('Please agree to the terms.');
+  // Optional Perk: shown on the card once paid, hidden whenever the partner isn't.
+  const perkOffer = clean(b.perkOffer, 60), perkDetails = clean(b.perkDetails, 120);
+  if (perkOffer && perkDetails.length < 5) return fail('Add how fans redeem your Perk.');
+  if (/https?:\/\/|www\./i.test(perkOffer + ' ' + perkDetails)) return fail('Please keep links out of your Perk.');
 
   // Re-check the business with Google on the server: real place, right kind, near the venue.
   const key = process.env.GOOGLE_PLACES_SERVER_KEY;
@@ -59,6 +63,12 @@ exports.handler = async (event) => {
     const { data, error } = await sb.from('partner_orgs').insert({ ...row, plan: 'pending' }).select('id').single();
     if (error || !data) return guard.refuse(event, 500, 'Could not save. Try again.', 'POST, OPTIONS');
     id = data.id;
+  }
+  // Replace any earlier Perk from this signup with the one just entered (or none).
+  await sb.from('perks').delete().eq('org_id', id);
+  if (perkOffer) {
+    await sb.from('perks').insert({ org_id: id, kind, partner_name: name, offer: perkOffer, details: perkDetails, url,
+      venue_slugs: [venue.id], starts_on: new Date().toISOString().slice(0, 10), status: 'live' });
   }
   return { statusCode: 200, headers: H, body: JSON.stringify({ ok: true, checkout: `${SITE}/.netlify/functions/partner-checkout?org=${encodeURIComponent(id)}&plan=${plan}` }) };
 };

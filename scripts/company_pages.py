@@ -40,7 +40,7 @@ def build_company_pages(head):
     body = intro('Concerto Partners', 'A better concert night.<br>A useful place in it.', 'Connect your business or tour with the decisions fans make around a show. Start with something useful for them and a clear objective for you.')
     body += f'<section class="section"><div class="site-shell partner-tracks">{rows}</div></section>' + process()
     body += section('What a partnership means', 'Specific scope.<br>Shared expectations.', '<p>Concerto is a founder-led business building its partner program. Opportunities can include relevant app or website placements and agreed content collaborations. Availability, fees, duration, and reporting are discussed for each opportunity.</p><p>A Perk is a redeemable fan benefit. A sponsored placement is paid visibility. Venue information is useful guidance. We keep those distinctions clear.</p><a class="text-link" href="/perks">How Concerto Perks work →</a>')
-    (ROOT/'partners.html').write_text(wrap(head,'partners','Concerto Partners','Partnerships for restaurants, hotels, venues, and artists around concert nights.',body))
+    (ROOT/'partners.html').write_text(wrap(head,'partners','Advertise to Concert Fans: Restaurants & Hotels','Concerto Partners is a simple marketing platform for restaurants and hotels near 600+ concert venues worldwide. Get featured to fans planning their night, from $99 a month.',body))
     for slug, v in TRACKS.items():
         label,title,desc,benefit,value,_,_,measure = v
         body = intro(label,title,desc,'Discuss a partnership','#interest')

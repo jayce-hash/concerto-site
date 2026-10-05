@@ -781,9 +781,14 @@ document.addEventListener('DOMContentLoaded', function () {
     card.innerHTML = '<article class="partner-card"><div class="partner-photo"><span class="fallback-mark">' + esc((name || '?').charAt(0)) +
       '</span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3>' + esc(name || 'Your name') + '</h3>' +
       (blurb ? '<p class="partner-blurb">' + esc(blurb) + '</p>' : '') +
+      ((el('perkOffer') && el('perkOffer').value.trim()) ? '<div class="partner-perk"><span>Concerto Perk</span><strong>' + esc(el('perkOffer').value.trim()) + '</strong>' +
+        (el('perkDetails').value.trim() ? '<p>' + esc(el('perkDetails').value.trim()) + '</p>' : '') + '</div>' : '') +
       '<div class="partner-actions"><span class="partner-btn">' + (hotel ? 'Book' : 'Reserve') + '</span><span class="partner-btn partner-btn-quiet">Directions</span></div></div></article>';
   }
-  ['name', 'blurb', 'kind'].forEach(function (n) { el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
+  ['name', 'blurb', 'kind', 'perkOffer', 'perkDetails'].forEach(function (n) { if (!el(n)) return; el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
+  // The redeem field appears only once a Perk is typed.
+  var how = f.querySelector('.ss-perk-how');
+  if (el('perkOffer') && how) el('perkOffer').addEventListener('input', function () { how.hidden = !el('perkOffer').value.trim(); });
   function search() {
     var v = venue(), q = (el('q').value || '').trim();
     if (!v) { say('Choose your venue from the list first.', true); el('venue').focus(); return; }
@@ -813,12 +818,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var v = venue();
     if (!v) { say('Choose your venue from the list.', true); return; }
     if (!picked) { say('Search for your business and select it.', true); return; }
+    if (el('perkOffer') && el('perkOffer').value.trim() && !el('perkDetails').value.trim()) { say('Add how fans redeem your Perk.', true); el('perkDetails').focus(); return; }
     if (!el('agree').checked) { say('Please agree to the terms.', true); return; }
     var plan = (f.querySelector('input[name=plan]:checked') || {}).value || 'monthly';
     var btn = f.querySelector('.ss-pay'); btn.disabled = true; say('Getting your checkout ready\u2026');
     fetch('/.netlify/functions/partner-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
       kind: el('kind').value, venue: v.id, placeId: picked.id, name: el('name').value, url: el('url').value,
-      blurb: el('blurb').value, plan: plan, agree: true, company: el('company').value }) })
+      blurb: el('blurb').value, plan: plan, agree: true, company: el('company').value,
+      perkOffer: el('perkOffer') ? el('perkOffer').value : '', perkDetails: el('perkDetails') ? el('perkDetails').value : '' }) })
       .then(function (r) { return r.json(); }).then(function (j) {
         if (j && j.checkout) { location.href = j.checkout; return; }
         btn.disabled = false; say((j && j.error) || 'Something went wrong. Try again.', true);
