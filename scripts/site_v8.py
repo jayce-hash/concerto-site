@@ -221,7 +221,12 @@ def setlists_hub():
     return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>labeled by source.', 'Official tour playlists and confirmed setlists, each marked with its source and date. Setlists change by night.', 'Search artists', '.c-entry')
             + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{body}</div></section>' + close() + '</main>')
 
+# Hidden on the website until the place data is curated (apartments were showing as hotels).
+# Flip to True to bring the section back; nothing else changes.
+AROUND_THE_VENUE_ON = False
+
 def around_venue(v):
+    if not AROUND_THE_VENUE_ON: return ''
     """Restaurants, hotels and more around a venue, from its nearby file, as real HTML so search
     engines can read it ("restaurants near American Airlines Center"). Same data as the app.
     Google Places content: attributed beside it, linked by place ID, refreshed monthly."""
@@ -232,7 +237,7 @@ def around_venue(v):
     cols = []
     for key, title in (('restaurants', 'Restaurants'), ('hotels', 'Hotels'), ('more', 'More nearby')):
         # Convenience stores, pharmacies, gas and groceries are in Google's results but are not recommendations.
-        skip = {'convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank', 'car_wash', 'car_repair', 'parking'}  # same list as the app
+        skip = {'convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank', 'car_wash', 'car_repair', 'parking', 'apartment_building', 'apartment_complex', 'condominium_complex', 'housing_complex', 'real_estate_agency', 'travel_agency'}  # same list as the app
         items = [x for x in ((d.get('tabs') or {}).get(key) or {}).get('items') or []
                  if x.get('name') and not (set(x.get('types') or []) & skip)][:6]
         if not items: continue

@@ -23,7 +23,7 @@ function miles(a, b) {
   return 2 * R * Math.asin(Math.sqrt(h));
 }
 // Same list as the app and the website's "Around the venue": never a partner category.
-const NOT_A_PICK = new Set(['convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank', 'car_wash', 'car_repair', 'parking']);
+const NOT_A_PICK = new Set(['convenience_store', 'gas_station', 'pharmacy', 'drugstore', 'supermarket', 'grocery_store', 'atm', 'bank', 'car_wash', 'car_repair', 'parking', 'apartment_building', 'apartment_complex', 'condominium_complex', 'housing_complex', 'real_estate_agency', 'travel_agency']);
 const FOOD = /restaurant|bar|cafe|coffee|bakery|food|meal_|pub|brewery|winery|night_club|dessert|ice_cream|steak|pizza|sushi|bistro|diner|deli/;
 const STAY = /lodging|hotel|motel|inn|resort|bed_and_breakfast|hostel/;
 function kindFits(kind, types) {
