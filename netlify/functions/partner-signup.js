@@ -32,10 +32,9 @@ exports.handler = async (event) => {
   if (!b.agree) return fail('Please agree to the terms.');
   // 4-digit staff code: staff enter it to redeem a fan's Perk. Stored only as a hash.
   const staffCode = String(b.staffCode || '').trim();
-  if (!/^\d{4}$/.test(staffCode)) return fail('Choose a 4-digit staff code.');
   // Optional Perk: shown on the card once paid, hidden whenever the partner isn't.
   const perkOffer = clean(b.perkOffer, 60), perkDetails = clean(b.perkDetails, 120);
-  if (perkOffer && perkDetails.length < 5) return fail('Add the details or limits for your Perk.');
+  if (perkOffer && perkDetails.length < 5) return fail('Add how fans use your offer.');
   if (/https?:\/\/|www\./i.test(perkOffer + ' ' + perkDetails)) return fail('Please keep links out of your Perk.');
 
   // Re-check the business with Google on the server: real place, right kind, near the venue.
@@ -68,7 +67,7 @@ exports.handler = async (event) => {
     if (error || !data) return guard.refuse(event, 500, 'Could not save. Try again.', 'POST, OPTIONS');
     id = data.id;
   }
-  await sb.from('partner_orgs').update({ redeem_code_hash: hashCode(id, staffCode) }).eq('id', id);
+  if (/^\d{4}$/.test(staffCode)) await sb.from('partner_orgs').update({ redeem_code_hash: hashCode(id, staffCode) }).eq('id', id);
   // Replace any earlier Perk from this signup with the one just entered (or none).
   await sb.from('perks').delete().eq('org_id', id);
   if (perkOffer) {

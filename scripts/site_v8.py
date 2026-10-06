@@ -663,7 +663,7 @@ def partners_hub():
         ('Open to any restaurant or hotel.', 'No agency, no contract, no minimum spend. Sign up yourself in a few minutes.', '')]))
     how = section('cream', 'How it works', 'Three steps.', rows([
         ('Pick your venue.', 'Search for your restaurant or hotel near any Concerto venue. Your address, map location and photo fill in automatically.', ''),
-        ('Set up your card.', 'Add one line for fans, your reservation or booking link, and an optional Perk. You see it exactly as fans will.', ''),
+        ('Set up your card.', 'Add one line for fans, your reservation or booking link, and an optional offer for Concerto members. You see it exactly as fans will.', ''),
         ('Pay, and you’re live.', 'Restaurants are $99 a month and hotels $299 a month, with savings on annual plans and no commissions or booking fees. Your card appears within minutes, labeled Concerto Partner. Each month you see how many fans viewed it and tapped through.', '')]))
     others = section('white', 'Venues and artists', 'Other partnerships.',
                      '<p class="c-body">Venues, artists and tours can also partner with Concerto. Tell us what you have in mind and we&rsquo;ll work out the details. '
@@ -799,7 +799,7 @@ def build():
         if hb.exists(): (ROOT / f'{k}.html').write_text(hb.read_text()); continue
         rewrite(f'{k}.html', partner_page(k, form_of(f'{k}.html')))
     rewrite('contact.html', contact_page(form_of('contact.html')))
-    rewrite('near-me.html', near_me()); rewrite('perks.html', perks_page()); rewrite('search.html', search_page())
+    rewrite('near-me.html', near_me()); rewrite('search.html', search_page())
     rewrite('help.html', doc_page(legacy['help.html'], 'Help Center', 'Answers, in plain terms.', 'How Concerto works, from saving your first show to Your Night, Concerto+, and account controls.'))
     rewrite('faq.html', doc_page(legacy['faq.html'], 'FAQ', 'Questions, answered.', 'What Concerto is, what stays free, what Your Night is, and what Concerto+ adds.'))
     rewrite('privacy.html', doc_page(legacy['privacy.html'], 'Legal', 'Privacy Policy.', 'What we collect, why, and the controls you have over it.', 'white', True))
@@ -860,7 +860,7 @@ def _build_v8_0():
     for v in VENUES: rewrite(f'venue/{v["id"]}.html', venue_page(v))
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
-    for f in ['near-me.html', 'perks.html', 'partners.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-venues.html', 'partner-artists.html', 'creators.html', 'press.html',
+    for f in ['near-me.html', 'partners.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-venues.html', 'partner-artists.html', 'creators.html', 'press.html',
               'investors.html', 'contact.html', 'faq.html', 'help.html', 'privacy.html', 'terms.html', 'partners-thank-you.html', 'search.html', '404.html']:
         restyle(f)
     print(f'V8 site written: home, your-night, premium, about, 3 hubs, 5 topic pages, {N_V} venues, {N_T} tours, {len(LIVE)} setlists')

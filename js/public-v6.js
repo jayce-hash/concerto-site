@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
     card.querySelector('h3').textContent = c.name;
     var bl = card.querySelector('.partner-blurb'); if (c.blurb) bl.textContent = c.blurb; else bl.remove();
     var body = card.querySelector('.partner-body');
-    if (c.perk) {
+    if (false && c.perk) { // Perks are off for now
       var pk = document.createElement('div'); pk.className = 'partner-perk';
       pk.innerHTML = '<span>Concerto Perk</span><strong></strong><p></p>';
       pk.querySelector('strong').textContent = c.perk.offer;
@@ -821,7 +821,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var v = venue();
     if (!v) { say('Choose your venue from the list.', true); return; }
     if (!picked) { say('Search for your business and select it.', true); return; }
-    if (el('perkOffer') && el('perkOffer').value.trim() && !el('perkDetails').value.trim()) { say('Add the details or limits for your Perk.', true); el('perkDetails').focus(); return; }
+    if (el('perkOffer') && el('perkOffer').value.trim() && !el('perkDetails').value.trim()) { say('Add how fans use your offer.', true); el('perkDetails').focus(); return; }
     if (el('staffCode') && !/^\d{4}$/.test((el('staffCode').value || '').trim())) { say('Choose a 4-digit staff code.', true); el('staffCode').focus(); return; }
     if (!el('agree').checked) { say('Please agree to the terms.', true); return; }
     var plan = (f.querySelector('input[name=plan]:checked') || {}).value || 'monthly';

@@ -28,7 +28,6 @@
 /partner-restaurants.html /partners/restaurants 301!
 /partner-venues.html /partners/venues 301!
 /partners.html /partners 301!
-/perks.html /perks 301!
 /premium.html /premium 301!
 /press.html /press 301!
 /privacy.html /privacy 301!
@@ -1436,8 +1435,8 @@
 /mobile-tours.html   /tours     301
 /mobile-events       /near-me   301
 /mobile-events.html  /near-me   301
-/mobile-top-picks    /perks 301
-/mobile-top-picks.html /perks 301
+/mobile-top-picks    / 301
+/mobile-top-picks.html / 301
 /mobile-premium      /premium   301
 /mobile-premium.html /premium   301
 /mobile-concertoplus /premium   301
@@ -1445,8 +1444,8 @@
 
 # Duplicate surfaces retired: picks/featuredtours were canonical to
 # /top-picks and /tours already; tourinfo folds into /tours.
-/picks                /perks   301
-/picks.html           /perks   301
+/picks                /   301
+/picks.html           /   301
 /featuredtours        /tours       301
 /featuredtours.html   /tours       301
 /tourinfo             /tours       301
@@ -1463,7 +1462,7 @@
 /near-me /near-me.html 200
 /your-night /your-night.html 200
 /premium /premium.html 200
-/perks /perks.html 200
+/perks / 301!
 /partners /partners.html 200
 /about /about.html 200
 /founder /founder.html 200
@@ -1502,8 +1501,8 @@
 /setlist/* /setlist/:splat.html 200
 
 # Retired commercial surface.
-/top-picks /perks 301!
-/top-picks.html /perks 301!
+/top-picks / 301!
+/top-picks.html / 301!
 
 # Real 404 for anything else.
 /* /404.html 404

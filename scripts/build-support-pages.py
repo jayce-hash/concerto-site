@@ -23,7 +23,7 @@ qa = json.loads((ROOT / 'scripts/faq.json').read_text())
 items = ''.join(f'<details class="card"><summary>{q}</summary><p>{a}</p></details>' for q, a in qa)
 ld = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': html.unescape(q), 'acceptedAnswer': {'@type': 'Answer', 'text': html.unescape(a)}} for q, a in qa]}
 extra = '<script type="application/ld+json">' + json.dumps(ld).replace('</', '<\\/') + '</script>'
-faq = head('FAQ | Concerto', 'How Concerto works, what stays free, how Your Night and Perks fit in, what Concerto+ adds, and what verified means.', '/faq', extra) + f'''<main>
+faq = head('FAQ | Concerto', 'How Concerto works, what stays free, how Your Night fits in, what Concerto+ adds, and what verified means.', '/faq', extra) + f'''<main>
 <section class="page-hero-v4 compact"><div class="site-shell"><p class="eyebrow">FAQ</p><h1>Answers without the scavenger hunt.</h1><p class="lead">How Concerto works, what stays free, what Your Night is, and what Concerto+ adds. For step-by-step help, use the Help Center.</p><div class="hero-actions"><a class="btn-secondary" href="/help">Help Center</a><a class="btn-secondary" href="/contact">Contact</a></div></div></section>
 <section class="section"><div class="shell"><div class="faq-list">{items}</div></div></section>
 <section class="cta-band"><div class="site-shell"><p class="eyebrow">Still stuck</p><h2>Talk to a real person.</h2><p>Fan support answers at support@concertocity.com. Partners and media have their own channels on the Contact page.</p><div class="hero-actions"><a class="btn-primary" href="/contact">Contact Concerto</a></div></div></section>

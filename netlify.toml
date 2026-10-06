@@ -47,3 +47,16 @@
 [functions."alerts-poll-background"]
   # Once a day (12:00 UTC) instead of every 6 hours: the job was ~700 Ticketmaster calls a day on its own.
   schedule = "0 12 * * *"
+
+# Perks are off for now; old links go home.
+[[redirects]]
+  from = "/perks"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/perks.html"
+  to = "/"
+  status = 301
+  force = true
