@@ -657,7 +657,7 @@ def partners_hub():
              'Ticketing companies and venues sell their ads to the biggest brands. Concerto Partners lets any restaurant or hotel near a venue reach fans who are planning a night there.',
              '<a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a><a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a>',
              ['Restaurants $99 a month', 'Hotels $299 a month', 'Live in minutes'], 'gold')
-    why = section('white', 'Why it works', 'The right fans,<br>at the right time.', rows([
+    why = section('white', 'Why it works', 'Fans planning a night<br>at your venue.', rows([
         ('Fans going to your venue.', 'Your card shows on your venue&rsquo;s page in the Concerto app and on concertocity.com, and in Your Night for fans who saved a show there.', ''),
         ('While they’re making plans.', 'Fans see you when they&rsquo;re deciding where to eat before the show and where to stay.', ''),
         ('Open to any restaurant or hotel.', 'No agency, no contract, no minimum spend. Sign up yourself in a few minutes.', '')]))
@@ -668,16 +668,44 @@ def partners_hub():
     others = section('white', 'Venues and artists', 'Other partnerships.',
                      '<p class="c-body">Venues, artists and tours can also partner with Concerto. Tell us what you have in mind and we&rsquo;ll work out the details. '
                      '<a class="c-link" href="/partners/venues">Venues</a> \u00b7 <a class="c-link" href="/partners/artists">Artists and tours</a></p>', narrow=True)
-    return '<main id="main-content" class="c-page">' + h + why + how + others + close() + '</main>'
+    end = section('cream', 'Questions', 'Questions about<br>Concerto Partners?',
+                  '<p class="c-body">Email <a href="mailto:jayce@concertocity.com">jayce@concertocity.com</a>.</p>'
+                  '<p class="c-actions"><a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a> <a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a></p>', narrow=True)
+    return '<main id="main-content" class="c-page">' + h + why + how + others + end + '</main>'
+
+PARTNER_V2 = {
+    'partner-venues': dict(kicker='Venues', h1='Work with Concerto<br>on your venue guide.',
+        lead='Fans use Concerto to plan their visit to 600+ venues worldwide: bag rules, entry, parking and rideshare. Work with us to keep your guide accurate and to reach fans before they arrive.',
+        chips=['Accurate venue guides', 'Fans before they arrive', 'Custom partnerships'],
+        rows=[('Keep your guide accurate.', 'Send us your current bag policy, entry, parking and rideshare details, and we&rsquo;ll update your guide in the app and on concertocity.com.'),
+              ('Reach fans before they arrive.', 'Share event-day updates, like doors, set times or parking changes, with fans who saved a show at your venue.'),
+              ('Promote what you offer.', 'Feature parking, premium seating, food and drink or hospitality to fans planning their visit.')],
+        form_title='Tell us about<br>your venue.'),
+    'partner-artists': dict(kicker='Artists and tours', h1='Work with Concerto<br>on your tour.',
+        lead='Fans use Concerto to follow tours, check setlists and plan their night at each venue. Work with us to keep your tour accurate and to reach fans going to your shows.',
+        chips=['Accurate tour pages', 'Fans going to your shows', 'Custom partnerships'],
+        rows=[('Keep your tour page accurate.', 'Send confirmed dates, set times and setlist details, and we&rsquo;ll keep your tour page current in the app and on concertocity.com.'),
+              ('Reach fans going to your shows.', 'Share tour news, merch or VIP information with fans who saved one of your shows.'),
+              ('Promote a fan offer.', 'Feature a merch discount, presale or fan experience for Concerto members on your tour page.')],
+        form_title='Tell us about<br>your tour.'),
+}
 
 def partner_page(key, form_html):
+    c = PARTNER_V2.get(key)
+    if c:  # venues and artists: plain, conversation-based partnerships
+        h = hero(c['kicker'], c['h1'], c['lead'], '<a class="c-btn c-btn-navy" href="#interest">Get in touch</a><a class="c-link" href="/partners">All partnerships</a>', c['chips'], 'gold')
+        what = section('white', 'What we can do together', 'Three ways to work<br>with Concerto.', rows([(t, b, '') for t, b in c['rows']]))
+        how = section('cream', 'How it works', 'A conversation first.',
+                      '<p class="c-body">Send us a note with what you have in mind. We&rsquo;ll reply by email to talk through the details, including pricing if it applies. There&rsquo;s no commitment until we both agree.</p>', narrow=True)
+        form = (f'<section class="c-section c-white" id="interest"><div class="c-wrap c-split"><div>{eyebrow("Get in touch")}<h2 class="c-h2">{c["form_title"]}</h2>'
+                '<p class="c-body">Questions first? Email <a href="mailto:jayce@concertocity.com">jayce@concertocity.com</a>.</p></div>'
+                f'<div class="c-form">{form_html}</div></div></section>')
+        return '<main id="main-content" class="c-page">' + h + what + how + form + '</main>'
     kicker, h1, lead, fans, explore, success = PARTNER[key]
-    h = hero(kicker, h1, lead, '<a class="c-btn c-btn-navy" href="#interest">Discuss a partnership</a><a class="c-link" href="/partners">All partner types</a>', ['Scope agreed in advance', 'Labeled for fans'], 'gold')
-    opp = rows([('What fans receive', e(fans), ''), ('What you can explore', e(explore), ''), ('What success can mean', e(success) + ' Confirm measurement capabilities before launch; clicks are not confirmed purchases.', '')])
-    form = (f'<section class="c-section c-cream" id="interest"><div class="c-wrap c-split"><div>{eyebrow("Start a conversation")}<h2 class="c-h2">Tell us what you have in mind.</h2>'
-            '<p class="c-body">No proposal needed. We review the fit and follow up.</p></div>'
-            f'<div class="c-form">{form_html}</div></div></section>')
-    return '<main id="main-content" class="c-page">' + h + section('white', 'The opportunity', 'Useful for fans. Relevant to you.', opp) + section('white', 'Working together', 'A clear path to launch.', timeline(STEPS)) + form + '</main>'
+    h = hero(kicker, h1, lead, '<a class="c-btn c-btn-navy" href="#interest">Get in touch</a><a class="c-link" href="/partners">All partnerships</a>', [], 'gold')
+    form = (f'<section class="c-section c-cream" id="interest"><div class="c-wrap c-split"><div>{eyebrow("Get in touch")}<h2 class="c-h2">Tell us what you have in mind.</h2>'
+            f'<p class="c-body">We&rsquo;ll reply by email.</p></div><div class="c-form">{form_html}</div></div></section>')
+    return '<main id="main-content" class="c-page">' + h + form + '</main>'
 
 def contact_page(form_html):
     h = hero('Contact', 'Let’s get you to<br>the right place.', 'Questions about your concert night, an idea for a collaboration, or a company inquiry. Start here.', '', ['support@concertocity.com', 'partnerships@concertocity.com'], 'cream')
