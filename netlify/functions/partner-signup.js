@@ -35,7 +35,7 @@ exports.handler = async (event) => {
   if (!/^\d{4}$/.test(staffCode)) return fail('Choose a 4-digit staff code.');
   // Optional Perk: shown on the card once paid, hidden whenever the partner isn't.
   const perkOffer = clean(b.perkOffer, 60), perkDetails = clean(b.perkDetails, 120);
-  if (perkOffer && perkDetails.length < 5) return fail('Add how fans redeem your Perk.');
+  if (perkOffer && perkDetails.length < 5) return fail('Add the details or limits for your Perk.');
   if (/https?:\/\/|www\./i.test(perkOffer + ' ' + perkDetails)) return fail('Please keep links out of your Perk.');
 
   // Re-check the business with Google on the server: real place, right kind, near the venue.
