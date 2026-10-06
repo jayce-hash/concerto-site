@@ -457,6 +457,9 @@ document.addEventListener('DOMContentLoaded', function () {
       pk.innerHTML = '<span>Concerto Perk</span><strong></strong><p></p>';
       pk.querySelector('strong').textContent = c.perk.offer;
       if (c.perk.details) pk.querySelector('p').textContent = c.perk.details; else pk.querySelector('p').remove();
+      // Perks are redeemed with a live code in the app, so the website points there.
+      var use = document.createElement('a'); use.className = 'partner-perk-app'; use.href = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
+      use.textContent = 'Use this Perk in the Concerto app'; use.target = '_blank'; use.rel = 'noopener'; pk.appendChild(use);
       body.appendChild(pk);
     }
     var act = document.createElement('div'); act.className = 'partner-actions';
@@ -819,13 +822,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!v) { say('Choose your venue from the list.', true); return; }
     if (!picked) { say('Search for your business and select it.', true); return; }
     if (el('perkOffer') && el('perkOffer').value.trim() && !el('perkDetails').value.trim()) { say('Add how fans redeem your Perk.', true); el('perkDetails').focus(); return; }
+    if (el('staffCode') && !/^\d{4}$/.test((el('staffCode').value || '').trim())) { say('Choose a 4-digit staff code.', true); el('staffCode').focus(); return; }
     if (!el('agree').checked) { say('Please agree to the terms.', true); return; }
     var plan = (f.querySelector('input[name=plan]:checked') || {}).value || 'monthly';
     var btn = f.querySelector('.ss-pay'); btn.disabled = true; say('Getting your checkout ready\u2026');
     fetch('/.netlify/functions/partner-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
       kind: el('kind').value, venue: v.id, placeId: picked.id, name: el('name').value, url: el('url').value,
       blurb: el('blurb').value, plan: plan, agree: true, company: el('company').value,
-      perkOffer: el('perkOffer') ? el('perkOffer').value : '', perkDetails: el('perkDetails') ? el('perkDetails').value : '' }) })
+      perkOffer: el('perkOffer') ? el('perkOffer').value : '', perkDetails: el('perkDetails') ? el('perkDetails').value : '',
+      staffCode: el('staffCode') ? el('staffCode').value.trim() : '' }) })
       .then(function (r) { return r.json(); }).then(function (j) {
         if (j && j.checkout) { location.href = j.checkout; return; }
         btn.disabled = false; say((j && j.error) || 'Something went wrong. Try again.', true);

@@ -652,20 +652,23 @@ STEPS = [('Step one', 'Tell us the fit.', 'Share your business, audience, locati
          ('Step four', 'Launch and learn.', 'Activate the agreed placement, keep the offer current, and review available results. Reach, bookings, and sales are not guaranteed.')]
 
 def partners_hub():
-    """Concerto Partners: a simple, self-serve marketing platform for restaurants and hotels."""
-    h = hero('Concerto Partners', 'Reach concert fans<br>planning their night.',
-             'A simple marketing platform for restaurants and hotels near 600+ venues worldwide. Your place, featured to fans deciding where to eat and stay for the show.',
+    """Concerto Partners: restaurants and hotels first (self-serve); venues and artists by conversation."""
+    h = hero('Concerto Partners', 'Market to concert fans<br>near the venue.',
+             'Ticketing companies and venues sell their ads to the biggest brands. Concerto Partners lets any restaurant or hotel near a venue reach fans who are planning a night there.',
              '<a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a><a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a>',
-             ['From $99 a month', 'Live in minutes', 'Cancel anytime'], 'gold')
-    why = section('white', 'Why concert fans', 'They plan the whole night,<br>not just the show.',
-                  '<p class="c-body">Fans drive in and fly in for shows. They eat nearby before doors open, and many need somewhere to stay after. They plan all of it in Concerto, venue by venue. A Concerto Partner card puts your restaurant or hotel right in that plan, on the venue&rsquo;s page in the app and on concertocity.com.</p>')
-    how = section('cream', 'How it works', 'Simple, self-serve,<br>and measured.', rows([
+             ['Restaurants $99 a month', 'Hotels $299 a month', 'Live in minutes'], 'gold')
+    why = section('white', 'Why it works', 'The right fans,<br>at the right time.', rows([
+        ('Fans going to your venue.', 'Your card shows on your venue&rsquo;s page in the Concerto app and on concertocity.com, and in Your Night for fans who saved a show there.', ''),
+        ('While they’re making plans.', 'Fans see you when they&rsquo;re deciding where to eat before the show and where to stay.', ''),
+        ('Open to any restaurant or hotel.', 'No agency, no contract, no minimum spend. Sign up yourself in a few minutes.', '')]))
+    how = section('cream', 'How it works', 'Three steps.', rows([
         ('Pick your venue.', 'Search for your restaurant or hotel near any Concerto venue. Your address, map location and photo fill in automatically.', ''),
-        ('Set up your card.', 'One line for fans, your reservation or booking link, and an optional Perk. You see it exactly as fans will.', ''),
-        ('Pay, and you&rsquo;re live.', 'Restaurants are $99 a month and hotels $299 a month, with savings on annual plans and no commissions or booking fees. Your card appears within minutes, labeled Concerto Partner. Each month you see how many fans viewed it and tapped through.', '')]))
-    cats = rows([(v[0] + '.', e(v[2]), f'<a class="c-link" href="/partners/{k.split("-",1)[1]}">Explore the fit</a>') for k, v in PARTNER.items()])
-    return ('<main id="main-content" class="c-page">' + h + why + how
-            + section('white', 'All partner types', 'Find your fit.', cats, sid='categories') + close() + '</main>')
+        ('Set up your card.', 'Add one line for fans, your reservation or booking link, and an optional Perk. You see it exactly as fans will.', ''),
+        ('Pay, and you’re live.', 'Restaurants are $99 a month and hotels $299 a month, with savings on annual plans and no commissions or booking fees. Your card appears within minutes, labeled Concerto Partner. Each month you see how many fans viewed it and tapped through.', '')]))
+    others = section('white', 'Venues and artists', 'Other partnerships.',
+                     '<p class="c-body">Venues, artists and tours can also partner with Concerto. Tell us what you have in mind and we&rsquo;ll work out the details. '
+                     '<a class="c-link" href="/partners/venues">Venues</a> \u00b7 <a class="c-link" href="/partners/artists">Artists and tours</a></p>', narrow=True)
+    return '<main id="main-content" class="c-page">' + h + why + how + others + close() + '</main>'
 
 def partner_page(key, form_html):
     kicker, h1, lead, fans, explore, success = PARTNER[key]

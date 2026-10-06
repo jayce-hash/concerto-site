@@ -3,6 +3,7 @@
 const guard = require('./lib/guard');
 const { createClient } = require('@supabase/supabase-js');
 const { SITE, venueBySlug, miles, kindFits } = require('./lib/partner-self-serve');
+const { hashCode } = require('./lib/perk-codes');
 
 const clean = (s, n) => String(s || '').replace(/[\u0000-\u001f\u007f<>]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, n);
 
@@ -29,6 +30,9 @@ exports.handler = async (event) => {
   if (/https?:\/\/|www\./i.test(blurb)) return fail('Please keep links out of your one line for fans.');
   try { const u = new URL(url); if (u.protocol !== 'https:' || !u.hostname.includes('.')) throw 0; url = u.toString(); } catch { return fail('Add a link that starts with https://'); }
   if (!b.agree) return fail('Please agree to the terms.');
+  // 4-digit staff code: staff enter it to redeem a fan's Perk. Stored only as a hash.
+  const staffCode = String(b.staffCode || '').trim();
+  if (!/^\d{4}$/.test(staffCode)) return fail('Choose a 4-digit staff code.');
   // Optional Perk: shown on the card once paid, hidden whenever the partner isn't.
   const perkOffer = clean(b.perkOffer, 60), perkDetails = clean(b.perkDetails, 120);
   if (perkOffer && perkDetails.length < 5) return fail('Add how fans redeem your Perk.');
@@ -64,6 +68,7 @@ exports.handler = async (event) => {
     if (error || !data) return guard.refuse(event, 500, 'Could not save. Try again.', 'POST, OPTIONS');
     id = data.id;
   }
+  await sb.from('partner_orgs').update({ redeem_code_hash: hashCode(id, staffCode) }).eq('id', id);
   // Replace any earlier Perk from this signup with the one just entered (or none).
   await sb.from('perks').delete().eq('org_id', id);
   if (perkOffer) {
