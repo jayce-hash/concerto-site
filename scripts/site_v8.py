@@ -1,3 +1,4 @@
+import json
 """Concerto public website, V8. Written from scratch on top of the URL list.
 
 Runs after the legacy generators. For every public page it keeps the existing
@@ -594,6 +595,20 @@ def founder():
 
 
 # ----- company -----
+def press_coverage():
+    """'In the news' on the press page, from data/press.json. Hidden until there is an article."""
+    import datetime as _dt
+    try: items = json.loads((ROOT / 'data' / 'press.json').read_text())
+    except Exception: items = []
+    if not items: return ''
+    rows_html = ''
+    for i in sorted(items, key=lambda x: x['date'], reverse=True):
+        d = _dt.date.fromisoformat(i['date']).strftime('%B %-d, %Y')
+        rows_html += (f'<li class="c-press-item"><p class="c-eyebrow">{e(i["outlet"])}</p>'
+                      f'<a class="c-press-title" href="{e(i["url"])}" target="_blank" rel="noopener">{e(i["title"])}</a>'
+                      f'<p class="c-press-date">{d}</p></li>')
+    return section('white', 'In the news', 'Concerto in the press.', f'<ul class="c-press-list">{rows_html}</ul>')
+
 def press():
     h = hero('Press and media', 'Concerto, in brief.', 'Concerto helps concert fans plan the night around their ticket.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
     facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{N_V} venue guides, {N_T} tours'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
@@ -604,7 +619,7 @@ def press():
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
     bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 600+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
     res = section('white', 'Media resources', 'Logos, interviews, and figures.', '<p class="c-body">Logo files, product images, interviews, confirmed figures. Ask and we will send them.</p><div class="c-actions"><a class="c-link" href="/contact?topic=media">Contact for media</a><a class="c-link" href="/about">Read the founder story</a></div>')
-    return '<main id="main-content" class="c-page">' + h + boiler + kit + bio + res + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + press_coverage() + boiler + kit + bio + res + close() + '</main>'
 
 
 def where_help():
