@@ -10,6 +10,7 @@ sells with a point of view, real photography of real venues, and the guide itsel
 import html, json, re
 from pathlib import Path
 from public_chrome import header_html, footer_html, app_link, app_link_campaign, HEADER_START, FOOTER_START, FOOTER_END
+from venue_glance import glance as venue_glance
 
 ROOT = Path(__file__).resolve().parent.parent
 def e(v): return html.escape(str(v or ''), quote=True)
@@ -260,6 +261,54 @@ def around_venue(v):
             f'<p class="c-source">Places from Google Maps. Walking times are estimates. Open Concerto for the full list and your night plan.</p></div></section>')
 
 
+def _miles(a, b):
+    import math
+    try:
+        la1, lo1, la2, lo2 = map(math.radians, (float(a['lat']), float(a['lng']), float(b['lat']), float(b['lng'])))
+    except Exception:
+        return None
+    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+    return 3958.8 * 2 * math.asin(math.sqrt(h))
+
+def nearby_venues(v, n=6):
+    """The closest venue guides by distance, not the first ones alphabetically in the state."""
+    rows = [(d, x) for x in VENUES if x['id'] != v['id'] for d in [_miles(v, x)] if d is not None]
+    rows.sort(key=lambda r: r[0])
+    return rows[:n]
+
+def dist_label(d, country):
+    if country in ('US', 'USA', 'GB', 'UK'):
+        return 'Less than 1 mile' if d < 1 else f"{d:.0f} miles" if d >= 10 else f"{d:.1f} miles"
+    km = d * 1.609
+    return 'Less than 1 km' if km < 1 else f"{km:.0f} km" if km >= 10 else f"{km:.1f} km"
+
+def nb_dims(t):
+    """Escape, then keep a size like 22" x 14" x 9" on one line."""
+    return re.sub(r'(?<=\S) ([x×]) (?=\S)', '&nbsp;\\1&nbsp;', e(t))
+
+def quick_answers(v, info):
+    """Answers before the question: only what the guide states plainly (scripts/venue_glance.py)."""
+    items = [x for x in venue_glance(info) if x['key'] != 'bag']
+    if not items: return ''
+    cells = ''.join(f'<div class="c-qa-item"><dt>{e(x["label"])}</dt><dd>{nb_dims(x["value"])} <a class="c-qa-more" href="#{x["anchor"]}" aria-label="{e(x["label"])}: full details">Details</a></dd></div>' for x in items)
+    return (f'<section class="c-section c-white c-qa-section" aria-labelledby="qa-h"><div class="c-wrap">{eyebrow("Quick answers")}'
+            f'<h2 class="c-h2 c-h2-sm" id="qa-h">Before you go to {e(v["name"])}</h2><dl class="c-qa">{cells}</dl>'
+            '<p class="c-qa-note">From the venue guide below. Rules can change for a specific show, so check your ticket too.</p></div></section>')
+
+def directions_link(v):
+    from urllib.parse import quote
+    lat, lng = v.get('lat'), v.get('lng')
+    if lat is None or lng is None: return ''
+    g = f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"
+    a = f"https://maps.apple.com/?daddr={lat},{lng}&q={quote(v['name'])}"
+    return f'<a class="c-btn c-btn-line" href="{e(g)}" data-apple-maps="{e(a)}" target="_blank" rel="noopener">Directions</a>'
+
+def upcoming_shell(v):
+    """Filled by js/public-v6.js from the same Ticketmaster feed the app uses. Hidden until it has shows."""
+    return (f'<section class="c-section c-white c-upcoming" data-venue-upcoming hidden aria-labelledby="up-h"><div class="c-wrap">{eyebrow("On sale now")}'
+            f'<h2 class="c-h2 c-h2-sm" id="up-h">Upcoming shows at {e(v["name"])}</h2><ol class="c-up-list"></ol>'
+            f'<p class="c-qa-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show.</p></div></section>')
+
 def venue_page(v):
     info = INFO.get(v['id']) or {}
     toc, secs = '', ''
@@ -274,25 +323,27 @@ def venue_page(v):
         ver = f'<span class="verified">Checked {e(pretty_date(x.get("verified")))}</span>' if x.get('verified') else '<span class="verified">Not yet verified</span>'
         src = f'<div class="link-row"><a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a></div>' if x.get('officialLink') else ''
         secs += f'<article class="info-card c-guide-sec" data-section="{e(key)}" id="{anchor}"><div class="c-sec-head"><h2>{e(label)}</h2>{ver}</div><p>{e(body)}</p>{lists}{src}</article>'
-    near = [x for x in VENUES if x['id'] != v['id'] and (x.get('state') == v.get('state') if v.get('country') == 'US' else x.get('country') == v.get('country'))][:6]
-    near_html = ''.join(f'<li class="c-entry"><a href="/venue/{x["id"]}">{e(x["name"])}</a><span>{e(x.get("city"))}</span></li>' for x in near)
+    near = nearby_venues(v)
+    near_html = ''.join(f'<li class="c-entry"><a href="/venue/{x["id"]}">{e(x["name"])}</a><span>{e(x.get("city"))} · {dist_label(d, v.get("country"))}</span></li>' for d, x in near)
     local = dict(PHOTOS).get(v['id'])
     fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
     # Answer first: most visitors searched "<venue> bag policy", so the lead is the rule itself.
-    bag_line = _bag_answer(info.get('bagPolicy'))
-    lead = (f'<p class="c-lead"><b>Bag policy:</b> {e(bag_line)}.<br>Plus entry, parking, rideshare, and accessibility, each checked against official sources.</p>' if bag_line
+    # Same answer the Quick answers box and the app use (scripts/venue_glance.py).
+    bag_line = next((x['value'] for x in venue_glance(info) if x['key'] == 'bag'), None)
+    lead = (f'<p class="c-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.<br>Plus entry, parking, rideshare, and accessibility, each checked against official sources.</p>' if bag_line
             else f'<p class="c-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}. From official sources, dated.</p>')
     photo = f'<div class="c-venue-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>{eyebrow("Venue guide · " + place(v))}<h1>{e(v["name"])}</h1>'
             + lead +
-            f'<div class="c-actions">{app_link("venue", v["id"], "Remind me on show day", "c-btn c-btn-navy")}</div>'
+            f'<div class="c-actions">{app_link("venue", v["id"], "Remind me on show day", "c-btn c-btn-navy")}{directions_link(v)}</div>'
             f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
             f'<div class="c-wrap">{photo}</div></section>'
+            + quick_answers(v, info) + upcoming_shell(v) +
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
             + around_venue(v)
             + (f'<section class="c-section c-white c-partner-cta"><div class="c-wrap"><p class="c-body"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a class="c-link" href="/partners/restaurants">For restaurants</a> \u00b7 <a class="c-link" href="/partners/hotels">For hotels</a></p></div></section>')
-            + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
+            + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("More venue guides")}<h2 class="c-h2 c-h2-sm">Nearby venues</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
             + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it reminds you of the bag rules, doors, and parking at {v["name"]}. Free on iPhone.') + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
@@ -432,13 +483,39 @@ def jb_lineups():
 
 HOLIDAY_TOURS = {}  # seasonal headers: none active
 
+def listen_link(t, s, cls='c-btn c-btn-line'):
+    """Listen before the show: the official Apple Music set list playlist when the setlist names
+    one, otherwise an Apple Music search for it."""
+    from urllib.parse import quote
+    m = re.search(r'https://music\.apple\.com/\S+', (s or {}).get('note') or '')
+    if m: return f'<a class="{cls}" href="{e(m.group(0).rstrip(".,)"))}" target="_blank" rel="noopener">Listen on Apple Music</a>'
+    if (s or {}).get('songs'):
+        q = quote(f"{t['artist']} {t['tourName']} set list")
+        return f'<a class="{cls}" href="https://music.apple.com/us/search?term={q}" target="_blank" rel="noopener">Find it on Apple Music</a>'
+    return ''
+
+def related_tours(t, n=6):
+    """Six other tours with setlists, different on every page: same artist first letter neighbours
+    would cluster, so pick a stable spread from the full list."""
+    import hashlib
+    pool = [x for x in TOURS if x['tourId'] in LIVE and x['tourId'] != t['tourId']]
+    if len(pool) <= n: return pool
+    start = int(hashlib.md5(t['tourId'].encode()).hexdigest(), 16) % len(pool)
+    step = max(1, len(pool) // n)
+    return [pool[(start + i * step) % len(pool)] for i in range(n)]
+
+def tour_dates_shell(t):
+    return (f'<section class="c-section c-white c-upcoming" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}" hidden aria-labelledby="dates-h">'
+            f'<div class="c-wrap">{eyebrow("Tour dates")}<h2 class="c-h2 c-h2-sm" id="dates-h">Where {e(t["artist"])} is playing <span class="c-up-count" data-count></span></h2>'
+            '<ol class="c-up-list"></ol><p class="c-qa-note">Each venue guide has its bag rules, doors, parking, and the way home. Dates from Ticketmaster.</p></div></section>')
+
 def tour_page(t):
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
     official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
     if songs:
         setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">{songs_word(len(songs))}.</h2><p class="c-source">{e(source_label(s))}. Setlists change by night.</p>'
                 f'<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
-                + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + '</div></section>')
+                + '<div class="c-actions c-actions-tight">' + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + listen_link(t, s, 'c-link') + '</div></div></section>')
     elif t['tourId'] == 'jingle-ball-2026-tour':
         setl = jb_lineups()
     elif s and (s.get('note') or '').startswith('Lineups vary'):
@@ -449,7 +526,7 @@ def tour_page(t):
     elif s:
         setl = f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">Setlist Coming Soon!</h2><p class="c-body">Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p></div></section>'
     else: setl = ''
-    more = [x for x in TOURS if x['tourId'] in LIVE and x['tourId'] != t['tourId']][:6]
+    more = related_tours(t)
     # Holiday tours get a seasonal header through the end of their season, then return to normal
     # on the next build. Navy, gold and cream only: festive, never novelty.
     import datetime as _dt
@@ -463,7 +540,7 @@ def tour_page(t):
             f'<section class="c-hero c-hero-type c-hero-detail{hol_cls}">{hol_fx}<div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow(hol_kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p>'
             f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
             f'<div class="c-wrap"><div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
-            + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
+            + tour_dates_shell(t) + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
             + close('Going to this tour?', 'website-tour', 'Save your date in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
 
 def setlist_page(slug, s):
@@ -472,7 +549,7 @@ def setlist_page(slug, s):
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap c-narrow"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
             f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}. Setlists change by night.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
-            + (f'<a class="c-btn c-btn-line" href="/tour/{slug}">Tour guide</a>' if t else '') + '</div></div></section>'
+            + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div></div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-narrow"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
             + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
 
@@ -749,12 +826,20 @@ def contact_page(form_html):
 
 # ----- product and utility -----
 def near_me():
-    h = hero('Near Me', 'Something good.<br>Somewhere near you.', 'Concerts by location and date.<br>Save the one you are going to. The rest follows.',
-             store_button('website-near-me', tone='white'), ['Shows by location and date', 'In the app'], 'navy')
-    r = rows([('Find a show.', 'See what is on. Pick a date. Find a reason to go.', '<a class="c-link" href="/tours">Browse tours</a>'),
-              ('Give the night a home.', 'A saved show opens Your Night: rules, setlist, places nearby, the way home.', '<a class="c-link" href="/your-night">How Your Night works</a>'),
-              ('Know the room.', e(f'Every venue guide is researched from official sources and dated, for {N_V} venues.'), '<a class="c-link" href="/venues">Browse venues</a>')])
-    return '<main id="main-content" class="c-page">' + h + section('white', 'How it works', 'From nearby to Your Night.', r) + photo_band('Start with a room near you.') + close() + '</main>'
+    h = hero('Near Me', 'Concerts near you<br>this week.', 'Music shows in the next seven days, with the venue guide for each one.<br>Change the city to look somewhere else.',
+             store_button('website-near-me', tone='white'), ['From Ticketmaster', 'Venue guides linked'], 'navy')
+    live = ('<section class="c-section c-white c-live" data-live-near aria-labelledby="near-h"><div class="c-wrap">'
+            '<p class="c-eyebrow">This week</p><h2 class="c-h2 c-h2-sm" id="near-h">Shows near <span data-live-city>you</span></h2>'
+            '<p class="c-body" data-live-sub>Music shows in the next seven days, sorted by date.</p>'
+            '<form class="c-live-form" data-live-form role="search"><label class="c-sr" for="near-city">City</label>'
+            '<input id="near-city" type="search" placeholder="Try another city" autocomplete="address-level2"><button type="submit">Show shows</button></form>'
+            '<div class="live-rail" data-live-rail aria-live="polite"><div class="live-skeleton"></div><div class="live-skeleton"></div><div class="live-skeleton"></div><div class="live-skeleton"></div></div>'
+            '<noscript><p class="c-body">Turn on JavaScript to see shows near you, or open Near Me in Concerto.</p></noscript>'
+            '<p class="c-qa-note">Tap a show to open it in Concerto, or open its venue guide for bag rules, doors, and parking.</p></div></section>')
+    r = rows([('Find a show.', 'See what is on near you, by date.', '<a class="c-link" href="/tours">Browse tours</a>'),
+              ('Save it.', 'A saved show gets Your Night: the rules, the setlist, and the way home on one page, plus a reminder on show day.', '<a class="c-link" href="/your-night">How Your Night works</a>'),
+              ('Know the venue.', 'Every venue guide is researched from official sources and dated.', '<a class="c-link" href="/venues">Browse venues</a>')])
+    return '<main id="main-content" class="c-page">' + h + live + section('cream', 'How it works', 'From a show near you to Your Night.', r) + close() + '</main>'
 
 def perks_page():
     h = hero('Concerto Perks', 'Something extra<br>for your night.', 'Benefits from Concerto Partners, with the details to use them.<br>Availability depends on the venue, tour, and dates.', '', ['Offered by Concerto Partners', 'Always labeled'], 'gold')
@@ -806,7 +891,8 @@ def write_app_data():
     per = out / 'venue_info'
     per.mkdir(exist_ok=True)
     for vid, rec in INFO.items():
-        (per / f'{vid}.json').write_text(json.dumps(rec, separators=(',', ':'), ensure_ascii=False) + '\n')
+        out_rec = dict(rec); out_rec['glance'] = venue_glance(rec)
+        (per / f'{vid}.json').write_text(json.dumps(out_rec, separators=(',', ':'), ensure_ascii=False) + '\n')
     kb = (out / 'venue_verified.json').stat().st_size // 1024
     print(f'app data: venue_verified.json ({kb} KB) and {len(INFO)} per-venue files')
 

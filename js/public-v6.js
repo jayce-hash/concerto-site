@@ -296,7 +296,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // The ticket provider is a secondary link, never the click that leaves the site.
     var store = document.querySelector('.header-cta') ? document.querySelector('.header-cta').getAttribute('href') : 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
     var a = document.createElement('a'); a.className = 'live-card'; a.href = store; a.rel = 'noopener';
-    a.setAttribute('data-app-link', 'concerto://show/' + encodeURIComponent(ev.id || ''));
+    // The app opens saved shows only, so a show the fan has not saved opens Near Me; once the
+    // venue is matched to a guide (ccLinkVenueGuides) it opens that venue's screen instead.
+    a.setAttribute('data-app-link', 'concerto://near-me');
+    a.setAttribute('data-venue', v.name || '');
     a.innerHTML = (img ? '<img alt="" loading="lazy" decoding="async">' : '<span class="live-mono">' + initial(ev.name) + '</span>') +
       '<div class="live-copy"><span class="live-day"></span><h3></h3><p></p><span class="live-actions"><span class="live-primary">Open in Concerto</span></span></div>';
     if (img) a.querySelector('img').src = img;
@@ -327,7 +330,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var seen = {}; list = list.filter(function (ev) { var k = (ev.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
       rail.innerHTML = '';
       if (!list.length) { rail.innerHTML = '<div class="live-empty">No music shows near here in the next seven days. <a class="text-link" href="/near-me">See upcoming shows</a> or try another city.</div>'; return; }
-      list.slice(0, 10).forEach(function (ev) { rail.appendChild(eventCard(ev)); });
+      list.slice(0, 12).forEach(function (ev) { rail.appendChild(eventCard(ev)); });
+      if (window.ccLinkVenueGuides) window.ccLinkVenueGuides(rail);
     }).catch(function () { rail.innerHTML = '<div class="live-empty">Shows near you load in a moment. <a class="text-link" href="/near-me">Open Near Me in the app</a>.</div>'; });
   }
   function wireLive() {
@@ -335,8 +339,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var cityEl = root.querySelector('[data-live-city]'), sub = root.querySelector('[data-live-sub]'), form = root.querySelector('[data-live-form]');
     getJSON(FN + '/geo').then(function (g) {
       if (g && g.ok) { cityEl.textContent = g.city || 'you'; loadNear({ lat: g.lat, lng: g.lng, country: g.country }); }
-      else { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); }
-    }).catch(function () { cityEl.textContent = 'Dallas'; loadNear({ city: 'Dallas' }); });
+      else { cityEl.textContent = 'New York'; loadNear({ city: 'New York' }); }
+    }).catch(function () { cityEl.textContent = 'New York'; loadNear({ city: 'New York' }); });
     form.addEventListener('submit', function (e) {
       e.preventDefault(); var c = form.querySelector('input').value.trim(); if (!c) return;
       cityEl.textContent = c; sub.textContent = 'Music shows in ' + c + ', by night.';
@@ -506,6 +510,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (pc.claimed) { var c = document.createElement('span'); c.className = 'meta-pill'; c.textContent = '✓ Verified by the venue'; host.insertBefore(c, host.firstChild); }
       Object.keys(pc.overrides || {}).forEach(function (key) {
         var card = document.querySelector('.info-card[data-section="' + key + '"]'); var o = pc.overrides[key]; if (!card || !o) return;
+        // The venue re-verified this section, so quick answers drawn from the old text step aside.
+        var anchor = { bagPolicy: 'bag-policy', reEntry: 're-entry', gates: 'entrances' }[key];
+        if (anchor) [].forEach.call(document.querySelectorAll('.c-qa-more[href="#' + anchor + '"]'), function (m) { var it = m.closest('.c-qa-item'); if (it) it.hidden = true; });
         var p = card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
         var v = card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
         v.textContent = 'Verified by the venue ' + (o.verified || '');
@@ -858,4 +865,159 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     } catch (_) {}
   }, true);
+})();
+
+/* V9: answers before questions. Upcoming shows on venue pages, tour dates on tour pages,
+   and venue guides linked from every show list. Same Ticketmaster feed the app uses. */
+(function () {
+  'use strict';
+  var FN = '/.netlify/functions';
+  var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  var STORE = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414?pt=127753814&mt=8&ct=';
+  function getJSON(u) { return fetch(u, { headers: { Accept: 'application/json' } }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
+  function norm(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/^the\s+/, '').replace(/[^a-z0-9]/g, ''); }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function clock(lt) { try { return new Date('1970-01-01T' + lt).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }); } catch (e) { return ''; } }
+  function dayParts(d) { var t = new Date(d + 'T12:00:00'); return { dow: t.toLocaleDateString(undefined, { weekday: 'short' }), mon: t.toLocaleDateString(undefined, { month: 'short' }), day: String(t.getDate()), year: t.getFullYear() }; }
+  function bindAppLink(a) {
+    a.addEventListener('click', function (e) {
+      if (typeof window.gtag === 'function') { try { window.gtag('event', 'app_store_tap', { campaign: (a.getAttribute('href').match(/[?&]ct=([^&]+)/) || [])[1] || '', page_type: location.pathname.split('/')[1] || 'home', page_path: location.pathname, link_text: (a.textContent || '').trim().slice(0, 60), transport_type: 'beacon' }); } catch (_) {} }
+      if (!ios) return;
+      e.preventDefault(); e.stopPropagation();
+      var store = a.getAttribute('href'), app = a.getAttribute('data-app-link'), t0 = Date.now(), left = false;
+      var onHide = function () { left = true; };
+      document.addEventListener('visibilitychange', onHide, { once: true });
+      window.location.href = app;
+      setTimeout(function () { document.removeEventListener('visibilitychange', onHide); if (!left && !document.hidden && Date.now() - t0 < 2500) window.location.href = store; }, 1400);
+    });
+    return a;
+  }
+  window.ccBindAppLink = bindAppLink;
+  function appLink(label, deep, ct, cls) { var a = el('a', cls || 'c-up-save', label); a.href = STORE + ct; a.rel = 'noopener'; a.setAttribute('data-app-link', deep); return bindAppLink(a); }
+  function ticketLink(url) { if (!url || !/^https:\/\//.test(url)) return null; var t = el('a', 'c-up-tix', 'Tickets'); t.href = url; t.target = '_blank'; t.rel = 'noopener nofollow'; return t; }
+  // Venue name -> guide slug, from the same search index the site search uses.
+  var vidx = null;
+  function venueIndex() {
+    if (!vidx) vidx = getJSON('/search-index.json').then(function (d) { var m = {}; (d.venues || []).forEach(function (v) { m[norm(v.name)] = v.slug; }); return m; }).catch(function () { return {}; });
+    return vidx;
+  }
+  function slugFor(m, name) { var k = norm(name); if (m[k]) return m[k]; for (var n in m) { if (n.length > 6 && (k.indexOf(n) === 0 || n.indexOf(k) === 0)) return m[n]; } return null; }
+  function realEvent(ev) { var c = ev.dates && ev.dates.status && ev.dates.status.code; return c !== 'cancelled' && c !== 'postponed'; }
+  function supportActs(ev, headliner) {
+    var at = (ev._embedded && ev._embedded.attractions) || []; var h = norm(headliner);
+    return at.map(function (a) { return a.name; }).filter(function (n) { return n && norm(n) !== h; }).slice(0, 3);
+  }
+  function timeLine(ev) {
+    var s = ev.dates && ev.dates.start || {};
+    if (s.timeTBA || s.noSpecificTime) return 'Time to be announced';
+    var doors = ev.doorsTimes && ev.doorsTimes.localTime ? 'Doors ' + clock(ev.doorsTimes.localTime) : '';
+    var show = s.localTime ? 'Show ' + clock(s.localTime) : '';
+    return [doors, show].filter(Boolean).join(' · ');
+  }
+  function row(ev, opts) {
+    var s = ev.dates && ev.dates.start || {}; var p = s.localDate ? dayParts(s.localDate) : null;
+    var li = el('li', 'c-up-row');
+    var date = el('div', 'c-up-date');
+    if (p) { date.appendChild(el('span', 'c-up-dow', p.dow)); date.appendChild(el('span', 'c-up-day', p.day)); date.appendChild(el('span', 'c-up-mon', p.mon)); }
+    li.appendChild(date);
+    var body = el('div', 'c-up-body');
+    body.appendChild(el('h3', 'c-up-name', opts.title(ev)));
+    var meta = opts.meta(ev).filter(Boolean);
+    if (meta.length) body.appendChild(el('p', 'c-up-meta', meta.join(' · ')));
+    var acts = el('div', 'c-up-actions');
+    opts.actions(ev).forEach(function (a) { if (a) acts.appendChild(a); });
+    body.appendChild(acts);
+    li.appendChild(body);
+    return li;
+  }
+
+  /* Venue page: the next shows here, with doors, show time, and opening acts */
+  function venueUpcoming() {
+    var host = document.querySelector('[data-venue-upcoming]'), anchor = document.querySelector('[data-venue-tonight]');
+    if (!host || !anchor) return;
+    var slug = (location.pathname.match(/^\/venue\/([a-z0-9-]+)/) || [])[1];
+    var name = anchor.getAttribute('data-name'), lat = anchor.getAttribute('data-lat'), lng = anchor.getAttribute('data-lng'), country = anchor.getAttribute('data-country');
+    var p = new URLSearchParams({ keyword: name, size: '20', sort: 'date,asc', classificationName: 'Music', startDateTime: new Date().toISOString().split('.')[0] + 'Z' });
+    if (country) p.set('countryCode', country);
+    if (lat && lng) { p.set('latlong', lat + ',' + lng); p.set('radius', '2'); p.set('unit', 'miles'); }
+    getJSON(FN + '/tm/events.json?' + p).then(function (d) {
+      var want = norm(name);
+      var list = (d && d._embedded && d._embedded.events || []).filter(realEvent).filter(function (ev) {
+        var v = ev._embedded && ev._embedded.venues && ev._embedded.venues[0]; var got = norm(v && v.name);
+        return got && (got === want || got.indexOf(want) === 0 || want.indexOf(got) === 0);
+      });
+      var seen = {}; list = list.filter(function (ev) { var k = ev.name + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; }).slice(0, 6);
+      if (!list.length) return;
+      var ol = host.querySelector('.c-up-list');
+      list.forEach(function (ev) {
+        var headliner = (ev._embedded && ev._embedded.attractions && ev._embedded.attractions[0] && ev._embedded.attractions[0].name) || ev.name;
+        ol.appendChild(row(ev, {
+          title: function () { return ev.name; },
+          meta: function () { var acts = supportActs(ev, headliner); return [timeLine(ev), acts.length ? 'With ' + acts.join(', ') : '']; },
+          actions: function () { return [appLink('Save in Concerto', 'concerto://venue/' + slug, 'website-venue-upcoming'), ticketLink(ev.url)]; }
+        }));
+      });
+      host.hidden = false;
+    }).catch(function () {});
+  }
+
+  /* Tour page: where and when it plays, with opening acts and the venue guide for each stop */
+  function tourDates() {
+    var host = document.querySelector('[data-tour-dates]'); if (!host) return;
+    var artist = host.getAttribute('data-tour-artist'), slug = host.getAttribute('data-tour');
+    var now = new Date(), end = new Date(now.getTime() + 400 * 86400000);
+    var p = new URLSearchParams({ keyword: artist, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    Promise.all([getJSON(FN + '/tm/events.json?' + p), venueIndex()]).then(function (r) {
+      var d = r[0], m = r[1], want = norm(artist);
+      // Only dates where this artist is actually billed: tribute acts and lookalike names stay out.
+      var list = (d && d._embedded && d._embedded.events || []).filter(realEvent).filter(function (ev) {
+        var at = (ev._embedded && ev._embedded.attractions) || [];
+        return at.some(function (a) { return norm(a.name) === want; });
+      });
+      var seen = {}; list = list.filter(function (ev) { var v = ev._embedded.venues && ev._embedded.venues[0] || {}; var k = (v.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
+      if (!list.length) return;
+      var ol = host.querySelector('.c-up-list');
+      list.forEach(function (ev, i) {
+        var v = ev._embedded.venues && ev._embedded.venues[0] || {};
+        var city = [v.city && v.city.name, v.state && v.state.stateCode || (v.country && v.country.countryCode !== 'US' ? v.country.name : '')].filter(Boolean).join(', ');
+        var vslug = slugFor(m, v.name);
+        var li = row(ev, {
+          title: function () { return city || v.name || ''; },
+          meta: function () { var acts = supportActs(ev, artist); return [v.name, timeLine(ev), acts.length ? 'With ' + acts.join(', ') : '']; },
+          actions: function () {
+            var g = null; if (vslug) { g = el('a', 'c-up-guide', 'Venue guide'); g.href = '/venue/' + vslug; }
+            return [g, appLink('Save in Concerto', 'concerto://tour/' + slug, 'website-tour-dates'), ticketLink(ev.url)];
+          }
+        });
+        if (i >= 8) li.hidden = true;
+        ol.appendChild(li);
+      });
+      host.querySelector('[data-count]').textContent = list.length === 1 ? '1 date' : list.length + ' dates';
+      if (list.length > 8) {
+        var more = el('button', 'c-up-more', 'Show all ' + list.length + ' dates'); more.type = 'button';
+        more.addEventListener('click', function () { [].forEach.call(ol.children, function (x) { x.hidden = false; }); more.remove(); });
+        host.querySelector('.c-wrap').appendChild(more);
+      }
+      host.hidden = false;
+    }).catch(function () {});
+  }
+
+  /* Near Me cards: open the right place in the app, and link the venue guide on the site */
+  window.ccLinkVenueGuides = function (rail) {
+    venueIndex().then(function (m) {
+      [].forEach.call(rail.querySelectorAll('.live-card'), function (card) {
+        var vname = card.getAttribute('data-venue'); var vs = vname && slugFor(m, vname);
+        if (vs) {
+          card.setAttribute('data-app-link', 'concerto://venue/' + vs);
+          var g = el('a', 'live-tickets', 'Venue guide'); g.href = '/venue/' + vs;
+          g.addEventListener('click', function (e) { e.stopPropagation(); });
+          var acts = card.querySelector('.live-actions'); if (acts) acts.appendChild(g);
+        }
+        if (!card.getAttribute('data-bound')) { card.setAttribute('data-bound', '1'); bindAppLink(card); }
+      });
+    });
+  };
+
+  function init() { venueUpcoming(); tourDates(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

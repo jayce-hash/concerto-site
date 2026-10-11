@@ -14,3 +14,11 @@
 - Merged duplicates: pnc-arena into lenovo-center, xl-center into peoplesbank-arena (301s in _redirects). Venue count is now 671 (validate-release.js updated).
 - Fixed Lenovo Center (Raleigh, correct coordinates) and Huntington Bank Field (Cleveland, correct coordinates).
 - setlists.json: 28 new setlists from ChatGPT (115 total). Its file had broken characters (curly apostrophes and accents garbled) in 64 places; repaired, so existing setlists are unchanged. Setlists taken from setlist.fm get a structured source and show as "Reported setlist from <venue>, <date> (setlist.fm)".
+
+## Pages that answer first (second update, Oct 11)
+- scripts/venue_glance.py: quick answers built only from what each venue guide states plainly (bags, clear bag, backpacks, bag check, re-entry, doors). Checked twice by an independent review against the guide text (final sample: 221 of 233 correct before the last fixes; every flagged pattern fixed). Written into data/venue_info/<slug>.json as "glance" for the app.
+- Venue pages: Quick answers box, Directions (Apple Maps on Apple devices), upcoming shows with doors, show time, opening acts, Save in Concerto and Tickets, and nearby venues by real distance.
+- Tour pages: tour dates (only dates where the artist is billed) with opening acts, venue guide links, Save and Tickets; varied "More tours"; Listen on Apple Music.
+- Setlist pages: Listen on Apple Music, link to tour dates.
+- Near Me: real shows this week near the visitor (IP location, city search), each linked to its venue guide.
+- Around the Venue stays off.
