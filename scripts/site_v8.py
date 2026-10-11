@@ -145,7 +145,7 @@ def your_night():
               ('After the encore', 'The way home is already there.', 'The venue’s pickup guidance and your ride, kept with the show.')]
     tl = ''.join(f'<li><span class="c-when">{e(w)}</span><h3>{e(h)}</h3><p>{e(t)}</p></li>' for w, h, t in stages)
     free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
-    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home']
+    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home', 'More Concerto AI answers each day']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div><h3>Concerto+</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in paid) +
             '</ul><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return ('<main id="main-content" class="c-page">' +
@@ -286,15 +286,6 @@ def nb_dims(t):
     """Escape, then keep a size like 22" x 14" x 9" on one line."""
     return re.sub(r'(?<=\S) ([x×]) (?=\S)', '&nbsp;\\1&nbsp;', e(t))
 
-def quick_answers(v, info):
-    """Answers before the question: only what the guide states plainly (scripts/venue_glance.py)."""
-    items = [x for x in venue_glance(info) if x['key'] != 'bag']
-    if not items: return ''
-    cells = ''.join(f'<div class="c-qa-item"><dt>{e(x["label"])}</dt><dd>{nb_dims(x["value"])} <a class="c-qa-more" href="#{x["anchor"]}" aria-label="{e(x["label"])}: full details">Details</a></dd></div>' for x in items)
-    return (f'<section class="c-section c-white c-qa-section" aria-labelledby="qa-h"><div class="c-wrap">{eyebrow("Quick answers")}'
-            f'<h2 class="c-h2 c-h2-sm" id="qa-h">Before you go to {e(v["name"])}</h2><dl class="c-qa">{cells}</dl>'
-            '<p class="c-qa-note">From the venue guide below. Rules can change for a specific show, so check your ticket too.</p></div></section>')
-
 def directions_link(v):
     from urllib.parse import quote
     lat, lng = v.get('lat'), v.get('lng')
@@ -328,7 +319,7 @@ def venue_page(v):
     local = dict(PHOTOS).get(v['id'])
     fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
     # Answer first: most visitors searched "<venue> bag policy", so the lead is the rule itself.
-    # Same answer the Quick answers box and the app use (scripts/venue_glance.py).
+    # The bag sentence a searcher needs (scripts/venue_glance.py).
     bag_line = next((x['value'] for x in venue_glance(info) if x['key'] == 'bag'), None)
     lead = (f'<p class="c-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.<br>Plus entry, parking, rideshare, and accessibility, each checked against official sources.</p>' if bag_line
             else f'<p class="c-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}. From official sources, dated.</p>')
@@ -339,7 +330,7 @@ def venue_page(v):
             f'<div class="c-actions">{app_link("venue", v["id"], "Remind me on show day", "c-btn c-btn-navy")}{directions_link(v)}</div>'
             f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
             f'<div class="c-wrap">{photo}</div></section>'
-            + quick_answers(v, info) + upcoming_shell(v) +
+            + upcoming_shell(v) +
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
             + around_venue(v)
             + (f'<section class="c-section c-white c-partner-cta"><div class="c-wrap"><p class="c-body"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a class="c-link" href="/partners/restaurants">For restaurants</a> \u00b7 <a class="c-link" href="/partners/hotels">For hotels</a></p></div></section>')
@@ -593,10 +584,26 @@ def section(tone, kicker, title, inner, narrow=False, sid=''):
 
 def mail(addr): return f'<a href="mailto:{addr}">{addr}</a>'
 
+def ask_bar(home=False):
+    """Concerto AI: one bar for search and questions. On the homepage it opens the search page,
+    which asks right away; on the search page it searches as you type and asks on Enter."""
+    hint = 'Try <span class="no-widow">“Can I bring a backpack to MSG?”</span> or <span class="no-widow">“Noah Kahan setlist”</span>'
+    if home:
+        return ('<form class="c-ask" action="/search" method="get" role="search" aria-label="Ask Concerto">'
+                '<div class="c-ask-ring"><div class="c-ask-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
+                '<input name="q" type="search" autocomplete="off" placeholder="Ask anything about your show" aria-label="Ask Concerto a question" required>'
+                '<input type="hidden" name="ask" value="1"><button type="submit">Ask</button></div></div>'
+                f'<p class="c-ask-hint">{hint}</p></form>')
+    return ('<form class="c-ask" data-ask-form role="search" aria-label="Ask Concerto">'
+            '<div class="c-ask-ring"><div class="c-ask-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
+            '<input data-site-search type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ask anything, or search a venue or artist" aria-label="Ask Concerto or search">'
+            '<button type="submit">Ask</button></div></div>'
+            f'<p class="c-ask-hint">{hint}</p></form>')
+
 def home():
     h = hero('The concert-night companion', 'From the concert<br>to the city.',
              'The venue’s rules. The setlist. The timing. The way home. One page per show.',
-             store_button('website-home') + '<a class="c-link" href="#what">What Concerto does</a>',
+             ask_bar(home=True) + store_button('website-home') + '<a class="c-link" href="#what">What Concerto does</a>',
              [f'{N_V} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'cream', 'c-hero-home')
     what = section('white', 'What Concerto does', 'Three things, done carefully.', rows([
         ('Know the venue.', e(f'Bag policy, entry, parking, rideshare, accessibility. {N_V} venues, from official sources, dated.'), f'<a class="c-link" href="/venues">Browse {N_V} venue guides</a>'),
@@ -618,7 +625,7 @@ def your_night():
                    ('Show day', 'Leave on time. Walk in ready.', 'Show-day alerts in the venue’s own time zone. Directions, parking, and rideshare in one place.'),
                    ('After the encore', 'The way home is already there.', 'The venue’s published pickup guidance and your ride, kept with the show.')])
     free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
-    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home']
+    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home', 'More Concerto AI answers each day']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div><h3>Concerto+</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in paid) + '</ul><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return '<main id="main-content" class="c-page">' + h + section('white', 'How it changes', 'From the ticket to the way home.', tl) + section('cream', 'What it costs', 'The essentials are free.', cols) + close('Save your next show.', 'website-your-night') + '</main>'
 
@@ -848,10 +855,9 @@ def perks_page():
     return '<main id="main-content" class="c-page">' + h + live + before + close() + '</main>'
 
 def search_page():
-    box = ('<label class="c-filter c-filter-lg"><span class="c-sr">Search Concerto</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
-           '<input data-site-search type="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Venue, artist, tour, or city" aria-label="Search Concerto"></label>')
-    h = hero('Search', 'Where’s the show?', 'Find a venue, artist, tour, city, or setlist.', box, None, 'cream', 'c-hero-hub')
-    return '<main id="main-content" class="c-page">' + h + '<section class="c-section c-white c-search-section"><div class="c-wrap"><div data-site-search-results class="site-search-results c-search-results" aria-live="polite"><p class="c-body">Try an artist, tour, venue, or city.</p></div></div></section></main>'
+    h = hero('Ask Concerto', 'Ask about<br>your show.', 'Search venues, tours, and setlists, or ask a question. Answers come from Concerto’s venue guides and tour data, with the source linked.', ask_bar(), None, 'cream', 'c-hero-hub')
+    answer = '<div class="c-answer" data-ask-answer hidden aria-live="polite"></div>'
+    return '<main id="main-content" class="c-page">' + h + '<section class="c-section c-white c-search-section"><div class="c-wrap">' + answer + '<div data-site-search-results class="site-search-results c-search-results" aria-live="polite"><p class="c-body">Try an artist, tour, venue, or city.</p></div></div></section></main>'
 
 def simple(kicker, h1, lead, actions):
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, actions, None, 'cream', 'c-hero-simple') + '</main>'
@@ -891,8 +897,7 @@ def write_app_data():
     per = out / 'venue_info'
     per.mkdir(exist_ok=True)
     for vid, rec in INFO.items():
-        out_rec = dict(rec); out_rec['glance'] = venue_glance(rec)
-        (per / f'{vid}.json').write_text(json.dumps(out_rec, separators=(',', ':'), ensure_ascii=False) + '\n')
+        (per / f'{vid}.json').write_text(json.dumps(rec, separators=(',', ':'), ensure_ascii=False) + '\n')
     kb = (out / 'venue_verified.json').stat().st_size // 1024
     print(f'app data: venue_verified.json ({kb} KB) and {len(INFO)} per-venue files')
 

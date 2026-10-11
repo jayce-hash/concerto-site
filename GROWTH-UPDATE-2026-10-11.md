@@ -16,9 +16,17 @@
 - setlists.json: 28 new setlists from ChatGPT (115 total). Its file had broken characters (curly apostrophes and accents garbled) in 64 places; repaired, so existing setlists are unchanged. Setlists taken from setlist.fm get a structured source and show as "Reported setlist from <venue>, <date> (setlist.fm)".
 
 ## Pages that answer first (second update, Oct 11)
-- scripts/venue_glance.py: quick answers built only from what each venue guide states plainly (bags, clear bag, backpacks, bag check, re-entry, doors). Checked twice by an independent review against the guide text (final sample: 221 of 233 correct before the last fixes; every flagged pattern fixed). Written into data/venue_info/<slug>.json as "glance" for the app.
-- Venue pages: Quick answers box, Directions (Apple Maps on Apple devices), upcoming shows with doors, show time, opening acts, Save in Concerto and Tickets, and nearby venues by real distance.
+- Quick answers were built and then removed (Jayce's call): revisit with a smart search bar. scripts/venue_glance.py stays only for the bag sentence at the top of each venue page.
+- Venue pages: Directions (Apple Maps on Apple devices), upcoming shows with doors, show time, opening acts, Save in Concerto and Tickets, and nearby venues by real distance.
 - Tour pages: tour dates (only dates where the artist is billed) with opening acts, venue guide links, Save and Tickets; varied "More tours"; Listen on Apple Music.
 - Setlist pages: Listen on Apple Music, link to tour dates.
 - Near Me: real shows this week near the visitor (IP location, city search), each linked to its venue guide.
 - Around the Venue stays off.
+
+## Ask Concerto (Concerto AI)
+- netlify/functions/ask.js: one answer service for the website and the app. Finds the venue (name, short name like MSG, or former name) and/or tour (artist) and the topic, then:
+  1. Guide answer, free: quotes Concerto's own guide lines, setlists and Ticketmaster dates, with the checked date and a link. Most questions end here.
+  2. AI answer (Claude Haiku), only when a question needs reasoning (sizes to compare, "what should I know"), using only Concerto's data for that venue or tour.
+- Cost caps (Netlify Blobs, store "concerto-ask"): 3 AI answers a day signed out, 5 signed in, 30 with Concerto+; whole site ASK_DAILY_CAP (default 100) and ASK_MONTHLY_CAP (default 1500); identical questions reuse a saved answer for 14 days; fails closed. The question text is never stored or logged.
+- Website: Ask bar with a gold ring on the homepage hero and the search page (/search?q=...&ask=1 asks right away). Concerto+ lists more Concerto AI answers.
+- Tested: 48 hand-written fan questions plus 85 generated ones, independently reviewed against the data (setlists 15 of 15 correct; venue answer patterns that were weak or wrong were fixed).

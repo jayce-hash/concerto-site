@@ -269,8 +269,9 @@ document.addEventListener('DOMContentLoaded', function () {
       var q = norm(input.value);
       results.innerHTML = '';
       if (!q) { results.innerHTML = '<div class="search-empty">Try an artist, tour, venue, city, or setlist.</div>'; return; }
-      var hits = index.filter(function (x) { return x._n && x._n.indexOf(q) !== -1; }).slice(0, 30);
-      if (!hits.length) { results.innerHTML = '<div class="search-empty">No match yet. Try a broader artist, venue, or city.</div>'; return; }
+      // A question ("can I bring a bag to MSG") also lists the venue or artist it names.
+      var hits = index.filter(function (x) { if (!x._n) return false; if (x._n.indexOf(q) !== -1) return true; var t = norm(x.title); return q.length > 12 && t.length >= 5 && q.indexOf(t) !== -1; }).slice(0, 30);
+      if (!hits.length) { results.innerHTML = '<div class="search-empty">' + (q.length > 12 ? 'Press Enter or Ask to get an answer from Concerto.' : 'No match yet. Try a broader artist, venue, or city.') + '</div>'; return; }
       results.innerHTML = hits.map(function (x) {
         return '<a class="search-result" href="' + esc(x.url || '#') + '"><span class="search-result-type">' + esc(x.type || 'Concerto') + '</span><strong>' + esc(x.title) + '</strong><span>' + esc(x.subtitle || x.city || '') + '</span></a>';
       }).join('');
@@ -510,9 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
       if (pc.claimed) { var c = document.createElement('span'); c.className = 'meta-pill'; c.textContent = '✓ Verified by the venue'; host.insertBefore(c, host.firstChild); }
       Object.keys(pc.overrides || {}).forEach(function (key) {
         var card = document.querySelector('.info-card[data-section="' + key + '"]'); var o = pc.overrides[key]; if (!card || !o) return;
-        // The venue re-verified this section, so quick answers drawn from the old text step aside.
-        var anchor = { bagPolicy: 'bag-policy', reEntry: 're-entry', gates: 'entrances' }[key];
-        if (anchor) [].forEach.call(document.querySelectorAll('.c-qa-more[href="#' + anchor + '"]'), function (m) { var it = m.closest('.c-qa-item'); if (it) it.hidden = true; });
         var p = card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
         var v = card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
         v.textContent = 'Verified by the venue ' + (o.verified || '');
@@ -1020,4 +1018,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function init() { venueUpcoming(); tourDates(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+/* V10: Ask Concerto. The search bar answers questions from Concerto's own data
+   (netlify/functions/ask.js). Typing still searches instantly; Enter or Ask sends the
+   question. Only counts are sent to analytics, never the question. */
+(function () {
+  'use strict';
+  var form = document.querySelector('[data-ask-form]'), out = document.querySelector('[data-ask-answer]');
+  if (!form || !out) return;
+  var input = form.querySelector('input'), ring = form.querySelector('.c-ask-ring'), btn = form.querySelector('button');
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function safe(u) { u = String(u || ''); return /^\/[a-z0-9\-\/#_]*$/i.test(u) || /^https:\/\//.test(u) ? u : ''; }
+  function render(r) {
+    var kicker = r.mode === 'ai' ? 'Concerto AI · from Concerto’s guide' : r.mode === 'guide' ? 'From Concerto’s guide' : 'Concerto';
+    var src = (r.sources || []).map(function (s) {
+      var u = safe(s.url), o = safe(s.official);
+      return '<li>' + (u ? '<a href="' + esc(u) + '">' + esc(s.label) + '</a>' : esc(s.label)) + (s.checked ? '<span>Checked ' + esc(s.checked) + '</span>' : '') +
+        (o ? '<a class="c-answer-off" href="' + esc(o) + '" target="_blank" rel="noopener">Official source</a>' : '') + '</li>';
+    }).join('');
+    out.innerHTML = '<p class="c-answer-kicker">' + kicker + '</p><p class="c-answer-text">' + esc(r.text) + '</p>' +
+      (src ? '<ul class="c-answer-src">' + src + '</ul>' : '') + (r.note ? '<p class="c-answer-note">' + esc(r.note) + '</p>' : '') +
+      (r.mode === 'ai' ? '<p class="c-answer-note">Rules can change for a specific show. Check your ticket and the official page before you go.</p>' : '');
+    out.hidden = false;
+  }
+  var busy = false;
+  function ask(q) {
+    q = String(q || '').trim(); if (q.length < 3 || busy) return;
+    busy = true; ring.classList.add('is-thinking'); btn.disabled = true; btn.textContent = 'Thinking';
+    out.hidden = false; out.innerHTML = '<p class="c-answer-kicker">Concerto</p><p class="c-answer-text c-answer-wait">Looking through Concerto’s guides…</p>';
+    fetch('/.netlify/functions/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: q }) })
+      .then(function (r) { if (r.status === 429) return { mode: 'none', text: 'Too many questions at once. Try again in a minute.', sources: [] }; return r.json(); })
+      .then(function (r) {
+        render(r);
+        if (typeof window.gtag === 'function') { try { window.gtag('event', 'ask', { mode: r.mode || 'none', venue: r.entity && r.entity.venue ? 1 : 0, tour: r.entity && r.entity.tour ? 1 : 0, limited: r.limited || '' }); } catch (_) {} }
+      })
+      .catch(function () { render({ mode: 'none', text: 'Concerto couldn’t answer right now. Try again in a moment, or search below.', sources: [] }); })
+      .then(function () { busy = false; ring.classList.remove('is-thinking'); btn.disabled = false; btn.textContent = 'Ask'; });
+  }
+  form.addEventListener('submit', function (e) { e.preventDefault(); ask(input.value); });
+  var p = new URLSearchParams(location.search);
+  if (p.get('q') && p.get('ask') === '1') { input.value = p.get('q'); ask(p.get('q')); }
 })();
