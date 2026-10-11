@@ -837,3 +837,25 @@ document.addEventListener('DOMContentLoaded', function () {
       }).catch(function () { btn.disabled = false; say('Something went wrong. Try again.', true); });
   });
 })();
+
+/* Download taps: one GA4 event per tap on any App Store link or "Open in Concerto" button,
+   with the page type and the link's campaign token (ct=website-venue and so on). Listens in
+   the capture phase so it runs before the app-link handler redirects the page. */
+(function () {
+  function pageType(p) {
+    var m = p.match(/^\/(venue|tour|setlist|partners)\b/); if (m) return m[1];
+    return p === '/' ? 'home' : p.replace(/^\//, '').replace(/\.html$/, '') || 'home';
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="apps.apple.com"], a[data-app-link]') : null;
+    if (!a || typeof window.gtag !== 'function') return;
+    var href = a.getAttribute('href') || '', ct = (href.match(/[?&]ct=([^&]+)/) || [])[1] || '';
+    try {
+      window.gtag('event', 'app_store_tap', {
+        campaign: ct, page_type: pageType(location.pathname), page_path: location.pathname,
+        link_text: (a.textContent || a.getAttribute('aria-label') || '').trim().slice(0, 60),
+        transport_type: 'beacon'
+      });
+    } catch (_) {}
+  }, true);
+})();

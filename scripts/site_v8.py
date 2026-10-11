@@ -41,6 +41,7 @@ def pretty_date(d):
     return f'{mon} {int(m.group(3))}, {m.group(1)}'
 def source_label(s):
     src = s.get('source') or {}
+    if src.get('eventDate') and src.get('provider') == 'setlist.fm': return f"Reported setlist from {src.get('venue') or 'a recent show'}, {pretty_date(src['eventDate'])} (setlist.fm)"
     if src.get('eventDate'): return f"Confirmed setlist from {src.get('venue') or 'a recent show'}, {pretty_date(src['eventDate'])}"
     if 'apple music' in (s.get('note') or '').lower(): return f"Official tour playlist (Apple Music), updated {pretty_date(s.get('updated'))}"
     return f"Updated {pretty_date(s.get('updated'))}"
@@ -57,12 +58,12 @@ def store_button(ct, label='Download on the App Store', tone='black'):
     return (f'<a class="c-store" href="{STORE(ct)}" target="_blank" rel="noopener" aria-label="Download Concerto on the App Store">'
             f'<img src="/img/badges/app-store-{tone}.svg" alt="Download on the App Store" width="160" height="53" loading="eager"></a>')
 
-def close(title='See you at the show.', ct='website-close'):
+def close(title='See you at the show.', ct='website-close', fine='Free on iPhone. Concerto+ available in the app.'):
     return (f'<section class="c-close" data-reveal><div class="c-wrap">'
             '<img class="c-appicon" src="/img/app-icon-256.png" width="96" height="96" alt="Concerto app icon" loading="lazy">'
             f'<h2>{title}</h2><div class="c-close-row">{store_button(ct, tone="white")}'
             '<img class="c-qr" src="/img/appstore-qr.png" width="104" height="104" alt="QR code: Concerto on the App Store" loading="lazy"></div>'
-            '<p class="c-fine">Free on iPhone. Concerto+ available in the app.</p></div></section>')
+            f'<p class="c-fine">{e(fine)}</p></div></section>')
 
 def eyebrow(t): return f'<p class="c-eyebrow">{e(t)}</p>'
 
@@ -129,7 +130,7 @@ def home():
     what = (f'<section class="c-section c-white" id="what" data-reveal><div class="c-wrap">{eyebrow("What Concerto does")}<h2 class="c-h2">Three things, done carefully.</h2><ol class="c-rows">'
             + ''.join(f'<li><span class="c-num">0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p><a class="c-link" href="{u}">{e(l)}</a></li>' for i, (h, t, u, l) in enumerate(rows)) + '</ol></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
-            '<h2 class="c-h2">For the nights you want planned.</h2><p class="c-body">Plan My Night. AI Bag Check. Show-day alerts.<br>$7.99 a month. Seven days free.</p>'
+            '<h2 class="c-h2">For the nights you want planned.</h2><p class="c-body">Plan My Night. AI Bag Check. More show-day alerts.<br>$7.99 a month. Seven days free.</p>'
             '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
@@ -142,8 +143,8 @@ def your_night():
               ('Show day', 'Leave on time. Walk in ready.', 'Alerts in the venue’s time zone. Directions, parking, and rideshare in one place.'),
               ('After the encore', 'The way home is already there.', 'The venue’s pickup guidance and your ride, kept with the show.')]
     tl = ''.join(f'<li><span class="c-when">{e(w)}</span><h3>{e(h)}</h3><p>{e(t)}</p></li>' for w, h, t in stages)
-    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
-    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'Show-day alerts']
+    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
+    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div><h3>Concerto+</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in paid) +
             '</ul><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return ('<main id="main-content" class="c-page">' +
@@ -155,10 +156,10 @@ def your_night():
 def premium():
     feats = [('Plan My Night', 'When to eat. When to leave. How you get home.'),
              ('AI Bag Check', 'Your bag against the venue’s published rule, before you leave. The venue still decides at the door.'),
-             ('Show-day alerts', 'Forecast in the morning. A nudge before you leave. The way home after the encore.')]
+             ('More show-day alerts', 'A nudge before you leave, the way home after the encore, and a recap the next morning. The 9am show-day reminder is free.')]
     rows = ''.join(f'<li><span class="c-num">0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p></li>' for i, (h, t) in enumerate(feats))
     return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type"><div class="c-wrap c-narrow">{eyebrow("Concerto+")}<h1>For the nights<br>you want planned.</h1><p class="c-lead">An evening built around your show. Your bag checked against the venue’s rule. Alerts on show day.</p><div class="c-actions">{store_button("website-premium", "Start the 7-day free trial")}</div></div></section>'
+            f'<section class="c-hero c-hero-type"><div class="c-wrap c-narrow">{eyebrow("Concerto+")}<h1>For the nights<br>you want planned.</h1><p class="c-lead">An evening built around your show. Your bag checked against the venue’s rule. More alerts on show day.</p><div class="c-actions">{store_button("website-premium", "Start the 7-day free trial")}</div></div></section>'
             f'<section class="c-section c-white" data-reveal><div class="c-wrap">{eyebrow("What is included")}<h2 class="c-h2">Three things the free app does not do.</h2><ol class="c-rows">{rows}</ol></div></section>'
             '<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') + '<h2 class="c-h2">Simple, and cancel anytime.</h2><p class="c-body">Billed through the App Store. Cancel in your Apple ID settings.</p></div>'
             '<div class="c-prices"><div><b>$7.99</b><span>per month, with a 7-day free trial</span></div><div><b>$69.99</b><span>per year</span></div></div></div></section>'
@@ -277,18 +278,22 @@ def venue_page(v):
     near_html = ''.join(f'<li class="c-entry"><a href="/venue/{x["id"]}">{e(x["name"])}</a><span>{e(x.get("city"))}</span></li>' for x in near)
     local = dict(PHOTOS).get(v['id'])
     fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
+    # Answer first: most visitors searched "<venue> bag policy", so the lead is the rule itself.
+    bag_line = _bag_answer(info.get('bagPolicy'))
+    lead = (f'<p class="c-lead"><b>Bag policy:</b> {e(bag_line)}.<br>Plus entry, parking, rideshare, and accessibility, each checked against official sources.</p>' if bag_line
+            else f'<p class="c-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}. From official sources, dated.</p>')
     photo = f'<div class="c-venue-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>{eyebrow("Venue guide · " + place(v))}<h1>{e(v["name"])}</h1>'
-            f'<p class="c-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}. From official sources, dated.</p>'
-            f'<div class="c-actions">{app_link("venue", v["id"], "Open in Concerto", "c-btn c-btn-navy")}</div>'
+            + lead +
+            f'<div class="c-actions">{app_link("venue", v["id"], "Remind me on show day", "c-btn c-btn-navy")}</div>'
             f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
             f'<div class="c-wrap">{photo}</div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
             + around_venue(v)
             + (f'<section class="c-section c-white c-partner-cta"><div class="c-wrap"><p class="c-body"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a class="c-link" href="/partners/restaurants">For restaurants</a> \u00b7 <a class="c-link" href="/partners/hotels">For hotels</a></p></div></section>')
             + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Nearby")}<h2 class="c-h2 c-h2-sm">More venue guides.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
-            + close('Going to a show here?', 'website-venue') + '</main>')
+            + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it reminds you of the bag rules, doors, and parking at {v["name"]}. Free on iPhone.') + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
 
@@ -304,6 +309,17 @@ def _rule_line(sec):
     t = re.split(r'(?<=[.!?])\s', t)[0].rstrip('.') if t else ''
     if len(t) > 150: return None  # too long for one line: the full guide covers it
     return t or None
+
+def _bag_answer(sec):
+    """The one-line bag answer at the top of a venue page: the first sentence that states a size,
+    else the first sentence. None when the venue has not published a rule (generic lead instead)."""
+    first = _rule_line(sec)
+    if not first: return None
+    t = ' '.join((sec.get('summary') or sec.get('body') or sec.get('note') or '').split())
+    for x in re.split(r'(?<=[.!?])\s', t)[:3]:
+        x = x.rstrip('.')
+        if re.search(r'\d', x) and len(x) <= 150: return x
+    return first
 
 def city_html(city):
     """Keep each part of a city name together; allow a break only after "/" or ", ". No widows."""
@@ -448,7 +464,7 @@ def tour_page(t):
             f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
             f'<div class="c-wrap"><div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
             + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
-            + close('Going to this tour?', 'website-tour') + '</main>')
+            + close('Going to this tour?', 'website-tour', 'Save your date in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
 
 def setlist_page(slug, s):
     t = next((x for x in TOURS if x['tourId'] == slug), None)
@@ -458,7 +474,7 @@ def setlist_page(slug, s):
             f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}. Setlists change by night.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
             + (f'<a class="c-btn c-btn-line" href="/tour/{slug}">Tour guide</a>' if t else '') + '</div></div></section>'
             f'<section class="c-section c-white"><div class="c-wrap c-narrow"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
-            + close('Know every word.', 'website-setlist') + '</main>')
+            + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
 
 def topic_page(key, kicker, h1, lead):
     rows = ''
@@ -510,7 +526,7 @@ def home():
         ('Know the music.', e(f'{N_T} tours. {N_S} setlists, labeled by source. Learn the songs before doors.'), '<a class="c-link" href="/tours">Browse tours and setlists</a>'),
         ('Know the night.', 'Save a show and Your Night keeps it all on one page, from the first reminder to the ride home.', '<a class="c-link" href="/your-night">How Your Night works</a>')]), sid='what')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
-            '<h2 class="c-h2">For the nights you want planned.</h2><p class="c-body">Plan My Night. AI Bag Check. Show-day alerts.<br>$7.99 a month. Seven days free.</p>'
+            '<h2 class="c-h2">For the nights you want planned.</h2><p class="c-body">Plan My Night. AI Bag Check. More show-day alerts.<br>$7.99 a month. Seven days free.</p>'
             '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
@@ -524,17 +540,17 @@ def your_night():
                    ('The week of', 'The forecast arrives. The plan comes together.', 'Weather appears seven days out and never sooner. Places to eat and drink near the venue, with partners always labeled.'),
                    ('Show day', 'Leave on time. Walk in ready.', 'Show-day alerts in the venue’s own time zone. Directions, parking, and rideshare in one place.'),
                    ('After the encore', 'The way home is already there.', 'The venue’s published pickup guidance and your ride, kept with the show.')])
-    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
-    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'Show-day alerts']
+    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
+    paid = ['Plan My Night: the evening, built around your show', 'AI Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div><h3>Concerto+</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in paid) + '</ul><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return '<main id="main-content" class="c-page">' + h + section('white', 'How it changes', 'From the ticket to the way home.', tl) + section('cream', 'What it costs', 'The essentials are free.', cols) + close('Save your next show.', 'website-your-night') + '</main>'
 
 def premium():
-    h = hero('Concerto+', 'For the nights<br>you want planned.', 'An evening built around your show. Your bag checked against the venue’s rule. Alerts on show day.',
+    h = hero('Concerto+', 'For the nights<br>you want planned.', 'An evening built around your show. Your bag checked against the venue’s rule. More alerts on show day.',
              store_button('website-premium', 'Start the 7-day free trial'), ['$7.99 a month', '$69.99 a year', '7-day free trial', 'Cancel anytime'], 'gold')
     feats = rows([('Plan My Night', 'A plan for the evening around the show you saved: when to eat, when to leave, and how you get home.', ''),
                   ('AI Bag Check', 'Compare your bag with the venue’s published policy before you leave. It shows the rule it used, and the venue still makes the final call.', ''),
-                  ('Show-day alerts', 'The morning forecast, a reminder before you head out, and the way home after the encore, in the venue’s time zone.', '')])
+                  ('More show-day alerts', 'A reminder before you head out, the way home after the encore, and a recap the next morning. The 9am show-day reminder is free for everyone.', '')])
     pricing = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') + '<h2 class="c-h2">Simple, and cancel anytime.</h2><p class="c-body">Billed through the App Store. Cancel in your Apple ID settings.</p></div>'
                '<div class="c-prices"><div><b>$7.99</b><span>per month, with a 7-day free trial</span></div><div><b>$69.99</b><span>per year</span></div></div></div></section>')
     free = section('white', 'Always free', '', '<p class="c-statement">Bag policy, entry, parking, accessibility, setlists, directions.<br>Never behind Concerto+.</p>', narrow=True)

@@ -1,0 +1,1 @@
+Drop new app captures (PNG) here only when a page needs them. The current site shows no app screenshots, so the old 14 MB of source PNGs were removed on 2026-10-11. The encoded copies in ../screens stay, with manifest.json.

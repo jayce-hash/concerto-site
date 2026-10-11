@@ -18,7 +18,9 @@ APP='https://apps.apple.com/us/app/concerto-show-go/id6744903414'
 import datetime as _dt
 _YEAR = _dt.date.today().year
 # Names fans actually type. Only add an alias when search data shows people use it.
-ALIASES = {'madison-square-garden': 'MSG', 'wells-fargo-center': 'Wells Fargo Center'}  # renamed 2025; fans still search the old name
+ALIASES = {'madison-square-garden': 'MSG', 'wells-fargo-center': 'Wells Fargo Center',  # renamed 2025; fans still search the old name
+           'nrg-stadium': 'NRG Stadium', 'sse-arena-belfast': 'SSE Arena', 'paris-la-defense-arena': 'Paris La Défense Arena',  # renamed 2026
+           'lenovo-center': 'PNC Arena', 'peoplesbank-arena': 'XL Center'}  # renamed 2024 and 2025; old-name pages redirect here
 
 def venue_title(v, shown):
     alias = ALIASES.get(v.get('id') or v.get('slug') or '')
@@ -132,7 +134,9 @@ def setlist_provenance(sl):
     """Honest label for where a song list came from. An official tour playlist is
     trustworthy content but not proof of the performed set or its order."""
     src=sl.get('source') or {}; note=(sl.get('note') or '')
-    if src.get('eventDate') or src.get('provider')=='setlist.fm':
+    if src.get('provider')=='setlist.fm':
+        return f"Reported setlist from {esc(src.get('venue') or 'a recent show')}{' on '+esc(src['eventDate']) if src.get('eventDate') else ''} (setlist.fm)"
+    if src.get('eventDate'):
         return f"Confirmed setlist from {esc(src.get('venue') or 'a recent show')}{' on '+esc(src['eventDate']) if src.get('eventDate') else ''}{' · draft' if src.get('draft') else ''}"
     if 'apple music' in note.lower() or src.get('provider')=='apple-music':
         return f"Official tour playlist (Apple Music) · updated {esc(sl.get('updated',''))}"
