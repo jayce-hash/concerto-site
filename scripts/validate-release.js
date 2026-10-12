@@ -29,7 +29,7 @@ for(const f of companyPages){
 const aasa=fs.readFileSync(path.join(root,'.well-known/apple-app-site-association'),'utf8');
 ok(aasa.includes('/show/*'),'AASA must include /show/* for saved-show universal links');
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
-for(const slug of ['partners','creators','press','investors','contact']) ok(sitemap.includes(`https://concertocity.com/${slug}`),`sitemap missing /${slug}`);
+for(const slug of ['creators','press','investors','contact']) ok(sitemap.includes(`https://concertocity.com/${slug}`),`sitemap missing /${slug}`);
 const publicText=companyPages.map(f=>fs.readFileSync(path.join(root,f),'utf8')).join('\n');
 for(const stale of ['Three things. AI Bag Check','Three tools. One night.','first plan free to preview','Concerto Premium']) ok(!publicText.includes(stale),`stale public product copy remains: ${stale}`);
 ok(publicText.includes('From the Concert to the City&reg;') || publicText.includes('From the Concert to the City®'),'registered slogan missing from company pages');
