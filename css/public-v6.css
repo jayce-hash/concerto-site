@@ -1989,3 +1989,12 @@ h1,h2{font-weight:700}
 .v8 .mobile-nav-inner a.header-cta.active:after{display:none}
 @keyframes c-menu-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.v8 .mobile-nav-inner a{animation:none!important}}
+/* Help: How Concerto Works, the five steps */
+.v8 .c-journey{list-style:none;counter-reset:step;margin:0 0 8px;padding:0;border-top:1px solid rgba(18,30,54,.12)}
+.v8 .c-journey li{counter-increment:step;display:grid;grid-template-columns:44px 1fr;column-gap:8px;padding:18px 0;border-bottom:1px solid rgba(18,30,54,.12)}
+.v8 .c-journey li:before{content:counter(step);grid-row:1/3;font-family:var(--display);font-style:italic;font-size:24px;line-height:1;color:var(--gold)}
+.v8 .c-journey b{font-size:17px;font-weight:600;color:var(--navy)}
+.v8 .c-journey span{font-size:16px;line-height:1.6;color:var(--muted);margin-top:2px}
+.v8 .c-doc .c-journey{margin-left:0;padding-left:0}
+.v8 .c-doc .c-journey li{margin:0;padding-left:0}
+.v8 .c-doc .c-journey li:before{font-size:30px}

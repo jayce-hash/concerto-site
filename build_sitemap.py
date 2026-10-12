@@ -7,9 +7,11 @@ ROOT=Path(__file__).resolve().parent
 SITE='https://concertocity.com'
 
 HUBS=[
- '/', '/venues', '/tours', '/setlists', '/near-me', '/your-night', '/perks', '/premium',
- '/about', '/founder', '/partners', '/partners/restaurants', '/partners/hotels',
- '/partners/venues', '/partners/artists', '/creators', '/press', '/investors',
+ '/', '/venues', '/tours', '/setlists', '/near-me', '/your-night', '/premium',
+ # Partner and Perks pages are left out while the partner program is hidden; add them back
+ # here when it launches: '/perks', '/partners', '/partners/restaurants', '/partners/hotels',
+ # '/partners/venues', '/partners/artists'
+ '/about', '/founder', '/creators', '/press', '/investors',
  '/contact', '/faq', '/help', '/bagcheck', '/bags', '/parking', '/rideshare',
  '/concessions', '/privacy', '/terms'
 ]

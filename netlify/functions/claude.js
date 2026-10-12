@@ -28,7 +28,7 @@ const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 const MAX_TOKENS_CAP = 4096;
 
 const PUBLIC_SERVICES  = new Set(['tm_venue_events']);
-const PREMIUM_SERVICES = new Set(['claude', 'bag_check']);
+const PREMIUM_SERVICES = new Set(['claude', 'bag_check', 'exit_plan']);
 const TM = 'https://app.ticketmaster.com/discovery/v2';
 
 function corsHeaders(origin) {
@@ -209,6 +209,49 @@ Include 3-5 findings citing specific policy rules. Include next_steps ONLY when 
         try { return { statusCode: 200, headers, body: JSON.stringify(JSON.parse(candidate)) }; } catch (_) {}
       }
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'Parse failed', raw: text.slice(0, 200) }) };
+    }
+
+    // ── Exit Plan (Concerto+) ──
+    // The way out of one venue for one fan: their seat and entrance, how they're getting
+    // home, and the venue's own published guidance. Only names that appear in that
+    // guidance may be used, so the plan never invents a street, door, or lot.
+    if (service === 'exit_plan') {
+      const { venueSlug, seat = {}, travel } = body;
+      const v = venueSlug ? venueInfo[String(venueSlug)] : null;
+      if (!v) return { statusCode: 404, headers, body: JSON.stringify({ error: 'Venue not found' }) };
+      const clean = (x) => String(x || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').slice(0, 900);
+      const sec = (k) => v[k] ? [v[k].summary, v[k].body, v[k].note, (v[k].lots || []).join('; ')].filter(Boolean).map(clean).join(' ') : '';
+      const how = { drive: 'driving (parked nearby)', rideshare: 'taking Uber or Lyft', transit: 'taking public transit', walk: 'walking' }[travel] || 'not sure yet';
+      const seatText = seat.floor ? 'Floor / general admission' : [seat.section && `Section ${seat.section}`, seat.row && `Row ${seat.row}`, seat.seat && `Seat ${seat.seat}`].filter(Boolean).join(', ') || 'unknown';
+      const prompt = `You are Concerto's Exit Plan. Write the plan for leaving ${v.name} (${v.city}${v.state ? ', ' + v.state : ''}) after a concert.
+
+Fan: seat ${seatText}${seat.gate ? `; entered at ${String(seat.gate).slice(0, 40)}` : ''}; getting home by ${how}.
+
+Venue guidance (the only facts you may use about this venue):
+Entrances: ${sec('gates') || 'none published'}
+Rideshare: ${sec('rideshare') || 'none published'}
+Parking: ${sec('parking') || 'none published'}
+Re-entry: ${sec('reEntry') || 'none published'}
+
+Rules: Never name a street, door, gate, lot, station, or zone unless it appears above. If the guidance doesn't say where pickup is, say so plainly and give the general move (walk a few blocks away from the main doors before requesting). Plain, short sentences. No em dashes.
+Respond ONLY with valid JSON, no markdown:
+{"headline":"one sentence, the plan in brief","steps":[{"title":"2-5 words","detail":"1-2 sentences"}],"pickup":"one sentence on where to meet your ride or head next"}
+Give 3 or 4 steps in order: when to move, which way out, where to go, and a backup if it's busy.`;
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+        body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 700, messages: [{ role: 'user', content: prompt }] }),
+      });
+      const data = await response.json();
+      const text = (data?.content?.[0]?.text || '').trim().replace(/```json|```/g, '').trim();
+      try {
+        const r = JSON.parse(text);
+        const steps = (Array.isArray(r.steps) ? r.steps : []).slice(0, 4).map((x) => ({ title: String(x.title || '').slice(0, 60), detail: String(x.detail || '').slice(0, 300) }));
+        if (!steps.length) throw new Error('empty');
+        return { statusCode: 200, headers, body: JSON.stringify({ headline: String(r.headline || '').slice(0, 200), steps, pickup: String(r.pickup || '').slice(0, 300) }) };
+      } catch (_) {
+        return { statusCode: 500, headers, body: JSON.stringify({ error: 'Could not make the plan' }) };
+      }
     }
 
     // ── Ticket read (free for signed-in fans) ──

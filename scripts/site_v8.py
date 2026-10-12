@@ -72,7 +72,7 @@ def principles():
     items = [('Accurate before clever.', 'Researched from official sources. Dated, every time.'),
              ('Honest about the unknown.', 'Not confirmed? Concerto says so instead of guessing.'),
              ('The essentials are free.', 'Bag policy, entry, parking, accessibility, setlists. Never paywalled.'),
-             ('Partners are labeled.', 'A partner placement says so on the page. Always.')]
+             ('Your night stays yours.', 'Your seat, your photos, and your notes stay on your phone.')]
     cells = ''.join(f'<div class="c-principle"><span>0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p></div>' for i, (h, t) in enumerate(items))
     return f'<section class="c-section c-white" data-reveal><div class="c-wrap">{eyebrow("What we believe")}<h2 class="c-h2">The night deserves accuracy.</h2><div class="c-principles">{cells}</div></div></section>'
 
@@ -177,7 +177,7 @@ def about():
             '<p class="c-body">Concerto brings those questions back to the show. Founder-led.</p></div></div></section>'
             + principles() +
             '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
-            '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
+            '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/contact">Contact</a></div></section>'
             + close() + '</main>')
 
 def hub_intro(kicker, h1, lead, placeholder, target):
@@ -615,7 +615,7 @@ def home():
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
                 '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a></div></div></div></section>')
-    return '<main id="main-content" class="c-page">' + h + problem_section() + what + photo_band() + numbers() + principles() + plus + partners + guide_index() + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + problem_section() + what + photo_band() + numbers() + principles() + plus + guide_index() + close() + '</main>'
 
 # ---------------- 2.7: Your Night and Concerto+ ----------------
 # One source for the words both pages (and the homepage) use, so the price and the
@@ -693,7 +693,7 @@ def about():
                '<div class="c-actions"><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
     facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
     fx = '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
-    links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
+    links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/contact">Contact</a></div></section>'
     return '<main id="main-content" class="c-page">' + h + name_section() + founder + principles() + fx + links + close() + '</main>'
 
 def hub_intro(kicker, h1, lead, placeholder, target, items=None):
@@ -782,7 +782,7 @@ def investors():
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show. The app and website are built.</p>'
-             '<p class="c-body">Concerto+ is the paid tier. The partner program is in development. Coverage is not a measure of users or revenue.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
+             '<p class="c-body">Concerto+ is the paid tier. Coverage is not a measure of users or revenue.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
     conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Figures, priorities, and terms are discussed directly, not inferred from the website.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
     return '<main id="main-content" class="c-page">' + h + today + where_help() + principles() + conv + close() + '</main>'
 
@@ -870,7 +870,7 @@ def contact_page(form_html):
     h = hero('Contact', 'Let’s get you to<br>the right place.', 'Questions about your concert night, an idea for a collaboration, or a company inquiry. Start here.', '', ['support@concertocity.com', 'partnerships@concertocity.com'], 'cream')
     routes = ('<dl class="c-facts-list">'
               f'<div><dt>App support</dt><dd>{mail("support@concertocity.com")} or the <a href="/help">Help Center</a></dd></div>'
-              f'<div><dt>Partnerships</dt><dd>Choose your <a href="/partners">partner category</a> or write to {mail("partnerships@concertocity.com")}</dd></div>'
+              f'<div><dt>Business</dt><dd>Write to {mail("partnerships@concertocity.com")}</dd></div>'
               '<div><dt>Media, creators, investors</dt><dd>Use the form, and pick the topic that fits</dd></div></dl>')
     form = f'<section class="c-section c-white"><div class="c-wrap c-split"><div>{eyebrow("How can we help?")}<h2 class="c-h2">Three ways in.</h2>{routes}</div><div class="c-form">{form_html}</div></div></section>'
     return '<main id="main-content" class="c-page">' + h + form + '</main>'
@@ -999,7 +999,7 @@ def build():
         rewrite(f'{k}.html', partner_page(k, form_of(f'{k}.html')))
     rewrite('contact.html', contact_page(form_of('contact.html')))
     rewrite('near-me.html', near_me()); rewrite('search.html', search_page())
-    rewrite('help.html', doc_page(legacy['help.html'], 'Help Center', 'Answers, in plain terms.', 'How Concerto works, from saving your first show to Your Night, Concerto+, and account controls.'))
+    rewrite('help.html', doc_page(legacy['help.html'], 'Help Center', 'Answers, in plain terms.', 'How Concerto works, in the order you’ll use it: find a show, save it, use Your Night, keep the night, and Concerto+ when you want more.'))
     rewrite('faq.html', doc_page(legacy['faq.html'], 'FAQ', 'Questions, answered.', 'What Concerto is, what stays free, what Your Night is, and what Concerto+ adds.'))
     rewrite('privacy.html', doc_page(legacy['privacy.html'], 'Legal', 'Privacy Policy.', 'What we collect, why, and the controls you have over it.', 'white', True))
     rewrite('terms.html', doc_page(legacy['terms.html'], 'Legal', 'Terms of Service.', 'The rules for using Concerto, in plain sections.', 'white', True))
