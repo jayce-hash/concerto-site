@@ -79,7 +79,7 @@ def principles():
 def name_section():
     return ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-narrow">' + eyebrow('Why Concerto') +
             '<p class="c-statement">A concerto is written for a soloist and an orchestra.<br>The artist is the soloist. The venue, the city, and the ride home are the orchestra.</p>'
-            '<p class="c-statement-after">We build for the orchestra.</p></div></section>')
+            '<p class="c-statement-after">Concerto is built for everything around the show.</p></div></section>')
 
 def photo_band(title='Every room has rules. We read them first.'):
     tiles = ''
@@ -698,7 +698,7 @@ def premium():
             + close('Start with Your Night.', 'website-premium', 'Free on iPhone. Concerto+ is in the app.') + '</main>')
 
 def about():
-    h = hero('About Concerto', 'The ticket is the start<br>of the night.', 'The practical details around a concert, in one place.<br>Less piecing it together. More of the show.',
+    h = hero('About Concerto', 'The concert-night<br>companion.', 'Concerto makes concert nights easier, with what you need to know about the venue, the tour, and the city around it.',
              '', ['Founded 2025', 'Concerto LLC', 'Concerto for iPhone'], 'navy')
     founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
                '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
@@ -768,11 +768,11 @@ def press_coverage():
     return section('white', 'In the news', 'Concerto in the press.', f'<ul class="c-press-list">{rows_html}</ul>')
 
 def press():
-    h = hero('Press and media', 'Concerto, in brief.', 'Concerto helps concert fans plan the night around their ticket.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
-    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{N_V} venue guides, {N_T} tours'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
+    h = hero('Press and media', 'Concerto, in brief.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
+    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
-    boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">One show. The night around it.</h2></div><div>'
-              '<p class="c-body">An iPhone app and website, founded by Jayce Wells in 2025.<br>Fans save a show and get venue guidance, setlists, nearby places, and how to get there. Concerto+ adds planning.</p>'
+    boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
+              '<p class="c-body">An iPhone app and website, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: what to know about the venue and the tour, and what’s around them in the city. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>''<p class="c-body">Concerto+ adds Exit Plan, AI Bag Check, and Plan My Night.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
     bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 600+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
@@ -792,11 +792,11 @@ def where_help():
                    '<div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
 
 def investors():
-    h = hero('Investors', 'A focused product.<br>A practical next step.', 'Concerto prepares fans for the night around the ticket.<br>We welcome people who know live music, hospitality, and consumer products.',
+    h = hero('Investors', 'The product is built.<br>Next is growth.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it. We welcome people who know live music, hospitality, and consumer products.',
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show. The app and website are built.</p>'
-             '<p class="c-body">Concerto+ is the paid tier. Coverage is not a measure of users or revenue.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
+             '<p class="c-body">The app is free. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Exit Plan, AI Bag Check, and Plan My Night.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
     conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Figures, priorities, and terms are discussed directly, not inferred from the website.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
     return '<main id="main-content" class="c-page">' + h + today + where_help() + principles() + conv + close() + '</main>'
 
