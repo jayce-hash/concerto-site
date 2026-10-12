@@ -314,7 +314,15 @@ async function tierFor(event) {
     const { data: { user } } = await sb.auth.getUser(token);
     if (!user) return 'anon';
     const { data: p } = await sb.from('profiles').select('is_premium').eq('id', user.id).single();
-    return p && p.is_premium ? 'plus' : 'member';
+    if (p && p.is_premium) return 'plus';
+    // A Show Pass unlocks everything for one show, Concerto AI included. The table is written
+    // only by the RevenueCat webhook; if it doesn't exist yet this simply finds nothing.
+    try {
+      const { data: pass } = await sb.from('show_passes').select('until').eq('user_id', user.id)
+        .gt('until', new Date().toISOString()).limit(1);
+      if (pass && pass.length) return 'plus';
+    } catch (e) { /* no pass table yet */ }
+    return 'member';
   } catch (e) { return 'anon'; }
 }
 
