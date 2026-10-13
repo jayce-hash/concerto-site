@@ -510,32 +510,50 @@ def tour_dates_shell(t):
             '<ol class="c-up-list"></ol><p class="c-qa-note">Each venue guide has its bag rules, doors, parking, and rideshare pickup. Dates from Ticketmaster.</p></div></section>')
 
 def tour_page(t):
+    """Same layout as a venue page: the answer in the hero, then an "On this page" list beside
+    sections that each carry a title and a date, then more guides, then the close."""
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
+    sh = show_info(t['tourId'])
     official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
+    toc, secs = '', ''
+    def sec(anchor, label, meta, body):
+        nonlocal toc, secs
+        toc += f'<li><a href="#{anchor}">{e(label)}</a></li>'
+        cls = 'verified' if meta.startswith('Updated') else 'verified c-nocheck'
+        secs += f'<article class="info-card c-guide-sec" id="{anchor}"><div class="c-sec-head"><h2>{e(label)}</h2>{f"<span class=\'{cls}\'>{e(meta)}</span>" if meta else ""}</div>{body}</article>'
     if songs:
-        setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">{songs_word(len(songs))}.</h2><p class="c-source">{e(source_label(s))}. Setlists change by night.</p>'
-                f'<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
-                + '<div class="c-actions c-actions-tight">' + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + listen_link(t, s, 'c-link') + '</div></div></section>')
+        first, last = songs[0], songs[-1]
+        lead = (f'<p class="c-lead"><b>Setlist:</b> {songs_word(len(songs))}, opening with \u201c{e(first)}\u201d and closing with \u201c{e(last)}\u201d.'
+                f'<br>Plus tour dates and a guide to every venue on the tour.</p>')
+        more = (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>')
+        sec('setlist', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
+            f'<p>{e(re.sub(r", updated .*$", "", source_label(s)))}. Setlists change by night.</p><div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
+            f'<div class="c-actions c-actions-tight">{more}{listen_link(t, s, "c-link")}</div>')
+    elif sh:
+        lead = f'<p class="c-lead">{e(sh["body"])}</p>'
+        sec('the-show', sh.get('eyebrow') or 'The show', f'Updated {pretty_date(sh.get("updated"))}' if sh.get('updated') else '',
+            f'<p>{e(sh["heading"])} Dates are below as they’re announced, with a guide to every arena.</p>')
+        if sh.get('cast'):
+            sec('cast', sh.get('castTitle') or 'Cast', '', '<div class="c-castlist"><ul class="c-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['cast']) + '</ul></div>'
+                + (f'<p class="c-source">{e(sh["castNote"])}</p>' if sh.get('castNote') else ''))
+        if sh.get('troupe'):
+            sec('troupe', sh.get('troupeTitle') or 'Troupe', '', '<div class="c-castlist"><ul class="c-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['troupe']) + '</ul></div>')
     elif t['tourId'] == 'jingle-ball-2026-tour':
-        setl = jb_lineups()
-    elif show_info(t['tourId']):
-        sh = show_info(t['tourId'])
-        cast = ''.join(f'<li>{e(x)}</li>' for x in sh.get('cast', []))
-        troupe = ''.join(f'<li>{e(x)}</li>' for x in sh.get('troupe', []))
-        setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow(sh.get("eyebrow") or "The show")}'
-                f'<h2 class="c-h2 c-h2-sm">{e(sh["heading"])}</h2><p class="c-body">{e(sh["body"])}</p>'
-                + (f'<h3 class="c-h3">{e(sh.get("castTitle") or "Cast")}</h3><div class="c-castlist"><ul class="c-cast">{cast}</ul></div>' if cast else '')
-                + (f'<p class="c-source">{e(sh["castNote"])}</p>' if sh.get('castNote') else '')
-                + (f'<h3 class="c-h3">{e(sh.get("troupeTitle") or "Troupe")}</h3><div class="c-castlist"><ul class="c-cast">{troupe}</ul></div>' if troupe else '')
-                + f'<p class="c-source">From the official tour site, {e(sh.get("updated", ""))}.</p></div></section>')
+        d = jingle_ball_data()
+        lead = f'<p class="c-lead">Every city has its own lineup. Dates, lineups, and a guide to every venue, from {e(d["source"])}.</p>'
+        for c in d['cities']:
+            sec(c['anchor'], c['city'], f'{c["date"]} · {c["time"]}',
+                f'<p>Lineup order is not performance order. <a class="c-link" href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>'
+                '<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(a)}</li>' for a in c['lineup']) + '</ol></div>')
     elif s and (s.get('note') or '').startswith('Lineups vary'):
-        # Multi-artist events (Jingle Ball): no single setlist, so explain the lineups instead.
-        setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Lineups")}'
-                f'<h2 class="c-h2 c-h2-sm">Every city has its own lineup.</h2>'
-                f'<p class="c-body">Each night brings a different mix of artists. Open a date in Concerto to see who is playing, then plan the night around the venue.</p></div></section>')
-    elif s:
-        setl = f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Setlist")}<h2 class="c-h2 c-h2-sm">Setlist Coming Soon!</h2><p class="c-body">Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p></div></section>'
-    else: setl = ''
+        lead = '<p class="c-lead">Every night brings a different lineup. Tour dates and a guide to every venue on the tour.</p>'
+        sec('lineups', 'Lineups', '', '<p>Each night brings a different mix of artists. Open a date in Concerto to see who is playing, then plan the night around the venue.</p>')
+    else:
+        lead = '<p class="c-lead">Tour dates and a guide to every venue on the tour. The setlist appears here once it’s confirmed.</p>'
+        if s:
+            sec('setlist', 'Setlist', 'Coming soon', '<p><b>Setlist Coming Soon!</b> Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p>')
+    sec('about', 'About the tour', '', f'<p>{e(t["artist"])}: {e(t["tourName"])}. Open the tour in Concerto to save a date and get the venue’s rules, directions, and a show-day reminder with it.</p>'
+        + (f'<div class="link-row"><a href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a></div>' if t.get('tourWebsite') else ''))
     more = related_tours(t)
     # Holiday tours get a seasonal header through the end of their season, then return to normal
     # on the next build. Navy, gold and cream only: festive, never novelty.
@@ -544,14 +562,19 @@ def tour_page(t):
     _on = bool(_until) and _dt.date.today().isoformat() <= _until
     hol_cls = ' c-holiday' if _on else ''
     hol_fx = '<div class="c-snow" aria-hidden="true"><i></i><i></i></div>' if _on else ''
-    hol_kicker = '\u2726 Holiday concert season' if _on else 'On tour'
+    kicker = '\u2726 Holiday concert season' if _on else f'Tour guide · {t["tourName"]}'
     more_html = ''.join(f'<li class="c-entry"><a href="/tour/{x["tourId"]}">{e(x["artist"])}</a><span>{e(x["tourName"])}</span></li>' for x in more)
+    close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
+                  else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
     return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type c-hero-detail{hol_cls}">{hol_fx}<div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow(hol_kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p>'
+            f'<section class="c-hero c-hero-type c-hero-detail{hol_cls}">{hol_fx}<div class="c-wrap"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow(kicker)}<h1>{e(t["artist"])}</h1>'
+            + lead +
             f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
             f'<div class="c-wrap"><div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
-            + tour_dates_shell(t) + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
-            + close('Going to this tour?', 'website-tour', ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if show_info(t['tourId']) else 'Save your date in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.')) + '</main>')
+            + tour_dates_shell(t) +
+            f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
+            + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("More tour guides")}<h2 class="c-h2 c-h2-sm">Also on the road</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>' if more else '')
+            + close('Going to this tour?', 'website-tour', close_fine) + '</main>')
 
 def setlist_page(slug, s):
     t = next((x for x in TOURS if x['tourId'] == slug), None)

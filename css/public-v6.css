@@ -2025,3 +2025,4 @@ h1,h2{font-weight:700}
 .v8 .c-cast{list-style:none;margin:0;padding:0;columns:2 240px;column-gap:48px;border-top:1px solid rgba(18,30,54,.12)}
 .v8 .c-cast li{break-inside:avoid;display:flex;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(18,30,54,.08);font-size:18px;color:var(--navy)}
 .v8 .c-cast li:before{content:'';flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold)}
+.v8 .c-guide-sec .verified.c-nocheck:before{content:none}
