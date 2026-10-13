@@ -8,9 +8,9 @@ SITE='https://concertocity.com'
 
 HUBS=[
  '/', '/venues', '/tours', '/setlists', '/near-me', '/your-night', '/premium',
- # Partner and Perks pages are left out while the partner program is hidden; add them back
- # here when it launches: '/perks', '/partners', '/partners/restaurants', '/partners/hotels',
- # '/partners/venues', '/partners/artists'
+ # Partners is back (Oct 2026): restaurants and hotels lead the Nearby rows in the app.
+ # Perks and artist partnerships stay out until they return.
+ '/partners', '/partners/restaurants', '/partners/hotels', '/partners/venues',
  '/about', '/founder', '/creators', '/press', '/investors',
  '/contact', '/faq', '/help', '/bagcheck', '/bags', '/parking', '/rideshare',
  '/concessions', '/privacy', '/terms'

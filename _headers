@@ -32,12 +32,10 @@
   Content-Type: application/json
   Cache-Control: public, max-age=3600
 
-# Partner program hidden from search until it launches. The pages still work by link.
-/partners
+# Partners is public again; artist partnerships and Perks pages stay out of search.
+/partners/artists
   X-Robots-Tag: noindex
-/partners/*
-  X-Robots-Tag: noindex
-/partner-*
+/partner-artists*
   X-Robots-Tag: noindex
 /perks
   X-Robots-Tag: noindex

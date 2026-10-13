@@ -97,8 +97,7 @@ def footer_html():
     cols = [
         ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', APP)]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
-        ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Contact', '/contact')]),
-        # Partners column hidden until the partner program launches (pages stay live, unlinked).
+        ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
         ('Support', [('Help Center', '/help'), ('FAQ', '/faq')]),
     ]
     col_html = ''.join(

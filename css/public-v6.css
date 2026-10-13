@@ -1998,3 +1998,24 @@ h1,h2{font-weight:700}
 .v8 .c-doc .c-journey{margin-left:0;padding-left:0}
 .v8 .c-doc .c-journey li{margin:0;padding-left:0}
 .v8 .c-doc .c-journey li:before{font-size:30px}
+/* Partners: the app's Nearby row, drawn on the page. Your card first, gold star for a Perk, the offer popup. */
+.nb-mock{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 0 22px;overflow:hidden;max-width:520px}
+.nb-title{margin:0 20px 12px;font-family:var(--display);font-size:20px;color:var(--navy,#121E36)}
+.nb-row{display:flex;gap:12px;padding:0 20px;overflow:hidden}
+.nb-card{flex:0 0 150px;min-width:0}
+.nb-card b{display:block;margin-top:8px;font-family:var(--display);font-weight:500;font-size:16px;color:var(--navy,#121E36);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nb-card span:not(.nb-mark):not(.nb-star){display:block;font-size:13px;color:var(--muted,#5b6475);margin-top:1px}
+.nb-photo{position:relative;height:112px;border-radius:14px;background:var(--navy,#121E36);display:flex;align-items:center;justify-content:center}
+.nb-mark{font-family:var(--display);font-size:15px;color:var(--gold,#C9A84C)}
+.nb-other{opacity:.45}
+.nb-other .nb-mark{font-size:34px}
+.nb-star{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:var(--gold,#C9A84C);color:var(--navy,#121E36);display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;box-shadow:0 0 0 4px rgba(201,168,76,.25)}
+.nb-cap{margin:18px 20px 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7a26}
+.nb-alert{margin:0 auto;width:270px;max-width:calc(100% - 40px);background:#F2F2F4;border-radius:14px;text-align:center;overflow:hidden}
+.nb-alert b{display:block;padding:16px 16px 2px;font-size:16px;font-weight:600;color:#111}
+.nb-alert p{margin:4px 16px 0;font-size:13px;line-height:1.4;color:#333}
+.nb-alert p:last-of-type{margin-bottom:14px}
+.nb-alert-actions{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #d6d6db}
+.nb-alert-actions span{padding:11px 0;font-size:16px;color:#0a64d8}
+.nb-alert-actions span+span{border-left:1px solid #d6d6db;font-weight:600}
+.ss-preview .nb-mock{border:0;padding:8px 0 4px;max-width:none}

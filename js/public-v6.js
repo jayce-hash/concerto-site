@@ -786,12 +786,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!picked && !name) { preview.hidden = true; return; }
     preview.hidden = false;
     var hotel = el('kind').value === 'hotel';
-    card.innerHTML = '<article class="partner-card"><div class="partner-photo"><span class="fallback-mark">' + esc((name || '?').charAt(0)) +
-      '</span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3>' + esc(name || 'Your name') + '</h3>' +
-      (blurb ? '<p class="partner-blurb">' + esc(blurb) + '</p>' : '') +
-      ((el('perkOffer') && el('perkOffer').value.trim()) ? '<div class="partner-perk"><span>Concerto Perk</span><strong>' + esc(el('perkOffer').value.trim()) + '</strong>' +
-        (el('perkDetails').value.trim() ? '<p>' + esc(el('perkDetails').value.trim()) + '</p>' : '') + '</div>' : '') +
-      '<div class="partner-actions"><span class="partner-btn">' + (hotel ? 'Book' : 'Reserve') + '</span><span class="partner-btn partner-btn-quiet">Directions</span></div></div></article>';
+    // The same Nearby row the app draws: your card first, a gold star when there is an offer,
+    // and the popup fans see when they tap it.
+    var offer = el('perkOffer') ? el('perkOffer').value.trim() : '', details = el('perkDetails') ? el('perkDetails').value.trim() : '';
+    card.innerHTML = '<div class="nb-mock"><p class="nb-title">' + (hotel ? 'Nearby Hotels' : 'Nearby Restaurants') + '</p><div class="nb-row">' +
+      '<div class="nb-card nb-you"><div class="nb-photo"><span class="nb-mark">' + esc((name || '?').charAt(0)) + '</span>' + (offer ? '<span class="nb-star" aria-label="Concerto Perk">&#9733;</span>' : '') + '</div><b>' + esc(name || 'Your name') + '</b><span>Your price · distance</span></div>' +
+      '<div class="nb-card nb-other"><div class="nb-photo"><span class="nb-mark">B</span></div><b>Another place</b><span>Nearby</span></div></div>' +
+      (offer ? '<p class="nb-cap">Tap the star:</p><div class="nb-alert"><b>' + esc(offer) + '</b><p>' + esc(name || 'Your name') + '</p>' + (details ? '<p>' + esc(details) + '</p>' : '<p></p>') +
+        '<div class="nb-alert-actions"><span>Close</span><span>' + (hotel ? 'Book' : 'Reserve') + '</span></div></div>' : '') + '</div>';
   }
   ['name', 'blurb', 'kind', 'perkOffer', 'perkDetails'].forEach(function (n) { if (!el(n)) return; el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
   // The redeem field appears only once a Perk is typed.
