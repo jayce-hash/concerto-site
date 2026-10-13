@@ -2026,3 +2026,6 @@ h1,h2{font-weight:700}
 .v8 .c-cast li{break-inside:avoid;display:flex;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(18,30,54,.08);font-size:18px;color:var(--navy)}
 .v8 .c-cast li:before{content:'';flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold)}
 .v8 .c-guide-sec .verified.c-nocheck:before{content:none}
+/* Phones: the guide index shows four of each list. The rest stay in the page for search
+   and for desktop; "All venues" and "All tours" are right below. */
+@media (max-width:640px){.v8 .c-index ul li:nth-child(n+5){display:none}}

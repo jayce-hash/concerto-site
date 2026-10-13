@@ -59,8 +59,23 @@ function toSchema(ev, pageUrl) {
     url: pageUrl,
   };
   if (performers.length) out.performer = performers;
+  // Ticketmaster has no end time. Matching the start (rather than guessing a time, or a local
+  // date that can fall before a UTC start) keeps the field honest and never ends before it begins.
+  out.endDate = startDate;
+  const who = performers.map((p) => p.name).slice(0, 3).join(', ') || ev.name;
+  const where = [v.name, v.city?.name].filter(Boolean).join(', ');
+  out.description = `${who} at ${where}. Plan the night with Concerto: the venue guide, the setlist, and places to eat and stay nearby.`;
   const img = bestImage(ev); if (img) out.image = [img];
-  if (ev.url && /^https:\/\//.test(ev.url)) out.offers = { '@type': 'Offer', url: ev.url };
+  if (ev.url && /^https:\/\//.test(ev.url)) {
+    const offer = { '@type': 'Offer', url: ev.url };
+    const pr = (ev.priceRanges || []).find((r) => typeof r.min === 'number');
+    if (pr) { offer.price = pr.min; offer.priceCurrency = pr.currency || 'USD'; }
+    const code = ev.dates?.status?.code;
+    offer.availability = code === 'offsale' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock';
+    const from = ev.sales?.public?.startDateTime;
+    if (from) offer.validFrom = from;
+    out.offers = offer;
+  }
   return out;
 }
 
