@@ -1001,6 +1001,19 @@ def build():
     rewrite('parking.html', topic_page('parking', 'Parking', 'Concert parking,<br>venue by venue.', 'Lots, garages, and routes. From official sources, dated.'))
     rewrite('rideshare.html', topic_page('rideshare', 'Rideshare', 'Drop-off and pickup,<br>venue by venue.', 'Where rideshare goes, before and after. Unconfirmed says unconfirmed.'))
     rewrite('concessions.html', topic_page('concessions', 'Food and drink', 'What is inside,<br>venue by venue.', 'Food, drink, and payment. From official sources, dated.'))
+    # Hub titles say what people search for, not a tagline.
+    for _rel, _t, _d in [
+        ('bags.html', 'Concert Bag Policies by Venue (2026) | Concerto', f'Clear bag rules, size limits, and what you can bring, for {V_COPY} concert venues worldwide. From each venue’s official policy, dated.'),
+        ('parking.html', 'Concert Parking by Venue: Lots, Garages & Tips | Concerto', f'Where to park for a concert at {V_COPY} venues worldwide: official lots, garages, and routes, from each venue’s own sources.'),
+        ('rideshare.html', 'Uber & Lyft Pickup at Concert Venues | Concerto', f'Rideshare drop-off and pickup spots for concerts at {V_COPY} venues worldwide, from each venue’s official guidance.'),
+        ('concessions.html', 'Food & Drink at Concert Venues | Concerto', f'What food and drinks are inside {V_COPY} concert venues worldwide, and how to pay, from official sources.'),
+        ('near-me.html', 'Concerts Near Me This Week | Concerto', 'Concerts near you this week, with a guide to every venue: what to bring, parking, and places to eat nearby. Free on iPhone.'),
+        ('bagcheck.html', 'AI Bag Check: Will My Bag Be Allowed? | Concerto', 'Take a photo of your bag and Concerto checks it against the venue’s published bag policy before you leave. Part of Concerto+.'),
+        ('tours.html', 'Concert Tours: Dates & Setlists | Concerto', f'{N_T} concert tours with dates, the setlist each tour has been playing, and a guide to every venue.'),
+        ('setlists.html', 'Concert Setlists by Tour | Concerto', f'Setlists for {N_S} current concert tours, labeled by source, so you know the songs before the show.'),
+        ('venues.html', 'Concert Venue Guides: Bag Policy, Parking & Entry | Concerto', f'Guides to {V_COPY} concert venues worldwide: bag policy, entry, parking, rideshare, and what’s nearby, from official sources.'),
+    ]:
+        if (ROOT / _rel).exists(): set_head(_rel, _t, _d)
     for v in VENUES: rewrite(f'venue/{v["id"]}.html', venue_page(v))
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
