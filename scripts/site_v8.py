@@ -495,8 +495,17 @@ def related_tours(t, n=6):
     step = max(1, len(pool) // n)
     return [pool[(start + i * step) % len(pool)] for i in range(n)]
 
+def show_info(tour_id):
+    """Tours that aren't concerts (data/shows.json): no setlist, the cast sits where it would be."""
+    try: return json.loads((ROOT / 'data' / 'shows.json').read_text()).get(tour_id)
+    except Exception: return None
+
 def tour_dates_shell(t):
-    return (f'<section class="c-section c-white c-upcoming" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}" hidden aria-labelledby="dates-h">'
+    sh = show_info(t['tourId'])
+    # A show is listed on Ticketmaster under its own name and outside the Music category,
+    # so its dates are searched by that name, in every category, matching the start of the billing.
+    extra = (f' data-tour-keyword="{e(sh.get("searchTerm") or t["artist"])}" data-tour-match="prefix"' + (' data-tour-any' if sh.get('anyCategory') else '')) if sh else ''
+    return (f'<section class="c-section c-white c-upcoming" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}"{extra} hidden aria-labelledby="dates-h">'
             f'<div class="c-wrap">{eyebrow("Tour dates")}<h2 class="c-h2 c-h2-sm" id="dates-h">Where {e(t["artist"])} is playing <span class="c-up-count" data-count></span></h2>'
             '<ol class="c-up-list"></ol><p class="c-qa-note">Each venue guide has its bag rules, doors, parking, and rideshare pickup. Dates from Ticketmaster.</p></div></section>')
 
@@ -509,6 +518,16 @@ def tour_page(t):
                 + '<div class="c-actions c-actions-tight">' + (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>') + listen_link(t, s, 'c-link') + '</div></div></section>')
     elif t['tourId'] == 'jingle-ball-2026-tour':
         setl = jb_lineups()
+    elif show_info(t['tourId']):
+        sh = show_info(t['tourId'])
+        cast = ''.join(f'<li>{e(x)}</li>' for x in sh.get('cast', []))
+        troupe = ''.join(f'<li>{e(x)}</li>' for x in sh.get('troupe', []))
+        setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow(sh.get("eyebrow") or "The show")}'
+                f'<h2 class="c-h2 c-h2-sm">{e(sh["heading"])}</h2><p class="c-body">{e(sh["body"])}</p>'
+                + (f'<h3 class="c-h3">{e(sh.get("castTitle") or "Cast")}</h3><div class="c-castlist"><ul class="c-cast">{cast}</ul></div>' if cast else '')
+                + (f'<p class="c-source">{e(sh["castNote"])}</p>' if sh.get('castNote') else '')
+                + (f'<h3 class="c-h3">{e(sh.get("troupeTitle") or "Troupe")}</h3><div class="c-castlist"><ul class="c-cast">{troupe}</ul></div>' if troupe else '')
+                + f'<p class="c-source">From the official tour site, {e(sh.get("updated", ""))}.</p></div></section>')
     elif s and (s.get('note') or '').startswith('Lineups vary'):
         # Multi-artist events (Jingle Ball): no single setlist, so explain the lineups instead.
         setl = (f'<section class="c-section c-white"><div class="c-wrap c-narrow">{eyebrow("Lineups")}'
@@ -532,7 +551,7 @@ def tour_page(t):
             f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
             f'<div class="c-wrap"><div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
             + tour_dates_shell(t) + setl + f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("Also on the road")}<h2 class="c-h2 c-h2-sm">More tours with setlists.</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>'
-            + close('Going to this tour?', 'website-tour', 'Save your date in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
+            + close('Going to this tour?', 'website-tour', ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if show_info(t['tourId']) else 'Save your date in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.')) + '</main>')
 
 def setlist_page(slug, s):
     t = next((x for x in TOURS if x['tourId'] == slug), None)

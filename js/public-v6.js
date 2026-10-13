@@ -965,14 +965,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function tourDates() {
     var host = document.querySelector('[data-tour-dates]'); if (!host) return;
     var artist = host.getAttribute('data-tour-artist'), slug = host.getAttribute('data-tour');
+    // Shows that aren't concerts are listed under their own name and outside the Music category.
+    var keyword = host.getAttribute('data-tour-keyword') || artist, prefix = host.getAttribute('data-tour-match') === 'prefix';
     var now = new Date(), end = new Date(now.getTime() + 400 * 86400000);
-    var p = new URLSearchParams({ keyword: artist, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    var p = new URLSearchParams({ keyword: keyword, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    if (host.hasAttribute('data-tour-any')) p.delete('classificationName');
     Promise.all([getJSON(FN + '/tm/events.json?' + p), venueIndex()]).then(function (r) {
-      var d = r[0], m = r[1], want = norm(artist);
+      var d = r[0], m = r[1], want = norm(prefix ? keyword : artist);
       // Only dates where this artist is actually billed: tribute acts and lookalike names stay out.
       var list = (d && d._embedded && d._embedded.events || []).filter(realEvent).filter(function (ev) {
         var at = (ev._embedded && ev._embedded.attractions) || [];
-        return at.some(function (a) { return norm(a.name) === want; });
+        return at.some(function (a) { var n = norm(a.name); return prefix ? n.indexOf(want) === 0 : n === want; });
       });
       var seen = {}; list = list.filter(function (ev) { var v = ev._embedded.venues && ev._embedded.venues[0] || {}; var k = (v.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
       if (!list.length) return;

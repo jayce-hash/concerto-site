@@ -73,14 +73,19 @@ function dedupe(list) {
 }
 
 async function eventsForTour(html, origin) {
-  const artist = attr(html, 'data-tour-artist');
+  const tag = (html.match(/<section[^>]*data-tour-dates[^>]*>/) || [])[0] || '';
+  const artist = attr(tag, 'data-tour-artist');
   if (!artist) return [];
+  // Shows that aren't concerts search by their own name, in every category, matching the start of the billing.
+  const keyword = attr(tag, 'data-tour-keyword') || artist;
+  const prefix = attr(tag, 'data-tour-match') === 'prefix';
   // Same query as tourDates() in js/public-v6.js, so the two share a cache entry.
   const now = new Date(), end = new Date(now.getTime() + 400 * 86400000);
-  const p = new URLSearchParams({ keyword: artist, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: isoSec(now), endDateTime: isoSec(end) });
-  const want = norm(artist);
+  const p = new URLSearchParams({ keyword, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: isoSec(now), endDateTime: isoSec(end) });
+  if (/\sdata-tour-any[\s>=]/.test(tag)) p.delete('classificationName');
+  const want = norm(prefix ? keyword : artist);
   const list = (await tmEvents(origin, p)).filter(realEvent)
-    .filter((ev) => (ev._embedded?.attractions || []).some((a) => norm(a.name) === want));
+    .filter((ev) => (ev._embedded?.attractions || []).some((a) => (prefix ? norm(a.name).startsWith(want) : norm(a.name) === want)));
   return dedupe(list).slice(0, MAX_TOUR);
 }
 
