@@ -375,15 +375,14 @@ def venue_page(v):
     bag_line = next((x['value'] for x in venue_glance(info) if x['key'] == 'bag'), None)
     lead = (f'<p class="cx-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.</p>' if bag_line
             else f'<p class="cx-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}, from official sources.</p>')
-    photo = f'<div class="c-venue-photo cx-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
+    photo = f'<div class="c-venue-photo cx-hphoto" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
     chips = cx_chips([('info', 'Venue info'), ('upcoming', 'Upcoming'), ('around', 'Around the venue')] + ([('venues', 'Nearby venues')] if near else []))
     return ('<main id="main-content" class="c-page cx">'
-            # Same header as every other page: label, name, place. The photo follows as a banner.
+            # Same header as every other page: label, name, place, with a small photo on the right. No jump links.
             + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
-            f'{eyebrow("Venue guide")}<h1>{e(v["name"])}</h1><p class="c-lead">{e(place(v))}</p>'
+            f'{eyebrow("Venue guide")}<h1>{e(v["name"])}</h1><p class="c-lead">{e(place(v))}</p>{photo}'
             # Holds the venue's name and location for the page scripts; not shown.
             f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
-            f'<div class="cx-top"><div class="cx-wrap">{photo}{chips}</div></div>'
             # Order: Concerto Partners (added by the page script right after the hero), venue info,
             # upcoming shows, places around the venue, nearby venues.
             + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div></div></section>'
@@ -628,10 +627,9 @@ def tour_page(t):
     close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
                   else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
     return ('<main id="main-content" class="c-page cx">'
-            # Same header as every other page: label, artist, tour. The photo follows as a banner.
+            # Same header as every other page: label, artist, tour, with a small photo on the right. No jump links.
             + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
-            f'{eyebrow(kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p></div></section>'
-            f'<div class="cx-top"><div class="cx-wrap"><div class="c-venue-photo c-artist-photo cx-photo" data-artist="{e(t["artist"])}"></div>{cx_chips(chips)}</div></div>'
+            f'{eyebrow(kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p><div class="c-venue-photo c-artist-photo cx-hphoto" data-artist="{e(t["artist"])}"></div></div></section>'
             + tour_dates_shell(t)
             + f'<section class="cx-sec"><div class="cx-wrap cx-stack">{"".join(panels)}</div></section>'
             + (f'<section class="cx-sec" id="more"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Also on the road</h2></div><div class="cx-tiles">{more_html}</div></div></section>' if more else '')

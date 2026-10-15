@@ -197,7 +197,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Only fetch for cards that are near the viewport, like the app's on-screen rows. */
   function watchPhotos() {
-    var nodes = [].slice.call(document.querySelectorAll('[data-artist],[data-vphoto]'));
+    // A photo hidden at this screen size (the header photo on phones) is never looked up, so it costs nothing.
+    var nodes = [].slice.call(document.querySelectorAll('[data-artist],[data-vphoto]')).filter(function (n) { return getComputedStyle(n).display !== 'none'; });
     if (!nodes.length) return;
     function start(el) {
       if (el.dataset.photoStarted) return;
