@@ -30,11 +30,11 @@ const VENUES = require('../../../data/venues.json');
 const DEMO = [
   { kind: 'restaurant', id: 'demo-restaurant', name: 'Overture Kitchen & Bar', dLat: 0.0029, dLng: 0.0008,
     blurb: 'Seasonal American plates and cocktails, a short walk from the venue. Open late on show nights.',
-    photo: `${SITE}/img/demo/overture-kitchen.jpg`, url: `${SITE}/partners/restaurants`,
+    photo: `${SITE}/img/demo/overture-kitchen.jpg?v=2`, url: `${SITE}/partners/restaurants`,
     offer: 'Free dessert on show nights', details: 'Show this in the Concerto app when you order. Dine-in only.' },
   { kind: 'hotel', id: 'demo-hotel', name: 'The Coda Hotel', dLat: -0.0012, dLng: 0.0041,
     blurb: 'Boutique rooms steps from the venue, with a rooftop bar that stays open after the show.',
-    photo: `${SITE}/img/demo/coda-hotel.jpg`, url: `${SITE}/partners/hotels`,
+    photo: `${SITE}/img/demo/coda-hotel.jpg?v=2`, url: `${SITE}/partners/hotels`,
     offer: 'Late checkout after the show', details: 'Show this at check-in. Subject to availability.' },
 ];
 
