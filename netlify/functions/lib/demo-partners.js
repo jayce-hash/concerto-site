@@ -1,10 +1,8 @@
 'use strict';
-// Demo partners: a restaurant and a hotel shown as Concerto Partners at ANY venue, for showing
-// prospects exactly what they would get. Never public:
+// Demo partners: a made-up restaurant and hotel shown as Concerto Partners at ANY venue, for
+// showing prospects exactly what they would get. Never public:
 //   - website: add ?demo=<PARTNER_DEMO_KEY> to a venue page or the search page (kept for the visit)
 //   - app: the "Demo partners" switch in Settings, shown only to the accounts in DEMO_EMAILS
-// The demo picks the nearest restaurant and the nearest hotel from Concerto's own Nearby data
-// for that venue, so the name, photo and distance are real. Description and Perk are demo text.
 const { createClient } = require('@supabase/supabase-js');
 
 const SITE = 'https://concertocity.com';
@@ -25,43 +23,34 @@ async function demoAllowed(demo, headers) {
   } catch (_) { return false; }
 }
 
-function mapsUrl(p) {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}${p.place_id ? `&query_place_id=${encodeURIComponent(p.place_id)}` : ''}`;
-}
+// Two made-up partners, placed a short walk from whichever venue is open, for showing
+// prospects (and for screenshots). Fictional names, their own photos on concertocity.com, and
+// directions to the spot on the map; Reserve and Book open the partner pages.
+const VENUES = require('../../../data/venues.json');
+const DEMO = [
+  { kind: 'restaurant', id: 'demo-restaurant', name: 'Overture Kitchen & Bar', dLat: 0.0029, dLng: 0.0008,
+    blurb: 'Seasonal American plates and cocktails, a short walk from the venue. Open late on show nights.',
+    photo: `${SITE}/img/demo/overture-kitchen.jpg`, url: `${SITE}/partners/restaurants`,
+    offer: 'Free dessert on show nights', details: 'Show this in the Concerto app when you order. Dine-in only.' },
+  { kind: 'hotel', id: 'demo-hotel', name: 'The Coda Hotel', dLat: -0.0012, dLng: 0.0041,
+    blurb: 'Boutique rooms steps from the venue, with a rooftop bar that stays open after the show.',
+    photo: `${SITE}/img/demo/coda-hotel.jpg`, url: `${SITE}/partners/hotels`,
+    offer: 'Late checkout after the show', details: 'Show this at check-in. Subject to availability.' },
+];
 
 // { partners, perks } in partner-content's shape, for one venue.
 async function demoFor(slug) {
-  if (!/^[a-z0-9-]{1,120}$/.test(String(slug || ''))) return { partners: [], perks: [] };
-  let nb = null;
-  try { const r = await fetch(`${SITE}/data/nearby/${slug}.json`); if (r.ok) nb = await r.json(); } catch (_) {}
-  const tabs = (nb && nb.tabs) || {};
-  // A believable partner: a sit-down restaurant or a real hotel, not a chain counter, a
-  // convenience store or a short-term rental. Closest of those, rated places first.
-  const CHAIN = /starbucks|7-eleven|mcdonald|subway|chipotle|raising cane|cava\b|panera|taco bell|wendy|burger king|chick-fil-a|dunkin|sizzler|domino|pizza hut|papa john|popeyes|kfc|jack in the box|five guys|shake shack|sweetgreen|insomnia cookies|panda express|tim hortons|denny|ihop|applebee|olive garden|chili's|wingstop|little caesars|jersey mike|jimmy john|potbelly|smoothie|juice|toastique|walgreens|cvs/i;
-  const NOT_FOOD = ['fast_food_restaurant', 'coffee_shop', 'cafe', 'convenience_store', 'bakery', 'dessert_shop', 'ice_cream_shop', 'sandwich_shop', 'juice_shop', 'donut_shop', 'grocery_store', 'gas_station', 'meal_takeaway'];
-  const RENTAL = /apartment|studio|bedroom|\bhome\b|house|condo|loft|airbnb|room in|suite in|villa|hostel|motel|rv park|campground|residence|\bapt\b|\d\s?-?(bd|bdr|br)\b|penthouse|wandersphere|luxurious|\bvacation\b/i;
-  const ok = {
-    restaurants: (i) => (i.types || []).includes('restaurant') && !(i.types || []).some((t) => NOT_FOOD.includes(t)) && !CHAIN.test(i.name),
-    hotels: (i) => (i.types || []).some((t) => t === 'hotel' || t === 'lodging') && !RENTAL.test(i.name),
-  };
-  const pick = (k) => {
-    const list = ((tabs[k] && tabs[k].items) || []).filter((i) => i && i.name && i.lat != null && (i.distance_mi == null || i.distance_mi <= 1.5));
-    const venueName = String((nb && nb.venueName) || '').toLowerCase();
-    const good = list.filter(ok[k]).filter((i) => !venueName || i.name.toLowerCase() !== venueName);
-    // Nothing believable nearby (e.g. only rentals): no demo of that kind rather than a bad one.
-    return good.find((i) => (i.rating || 0) >= 4) || good[0] || null;
-  };
+  const v = VENUES.find((x) => (x.id || x.slug) === slug);
+  if (!v || v.lat == null || v.lng == null) return { partners: [], perks: [] };
   const partners = [], perks = [];
-  const add = (item, kind, offer, details) => {
-    if (!item) return;
-    const id = `demo-${kind}`;
-    partners.push({ id, kind, name: item.name, venue_slugs: [slug], address: item.address || '', url: mapsUrl(item),
-      blurb: kind === 'hotel' ? 'Demo listing. The hotel’s one-line description shows here.' : 'Demo listing. The restaurant’s one-line description shows here.',
-      lat: item.lat, lng: item.lng, place_id: item.place_id || null, demo: true });
-    perks.push({ id: `${id}-perk`, org_id: id, kind, partner_name: item.name, offer, details, url: mapsUrl(item), address: item.address || '', lat: item.lat, lng: item.lng, venue_slugs: [slug], tour_slug: null });
-  };
-  add(pick('restaurants'), 'restaurant', 'Free dessert on show nights', 'Show this offer in the Concerto app. Dine-in only. (Demo offer)');
-  add(pick('hotels'), 'hotel', 'Late checkout after the show', 'Show this offer at check-in. Subject to availability. (Demo offer)');
+  for (const d of DEMO) {
+    const lat = Math.round((v.lat + d.dLat) * 1e6) / 1e6, lng = Math.round((v.lng + d.dLng) * 1e6) / 1e6;
+    const address = `Near ${v.name}${v.city ? ', ' + v.city : ''}`;
+    const r = (x) => x * Math.PI / 180, h = Math.sin(r(lat - v.lat) / 2) ** 2 + Math.cos(r(v.lat)) * Math.cos(r(lat)) * Math.sin(r(lng - v.lng) / 2) ** 2;
+    const distance_mi = Math.round(2 * 3958.8 * Math.asin(Math.sqrt(h)) * 10) / 10;
+    partners.push({ id: d.id, kind: d.kind, name: d.name, venue_slugs: [slug], address, url: d.url, blurb: d.blurb, lat, lng, distance_mi, photo: d.photo, demo: true });
+    perks.push({ id: `${d.id}-perk`, org_id: d.id, kind: d.kind, partner_name: d.name, offer: d.offer, details: d.details, url: d.url, address, lat, lng, venue_slugs: [slug], tour_slug: null });
+  }
   return { partners, perks };
 }
 

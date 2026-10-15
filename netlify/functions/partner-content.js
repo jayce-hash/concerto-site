@@ -21,7 +21,7 @@ const ORG_COLS = 'id,kind,name,venue_slug,venue_slugs,address,url,blurb,lat,lng,
 function paidNow(o, today) { return o && o.plan === 'paid' && (!o.listed_until || o.listed_until >= today); }
 function httpsOrNull(v) { try { const u = new URL(v); return u.protocol === 'https:' && !u.username && !u.password ? u.href : null; } catch (_) { return null; } }
 function card(o) {
-  return { id: o.id, kind: o.kind, name: o.name, venue_slugs: o.venue_slugs || [], address: o.address, url: httpsOrNull(o.url), blurb: o.blurb, lat: o.lat, lng: o.lng, place_id: o.place_id || null };
+  return { id: o.id, kind: o.kind, name: o.name, venue_slugs: o.venue_slugs || [], address: o.address, url: httpsOrNull(o.url), blurb: o.blurb, lat: o.lat, lng: o.lng, place_id: o.place_id || null, photo: httpsOrNull(o.photo) };
 }
 
 exports.handler = async (event) => {

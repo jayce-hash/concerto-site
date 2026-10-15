@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var out = {}, order = [];
     (partners || []).forEach(function (o) {
       if (o.kind !== kind) return;
-      out[o.id] = { id: o.id, name: o.name, kind: kind, blurb: o.blurb, address: o.address, url: safeHttps(o.url), lat: o.lat, lng: o.lng, place_id: o.place_id };
+      out[o.id] = { id: o.id, name: o.name, kind: kind, blurb: o.blurb, address: o.address, url: safeHttps(o.url), lat: o.lat, lng: o.lng, place_id: o.place_id, photo: safeHttps(o.photo) };
       order.push(o.id);
     });
     (perks || []).forEach(function (p) {
@@ -527,7 +527,9 @@ document.addEventListener('DOMContentLoaded', function () {
       star.addEventListener('click', function (e) { e.stopPropagation(); tip.hidden = !tip.hidden; if (!tip.hidden) track('perk'); });
       ph.appendChild(star); ph.appendChild(tip);
     }
-    if (c.lat != null && c.lng != null) {
+    // A partner's own photo when it has one; otherwise its Google photo.
+    if (c.photo) showPhoto(card.querySelector('.c-near-photo'), c.photo, c.name, '');
+    else if (c.lat != null && c.lng != null) {
       var city = String(c.address || '').split(',').slice(-2, -1)[0] || '';
       googleVenuePhoto({ name: c.name, city: city.trim(), lat: c.lat, lng: c.lng, place_id: c.place_id }).then(function (v) { if (v && v.src) showPhoto(card.querySelector('.c-near-photo'), v.src, c.name, v.credit); }).catch(function () {});
     }

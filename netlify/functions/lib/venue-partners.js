@@ -73,7 +73,7 @@ async function demoVenuePartners(slug, venue) {
   const d = await demoFor(slug);
   return d.partners.map((p) => {
     const k = d.perks.find((x) => x.org_id === p.id);
-    return { id: p.id, kind: p.kind, name: p.name, address: p.address, url: p.url, blurb: p.blurb, miles: miles(venue, p), perk: k ? { offer: k.offer, details: k.details, url: k.url } : null };
+    return { id: p.id, kind: p.kind, name: p.name, address: p.address, url: p.url, blurb: p.blurb, photo: p.photo, miles: miles(venue, p), perk: k ? { offer: k.offer, details: k.details, url: k.url } : null };
   });
 }
 
