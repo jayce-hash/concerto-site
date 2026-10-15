@@ -294,47 +294,115 @@ def directions_link(v):
     a = f"https://maps.apple.com/?daddr={lat},{lng}&q={quote(v['name'])}"
     return f'<a class="c-btn c-btn-line" href="{e(g)}" data-apple-maps="{e(a)}" target="_blank" rel="noopener">Directions</a>'
 
+# ---------- App-style detail pages (venue and tour) ----------
+# The website's venue and tour pages share the app's look: a photo card, a serif title, pill
+# buttons, chips that jump down the page, and white rounded cards with an icon, a title and the
+# date each section was checked. App-only features stay in the app.
+_IC = {
+    'bag': '<path d="M5.5 8.5h13l-1.2 11.5H6.7z"/><path d="M9 8.5V6.8a3 3 0 0 1 6 0v1.7"/>',
+    'door': '<path d="M4 20.5h16"/><path d="M6.5 20.5V3.5h8.5v17"/><path d="M15 5.5l3.5 1v14"/><circle cx="12.2" cy="12.3" r=".9" fill="currentColor" stroke="none"/>',
+    'parking': '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3.2a2.7 2.7 0 0 1 0 5.4H10"/>',
+    'car': '<path d="M4.5 12.5l1.8-5.2A2 2 0 0 1 8.2 6h7.6a2 2 0 0 1 1.9 1.3l1.8 5.2"/><rect x="3.5" y="12.5" width="17" height="5.5" rx="1.8"/><path d="M6.5 18v2M17.5 18v2"/><circle cx="7.6" cy="15.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.4" cy="15.2" r=".9" fill="currentColor" stroke="none"/>',
+    'access': '<circle cx="12" cy="4.6" r="1.7"/><path d="M5 8.4l7 1.1 7-1.1"/><path d="M12 9.5v4.6l-3.4 6.4M12 14.1l3.4 6.4"/>',
+    'food': '<path d="M7 3v7.5a2.2 2.2 0 0 0 2.2 2.2V21M11.4 3v7.5a2.2 2.2 0 0 1-2.2 2.2M9.2 3v6"/><path d="M17 21V3c-2.3 1.7-3 4.3-3 7.5h3"/>',
+    'reentry': '<path d="M4.5 11a7.5 7.5 0 0 1 13-4.6"/><path d="M18 3v4h-4"/><path d="M19.5 13a7.5 7.5 0 0 1-13 4.6"/><path d="M6 21v-4h4"/>',
+    'ticket': '<path d="M3.5 7.5h17V10a2 2 0 0 0 0 4v2.5h-17V14a2 2 0 0 0 0-4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.6 1.8"/>',
+    'shield': '<path d="M12 3l7 2.8V11c0 4.4-3 7.8-7 9.5-4-1.7-7-5.1-7-9.5V5.8z"/><path d="M9 11.8l2.1 2.1 4-4"/>',
+    'chev': '<path d="M6.5 9.5l5.5 5.5 5.5-5.5"/>',
+    'nav': '<path d="M20.5 3.5l-7.6 17-2.1-6.8-6.8-2.1z"/>',
+    'globe': '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.4 5.3 3.4 8.5s-1 6.1-3.4 8.5c-2.4-2.4-3.4-5.3-3.4-8.5s1-6.1 3.4-8.5z"/>',
+    'music': '<path d="M9 18V5.5l11-2v12.5"/><circle cx="6.5" cy="18" r="2.6"/><circle cx="17.5" cy="16" r="2.6"/>',
+    'bell': '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/><path d="M10 21h4"/>',
+    'users': '<circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/>',
+    'info': '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".9" fill="currentColor" stroke="none"/>',
+    'pin': '<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
+    'cal': '<rect x="4" y="5.5" width="16" height="15" rx="3"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+}
+def icon(name, size=20):
+    return (f'<svg class="cx-icon" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_IC[name]}</svg>')
+
+SECTION_ICON = {'bagPolicy': 'bag', 'gates': 'door', 'parking': 'parking', 'rideshare': 'car', 'accessibility': 'access',
+                'concessions': 'food', 'reEntry': 'reentry', 'ticketPickup': 'ticket'}
+
+def cx_chips(items):
+    return '<nav class="cx-chips" aria-label="On this page">' + ''.join(f'<a href="#{a}">{e(l)}</a>' for a, l in items) + '</nav>'
+
+def cx_ver(text, check=True):
+    return f'<span class="cx-ver{"" if check else " cx-ver-plain"}">{icon("shield", 14) if check else ""}{e(text)}</span>'
+
+def cx_card(anchor, ic, title, meta, body, open_=False, section=None, check=True, tag='h2'):
+    """A collapsible white card: icon, title, the date it was checked, then the content."""
+    ds = f' data-section="{e(section)}"' if section else ''
+    return (f'<details class="cx-card" id="{anchor}"{ds}{" open" if open_ else ""}><summary>'
+            f'<span class="cx-ic">{icon(ic)}</span><{tag} class="cx-card-t">{e(title)}</{tag}>'
+            f'{cx_ver(meta, check) if meta else ""}<span class="cx-chev">{icon("chev", 18)}</span></summary>'
+            f'<div class="cx-card-b">{body}</div></details>')
+
+def cx_btn(href, label, ic=None, primary=False, attrs=''):
+    return (f'<a class="cx-pill{" cx-pill-gold" if primary else ""}" href="{e(href)}"{attrs}>'
+            f'{icon(ic, 17) if ic else ""}<span>{e(label)}</span></a>')
+
+def cx_directions(v):
+    from urllib.parse import quote
+    lat, lng = v.get('lat'), v.get('lng')
+    if lat is None or lng is None: return ''
+    g = f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"
+    a = f"https://maps.apple.com/?daddr={lat},{lng}&q={quote(v['name'])}"
+    return cx_btn(g, 'Directions', 'nav', attrs=f' data-apple-maps="{e(a)}" target="_blank" rel="noopener"')
+
+def cx_app_pill(kind, slug, label, ic):
+    """The app deep link, styled as the gold pill. Same link and tracking as app_link()."""
+    html = app_link(kind, slug, label, 'cx-pill cx-pill-gold')
+    return html.replace('>' + e(label) + '<', '>' + icon(ic, 17) + '<span>' + e(label) + '</span><', 1)
+
+
 def upcoming_shell(v):
     """Filled by js/public-v6.js from the same Ticketmaster feed the app uses. Hidden until it has shows."""
-    return (f'<section class="c-section c-white c-upcoming" data-venue-upcoming hidden aria-labelledby="up-h"><div class="c-wrap">{eyebrow("On sale now")}'
-            f'<h2 class="c-h2 c-h2-sm" id="up-h">Upcoming shows at {e(v["name"])}</h2><ol class="c-up-list"></ol>'
-            f'<p class="c-qa-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show.</p></div></section>')
+    return (f'<section class="cx-sec c-upcoming" id="upcoming" data-venue-upcoming hidden aria-labelledby="up-h"><div class="cx-wrap">'
+            f'<div class="cx-sec-head"><h2 class="cx-h2" id="up-h">Upcoming shows at {e(v["name"])}</h2></div><ol class="c-up-list"></ol>'
+            f'<p class="cx-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show.</p></div></section>')
 
 def venue_page(v):
     info = INFO.get(v['id']) or {}
-    toc, secs = '', ''
+    cards = []
     for key, label, anchor in SECTIONS:
         x = info.get(key) or {}
         body = x.get('summary') or x.get('note') or x.get('body') or ''
         if not body: continue
-        toc += f'<li><a href="#{anchor}">{e(label)}</a></li>'
         lists = ''
         if x.get('allowed') or x.get('prohibited'):
-            lists = '<div class="c-rules">' + (f'<div><h3>Allowed</h3><ul>{"".join("<li>"+e(a)+"</li>" for a in x.get("allowed", []))}</ul></div>' if x.get('allowed') else '') + (f'<div><h3>Not allowed</h3><ul>{"".join("<li>"+e(a)+"</li>" for a in x.get("prohibited", []))}</ul></div>' if x.get('prohibited') else '') + '</div>'
-        ver = f'<span class="verified">Checked {e(pretty_date(x.get("verified")))}</span>' if x.get('verified') else '<span class="verified">Not yet verified</span>'
-        src = f'<div class="link-row"><a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a></div>' if x.get('officialLink') else ''
-        secs += f'<article class="info-card c-guide-sec" data-section="{e(key)}" id="{anchor}"><div class="c-sec-head"><h2>{e(label)}</h2>{ver}</div><p>{e(body)}</p>{lists}{src}</article>'
+            col = lambda h, items, cls: (f'<div class="cx-rule {cls}"><h3>{h}</h3><ul>' + ''.join('<li>' + e(a) + '</li>' for a in items) + '</ul></div>') if items else ''
+            lists = '<div class="cx-rules">' + col('Allowed', x.get('allowed', []), 'cx-yes') + col('Not allowed', x.get('prohibited', []), 'cx-no') + '</div>'
+        src = (f'<div class="link-row cx-links"><a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a></div>' if x.get('officialLink') else '')
+        meta = f'Checked {pretty_date(x.get("verified"))}' if x.get('verified') else 'Not yet verified'
+        cards.append(cx_card(anchor, SECTION_ICON.get(key, 'info'), label, meta, f'<p>{e(body)}</p>{lists}{src}',
+                             open_=not cards, section=key, check=bool(x.get('verified'))))
     near = nearby_venues(v)
-    near_html = ''.join(f'<li class="c-entry"><a href="/venue/{x["id"]}">{e(x["name"])}</a><span>{e(x.get("city"))} · {dist_label(d, v.get("country"))}</span></li>' for d, x in near)
+    near_html = ''.join(f'<a class="cx-tile" href="/venue/{x["id"]}"><span class="cx-tile-ic">{icon("pin", 18)}</span><span><b>{e(x["name"])}</b>'
+                        f'<small>{e(x.get("city"))} · {dist_label(d, v.get("country"))}</small></span></a>' for d, x in near)
     local = dict(PHOTOS).get(v['id'])
     fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
     # Answer first: most visitors searched "<venue> bag policy", so the lead is the rule itself.
-    # The bag sentence a searcher needs (scripts/venue_glance.py).
     bag_line = next((x['value'] for x in venue_glance(info) if x['key'] == 'bag'), None)
-    lead = (f'<p class="c-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.<br>Plus entry, parking, rideshare, and accessibility, each checked against official sources.</p>' if bag_line
-            else f'<p class="c-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}. From official sources, dated.</p>')
-    photo = f'<div class="c-venue-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
-    return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap c-hero-split"><div class="c-hero-text"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>{eyebrow("Venue guide · " + place(v))}<h1>{e(v["name"])}</h1>'
+    lead = (f'<p class="cx-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.</p>' if bag_line
+            else f'<p class="cx-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}, from official sources.</p>')
+    photo = f'<div class="c-venue-photo cx-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
+    chips = cx_chips([('info', 'Venue info'), ('upcoming', 'Upcoming'), ('around', 'Around the venue')] + ([('venues', 'Nearby venues')] if near else []))
+    return ('<main id="main-content" class="c-page cx">' +
+            f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
+            f'<div class="cx-hero-grid">{photo}<div class="cx-hero-text"><p class="cx-eyebrow">Venue guide</p><h1 class="cx-h1">{e(v["name"])}</h1><p class="cx-sub">{e(place(v))}</p>'
             + lead +
-            f'<div class="c-actions">{app_link("venue", v["id"], "Remind me on show day", "c-btn c-btn-navy")}{directions_link(v)}</div>'
-            f'<div class="tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div>'
-            f'{photo}</div></section>'
-            + upcoming_shell(v) +
-            f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
-            + around_venue(v)
-            + (f'<section class="c-section c-white c-partner-cta"><div class="c-wrap"><p class="c-body"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a class="c-link" href="/partners/restaurants">For restaurants</a> \u00b7 <a class="c-link" href="/partners/hotels">For hotels</a></p></div></section>')
-            + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("More venue guides")}<h2 class="c-h2 c-h2-sm">Nearby venues</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{near_html}</ul></div></div></div></section>' if near else '')
+            f'<div class="cx-actions">{cx_app_pill("venue", v["id"], "Remind me on show day", "bell")}{cx_directions(v)}</div>'
+            f'<div class="tonight cx-tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></div>'
+            f'{chips}</div></section>'
+            # Order: Concerto Partners (added by the page script right after the hero), venue info,
+            # upcoming shows, places around the venue, nearby venues.
+            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div></div></section>'
+            + upcoming_shell(v)
+            + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue. Places from Google.</p></div><div class="cx-rows"></div></div></section>'
+            + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
+            + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
             + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {v["name"]}, with Your Night one tap away. Free on iPhone.') + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
@@ -505,75 +573,82 @@ def tour_dates_shell(t):
     # A show is listed on Ticketmaster under its own name and outside the Music category,
     # so its dates are searched by that name, in every category, matching the start of the billing.
     extra = (f' data-tour-keyword="{e(sh.get("searchTerm") or t["artist"])}" data-tour-match="prefix"' + (' data-tour-any' if sh.get('anyCategory') else '')) if sh else ''
-    return (f'<section class="c-section c-white c-upcoming" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}"{extra} hidden aria-labelledby="dates-h">'
-            f'<div class="c-wrap">{eyebrow("Tour dates")}<h2 class="c-h2 c-h2-sm" id="dates-h">Where {e(t["artist"])} is playing <span class="c-up-count" data-count></span></h2>'
-            '<ol class="c-up-list"></ol><p class="c-qa-note">Each venue guide has its bag rules, doors, parking, and rideshare pickup. Dates from Ticketmaster.</p></div></section>')
+    return (f'<section class="cx-sec c-upcoming" id="dates" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}"{extra} hidden aria-labelledby="dates-h">'
+            f'<div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2" id="dates-h">Tour Dates <span class="c-up-count" data-count></span></h2></div>'
+            '<ol class="c-up-list"></ol><p class="cx-note">Each venue guide has its bag rules, doors, parking, and rideshare pickup. Dates from Ticketmaster.</p></div></section>')
+
+def cx_panel(anchor, ic, title, meta, body, check=True):
+    """An always-open white card, like the app's Setlist card."""
+    return (f'<article class="cx-panel" id="{anchor}"><header><span class="cx-ic">{icon(ic)}</span><h2 class="cx-card-t">{e(title)}</h2>'
+            f'{cx_ver(meta, check) if meta else ""}</header><div class="cx-card-b">{body}</div></article>')
+
+def cx_songs(songs, start=1):
+    return '<ol class="cx-songs">' + ''.join(f'<li><span class="cx-n">{i}</span><span>{e(x)}</span></li>' for i, x in enumerate(songs, start)) + '</ol>'
 
 def tour_page(t):
-    """Same layout as a venue page: the answer in the hero, then an "On this page" list beside
-    sections that each carry a title and a date, then more guides, then the close."""
+    """Same look as the app's tour screen: the artist photo card, the dates, then the setlist
+    (or the cast for a show), each as a white card."""
     s = SETS.get(t['tourId']); songs = (s or {}).get('songs') or []
     sh = show_info(t['tourId'])
-    official = f'<a class="c-btn c-btn-line" href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a>' if t.get('tourWebsite') else ''
-    toc, secs = '', ''
-    def sec(anchor, label, meta, body):
-        nonlocal toc, secs
-        toc += f'<li><a href="#{anchor}">{e(label)}</a></li>'
-        cls = 'verified' if meta.startswith('Updated') else 'verified c-nocheck'
-        secs += f'<article class="info-card c-guide-sec" id="{anchor}"><div class="c-sec-head"><h2>{e(label)}</h2>{f"<span class=\'{cls}\'>{e(meta)}</span>" if meta else ""}</div>{body}</article>'
+    site = cx_btn(t['tourWebsite'], 'Tour site', 'globe', attrs=' target="_blank" rel="noopener"') if t.get('tourWebsite') else ''
+    panels, chips = [], [('dates', 'Tour dates')]
     if songs:
         first, last = songs[0], songs[-1]
-        lead = (f'<p class="c-lead"><b>Setlist:</b> {songs_word(len(songs))}, opening with \u201c{e(first)}\u201d and closing with \u201c{e(last)}\u201d.'
-                f'<br>Plus tour dates and a guide to every venue on the tour.</p>')
-        more = (f'<a class="c-link" href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a class="c-link" href="/setlist/{t["tourId"]}">Setlist page</a>')
-        sec('setlist', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
-            f'<p>{e(re.sub(r", updated .*$", "", source_label(s)))}. Setlists change by night.</p><div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs[:12]) + '</ol></div>'
-            f'<div class="c-actions c-actions-tight">{more}{listen_link(t, s, "c-link")}</div>')
+        lead = f'<p class="cx-lead"><b>Setlist:</b> {songs_word(len(songs))}, opening with “{e(first)}” and closing with “{e(last)}”.</p>'
+        more = f'<a href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a href="/setlist/{t["tourId"]}">Setlist page</a>'
+        listen = listen_link(t, s, '')
+        panels.append(cx_panel('setlist', 'music', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
+            cx_songs(songs[:12]) + f'<p class="cx-fine">{e(re.sub(r", updated .*$", "", source_label(s)))}. Setlists change by night.</p>'
+            f'<div class="cx-links">{more}{listen}</div>'))
+        chips.append(('setlist', 'Setlist'))
     elif sh:
-        lead = f'<p class="c-lead">{e(sh["body"])}</p>'
-        sec('the-show', sh.get('eyebrow') or 'The show', f'Updated {pretty_date(sh.get("updated"))}' if sh.get('updated') else '',
-            f'<p>{e(sh["heading"])} Dates are below as they’re announced, with a guide to every arena.</p>')
+        lead = f'<p class="cx-lead">{e(sh["body"])}</p>'
+        panels.append(cx_panel('the-show', 'info', sh.get('eyebrow') or 'The show', f'Updated {pretty_date(sh.get("updated"))}' if sh.get('updated') else '',
+            f'<p>{e(sh["heading"])} Dates are above as they’re announced, with a guide to every arena.</p>'))
         if sh.get('cast'):
-            sec('cast', sh.get('castTitle') or 'Cast', '', '<div class="c-castlist"><ul class="c-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['cast']) + '</ul></div>'
-                + (f'<p class="c-source">{e(sh["castNote"])}</p>' if sh.get('castNote') else ''))
+            panels.append(cx_panel('cast', 'users', sh.get('castTitle') or 'Cast', '', '<ul class="cx-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['cast']) + '</ul>'
+                + (f'<p class="cx-fine">{e(sh["castNote"])}</p>' if sh.get('castNote') else '')))
         if sh.get('troupe'):
-            sec('troupe', sh.get('troupeTitle') or 'Troupe', '', '<div class="c-castlist"><ul class="c-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['troupe']) + '</ul></div>')
+            panels.append(cx_panel('troupe', 'users', sh.get('troupeTitle') or 'Troupe', '', '<ul class="cx-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['troupe']) + '</ul>'))
+        chips.append(('the-show', 'The show'))
     elif t['tourId'] == 'jingle-ball-2026-tour':
         d = jingle_ball_data()
-        lead = f'<p class="c-lead">Every city has its own lineup. Dates, lineups, and a guide to every venue, from {e(d["source"])}.</p>'
-        for c in d['cities']:
-            sec(c['anchor'], c['city'], f'{c["date"]} · {c["time"]}',
-                f'<p>Lineup order is not performance order. <a class="c-link" href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>'
-                '<div class="c-songs"><ol class="song-list">' + ''.join(f'<li>{e(a)}</li>' for a in c['lineup']) + '</ol></div>')
+        lead = f'<p class="cx-lead">Every city has its own lineup. Dates, lineups, and a guide to every venue, from {e(d["source"])}.</p>'
+        for i, c in enumerate(d['cities']):
+            panels.append(cx_card(c['anchor'], 'music', c['city'], f'{c["date"]} · {c["time"]}',
+                f'<p>Lineup order is not performance order. <a href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>' + cx_songs(c['lineup']),
+                open_=i == 0, check=False))
+        chips.append((d['cities'][0]['anchor'] if d['cities'] else 'dates', 'Lineups'))
     elif s and (s.get('note') or '').startswith('Lineups vary'):
-        lead = '<p class="c-lead">Every night brings a different lineup. Tour dates and a guide to every venue on the tour.</p>'
-        sec('lineups', 'Lineups', '', '<p>Each night brings a different mix of artists. Open a date in Concerto to see who is playing, then plan the night around the venue.</p>')
+        lead = '<p class="cx-lead">Every night brings a different lineup. Tour dates and a guide to every venue on the tour.</p>'
+        panels.append(cx_panel('lineups', 'music', 'Lineups', '', '<p>Each night brings a different mix of artists. Open a date in Concerto to see who is playing, then plan the night around the venue.</p>'))
     else:
-        lead = '<p class="c-lead">Tour dates and a guide to every venue on the tour. The setlist appears here once it’s confirmed.</p>'
+        lead = '<p class="cx-lead">Tour dates and a guide to every venue on the tour. The setlist appears here once it’s confirmed.</p>'
         if s:
-            sec('setlist', 'Setlist', 'Coming soon', '<p><b>Setlist Coming Soon!</b> Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p>')
-    sec('about', 'About the tour', '', f'<p>{e(t["artist"])}: {e(t["tourName"])}. Open the tour in Concerto to save a date and get the venue’s rules, directions, and a show-day reminder with it.</p>'
-        + (f'<div class="link-row"><a href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a></div>' if t.get('tourWebsite') else ''))
+            panels.append(cx_panel('setlist', 'music', 'Setlist', 'Coming soon', '<p><b>Setlist Coming Soon!</b> Concerto is following this tour. Songs appear here when there is a usable current setlist, never a guessed one.</p>', check=False))
+            chips.append(('setlist', 'Setlist'))
+    panels.append(cx_panel('about', 'info', 'About the tour', '', f'<p>{e(t["artist"])}: {e(t["tourName"])}. Open the tour in Concerto to save a date and get the venue’s rules, directions, and a show-day reminder with it.</p>'
+        + (f'<div class="cx-links"><a href="{e(t["tourWebsite"])}" target="_blank" rel="noopener">Official tour site</a></div>' if t.get('tourWebsite') else '')))
+    chips.append(('about', 'About'))
     more = related_tours(t)
-    # Holiday tours get a seasonal header through the end of their season, then return to normal
-    # on the next build. Navy, gold and cream only: festive, never novelty.
     import datetime as _dt
     _until = HOLIDAY_TOURS.get(t['tourId'])
     _on = bool(_until) and _dt.date.today().isoformat() <= _until
-    hol_cls = ' c-holiday' if _on else ''
-    hol_fx = '<div class="c-snow" aria-hidden="true"><i></i><i></i></div>' if _on else ''
-    kicker = '\u2726 Holiday concert season' if _on else f'Tour guide · {t["tourName"]}'
-    more_html = ''.join(f'<li class="c-entry"><a href="/tour/{x["tourId"]}">{e(x["artist"])}</a><span>{e(x["tourName"])}</span></li>' for x in more)
+    kicker = '✦ Holiday concert season' if _on else 'On tour'
+    more_html = ''.join(f'<a class="cx-tile" href="/tour/{x["tourId"]}"><span class="cx-tile-ic">{icon("music", 18)}</span><span><b>{e(x["artist"])}</b><small>{e(x["tourName"])}</small></span></a>' for x in more)
+    if more: chips.append(('more', 'Also on the road'))
     close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
                   else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
-    return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type c-hero-detail{hol_cls}">{hol_fx}<div class="c-wrap c-hero-split"><div class="c-hero-text"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>{eyebrow(kicker)}<h1>{e(t["artist"])}</h1>'
+    return ('<main id="main-content" class="c-page cx">' +
+            f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
+            f'<div class="cx-hero-grid"><div class="c-venue-photo c-artist-photo cx-photo" data-artist="{e(t["artist"])}"></div>'
+            f'<div class="cx-hero-text"><p class="cx-eyebrow">{e(kicker)}</p><h1 class="cx-h1">{e(t["artist"])}</h1><p class="cx-sub">{e(t["tourName"])}</p>'
             + lead +
-            f'<div class="c-actions">{app_link("tour", t["tourId"], "Open in Concerto", "c-btn c-btn-navy")}{official}</div></div>'
-            f'<div class="c-venue-photo c-artist-photo" data-artist="{e(t["artist"])}"></div></div></section>'
-            + tour_dates_shell(t) +
-            f'<section class="c-section c-white"><div class="c-wrap c-guide"><aside class="c-toc"><p class="c-eyebrow">On this page</p><ol>{toc}</ol></aside><div class="c-guide-body">{secs}</div></div></section>'
-            + (f'<section class="c-section c-cream"><div class="c-wrap">{eyebrow("More tour guides")}<h2 class="c-h2 c-h2-sm">Also on the road</h2><div class="c-directory c-directory-one"><div class="c-group"><ul>{more_html}</ul></div></div></div></section>' if more else '')
+            f'<div class="cx-actions">{cx_app_pill("tour", t["tourId"], "Open in Concerto", "bell")}{site}</div></div></div>'
+            f'{cx_chips(chips)}</div></section>'
+            + tour_dates_shell(t)
+            + f'<section class="cx-sec"><div class="cx-wrap cx-stack">{"".join(panels)}</div></section>'
+            + (f'<section class="cx-sec" id="more"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Also on the road</h2></div><div class="cx-tiles">{more_html}</div></div></section>' if more else '')
             + close('Going to this tour?', 'website-tour', close_fine) + '</main>')
 
 def setlist_page(slug, s):

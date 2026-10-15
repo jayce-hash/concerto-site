@@ -218,6 +218,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var btn = header.querySelector('.menu-btn'), menu = header.querySelector('.mobile-nav');
     if (!btn || !menu) return;
     function setOpen(open) {
+      // The menu covers the page from just under the header.
+      if (open) { var r = header.getBoundingClientRect(); document.documentElement.style.setProperty('--mn-top', Math.max(0, Math.round(r.bottom)) + 'px'); }
       menu.hidden = !open;
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
@@ -389,9 +391,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var venue = (location.pathname.match(/^\/venue\/([a-z0-9-]+)/) || [])[1];
     var tour = (location.pathname.match(/^\/(?:tour|setlist)\/([a-z0-9-]+)/) || [])[1];
     if (!venue && !tour) return;
-    var targets = venue ? document.querySelectorAll('.info-card[data-section]') : document.querySelectorAll('.song-list, .detail-grid');
+    var targets = venue ? document.querySelectorAll('.info-card[data-section], .cx-card[data-section]') : document.querySelectorAll('.song-list, .cx-songs, .detail-grid');
     targets.forEach(function (card) {
-      var field = card.getAttribute('data-section') || (card.classList.contains('song-list') ? 'setlist' : 'showTime');
+      var field = card.getAttribute('data-section') || (card.classList.contains('song-list') || card.classList.contains('cx-songs') ? 'setlist' : 'showTime');
       var a = document.createElement('button'); a.type = 'button'; a.className = 'report-link'; a.textContent = 'Report wrong info';
       a.addEventListener('click', function () {
         if (a.disabled) return;
@@ -400,7 +402,8 @@ document.addEventListener('DOMContentLoaded', function () {
           .then(function (r) { if (!r.ok) throw new Error(String(r.status)); a.textContent = 'Thank you. We will check it.'; a.setAttribute('aria-live', 'polite'); })
           .catch(function () { a.textContent = 'Could not send. Tap to try again.'; a.disabled = false; });
       });
-      card.appendChild(a);
+      if (card.classList.contains('cx-songs')) { card.parentNode.insertBefore(a, card.nextSibling); return; }
+      (card.querySelector('.cx-card-b') || card).appendChild(a);
     });
   }
   /* Countdowns on rendered UI pieces */
@@ -446,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
      Restaurants and hotels are two tabs of the same row, so 1 partner or 12 take the same
      space. Swipe on phones, arrows on desktop. Order rotates daily, same as the app. */
   function renderVenuePerks(perks, slug, venueName, partners) {
-    var hero = document.querySelector('.c-hero'); if (!hero || document.querySelector('.c-near')) return;
+    var hero = document.querySelector('.cx-hero') || document.querySelector('.c-hero'); if (!hero || document.querySelector('.c-near')) return;
     var host = document.querySelector('[data-venue-tonight]');
     var vlat = host && parseFloat(host.getAttribute('data-lat')), vlng = host && parseFloat(host.getAttribute('data-lng'));
     var groups = [{ kind: 'restaurant', tab: 'Restaurants', h: 'Eat' }, { kind: 'hotel', tab: 'Hotels', h: 'Stay' }].map(function (g) {
@@ -458,8 +461,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var wrap = document.createElement('div'); wrap.className = 'c-wrap'; sec.appendChild(wrap);
     var head = document.createElement('div'); head.className = 'c-near-head'; wrap.appendChild(head);
     var title = document.createElement('div');
-    title.innerHTML = '<p class="c-eyebrow">Concerto Partners</p><h2 class="c-h2 c-h2-sm"></h2>';
-    title.querySelector('h2').textContent = 'Near ' + venueName;
+    title.innerHTML = '<p class="c-eyebrow">Concerto Partners</p><h2 class="c-h2 c-h2-sm"></h2><p class="c-near-sub"></p>';
+    title.querySelector('h2').textContent = document.querySelector('.cx') ? 'Concerto Partners' : 'Near ' + venueName;
+    title.querySelector('.c-near-sub').textContent = 'Restaurants and hotels near ' + venueName + ' that partner with Concerto.';
     head.appendChild(title);
     var tools = document.createElement('div'); tools.className = 'c-near-tools'; head.appendChild(tools);
     var tabs = null;
@@ -556,9 +560,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!pc) return;
       if (pc.claimed) { var c = document.createElement('span'); c.className = 'meta-pill'; c.textContent = '✓ Verified by the venue'; host.insertBefore(c, host.firstChild); }
       Object.keys(pc.overrides || {}).forEach(function (key) {
-        var card = document.querySelector('.info-card[data-section="' + key + '"]'); var o = pc.overrides[key]; if (!card || !o) return;
-        var p = card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
-        var v = card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
+        var card = document.querySelector('[data-section="' + key + '"]'); var o = pc.overrides[key]; if (!card || !o) return;
+        var p = card.querySelector('.cx-card-b > p') || card.querySelector('p'); if (p && (o.summary || o.note)) p.textContent = o.summary || o.note;
+        var v = card.querySelector('.cx-ver') || card.querySelector('.verified'); if (!v) { v = document.createElement('span'); v.className = 'verified'; card.insertBefore(v, card.querySelector('.link-row')); }
         v.textContent = 'Verified by the venue ' + (o.verified || '');
         var safeLink = safeHttps(o.officialLink); if (safeLink) { var a = card.querySelector('.link-row a'); if (a) a.href = safeLink; }
       });
@@ -1149,4 +1153,69 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!ccDemoKey()) return;
   var b = document.createElement('a'); b.href = '?demo=off'; b.className = 'cc-demo-badge'; b.textContent = 'Demo partners on · turn off';
   (document.body || document.documentElement).appendChild(b);
+})();
+
+/* Around the venue: the app's Nearby rows on venue pages, from Concerto's own nearby data
+   (/data/nearby/<venue>.json, a static file, so no lookups and no cost per view). No photos.
+   Concerto Partners are already at the top of the page, so they aren't repeated here. */
+(function () {
+  'use strict';
+  var host = document.querySelector('[data-nearby]'); if (!host) return;
+  var slug = host.getAttribute('data-nearby');
+  var IC = {
+    restaurants: '<path d="M7 3v7.5a2.2 2.2 0 0 0 2.2 2.2V21M11.4 3v7.5a2.2 2.2 0 0 1-2.2 2.2M9.2 3v6"/><path d="M17 21V3c-2.3 1.7-3 4.3-3 7.5h3"/>',
+    hotels: '<path d="M3 19V6"/><path d="M3 14.5h18V19"/><path d="M21 14.5v-3a3 3 0 0 0-3-3h-7.5v6"/><circle cx="6.8" cy="11.2" r="1.9"/>',
+    more: '<path d="M12 3.5l2 5.6 5.8.4-4.5 3.7 1.5 5.7L12 15.7l-4.8 3.2 1.5-5.7-4.5-3.7 5.8-.4z"/>'
+  };
+  var ROWS = [['restaurants', 'Nearby Restaurants'], ['hotels', 'Nearby Hotels'], ['more', 'Nearby Things to Do']];
+  var SKIP = ['convenience_store', 'gas_station', 'grocery_store', 'pharmacy', 'drugstore', 'atm', 'bank', 'car_repair', 'parking', 'storage'];
+  var RENTAL = /apartment|studio|bedroom|\bapt\b|\d\s?-?(bd|bdr|br)\b|penthouse|condo|airbnb|luxurious|vacation/i;
+  var LABEL = { sports_bar: 'Sports bar', bar_and_grill: 'Bar and grill', steak_house: 'Steakhouse', steakhouse: 'Steakhouse', pizza_restaurant: 'Pizza',
+    mexican_restaurant: 'Mexican', italian_restaurant: 'Italian', japanese_restaurant: 'Japanese', sushi_restaurant: 'Sushi', ramen_restaurant: 'Ramen',
+    chinese_restaurant: 'Chinese', thai_restaurant: 'Thai', indian_restaurant: 'Indian', american_restaurant: 'American', seafood_restaurant: 'Seafood',
+    hamburger_restaurant: 'Burgers', barbecue_restaurant: 'Barbecue', breakfast_restaurant: 'Breakfast', brunch_restaurant: 'Brunch', cafe: 'Cafe',
+    coffee_shop: 'Coffee', bar: 'Bar', night_club: 'Club', pub: 'Pub', wine_bar: 'Wine bar', cocktail_bar: 'Cocktails', bakery: 'Bakery',
+    hotel: 'Hotel', lodging: 'Hotel', museum: 'Museum', park: 'Park', art_gallery: 'Gallery', tourist_attraction: 'Attraction', bowling_alley: 'Bowling',
+    movie_theater: 'Movies', comedy_club: 'Comedy', performing_arts_theater: 'Theater', shopping_mall: 'Shopping', aquarium: 'Aquarium', zoo: 'Zoo',
+    restaurant: 'Restaurant', food: 'Food' };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function kindOf(types) { for (var i = 0; i < (types || []).length; i++) if (LABEL[types[i]]) return LABEL[types[i]]; return ''; }
+  function svg(k) { return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg>'; }
+  function partnerNames() { var out = {}; [].forEach.call(document.querySelectorAll('.c-near-card h3'), function (h) { out[h.textContent.trim().toLowerCase()] = 1; }); return out; }
+  fetch('/data/nearby/' + encodeURIComponent(slug) + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+    var rows = host.querySelector('.cx-rows'), any = false;
+    // Wait a moment for the partner row, so a partner isn't shown twice.
+    setTimeout(function () {
+      var taken = partnerNames();
+      ROWS.forEach(function (rw) {
+        var tab = d && d.tabs && d.tabs[rw[0]]; if (!tab) return;
+        var seen = {};
+        var list = (tab.items || []).filter(function (i) {
+          var n = (i.name || '').trim().toLowerCase();
+          if (!n || seen[n] || taken[n] || i.lat == null) return false; seen[n] = 1;
+          if ((i.types || []).some(function (t) { return SKIP.indexOf(t) >= 0; })) return false;
+          if (rw[0] === 'hotels' && RENTAL.test(i.name)) return false;
+          return i.distance_mi == null || i.distance_mi <= 3;
+        }).slice(0, 14);
+        if (!list.length) return; any = true;
+        var wrap = document.createElement('div');
+        wrap.innerHTML = '<div class="cx-row-head"><h3>' + esc(rw[1]) + '</h3><div class="cx-row-arrows"><button type="button" aria-label="Previous">&#8249;</button><button type="button" aria-label="Next">&#8250;</button></div></div><div class="cx-scroll" role="list"></div>';
+        var sc = wrap.querySelector('.cx-scroll');
+        list.forEach(function (i) {
+          var a = document.createElement('a'); a.className = 'cx-place'; a.setAttribute('role', 'listitem'); a.target = '_blank'; a.rel = 'noopener';
+          a.href = ccMapsUrl(i.name + ' ' + (i.address || ''), i.lat, i.lng, true);
+          var meta = [i.price ? new Array(Math.min(i.price, 4) + 1).join('$') : '', kindOf(i.types), i.distance_mi != null ? (i.distance_mi < 0.1 ? 'Steps away' : i.distance_mi.toFixed(i.distance_mi < 10 ? 1 : 0) + ' mi') : ''].filter(Boolean).join(' · ');
+          a.innerHTML = '<span class="cx-ic">' + svg(rw[0]) + '</span><b>' + esc(i.name) + '</b><small>' + esc(meta) + '</small><span class="cx-go">Directions</span>';
+          sc.appendChild(a);
+        });
+        var btns = wrap.querySelectorAll('.cx-row-arrows button');
+        var upd = function () { var max = sc.scrollWidth - sc.clientWidth - 2; btns[0].disabled = sc.scrollLeft <= 2; btns[1].disabled = sc.scrollLeft >= max; wrap.querySelector('.cx-row-arrows').style.visibility = max > 0 ? '' : 'hidden'; };
+        btns[0].addEventListener('click', function () { sc.scrollBy({ left: -sc.clientWidth * 0.8, behavior: 'smooth' }); });
+        btns[1].addEventListener('click', function () { sc.scrollBy({ left: sc.clientWidth * 0.8, behavior: 'smooth' }); });
+        sc.addEventListener('scroll', function () { window.requestAnimationFrame(upd); }, { passive: true });
+        rows.appendChild(wrap); setTimeout(upd, 0); window.addEventListener('resize', upd);
+      });
+      if (any) host.hidden = false;
+    }, 600);
+  }).catch(function () {});
 })();

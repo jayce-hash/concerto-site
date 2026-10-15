@@ -1260,7 +1260,7 @@ h1,h2{font-weight:700}
 .v8 .mobile-nav-inner .header-cta{font-family:var(--body);font-size:15px;margin-top:14px;height:48px;justify-content:center}
 
 /* Sections */
-.v8 .c-section{padding:clamp(88px,10vw,152px) 0}
+.v8 .c-section{padding:clamp(56px,6.5vw,104px) 0}
 .v8 .c-white{background:#fff}
 .v8 .c-cream{background:var(--cream)}
 .v8 .c-gold{background:var(--gold-soft)}
@@ -1407,7 +1407,7 @@ h1,h2{font-weight:700}
 .v8 .c-songs-full .song-list li{break-inside:avoid}
 
 /* Close */
-.v8 .c-close{background:var(--navy);color:#fff;padding:clamp(112px,13vw,200px) 0;text-align:center}
+.v8 .c-close{background:var(--navy);color:#fff;padding:clamp(72px,8vw,128px) 0;text-align:center}
 .v8 .c-close h2{font-family:var(--display);font-weight:500;color:#fff;font-size:clamp(48px,8vw,128px);line-height:.95;letter-spacing:-.04em;margin:0 0 48px}
 .v8 .c-close-row{display:flex;justify-content:center;align-items:center;gap:28px}
 .v8 .c-qr{width:84px;height:84px;background:#fff;border-radius:10px;padding:6px}
@@ -1458,7 +1458,7 @@ h1,h2{font-weight:700}
   .v8 .ftr-cols{grid-template-columns:1fr 1fr}
   .v8 .c-h2{margin-bottom:32px}
 }
-.v8 .c-guide .info-card.c-guide-sec{border:0;border-bottom:1px solid rgba(18,30,54,.1);border-radius:0;padding:0 0 56px;margin:0 0 56px;min-height:0;background:transparent;box-shadow:none}
+.v8 .c-guide .info-card.c-guide-sec{border:0;border-bottom:1px solid rgba(18,30,54,.1);border-radius:0;padding:0 0 36px;margin:0 0 36px;min-height:0;background:transparent;box-shadow:none}
 .v8 .c-guide .info-card.c-guide-sec:last-child{border-bottom:0}
 .v8 .c-guide .info-card.c-guide-sec:hover{transform:none;box-shadow:none}
 .v8 .c-rules ul{max-width:none}
@@ -2094,3 +2094,173 @@ h1,h2{font-weight:700}
 }
 
 .cc-demo-badge{position:fixed;left:16px;bottom:16px;z-index:9999;background:#121E36;color:#E5C365;border-radius:999px;padding:8px 14px;font:700 12px/1 'DM Sans',sans-serif;text-decoration:none;box-shadow:0 6px 18px rgba(18,30,54,.3)}
+
+/* Spacing: two sections of the same color in a row read as one band, so the second one
+   doesn't add its own top padding on top of the first one's bottom padding. */
+.v8 .c-section.c-white:not([hidden]) + .c-section.c-white,
+.v8 .c-section.c-cream:not([hidden]) + .c-section.c-cream{padding-top:0}
+.v8 .c-h2-wide{max-width:none}
+.v8 .c-near-head .c-h2{max-width:none}
+/* Venue page: upcoming shows as a tidy grid of compact cards */
+.v8 .c-upcoming .c-up-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:0}
+.v8 .c-upcoming .c-up-row,.v8 .c-upcoming .c-up-row:last-child{grid-template-columns:56px 1fr;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;align-items:center}
+.v8 .c-upcoming .c-up-date{height:62px;padding:6px 0}
+.v8 .c-upcoming .c-up-day{font-size:22px}
+.v8 .c-upcoming .c-up-name{font-family:var(--body);font-size:16px;font-weight:800;line-height:1.25;margin:0 0 2px;letter-spacing:0;color:var(--navy)}
+.v8 .c-upcoming .c-up-meta{font-size:13px;margin:0 0 6px}
+.v8 .c-upcoming .c-qa-note{margin-top:18px}
+
+/* ===================================================================
+   App-style venue and tour pages (.cx): same look as the app's screens.
+   Photo card, serif title, pill buttons, chips, white rounded cards.
+   =================================================================== */
+.v8 .cx{background:var(--cream)}
+.v8 .cx-wrap{width:min(940px,calc(100% - 64px));margin:0 auto}
+.v8 .cx-hero{padding:24px 0 8px}
+.v8 .cx-crumbs{margin-bottom:22px}
+.v8 .cx-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:36px;align-items:center}
+.v8 .cx-photo{margin:0;height:auto;aspect-ratio:4/3;border-radius:22px;background:#E9ECF1;box-shadow:0 18px 50px rgba(18,30,54,.10)}
+.v8 .cx-hero-grid:has(.cx-photo.image-fallback){grid-template-columns:minmax(0,1fr)}
+.v8 .cx-photo.image-fallback{display:none}
+.v8 .cx-eyebrow{font:800 11.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.v8 .cx-h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,3.2vw,46px);line-height:1.06;letter-spacing:-.015em;color:var(--navy);margin:0;max-width:none}
+.v8 .cx-sub{font-size:17px;color:var(--muted);margin:8px 0 0}
+.v8 .cx-lead{font-size:16px;line-height:1.55;color:#3D4760;margin:16px 0 0;max-width:56ch}
+.v8 .cx-lead b{color:var(--navy)}
+.v8 .cx-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.v8 .cx-pill{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy);font:700 15px/1 var(--body);text-decoration:none;white-space:nowrap}
+.v8 .cx-pill:hover{border-color:rgba(18,30,54,.3)}
+.v8 .cx-pill-gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.v8 .cx-pill-gold:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.v8 .cx-pill .cx-icon{flex:none}
+.v8 .cx-tonight:not(:empty){margin-top:16px;padding:0;border:0;background:none;display:flex;flex-wrap:wrap;gap:8px;max-width:none}
+.v8 .cx-tonight .meta-pill{background:#fff}
+.v8 .cx-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:28px 0 0;padding:2px 0 4px}
+.v8 .cx-chips::-webkit-scrollbar{display:none}
+.v8 .cx-chips a{flex:none;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--navy);font:600 14px/1 var(--body);text-decoration:none}
+.v8 .cx-chips a:hover{border-color:var(--gold)}
+.v8 .cx-sec{padding:40px 0 8px;scroll-margin-top:90px}
+.v8 .cx-sec-tight{padding:28px 0 8px}
+.v8 .cx-sec:last-of-type{padding-bottom:56px}
+.v8 .cx-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.v8 .cx-h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.01em;color:var(--navy);margin:0;max-width:none}
+.v8 .cx-note{font-size:14px;color:var(--muted);margin:0}
+.v8 .cx-sec .cx-note:last-child{margin-top:14px}
+/* Collapsible cards (venue info, lineups) */
+.v8 .cx-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.v8 .cx-card,.v8 .cx-panel{background:#fff;border:1px solid var(--line);border-radius:18px;scroll-margin-top:90px}
+.v8 .cx-card summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 20px;cursor:pointer}
+.v8 .cx-card summary::-webkit-details-marker{display:none}
+.v8 .cx-ic{flex:none;width:36px;height:36px;border-radius:11px;background:var(--gold-soft);color:#9A7A26;display:flex;align-items:center;justify-content:center}
+.v8 .cx-card-t{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;color:var(--navy);margin:0;flex:1;min-width:0}
+.v8 .cx-ver{display:inline-flex;align-items:center;gap:5px;font:700 12px/1 var(--body);color:#8A6C22;white-space:nowrap}
+.v8 .cx-ver .cx-icon{color:var(--gold)}
+.v8 .cx-ver-plain{color:var(--muted);font-weight:600}
+.v8 .cx-chev{flex:none;color:var(--faint);transition:transform .2s}
+.v8 .cx-card[open] .cx-chev{transform:rotate(180deg)}
+.v8 .cx-card-b{padding:0 20px 20px 70px;font-size:15.5px;line-height:1.6;color:#3D4760}
+.v8 .cx-card-b > p{margin:0 0 12px}
+.v8 .cx-rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:6px 0 10px}
+.v8 .cx-rule h3{font:800 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px;color:var(--muted)}
+.v8 .cx-yes h3{color:#2E7D4F}.v8 .cx-no h3{color:#B3412E}
+.v8 .cx-rule ul{list-style:none;margin:0;padding:0}
+.v8 .cx-rule li{position:relative;padding:6px 0 6px 18px;border-top:1px solid var(--line-soft);font-size:14.5px;line-height:1.45}
+.v8 .cx-rule li:before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:#2E7D4F}
+.v8 .cx-no li:before{background:#B3412E}
+.v8 .cx-links,.v8 .cx-card-b .link-row{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:8px}
+.v8 .cx-links a,.v8 .cx-card-b a{font-weight:700;font-size:14px;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.v8 .cx-card-b .report-wrong,.v8 .cx-card-b [data-report]{font-size:12.5px}
+/* Always-open panels (setlist, cast, about) */
+.v8 .cx-stack{display:grid;gap:12px}
+.v8 .cx-panel header{display:flex;align-items:center;gap:14px;padding:18px 20px 6px}
+.v8 .cx-panel .cx-card-b{padding:6px 20px 20px 70px}
+.v8 .cx-songs{list-style:none;margin:0 0 10px;padding:0;columns:2;column-gap:28px}
+.v8 .cx-songs li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line-soft);break-inside:avoid;font-size:15.5px;color:var(--navy)}
+.v8 .cx-n{font-family:var(--display);color:var(--gold);font-size:14px;min-width:20px;text-align:right}
+.v8 .cx-cast{list-style:none;margin:0 0 8px;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.v8 .cx-cast li{padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:15.5px;color:var(--navy)}
+.v8 .cx-fine{font-size:13px;color:var(--muted);margin:8px 0 0}
+/* Dates (upcoming shows, tour dates): the app's date rows */
+.v8 .cx .c-up-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px;margin:0;padding:0}
+.v8 .cx .c-up-row,.v8 .cx .c-up-row:last-child{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.v8 .cx .c-up-date{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0}
+.v8 .cx .c-up-dow{display:none}
+.v8 .cx .c-up-mon{order:-1;font:800 10.5px/1 var(--body);letter-spacing:.12em;color:var(--gold);margin-bottom:5px}
+.v8 .cx .c-up-day{font-family:var(--display);font-size:22px;line-height:1;color:var(--navy);font-weight:500}
+.v8 .cx .c-up-name{font:800 16px/1.25 var(--body);letter-spacing:0;margin:0 0 3px;color:var(--navy)}
+.v8 .cx .c-up-meta{font-size:13px;line-height:1.4;color:var(--muted);margin:0 0 6px}
+.v8 .cx .c-up-actions{gap:6px 16px}
+.v8 .cx .c-up-count{font:600 14px/1 var(--body);color:var(--muted);margin-left:6px}
+.v8 .cx .c-up-more{margin-top:14px;border-radius:999px}
+/* Tiles (nearby venues, more tours) */
+.v8 .cx-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.v8 .cx-tile{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--navy)}
+.v8 .cx-tile:hover{border-color:var(--gold)}
+.v8 .cx-tile b{display:block;font:700 15px/1.3 var(--body)}
+.v8 .cx-tile small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.v8 .cx-tile-ic{flex:none;width:34px;height:34px;border-radius:50%;background:var(--gold-soft);color:#9A7A26;display:flex;align-items:center;justify-content:center}
+.v8 .cx-cta-line{font-size:14.5px;color:var(--muted);margin:0;padding:16px 20px;border:1px dashed rgba(18,30,54,.18);border-radius:16px}
+.v8 .cx-cta-line b{color:var(--navy)}
+.v8 .cx-cta-line a{font-weight:700;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+/* Around the venue: the app's Nearby rows, without photos (free, from Concerto's own data) */
+.v8 .cx-rows{display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
+.v8 .cx-rows > div{min-width:0}
+.v8 .cx-row-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.v8 .cx-row-head h3{font-family:var(--display);font-weight:500;font-size:22px;margin:0;color:var(--navy)}
+.v8 .cx-scroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 2px 6px;margin:0 -2px}
+.v8 .cx-scroll::-webkit-scrollbar{display:none}
+.v8 .cx-place{flex:0 0 220px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-decoration:none;color:var(--navy);display:flex;flex-direction:column;gap:8px}
+.v8 .cx-place:hover{border-color:var(--gold)}
+.v8 .cx-place .cx-ic{width:40px;height:40px;border-radius:12px}
+.v8 .cx-place b{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.v8 .cx-place small{font-size:13px;color:var(--muted)}
+.v8 .cx-place .cx-go{margin-top:auto;font:700 13px/1 var(--body);color:var(--navy)}
+.v8 .cx-row-arrows{display:flex;gap:8px}
+.v8 .cx-row-arrows button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--navy);font-size:20px;line-height:1;cursor:pointer;padding-bottom:2px}
+.v8 .cx-row-arrows button:disabled{opacity:.35;cursor:default}
+/* Concerto Partners row sits in the same rhythm */
+.v8 .cx ~ * .c-near,.v8 .cx .c-near{background:transparent}
+.v8 .cx .c-near{padding:40px 0 8px}
+.v8 .cx .c-near .c-wrap{width:min(940px,calc(100% - 64px))}
+.v8 .cx .c-near .c-h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px)}
+@media (max-width:860px){
+  .v8 .cx-wrap,.v8 .cx .c-near .c-wrap{width:calc(100% - 40px)}
+  .v8 .cx-hero{padding-top:14px}
+  .v8 .cx-crumbs{margin-bottom:14px}
+  .v8 .cx-hero-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .v8 .cx-photo{aspect-ratio:16/10;border-radius:20px}
+  .v8 .cx-h1{font-size:36px}
+  .v8 .cx-cards{grid-template-columns:minmax(0,1fr)}
+  .v8 .cx-card-b,.v8 .cx-panel .cx-card-b{padding-left:20px}
+  .v8 .cx-rules{grid-template-columns:1fr}
+  .v8 .cx-songs{columns:1}
+  .v8 .cx-sec{padding-top:32px}
+  .v8 .cx-row-arrows{display:none}
+  .v8 .cx-scroll{margin-right:-20px;padding-right:20px}
+  .v8 .cx-pill{height:44px;padding:0 16px;font-size:14.5px}
+  .v8 .cx-card-t{font-size:19px}
+}
+@media (max-width:420px){.v8 .cx-ver{font-size:11px}.v8 .cx .c-up-list{grid-template-columns:minmax(0,1fr)}.v8 .cx-cast{grid-template-columns:1fr}}
+
+.v8 .cx .c-near-head .c-eyebrow{display:none}
+.v8 .cx .c-near-sub{font-size:14px;color:var(--muted);margin:6px 0 0}
+
+/* Phone menu: covers the page below the header (instead of pushing it down), app-style rows. */
+@media (max-width:960px){
+  .v8 .mobile-nav{position:fixed;left:0;right:0;top:var(--mn-top,64px);bottom:0;max-height:none;z-index:90;overflow-y:auto;background:var(--cream);border-top:1px solid rgba(18,30,54,.08);-webkit-overflow-scrolling:touch}
+  body.menu-open{overflow:hidden}
+}
+.v8 .mn{width:calc(100% - 40px);max-width:560px;margin:0 auto;padding:18px 0 40px;display:flex;flex-direction:column;gap:14px}
+.v8 .mn-group{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;animation:c-menu-in .28s cubic-bezier(.2,.7,.2,1) both}
+.v8 .mn-group + .mn-group{animation-delay:.04s}
+.v8 .mn-row{display:flex;align-items:center;gap:14px;padding:15px 16px;text-decoration:none;color:var(--navy);border-top:1px solid var(--line-soft)}
+.v8 .mn-row:first-child{border-top:0}
+.v8 .mn-ic{flex:none;width:34px;height:34px;border-radius:10px;background:var(--gold-soft);color:#9A7A26;display:flex;align-items:center;justify-content:center}
+.v8 .mn-label{flex:1;font:600 17px/1.2 var(--body)}
+.v8 .mn-chev{color:var(--faint)}
+.v8 .mn-row[aria-current="page"] .mn-label{color:#8A6C22}
+.v8 .mn-row[aria-current="page"] .mn-ic{background:var(--gold);color:var(--navy)}
+.v8 .mn-cta{display:flex;align-items:center;justify-content:center;height:52px;border-radius:999px;background:var(--gold);color:var(--navy);font:800 16px/1 var(--body);text-decoration:none;margin-top:6px}
+.v8 .mn-fine{text-align:center;font-size:13px;color:var(--muted);margin:0}
+/* A blurred header would trap the fixed menu inside it, so the blur is off while the menu is open. */
+.v8 body.menu-open .site-header,body.menu-open.v8 .site-header{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--cream)}
