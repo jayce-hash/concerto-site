@@ -377,12 +377,13 @@ def venue_page(v):
             else f'<p class="cx-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}, from official sources.</p>')
     photo = f'<div class="c-venue-photo cx-photo" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
     chips = cx_chips([('info', 'Venue info'), ('upcoming', 'Upcoming'), ('around', 'Around the venue')] + ([('venues', 'Nearby venues')] if near else []))
-    return ('<main id="main-content" class="c-page cx">' +
-            f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
-            f'<div class="cx-hero-grid">{photo}<div class="cx-hero-text"><p class="cx-eyebrow">Venue guide</p><h1 class="cx-h1">{e(v["name"])}</h1><p class="cx-sub">{e(place(v))}</p>'
+    return ('<main id="main-content" class="c-page cx">'
+            # Same header as every other page: label, name, place. The photo follows as a banner.
+            + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
+            f'{eyebrow("Venue guide")}<h1>{e(v["name"])}</h1><p class="c-lead">{e(place(v))}</p>'
             # Holds the venue's name and location for the page scripts; not shown.
-            f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></div>'
-            f'{chips}</div></section>'
+            f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
+            f'<div class="cx-top"><div class="cx-wrap">{photo}{chips}</div></div>'
             # Order: Concerto Partners (added by the page script right after the hero), venue info,
             # upcoming shows, places around the venue, nearby venues.
             + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div></div></section>'
@@ -626,11 +627,11 @@ def tour_page(t):
     if more: chips.append(('more', 'Also on the road'))
     close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
                   else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
-    return ('<main id="main-content" class="c-page cx">' +
-            f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
-            f'<div class="cx-hero-grid"><div class="c-venue-photo c-artist-photo cx-photo" data-artist="{e(t["artist"])}"></div>'
-            f'<div class="cx-hero-text"><p class="cx-eyebrow">{e(kicker)}</p><h1 class="cx-h1">{e(t["artist"])}</h1><p class="cx-sub">{e(t["tourName"])}</p></div></div>'
-            f'{cx_chips(chips)}</div></section>'
+    return ('<main id="main-content" class="c-page cx">'
+            # Same header as every other page: label, artist, tour. The photo follows as a banner.
+            + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
+            f'{eyebrow(kicker)}<h1>{e(t["artist"])}</h1><p class="c-lead">{e(t["tourName"])}</p></div></section>'
+            f'<div class="cx-top"><div class="cx-wrap"><div class="c-venue-photo c-artist-photo cx-photo" data-artist="{e(t["artist"])}"></div>{cx_chips(chips)}</div></div>'
             + tour_dates_shell(t)
             + f'<section class="cx-sec"><div class="cx-wrap cx-stack">{"".join(panels)}</div></section>'
             + (f'<section class="cx-sec" id="more"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Also on the road</h2></div><div class="cx-tiles">{more_html}</div></div></section>' if more else '')
@@ -640,10 +641,10 @@ def setlist_page(slug, s):
     t = next((x for x in TOURS if x['tourId'] == slug), None)
     songs = s['songs']
     return ('<main id="main-content" class="c-page">' +
-            f'<section class="c-hero c-hero-type c-hero-detail"><div class="c-wrap c-narrow"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
+            f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
             f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}. Setlists change by night.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
             + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div></div></section>'
-            f'<section class="c-section c-white"><div class="c-wrap c-narrow"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
+            f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
             + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
 
 def topic_page(key, kicker, h1, lead):

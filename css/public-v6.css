@@ -2328,3 +2328,43 @@ h1,h2{font-weight:700}
 .v8 .cx-scroll .c-near-card.cx-partner .c-near-dir{font-size:13px}
 .v8 .cx-scroll .c-near-card.cx-partner .c-near-star{width:30px;height:30px;font-size:15px}
 @media (max-width:640px){.v8 .cx-place,.v8 .cx-scroll .c-near-card.cx-partner{flex-basis:200px}}
+
+/* ===================================================================
+   One page header for every page except the homepage.
+   Same background, same left edge, same spacing, same type sizes, so the first screen
+   of a venue, a tour, a list, or a company page all line up. Breadcrumbs sit above the
+   label without pushing it down.
+   =================================================================== */
+.v8 .c-hero:not(.c-hero-home){background:var(--cream)!important;color:var(--navy);border-bottom:1px solid rgba(18,30,54,.08);min-height:0!important;display:block}
+.v8 .c-hero:not(.c-hero-home) .c-hero-inner{position:relative;padding:72px 0 44px!important;display:block}
+.v8 .c-hero:not(.c-hero-home):has(.c-hero-strip) .c-hero-inner{padding-bottom:28px!important}
+.v8 .c-page .c-hero:not(.c-hero-home) h1{font-size:clamp(40px,4.4vw,62px);line-height:1.04;letter-spacing:-.02em;max-width:22ch;color:var(--navy);margin:0}
+.v8 .c-hero:not(.c-hero-home) .c-eyebrow{margin:0 0 16px;color:var(--gold)}
+.v8 .c-hero:not(.c-hero-home) .c-lead{color:var(--muted)!important;font-size:clamp(17px,1.5vw,19px);line-height:1.55;max-width:60ch;margin-top:14px!important}
+.v8 .c-hero:not(.c-hero-home) .c-actions{margin-top:24px!important}
+.v8 .c-hero:not(.c-hero-home) .c-crumbs{position:absolute;top:24px;left:0;margin:0;font-size:13px}
+.v8 .c-hero:not(.c-hero-home) .c-hero-strip{border-top:1px solid rgba(18,30,54,.12)!important;color:var(--muted)!important;padding:18px 0 22px}
+.v8 .c-hero:not(.c-hero-home) .c-hero-strip span:first-child{color:var(--gold-ink)!important;font-weight:700}
+/* Buttons and links that were styled for the old navy headers */
+.v8 .c-hero-navy .c-btn-navy{background:var(--navy)!important;color:#fff!important}
+.v8 .c-hero-navy .c-link,.v8 .c-hero-navy .c-link-light{color:var(--navy)!important}
+.v8 .c-hero-navy .c-eyebrow{color:var(--gold)!important}
+.v8 .c-hero-navy .c-btn-line,.v8 .c-hero-navy .c-btn-white{background:#fff;color:var(--navy)!important;border-color:rgba(18,30,54,.2)}
+.v8 .c-hero-navy img[src*="app-store-white"]{filter:invert(1)}
+/* Venue and tour pages: the content uses the same width as every other page. */
+.v8 .cx-wrap,.v8 .cx .c-near .c-wrap{width:min(1280px,calc(100% - 64px))}
+.v8 .cx-top{padding:28px 0 0}
+.v8 .cx-top .cx-photo{order:0;margin:0;width:100%;aspect-ratio:16/5;height:auto;border-radius:20px;box-shadow:none}
+.v8 .cx-top .cx-photo.image-fallback{display:none}
+.v8 .cx-top .cx-chips{margin-top:20px}
+.v8 .cx-card-b > p,.v8 .cx-panel .cx-card-b > p{max-width:80ch}
+.v8 .cx-songs{columns:3}
+@media (max-width:1100px){.v8 .cx-songs{columns:2}}
+@media (max-width:860px){
+  .v8 .c-hero:not(.c-hero-home) .c-hero-inner{padding:56px 0 32px!important}
+  .v8 .c-hero:not(.c-hero-home) .c-crumbs{top:18px}
+  .v8 .cx-wrap,.v8 .cx .c-near .c-wrap{width:calc(100% - 40px)}
+  .v8 .cx-top{padding-top:20px}
+  .v8 .cx-top .cx-photo{aspect-ratio:16/9;border-radius:16px}
+}
+@media (max-width:640px){.v8 .cx-songs{columns:1}.v8 .c-page .c-hero:not(.c-hero-home) h1{font-size:36px}}
