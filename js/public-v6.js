@@ -786,14 +786,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!picked && !name) { preview.hidden = true; return; }
     preview.hidden = false;
     var hotel = el('kind').value === 'hotel';
-    // The same Nearby row the app draws: your card first, a gold star when there is an offer,
-    // and the popup fans see when they tap it.
-    var offer = el('perkOffer') ? el('perkOffer').value.trim() : '', details = el('perkDetails') ? el('perkDetails').value.trim() : '';
-    card.innerHTML = '<div class="nb-mock"><p class="nb-title">' + (hotel ? 'Nearby Hotels' : 'Nearby Restaurants') + '</p><div class="nb-row">' +
-      '<div class="nb-card nb-you"><div class="nb-photo"><span class="nb-mark">' + esc((name || '?').charAt(0)) + '</span>' + (offer ? '<span class="nb-star" aria-label="Concerto Perk">&#9733;</span>' : '') + '</div><b>' + esc(name || 'Your name') + '</b><span>Your price · distance</span></div>' +
-      '<div class="nb-card nb-other"><div class="nb-photo"><span class="nb-mark">B</span></div><b>Another place</b><span>Nearby</span></div></div>' +
-      (offer ? '<p class="nb-cap">Tap the star:</p><div class="nb-alert"><b>' + esc(offer) + '</b><p>' + esc(name || 'Your name') + '</p>' + (details ? '<p>' + esc(details) + '</p>' : '<p></p>') +
-        '<div class="nb-alert-actions"><span>Close</span><span>' + (hotel ? 'Book' : 'Reserve') + '</span></div></div>' : '') + '</div>';
+    card.innerHTML = '<article class="partner-card"><div class="partner-photo"><span class="fallback-mark">' + esc((name || '?').charAt(0)) +
+      '</span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3>' + esc(name || 'Your name') + '</h3>' +
+      (blurb ? '<p class="partner-blurb">' + esc(blurb) + '</p>' : '') +
+      ((el('perkOffer') && el('perkOffer').value.trim()) ? '<div class="partner-perk"><span>Concerto Perk</span><strong>' + esc(el('perkOffer').value.trim()) + '</strong>' +
+        (el('perkDetails').value.trim() ? '<p>' + esc(el('perkDetails').value.trim()) + '</p>' : '') + '</div>' : '') +
+      '<div class="partner-actions"><span class="partner-btn">' + (hotel ? 'Book' : 'Reserve') + '</span><span class="partner-btn partner-btn-quiet">Directions</span></div></div></article>';
   }
   ['name', 'blurb', 'kind', 'perkOffer', 'perkDetails'].forEach(function (n) { if (!el(n)) return; el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
   // The redeem field appears only once a Perk is typed.
@@ -965,17 +963,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function tourDates() {
     var host = document.querySelector('[data-tour-dates]'); if (!host) return;
     var artist = host.getAttribute('data-tour-artist'), slug = host.getAttribute('data-tour');
-    // Shows that aren't concerts are listed under their own name and outside the Music category.
-    var keyword = host.getAttribute('data-tour-keyword') || artist, prefix = host.getAttribute('data-tour-match') === 'prefix';
     var now = new Date(), end = new Date(now.getTime() + 400 * 86400000);
-    var p = new URLSearchParams({ keyword: keyword, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
-    if (host.hasAttribute('data-tour-any')) p.delete('classificationName');
+    var p = new URLSearchParams({ keyword: artist, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
     Promise.all([getJSON(FN + '/tm/events.json?' + p), venueIndex()]).then(function (r) {
-      var d = r[0], m = r[1], want = norm(prefix ? keyword : artist);
+      var d = r[0], m = r[1], want = norm(artist);
       // Only dates where this artist is actually billed: tribute acts and lookalike names stay out.
       var list = (d && d._embedded && d._embedded.events || []).filter(realEvent).filter(function (ev) {
         var at = (ev._embedded && ev._embedded.attractions) || [];
-        return at.some(function (a) { var n = norm(a.name); return prefix ? n.indexOf(want) === 0 : n === want; });
+        return at.some(function (a) { return norm(a.name) === want; });
       });
       var seen = {}; list = list.filter(function (ev) { var v = ev._embedded.venues && ev._embedded.venues[0] || {}; var k = (v.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
       if (!list.length) return;

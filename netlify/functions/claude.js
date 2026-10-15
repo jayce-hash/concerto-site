@@ -28,7 +28,7 @@ const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 const MAX_TOKENS_CAP = 4096;
 
 const PUBLIC_SERVICES  = new Set(['tm_venue_events']);
-const PREMIUM_SERVICES = new Set(['claude', 'bag_check', 'exit_plan']);
+const PREMIUM_SERVICES = new Set(['claude', 'bag_check']);
 const TM = 'https://app.ticketmaster.com/discovery/v2';
 
 function corsHeaders(origin) {
@@ -119,16 +119,7 @@ exports.handler = async function (event) {
   if (PREMIUM_SERVICES.has(service)) {
     const { data: profile } = await supabase
       .from('profiles').select('is_premium').eq('id', user.id).single();
-    let allowed = Boolean(profile?.is_premium);
-    if (!allowed) {
-      // A Show Pass unlocks everything for one show, AI Bag Check and Plan My Night included.
-      try {
-        const { data: pass } = await supabase.from('show_passes').select('until').eq('user_id', user.id)
-          .gt('until', new Date().toISOString()).limit(1);
-        allowed = Boolean(pass && pass.length);
-      } catch (_) { /* no pass table yet */ }
-    }
-    if (!allowed) {
+    if (!profile?.is_premium) {
       return { statusCode: 403, headers, body: JSON.stringify({ error: 'Premium required' }) };
     }
   }
@@ -209,87 +200,6 @@ Include 3-5 findings citing specific policy rules. Include next_steps ONLY when 
         try { return { statusCode: 200, headers, body: JSON.stringify(JSON.parse(candidate)) }; } catch (_) {}
       }
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'Parse failed', raw: text.slice(0, 200) }) };
-    }
-
-    // ── Exit Plan (Concerto+) ──
-    // The way out of one venue for one fan: their seat and entrance, how they're getting
-    // home, and the venue's own published guidance. Only names that appear in that
-    // guidance may be used, so the plan never invents a street, door, or lot.
-    if (service === 'exit_plan') {
-      const { venueSlug, seat = {}, travel } = body;
-      const v = venueSlug ? venueInfo[String(venueSlug)] : null;
-      if (!v) return { statusCode: 404, headers, body: JSON.stringify({ error: 'Venue not found' }) };
-      const clean = (x) => String(x || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').slice(0, 900);
-      const sec = (k) => v[k] ? [v[k].summary, v[k].body, v[k].note, (v[k].lots || []).join('; ')].filter(Boolean).map(clean).join(' ') : '';
-      const how = { drive: 'driving (parked nearby)', rideshare: 'taking Uber or Lyft', transit: 'taking public transit', walk: 'walking' }[travel] || 'not sure yet';
-      const seatText = seat.floor ? 'Floor / general admission' : [seat.section && `Section ${seat.section}`, seat.row && `Row ${seat.row}`, seat.seat && `Seat ${seat.seat}`].filter(Boolean).join(', ') || 'unknown';
-      const prompt = `You are Concerto's Exit Plan. Write the plan for leaving ${v.name} (${v.city}${v.state ? ', ' + v.state : ''}) after a concert.
-
-Fan: seat ${seatText}${seat.gate ? `; entered at ${String(seat.gate).slice(0, 40)}` : ''}; getting home by ${how}.
-
-Venue guidance (the only facts you may use about this venue):
-Entrances: ${sec('gates') || 'none published'}
-Rideshare: ${sec('rideshare') || 'none published'}
-Parking: ${sec('parking') || 'none published'}
-Re-entry: ${sec('reEntry') || 'none published'}
-
-Rules: Never name a street, door, gate, lot, station, or zone unless it appears above. If the guidance doesn't say where pickup is, say so plainly and give the general move (walk a few blocks away from the main doors before requesting). Plain, short sentences. No em dashes.
-Respond ONLY with valid JSON, no markdown:
-{"headline":"one sentence, the plan in brief","steps":[{"title":"2-5 words","detail":"1-2 sentences"}],"pickup":"one sentence on where to meet your ride or head next"}
-Give 3 or 4 steps in order: when to move, which way out, where to go, and a backup if it's busy.`;
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 700, messages: [{ role: 'user', content: prompt }] }),
-      });
-      const data = await response.json();
-      const text = (data?.content?.[0]?.text || '').trim().replace(/```json|```/g, '').trim();
-      try {
-        const r = JSON.parse(text);
-        const steps = (Array.isArray(r.steps) ? r.steps : []).slice(0, 4).map((x) => ({ title: String(x.title || '').slice(0, 60), detail: String(x.detail || '').slice(0, 300) }));
-        if (!steps.length) throw new Error('empty');
-        return { statusCode: 200, headers, body: JSON.stringify({ headline: String(r.headline || '').slice(0, 200), steps, pickup: String(r.pickup || '').slice(0, 300) }) };
-      } catch (_) {
-        return { statusCode: 500, headers, body: JSON.stringify({ error: 'Could not make the plan' }) };
-      }
-    }
-
-    // ── Ticket read (free for signed-in fans) ──
-    // Reads section, row, seat, and entrance from a screenshot of a ticket so the fan
-    // doesn't have to type them. The image is read and discarded; nothing is stored.
-    if (service === 'ticket_read') {
-      const { imageB64 } = body;
-      if (!imageB64 || typeof imageB64 !== 'string' || imageB64.length > 2_500_000) {
-        return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing or too large image' }) };
-      }
-      const prompt = `This is a screenshot or photo of a concert or event ticket. Read only what is printed on it.
-Respond ONLY with valid JSON, no markdown:
-{"section":"","row":"","seat":"","gate":"","floor":false,"seller":"ticketmaster"|"axs"|"seatgeek"|"stubhub"|"wallet"|"other"|"","artist":"","venue":"","date":""}
-Rules: leave a field "" if it isn't clearly printed. "floor" is true only for general admission, GA, pit, or floor tickets with no seat. "gate" is the printed entrance, gate, or portal (e.g. "Gate 5"). "seller" is the app or company the ticket is from, "wallet" if it is an Apple Wallet pass. Never guess.`;
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({
-          model: 'claude-haiku-4-5-20251001',
-          max_tokens: 300,
-          messages: [{ role: 'user', content: [
-            { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: imageB64 } },
-            { type: 'text', text: prompt },
-          ] }],
-        }),
-      });
-      const data = await response.json();
-      const text = (data?.content?.[0]?.text || '').trim().replace(/```json|```/g, '').trim();
-      try {
-        const r = JSON.parse(text);
-        const clip = (v) => String(v || '').slice(0, 16);
-        return { statusCode: 200, headers, body: JSON.stringify({
-          section: clip(r.section), row: clip(r.row), seat: clip(r.seat), gate: String(r.gate || '').slice(0, 40),
-          floor: Boolean(r.floor), seller: ['ticketmaster', 'axs', 'seatgeek', 'stubhub', 'wallet', 'other'].includes(r.seller) ? r.seller : '',
-        }) };
-      } catch (_) {
-        return { statusCode: 422, headers, body: JSON.stringify({ error: 'Could not read the ticket' }) };
-      }
     }
 
     // ── Ticketmaster (authenticated keyword search — used by Concerto+) ──

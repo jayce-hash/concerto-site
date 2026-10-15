@@ -91,7 +91,7 @@ def venue_description(v, shown):
 # "Tour" to names that already end in it. Setlist searches are the best-performing queries in
 # Search Console, so the title leads with the setlist and never repeats a word.
 # Multi-artist events are searched by lineup and venue rules, not setlist.
-TOUR_TITLE_OVERRIDES = {'jingle-ball-2026-tour': 'Jingle Ball 2026 Tour Dates | Concerto', 'dancing-with-the-stars-live-2027-tour': 'Dancing with the Stars: Live! 2027 Tour Dates & Cast | Concerto', 'john-mayer-live-at-sphere': 'John Mayer Live At Sphere Setlist & Dates | Concerto'}
+TOUR_TITLE_OVERRIDES = {'jingle-ball-2026-tour': 'Jingle Ball 2026 Tour Dates | Concerto', 'john-mayer-live-at-sphere': 'John Mayer Live At Sphere Setlist & Dates | Concerto'}
 
 def tour_title(t):
     if t.get('tourId') in TOUR_TITLE_OVERRIDES: return TOUR_TITLE_OVERRIDES[t['tourId']]
@@ -295,13 +295,11 @@ for v in venues:
 (ROOT/'tour').mkdir(exist_ok=True); (ROOT/'setlist').mkdir(exist_ok=True)
 # Remove stale generated setlist pages so only populated setlists are deployable/indexable.
 for p in (ROOT/'setlist').glob('*.html'): p.unlink()
-SHOWS=json.loads((ROOT/'data'/'shows.json').read_text()) if (ROOT/'data'/'shows.json').exists() else {}
 for t in tours:
     slug=t['tourId']; s=setlists.get(slug); songs=(s.get('songs') or []) if s else []
-    if songs: desc=f"The {len(songs)}-song setlist {t['artist']} has been playing on {t['tourName']}, plus tour dates and a guide to every venue. Free on Concerto."
-    elif s: desc=f"{t['artist']}: {t['tourName']} dates and a guide to every venue on the tour. The setlist appears here once it is confirmed."
-    elif slug in SHOWS: desc=SHOWS[slug].get('description') or f"{t['artist']} {t['tourName']}: dates, the cast, and a guide to every venue on the tour."
-    else: desc=f"{t['artist']}: {t['tourName']} dates and a guide to every venue on the tour, on Concerto."
+    if songs: desc=f"{t['artist']} {t['tourName']} tour guide with a current {len(songs)}-song setlist and links to plan the show in Concerto."
+    elif s: desc=f"{t['artist']} {t['tourName']} tour guide on Concerto. Setlist coming soon, with venue and show-night context available now."
+    else: desc=f"{t['artist']} {t['tourName']} tour guide with venue and show-night context on Concerto."
     ld={'@context':'https://schema.org','@type':'MusicGroup','@id':SITE+'/tour/'+slug+'#artist','name':t['artist'],'url':SITE+'/tour/'+slug}
     if t.get('tourWebsite'): ld['sameAs']=[t['tourWebsite']]
     extra=ld_json(ld)+breadcrumb_ld([('Tours','/tours'),(t['artist'],f'/tour/{slug}')])

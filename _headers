@@ -31,15 +31,3 @@
 /.well-known/apple-app-site-association
   Content-Type: application/json
   Cache-Control: public, max-age=3600
-
-# Partners is public again; artist partnerships and Perks pages stay out of search.
-/partners/artists
-  X-Robots-Tag: noindex
-/partner-artists*
-  X-Robots-Tag: noindex
-/perks
-  X-Robots-Tag: noindex
-/console
-  X-Robots-Tag: noindex
-/console/*
-  X-Robots-Tag: noindex
