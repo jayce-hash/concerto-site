@@ -1231,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', function () {
           var a = document.createElement('a'); a.className = 'cx-place'; a.setAttribute('role', 'listitem'); a.target = '_blank'; a.rel = 'noopener';
           a.href = ccMapsUrl(i.name + ' ' + (i.address || ''), i.lat, i.lng, true);
           var meta = [i.price ? new Array(Math.min(i.price, 4) + 1).join('$') : '', kindOf(i.types), i.distance_mi != null ? (i.distance_mi < 0.1 ? 'Steps away' : i.distance_mi.toFixed(i.distance_mi < 10 ? 1 : 0) + ' mi') : ''].filter(Boolean).join(' · ');
-          a.innerHTML = '<span class="cx-ic">' + svg(rw[0]) + '</span><b>' + esc(i.name) + '</b><small>' + esc(meta) + '</small><span class="cx-go">Directions</span>';
+          a.innerHTML = '<span class="cx-place-art">' + svg(rw[0]) + '</span><span class="cx-place-body"><b>' + esc(i.name) + '</b><small>' + esc(meta) + '</small><span class="cx-go">Directions</span></span>';
           sc.appendChild(a);
         });
         var btns = wrap.querySelectorAll('.cx-row-arrows button');

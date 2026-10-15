@@ -2309,3 +2309,22 @@ h1,h2{font-weight:700}
 .v8 .cx-place .cx-ic{width:26px!important;height:26px!important}
 .v8 .cx-ver .cx-icon{width:12px;height:12px}
 .v8 .mn-row[aria-current="page"] .mn-ic{background:transparent!important;color:var(--gold)!important}
+
+/* Nearby rows: every card the same shape, like the app. An image area on top (a partner's photo,
+   or a soft gold panel with the place's icon), then the name, the details, and the links. */
+.v8 .cx-scroll{align-items:stretch!important}
+.v8 .cx-place{flex:0 0 230px;padding:0;gap:0;overflow:hidden}
+.v8 .cx-place-art{height:116px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center}
+.v8 .cx-place-art svg{width:30px;height:30px}
+.v8 .cx-place-body{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
+.v8 .cx-place .cx-go{margin-top:auto;padding-top:6px}
+.v8 .cx-scroll .c-near-card.cx-partner{flex:0 0 230px;box-shadow:none;border:1.5px solid var(--gold)}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-photo{height:116px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-body{padding:14px 16px 16px;gap:6px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-body h3{font-size:17px;line-height:1.25}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-blurb{-webkit-line-clamp:1}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-links{padding-top:8px;gap:12px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-go{padding:7px 14px;font-size:13px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-dir{font-size:13px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-star{width:30px;height:30px;font-size:15px}
+@media (max-width:640px){.v8 .cx-place,.v8 .cx-scroll .c-near-card.cx-partner{flex-basis:200px}}
