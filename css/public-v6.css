@@ -2378,3 +2378,15 @@ h1,h2{font-weight:700}
 @media (max-width:1100px){.v8 .c-hero-page .c-hero-inner{padding-right:280px!important}.v8 .c-hero-page .cx-hphoto{width:240px;height:160px}}
 /* Phones: the header stays exactly like every other page; the photo isn't shown. */
 @media (max-width:640px){.v8 .c-hero-page .c-hero-inner{padding-right:0!important}.v8 .c-hero-page .cx-hphoto{display:none}}
+
+/* Perk popup: centered like the app's alert, so it never covers the partner card. */
+.c-perk-pop{position:fixed;inset:0;z-index:1000;background:rgba(18,30,54,.45);display:flex;align-items:center;justify-content:center;padding:16px;animation:cPerkIn .16s ease-out}
+.c-perk-box{width:100%;max-width:340px;background:#fff;border-radius:18px;padding:26px 24px 18px;text-align:center;box-shadow:0 24px 60px rgba(18,30,54,.3);color:var(--navy)}
+.c-perk-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:21px;line-height:1}
+.c-perk-kicker{margin:14px 0 2px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A6F22}
+.c-perk-box h3{margin:0;font-family:var(--display);font-weight:500;font-size:22px;line-height:1.2;color:var(--navy)}
+.c-perk-text{margin:10px 0 18px;font-size:14px;line-height:1.5;color:#5A6478}
+.c-perk-get{display:block;padding:12px 16px;border-radius:999px;background:var(--gold);color:var(--navy);font-weight:700;font-size:15px;text-decoration:none}
+.c-perk-close{display:block;width:100%;margin-top:6px;padding:10px;border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:#5A6478;cursor:pointer}
+@keyframes cPerkIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.c-perk-pop{animation:none}}

@@ -506,6 +506,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var mi = 2 * 3958.8 * Math.asin(Math.sqrt(x));
     return mi < 0.1 ? 'Steps away' : (Math.round(mi * 10) / 10) + ' mi';
   }
+  // One shared Perk popup, centered over a dimmed page. Closes on the button, the backdrop or Esc.
+  function perkPopup(name, from) {
+    var old = document.querySelector('.c-perk-pop'); if (old) old.remove();
+    var wrap = document.createElement('div'); wrap.className = 'c-perk-pop';
+    wrap.innerHTML = '<div class="c-perk-box" role="dialog" aria-modal="true" aria-labelledby="cPerkTitle">' +
+      '<span class="c-perk-icon" aria-hidden="true">&#9733;</span><p class="c-perk-kicker">Concerto Perk</p><h3 id="cPerkTitle"></h3>' +
+      '<p class="c-perk-text">This place has an offer for Concerto members. Open the app and sign in to see it.</p>' +
+      '<a class="c-perk-get" href="https://apps.apple.com/us/app/concerto-show-go/id6744903414?pt=127753814&ct=website-perk&mt=8" target="_blank" rel="noopener">Get the App</a>' +
+      '<button type="button" class="c-perk-close">Close</button></div>';
+    wrap.querySelector('h3').textContent = name;
+    var close = function () { wrap.remove(); document.removeEventListener('keydown', esc); if (from) from.focus(); };
+    var esc = function (e) { if (e.key === 'Escape') close(); };
+    wrap.addEventListener('click', function (e) { if (e.target === wrap) close(); });
+    wrap.querySelector('.c-perk-close').addEventListener('click', close);
+    document.addEventListener('keydown', esc);
+    document.body.appendChild(wrap);
+    wrap.querySelector('.c-perk-get').focus();
+  }
   function nearCard(c, slug, vlat, vlng) {
     var card = document.createElement('article'); card.className = 'c-near-card'; card.setAttribute('role', 'listitem');
     card.innerHTML = '<div class="c-near-photo"><span class="c-near-mark"></span></div><div class="c-near-body"><h3></h3><p class="c-near-meta"></p><p class="c-near-blurb"></p><div class="c-near-links"></div></div>';
@@ -522,10 +540,9 @@ document.addEventListener('DOMContentLoaded', function () {
       // Same as the app: a gold star, and the offer itself is for signed-in Concerto members.
       var ph = card.querySelector('.c-near-photo');
       var star = document.createElement('button'); star.type = 'button'; star.className = 'c-near-star'; star.setAttribute('aria-label', 'Concerto Perk at ' + c.name); star.innerHTML = '&#9733;';
-      var tip = document.createElement('div'); tip.className = 'c-near-tip'; tip.hidden = true;
-      tip.innerHTML = '<b>Concerto Perk</b><p>This place has an offer for Concerto members.</p><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414?pt=127753814&ct=website-perk&mt=8" target="_blank" rel="noopener">See it in the app</a>';
-      star.addEventListener('click', function (e) { e.stopPropagation(); tip.hidden = !tip.hidden; if (!tip.hidden) track('perk'); });
-      ph.appendChild(star); ph.appendChild(tip);
+      // Opens a centered popup like the app's alert, so the card itself stays in view.
+      star.addEventListener('click', function (e) { e.stopPropagation(); e.preventDefault(); perkPopup(c.name, star); track('perk'); });
+      ph.appendChild(star);
     }
     // A partner's own photo when it has one; otherwise its Google photo.
     if (c.photo) showPhoto(card.querySelector('.c-near-photo'), c.photo, c.name, '');
