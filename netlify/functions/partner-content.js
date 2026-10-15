@@ -60,7 +60,10 @@ exports.handler = async (event) => {
       out.perks = livePerks((p.data || []).filter(perkOK), today);
       out.partners = listings(slug);
       // Demo partners (private: demo key or a demo account). Never cached at the edge.
-      if (q.demo && await demoAllowed(q.demo, event.headers)) {
+      if (q.demo && !(await demoAllowed(q.demo, event.headers))) {
+        return { statusCode: 200, headers: { ...H, 'Cache-Control': 'no-store' }, body: JSON.stringify(out) };
+      }
+      if (q.demo) {
         const d = await demoFor(slug);
         out.partners = d.partners.concat(out.partners); out.perks = d.perks.concat(out.perks); out.demo = true;
         return { statusCode: 200, headers: { ...H, 'Cache-Control': 'no-store' }, body: JSON.stringify(out) };
