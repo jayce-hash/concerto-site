@@ -119,7 +119,7 @@ def problem_section():
 
 def home():
     hero = (f'<section class="c-hero"><div class="c-wrap c-hero-grid"><div class="c-hero-copy">{eyebrow("The concert-night companion")}'
-            '<h1>From the concert<br>to the city.</h1>'
+            '<h1>From the Concert<br>to the City</h1>'
             '<p class="c-lead">The venue’s rules. The setlist. The timing. The way home. One page per show.</p>'
             f'<div class="c-actions">{store_button("website-home")}<a class="c-link c-link-light" href="#what">What Concerto does</a></div></div>'
             '<figure class="c-hero-photo"><img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="The Kia Forum, Inglewood, California" width="1042" height="731" fetchpriority="high">'
@@ -335,8 +335,8 @@ def cx_card(anchor, ic, title, meta, body, open_=False, section=None, check=True
     """A collapsible white card: icon, title, the date it was checked, then the content."""
     ds = f' data-section="{e(section)}"' if section else ''
     return (f'<details class="cx-card" id="{anchor}"{ds}{" open" if open_ else ""}><summary>'
-            f'<span class="cx-ic">{icon(ic)}</span><{tag} class="cx-card-t">{e(title)}</{tag}>'
-            f'{cx_ver(meta, check) if meta else ""}<span class="cx-chev">{icon("chev", 18)}</span></summary>'
+            f'<span class="cx-ic">{icon(ic)}</span><span class="cx-tt"><{tag} class="cx-card-t">{e(title)}</{tag}>'
+            f'{cx_ver(meta, check) if meta else ""}</span><span class="cx-chev">{icon("chev", 18)}</span></summary>'
             f'<div class="cx-card-b">{body}</div></details>')
 
 def cx_btn(href, label, ic=None, primary=False, attrs=''):
@@ -392,9 +392,8 @@ def venue_page(v):
     return ('<main id="main-content" class="c-page cx">' +
             f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
             f'<div class="cx-hero-grid">{photo}<div class="cx-hero-text"><p class="cx-eyebrow">Venue guide</p><h1 class="cx-h1">{e(v["name"])}</h1><p class="cx-sub">{e(place(v))}</p>'
-            + lead +
-            f'<div class="cx-actions">{cx_app_pill("venue", v["id"], "Remind me on show day", "bell")}{cx_directions(v)}</div>'
-            f'<div class="tonight cx-tonight" data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></div>'
+            # Holds the venue's name and location for the page scripts; not shown.
+            f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></div>'
             f'{chips}</div></section>'
             # Order: Concerto Partners (added by the page script right after the hero), venue info,
             # upcoming shows, places around the venue, nearby venues.
@@ -579,8 +578,8 @@ def tour_dates_shell(t):
 
 def cx_panel(anchor, ic, title, meta, body, check=True):
     """An always-open white card, like the app's Setlist card."""
-    return (f'<article class="cx-panel" id="{anchor}"><header><span class="cx-ic">{icon(ic)}</span><h2 class="cx-card-t">{e(title)}</h2>'
-            f'{cx_ver(meta, check) if meta else ""}</header><div class="cx-card-b">{body}</div></article>')
+    return (f'<article class="cx-panel" id="{anchor}"><header><span class="cx-ic">{icon(ic)}</span><span class="cx-tt"><h2 class="cx-card-t">{e(title)}</h2>'
+            f'{cx_ver(meta, check) if meta else ""}</span></header><div class="cx-card-b">{body}</div></article>')
 
 def cx_songs(songs, start=1):
     return '<ol class="cx-songs">' + ''.join(f'<li><span class="cx-n">{i}</span><span>{e(x)}</span></li>' for i, x in enumerate(songs, start)) + '</ol>'
@@ -604,7 +603,7 @@ def tour_page(t):
     elif sh:
         lead = f'<p class="cx-lead">{e(sh["body"])}</p>'
         panels.append(cx_panel('the-show', 'info', sh.get('eyebrow') or 'The show', f'Updated {pretty_date(sh.get("updated"))}' if sh.get('updated') else '',
-            f'<p>{e(sh["heading"])} Dates are above as they’re announced, with a guide to every arena.</p>'))
+            f'<p>{e(sh["body"])}</p><p>{e(sh["heading"])} Dates are above as they’re announced, with a guide to every arena.</p>'))
         if sh.get('cast'):
             panels.append(cx_panel('cast', 'users', sh.get('castTitle') or 'Cast', '', '<ul class="cx-cast">' + ''.join(f'<li>{e(x)}</li>' for x in sh['cast']) + '</ul>'
                 + (f'<p class="cx-fine">{e(sh["castNote"])}</p>' if sh.get('castNote') else '')))
@@ -634,7 +633,7 @@ def tour_page(t):
     import datetime as _dt
     _until = HOLIDAY_TOURS.get(t['tourId'])
     _on = bool(_until) and _dt.date.today().isoformat() <= _until
-    kicker = '✦ Holiday concert season' if _on else 'On tour'
+    kicker = '✦ Holiday concert season' if _on else 'Tour guide'
     more_html = ''.join(f'<a class="cx-tile" href="/tour/{x["tourId"]}"><span class="cx-tile-ic">{icon("music", 18)}</span><span><b>{e(x["artist"])}</b><small>{e(x["tourName"])}</small></span></a>' for x in more)
     if more: chips.append(('more', 'Also on the road'))
     close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
@@ -642,9 +641,7 @@ def tour_page(t):
     return ('<main id="main-content" class="c-page cx">' +
             f'<section class="cx-hero"><div class="cx-wrap"><nav class="c-crumbs cx-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
             f'<div class="cx-hero-grid"><div class="c-venue-photo c-artist-photo cx-photo" data-artist="{e(t["artist"])}"></div>'
-            f'<div class="cx-hero-text"><p class="cx-eyebrow">{e(kicker)}</p><h1 class="cx-h1">{e(t["artist"])}</h1><p class="cx-sub">{e(t["tourName"])}</p>'
-            + lead +
-            f'<div class="cx-actions">{cx_app_pill("tour", t["tourId"], "Open in Concerto", "bell")}{site}</div></div></div>'
+            f'<div class="cx-hero-text"><p class="cx-eyebrow">{e(kicker)}</p><h1 class="cx-h1">{e(t["artist"])}</h1><p class="cx-sub">{e(t["tourName"])}</p></div></div>'
             f'{cx_chips(chips)}</div></section>'
             + tour_dates_shell(t)
             + f'<section class="cx-sec"><div class="cx-wrap cx-stack">{"".join(panels)}</div></section>'
@@ -718,7 +715,7 @@ def ask_bar(home=False):
             f'<p class="c-ask-hint">{hint}</p></form>')
 
 def home():
-    h = hero('The concert-night companion', 'From the concert<br>to the city.',
+    h = hero('The concert-night companion', 'From the Concert<br>to the City',
              'Save a show and Concerto does the rest. Find everything about your venue, the city around it, and so much more.',
              ask_bar(home=True) + store_button('website-home') + '<a class="c-link" href="#how">How it works</a>',
              [f'{V_COPY} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'cream', 'c-hero-home')

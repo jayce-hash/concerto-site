@@ -2118,12 +2118,13 @@ h1,h2{font-weight:700}
 .v8 .cx-wrap{width:min(940px,calc(100% - 64px));margin:0 auto}
 .v8 .cx-hero{padding:24px 0 8px}
 .v8 .cx-crumbs{margin-bottom:22px}
-.v8 .cx-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:36px;align-items:center}
+.v8 .cx-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center}
+.v8 .cx-hero-grid .cx-photo{order:2}
 .v8 .cx-photo{margin:0;height:auto;aspect-ratio:4/3;border-radius:22px;background:#E9ECF1;box-shadow:0 18px 50px rgba(18,30,54,.10)}
 .v8 .cx-hero-grid:has(.cx-photo.image-fallback){grid-template-columns:minmax(0,1fr)}
 .v8 .cx-photo.image-fallback{display:none}
 .v8 .cx-eyebrow{font:800 11.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
-.v8 .cx-h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,3.2vw,46px);line-height:1.06;letter-spacing:-.015em;color:var(--navy);margin:0;max-width:none}
+.v8 .cx .cx-h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,3.2vw,46px);line-height:1.06;letter-spacing:-.015em;color:var(--navy);margin:0;max-width:none}
 .v8 .cx-sub{font-size:17px;color:var(--muted);margin:8px 0 0}
 .v8 .cx-lead{font-size:16px;line-height:1.55;color:#3D4760;margin:16px 0 0;max-width:56ch}
 .v8 .cx-lead b{color:var(--navy)}
@@ -2143,7 +2144,7 @@ h1,h2{font-weight:700}
 .v8 .cx-sec-tight{padding:28px 0 8px}
 .v8 .cx-sec:last-of-type{padding-bottom:56px}
 .v8 .cx-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-.v8 .cx-h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.01em;color:var(--navy);margin:0;max-width:none}
+.v8 .cx .cx-h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.01em;color:var(--navy);margin:0;max-width:none}
 .v8 .cx-note{font-size:14px;color:var(--muted);margin:0}
 .v8 .cx-sec .cx-note:last-child{margin-top:14px}
 /* Collapsible cards (venue info, lineups) */
@@ -2152,7 +2153,7 @@ h1,h2{font-weight:700}
 .v8 .cx-card summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 20px;cursor:pointer}
 .v8 .cx-card summary::-webkit-details-marker{display:none}
 .v8 .cx-ic{flex:none;width:36px;height:36px;border-radius:11px;background:var(--gold-soft);color:#9A7A26;display:flex;align-items:center;justify-content:center}
-.v8 .cx-card-t{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;color:var(--navy);margin:0;flex:1;min-width:0}
+.v8 .cx .cx-card-t{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;color:var(--navy);margin:0;flex:1;min-width:0}
 .v8 .cx-ver{display:inline-flex;align-items:center;gap:5px;font:700 12px/1 var(--body);color:#8A6C22;white-space:nowrap}
 .v8 .cx-ver .cx-icon{color:var(--gold)}
 .v8 .cx-ver-plain{color:var(--muted);font-weight:600}
@@ -2171,7 +2172,7 @@ h1,h2{font-weight:700}
 .v8 .cx-links a,.v8 .cx-card-b a{font-weight:700;font-size:14px;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
 .v8 .cx-card-b .report-wrong,.v8 .cx-card-b [data-report]{font-size:12.5px}
 /* Always-open panels (setlist, cast, about) */
-.v8 .cx-stack{display:grid;gap:12px}
+.v8 .cx-stack{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
 .v8 .cx-panel header{display:flex;align-items:center;gap:14px;padding:18px 20px 6px}
 .v8 .cx-panel .cx-card-b{padding:6px 20px 20px 70px}
 .v8 .cx-songs{list-style:none;margin:0 0 10px;padding:0;columns:2;column-gap:28px}
@@ -2227,9 +2228,8 @@ h1,h2{font-weight:700}
   .v8 .cx-wrap,.v8 .cx .c-near .c-wrap{width:calc(100% - 40px)}
   .v8 .cx-hero{padding-top:14px}
   .v8 .cx-crumbs{margin-bottom:14px}
-  .v8 .cx-hero-grid{grid-template-columns:minmax(0,1fr);gap:22px}
-  .v8 .cx-photo{aspect-ratio:16/10;border-radius:20px}
-  .v8 .cx-h1{font-size:36px}
+  .v8 .cx-hero-grid{gap:24px}
+  .v8 .cx .cx-h1{font-size:34px}
   .v8 .cx-cards{grid-template-columns:minmax(0,1fr)}
   .v8 .cx-card-b,.v8 .cx-panel .cx-card-b{padding-left:20px}
   .v8 .cx-rules{grid-template-columns:1fr}
@@ -2238,7 +2238,7 @@ h1,h2{font-weight:700}
   .v8 .cx-row-arrows{display:none}
   .v8 .cx-scroll{margin-right:-20px;padding-right:20px}
   .v8 .cx-pill{height:44px;padding:0 16px;font-size:14.5px}
-  .v8 .cx-card-t{font-size:19px}
+  .v8 .cx .cx-card-t{font-size:19px}
 }
 @media (max-width:420px){.v8 .cx-ver{font-size:11px}.v8 .cx .c-up-list{grid-template-columns:minmax(0,1fr)}.v8 .cx-cast{grid-template-columns:1fr}}
 
@@ -2264,3 +2264,35 @@ h1,h2{font-weight:700}
 .v8 .mn-fine{text-align:center;font-size:13px;color:var(--muted);margin:0}
 /* A blurred header would trap the fixed menu inside it, so the blur is off while the menu is open. */
 .v8 body.menu-open .site-header,body.menu-open.v8 .site-header{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--cream)}
+
+/* Card titles: the checked date sits beside the title, and under it on phones. */
+.v8 .cx-tt{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.v8 .cx-tt .cx-card-t{flex:0 1 auto}
+@media (max-width:600px){
+  .v8 .cx-tt{flex-direction:column;align-items:flex-start;gap:4px}
+  .v8 .cx-card summary,.v8 .cx-panel header{gap:12px;padding:16px}
+  .v8 .cx-card-b,.v8 .cx-panel .cx-card-b{padding:0 16px 18px}
+  .v8 .cx-ver{font-size:11.5px}
+  .v8 .cx-actions{gap:8px}
+  .v8 .cx-pill{height:42px;padding:0 14px;font-size:14px;gap:6px}
+  .v8 .cx-chips{margin-right:-20px;padding-right:20px}
+  .v8 .cx-chips a{padding:8px 14px;font-size:13.5px}
+  .v8 .cx-h2{font-size:26px}
+}
+/* Hub lists (bag policies, parking...): name and city never run together. */
+.v8 .c-topic > div{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+/* Contact form: the send button keeps its label. */
+.v8 .c-form .btn-gold,.v8 .c-form button[type=submit]{background:var(--gold)!important;border-color:var(--gold)!important;color:var(--navy)!important}
+
+/* Phones: the photo sits on top, like the app. Tablets keep the photo on the right. */
+@media (max-width:640px){
+  .v8 .cx-hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  .v8 .cx-hero-grid .cx-photo{order:0}
+  .v8 .cx-photo{aspect-ratio:16/10;border-radius:20px}
+}
+
+/* Venue and tour header: label, name, and city or tour name. Nothing else. */
+.v8 .cx-tonight,.v8 .cx-tonight[hidden]{display:none!important}
+.v8 .cx-hero-text .cx-sub{font-size:19px;margin-top:10px}
+.v8 .cx .cx-h1{font-size:clamp(36px,3.6vw,52px)}
+.v8 a.cc-demo-badge,.cc-demo-badge{color:#E5C365!important;background:#121E36!important}
