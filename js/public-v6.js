@@ -1,3 +1,19 @@
+/* Partner counts: one helper for Google Analytics and the partner monthly report.
+   partner_impression and partner_tap also go to Concerto's own analytics (netlify/functions/track.js),
+   with a random id this browser keeps for itself. No cookies, account or location. Demo partners skipped. */
+(function () {
+  var KEY = 'cc.web.device', LOG = { partner_impression: 1, partner_tap: 1 };
+  function dev() { try { var d = localStorage.getItem(KEY); if (!d) { d = 'w_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(KEY, d); } return d; } catch (_) { return 'w_' + Math.random().toString(36).slice(2, 12); } }
+  window.ccLog = function (name, params) {
+    if (typeof window.gtag === 'function') { try { window.gtag('event', name, params); } catch (_) {} }
+    if (!LOG[name] || !params || !params.partner_id || /^demo-/.test(String(params.partner_id))) return;
+    try {
+      var body = JSON.stringify({ event: name, device_id: dev(), props: params });
+      if (navigator.sendBeacon) navigator.sendBeacon('/.netlify/functions/track', new Blob([body], { type: 'application/json' }));
+      else fetch('/.netlify/functions/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true });
+    } catch (_) {}
+  };
+})();
 /* Maps: Apple Maps first on Apple devices (iPhone, iPad, Mac), Google Maps everywhere else. */
 var CC_APPLE = /iPhone|iPad|iPod|Macintosh/.test((typeof navigator !== 'undefined' && navigator.userAgent) || '');
 /* Demo partners (private): ?demo=<key> on any page turns them on for this visit; ?demo=off ends it. */
@@ -483,7 +499,7 @@ document.addEventListener('DOMContentLoaded', function () {
       row.innerHTML = ''; row.scrollLeft = 0;
       g.list.forEach(function (c, i) {
         row.appendChild(nearCard(c, slug, vlat, vlng));
-        if (!seen[c.id] && typeof window.gtag === 'function') { seen[c.id] = 1; try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+        if (!seen[c.id]) { seen[c.id] = 1; window.ccLog('partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); }
       });
       if (tabs) [].forEach.call(tabs.children, function (b) { var on = b.getAttribute('data-kind') === g.kind; b.setAttribute('aria-selected', on ? 'true' : 'false'); b.classList.toggle('on', on); });
       setTimeout(arrows, 0);
@@ -531,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
     card.querySelector('h3').textContent = c.name;
     card.querySelector('.c-near-meta').textContent = [nearMiles(c, vlat, vlng), 'Concerto Partner'].filter(Boolean).join(' · ');
     var bl = card.querySelector('.c-near-blurb'); if (c.blurb) bl.textContent = c.blurb; else bl.remove();
-    var track = function (action) { if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_tap', { venue: slug, partner: c.name, partner_id: c.id, action: action, surface: 'web_venue_' + c.kind }); } catch (_) {} } };
+    var track = function (action) { window.ccLog('partner_tap', { venue: slug, partner: c.name, partner_id: c.id, action: action, surface: 'web_venue_' + c.kind }); };
     var links = card.querySelector('.c-near-links'), go = (c.perk && c.perk.url) || c.url;
     if (go) { var a = document.createElement('a'); a.className = 'c-near-go'; a.href = go; a.target = '_blank'; a.rel = 'noopener nofollow sponsored'; a.textContent = c.kind === 'hotel' ? 'Book' : 'Reserve'; a.addEventListener('click', function () { track('reserve'); }); links.appendChild(a); }
     var d = document.createElement('a'); d.className = 'c-near-dir'; d.target = '_blank'; d.rel = 'noopener'; d.href = ccMapsUrl(c.name + ' ' + (c.address || ''), c.lat, c.lng, true); d.textContent = 'Directions';
@@ -567,7 +583,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (o.address) { var m = document.createElement('a'); m.className = 'ui-link'; m.href = ccMapsUrl(o.name + ' ' + o.address); m.target = '_blank'; m.rel = 'noopener'; m.textContent = 'Directions'; links.appendChild(m); }
       if (links.children.length) box.appendChild(links);
       grid.appendChild(box);
-      if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug || '', partner: o.name, partner_id: o.id || '', surface: surface, position: String(i + 1) }); } catch (_) {} }
+      window.ccLog('partner_impression', { venue: slug || '', partner: o.name, partner_id: o.id || '', surface: surface, position: String(i + 1) });
     });
     return grid;
   }
@@ -1141,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function () {
       a.addEventListener('click', function () { var p = r.partners[+a.getAttribute('data-ap')]; ga('partner_tap', { venue: venue, partner: p.name, partner_id: p.id, action: 'reserve', surface: 'web_ask' }); });
     });
   }
-  function ga(name, params) { if (typeof window.gtag === 'function') { try { window.gtag('event', name, params); } catch (_) {} } }
+  function ga(name, params) { window.ccLog(name, params); }
   var busy = false;
   function ask(q) {
     q = String(q || '').trim(); if (q.length < 3 || busy) return;
@@ -1245,7 +1261,7 @@ document.addEventListener('DOMContentLoaded', function () {
         partners.forEach(function (c, i) {
           if (typeof window.ccNearCard !== 'function') return;
           var card = window.ccNearCard(c, slug, vlat, vlng); card.classList.add('cx-partner'); sc.appendChild(card);
-          if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+          window.ccLog('partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) });
         });
         list.forEach(function (i) {
           var a = document.createElement('a'); a.className = 'cx-place'; a.setAttribute('role', 'listitem'); a.target = '_blank'; a.rel = 'noopener';
