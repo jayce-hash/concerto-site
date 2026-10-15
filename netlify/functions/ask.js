@@ -25,6 +25,8 @@ const crypto = require('crypto');
 const { createClient } = require('@supabase/supabase-js');
 const { corsHeaders, limited, refuse, originOf } = require('./lib/guard');
 const { tmFetch } = require('./lib/tm-cache');
+const { venuePartners, demoVenuePartners } = require('./lib/venue-partners');
+const { demoAllowed } = require('./lib/demo-partners');
 
 const VENUES = require('../../data/venues.json');
 const INFO = require('../../data/venue_info.json');
@@ -291,6 +293,38 @@ async function venueUpcoming(id, event) {
   } catch (e) { return null; }
 }
 
+// ---------- places to eat and stay near the venue ----------
+// Concerto Partners (paid restaurant and hotel listings for this venue) are suggested first,
+// always labeled. Without a partner, the answer points to the Nearby rows in the app.
+const HOTEL_Q = / (hotel|hotels|motel|stay|staying|stay over|place to stay|places to stay|where to stay|sleep|lodging|airbnb|room for the night) /;
+const FOOD_Q = / (restaurant|restaurants|dinner|lunch|brunch|breakfast|eat before|eat after|eat near|eat nearby|eat around|eat close|where to eat|where should we eat|where should i eat|where can i eat|where can we eat|places to eat|place to eat|food near|food nearby|food around|good food|bar|bars|pregame|pre game|drinks before|drinks after|drinks near|drink before|grab a drink|grab a bite|bite to eat|happy hour|cocktails|pizza|tacos|sushi|steak|coffee) /;
+function nearbyKind(qt) {
+  if (HOTEL_Q.test(qt)) return 'hotel';
+  if (FOOD_Q.test(qt) && !/ (inside|in the venue|in the arena|in the stadium|concession|concessions|stands|outside food|bring food|bring in) /.test(qt)) return 'restaurant';
+  return null;
+}
+// What the client shows under the answer. The offer itself is for signed-in app users,
+// the same as the gold star in the Nearby row.
+function partnerOut(p, tier) {
+  return { id: p.id, name: p.name, kind: p.kind, miles: p.miles, address: p.address, blurb: p.blurb, url: p.url,
+    perk: p.perk ? (tier === 'anon' ? { locked: true } : { offer: p.perk.offer, details: p.perk.details, url: p.perk.url }) : null };
+}
+function nearbyAnswer(id, kind, list) {
+  const row = kind === 'hotel' ? 'Nearby Hotels' : 'Nearby Restaurants';
+  const where = venueName(id);
+  const mine = list.filter((p) => p.kind === kind).slice(0, 2);
+  const src = [{ label: `${where} venue guide`, url: `/venue/${id}`, checked: '', official: '' }];
+  if (!mine.length) {
+    return { text: `The ${where} page in the Concerto app has a ${row} row with places close to the venue.`, sources: src, partners: [] };
+  }
+  // The card under the answer carries the address, the Perk and Reserve, so the text stays short.
+  const say = mine.map((p, i) => {
+    const dist = p.miles != null ? (p.miles < 0.1 ? `steps from ${where}` : `${p.miles} ${p.miles === 1 ? 'mile' : 'miles'} from ${where}`) : `near ${where}`;
+    return i === 0 ? `${p.name}, a Concerto Partner, is ${dist}.` : `${p.name}, also a Concerto Partner, is ${dist}.`;
+  });
+  return { text: say.join(' ') + ` More ${kind === 'hotel' ? 'hotels' : 'places to eat'} nearby are in the ${row} row in the Concerto app.`, sources: src, partners: mine };
+}
+
 // ---------- limits and cache ----------
 let blobs = null;
 function blobStore(event) {
@@ -314,7 +348,15 @@ async function tierFor(event) {
     const { data: { user } } = await sb.auth.getUser(token);
     if (!user) return 'anon';
     const { data: p } = await sb.from('profiles').select('is_premium').eq('id', user.id).single();
-    return p && p.is_premium ? 'plus' : 'member';
+    if (p && p.is_premium) return 'plus';
+    // A Show Pass unlocks everything for one show, Concerto AI included. The table is written
+    // only by the RevenueCat webhook; if it doesn't exist yet this simply finds nothing.
+    try {
+      const { data: pass } = await sb.from('show_passes').select('until').eq('user_id', user.id)
+        .gt('until', new Date().toISOString()).limit(1);
+      if (pass && pass.length) return 'plus';
+    } catch (e) { /* no pass table yet */ }
+    return 'member';
   } catch (e) { return 'anon'; }
 }
 
@@ -332,7 +374,7 @@ async function allowAI(event, tier) {
   return { ok: true, used, keys: [`global/${day}`, `month/${month}`, who], store: s };
 }
 
-function contextFor(venueId, tour, dates) {
+function contextFor(venueId, tour, dates, partners) {
   const out = [];
   if (venueId) {
     const rec = INFO[venueId] || {};
@@ -343,6 +385,9 @@ function contextFor(venueId, tour, dates) {
       if ((s.allowed || []).length) lines.push('Allowed: ' + s.allowed.join('; '));
       if ((s.prohibited || []).length) lines.push('Not allowed: ' + s.prohibited.join('; '));
       out.push(`[${k}] ${SECTION_LABEL[k]} (checked ${pretty(s.verified) || 'date unknown'}): ${lines.join(' ')}`);
+    }
+    if (partners && partners.length) {
+      out.push('[partners] Concerto Partners near this venue: ' + partners.map((p) => `${p.name} (${p.kind}${p.miles != null ? ', ' + p.miles + ' mi' : ''})${p.blurb ? ': ' + p.blurb : ''}${p.perk ? ' Has a Concerto Perk in the app.' : ''}`).join(' | '));
     }
   }
   if (tour) {
@@ -358,11 +403,12 @@ const SYSTEM = `You are Concerto, a concert companion. Answer the fan's question
 Rules:
 - If the CONTEXT does not answer the question, say "Concerto's guide doesn't cover that yet." and suggest checking the venue's official page or the event page. Never use outside knowledge, never guess times, prices, sizes, or rules.
 - Keep the exact sizes, times and wording of rules from the CONTEXT. If a rule is for sports events or varies by event, say so.
+- If the CONTEXT has [partners] and the question is about eating, drinking, staying over, or planning the night around the show, name the partner first and call it a Concerto Partner. Mention its Perk only as "a Concerto Perk in the app". Never name other restaurants or hotels.
 - Be direct and plain: answer first, in at most 60 words. No greetings, no exclamation marks, no em dashes.
-Return only JSON: {"answer": "...", "sections": ["bagPolicy", ...]} where sections lists the CONTEXT keys you used (bagPolicy, gates, parking, rideshare, accessibility, concessions, reEntry, ticketPickup, setlist, dates).`;
+Return only JSON: {"answer": "...", "sections": ["bagPolicy", ...]} where sections lists the CONTEXT keys you used (bagPolicy, gates, parking, rideshare, accessibility, concessions, reEntry, ticketPickup, setlist, dates, partners).`;
 
-async function aiAnswer(question, venueId, tour, dates) {
-  const ctx = contextFor(venueId, tour, dates);
+async function aiAnswer(question, venueId, tour, dates, partners) {
+  const ctx = contextFor(venueId, tour, dates, partners);
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
@@ -382,8 +428,9 @@ async function aiAnswer(question, venueId, tour, dates) {
     if (k === 'setlist' && tour) sources.push({ label: `${tour.artist} setlist`, url: `/setlist/${tour.tourId}`, checked: pretty((SETS[tour.tourId] || {}).updated), official: '' });
     if (k === 'dates' && tour) sources.push({ label: `${tour.artist} tour dates`, url: `/tour/${tour.tourId}#dates-h`, checked: '', official: '' });
   }
+  const usedPartners = secs.includes('partners') && partners && partners.length ? partners.filter((p) => answer.includes(p.name)) : [];
   if (!sources.length) sources.push(venueId ? { label: `${venueName(venueId)} venue guide`, url: `/venue/${venueId}`, checked: '', official: '' } : { label: `${tour.artist} · ${tour.tourName}`, url: `/tour/${tour.tourId}`, checked: '', official: '' });
-  return { text: answer, sources };
+  return { text: answer, sources, partners: usedPartners };
 }
 
 // ---------- handler ----------
@@ -413,6 +460,13 @@ exports.handler = async (event) => {
   if (item && !vTopics.includes('bagPolicy')) vTopics.unshift('bagPolicy');
   if (/ (policy|policies|rules|allowed|allow|permitted) /.test(qt) && !vTopics.length) vTopics.push('bagPolicy');
   const tTopics = topicsIn(qt, TOUR_TOPICS);
+  // Demo partners for showing prospects (private: demo key or a demo account).
+  const demo = venueId && body.demo ? await demoAllowed(body.demo, event.headers) : false;
+  const partnersFor = async (id) => {
+    const venue = VENUES.find((v) => v.id === id);
+    const [real, fake] = await Promise.all([venuePartners(id, venue), demo ? demoVenuePartners(id, venue) : []]);
+    return fake.concat(real);
+  };
   const entity = { venue: venueId ? { slug: venueId, name: venueName(venueId) } : null, tour: tour ? { slug: tour.tourId, artist: tour.artist, name: tour.tourName } : null };
 
   if (!venueId && !tour) {
@@ -439,6 +493,14 @@ exports.handler = async (event) => {
     return reply({ mode: 'guide', entity, text: 'Concerto shows the show-day forecast seven days out, on the venue page and in Your Night in the app.', sources: venueId ? [{ label: `${venueName(venueId)} venue guide`, url: `/venue/${venueId}`, checked: '', official: '' }] : [] });
   }
 
+  // Where to eat, drink or stay near the venue: Concerto Partners first. Free, no AI.
+  const nk = venueId ? nearbyKind(qt) : null;
+  if (nk) {
+    const [list, tierN] = await Promise.all([partnersFor(venueId), tierFor(event)]);
+    const a = nearbyAnswer(venueId, nk, list);
+    return reply({ mode: 'guide', entity, text: a.text, sources: a.sources, partners: a.partners.map((p) => partnerOut(p, tierN)) });
+  }
+
   // Questions a quote can answer well: one clear topic, no sizes to compare, no open-ended ask.
   const needsReasoning = /\d+\s*(x|by|inch|in|cm)\b|\d+\s*(x|by)\s*\d+/.test(question) || /\b(should i|best way|tips|what do i need to know|what should|recommend|worth|vs|or should|explain)\b/i.test(question);
   let guide = null;
@@ -461,11 +523,16 @@ exports.handler = async (event) => {
     }
     return { text: `Open the ${venueId ? venueName(venueId) + ' venue guide' : tour.artist + ' tour page'} for the full details.`, sources: [venueId ? { label: `${venueName(venueId)} venue guide`, url: `/venue/${venueId}`, checked: '', official: '' } : { label: `${tour.artist} · ${tour.tourName}`, url: `/tour/${tour.tourId}`, checked: '', official: '' }] };
   };
-  const cacheKey = `cache/${sha(q + '|' + (venueId || '') + '|' + (tourId || ''))}`;
+  const partners = venueId ? await partnersFor(venueId) : [];
+  // A new partner changes the answer, so the partner list is part of the cache key.
+  const cacheKey = `cache/${sha(q + '|' + (venueId || '') + '|' + (tourId || '') + '|' + partners.map((p) => p.id).sort().join(','))}`;
   const s = blobStore(event);
   if (s) {
     const hit = await readJSON(s, cacheKey);
-    if (hit && hit.t && Date.now() - hit.t < CACHE_DAYS * 86400000) return reply({ mode: 'ai', entity, text: hit.text, sources: hit.sources, cached: true });
+    if (hit && hit.t && Date.now() - hit.t < CACHE_DAYS * 86400000) {
+      const named = partners.filter((p) => (hit.partnerIds || []).includes(p.id)).map((p) => partnerOut(p, tier));
+      return reply({ mode: 'ai', entity, text: hit.text, sources: hit.sources, partners: named, cached: true });
+    }
   }
   const gate = await allowAI(event, tier);
   if (!gate.ok) {
@@ -476,10 +543,10 @@ exports.handler = async (event) => {
   }
   try {
     const dates = tour ? await tourDates(tour, event) : [];
-    const a = await aiAnswer(question, venueId, tour, dates);
+    const a = await aiAnswer(question, venueId, tour, dates, partners);
     await Promise.all(gate.keys.map((k) => bump(gate.store, k))).catch(() => {});
-    await gate.store.setJSON(cacheKey, { t: Date.now(), text: a.text, sources: a.sources }).catch(() => {});
-    return reply({ mode: 'ai', entity, ...a, remaining: Math.max(0, LIMITS[tier] - gate.used - 1), tier });
+    await gate.store.setJSON(cacheKey, { t: Date.now(), text: a.text, sources: a.sources, partnerIds: a.partners.map((p) => p.id) }).catch(() => {});
+    return reply({ mode: 'ai', entity, text: a.text, sources: a.sources, partners: a.partners.map((p) => partnerOut(p, tier)), remaining: Math.max(0, LIMITS[tier] - gate.used - 1), tier });
   } catch (e) {
     console.error('ask: model failed', e && e.message);
     return reply({ mode: 'guide', entity, ...fallback() });
@@ -487,4 +554,4 @@ exports.handler = async (event) => {
 };
 
 // Exposed for tests (scripts/test-ask.js).
-exports._test = { plain, findVenue, findTour, topicsIn, TOPICS, TOUR_TOPICS, venueGuideAnswer, tourGuideAnswer, contextFor, SYSTEM };
+exports._test = { plain, findVenue, findTour, topicsIn, TOPICS, TOUR_TOPICS, venueGuideAnswer, tourGuideAnswer, contextFor, SYSTEM, nearbyKind, nearbyAnswer, partnerOut };

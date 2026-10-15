@@ -97,8 +97,7 @@ def footer_html():
     cols = [
         ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', APP)]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
-        ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Contact', '/contact')]),
-        ('Partners', [('Work with Concerto', '/partners'), ('Venues', '/partners/venues'), ('Restaurants', '/partners/restaurants'), ('Hotels', '/partners/hotels')]),
+        ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
         ('Support', [('Help Center', '/help'), ('FAQ', '/faq')]),
     ]
     col_html = ''.join(

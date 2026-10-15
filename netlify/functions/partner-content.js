@@ -13,6 +13,7 @@
 //   - a venue's own section edits, stage times, and the "Verified by the venue" mark
 const { createClient } = require('@supabase/supabase-js');
 const { livePerks } = require('./lib/perk-rules');
+const { demoAllowed, demoFor } = require('./lib/demo-partners');
 const H = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=300' };
 const PERK_COLS = 'id,org_id,kind,partner_name,offer,details,url,address,lat,lng,venue_slugs,tour_slug,starts_on,ends_on';
 const ORG_COLS = 'id,kind,name,venue_slug,venue_slugs,address,url,blurb,lat,lng,listed,listed_until';
@@ -20,7 +21,7 @@ const ORG_COLS = 'id,kind,name,venue_slug,venue_slugs,address,url,blurb,lat,lng,
 function paidNow(o, today) { return o && o.plan === 'paid' && (!o.listed_until || o.listed_until >= today); }
 function httpsOrNull(v) { try { const u = new URL(v); return u.protocol === 'https:' && !u.username && !u.password ? u.href : null; } catch (_) { return null; } }
 function card(o) {
-  return { id: o.id, kind: o.kind, name: o.name, venue_slugs: o.venue_slugs || [], address: o.address, url: httpsOrNull(o.url), blurb: o.blurb, lat: o.lat, lng: o.lng };
+  return { id: o.id, kind: o.kind, name: o.name, venue_slugs: o.venue_slugs || [], address: o.address, url: httpsOrNull(o.url), blurb: o.blurb, lat: o.lat, lng: o.lng, place_id: o.place_id || null };
 }
 
 exports.handler = async (event) => {
@@ -30,7 +31,9 @@ exports.handler = async (event) => {
     const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
     const out = { venue: null, overrides: {}, stageTimes: [], perks: [], partners: [], claimed: false };
     // Every currently paid org, once. Small table; one query keeps the rules in one place.
-    const orgsR = await sb.from('partner_orgs').select(ORG_COLS + ',plan').eq('plan', 'paid');
+    // place_id lets the photo lookup use its 25-day cache. Older databases may not have the column yet.
+    let orgsR = await sb.from('partner_orgs').select(ORG_COLS + ',plan,place_id').eq('plan', 'paid');
+    if (orgsR.error) orgsR = await sb.from('partner_orgs').select(ORG_COLS + ',plan').eq('plan', 'paid');
     if (orgsR.error) throw new Error('Partner query failed');
     const paid = (orgsR.data || []).filter(o => paidNow(o, today));
     const paidIds = new Set(paid.map(o => o.id));
@@ -56,6 +59,12 @@ exports.handler = async (event) => {
       }
       out.perks = livePerks((p.data || []).filter(perkOK), today);
       out.partners = listings(slug);
+      // Demo partners (private: demo key or a demo account). Never cached at the edge.
+      if (q.demo && await demoAllowed(q.demo, event.headers)) {
+        const d = await demoFor(slug);
+        out.partners = d.partners.concat(out.partners); out.perks = d.perks.concat(out.perks); out.demo = true;
+        return { statusCode: 200, headers: { ...H, 'Cache-Control': 'no-store' }, body: JSON.stringify(out) };
+      }
     } else if (q.tour) {
       const p = await sb.from('perks').select(PERK_COLS).eq('status', 'live').eq('tour_slug', String(q.tour).slice(0, 160));
       if (p.error) throw new Error('Partner query failed');

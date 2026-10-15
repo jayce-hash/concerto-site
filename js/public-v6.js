@@ -1,5 +1,14 @@
 /* Maps: Apple Maps first on Apple devices (iPhone, iPad, Mac), Google Maps everywhere else. */
 var CC_APPLE = /iPhone|iPad|iPod|Macintosh/.test((typeof navigator !== 'undefined' && navigator.userAgent) || '');
+/* Demo partners (private): ?demo=<key> on any page turns them on for this visit; ?demo=off ends it. */
+function ccDemoKey() {
+  try {
+    var q = new URLSearchParams(location.search).get('demo');
+    if (q === 'off') { sessionStorage.removeItem('concerto.demo'); return ''; }
+    if (q && /^[A-Za-z0-9_-]{4,64}$/.test(q)) sessionStorage.setItem('concerto.demo', q);
+    return sessionStorage.getItem('concerto.demo') || '';
+  } catch (_) { return ''; }
+}
 function ccMapsUrl(query, lat, lng, directions) {
   var q = encodeURIComponent(query || ''), at = (lat != null && lng != null) ? lat + ',' + lng : '';
   if (CC_APPLE) return 'https://maps.apple.com/?' + (directions ? 'daddr=' + (at || q) + (at ? '&q=' + q : '') : 'q=' + q + (at ? '&ll=' + at : ''));
@@ -97,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var hit = cacheGet(key, 'session');
     if (hit !== undefined) return Promise.resolve(hit);
     var params = new URLSearchParams({ name: v.name, city: v.city || '', lat: v.lat || '', lng: v.lng || '' });
+    if (v.place_id) params.set('place_id', v.place_id);
     return schedule(function () { return getJSON(FN + '/venue-photo?' + params); }).then(function (d) {
       var val = d && d.src ? { src: d.src, credit: d.credit || '' } : null;
       cacheSet(key, val, 15 * 60 * 1000, 'session');
@@ -416,11 +426,12 @@ document.addEventListener('DOMContentLoaded', function () {
      Same card as the app: photo, name, description, the Perk if they have one,
      Reserve and Directions. Listed partners plus anyone with a live Perk here,
      one card each, rotating daily. */
+  function byId(list) { return list.slice().sort(function (a, b) { return a.id < b.id ? -1 : a.id > b.id ? 1 : 0; }); }
   function partnerCards(perks, partners, kind) {
     var out = {}, order = [];
     (partners || []).forEach(function (o) {
       if (o.kind !== kind) return;
-      out[o.id] = { id: o.id, name: o.name, kind: kind, blurb: o.blurb, address: o.address, url: safeHttps(o.url), lat: o.lat, lng: o.lng };
+      out[o.id] = { id: o.id, name: o.name, kind: kind, blurb: o.blurb, address: o.address, url: safeHttps(o.url), lat: o.lat, lng: o.lng, place_id: o.place_id };
       order.push(o.id);
     });
     (perks || []).forEach(function (p) {
@@ -431,56 +442,90 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     return order.map(function (k) { return out[k]; });
   }
+  /* Concerto Partners on a venue page: one row, the same shape as the app's Nearby row.
+     Restaurants and hotels are two tabs of the same row, so 1 partner or 12 take the same
+     space. Swipe on phones, arrows on desktop. Order rotates daily, same as the app. */
   function renderVenuePerks(perks, slug, venueName, partners) {
-    var hero = document.querySelector('.c-hero'); if (!hero || document.querySelector('.partner-venue')) return;
-    var sec = document.createElement('section'); sec.className = 'c-section c-cream partner-venue';
+    var hero = document.querySelector('.c-hero'); if (!hero || document.querySelector('.c-near')) return;
+    var host = document.querySelector('[data-venue-tonight]');
+    var vlat = host && parseFloat(host.getAttribute('data-lat')), vlng = host && parseFloat(host.getAttribute('data-lng'));
+    var groups = [{ kind: 'restaurant', tab: 'Restaurants', h: 'Eat' }, { kind: 'hotel', tab: 'Hotels', h: 'Stay' }].map(function (g) {
+      g.list = rotateDaily(byId(partnerCards(perks, partners, g.kind)), slug + ':' + g.kind + 's'); return g;
+    }).filter(function (g) { return g.list.length; });
+    if (!groups.length) return;
+    var sec = document.createElement('section'); sec.className = 'c-section c-white c-near'; sec.id = 'partners';
+    sec.setAttribute('aria-label', 'Concerto Partners near ' + venueName);
     var wrap = document.createElement('div'); wrap.className = 'c-wrap'; sec.appendChild(wrap);
-    var any = false;
-    [{ kind: 'restaurant', eyebrow: 'Concerto Partners', title: 'Before the show.' },
-     { kind: 'hotel', eyebrow: 'Concerto Partners', title: 'Where to stay.' }].forEach(function (g) {
-      var list = rotateDaily(partnerCards(perks, partners, g.kind), slug + ':' + g.kind);
-      if (!list.length) return; any = true;
-      var eb = document.createElement('p'); eb.className = 'c-eyebrow'; eb.textContent = g.eyebrow;
-      var h2 = document.createElement('h2'); h2.className = 'c-h2 c-h2-sm'; h2.textContent = g.title;
-      var grid = document.createElement('div'); grid.className = 'partner-grid';
-      var sub = document.createElement('p'); sub.className = 'partner-sub'; sub.textContent = 'Near ' + venueName + '.';
-      if (list.length === 1) grid.className += ' is-single';
-      wrap.appendChild(eb); wrap.appendChild(h2); wrap.appendChild(sub); wrap.appendChild(grid);
-      list.forEach(function (c, i) { grid.appendChild(partnerCardEl(c, slug, i)); });
+    var head = document.createElement('div'); head.className = 'c-near-head'; wrap.appendChild(head);
+    var title = document.createElement('div');
+    title.innerHTML = '<p class="c-eyebrow">Concerto Partners</p><h2 class="c-h2 c-h2-sm"></h2>';
+    title.querySelector('h2').textContent = 'Near ' + venueName;
+    head.appendChild(title);
+    var tools = document.createElement('div'); tools.className = 'c-near-tools'; head.appendChild(tools);
+    var tabs = null;
+    if (groups.length > 1) {
+      tabs = document.createElement('div'); tabs.className = 'c-near-tabs'; tabs.setAttribute('role', 'tablist'); tools.appendChild(tabs);
+    }
+    var prev = document.createElement('button'), next = document.createElement('button');
+    prev.className = next.className = 'c-near-arrow'; prev.type = next.type = 'button';
+    prev.setAttribute('aria-label', 'Previous'); next.setAttribute('aria-label', 'Next');
+    prev.innerHTML = '&#8249;'; next.innerHTML = '&#8250;';
+    tools.appendChild(prev); tools.appendChild(next);
+    var row = document.createElement('div'); row.className = 'c-near-row'; row.setAttribute('role', 'list'); wrap.appendChild(row);
+    var seen = {};
+    function arrows() { var max = row.scrollWidth - row.clientWidth - 2; prev.disabled = row.scrollLeft <= 2; next.disabled = row.scrollLeft >= max; tools.classList.toggle('no-scroll', max <= 0); }
+    function show(g) {
+      row.innerHTML = ''; row.scrollLeft = 0;
+      g.list.forEach(function (c, i) {
+        row.appendChild(nearCard(c, slug, vlat, vlng));
+        if (!seen[c.id] && typeof window.gtag === 'function') { seen[c.id] = 1; try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+      });
+      if (tabs) [].forEach.call(tabs.children, function (b) { var on = b.getAttribute('data-kind') === g.kind; b.setAttribute('aria-selected', on ? 'true' : 'false'); b.classList.toggle('on', on); });
+      setTimeout(arrows, 0);
+    }
+    if (tabs) groups.forEach(function (g) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('data-kind', g.kind);
+      b.textContent = g.tab + ' '; var n = document.createElement('span'); n.textContent = g.list.length; b.appendChild(n);
+      b.addEventListener('click', function () { show(g); }); tabs.appendChild(b);
     });
-    if (any) hero.parentNode.insertBefore(sec, hero.nextSibling);
+    var step = function (dir) { var card = row.firstElementChild; row.scrollBy({ left: dir * ((card ? card.getBoundingClientRect().width : 260) + 16) * 2, behavior: 'smooth' }); };
+    prev.addEventListener('click', function () { step(-1); }); next.addEventListener('click', function () { step(1); });
+    row.addEventListener('scroll', function () { window.requestAnimationFrame(arrows); }, { passive: true });
+    window.addEventListener('resize', arrows);
+    hero.parentNode.insertBefore(sec, hero.nextSibling);
+    show(groups[0]);
   }
-  function partnerCardEl(c, slug, i) {
-    var card = document.createElement('article'); card.className = 'partner-card';
-    card.innerHTML = '<div class="partner-photo"><span class="fallback-mark"></span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3></h3><p class="partner-blurb"></p></div>';
-    card.querySelector('.fallback-mark').textContent = c.name.charAt(0);
+  function nearMiles(c, vlat, vlng) {
+    if (!isFinite(vlat) || !isFinite(vlng) || c.lat == null || c.lng == null) return '';
+    var r = Math.PI / 180, x = Math.pow(Math.sin((c.lat - vlat) * r / 2), 2) + Math.cos(vlat * r) * Math.cos(c.lat * r) * Math.pow(Math.sin((c.lng - vlng) * r / 2), 2);
+    var mi = 2 * 3958.8 * Math.asin(Math.sqrt(x));
+    return mi < 0.1 ? 'Steps away' : (Math.round(mi * 10) / 10) + ' mi';
+  }
+  function nearCard(c, slug, vlat, vlng) {
+    var card = document.createElement('article'); card.className = 'c-near-card'; card.setAttribute('role', 'listitem');
+    card.innerHTML = '<div class="c-near-photo"><span class="c-near-mark"></span></div><div class="c-near-body"><h3></h3><p class="c-near-meta"></p><p class="c-near-blurb"></p><div class="c-near-links"></div></div>';
+    card.querySelector('.c-near-mark').textContent = c.name.charAt(0);
     card.querySelector('h3').textContent = c.name;
-    var bl = card.querySelector('.partner-blurb'); if (c.blurb) bl.textContent = c.blurb; else bl.remove();
-    var body = card.querySelector('.partner-body');
-    if (false && c.perk) { // Perks are off for now
-      var pk = document.createElement('div'); pk.className = 'partner-perk';
-      pk.innerHTML = '<span>Concerto Perk</span><strong></strong><p></p>';
-      pk.querySelector('strong').textContent = c.perk.offer;
-      if (c.perk.details) pk.querySelector('p').textContent = c.perk.details; else pk.querySelector('p').remove();
-      // Perks are redeemed with a live code in the app, so the website points there.
-      var use = document.createElement('a'); use.className = 'partner-perk-app'; use.href = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414';
-      use.textContent = 'Use this Perk in the Concerto app'; use.target = '_blank'; use.rel = 'noopener'; pk.appendChild(use);
-      body.appendChild(pk);
-    }
-    var act = document.createElement('div'); act.className = 'partner-actions';
-    var reserve = (c.perk && c.perk.url) || c.url;
+    card.querySelector('.c-near-meta').textContent = [nearMiles(c, vlat, vlng), 'Concerto Partner'].filter(Boolean).join(' · ');
+    var bl = card.querySelector('.c-near-blurb'); if (c.blurb) bl.textContent = c.blurb; else bl.remove();
     var track = function (action) { if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_tap', { venue: slug, partner: c.name, partner_id: c.id, action: action, surface: 'web_venue_' + c.kind }); } catch (_) {} } };
-    if (reserve) { var r = document.createElement('a'); r.className = 'partner-btn'; r.href = reserve; r.target = '_blank'; r.rel = 'noopener nofollow sponsored'; r.textContent = c.kind === 'hotel' ? 'Book' : 'Reserve'; r.addEventListener('click', function () { track('reserve'); }); act.appendChild(r); }
-    var d = document.createElement('a'); d.className = 'partner-btn partner-btn-quiet'; d.target = '_blank'; d.rel = 'noopener';
-    d.href = ccMapsUrl(c.name + ' ' + (c.address || ''), c.lat, c.lng, true);
-    d.textContent = 'Directions'; d.addEventListener('click', function () { track('directions'); }); act.appendChild(d);
-    body.appendChild(act);
-    if (c.lat != null && c.lng != null) {
-      var ph = card.querySelector('.partner-photo');
-      var city = String(c.address || '').split(',').slice(-2, -1)[0] || '';
-      googleVenuePhoto({ name: c.name, city: city.trim(), lat: c.lat, lng: c.lng }).then(function (v) { if (v && v.src) showPhoto(ph, v.src, c.name, v.credit); }).catch(function () {});
+    var links = card.querySelector('.c-near-links'), go = (c.perk && c.perk.url) || c.url;
+    if (go) { var a = document.createElement('a'); a.className = 'c-near-go'; a.href = go; a.target = '_blank'; a.rel = 'noopener nofollow sponsored'; a.textContent = c.kind === 'hotel' ? 'Book' : 'Reserve'; a.addEventListener('click', function () { track('reserve'); }); links.appendChild(a); }
+    var d = document.createElement('a'); d.className = 'c-near-dir'; d.target = '_blank'; d.rel = 'noopener'; d.href = ccMapsUrl(c.name + ' ' + (c.address || ''), c.lat, c.lng, true); d.textContent = 'Directions';
+    d.addEventListener('click', function () { track('directions'); }); links.appendChild(d);
+    if (c.perk) {
+      // Same as the app: a gold star, and the offer itself is for signed-in Concerto members.
+      var ph = card.querySelector('.c-near-photo');
+      var star = document.createElement('button'); star.type = 'button'; star.className = 'c-near-star'; star.setAttribute('aria-label', 'Concerto Perk at ' + c.name); star.innerHTML = '&#9733;';
+      var tip = document.createElement('div'); tip.className = 'c-near-tip'; tip.hidden = true;
+      tip.innerHTML = '<b>Concerto Perk</b><p>This place has an offer for Concerto members.</p><a href="https://apps.apple.com/us/app/concerto-show-go/id6744903414?pt=127753814&ct=website-perk&mt=8" target="_blank" rel="noopener">See it in the app</a>';
+      star.addEventListener('click', function (e) { e.stopPropagation(); tip.hidden = !tip.hidden; if (!tip.hidden) track('perk'); });
+      ph.appendChild(star); ph.appendChild(tip);
     }
-    if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+    if (c.lat != null && c.lng != null) {
+      var city = String(c.address || '').split(',').slice(-2, -1)[0] || '';
+      googleVenuePhoto({ name: c.name, city: city.trim(), lat: c.lat, lng: c.lng, place_id: c.place_id }).then(function (v) { if (v && v.src) showPhoto(card.querySelector('.c-near-photo'), v.src, c.name, v.credit); }).catch(function () {});
+    }
     return card;
   }
   /* Partners without a live Perk: labeled, no offer line, so they never read as a benefit. */
@@ -506,7 +551,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function wirePartnerContent() {
     var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
     var slug = (location.pathname.match(/^\/venue\/([a-z0-9-]+)/) || [])[1]; if (!slug) return;
-    getJSON(FN + '/partner-content?venue=' + encodeURIComponent(slug)).then(function (pc) {
+    var demo = ccDemoKey();
+    getJSON(FN + '/partner-content?venue=' + encodeURIComponent(slug) + (demo ? '&demo=' + encodeURIComponent(demo) : '')).then(function (pc) {
       if (!pc) return;
       if (pc.claimed) { var c = document.createElement('span'); c.className = 'meta-pill'; c.textContent = '✓ Verified by the venue'; host.insertBefore(c, host.firstChild); }
       Object.keys(pc.overrides || {}).forEach(function (key) {
@@ -786,12 +832,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!picked && !name) { preview.hidden = true; return; }
     preview.hidden = false;
     var hotel = el('kind').value === 'hotel';
-    card.innerHTML = '<article class="partner-card"><div class="partner-photo"><span class="fallback-mark">' + esc((name || '?').charAt(0)) +
-      '</span><span class="partner-label">Concerto Partner</span></div><div class="partner-body"><h3>' + esc(name || 'Your name') + '</h3>' +
-      (blurb ? '<p class="partner-blurb">' + esc(blurb) + '</p>' : '') +
-      ((el('perkOffer') && el('perkOffer').value.trim()) ? '<div class="partner-perk"><span>Concerto Perk</span><strong>' + esc(el('perkOffer').value.trim()) + '</strong>' +
-        (el('perkDetails').value.trim() ? '<p>' + esc(el('perkDetails').value.trim()) + '</p>' : '') + '</div>' : '') +
-      '<div class="partner-actions"><span class="partner-btn">' + (hotel ? 'Book' : 'Reserve') + '</span><span class="partner-btn partner-btn-quiet">Directions</span></div></div></article>';
+    // The same Nearby row the app draws: your card first, a gold star when there is an offer,
+    // and the popup fans see when they tap it.
+    var offer = el('perkOffer') ? el('perkOffer').value.trim() : '', details = el('perkDetails') ? el('perkDetails').value.trim() : '';
+    card.innerHTML = '<div class="nb-mock"><p class="nb-title">' + (hotel ? 'Nearby Hotels' : 'Nearby Restaurants') + '</p><div class="nb-row">' +
+      '<div class="nb-card nb-you"><div class="nb-photo"><span class="nb-mark">' + esc((name || '?').charAt(0)) + '</span>' + (offer ? '<span class="nb-star" aria-label="Concerto Perk">&#9733;</span>' : '') + '</div><b>' + esc(name || 'Your name') + '</b><span>Your price · distance</span></div>' +
+      '<div class="nb-card nb-other"><div class="nb-photo"><span class="nb-mark">B</span></div><b>Another place</b><span>Nearby</span></div></div>' +
+      (offer ? '<p class="nb-cap">Tap the star:</p><div class="nb-alert"><b>' + esc(offer) + '</b><p>' + esc(name || 'Your name') + '</p>' + (details ? '<p>' + esc(details) + '</p>' : '<p></p>') +
+        '<div class="nb-alert-actions"><span>Close</span><span>' + (hotel ? 'Book' : 'Reserve') + '</span></div></div>' : '') + '</div>';
   }
   ['name', 'blurb', 'kind', 'perkOffer', 'perkDetails'].forEach(function (n) { if (!el(n)) return; el(n).addEventListener('input', draw); el(n).addEventListener('change', draw); });
   // The redeem field appears only once a Perk is typed.
@@ -963,14 +1011,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function tourDates() {
     var host = document.querySelector('[data-tour-dates]'); if (!host) return;
     var artist = host.getAttribute('data-tour-artist'), slug = host.getAttribute('data-tour');
+    // Shows that aren't concerts are listed under their own name and outside the Music category.
+    var keyword = host.getAttribute('data-tour-keyword') || artist, prefix = host.getAttribute('data-tour-match') === 'prefix';
     var now = new Date(), end = new Date(now.getTime() + 400 * 86400000);
-    var p = new URLSearchParams({ keyword: artist, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    var p = new URLSearchParams({ keyword: keyword, classificationName: 'Music', size: '100', sort: 'date,asc', startDateTime: now.toISOString().split('.')[0] + 'Z', endDateTime: end.toISOString().split('.')[0] + 'Z' });
+    if (host.hasAttribute('data-tour-any')) p.delete('classificationName');
     Promise.all([getJSON(FN + '/tm/events.json?' + p), venueIndex()]).then(function (r) {
-      var d = r[0], m = r[1], want = norm(artist);
+      var d = r[0], m = r[1], want = norm(prefix ? keyword : artist);
       // Only dates where this artist is actually billed: tribute acts and lookalike names stay out.
       var list = (d && d._embedded && d._embedded.events || []).filter(realEvent).filter(function (ev) {
         var at = (ev._embedded && ev._embedded.attractions) || [];
-        return at.some(function (a) { return norm(a.name) === want; });
+        return at.some(function (a) { var n = norm(a.name); return prefix ? n.indexOf(want) === 0 : n === want; });
       });
       var seen = {}; list = list.filter(function (ev) { var v = ev._embedded.venues && ev._embedded.venues[0] || {}; var k = (v.name || '') + (ev.dates && ev.dates.start && ev.dates.start.localDate); if (seen[k]) return false; seen[k] = 1; return true; });
       if (!list.length) return;
@@ -1031,23 +1082,37 @@ document.addEventListener('DOMContentLoaded', function () {
   function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function safe(u) { u = String(u || ''); return /^\/[a-z0-9\-\/#_]*$/i.test(u) || /^https:\/\//.test(u) ? u : ''; }
   function render(r) {
-    var kicker = r.mode === 'ai' ? 'Concerto AI · from Concerto’s guide' : r.mode === 'guide' ? 'From Concerto’s guide' : 'Concerto';
+    var kicker = (r.partners || []).length ? (r.mode === 'ai' ? 'Concerto AI' : 'Concerto') : r.mode === 'ai' ? 'Concerto AI · from Concerto’s guide' : r.mode === 'guide' ? 'From Concerto’s guide' : 'Concerto';
     var src = (r.sources || []).map(function (s) {
       var u = safe(s.url), o = safe(s.official);
       return '<li>' + (u ? '<a href="' + esc(u) + '">' + esc(s.label) + '</a>' : esc(s.label)) + (s.checked ? '<span>Checked ' + esc(s.checked) + '</span>' : '') +
         (o ? '<a class="c-answer-off" href="' + esc(o) + '" target="_blank" rel="noopener">Official source</a>' : '') + '</li>';
     }).join('');
+    var venue = r.entity && r.entity.venue ? r.entity.venue.slug : '';
+    var pts = (r.partners || []).map(function (p, i) {
+      var u = safe(p.url), d = typeof p.miles === 'number' ? (p.miles < 0.1 ? 'Steps away' : p.miles + ' mi away') : '';
+      return '<li class="c-ap"><p class="c-ap-tag">Concerto Partner</p><p class="c-ap-name">' + esc(p.name) + '</p>' +
+        ((d || p.address) ? '<p class="c-ap-meta">' + esc([d, p.address].filter(Boolean).join(' · ')) + '</p>' : '') +
+        (p.perk ? '<p class="c-ap-perk"><span aria-hidden="true">★</span> ' + (p.perk.offer ? esc(p.perk.offer) : 'Concerto Perk in the app') + '</p>' : '') +
+        (u ? '<a class="c-ap-go" data-ap="' + i + '" href="' + esc(u) + '" target="_blank" rel="noopener">' + (p.kind === 'hotel' ? 'Book' : 'Reserve') + '</a>' : '') + '</li>';
+    }).join('');
     out.innerHTML = '<p class="c-answer-kicker">' + kicker + '</p><p class="c-answer-text">' + esc(r.text) + '</p>' +
+      (pts ? '<ul class="c-answer-partners">' + pts + '</ul>' : '') +
       (src ? '<ul class="c-answer-src">' + src + '</ul>' : '') + (r.note ? '<p class="c-answer-note">' + esc(r.note) + '</p>' : '') +
       (r.mode === 'ai' ? '<p class="c-answer-note">Rules can change for a specific show. Check your ticket and the official page before you go.</p>' : '');
     out.hidden = false;
+    (r.partners || []).forEach(function (p) { ga('partner_impression', { venue: venue, partner: p.name, partner_id: p.id, has_perk: p.perk ? 'yes' : 'no', surface: 'web_ask' }); });
+    Array.prototype.forEach.call(out.querySelectorAll('[data-ap]'), function (a) {
+      a.addEventListener('click', function () { var p = r.partners[+a.getAttribute('data-ap')]; ga('partner_tap', { venue: venue, partner: p.name, partner_id: p.id, action: 'reserve', surface: 'web_ask' }); });
+    });
   }
+  function ga(name, params) { if (typeof window.gtag === 'function') { try { window.gtag('event', name, params); } catch (_) {} } }
   var busy = false;
   function ask(q) {
     q = String(q || '').trim(); if (q.length < 3 || busy) return;
     busy = true; ring.classList.add('is-thinking'); btn.disabled = true; btn.textContent = 'Thinking';
     out.hidden = false; out.innerHTML = '<p class="c-answer-kicker">Concerto</p><p class="c-answer-text c-answer-wait">Looking through Concerto’s guides…</p>';
-    fetch('/.netlify/functions/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: q }) })
+    fetch('/.netlify/functions/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ q: q, demo: ccDemoKey() || undefined }) })
       .then(function (r) { if (r.status === 429) return { mode: 'none', text: 'Too many questions at once. Try again in a minute.', sources: [] }; return r.json(); })
       .then(function (r) {
         render(r);
@@ -1059,4 +1124,29 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) { e.preventDefault(); ask(input.value); });
   var p = new URLSearchParams(location.search);
   if (p.get('q') && p.get('ask') === '1') { input.value = p.get('q'); ask(p.get('q')); }
+})();
+
+/* Partner checkout returns to /partners/thank-you?paid=1. The page's default text is for inquiries. */
+(function () {
+  'use strict';
+  if (!/^\/partners[-\/]thank-you/.test(location.pathname)) return;
+  var q = new URLSearchParams(location.search); if (q.get('paid') !== '1') return;
+  var set = function (k, html) { var el = document.querySelector('[data-ty="' + k + '"]'); if (el) el.innerHTML = html; };
+  set('eb', 'You’re a Concerto Partner');
+  set('h', 'Payment received.<br>You’re going live.');
+  set('lead', 'Your listing is live within five minutes. Stripe emails your receipt, and the link in it lets you cancel anytime. To change your listing or your Perk, email <a href="mailto:partners@concertocity.com">partners@concertocity.com</a>.');
+  var venue = (q.get('venue') || '').toLowerCase();
+  var act = document.querySelector('.c-hero .c-actions');
+  if (act && /^[a-z0-9-]{2,120}$/.test(venue)) {
+    var a = document.createElement('a'); a.className = 'c-btn c-btn-navy'; a.href = '/venue/' + venue; a.textContent = 'See your venue page';
+    act.insertBefore(a, act.firstChild);
+  }
+  document.title = 'Payment received | Concerto Partners';
+})();
+
+/* A small label while demo partners are on, so a demo is never mistaken for the live site. */
+(function () {
+  if (!ccDemoKey()) return;
+  var b = document.createElement('a'); b.href = '?demo=off'; b.className = 'cc-demo-badge'; b.textContent = 'Demo partners on · turn off';
+  (document.body || document.documentElement).appendChild(b);
 })();

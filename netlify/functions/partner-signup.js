@@ -67,6 +67,8 @@ exports.handler = async (event) => {
     if (error || !data) return guard.refuse(event, 500, 'Could not save. Try again.', 'POST, OPTIONS');
     id = data.id;
   }
+  // Google place id, so the card's photo comes from the shared cache. Ignored if the column isn't there yet.
+  try { await sb.from('partner_orgs').update({ place_id: String(place.id || b.placeId).slice(0, 256) }).eq('id', id); } catch (_) {}
   if (/^\d{4}$/.test(staffCode)) await sb.from('partner_orgs').update({ redeem_code_hash: hashCode(id, staffCode) }).eq('id', id);
   // Replace any earlier Perk from this signup with the one just entered (or none).
   await sb.from('perks').delete().eq('org_id', id);

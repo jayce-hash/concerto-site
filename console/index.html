@@ -20,7 +20,7 @@
       <label>Business name<input name="name" required placeholder="Pax &amp; Beneficia"></label>
       <label>Email<input type="email" name="email" required placeholder="you@business.com"></label>
       <button class="btn-primary" type="submit">Create a Perk</button>
-      <p class="console-hint">Creating an account does not publish an offer or commit you to a paid placement. We agree on scope and terms before launch.</p>
+      <p class="console-hint">Restaurants and hotels sign up and pay at concertocity.com/partners, and the listing goes live on payment. This console is for venues and for managing an existing listing.</p>
     </form>
   </div>
   <p class="console-status" data-status></p>
@@ -46,7 +46,7 @@
 
 <section data-view="partner" hidden>
   <p class="eyebrow" data-partner-kind></p><h1 data-partner-name></h1>
-  <p class="lead">A Perk appears inside Your Night for fans who saved a show at the venues you choose: before the show, at the venue, your stay, or the ride home. Every Perk is labeled Concerto Partner.</p>
+  <p class="lead">A Perk adds a gold star to your card, first in the Nearby row for your venue. Signed-in fans tap the star to see the offer. Every listing is labeled Concerto Partner.</p>
   <div class="console-tabs"><button data-tab="perks" class="on">Perks</button><button data-tab="report">Report</button></div>
   <div data-pane="perks">
     <form class="console-card" data-form="perk">
@@ -59,7 +59,7 @@
       <label data-tour-field hidden>Tour (artist offers)<select name="tour_slug"><option value="">Choose a tour</option></select></label>
       <div class="console-row"><label>Starts<input type="date" name="starts_on" required></label><label>Ends<input type="date" name="ends_on" required></label></div>
       <button class="btn-primary" type="submit">Submit for review</button>
-      <p class="console-hint">Submitted offers enter review. We confirm the benefit, redemption steps, dates, and placement before publication. A listing alone is not a Perk.</p>
+      <p class="console-hint">Offers added here are checked before they go live. Your listing shows with or without a Perk.</p>
       <p class="console-status" data-perk-status role="status" aria-live="polite"></p>
     </form>
     <div data-perk-list></div>
@@ -68,7 +68,7 @@
 </section>
 
 </main>
-<footer class="console-foot site-shell"><span>Questions: partnerships@concertocity.com</span><a href="/partners">About Concerto Partners</a></footer>
+<footer class="console-foot site-shell"><span>Questions: partners@concertocity.com</span><a href="/partners">About Concerto Partners</a></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="/console/console.js" defer></script>
 </body></html>

@@ -28,6 +28,18 @@ function tierFor(productId) {
 function iso(ms) {
   return Number(ms) > 0 ? new Date(Number(ms)).toISOString() : null;
 }
+// The Show Pass ($4.99, one show) is a one-time purchase. It must never touch the yearly
+// membership; it only records how long the pass lasts, so Concerto AI can honor it.
+function isShowPass(e) {
+  return /show/i.test(String(e.product_id || ''));
+}
+function showPassUntil(e) {
+  const attr = e.subscriber_attributes && e.subscriber_attributes.show_pass_until;
+  const fromApp = attr && Date.parse(attr.value);
+  if (fromApp && fromApp > Date.now()) return new Date(fromApp).toISOString();
+  const bought = Number(e.purchased_at_ms) || Date.now();
+  return new Date(bought + 7 * 86400000).toISOString();
+}
 function premiumEvent(e) {
   // Older/sample events may omit entitlement_ids. When present, never let an
   // unrelated RevenueCat product alter Concerto+.
@@ -47,10 +59,28 @@ exports.handler = async function (event) {
   try { payload = JSON.parse(event.body || '{}').event; }
   catch { return { statusCode: 400, body: 'Bad payload' }; }
   if (!payload || !payload.type) return { statusCode: 400, body: 'Bad payload' };
-  if (!premiumEvent(payload)) return { statusCode: 200, body: 'ignored' };
-
   const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   const type = payload.type;
+
+  if (isShowPass(payload)) {
+    const userId = payload.app_user_id;
+    if (!userId || !UUID.test(userId)) return { statusCode: 200, body: 'ignored' };
+    try {
+      if (type === 'NON_RENEWING_PURCHASE' || type === 'INITIAL_PURCHASE') {
+        const { error } = await supabase.from('show_passes').insert({ user_id: userId, until: showPassUntil(payload), transaction_id: payload.transaction_id || null });
+        if (error) throw error;
+      } else if (type === 'CANCELLATION' && payload.cancel_reason === 'CUSTOMER_SUPPORT') {
+        // A refunded pass ends now.
+        const { error } = await supabase.from('show_passes').update({ until: new Date().toISOString() }).eq('user_id', userId).eq('transaction_id', payload.transaction_id || '');
+        if (error) throw error;
+      }
+      return { statusCode: 200, body: 'ok' };
+    } catch (err) {
+      console.error('revenuecat-webhook show pass error:', err);
+      return { statusCode: 500, body: 'db update failed' };
+    }
+  }
+  if (!premiumEvent(payload)) return { statusCode: 200, body: 'ignored' };
 
   try {
     // A transfer removes entitlement from the old Concerto account and moves it
