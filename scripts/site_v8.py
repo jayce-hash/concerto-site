@@ -94,6 +94,17 @@ def numbers():
     items = [(V_COPY, 'venue guides'), (N_T, 'tours followed'), (N_S, 'setlists live'), (8, 'essentials per venue')]
     return '<section class="c-numbers" data-reveal><div class="c-wrap c-numbers-row">' + ''.join(f'<div><b>{n}</b><span>{e(l)}</span></div>' for n, l in items) + '</div></section>'
 
+# Demand, from Google Search Console (Jul 13 to Oct 12, 2026): about 1,450 search appearances a
+# day in the first week, about 12,050 in the last; average position 10.3 then, 9.0 now. Update
+# these four values when the numbers move; every page that shows the proof reads them from here.
+PROOF_DAY, PROOF_GROWTH, PROOF_POS, PROOF_AS_OF = '12,000', '8×', '9.0', 'October 2026'
+
+def proof_strip():
+    items = [(PROOF_DAY, 'Google search appearances a day'), (PROOF_GROWTH, 'as many as in July'), ('Page one', f'average Google position, {PROOF_POS}')]
+    return ('<section class="c-numbers c-proof" data-reveal><div class="c-wrap"><div class="c-numbers-row">'
+            + ''.join(f'<div><b>{n}</b><span>{e(l)}</span></div>' for n, l in items)
+            + f'</div><p class="c-proof-src">Google Search Console, {PROOF_AS_OF}. Search appearances are times Concerto showed in Google results.</p></div></section>')
+
 def guide_index():
     vs = [VBY[s] for s in FEATURED_VENUES if s in VBY][:12]
     ts = [t for t in TOURS if t['tourId'] in LIVE][:12]
@@ -805,12 +816,17 @@ def about():
     founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
                '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
                '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 600 venues worldwide.</p>'
-               '<p class="c-body">Today you save a show and Concerto builds Your Night around it, with what you need to know about the venue and the tour, and what’s around you in the city. Afterward you get a memory card of your photos, a Passport of every show, and Concerto Wrapped at the end of the year.</p>'
+               '<p class="c-body">Today you save a show and Concerto builds Your Night around it, with what you need to know about the venue and the tour, and what’s around you in the city. You can ask Concerto AI anything about your show. Afterward you get a memory card of your photos, a Passport of every show, and Concerto Wrapped at the end of the year.</p>'
                '<div class="c-actions"><a class="c-link" href="/your-night">See Your Night</a><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
+    asks = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('What fans ask') + '<h2 class="c-h2">The same questions,<br>before every show.</h2></div>'
+            '<div><p class="c-body"><b>What bag can I bring? Where do I park? When do doors open? What will they play? Where should we eat?</b></p>'
+            '<p class="c-body">Fans ask these before every concert, and the answers are usually spread across a venue’s website, a map, a setlist site and a few tabs of restaurants. Concerto answers all of them for the exact venue and tour, on one page, and Concerto AI answers them in a sentence.</p>'
+            '<p class="c-body">Fans are already searching for these answers, and Google is sending them to Concerto. Once a fan knows what they can bring, the next thing they decide is where to eat and where to stay, so the same page answers that too.</p>'
+            '<div class="c-actions"><a class="c-link" href="/search">Ask Concerto a question</a></div></div></div></section>')
     facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{V_COPY} venues worldwide')]
     fx = '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
-    links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/contact">Contact</a></div></section>'
-    return '<main id="main-content" class="c-page">' + h + name_section() + founder + principles() + fx + links + close() + '</main>'
+    links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
+    return '<main id="main-content" class="c-page">' + h + name_section() + founder + asks + proof_strip() + principles() + fx + links + close() + '</main>'
 
 def hub_intro(kicker, h1, lead, placeholder, target, items=None):
     filt = (f'<label class="c-filter"><span class="c-sr">{e(placeholder)}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
@@ -871,10 +887,12 @@ def press_coverage():
 
 def press():
     h = hero('Press and media', 'Concerto, in brief.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
-    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
+    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Partners', 'Restaurants $99 a month, hotels $299 a month'), ('Search reach', f'About {PROOF_DAY} Google search appearances a day ({PROOF_AS_OF})'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
-              '<p class="c-body">An iPhone app and website, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: what to know about the venue and the tour, and what’s around them in the city. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>''<p class="c-body">Concerto+ adds Exit Plan, AI Bag Check, and Plan My Night.</p>'
+              '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>'
+              '<p class="c-body">Concerto is free. Concerto+ adds Exit Plan, AI Bag Check, and Plan My Night. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
+              f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, eight times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
     bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 600+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
@@ -897,10 +915,13 @@ def investors():
     h = hero('Investors', 'The product is built.<br>Next is growth.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it. We welcome people who know live music, hospitality, and consumer products.',
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
-             '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show. The app and website are built.</p>'
-             '<p class="c-body">The app is free. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Exit Plan, AI Bag Check, and Plan My Night.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a></div></div></div></section>')
-    conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Figures, priorities, and terms are discussed directly, not inferred from the website.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
-    return '<main id="main-content" class="c-page">' + h + today + where_help() + conv + close() + '</main>'
+             '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show, with Concerto AI to answer fans’ questions about it. The app and website are built.</p>'
+             '<p class="c-body">Concerto makes money two ways. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Exit Plan, AI Bag Check, and Plan My Night. Concerto Partners lets restaurants and hotels near a venue come first in its Nearby rows, at $99 and $299 a month.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a><a class="c-link" href="/partners">Concerto Partners</a></div></div></div></section>')
+    demand = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The demand') + '<h2 class="c-h2">Fans are already<br>asking these questions.</h2></div><div>'
+              '<p class="c-body">Before a show, fans search for the bag policy, parking, door times and the setlist. Google is sending those searches to Concerto’s venue and tour guides, and Concerto is still new, so it is climbing in the results every month.</p>'
+              '<p class="c-body">The fan reading a venue’s bag policy is planning their night, and the next thing they decide is where to eat and stay. That is where Concerto Partners appear.</p></div></div></section>')
+    conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Financials, priorities, and terms are discussed directly.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
+    return '<main id="main-content" class="c-page">' + h + today + demand + proof_strip() + where_help() + conv + close() + '</main>'
 
 def creators():
     h = hero('Creators', 'Help fans see<br>the whole night.', 'A useful point of view on a concert, a venue, or a city.<br>Music, food, travel, and local creators welcome.',
@@ -934,6 +955,7 @@ def partners_hub():
              'When fans save a show, Concerto shows them restaurants, hotels, and things to do near the venue. Partners come first.',
              '<a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a><a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a>',
              ['Restaurants $99 a month', 'Hotels $299 a month', 'Live in minutes'], 'gold')
+    why = partners_why('restaurants and hotels')
     what = section('white', 'What you get', 'First in the row<br>for your venue.', rows([
         ('First in Nearby Restaurants or Nearby Hotels.', 'Your place leads the row for your venue in the Concerto app, on the venue’s page and in Your Night for every show there. With more than one partner at a venue, the order rotates daily.', ''),
         ('First on the website and in answers.', 'Your place also leads its Nearby row on your venue’s page on concertocity.com, with its photo, and Concerto AI and Plan My Night suggest it first when fans ask where to eat or stay.', ''),
@@ -949,7 +971,18 @@ def partners_hub():
     end = section('white', 'Questions', 'Questions about<br>Concerto Partners?',
                   '<p class="c-body">Email <a href="mailto:partners@concertocity.com">partners@concertocity.com</a>.</p>'
                   '<p class="c-actions"><a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a> <a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a></p>', narrow=True)
-    return '<main id="main-content" class="c-page">' + h + what + how + note + others + end + '</main>'
+    return '<main id="main-content" class="c-page">' + h + why + proof_strip() + what + how + note + others + end + '</main>'
+
+def partners_why(kind='restaurants and hotels'):
+    """Why a partner spot is worth paying for, in the founder's terms: fans find Concerto by looking
+    up their venue, and where to eat and stay is the very next decision. Shared by all partner pages."""
+    nxt = {'restaurants and hotels': 'where to eat and where to stay', 'restaurants': 'where to eat', 'hotels': 'where to stay'}[kind]
+    return ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Why it works') +
+            '<h2 class="c-h2">Fans come for the venue.<br>Then they <span class="no-widow">plan the night.</span></h2></div><div>'
+            '<p class="c-body">Fans find Concerto when they look up their venue before a show: the bag policy, parking, when doors open. Those searches already bring Concerto about '
+            f'{PROOF_DAY} Google search appearances a day, eight times as many as in July.</p>'
+            f'<p class="c-body">Once a fan knows what they can bring, the next thing they decide is {nxt}. The same page answers it, and Concerto Partners come first.</p>'
+            '</div></div></section>')
 
 PARTNER_V2 = {
     'partner-venues': dict(kicker='Venues', h1='Work with Concerto<br>on your venue guide.',
@@ -1133,7 +1166,7 @@ def build():
     rewrite('contact.html', contact_page(form_of('contact.html')))
     rewrite('near-me.html', near_me()); rewrite('search.html', search_page())
     rewrite('help.html', doc_page(legacy['help.html'], 'Help Center', 'Answers, in plain terms.', 'How Concerto works, in the order you’ll use it: find a show, save it, use Your Night, after the show, and Concerto+ when you want more.'))
-    rewrite('faq.html', doc_page(legacy['faq.html'], 'FAQ', 'Questions, answered.', 'What Concerto is, what stays free, what Your Night is, and what Concerto+ adds.'))
+    rewrite('faq.html', doc_page(legacy['faq.html'], 'FAQ', 'Questions, answered.', 'What Concerto is, what stays free, how Your Night and Concerto AI work, what Concerto+ adds, and how Concerto Partners works.'))
     rewrite('privacy.html', doc_page(legacy['privacy.html'], 'Legal', 'Privacy Policy.', 'What we collect, why, and the controls you have over it.', 'white', True))
     rewrite('terms.html', doc_page(legacy['terms.html'], 'Legal', 'Terms of Service.', 'The rules for using Concerto, in plain sections.', 'white', True))
     # Hand-built in Oct 2026 (paid-partner welcome after Stripe checkout): copied in as written.

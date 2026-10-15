@@ -13,7 +13,7 @@
 //      the data does not cover the question. It never answers from general knowledge.
 //
 // Cost controls (all in Netlify Blobs, store "concerto-ask"):
-//   - Per visitor per day: 3 AI answers signed out, 5 signed in, 30 with Concerto+.
+//   - Per visitor per day: 3 AI answers free (signed out or in), 30 with Concerto+.
 //   - Whole site per day and per month: ASK_DAILY_CAP (default 100), ASK_MONTHLY_CAP (default
 //     1500). Over any cap, the guide answer is still given; only the AI step is skipped.
 //   - Identical questions about the same venue or tour reuse a saved AI answer for 14 days.
@@ -34,7 +34,7 @@ const TOURS = require('../../data/tours.json');
 const SETS = require('../../setlists.json');
 
 const MODEL = 'claude-haiku-4-5-20251001';
-const LIMITS = { anon: 3, member: 5, plus: 30 };
+const LIMITS = { anon: 3, member: 3, plus: 30 };
 const DAILY_CAP = Number(process.env.ASK_DAILY_CAP || 100);
 const MONTHLY_CAP = Number(process.env.ASK_MONTHLY_CAP || 1500);
 const CACHE_DAYS = 14;
