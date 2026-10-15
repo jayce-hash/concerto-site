@@ -2296,3 +2296,16 @@ h1,h2{font-weight:700}
 .v8 .cx-hero-text .cx-sub{font-size:19px;margin-top:10px}
 .v8 .cx .cx-h1{font-size:clamp(36px,3.6vw,52px)}
 .v8 a.cc-demo-badge,.cc-demo-badge{color:#E5C365!important;background:#121E36!important}
+
+/* Partners lead their Nearby row: the photo card, a gold edge, and the Concerto Partner label. */
+.v8 .cx-scroll .c-near-card.cx-partner{flex:0 0 260px;scroll-snap-align:start;border:1.5px solid var(--gold);box-shadow:0 8px 24px rgba(201,168,76,.18)}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-photo{height:132px}
+.v8 .cx-scroll .c-near-card.cx-partner .c-near-body h3{font-family:var(--display);font-weight:500;font-size:18px}
+.v8 .cx-scroll{align-items:flex-start}
+@media (max-width:640px){.v8 .cx-scroll .c-near-card.cx-partner{flex-basis:240px}}
+
+/* Icons match the app: gold Ionicons on their own, no tinted tile behind them. */
+.v8 .cx-ic,.v8 .cx-tile-ic,.v8 .mn-ic{background:transparent!important;width:24px!important;height:24px!important;border-radius:0!important;color:var(--gold)!important}
+.v8 .cx-place .cx-ic{width:26px!important;height:26px!important}
+.v8 .cx-ver .cx-icon{width:12px;height:12px}
+.v8 .mn-row[aria-current="page"] .mn-ic{background:transparent!important;color:var(--gold)!important}

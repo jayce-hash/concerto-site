@@ -573,9 +573,20 @@ document.addEventListener('DOMContentLoaded', function () {
         sp.textContent = [st.doors ? 'Doors ' + fmt(st.doors) : null, st.headliner ? 'Headliner ' + fmt(st.headliner) : null].filter(Boolean).join(' · ') + ' · set by the venue';
         host.appendChild(sp);
       }
+      if (document.querySelector('[data-nearby]')) {
+        // Venue pages: partners go first in their own Nearby row (see Around the venue).
+        publishPartners({ restaurant: rotateDaily(byId(partnerCards(pc.perks || [], pc.partners || [], 'restaurant')), slug + ':restaurants'),
+                          hotel: rotateDaily(byId(partnerCards(pc.perks || [], pc.partners || [], 'hotel')), slug + ':hotels') });
+        return;
+      }
       if ((pc.perks && pc.perks.length) || (pc.partners && pc.partners.length)) renderVenuePerks(pc.perks || [], slug, host.getAttribute('data-name') || 'this venue', pc.partners || []);
-    }).catch(function () {});
+    }).catch(function () { publishPartners({ restaurant: [], hotel: [] }); });
   }
+  function publishPartners(v) {
+    window.ccVenuePartners = v;
+    try { document.dispatchEvent(new CustomEvent('cc:partners')); } catch (_) {}
+  }
+  window.ccNearCard = nearCard;
   /* Tonight at this venue: upcoming shows + forecast on venue pages, same functions the app calls */
   function wireVenueTonight() {
     var host = document.querySelector('[data-venue-tonight]'); if (!host) return;
@@ -1156,17 +1167,14 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 /* Around the venue: the app's Nearby rows on venue pages, from Concerto's own nearby data
-   (/data/nearby/<venue>.json, a static file, so no lookups and no cost per view). No photos.
-   Concerto Partners are already at the top of the page, so they aren't repeated here. */
+   (/data/nearby/<venue>.json, a static file, so no lookups and no cost per view). No photos,
+   except Concerto Partners: they lead their row with their photo, like in the app. */
 (function () {
   'use strict';
   var host = document.querySelector('[data-nearby]'); if (!host) return;
   var slug = host.getAttribute('data-nearby');
-  var IC = {
-    restaurants: '<path d="M7 3v7.5a2.2 2.2 0 0 0 2.2 2.2V21M11.4 3v7.5a2.2 2.2 0 0 1-2.2 2.2M9.2 3v6"/><path d="M17 21V3c-2.3 1.7-3 4.3-3 7.5h3"/>',
-    hotels: '<path d="M3 19V6"/><path d="M3 14.5h18V19"/><path d="M21 14.5v-3a3 3 0 0 0-3-3h-7.5v6"/><circle cx="6.8" cy="11.2" r="1.9"/>',
-    more: '<path d="M12 3.5l2 5.6 5.8.4-4.5 3.7 1.5 5.7L12 15.7l-4.8 3.2 1.5-5.7-4.5-3.7 5.8-.4z"/>'
-  };
+  // The app's icons (Ionicons): restaurant, bed, sparkles.
+  var IC = { restaurants: "<path d=\"M357.57 223.94a79.48 79.48 0 0056.58-23.44l77-76.95c6.09-6.09 6.65-16 .85-22.39a16 16 0 00-23.17-.56l-68.63 68.58a12.29 12.29 0 01-17.37 0c-4.79-4.78-4.53-12.86.25-17.64l68.33-68.33a16 16 0 00-.56-23.16A15.62 15.62 0 00440.27 56a16.71 16.71 0 00-11.81 4.9l-68.27 68.26a12.29 12.29 0 01-17.37 0c-4.78-4.78-4.53-12.86.25-17.64l68.33-68.31a16 16 0 00-.56-23.16A15.62 15.62 0 00400.26 16a16.73 16.73 0 00-11.81 4.9L311.5 97.85a79.49 79.49 0 00-23.44 56.59v8.23a16 16 0 01-4.69 11.33l-35.61 35.62a4 4 0 01-5.66 0L68.82 36.33a16 16 0 00-22.58-.06C31.09 51.28 23 72.47 23 97.54c-.1 41.4 21.66 89 56.79 124.08l85.45 85.45A64.79 64.79 0 00211 326a64 64 0 0016.21-2.08 16.24 16.24 0 014.07-.53 15.93 15.93 0 0110.83 4.25l11.39 10.52a16.12 16.12 0 014.6 11.23v5.54a47.73 47.73 0 0013.77 33.65l90.05 91.57.09.1a53.29 53.29 0 0075.36-75.37L302.39 269.9a4 4 0 010-5.66L338 228.63a16 16 0 0111.32-4.69z\"/><path d=\"M211 358a97.32 97.32 0 01-68.36-28.25l-13.86-13.86a8 8 0 00-11.3 0l-85 84.56c-15.15 15.15-20.56 37.45-13.06 59.29a30.63 30.63 0 001.49 3.6C31 484 50.58 496 72 496a55.68 55.68 0 0039.64-16.44L225 365.66a4.69 4.69 0 001.32-3.72v-.26a4.63 4.63 0 00-5.15-4.27A97.09 97.09 0 01211 358z\"/>", hotels: "<path d=\"M432 230.7a79.44 79.44 0 00-32-6.7H112a79.51 79.51 0 00-32 6.69A80.09 80.09 0 0032 304v112a16 16 0 0032 0v-8a8.1 8.1 0 018-8h368a8.1 8.1 0 018 8v8a16 16 0 0032 0V304a80.09 80.09 0 00-48-73.3zM376 80H136a56 56 0 00-56 56v72a4 4 0 005.11 3.84A95.5 95.5 0 01112 208h4.23a4 4 0 004-3.55A32 32 0 01152 176h56a32 32 0 0131.8 28.45 4 4 0 004 3.55h24.46a4 4 0 004-3.55A32 32 0 01304 176h56a32 32 0 0131.8 28.45 4 4 0 004 3.55h4.2a95.51 95.51 0 0126.89 3.85A4 4 0 00432 208v-72a56 56 0 00-56-56z\"/>", more: "<path d=\"M208 512a24.84 24.84 0 01-23.34-16l-39.84-103.6a16.06 16.06 0 00-9.19-9.19L32 343.34a25 25 0 010-46.68l103.6-39.84a16.06 16.06 0 009.19-9.19L184.66 144a25 25 0 0146.68 0l39.84 103.6a16.06 16.06 0 009.19 9.19l103 39.63a25.49 25.49 0 0116.63 24.1 24.82 24.82 0 01-16 22.82l-103.6 39.84a16.06 16.06 0 00-9.19 9.19L231.34 496A24.84 24.84 0 01208 512zm66.85-254.84zM88 176a14.67 14.67 0 01-13.69-9.4l-16.86-43.84a7.28 7.28 0 00-4.21-4.21L9.4 101.69a14.67 14.67 0 010-27.38l43.84-16.86a7.31 7.31 0 004.21-4.21L74.16 9.79A15 15 0 0186.23.11a14.67 14.67 0 0115.46 9.29l16.86 43.84a7.31 7.31 0 004.21 4.21l43.84 16.86a14.67 14.67 0 010 27.38l-43.84 16.86a7.28 7.28 0 00-4.21 4.21l-16.86 43.84A14.67 14.67 0 0188 176zM400 256a16 16 0 01-14.93-10.26l-22.84-59.37a8 8 0 00-4.6-4.6l-59.37-22.84a16 16 0 010-29.86l59.37-22.84a8 8 0 004.6-4.6l22.67-58.95a16.45 16.45 0 0113.17-10.57 16 16 0 0116.86 10.15l22.84 59.37a8 8 0 004.6 4.6l59.37 22.84a16 16 0 010 29.86l-59.37 22.84a8 8 0 00-4.6 4.6l-22.84 59.37A16 16 0 01400 256z\"/>" };
   var ROWS = [['restaurants', 'Nearby Restaurants'], ['hotels', 'Nearby Hotels'], ['more', 'Nearby Things to Do']];
   var SKIP = ['convenience_store', 'gas_station', 'grocery_store', 'pharmacy', 'drugstore', 'atm', 'bank', 'car_repair', 'parking', 'storage'];
   var RENTAL = /apartment|studio|bedroom|\bapt\b|\d\s?-?(bd|bdr|br)\b|penthouse|condo|airbnb|luxurious|vacation/i;
@@ -1180,15 +1188,26 @@ document.addEventListener('DOMContentLoaded', function () {
     restaurant: 'Restaurant', food: 'Food' };
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function kindOf(types) { for (var i = 0; i < (types || []).length; i++) if (LABEL[types[i]]) return LABEL[types[i]]; return ''; }
-  function svg(k) { return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + IC[k] + '</svg>'; }
-  function partnerNames() { var out = {}; [].forEach.call(document.querySelectorAll('.c-near-card h3'), function (h) { out[h.textContent.trim().toLowerCase()] = 1; }); return out; }
-  fetch('/data/nearby/' + encodeURIComponent(slug) + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+  function svg(k) { return '<svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">' + IC[k] + '</svg>'; }
+  // Concerto Partners for this venue, published by the partner script; never wait more than 3s.
+  var partnersReady = new Promise(function (resolve) {
+    if (window.ccVenuePartners) return resolve(window.ccVenuePartners);
+    var done = function () { resolve(window.ccVenuePartners || { restaurant: [], hotel: [] }); };
+    document.addEventListener('cc:partners', done, { once: true });
+    setTimeout(done, 3000);
+  });
+  var nearbyData = fetch('/data/nearby/' + encodeURIComponent(slug) + '.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; });
+  var vh = document.querySelector('[data-venue-tonight]');
+  var vlat = vh && parseFloat(vh.getAttribute('data-lat')), vlng = vh && parseFloat(vh.getAttribute('data-lng'));
+  Promise.all([nearbyData, partnersReady]).then(function (res) {
+    var d = res[0] || { tabs: {} }, P = res[1] || {};
     var rows = host.querySelector('.cx-rows'), any = false;
-    // Wait a moment for the partner row, so a partner isn't shown twice.
-    setTimeout(function () {
-      var taken = partnerNames();
+    (function () {
+      var lead = { restaurants: P.restaurant || [], hotels: P.hotel || [], more: [] };
+      var taken = {};
+      lead.restaurants.concat(lead.hotels).forEach(function (c) { taken[c.name.trim().toLowerCase()] = 1; });
       ROWS.forEach(function (rw) {
-        var tab = d && d.tabs && d.tabs[rw[0]]; if (!tab) return;
+        var tab = (d.tabs && d.tabs[rw[0]]) || { items: [] };
         var seen = {};
         var list = (tab.items || []).filter(function (i) {
           var n = (i.name || '').trim().toLowerCase();
@@ -1197,10 +1216,17 @@ document.addEventListener('DOMContentLoaded', function () {
           if (rw[0] === 'hotels' && RENTAL.test(i.name)) return false;
           return i.distance_mi == null || i.distance_mi <= 3;
         }).slice(0, 14);
-        if (!list.length) return; any = true;
+        var partners = lead[rw[0]] || [];
+        if (!list.length && !partners.length) return; any = true;
         var wrap = document.createElement('div');
         wrap.innerHTML = '<div class="cx-row-head"><h3>' + esc(rw[1]) + '</h3><div class="cx-row-arrows"><button type="button" aria-label="Previous">&#8249;</button><button type="button" aria-label="Next">&#8250;</button></div></div><div class="cx-scroll" role="list"></div>';
         var sc = wrap.querySelector('.cx-scroll');
+        // Partners first: the same card as the app, with their photo, and the gold star when they have a Perk.
+        partners.forEach(function (c, i) {
+          if (typeof window.ccNearCard !== 'function') return;
+          var card = window.ccNearCard(c, slug, vlat, vlng); card.classList.add('cx-partner'); sc.appendChild(card);
+          if (typeof window.gtag === 'function') { try { window.gtag('event', 'partner_impression', { venue: slug, partner: c.name, partner_id: c.id, has_perk: c.perk ? 'yes' : 'no', surface: 'web_venue_' + c.kind, position: String(i + 1) }); } catch (_) {} }
+        });
         list.forEach(function (i) {
           var a = document.createElement('a'); a.className = 'cx-place'; a.setAttribute('role', 'listitem'); a.target = '_blank'; a.rel = 'noopener';
           a.href = ccMapsUrl(i.name + ' ' + (i.address || ''), i.lat, i.lng, true);
@@ -1216,6 +1242,6 @@ document.addEventListener('DOMContentLoaded', function () {
         rows.appendChild(wrap); setTimeout(upd, 0); window.addEventListener('resize', upd);
       });
       if (any) host.hidden = false;
-    }, 600);
+    })();
   }).catch(function () {});
 })();

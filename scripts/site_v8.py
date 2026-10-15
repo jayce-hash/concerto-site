@@ -298,32 +298,20 @@ def directions_link(v):
 # The website's venue and tour pages share the app's look: a photo card, a serif title, pill
 # buttons, chips that jump down the page, and white rounded cards with an icon, a title and the
 # date each section was checked. App-only features stay in the app.
-_IC = {
-    'bag': '<path d="M5.5 8.5h13l-1.2 11.5H6.7z"/><path d="M9 8.5V6.8a3 3 0 0 1 6 0v1.7"/>',
-    'door': '<path d="M4 20.5h16"/><path d="M6.5 20.5V3.5h8.5v17"/><path d="M15 5.5l3.5 1v14"/><circle cx="12.2" cy="12.3" r=".9" fill="currentColor" stroke="none"/>',
-    'parking': '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3.2a2.7 2.7 0 0 1 0 5.4H10"/>',
-    'car': '<path d="M4.5 12.5l1.8-5.2A2 2 0 0 1 8.2 6h7.6a2 2 0 0 1 1.9 1.3l1.8 5.2"/><rect x="3.5" y="12.5" width="17" height="5.5" rx="1.8"/><path d="M6.5 18v2M17.5 18v2"/><circle cx="7.6" cy="15.2" r=".9" fill="currentColor" stroke="none"/><circle cx="16.4" cy="15.2" r=".9" fill="currentColor" stroke="none"/>',
-    'access': '<circle cx="12" cy="4.6" r="1.7"/><path d="M5 8.4l7 1.1 7-1.1"/><path d="M12 9.5v4.6l-3.4 6.4M12 14.1l3.4 6.4"/>',
-    'food': '<path d="M7 3v7.5a2.2 2.2 0 0 0 2.2 2.2V21M11.4 3v7.5a2.2 2.2 0 0 1-2.2 2.2M9.2 3v6"/><path d="M17 21V3c-2.3 1.7-3 4.3-3 7.5h3"/>',
-    'reentry': '<path d="M4.5 11a7.5 7.5 0 0 1 13-4.6"/><path d="M18 3v4h-4"/><path d="M19.5 13a7.5 7.5 0 0 1-13 4.6"/><path d="M6 21v-4h4"/>',
-    'ticket': '<path d="M3.5 7.5h17V10a2 2 0 0 0 0 4v2.5h-17V14a2 2 0 0 0 0-4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.6 1.8"/>',
-    'shield': '<path d="M12 3l7 2.8V11c0 4.4-3 7.8-7 9.5-4-1.7-7-5.1-7-9.5V5.8z"/><path d="M9 11.8l2.1 2.1 4-4"/>',
-    'chev': '<path d="M6.5 9.5l5.5 5.5 5.5-5.5"/>',
-    'nav': '<path d="M20.5 3.5l-7.6 17-2.1-6.8-6.8-2.1z"/>',
-    'globe': '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.4 5.3 3.4 8.5s-1 6.1-3.4 8.5c-2.4-2.4-3.4-5.3-3.4-8.5s1-6.1 3.4-8.5z"/>',
-    'music': '<path d="M9 18V5.5l11-2v12.5"/><circle cx="6.5" cy="18" r="2.6"/><circle cx="17.5" cy="16" r="2.6"/>',
-    'bell': '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.8 1.8H4.2z"/><path d="M10 21h4"/>',
-    'users': '<circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/>',
-    'info': '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".9" fill="currentColor" stroke="none"/>',
-    'pin': '<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
-    'cal': '<rect x="4" y="5.5" width="16" height="15" rx="3"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
-}
+# The app's own icons: Ionicons (through @expo/vector-icons), gold, no background tile.
+from app_icons import IONICONS, MDI_STADIUM
+_ALIAS = {'shield': 'shield-checkmark', 'chev': 'chevron-down', 'pin': 'location', 'music': 'musical-notes',
+          'users': 'person-outline', 'info': 'information-circle-outline', 'nav': 'navigate', 'globe': 'globe-outline',
+          'bell': 'ticket', 'mic': 'mic', 'stadium': 'stadium'}
 def icon(name, size=20):
-    return (f'<svg class="cx-icon" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
-            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_IC[name]}</svg>')
+    name = _ALIAS.get(name, name)
+    if name == 'stadium':
+        return (f'<svg class="cx-icon" width="{size}" height="{size}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{MDI_STADIUM}"/></svg>')
+    return (f'<svg class="cx-icon" width="{size}" height="{size}" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">{IONICONS[name]}</svg>')
 
-SECTION_ICON = {'bagPolicy': 'bag', 'gates': 'door', 'parking': 'parking', 'rideshare': 'car', 'accessibility': 'access',
-                'concessions': 'food', 'reEntry': 'reentry', 'ticketPickup': 'ticket'}
+# Same icon for each section as the app's venue screen (app/venue/[slug].tsx).
+SECTION_ICON = {'bagPolicy': 'bag-check', 'gates': 'enter', 'parking': 'car', 'rideshare': 'car-sport', 'accessibility': 'accessibility',
+                'concessions': 'restaurant', 'reEntry': 'repeat', 'ticketPickup': 'ticket'}
 
 def cx_chips(items):
     return '<nav class="cx-chips" aria-label="On this page">' + ''.join(f'<a href="#{a}">{e(l)}</a>' for a, l in items) + '</nav>'
@@ -634,7 +622,7 @@ def tour_page(t):
     _until = HOLIDAY_TOURS.get(t['tourId'])
     _on = bool(_until) and _dt.date.today().isoformat() <= _until
     kicker = '✦ Holiday concert season' if _on else 'Tour guide'
-    more_html = ''.join(f'<a class="cx-tile" href="/tour/{x["tourId"]}"><span class="cx-tile-ic">{icon("music", 18)}</span><span><b>{e(x["artist"])}</b><small>{e(x["tourName"])}</small></span></a>' for x in more)
+    more_html = ''.join(f'<a class="cx-tile" href="/tour/{x["tourId"]}"><span class="cx-tile-ic">{icon("mic", 18)}</span><span><b>{e(x["artist"])}</b><small>{e(x["tourName"])}</small></span></a>' for x in more)
     if more: chips.append(('more', 'Also on the road'))
     close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
                   else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
@@ -941,7 +929,7 @@ STEPS = [('Step one', 'Tell us the fit.', 'Share your business, audience, locati
 
 def partners_hub():
     """Concerto Partners: a restaurant or hotel leads the Nearby row for its venue in the app,
-    shows near the top of the venue page online, and is suggested first by Concerto AI and Plan My Night.
+    leads the same row on the venue page online, and is suggested first by Concerto AI and Plan My Night.
     An optional Perk adds a gold star; tapping it shows the offer. Venues by conversation."""
     h = hero('Concerto Partners', 'Reach concert fans<br>near your venue.',
              'When fans save a show, Concerto shows them restaurants, hotels, and things to do near the venue. Partners come first.',
@@ -949,7 +937,7 @@ def partners_hub():
              ['Restaurants $99 a month', 'Hotels $299 a month', 'Live in minutes'], 'gold')
     what = section('white', 'What you get', 'First in the row<br>for your venue.', rows([
         ('First in Nearby Restaurants or Nearby Hotels.', 'Your place leads the row for your venue in the Concerto app, on the venue’s page and in Your Night for every show there. With more than one partner at a venue, the order rotates daily.', ''),
-        ('First on the website and in answers.', 'Your place appears near the top of your venue’s page on concertocity.com, and Concerto AI and Plan My Night suggest it first when fans ask where to eat or stay.', ''),
+        ('First on the website and in answers.', 'Your place also leads its Nearby row on your venue’s page on concertocity.com, with its photo, and Concerto AI and Plan My Night suggest it first when fans ask where to eat or stay.', ''),
         ('The same card as every place around you.', 'Your photo from your Google listing, your price, and your distance from the venue. Tapping it opens directions.', ''),
         ('An optional Perk.', 'Add an offer, like a free dessert on show nights. A gold star appears on your card, and signed-in fans tap it to see the offer.', '')]))
     how = section('cream', 'How it works', 'Three steps.', rows([

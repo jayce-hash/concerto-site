@@ -69,28 +69,21 @@ def is_active(href, path):
 
 
 # The phone menu, in the app's style: two white cards of rows, each with an icon and a chevron.
-_MN_IC = {
-    'night': '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
-    'pin': '<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
-    'music': '<path d="M9 18V5.5l11-2v12.5"/><circle cx="6.5" cy="18" r="2.6"/><circle cx="17.5" cy="16" r="2.6"/>',
-    'near': '<path d="M20.5 3.5l-7.6 17-2.1-6.8-6.8-2.1z"/>',
-    'list': '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1" fill="currentColor" stroke="none"/>',
-    'plus': '<path d="M12 3.5l2 5.6 5.8.4-4.5 3.7 1.5 5.7L12 15.7l-4.8 3.2 1.5-5.7-4.5-3.7 5.8-.4z"/>',
-    'search': '<circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5"/>',
-    'help': '<circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.5v.4"/><circle cx="12" cy="16.8" r=".9" fill="currentColor" stroke="none"/>',
-    'info': '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".9" fill="currentColor" stroke="none"/>',
-}
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.dirname(__file__))
+from app_icons import IONICONS as _IO, MDI_STADIUM as _STADIUM
 MOBILE_MENU = [
-    [('Your Night', '/your-night', 'night'), ('Venues', '/venues', 'pin'), ('Tours', '/tours', 'music'), ('Near Me', '/near-me', 'near'), ('Setlists', '/setlists', 'list')],
-    [('Concerto+', '/premium', 'plus'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help'), ('About', '/about', 'info')],
+    # Same icons as the app's tab bar: ticket, stadium, mic, navigate.
+    [('Your Night', '/your-night', 'ticket'), ('Venues', '/venues', 'stadium'), ('Tours', '/tours', 'mic'), ('Near Me', '/near-me', 'navigate'), ('Setlists', '/setlists', 'musical-notes')],
+    [('Concerto+', '/premium', 'sparkles'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help-circle-outline'), ('About', '/about', 'information-circle-outline')],
 ]
 def mobile_menu(path='/'):
     def row(label, href, ic):
         cur = ' aria-current="page"' if is_active(href, path) else ''
-        svg = (f'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
-               f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{_MN_IC[ic]}</svg>')
+        svg = (f'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{_STADIUM}"/></svg>' if ic == 'stadium'
+               else f'<svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">{_IO[ic]}</svg>')
         return (f'<a class="mn-row" href="{href}"{cur}><span class="mn-ic">{svg}</span><span class="mn-label">{_e(label)}</span>'
-                '<svg class="mn-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>')
+                f'<svg class="mn-chev" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">{_IO["chevron-forward"]}</svg></a>')
     return ''.join('<div class="mn-group">' + ''.join(row(*r) for r in g) + '</div>' for g in MOBILE_MENU)
 
 def header_html(path='/'):
