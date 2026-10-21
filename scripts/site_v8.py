@@ -56,13 +56,13 @@ def first_sentence(t, n=190):
 # ---------------- shared blocks ----------------
 def store_button(ct, label='Download on the App Store', tone='black'):
     # Both official badges, unmodified. Apple's: black on light backgrounds, white on dark.
-    # Google's comes in one version (black with its own outline). Same visible height, clear space
-    # around each. The Google file has transparent padding built in; .c-store-play trims it in CSS.
+    # Google's comes in one version (black with its own outline), from Google's Partner Marketing Hub.
+    # Same height, clear space around each.
     return ('<span class="c-stores">'
             f'<a class="c-store" href="{STORE(ct)}" target="_blank" rel="noopener" aria-label="Download Concerto on the App Store">'
             f'<img src="/img/badges/app-store-{tone}.svg" alt="Download on the App Store" width="160" height="53" loading="eager"></a>'
             f'<a class="c-store c-store-play" href="{PLAY_STORE(ct)}" target="_blank" rel="noopener" aria-label="Get Concerto on Google Play">'
-            '<img src="/img/badges/google-play.png" alt="Get it on Google Play" width="646" height="250" loading="eager"></a>'
+            '<img src="/img/badges/google-play.svg" alt="Get it on Google Play" width="180" height="53" loading="eager"></a>'
             '</span>')
 
 def close(title='See you at the show.', ct='website-close', fine='Free on iPhone and Android.'):
@@ -135,7 +135,7 @@ def problem_section():
             'One page. Every answer sourced and dated.</p></div></section>')
 
 def home():
-    hero = (f'<section class="c-hero"><div class="c-wrap c-hero-grid"><div class="c-hero-copy">{eyebrow("The concert-night companion")}'
+    hero = (f'<section class="c-hero"><div class="c-wrap c-hero-grid"><div class="c-hero-copy">{eyebrow("Your Concert Companion")}'
             '<h1>From the Concert<br>to the City</h1>'
             '<p class="c-lead">The venue’s rules. The setlist. The timing. The way home. One page per show.</p>'
             f'<div class="c-actions">{store_button("website-home")}<a class="c-link c-link-light" href="#what">What Concerto does</a></div></div>'
@@ -719,7 +719,7 @@ def ask_bar(home=False):
             f'<p class="c-ask-hint">{hint}</p></form>')
 
 def home():
-    h = hero('The concert-night companion', 'From the Concert<br>to the City',
+    h = hero('Your Concert Companion', 'From the Concert<br>to the City',
              'Save a show and Concerto does the rest. Find everything about your venue, the city around it, and so much more.',
              ask_bar(home=True) + store_button('website-home') + '<a class="c-link" href="#how">How it works</a>',
              [f'{V_COPY} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone and Android'], 'cream', 'c-hero-home')

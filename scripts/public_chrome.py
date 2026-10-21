@@ -139,7 +139,8 @@ def footer_html():
         # attributing event data with a link back. Neither partner's logo is used, because
         # neither is a partner: logos would imply an endorsement Concerto does not have.
         '<div class="ftr-attrib"><span>Event information from <a href="https://www.ticketmaster.com" rel="noopener nofollow" target="_blank">Ticketmaster</a>.</span>'
-        '<span>Venue places and photos powered by Google.</span></div>'
+        '<span>Venue places and photos powered by Google.</span>'
+        '<span>Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc. Google Play, the Google Play logo and Android are trademarks of Google LLC.</span></div>'
         '<div class="ftr-base"><span>© 2026 Concerto LLC. Independent from artists, venues, teams, and promoters.</span>'
         '<span class="ftr-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a>'
         '<a href="https://instagram.com/theconcertoapp" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@theconcertoapp" rel="noopener">TikTok</a><a href="https://www.youtube.com/@theconcertoapp" rel="noopener">YouTube</a></span></div>'

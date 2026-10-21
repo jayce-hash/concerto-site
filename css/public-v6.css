@@ -2410,8 +2410,5 @@ h1,h2{font-weight:700}
 .v8 .c-actions .c-stores{margin-right:14px}
 .v8 .c-actions .c-stores .c-store{margin-right:0}
 .v8 .c-close .c-stores{justify-content:center}
-/* Google's badge file carries ~16% transparent padding on every side; trim it so the visible
-   badge matches Apple's 54px (48px on phones). */
-.v8 .c-store-play{overflow:hidden;border-radius:8px}
-.v8 .c-store-play img{height:80px;width:auto;margin:-13px}
-@media (max-width:560px){.v8 .c-store-play img{height:72px;margin:-12px}.v8 .c-stores{gap:10px}}
+/* Google's badge (official SVG, no padding) sits at the same height as Apple's: 54px, 48px on phones. */
+@media (max-width:560px){.v8 .c-stores{gap:10px}}
