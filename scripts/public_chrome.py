@@ -18,6 +18,14 @@ _APP_BASE = 'https://apps.apple.com/us/app/concerto-show-go/id6744903414'
 _PT = '127753814'
 APP = f'{_APP_BASE}?pt={_PT}&ct=website-default&mt=8'
 SITE = 'https://concertocity.com'
+# Google Play (live Oct 21, 2026). On Android, js/public-v6.js sends every App Store link here,
+# carrying the same campaign name in the install referrer.
+PLAY_ID = 'com.v8ef92dbd0a8.www'
+PLAY = f'https://play.google.com/store/apps/details?id={PLAY_ID}'
+
+
+def play_link_campaign(ct):
+    return f'{PLAY}&referrer=utm_source%3Dconcertocity%26utm_campaign%3D{ct}'
 
 
 def app_link_campaign(ct):
@@ -105,7 +113,7 @@ def header_html(path='/'):
         '<button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span class="menu-bar"></span><span class="menu-bar"></span></button>'
         '</div></div>'
         f'<nav class="mobile-nav" id="site-menu" aria-label="Menu" hidden><div class="mn">{mobile_menu(path)}'
-        f'<a class="mn-cta" href="{app_link_campaign("website-menu")}" target="_blank" rel="noopener">Download Concerto</a><p class="mn-fine">Free on iPhone</p></div></nav>'
+        f'<a class="mn-cta" href="{app_link_campaign("website-menu")}" target="_blank" rel="noopener">Download Concerto</a><p class="mn-fine">Free on iPhone and Android</p></div></nav>'
         '</header>'
         f'{HEADER_END}'
     )

@@ -2404,3 +2404,14 @@ h1,h2{font-weight:700}
 .v8 .cx-shots figcaption{margin-top:14px;font-size:15px;font-weight:600;color:var(--navy)}
 .v8 .cx-shots-note{margin:24px 0 0;font-size:14px;color:#5A6478}
 @media (max-width:640px){.v8 .cx-shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:28px -20px 0;padding:0 20px 8px;scroll-padding-left:20px}.v8 .cx-shots figure{flex:0 0 72%;scroll-snap-align:start}}
+
+/* Store badges: App Store and Google Play side by side, same visible height (Oct 2026). */
+.v8 .c-stores{display:inline-flex;flex-wrap:wrap;align-items:center;gap:12px;vertical-align:middle}
+.v8 .c-actions .c-stores{margin-right:14px}
+.v8 .c-actions .c-stores .c-store{margin-right:0}
+.v8 .c-close .c-stores{justify-content:center}
+/* Google's badge file carries ~16% transparent padding on every side; trim it so the visible
+   badge matches Apple's 54px (48px on phones). */
+.v8 .c-store-play{overflow:hidden;border-radius:8px}
+.v8 .c-store-play img{height:80px;width:auto;margin:-13px}
+@media (max-width:560px){.v8 .c-store-play img{height:72px;margin:-12px}.v8 .c-stores{gap:10px}}

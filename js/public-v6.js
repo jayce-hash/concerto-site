@@ -14,6 +14,41 @@
     } catch (_) {}
   };
 })();
+
+/* iPhone and iPad: show only the App Store badge. */
+(function () {
+  if (!/iPhone|iPad|iPod/.test((typeof navigator !== 'undefined' && navigator.userAgent) || '')) return;
+  function hide() { document.querySelectorAll('.c-stores .c-store-play').forEach(function (a) { a.style.display = 'none'; }); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hide); else hide();
+})();
+/* Android: every App Store link goes to Google Play instead, keeping its campaign name (ct) as the
+   Play install referrer. Static links are rewritten on load; links built later (show cards, Perk
+   popups, "Open in Concerto") are caught on tap, before any other click handler runs. The paired
+   badges skip the App Store badge on Android and keep only Google Play. */
+(function () {
+  if (!/Android/i.test((typeof navigator !== 'undefined' && navigator.userAgent) || '')) return;
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.v8ef92dbd0a8.www';
+  function playFor(href) {
+    var ct = (String(href).match(/[?&]ct=([^&]+)/) || [])[1] || 'website-default';
+    return PLAY + '&referrer=' + encodeURIComponent('utm_source=concertocity&utm_campaign=' + decodeURIComponent(ct));
+  }
+  window.ccPlayFor = playFor;
+  function rewrite(root) {
+    (root || document).querySelectorAll('a[href*="apps.apple.com"]').forEach(function (a) {
+      if (a.closest('.c-stores')) { a.style.display = 'none'; return; }
+      a.setAttribute('href', playFor(a.getAttribute('href')));
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { rewrite(); });
+  else rewrite();
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="apps.apple.com"]') : null;
+    if (!a) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (typeof window.gtag === 'function') { try { window.gtag('event', 'app_store_tap', { store: 'google_play', campaign: (a.getAttribute('href').match(/[?&]ct=([^&]+)/) || [])[1] || '', page_path: location.pathname, transport_type: 'beacon' }); } catch (_) {} }
+    window.open(playFor(a.getAttribute('href')), a.target === '_blank' ? '_blank' : '_self', 'noopener');
+  }, true);
+})();
 /* Maps: Apple Maps first on Apple devices (iPhone, iPad, Mac), Google Maps everywhere else. */
 var CC_APPLE = /iPhone|iPad|iPod|Macintosh/.test((typeof navigator !== 'undefined' && navigator.userAgent) || '');
 /* Demo partners (private): ?demo=<key> on any page turns them on for this visit; ?demo=off ends it. */
@@ -951,7 +986,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return p === '/' ? 'home' : p.replace(/^\//, '').replace(/\.html$/, '') || 'home';
   }
   document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest ? e.target.closest('a[href*="apps.apple.com"], a[data-app-link]') : null;
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="apps.apple.com"], a[href*="play.google.com"], a[data-app-link]') : null;
     if (!a || typeof window.gtag !== 'function') return;
     var href = a.getAttribute('href') || '', ct = (href.match(/[?&]ct=([^&]+)/) || [])[1] || '';
     try {

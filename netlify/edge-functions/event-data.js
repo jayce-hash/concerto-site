@@ -53,7 +53,9 @@ function toSchema(ev, pageUrl) {
   Object.keys(address).forEach((k) => address[k] === undefined && delete address[k]);
   const out = {
     '@context': 'https://schema.org', '@type': 'MusicEvent', name: ev.name, startDate,
-    eventStatus: ev.dates?.status?.code === 'rescheduled' ? 'https://schema.org/EventRescheduled' : 'https://schema.org/EventScheduled',
+    // Google requires previousStartDate with EventRescheduled, and Ticketmaster never gives the
+    // old date. startDate is already the new date, so Scheduled is accurate.
+    eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: { '@type': 'Place', name: v.name, address },
     url: pageUrl,

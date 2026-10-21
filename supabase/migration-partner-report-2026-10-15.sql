@@ -12,6 +12,10 @@
 -- The app writes these directly; the website sends them through netlify/functions/track.js.
 -- Older app builds named the partner id `perk_id` on Your Night events; both are read.
 
+-- Devices left out of every report (Jayce's own test phone, etc.).
+create table if not exists public.report_excluded_devices (device_id text primary key);
+alter table public.report_excluded_devices enable row level security;
+
 create index if not exists analytics_events_partner_idx
   on public.analytics_events ((coalesce(props->>'partner_id', props->>'perk_id')), created_at)
   where event in ('partner_impression', 'partner_tap', 'perks_opened');
@@ -42,6 +46,7 @@ as $$
     where event in ('partner_impression', 'partner_tap', 'perks_opened')
       and created_at >= date_trunc('month', p_month)
       and created_at <  date_trunc('month', p_month) + interval '1 month'
+      and device_id not in (select device_id from public.report_excluded_devices)
   )
   select pid,
          max(name),

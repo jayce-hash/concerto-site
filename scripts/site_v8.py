@@ -9,7 +9,7 @@ sells with a point of view, real photography of real venues, and the guide itsel
 """
 import html, json, re
 from pathlib import Path
-from public_chrome import header_html, footer_html, app_link, app_link_campaign, HEADER_START, FOOTER_START, FOOTER_END
+from public_chrome import header_html, footer_html, app_link, app_link_campaign, play_link_campaign, HEADER_START, FOOTER_START, FOOTER_END
 from venue_glance import glance as venue_glance
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -30,6 +30,7 @@ PHOTOS = [('kia-forum', 'Kia-Forum'), ('bridgestone-arena', 'Bridgestone-Arena')
 FEATURED_VENUES = ['american-airlines-center', 'madison-square-garden', 'kia-forum', 'red-rocks-amphitheatre', 'sphere', 'bridgestone-arena',
                    'td-garden', 'united-center', 'moody-center', 'chase-center', 'the-o2', 'sofi-stadium']
 STORE = lambda ct: app_link_campaign(ct)
+PLAY_STORE = lambda ct: play_link_campaign(ct)
 # 37 venues store "USA" and 18 store "UK"; Ticketmaster only understands ISO codes, so tonight's
 # lookup on those pages returned nothing. Normalize at the point of use.
 ISO = {'USA': 'US', 'UK': 'GB'}
@@ -54,16 +55,21 @@ def first_sentence(t, n=190):
 
 # ---------------- shared blocks ----------------
 def store_button(ct, label='Download on the App Store', tone='black'):
-    # Apple's official badge, unmodified, per the App Store marketing guidelines: black on light
-    # backgrounds, white on dark. Never recolored, never below 40px tall, with clear space around it.
-    return (f'<a class="c-store" href="{STORE(ct)}" target="_blank" rel="noopener" aria-label="Download Concerto on the App Store">'
-            f'<img src="/img/badges/app-store-{tone}.svg" alt="Download on the App Store" width="160" height="53" loading="eager"></a>')
+    # Both official badges, unmodified. Apple's: black on light backgrounds, white on dark.
+    # Google's comes in one version (black with its own outline). Same visible height, clear space
+    # around each. The Google file has transparent padding built in; .c-store-play trims it in CSS.
+    return ('<span class="c-stores">'
+            f'<a class="c-store" href="{STORE(ct)}" target="_blank" rel="noopener" aria-label="Download Concerto on the App Store">'
+            f'<img src="/img/badges/app-store-{tone}.svg" alt="Download on the App Store" width="160" height="53" loading="eager"></a>'
+            f'<a class="c-store c-store-play" href="{PLAY_STORE(ct)}" target="_blank" rel="noopener" aria-label="Get Concerto on Google Play">'
+            '<img src="/img/badges/google-play.png" alt="Get it on Google Play" width="646" height="250" loading="eager"></a>'
+            '</span>')
 
-def close(title='See you at the show.', ct='website-close', fine='Free on iPhone. Concerto+ available in the app.'):
-    return (f'<section class="c-close" data-reveal><div class="c-wrap">'
+def close(title='See you at the show.', ct='website-close', fine='Free on iPhone and Android.'):
+    return (f'<section class="c-close" id="download" data-reveal><div class="c-wrap">'
             '<img class="c-appicon" src="/img/app-icon-256.png" width="96" height="96" alt="Concerto app icon" loading="lazy">'
             f'<h2>{title}</h2><div class="c-close-row">{store_button(ct, tone="white")}'
-            '<img class="c-qr" src="/img/appstore-qr.png" width="104" height="104" alt="QR code: Concerto on the App Store" loading="lazy"></div>'
+            '<img class="c-qr" src="/img/download-qr.png" width="104" height="104" alt="QR code: download Concerto for iPhone or Android" loading="lazy"></div>'
             f'<p class="c-fine">{e(fine)}</p></div></section>')
 
 def eyebrow(t): return f'<p class="c-eyebrow">{e(t)}</p>'
@@ -135,7 +141,7 @@ def home():
             f'<div class="c-actions">{store_button("website-home")}<a class="c-link c-link-light" href="#what">What Concerto does</a></div></div>'
             '<figure class="c-hero-photo"><img src="/img/cityguides/kia-forum/Kia-Forum.webp" alt="The Kia Forum, Inglewood, California" width="1042" height="731" fetchpriority="high">'
             '<figcaption>The Kia Forum, Inglewood</figcaption></figure></div>'
-            f'<div class="c-wrap c-hero-strip"><span>{N_V} venue guides</span><span>{N_T} tours</span><span>{N_S} setlists</span><span>Free on iPhone</span></div></section>')
+            f'<div class="c-wrap c-hero-strip"><span>{N_V} venue guides</span><span>{N_T} tours</span><span>{N_S} setlists</span><span>Free on iPhone and Android</span></div></section>')
     rows = [('Know the venue.', f'Bag policy, entrances, parking, rideshare, and accessibility for {N_V} venues, each researched from official sources and dated.', '/venues', f'Browse {N_V} venue guides'),
             ('Know the music.', f'Tour dates and setlists for {N_T} tours, labeled by where they came from, so you can learn the songs before doors.', '/tours', 'Browse tours and setlists'),
             ('Know the night.', 'One saved show. One page, from the first reminder to the ride home.', '/your-night', 'How Your Night works')]
@@ -179,7 +185,7 @@ def premium():
             + close('Start with the app.', 'website-premium') + '</main>')
 
 def about():
-    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{N_V} venues, {N_T} tours')]
+    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone and Android'), ('Coverage', f'{N_V} venues, {N_T} tours')]
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type"><div class="c-wrap c-narrow">{eyebrow("About Concerto")}<h1>The ticket is the start<br>of the night.</h1><p class="c-lead">The practical details around a concert, in one place.<br>Less piecing it together. More of the show.</p></div></section>'
             + name_section() +
@@ -401,7 +407,7 @@ def venue_page(v):
             + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue. Places from Google.</p></div><div class="cx-rows"></div></div></section>'
             + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
             + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
-            + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {v["name"]}, with Your Night one tap away. Free on iPhone.') + '</main>')
+            + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {v["name"]}, with Your Night one tap away. Free on iPhone and Android.') + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
 
@@ -635,8 +641,8 @@ def tour_page(t):
     kicker = '✦ Holiday concert season' if _on else 'Tour guide'
     more_html = ''.join(f'<a class="cx-tile" href="/tour/{x["tourId"]}"><span class="cx-tile-ic">{icon("mic", 18)}</span><span><b>{e(x["artist"])}</b><small>{e(x["tourName"])}</small></span></a>' for x in more)
     if more: chips.append(('more', 'Also on the road'))
-    close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone.' if sh
-                  else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone.')
+    close_fine = ('Save your date in Concerto. The cast, the venue guide, and a show-day reminder stay with your show. Free on iPhone and Android.' if sh
+                  else 'Save your date in Concerto. The setlist, the venue’s rules, and a show-day reminder stay with your show. Free on iPhone and Android.')
     return ('<main id="main-content" class="c-page cx">'
             # Same header as every other page: label, artist, tour, with a small photo on the right. No jump links.
             + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/tours">Tours</a><span>/</span>{e(t["artist"])}</nav>'
@@ -654,7 +660,7 @@ def setlist_page(slug, s):
             f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}. Setlists change by night.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
             + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div></div></section>'
             f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
-            + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone.') + '</main>')
+            + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone and Android.') + '</main>')
 
 def topic_page(key, kicker, h1, lead):
     rows = ''
@@ -716,7 +722,7 @@ def home():
     h = hero('The concert-night companion', 'From the Concert<br>to the City',
              'Save a show and Concerto does the rest. Find everything about your venue, the city around it, and so much more.',
              ask_bar(home=True) + store_button('website-home') + '<a class="c-link" href="#how">How it works</a>',
-             [f'{V_COPY} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone'], 'cream', 'c-hero-home')
+             [f'{V_COPY} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone and Android'], 'cream', 'c-hero-home')
     what = section('white', 'What Concerto does', 'Three things, done carefully.', rows([
         ('Know the venue.', e(f'Guides for {V_COPY} venues worldwide, from official sources and dated, so you know what to expect before you get there.'), '<a class="c-link" href="/venues">Browse venue guides</a>'),
         ('Know the tour.', e(f'Dates and setlists for {N_T} tours, so you know the songs before the lights go down.'), '<a class="c-link" href="/tours">Browse tours and setlists</a>'),
@@ -804,15 +810,15 @@ def premium():
              '<p class="c-body">Each Concerto+ feature sits in the tab where you need it. Exit Plan is in After. AI Bag Check is in Arrive. Plan My Night is in Before.</p>'
              '<p class="c-body">Before you join, each one shows as a gold row that tells you what it does. Once you’re a member, the same row shows your answer.</p></div></div></section>')
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +
-               '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase.</p></div>'
+               '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
                f'<div class="c-prices"><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div></div></div></section>')
     free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, your memory card, and your Passport.<br>Never behind Concerto+.</p>', narrow=True)
     return ('<main id="main-content" class="c-page">' + h + section('white', 'What is included', 'Five things that make the night easier.', feats) + where + pricing + free
-            + close('Start with Your Night.', 'website-premium', 'Free on iPhone. Concerto+ is in the app.') + '</main>')
+            + close('Start with Your Night.', 'website-premium', 'Free on iPhone and Android. Concerto+ is on iPhone.') + '</main>')
 
 def about():
     h = hero('About Concerto', 'The concert-night<br>companion.', 'Concerto makes concert nights easier, with what you need to know about the venue, the tour, and the city around it.',
-             '', ['Founded 2025', 'Concerto LLC', 'Concerto for iPhone'], 'navy')
+             '', ['Founded 2025', 'Concerto LLC', 'Concerto for iPhone and Android'], 'navy')
     founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
                '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
                '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 600 venues worldwide.</p>'
@@ -823,7 +829,7 @@ def about():
             '<p class="c-body">Fans ask these before every concert, and the answers are usually spread across a venue’s website, a map, a setlist site and a few tabs of restaurants. Concerto answers all of them for the exact venue and tour, on one page, and Concerto AI answers them in a sentence.</p>'
             '<p class="c-body">Fans are already searching for these answers, and Google is sending them to Concerto. Once a fan knows what they can bring, the next thing they decide is where to eat and where to stay, so the same page answers that too.</p>'
             '<div class="c-actions"><a class="c-link" href="/search">Ask Concerto a question</a></div></div></div></section>')
-    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone'), ('Coverage', f'{V_COPY} venues worldwide')]
+    facts = [('Founded', 'March 2025'), ('Company', 'Concerto LLC'), ('Product', 'Concerto for iPhone and Android'), ('Coverage', f'{V_COPY} venues worldwide')]
     fx = '<section class="c-numbers" data-reveal><div class="c-wrap c-facts">' + ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in facts) + '</div></section>'
     links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
     return '<main id="main-content" class="c-page">' + h + founder + asks + proof_strip() + principles() + fx + links + close() + '</main>'
@@ -886,11 +892,11 @@ def press_coverage():
     return section('white', 'In the news', 'Concerto in the press.', f'<ul class="c-press-list">{rows_html}</ul>')
 
 def press():
-    h = hero('Press and media', 'Concerto, in brief.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'Concerto for iPhone and the web'], 'cream')
-    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Partners', 'Restaurants $99 a month, hotels $299 a month'), ('Search reach', f'About {PROOF_DAY} Google search appearances a day ({PROOF_AS_OF})'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
+    h = hero('Press and media', 'Concerto, in brief.', 'Concerto makes concert nights easier, with what fans need to know about the venue, the tour, and the city around it.', '<a class="c-btn c-btn-navy" href="/contact?topic=media">Media inquiry</a>', ['Founded 2025', 'iPhone, Android and the web'], 'cream')
+    facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone and Android, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Partners', 'Restaurants $99 a month, hotels $299 a month'), ('Search reach', f'About {PROOF_DAY} Google search appearances a day ({PROOF_AS_OF})'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
-              '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>'
+              '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone, Android and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>'
               '<p class="c-body">Concerto is free. Concerto+ adds Exit Plan, AI Bag Check, and Plan My Night. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
               f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, eight times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
@@ -1127,11 +1133,11 @@ def build():
     legacy = {f: (ROOT / f).read_text() for f in ['help.html', 'faq.html', 'privacy.html', 'terms.html', 'contact.html', 'partner-venues.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-artists.html']}
     form_of = lambda f: re.search(r'<form.*?</form>', legacy[f], re.S).group(0)
     rewrite('index.html', home()); rewrite('your-night.html', your_night()); rewrite('premium.html', premium());
-    set_head('your-night.html', 'Your Night | Your Whole Show on One Page | Concerto', 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and a memory card of your photos afterward. Free on iPhone.')
+    set_head('your-night.html', 'Your Night | Your Whole Show on One Page | Concerto', 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and a memory card of your photos afterward. Free on iPhone and Android.')
     set_head('premium.html', 'Concerto+ | Exit Plan, AI Bag Check, and Plan My Night', 'Concerto+ adds Exit Plan, AI Bag Check, Plan My Night, and more Concerto AI to Your Night. $29.99 a year, or a $4.99 Show Pass for one show.',
              [{'@type': 'Offer', 'price': '29.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Yearly'},
               {'@type': 'Offer', 'price': '4.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Show Pass'}])
-    set_head('index.html', 'Concerto | Your Concert Night, on One Page', 'Concerto makes concert nights easier: guides to 600+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone.')
+    set_head('index.html', 'Concerto | Your Concert Night, on One Page', 'Concerto makes concert nights easier: guides to 600+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone and Android.')
     rewrite('about.html', about())
     rewrite('venues.html', venues_hub()); rewrite('tours.html', tours_hub()); rewrite('setlists.html', setlists_hub()); rewrite('bagcheck.html', bagcheck())
     rewrite('bags.html', topic_page('bagPolicy', 'Bag policies', 'Concert bag policies,<br>venue by venue.', f'The bag rule at {N_V} venues, from each venue’s published policy, dated.'))
@@ -1144,7 +1150,7 @@ def build():
         ('parking.html', 'Concert Parking by Venue: Lots, Garages & Tips | Concerto', f'Where to park for a concert at {V_COPY} venues worldwide: official lots, garages, and routes, from each venue’s own sources.'),
         ('rideshare.html', 'Uber & Lyft Pickup at Concert Venues | Concerto', f'Rideshare drop-off and pickup spots for concerts at {V_COPY} venues worldwide, from each venue’s official guidance.'),
         ('concessions.html', 'Food & Drink at Concert Venues | Concerto', f'What food and drinks are inside {V_COPY} concert venues worldwide, and how to pay, from official sources.'),
-        ('near-me.html', 'Concerts Near Me This Week | Concerto', 'Concerts near you this week, with a guide to every venue: what to bring, parking, and places to eat nearby. Free on iPhone.'),
+        ('near-me.html', 'Concerts Near Me This Week | Concerto', 'Concerts near you this week, with a guide to every venue: what to bring, parking, and places to eat nearby. Free on iPhone and Android.'),
         ('bagcheck.html', 'AI Bag Check: Will My Bag Be Allowed? | Concerto', 'Take a photo of your bag and Concerto checks it against the venue’s published bag policy before you leave. Part of Concerto+.'),
         ('tours.html', 'Concert Tours: Dates & Setlists | Concerto', f'{N_T} concert tours with dates, the setlist each tour has been playing, and a guide to every venue.'),
         ('setlists.html', 'Concert Setlists by Tour | Concerto', f'Setlists for {N_S} current concert tours, labeled by source, so you know the songs before the show.'),
