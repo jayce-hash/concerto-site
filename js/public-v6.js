@@ -41,6 +41,32 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { rewrite(); });
   else rewrite();
+  // "Open in Concerto" on Android: open the app if it's installed, otherwise Google Play.
+  // Chrome's intent:// link does both in one tap, with no app setup needed.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[data-app-link]') : null;
+    if (!a) return;
+    var deep = String(a.getAttribute('data-app-link') || '');
+    var m = deep.match(/^concerto:\/\/(.+)$/); if (!m) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    var fallback = playFor(a.getAttribute('href') || '');
+    location.href = 'intent://' + m[1] + '#Intent;scheme=concerto;package=com.v8ef92dbd0a8.www;S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end';
+  }, true);
+  // A small Google Play bar at the top of the page, like the App Store banner iPhones get.
+  // Dismissed for 30 days with the close button.
+  function banner() {
+    var KEY = 'cc.playbar.closed', now = Date.now();
+    try { var t = +localStorage.getItem(KEY); if (t && now - t < 30 * 86400000) return; } catch (_) {}
+    if (/^\/(download|app)\b/.test(location.pathname) || document.querySelector('.cc-playbar')) return;
+    var bar = document.createElement('div'); bar.className = 'cc-playbar'; bar.setAttribute('role', 'region'); bar.setAttribute('aria-label', 'Get the Concerto app');
+    bar.innerHTML = '<button class="cc-playbar-x" type="button" aria-label="Close">\u00d7</button>' +
+      '<img src="/img/app-icon-256.png" width="40" height="40" alt="">' +
+      '<span class="cc-playbar-t"><b>Concerto</b><small>Free on Google Play</small></span>' +
+      '<a class="cc-playbar-get" href="' + playFor('?ct=website-android-bar') + '" rel="noopener">Get</a>';
+    document.body.insertBefore(bar, document.body.firstChild);
+    bar.querySelector('.cc-playbar-x').addEventListener('click', function () { bar.remove(); try { localStorage.setItem(KEY, String(Date.now())); } catch (_) {} });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', banner); else banner();
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href*="apps.apple.com"]') : null;
     if (!a) return;

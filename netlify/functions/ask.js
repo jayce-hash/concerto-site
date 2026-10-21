@@ -444,7 +444,12 @@ exports.handler = async (event) => {
   try { body = event.httpMethod === 'POST' ? JSON.parse(event.body || '{}') : (event.queryStringParameters || {}); } catch (e) { body = {}; }
   const question = String(body.q || '').slice(0, 200).trim();
   const headers = { ...corsHeaders(event, methods), 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
-  const reply = (o) => ({ statusCode: 200, headers, body: JSON.stringify(o) });
+  // Every question is logged anonymously (no account, no IP, no device id): the words, what it was
+  // about, and how it was answered. It shows what fans actually want to know. Demo traffic is skipped.
+  const reply = async (o) => {
+    if (!body.demo) await logQuestion(event, question, o, body).catch(() => {});
+    return { statusCode: 200, headers, body: JSON.stringify(o) };
+  };
   if (question.length < 3) return reply({ mode: 'none', text: 'Ask about a venue or a tour, like "Can I bring a backpack to Madison Square Garden?"', sources: [] });
 
   const q = plain(question);
@@ -552,6 +557,23 @@ exports.handler = async (event) => {
     return reply({ mode: 'guide', entity, ...fallback() });
   }
 };
+
+async function logQuestion(event, question, o, body) {
+  if (!question || question.length < 3 || !process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) return;
+  const origin = String((event.headers || {}).origin || (event.headers || {}).Origin || '');
+  const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+  const e = o.entity || {};
+  const insert = sb.from('ai_questions').insert({
+    question: question.slice(0, 200),
+    venue_slug: (e.venue && e.venue.slug) || null,
+    tour_slug: (e.tour && e.tour.slug) || null,
+    mode: o.mode || null,
+    limited: o.limited || null,
+    surface: /concertocity\.com/.test(origin) ? 'web' : 'app',
+  });
+  // Never let logging slow an answer down by more than a moment.
+  await Promise.race([insert, new Promise((r) => setTimeout(r, 800))]);
+}
 
 // Exposed for tests (scripts/test-ask.js).
 exports._test = { plain, findVenue, findTour, topicsIn, TOPICS, TOUR_TOPICS, venueGuideAnswer, tourGuideAnswer, contextFor, SYSTEM, nearbyKind, nearbyAnswer, partnerOut };

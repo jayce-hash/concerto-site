@@ -2412,3 +2412,19 @@ h1,h2{font-weight:700}
 .v8 .c-close .c-stores{justify-content:center}
 /* Google's badge (official SVG, no padding) sits at the same height as Apple's: 54px, 48px on phones. */
 @media (max-width:560px){.v8 .c-stores{gap:10px}}
+
+/* Venue pages: the save prompt right after Venue info (Oct 2026). */
+.v8 .cx-save{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:24px;border-radius:20px;background:var(--navy,#121E36);color:#fff}
+.v8 .cx-save-h{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:22px;line-height:1.25;margin:0 0 8px}
+.v8 .cx-save-b{font-size:15px;line-height:1.5;color:rgba(255,255,255,.78);margin:0;max-width:520px}
+.v8 .cx-save .c-stores{flex-shrink:0}
+@media (max-width:720px){.v8 .cx-save{flex-direction:column;align-items:flex-start;padding:20px}.v8 .cx-save-h{font-size:20px}}
+
+/* Android: Google Play bar at the top of the page (iPhones get Apple's Smart App Banner instead). */
+.cc-playbar{display:flex;align-items:center;gap:12px;padding:10px 16px 10px 8px;background:#F8F9F9;border-bottom:1px solid rgba(18,30,54,.1);font-family:'DM Sans',Arial,sans-serif;color:#121E36}
+.cc-playbar img{width:40px;height:40px;border-radius:10px;flex-shrink:0}
+.cc-playbar-x{border:0;background:none;font-size:22px;line-height:1;color:#5A6478;padding:4px 6px;cursor:pointer}
+.cc-playbar-t{display:flex;flex-direction:column;min-width:0;flex:1}
+.cc-playbar-t b{font-size:15px;font-weight:700}
+.cc-playbar-t small{font-size:12px;color:#5A6478;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-playbar-get{background:#121E36;color:#fff !important;font-weight:700;font-size:14px;padding:8px 18px;border-radius:999px;text-decoration:none}
