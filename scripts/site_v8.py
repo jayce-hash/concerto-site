@@ -1106,6 +1106,11 @@ def write_app_data():
     per.mkdir(exist_ok=True)
     for vid, rec in INFO.items():
         (per / f'{vid}.json').write_text(json.dumps(rec, separators=(',', ':'), ensure_ascii=False) + '\n')
+    # Older app versions may still open a merged venue by its old slug; give them the current record.
+    renames = ROOT / 'data' / 'venue_renames.json'
+    for old_id, new_id in (json.loads(renames.read_text()).items() if renames.exists() else []):
+        if new_id in INFO:
+            (per / f'{old_id}.json').write_text(json.dumps(INFO[new_id], separators=(',', ':'), ensure_ascii=False) + '\n')
     kb = (out / 'venue_verified.json').stat().st_size // 1024
     print(f'app data: venue_verified.json ({kb} KB) and {len(INFO)} per-venue files')
 

@@ -230,16 +230,6 @@
     "guideUrl": "/cityguide/altria-theater"
   },
   {
-    "id": "amalie-arena",
-    "name": "Amalie Arena",
-    "city": "Tampa",
-    "state": "FL",
-    "country": "US",
-    "lat": 27.9428,
-    "lng": -82.451,
-    "guideUrl": "/cityguide/amaliearena"
-  },
-  {
     "id": "amerant-bank-arena",
     "name": "Amerant Bank Arena",
     "city": "Sunrise",
@@ -588,7 +578,10 @@
     "country": "US",
     "lat": 27.9429,
     "lng": -82.4514,
-    "guideUrl": "/cityguide/benchmarkinternationalarena"
+    "guideUrl": "/cityguide/benchmarkinternationalarena",
+    "aliases": [
+      "Amalie Arena"
+    ]
   },
   {
     "id": "bethel-woods-center-for-the-arts",
@@ -2090,7 +2083,10 @@
     "country": "US",
     "lat": 35.9554,
     "lng": -83.9249,
-    "guideUrl": "/cityguide/foodcitycenter"
+    "guideUrl": "/cityguide/foodcitycenter",
+    "aliases": [
+      "Thompson-Boling Arena at Food City Center"
+    ]
   },
   {
     "id": "ford-field",
@@ -2361,7 +2357,10 @@
     "country": "US",
     "lat": 44.9489,
     "lng": -93.1003,
-    "guideUrl": "/cityguide/grandcasinoarena"
+    "guideUrl": "/cityguide/grandcasinoarena",
+    "aliases": [
+      "Xcel Energy Center"
+    ]
   },
   {
     "id": "grand-ole-opry-house",
@@ -3729,7 +3728,11 @@
     "country": "US",
     "lat": 33.4459,
     "lng": -112.0712,
-    "guideUrl": "/cityguide/mortgagematchupcenter"
+    "guideUrl": "/cityguide/mortgagematchupcenter",
+    "aliases": [
+      "PHX Arena",
+      "Footprint Center"
+    ]
   },
   {
     "id": "motorpoint-arena-nottingham",
@@ -4367,16 +4370,6 @@
     "guideUrl": "/cityguide/peterseneventscenter"
   },
   {
-    "id": "phx-arena",
-    "name": "PHX Arena",
-    "city": "Phoenix",
-    "state": "AZ",
-    "country": "US",
-    "lat": 33.4457,
-    "lng": -112.0712,
-    "guideUrl": "/cityguide/phxarena"
-  },
-  {
     "id": "pine-knob-music-theatre",
     "name": "Pine Knob Music Theatre",
     "city": "Clarkston",
@@ -4651,22 +4644,15 @@
   {
     "id": "rocket-arena",
     "name": "Rocket Arena",
-    "city": "Huntington",
-    "state": "WV",
-    "country": "US",
-    "lat": 38.4192,
-    "lng": -82.4452,
-    "guideUrl": "/cityguide/rocketarena"
-  },
-  {
-    "id": "rocket-mortgage-fieldhouse",
-    "name": "Rocket Mortgage FieldHouse",
     "city": "Cleveland",
     "state": "OH",
     "country": "US",
     "lat": 41.4965,
     "lng": -81.6882,
-    "guideUrl": "/cityguide/rocketmortgagefieldhouse"
+    "guideUrl": "/cityguide/rocketarena",
+    "aliases": [
+      "Rocket Mortgage FieldHouse"
+    ]
   },
   {
     "id": "rogers-arena",
@@ -6005,16 +5991,6 @@
     "guideUrl": "/cityguide/theater-of-the-clouds"
   },
   {
-    "id": "thompson-boling-arena",
-    "name": "Thompson-Boling Arena at Food City Center",
-    "city": "Knoxville",
-    "state": "TN",
-    "country": "US",
-    "lat": 35.951111,
-    "lng": -83.924972,
-    "guideUrl": "/cityguide/thompson-boling-arena"
-  },
-  {
     "id": "thunder-ridge-nature-arena",
     "name": "Thunder Ridge Nature Arena",
     "city": "Ridgedale",
@@ -6645,16 +6621,6 @@
     "lat": 41.9484,
     "lng": -87.6553,
     "guideUrl": "/cityguide/wrigleyfield"
-  },
-  {
-    "id": "xcel-energy-center",
-    "name": "Xcel Energy Center",
-    "city": "St. Paul",
-    "state": "MN",
-    "country": "US",
-    "lat": 44.9442,
-    "lng": -93.1017,
-    "guideUrl": "/cityguide/xcelenergycenter"
   },
   {
     "id": "xfinity-center",

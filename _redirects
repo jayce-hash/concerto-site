@@ -9,6 +9,20 @@
 /setlists   /setlists.html   200
 /setlists/  /setlists.html   200
 
+# ── BEGIN renamed venues ──
+# One page per building: an old or duplicate name 301s to the current one.
+/venue/amalie-arena /venue/benchmark-international-arena 301!
+/venue/amalie-arena.html /venue/benchmark-international-arena 301!
+/venue/xcel-energy-center /venue/grand-casino-arena 301!
+/venue/xcel-energy-center.html /venue/grand-casino-arena 301!
+/venue/phx-arena /venue/mortgage-matchup-center 301!
+/venue/phx-arena.html /venue/mortgage-matchup-center 301!
+/venue/thompson-boling-arena /venue/food-city-center 301!
+/venue/thompson-boling-arena.html /venue/food-city-center 301!
+/venue/rocket-mortgage-fieldhouse /venue/rocket-arena 301!
+/venue/rocket-mortgage-fieldhouse.html /venue/rocket-arena 301!
+# ── END renamed venues ──
+
 # ── BEGIN generated: .html -> canonical (scripts/build-redirects.py) ──
 /index.html / 301!
 /about.html /about 301!
@@ -60,7 +74,6 @@
 /venue/allianz-arena.html /venue/allianz-arena 301!
 /venue/allstate-arena.html /venue/allstate-arena 301!
 /venue/altria-theater.html /venue/altria-theater 301!
-/venue/amalie-arena.html /venue/amalie-arena 301!
 /venue/amerant-bank-arena.html /venue/amerant-bank-arena 301!
 /venue/american-airlines-center.html /venue/american-airlines-center 301!
 /venue/american-family-field.html /venue/american-family-field 301!
@@ -471,7 +484,6 @@
 /venue/petco-park.html /venue/petco-park 301!
 /venue/pete-maravich-assembly-center.html /venue/pete-maravich-assembly-center 301!
 /venue/petersen-events-center.html /venue/petersen-events-center 301!
-/venue/phx-arena.html /venue/phx-arena 301!
 /venue/pine-knob-music-theatre.html /venue/pine-knob-music-theatre 301!
 /venue/pinnacle-bank-arena.html /venue/pinnacle-bank-arena 301!
 /venue/pitchfork-music-festival.html /venue/pitchfork-music-festival 301!
@@ -500,7 +512,6 @@
 /venue/riyadh-air-metropolitano.html /venue/riyadh-air-metropolitano 301!
 /venue/roadrunner.html /venue/roadrunner 301!
 /venue/rocket-arena.html /venue/rocket-arena 301!
-/venue/rocket-mortgage-fieldhouse.html /venue/rocket-mortgage-fieldhouse 301!
 /venue/rogers-arena.html /venue/rogers-arena 301!
 /venue/rogers-centre.html /venue/rogers-centre 301!
 /venue/rogers-place.html /venue/rogers-place 301!
@@ -634,7 +645,6 @@
 /venue/the-warfield.html /venue/the-warfield 301!
 /venue/the-wiltern.html /venue/the-wiltern 301!
 /venue/theater-of-the-clouds.html /venue/theater-of-the-clouds 301!
-/venue/thompson-boling-arena.html /venue/thompson-boling-arena 301!
 /venue/thunder-ridge-nature-arena.html /venue/thunder-ridge-nature-arena 301!
 /venue/tiger-stadium.html /venue/tiger-stadium 301!
 /venue/tipitina-s.html /venue/tipitina-s 301!
@@ -698,7 +708,6 @@
 /venue/winstar-lucas-oil-live.html /venue/winstar-lucas-oil-live 301!
 /venue/wintrust-arena.html /venue/wintrust-arena 301!
 /venue/wrigley-field.html /venue/wrigley-field 301!
-/venue/xcel-energy-center.html /venue/xcel-energy-center 301!
 /venue/xfinity-center-mansfield.html /venue/xfinity-center-mansfield 301!
 /venue/xfinity-center.html /venue/xfinity-center 301!
 /venue/xfinity-theatre.html /venue/xfinity-theatre 301!
@@ -1128,7 +1137,7 @@
 /cityguide/allegiantstadium   /venue/allegiant-stadium   301
 /cityguide/allianzarena   /venue/allianz-arena   301
 /cityguide/allstatearena   /venue/allstate-arena   301
-/cityguide/amaliearena   /venue/amalie-arena   301
+/cityguide/amaliearena   /venue/benchmark-international-arena   301
 /cityguide/amerantbankarena   /venue/amerant-bank-arena   301
 /cityguide/americanairlinescenter   /venue/american-airlines-center   301
 /cityguide/americanfamilyfield   /venue/american-family-field   301
@@ -1333,7 +1342,7 @@
 /cityguide/peoplesbankarena   /venue/peoplesbank-arena   301
 /cityguide/petcopark   /venue/petco-park   301
 /cityguide/peterseneventscenter   /venue/petersen-events-center   301
-/cityguide/phxarena   /venue/phx-arena   301
+/cityguide/phxarena   /venue/mortgage-matchup-center   301
 /cityguide/pinnaclebankarena   /venue/pinnacle-bank-arena   301
 /cityguide/pitchforkmusicfestival   /venue/pitchfork-music-festival   301
 /cityguide/pncarena   /venue/lenovo-center   301
@@ -1350,7 +1359,7 @@
 /cityguide/riotfest   /venue/riot-fest   301
 /cityguide/riyadhairmetropolitano   /venue/riyadh-air-metropolitano   301
 /cityguide/rocketarena   /venue/rocket-arena   301
-/cityguide/rocketmortgagefieldhouse   /venue/rocket-mortgage-fieldhouse   301
+/cityguide/rocketmortgagefieldhouse   /venue/rocket-arena   301
 /cityguide/rogersarena   /venue/rogers-arena   301
 /cityguide/rogerscentre   /venue/rogers-centre   301
 /cityguide/rogersplace   /venue/rogers-place   301
@@ -1449,7 +1458,7 @@
 /cityguide/whenwewereyoung   /venue/when-we-were-young   301
 /cityguide/winstarlucasoillive   /venue/winstar-lucas-oil-live   301
 /cityguide/wrigleyfield   /venue/wrigley-field   301
-/cityguide/xcelenergycenter   /venue/xcel-energy-center   301
+/cityguide/xcelenergycenter   /venue/grand-casino-arena   301
 /cityguide/xlcenter   /venue/peoplesbank-arena   301
 /cityguide/yankeestadium   /venue/yankee-stadium   301
 # Any cityguide slug not in the map (the 11 with no hyphens to lose)

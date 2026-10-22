@@ -1486,104 +1486,6 @@
     "photo": "",
     "capacity": ""
   },
-  "amalie-arena": {
-    "name": "Amalie Arena",
-    "city": "Tampa",
-    "state": "FL",
-    "country": "US",
-    "lat": 27.9428,
-    "lng": -82.451,
-    "bagPolicy": {
-      "summary": "Bags larger than 12x12x12 inches are prohibited, and large bags must go through an x-ray scanner. Medical and parenting bags are allowed but subject to additional search.",
-      "allowed": [
-        "Bags up to 12x12x12 inches",
-        "Medical bags",
-        "Parenting bags"
-      ],
-      "prohibited": [
-        "Bags larger than 12x12x12 inches without x-ray",
-        "Outside alcoholic beverages"
-      ],
-      "note": "Medical and parenting bags exceeding size limits are permitted but subject to additional search procedures.",
-      "officialLink": "https://www.amaliearena.com/arena-info/policies",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "parking": {
-      "note": "Parking is available at various lots and garages around Amalie Arena, with card payments only. It's recommended to purchase parking in advance via ParkWhiz.com. The Pam Iorio Parking Garage is noted for ADA accessibility.",
-      "lots": [
-        "Teal Lot",
-        "Foundation 2 Lot",
-        "Tampa Convention Center Garage",
-        "Pink Lot",
-        "Fort Brooke Garage",
-        "Whiting Garage",
-        "Pam Iorio Parking Garage",
-        "Foundation 1 Lot",
-        "Channelside Parking Garage",
-        "Florida Aquarium Lot",
-        "Garrison Street Lot"
-      ],
-      "officialLink": "https://www.amaliearena.com/plan-your-visit/parking",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "rideshare": {
-      "note": "Before the event, use the 15-minute drop-off circle just east of Morgan Street and Channelside Drive. Afterward, use a signed Rider Pick Up point at Jefferson and Eunice, Nebraska and Eunice, Nebraska and Cumberland, or Water and Cumberland.",
-      "officialLink": "https://www.benchmarkintlarena.com/directions-transportation/",
-      "verified": "2026-10-21",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "concessions": {
-      "note": "Amalie Arena offers a diverse range of food and drink options, including Asian-inspired dishes, American classics, and Mexican cuisine. Highlights include bao buns, cheesesteak eggrolls, and a variety of craft beers. Special offerings include gluten-free and dairy-free options.",
-      "stands": [
-        "Bowl'd Over",
-        "Bull Market",
-        "Checkers",
-        "Cigar City Brewing Taproom",
-        "Corona Bolts Bay",
-        "Corona Cove",
-        "Glory Days Grill",
-        "J&J Snack Foods",
-        "Loli's Tacos",
-        "Knead Italia"
-      ],
-      "officialLink": "https://www.amaliearena.com/plan-your-visit/arena-dining",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "accessibility": {
-      "title": "Accessibility",
-      "body": "Buy accessible tickets on Ticketmaster using the accessible filter on the seat map. Free wheelchair escort service is available from staff, and assistive listening devices are at the Guest Services Desk across from Section 101 with a photo ID. Free sensory bags are at Guest Services, and there is a barrier-free entrance with an accessible elevator.",
-      "officialLink": "https://www.benchmarkintlarena.com/accessibility",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "reEntry": {
-      "title": "Re-Entry Policy",
-      "body": "Re-entry is not permitted. If you leave the arena for any reason, you will not be allowed back in.",
-      "officialLink": "https://www.benchmarkintlarena.com/arena-info/policies",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "ticketPickup": {
-      "title": "Box Office & Ticket Pickup",
-      "body": "Located on the west side of the arena, the ticket office accepts payment in the form of VISA, MasterCard, and American Express.",
-      "officialLink": "https://www.amaliearena.com/events/ticket-information",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "gates": {
-      "title": "Gates & Entrances",
-      "body": "For Tampa Bay Lightning games, doors open 60 minutes before puck drop, and 90 minutes before for premium ticket holders. For other events, doors typically open 60 to 90 minutes before show time. Concerts can differ, so check your event page.",
-      "officialLink": "https://www.benchmarkintlarena.com/arena-info/policies",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "seatingChartLink": "",
-    "photo": "",
-    "capacity": ""
-  },
   "amica-mutual-pavilion": {
     "name": "Amica Mutual Pavilion",
     "city": "Providence",
@@ -2793,9 +2695,9 @@
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "For drop-off, use the 15-minute circle east of Morgan Street and Channelside Drive. For pickup, look for Rider Pick Up signs at Jefferson and Eunice, Nebraska and Eunice, Nebraska and Cumberland, or Water and Cumberland.",
+      "note": "Before the event, use the 15-minute drop-off circle just east of Morgan Street and Channelside Drive. Afterward, use a signed Rider Pick Up point at Jefferson and Eunice, Nebraska and Eunice, Nebraska and Cumberland, or Water and Cumberland.",
       "officialLink": "https://www.benchmarkintlarena.com/directions-transportation/",
-      "verified": "2026-10-19",
+      "verified": "2026-10-21",
       "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
@@ -2840,10 +2742,10 @@
     },
     "gates": {
       "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Benchmark International Arena. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.benchmarkintlarena.com/arena-guide/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "For Tampa Bay Lightning games, doors open 60 minutes before puck drop, and 90 minutes before for premium ticket holders. For other events, doors typically open 60 to 90 minutes before show time. Concerts can differ, so check your event page.",
+      "officialLink": "https://www.benchmarkintlarena.com/arena-info/policies",
+      "verified": "2026-10-22",
+      "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "",
     "photo": "",
@@ -8463,23 +8365,30 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking information is not detailed on the website. Visitors are encouraged to plan their visit in advance and check for any updates or specific instructions regarding parking.",
-      "lots": [],
-      "officialLink": "https://parking.utk.edu/parking/special-events/non-athletic/",
-      "verified": "2026-08-20",
+      "summary": "Concert and special-event parking is $20, card only, with no cash accepted. Parking is available in adjacent lots and garages, and the venue publishes garage clearances ranging from 6 feet 6 inches to 8 feet 6 inches.",
+      "allowed": [],
+      "prohibited": [],
+      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
+      "verified": "2026-09-22",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "A dedicated rideshare zone was not confirmed in Food City Center's current published guidance. Follow the event page and your rideshare app on show day, and use only signed pickup or drop-off areas.",
-      "officialLink": "https://parking.utk.edu/transit/t-bus-campus-transportation/getting-around-town/",
-      "verified": "2026-08-20",
+      "summary": "The reviewed official Food City Center venue guidance does not state a specific rideshare pickup or drop-off policy.",
+      "allowed": [],
+      "prohibited": [],
+      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
+      "verified": "2026-09-22",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "concessions": {
-      "note": "The Food City Center offers a variety of food and drink options to enhance the event experience. While specific vendors are not listed, attendees can expect a range of traditional concession stand offerings. Special promotions or unique food items may be available during certain events.",
-      "stands": [],
-      "officialLink": "https://foodcitycenter.com/",
-      "verified": "2026-08-20",
+      "summary": "Food City Center has permanent concession stands plus portable locations at selected events. The venue lists items including pizza, pretzels, hot dogs, hamburgers, chicken strips, lemonade, ice cream, nachos, popcorn, candy, Moe's, Great American Cookie, Calhoun's BBQ, Coca-Cola products, and Dasani water.",
+      "allowed": [],
+      "prohibited": [],
+      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
+      "verified": "2026-09-22",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
@@ -9972,7 +9881,7 @@
     "lat": 44.9489,
     "lng": -93.1003,
     "bagPolicy": {
-      "summary": "For safety and speed of entry, guests are discouraged from bringing bags. Purses up to 12” x 12” x 6” are allowed at designated X-ray points, while smaller wristlets, clutches, or wallets are allowed at all entrances.",
+      "summary": "For safety and speed of entry, bags are discouraged at events. Purses up to 12” x 12” x 6” are allowed at designated X-ray entry points. Wristlets, clutches, or wallets 4” x 6” x 1.5” or smaller are permitted at all entrances.",
       "allowed": [
         "Purses no larger than 12” x 12” x 6”",
         "Wristlet, clutch or wallets 4” x 6” x 1.5” or smaller"
@@ -9983,17 +9892,17 @@
         "Large totes"
       ],
       "note": "Medical and parenting bags are permitted and subject to X-ray screening.",
-      "officialLink": "https://www.xcelenergycenter.com/plan-your-visit/guest-services-guide",
+      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Grand Casino Arena offers parking at RiverCentre and Kellogg Parking Ramps, both connected to the venue. Parking is available on a first-come, first-served basis for most events. ParkWhiz reservations are not available for these ramps.",
+      "note": "Parking is available at RiverCentre and Kellogg Parking Ramps, both connected to the arena. Event day parking is first come, first served, and ParkWhiz reservations are not available for these ramps.",
       "lots": [
         "RiverCentre Parking Ramp",
         "Kellogg Parking Ramp"
       ],
-      "officialLink": "https://www.xcelenergycenter.com/plan-your-visit/parking",
+      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/parking",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
@@ -10004,7 +9913,7 @@
       "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
-      "note": "Grand Casino Arena offers a variety of food and drink options including local craft beers, traditional sausages, and unique burgers. Highlights include the Wild Market with Amazon's Just Walk Out technology and the Wild $6 Happy Hour featuring discounted drinks and snacks.",
+      "note": "Grand Casino Arena offers a variety of food and drink options including traditional sausages, craft beers, pizza, burgers, and more. Special offerings include the Wild $6 Happy Hour and the Wild Market with Amazon’s Just Walk Out technology. Alcohol sales end during the third period of Minnesota Wild games or one hour before the end of other events.",
       "stands": [
         "Wild Market",
         "Sausage Haus",
@@ -10021,7 +9930,7 @@
         "The Still by Cutwater Spirits",
         "Wild Grill"
       ],
-      "officialLink": "https://www.xcelenergycenter.com/plan-your-visit/dine-with-us/concessions",
+      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/dine-with-us/concessions",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
@@ -10034,10 +9943,10 @@
     },
     "reEntry": {
       "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in Grand Casino Arena's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.xcelenergycenter.com/plan-your-visit/guest-services-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "Re-entry is not allowed. If you leave the building during an event, you can't come back in, and entry requires a valid, unused ticket.",
+      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/venue-policies",
+      "verified": "2026-10-22",
+      "verificationStatus": "official_source_confirmed"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
@@ -10049,7 +9958,7 @@
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Grand Casino Arena. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.xcelenergycenter.com/plan-your-visit/guest-services-guide",
+      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
@@ -14576,25 +14485,22 @@
     "bagPolicy": {
       "summary": "For quick entry, fans are encouraged to leave bags at home. Small clutches, crossbody bags, and clear bags are allowed, while standard backpacks are not permitted.",
       "allowed": [
-        "Small clutches",
-        "Crossbody bags",
-        "Clear bags",
-        "Purses",
-        "Medical bags",
-        "Diaper bags"
+        "small clutches",
+        "crossbody bags",
+        "clear bags"
       ],
       "prohibited": [
-        "Standard backpacks"
+        "standard backpacks"
       ],
-      "note": "Purses, medical bags, and diaper bags must meet NBA size requirements of 14” x 14” x 6” and are subject to additional screening.",
-      "officialLink": "https://www.footprintcenter.com/plan-your-visit/policies-and-rules/",
+      "note": "Purses, medical bags, and diaper bags are allowed if they meet NBA size requirements of 14” x 14” x 6” and will undergo additional screening.",
+      "officialLink": "https://www.mortgagematchupcenter.com/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Valet parking is available starting 2 hours prior to events, and the attached five-story, 700-space parking structure offers convenient parking for suite holders. Several other parking garages and lots are within walking distance.",
+      "note": "Valet parking starts 2 hours before events, and the garage opens a few hours prior. The venue has a five-story, 700-space parking structure for convenient parking.",
       "lots": [],
-      "officialLink": "https://www.footprintcenter.com/plan-your-visit/transportation-parking/",
+      "officialLink": "https://mortgagematchupcenter.com/plan-your-visit/transportation-parking/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
@@ -14605,37 +14511,37 @@
       "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
-      "note": "The Mortgage Matchup Center offers a variety of food and beverage options catering to different dietary preferences, including vegetarian and gluten-free choices. However, specific details about the offerings are not provided.",
+      "note": "The Mortgage Matchup Center offers a variety of food and beverage options to cater to different dietary preferences, including vegetarian and gluten-free choices. While specific vendors are not listed, the venue promises a diverse selection to enhance the event experience.",
       "stands": [],
-      "officialLink": "https://www.footprintcenter.com/venue/food-and-beverage/",
+      "officialLink": "https://mortgagematchupcenter.com/venue/food-and-beverage/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
     "accessibility": {
       "title": "Accessibility",
       "body": "If you have difficulty navigating stairs but do not need a wheelchair accessible location, row 20 in the 100 level and row 2 in the 200 level do not require taking stairs. Accessible parking spaces are located on floors 1-5 near elevators, available as first-come, first-served.",
-      "officialLink": "https://www.footprintcenter.com/venue/accessibility-ada-information/",
+      "officialLink": "https://mortgagematchupcenter.com/venue/accessibility-ada-information/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
       "title": "Re-Entry Policy",
       "body": "A venue-wide re-entry rule was not confirmed in Mortgage Matchup Center's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.footprintcenter.com/plan-your-visit/policies-and-rules/",
+      "officialLink": "https://www.mortgagematchupcenter.com/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "The Mortgage Matchup Center ticket office will be open at 3pm on weekday events and three (3) hours prior to event time for weekends.",
-      "officialLink": "https://www.footprintcenter.com/tickets/ticket-office-information/",
+      "body": "The Mortgage Matchup Center Ticket Office is located in the Pavilion on the Northwest side of the facility at 201 East Jefferson, Phoenix, AZ 85004 (corner of 1st Street & Jefferson). The Mortgage Matchup Center ticket office will be open at 3pm on weekday events and three (3) hours prior to event time for weekends.",
+      "officialLink": "https://mortgagematchupcenter.com/venue/ticket-office-information/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
       "body": "Entrance assignments and door times are event-specific at Mortgage Matchup Center. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.footprintcenter.com/visit/directions-parking/",
+      "officialLink": "https://www.mortgagematchupcenter.com/",
       "verified": "2026-08-20",
       "verificationStatus": "official_source_reviewed_no_specific_extract"
     },
@@ -17047,80 +16953,6 @@
     "photo": "",
     "capacity": ""
   },
-  "phx-arena": {
-    "name": "PHX Arena",
-    "city": "Phoenix",
-    "state": "AZ",
-    "country": "US",
-    "lat": 33.4457,
-    "lng": -112.0712,
-    "bagPolicy": {
-      "summary": "For quick entry, fans are encouraged to leave bags at home. Small clutches, crossbody bags, and clear bags are allowed, while standard backpacks are not permitted.",
-      "allowed": [
-        "small clutches",
-        "crossbody bags",
-        "clear bags"
-      ],
-      "prohibited": [
-        "standard backpacks"
-      ],
-      "note": "Purses, medical bags, and diaper bags are allowed if they meet NBA size requirements of 14” x 14” x 6” and will undergo additional screening.",
-      "officialLink": "https://www.mortgagematchupcenter.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "parking": {
-      "note": "Valet parking starts 2 hours before events, and the garage opens a few hours prior. The venue has a five-story, 700-space parking structure for convenient parking.",
-      "lots": [],
-      "officialLink": "https://mortgagematchupcenter.com/plan-your-visit/transportation-parking/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "rideshare": {
-      "note": "For Lyft drop-off, use the plaza at 1st Street and Jefferson Street or South 3rd Street by the Convention Center. For pickup, use South 3rd Street and East Jefferson Street by the Convention Center.",
-      "officialLink": "https://mortgagematchupcenter.com/plan-your-visit/transportation-parking/",
-      "verified": "2026-10-19",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "concessions": {
-      "note": "The Mortgage Matchup Center offers a variety of food and beverage options to cater to different dietary preferences, including vegetarian and gluten-free choices. While specific vendors are not listed, the venue promises a diverse selection to enhance the event experience.",
-      "stands": [],
-      "officialLink": "https://mortgagematchupcenter.com/venue/food-and-beverage/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "accessibility": {
-      "title": "Accessibility",
-      "body": "If you have difficulty navigating stairs but do not need a wheelchair accessible location, row 20 in the 100 level and row 2 in the 200 level do not require taking stairs. Accessible parking spaces are located on floors 1-5 near elevators, available as first-come, first-served.",
-      "officialLink": "https://mortgagematchupcenter.com/venue/accessibility-ada-information/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "reEntry": {
-      "title": "Re-Entry Policy",
-      "body": "A venue-wide re-entry rule was not confirmed in PHX Arena's current published guidance. Treat exit as final unless event staff explicitly confirms re-entry before you leave.",
-      "officialLink": "https://www.mortgagematchupcenter.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
-    },
-    "ticketPickup": {
-      "title": "Box Office & Ticket Pickup",
-      "body": "The Mortgage Matchup Center Ticket Office is located in the Pavilion on the Northwest side of the facility at 201 East Jefferson, Phoenix, AZ 85004 (corner of 1st Street & Jefferson). The Mortgage Matchup Center ticket office will be open at 3pm on weekday events and three (3) hours prior to event time for weekends.",
-      "officialLink": "https://mortgagematchupcenter.com/venue/ticket-office-information/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "gates": {
-      "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at PHX Arena. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.mortgagematchupcenter.com/",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
-    },
-    "seatingChartLink": "",
-    "photo": "",
-    "capacity": ""
-  },
   "pnc-park": {
     "name": "PNC Park",
     "city": "Pittsburgh",
@@ -18123,118 +17955,13 @@
     "photo": "",
     "capacity": ""
   },
-  "rocket-mortgage-fieldhouse": {
-    "name": "Rocket Mortgage FieldHouse",
+  "rocket-arena": {
+    "name": "Rocket Arena",
     "city": "Cleveland",
     "state": "OH",
     "country": "US",
     "lat": 41.4965,
     "lng": -81.6882,
-    "bagPolicy": {
-      "summary": "Rocket Arena allows bags that are 14” x 14” x 6” or smaller and fit under the seat without obstructing aisles. Larger purses, diaper bags, and medical bags must use the designated X-ray lane.",
-      "allowed": [
-        "Bags/purses 14” x 14” x 6” or smaller"
-      ],
-      "prohibited": [
-        "Backpacks",
-        "Large bags/purses",
-        "Sealed packages",
-        "Balloons",
-        "Bats and clubs",
-        "Beach balls",
-        "Bottles",
-        "Cans",
-        "Coolers",
-        "Professional cameras",
-        "Drones",
-        "Facial masks",
-        "Fireworks",
-        "Flags",
-        "Frisbees",
-        "Garments with explicit language",
-        "iPads",
-        "Laser pointers",
-        "Long chains",
-        "Illegal substances",
-        "Noise makers",
-        "Outside food or beverages"
-      ],
-      "note": "Exceptions are made for medical reasons and diaper bags.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/security-policies",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "parking": {
-      "note": "The Gateway East Garage and JACK Cleveland Casino Garage offer on-site parking for 3,300 cars with varying event prices. Metropolis Technologies manages the Gateway East Garage, using license plate readers for automatic billing. Additional parking options are available nearby.",
-      "lots": [
-        "Gateway East Garage",
-        "JACK Cleveland Casino Garage"
-      ],
-      "officialLink": "https://www.rocketarena.com/directions-parking",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "rideshare": {
-      "note": "Use a designated rideshare area at Huron East and 8th Street, West Huron at Tower City, Ontario Street, or Prospect Avenue East and 4th Street.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-10-19",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "concessions": {
-      "note": "Rocket Mortgage FieldHouse offers a variety of food and beverage options across several bars and lounges. Highlights include the Great Lakes Experience taproom, Casamigos Tequila Bar, and the Jack Daniel’s Bar, each providing unique drink selections. Fans can enjoy communal spaces and scenic views while indulging in signature cocktails and local brews.",
-      "stands": [
-        "Great Lakes Experience",
-        "Casamigos Tequila Bar",
-        "West Neighborhood Bar",
-        "Jack Daniel’s Bar",
-        "Crown Royal Bar",
-        "Gilly's",
-        "Corona Cantina",
-        "Hennessy River Bar"
-      ],
-      "officialLink": "https://www.rocketarena.com/plan-your-visit/bars",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "accessibility": {
-      "title": "Accessibility",
-      "body": "To buy accessible seats, find your event on the arena's upcoming events page and select the Accessible filter; if that option doesn't appear, ADA seats are sold out. All entrances are accessible, and seven passenger elevators reach every level.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "reEntry": {
-      "title": "Re-Entry Policy",
-      "body": "Please Note: Rocket Arena has a no re-entry policy; once you leave the building during an event, you will not be permitted to return.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "ticketPickup": {
-      "title": "Box Office & Ticket Pickup",
-      "body": "The Ticket Lab box office is near the Cleveland-Cliffs entrance.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "gates": {
-      "title": "Gates & Entrances",
-      "body": "Door times for all Cleveland Monsters games will be 60 minutes prior to the puck dropping with Atrium doors opening 90 minutes before the game. Door times for Cavaliers games Monday through Thursday are 75 minutes prior to tipoff with Atrium doors opening 90 minutes before the game.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "seatingChartLink": "",
-    "photo": "",
-    "capacity": ""
-  },
-  "rocket-arena": {
-    "name": "Rocket Arena",
-    "city": "Huntington",
-    "state": "WV",
-    "country": "US",
-    "lat": 38.4192,
-    "lng": -82.4452,
     "bagPolicy": {
       "summary": "Only clear bags no larger than 12\" x 12\" x 6\" are permitted at Rocket Arena. All bags are subject to inspection upon entry.",
       "allowed": [
@@ -18268,9 +17995,9 @@
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
-      "note": "Use the designated rideshare pickup and drop-off locations at Huron East and 8th Street, West Huron at Tower City, Ontario Street, Prospect Avenue East and 4th Street, or West Prospect at Tower City.",
+      "note": "Use a designated rideshare area at Huron East and 8th Street, West Huron at Tower City, Ontario Street, or Prospect Avenue East and 4th Street.",
       "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
-      "verified": "2026-10-16",
+      "verified": "2026-10-19",
       "verificationStatus": "official_source_confirmed"
     },
     "concessions": {
@@ -18282,9 +18009,9 @@
     },
     "accessibility": {
       "title": "Accessibility",
-      "body": "Rocket Arena event information and accessible seating and service information is available on the Accessibility Seating page.",
-      "officialLink": "https://www.rocketarena.com/guest-experience/faqs",
-      "verified": "2026-08-20",
+      "body": "To buy accessible seats, find your event on the arena's upcoming events page and select the Accessible filter; if that option doesn't appear, ADA seats are sold out. All entrances are accessible, and seven passenger elevators reach every level.",
+      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
+      "verified": "2026-10-22",
       "verificationStatus": "official_source_confirmed"
     },
     "reEntry": {
@@ -18296,10 +18023,10 @@
     },
     "ticketPickup": {
       "title": "Box Office & Ticket Pickup",
-      "body": "Current official guidance does not publish one universal will-call schedule for every event at Rocket Arena. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.rocketarena.com/ticket-information",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
+      "body": "The Ticket Lab box office is near the Cleveland-Cliffs entrance.",
+      "officialLink": "https://www.rocketarena.com/guest-experience/a-z-guide",
+      "verified": "2026-10-22",
+      "verificationStatus": "official_source_confirmed"
     },
     "gates": {
       "title": "Gates & Entrances",
@@ -25915,99 +25642,6 @@
     "photo": "",
     "capacity": ""
   },
-  "xcel-energy-center": {
-    "name": "Xcel Energy Center",
-    "city": "St. Paul",
-    "state": "MN",
-    "country": "US",
-    "lat": 44.9442,
-    "lng": -93.1017,
-    "bagPolicy": {
-      "summary": "For safety and speed of entry, bags are discouraged at events. Purses up to 12” x 12” x 6” are allowed at designated X-ray entry points. Wristlets, clutches, or wallets 4” x 6” x 1.5” or smaller are permitted at all entrances.",
-      "allowed": [
-        "Purses no larger than 12” x 12” x 6”",
-        "Wristlet, clutch or wallets 4” x 6” x 1.5” or smaller"
-      ],
-      "prohibited": [
-        "Backpacks",
-        "Coolers",
-        "Large totes"
-      ],
-      "note": "Medical and parenting bags are permitted and subject to X-ray screening.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "parking": {
-      "note": "Parking is available at RiverCentre and Kellogg Parking Ramps, both connected to the arena. Event day parking is first come, first served, and ParkWhiz reservations are not available for these ramps.",
-      "lots": [
-        "RiverCentre Parking Ramp",
-        "Kellogg Parking Ramp"
-      ],
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/parking",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "rideshare": {
-      "note": "Use Gate 4 on 5th Street at the northeast corner of the arena for rideshare pickup and drop-off.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/directions-parking",
-      "verified": "2026-10-19",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "concessions": {
-      "note": "Xcel Energy Center offers a variety of food and drink options including traditional sausages, craft beers, pizza, burgers, and more. Special offerings include the Wild $6 Happy Hour and the Wild Market with Amazon’s Just Walk Out technology. Alcohol sales end during the third period of Minnesota Wild games or one hour before the end of other events.",
-      "stands": [
-        "Wild Market",
-        "Sausage Haus",
-        "Craft Beers",
-        "Red Baron Pizza",
-        "J&Rs Dough Shop",
-        "Market House Sausage Cart",
-        "City Burger",
-        "Philly Post",
-        "Grab & Go",
-        "Soft-Serve Ice Cream",
-        "Food Court",
-        "Wild Greens",
-        "The Still by Cutwater Spirits",
-        "Wild Grill"
-      ],
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/dine-with-us/concessions",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "accessibility": {
-      "title": "Accessibility",
-      "body": "Buy ADA accessible tickets on SeatGeek by selecting the event and filtering for accessible tickets. Request an ASL interpreter at least 10 business days ahead through Guest Services at 651-726-8200, and arrange a wheelchair escort to and from your seat with the Guest Services Form. Sensory kits are available at most events from Guest Services at section 105.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/venue-policies",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "reEntry": {
-      "title": "Re-Entry Policy",
-      "body": "Re-entry is not allowed. If you leave the building during an event, you can't come back in, and entry requires a valid, unused ticket.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/venue-policies",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "ticketPickup": {
-      "title": "Box Office & Ticket Pickup",
-      "body": "Current official guidance does not publish one universal will-call schedule for every event at Xcel Energy Center. Use the delivery instructions in the official ticket order and confirm event-day box-office details before traveling to the venue.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
-    },
-    "gates": {
-      "title": "Gates & Entrances",
-      "body": "Entrance assignments and door times are event-specific at Xcel Energy Center. Use the entrance shown on the official event page or ticket, arrive early for screening, and follow on-site signage.",
-      "officialLink": "https://www.grandcasinoarena.com/plan-your-visit/guest-services-guide",
-      "verified": "2026-08-20",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
-    },
-    "seatingChartLink": "",
-    "photo": "",
-    "capacity": ""
-  },
   "yankee-stadium": {
     "name": "Yankee Stadium",
     "city": "Bronx",
@@ -29349,95 +28983,6 @@
       "verificationStatus": "official_source_confirmed"
     },
     "seatingChartLink": "https://galencenter.org/images/2025/2/19/galen-center-seating-map-chart-usc-trojans-basketball-volleyball_jziY3.png",
-    "photo": "",
-    "capacity": ""
-  },
-  "thompson-boling-arena": {
-    "name": "Thompson-Boling Arena at Food City Center",
-    "city": "Knoxville",
-    "state": "TN",
-    "country": "US",
-    "lat": 35.951111,
-    "lng": -83.924972,
-    "bagPolicy": {
-      "summary": "Food City Center allows one clear plastic bag no larger than 12 x 6 x 12 inches or one one-gallon clear resealable bag per person, plus a small clutch no larger than 4.5 x 6.5 inches. All items are subject to search, and no other bags are allowed.",
-      "allowed": [
-        "Clear plastic bag no larger than 12 x 6 x 12 inches",
-        "One-gallon clear resealable plastic storage bag",
-        "Small clutch no larger than 4.5 x 6.5 inches",
-        "Medically necessary items after search"
-      ],
-      "prohibited": [
-        "Backpacks",
-        "Non-compliant bags",
-        "Diaper bags as separate bags"
-      ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "parking": {
-      "summary": "Concert and special-event parking is $20, card only, with no cash accepted. Parking is available in adjacent lots and garages, and the venue publishes garage clearances ranging from 6 feet 6 inches to 8 feet 6 inches.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "rideshare": {
-      "summary": "The reviewed official Food City Center venue guidance does not state a specific rideshare pickup or drop-off policy.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_reviewed_no_specific_extract"
-    },
-    "concessions": {
-      "summary": "Food City Center has permanent concession stands plus portable locations at selected events. The venue lists items including pizza, pretzels, hot dogs, hamburgers, chicken strips, lemonade, ice cream, nachos, popcorn, candy, Moe's, Great American Cookie, Calhoun's BBQ, Coca-Cola products, and Dasani water.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "accessibility": {
-      "summary": "Accessible seating and restrooms are available throughout the arena, and accessible parking is offered in surrounding lots on a first-come, first-served basis. Assistive listening devices are available with photo ID as collateral, and sign-language interpreters may be requested at least two weeks before an event.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "reEntry": {
-      "summary": "Thompson-Boling Arena at Food City Center has a no re-entry policy and does not issue passes out.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "ticketPickup": {
-      "summary": "The ticket office is on the street level off Phillip Fulmer Way.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "gates": {
-      "summary": "Main entrance gates are at the top of the concrete pedestrian ramps on the east and west sides of the building. Door times for concerts and special events vary by event and are published with the event listing.",
-      "allowed": [],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://utsports.com/sports/2025/8/18/thompson-boling-arena-at-food-city-center",
-      "verified": "2026-09-22",
-      "verificationStatus": "official_source_confirmed"
-    },
-    "seatingChartLink": "",
     "photo": "",
     "capacity": ""
   },
