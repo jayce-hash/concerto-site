@@ -21,6 +21,8 @@
 /venue/thompson-boling-arena.html /venue/food-city-center 301!
 /venue/rocket-mortgage-fieldhouse /venue/rocket-arena 301!
 /venue/rocket-mortgage-fieldhouse.html /venue/rocket-arena 301!
+/venue/dickies-arena /venue/ariat-arena 301!
+/venue/dickies-arena.html /venue/ariat-arena 301!
 # ── END renamed venues ──
 
 # ── BEGIN generated: .html -> canonical (scripts/build-redirects.py) ──
@@ -86,6 +88,7 @@
 /venue/angel-stadium.html /venue/angel-stadium 301!
 /venue/ao-arena.html /venue/ao-arena 301!
 /venue/apollo-theater.html /venue/apollo-theater 301!
+/venue/ariat-arena.html /venue/ariat-arena 301!
 /venue/arizona-financial-theatre.html /venue/arizona-financial-theatre 301!
 /venue/ascend-amphitheater.html /venue/ascend-amphitheater 301!
 /venue/att-stadium.html /venue/att-stadium 301!
@@ -209,7 +212,6 @@
 /venue/desert-financial-arena.html /venue/desert-financial-arena 301!
 /venue/deutsche-bank-park.html /venue/deutsche-bank-park 301!
 /venue/dick-s-sporting-goods-park.html /venue/dick-s-sporting-goods-park 301!
-/venue/dickies-arena.html /venue/dickies-arena 301!
 /venue/dignity-health-sports-park.html /venue/dignity-health-sports-park 301!
 /venue/doak-campbell-stadium.html /venue/doak-campbell-stadium 301!
 /venue/dodger-stadium.html /venue/dodger-stadium 301!
@@ -1244,7 +1246,7 @@
 /cityguide/daikinpark   /venue/daikin-park   301
 /cityguide/deltacenter   /venue/delta-center   301
 /cityguide/desertdiamondarena   /venue/desert-diamond-arena   301
-/cityguide/dickiesarena   /venue/dickies-arena   301
+/cityguide/dickiesarena   /venue/ariat-arena   301
 /cityguide/dodgerstadium   /venue/dodger-stadium   301
 /cityguide/dolbyliveatparkmgm   /venue/dolby-live-at-park-mgm   301
 /cityguide/dosequispavilion   /venue/dos-equis-pavilion   301

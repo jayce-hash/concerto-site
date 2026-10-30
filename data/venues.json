@@ -1592,14 +1592,17 @@
     "guideUrl": "/cityguide/dick-s-sporting-goods-park"
   },
   {
-    "id": "dickies-arena",
-    "name": "Dickies Arena",
+    "id": "ariat-arena",
+    "name": "Ariat Arena",
     "city": "Fort Worth",
     "state": "TX",
     "country": "US",
     "lat": 32.7503,
     "lng": -97.3645,
-    "guideUrl": "/cityguide/dickiesarena"
+    "guideUrl": "/cityguide/dickiesarena",
+    "aliases": [
+      "Dickies Arena"
+    ]
   },
   {
     "id": "dignity-health-sports-park",

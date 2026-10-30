@@ -90,9 +90,25 @@ function findVenue(q, hint) {
   for (const k of venueKeys) if (has(q, k.key)) return k.id;
   return hint && INFO[hint] ? hint : null;
 }
+// Words that don't tell one of an artist's tours from another.
+const TOUR_GENERIC = new Set(['the', 'tour', 'world', 'of', 'and', 'a', 'an', 'in', 'on', 'live', 'north', 'american', 'america', 'europe', 'european', 'uk', 'arena', 'stadium', 'part', 'ii', 'leg']);
 function findTour(q, hint) {
-  for (const k of tourKeys) if (has(q, k.key)) return k.id;
-  return hint && TOURS.find((t) => t.tourId === hint) ? hint : null;
+  // An artist can have more than one tour (Noah Kahan, Metallica...). Match the artist, then pick
+  // the tour whose own name the fan used ("bugs", "m72"); otherwise the page they're on, then the first.
+  let artist = null;
+  for (const k of tourKeys) if (has(q, k.key)) { artist = k.key; break; }
+  if (!artist) return hint && TOURS.find((t) => t.tourId === hint) ? hint : null;
+  const options = tourKeys.filter((k) => k.key === artist).map((k) => TOURS.find((t) => t.tourId === k.id));
+  if (options.length === 1) return options[0].tourId;
+  let best = null, bestScore = 0;
+  for (const t of options) {
+    const words = plain(t.tourName).trim().split(' ').filter((w) => w.length >= 2 && !TOUR_GENERIC.has(w) && !/^20\d\d$/.test(w));
+    const score = words.filter((w) => has(q, w)).length;
+    if (score > bestScore) { best = t; bestScore = score; }
+  }
+  if (best) return best.tourId;
+  if (hint && options.some((t) => t.tourId === hint)) return hint;
+  return options[0].tourId;
 }
 
 const TOPICS = [
