@@ -262,7 +262,9 @@ def venue_areas():
     return [groups[k] for k in sorted(groups)]
 
 def venue_entry(v, more=False):
-    return (f'<li class="c-entry{" c-more" if more else ""}" data-f-type="{e(v.get("type") or "")}" data-f-region="{region_of(v.get("country"))}">'
+    _, area, _ = venue_area(v)
+    code = (v.get('state') or '') if (v.get('country') or '').upper() in ('US', 'USA') else (v.get('country') or '')
+    return (f'<li class="c-entry{" c-more" if more else ""}" data-f-type="{e(v.get("type") or "")}" data-f-region="{region_of(v.get("country"))}" data-q="{e(area)} {e(code)}">'
             f'<a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>')
 
 _AREA_PAGES = None
@@ -281,8 +283,11 @@ def venues_hub():
         head = f'<a href="{url}">{e(g["name"])}</a>' if g['page'] else e(g['name'])
         rows = ''.join(venue_entry(v, i >= HUB_PER_GROUP) for i, v in enumerate(vs))
         more = (f'<li class="c-seeall"><a href="{url}">See all {len(vs)} in {e(g["name"])}</a></li>' if g['page'] and len(vs) > HUB_PER_GROUP else '')
-        body += f'<div class="c-group"><h2>{head}</h2><ul>{rows}{more}</ul></div>'
-    return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry',
+        # Shown at the top of the results when someone searches for the state itself ("texas", "tx").
+        code = vs[0].get('state') if (vs[0].get('country') or '').upper() in ('US', 'USA') else vs[0].get('country')
+        top = (f'<li class="c-seeall c-seeall-top" data-area="{e(g["name"])} {e(code or "")}"><a href="{url}">See all {len(vs)} in {e(g["name"])}</a></li>' if g['page'] else '')
+        body += f'<div class="c-group"><h2>{head}</h2><ul>{top}{rows}{more}</ul></div>'
+    return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{V_COPY} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry',
                       groups=[('type', 'Type', VENUE_TYPES), ('region', 'Region', REGIONS)])
             + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-fold">{body}</div></section>' + request_form('venue') + close() + '</main>')
 

@@ -2490,3 +2490,5 @@ h1,h2{font-weight:700}
 .v8 .c-seeall{list-style:none;padding:14px 0 4px}
 .v8 .c-seeall a{font-size:14px;font-weight:700;color:var(--gold-ink,#8a6d1f);text-decoration:none}
 .v8 .c-seeall a::after{content:" \2192"}
+.v8 .c-seeall-top{display:none;padding:6px 0 10px}
+.v8 .c-directory.is-searching .c-seeall-top.is-match{display:list-item}

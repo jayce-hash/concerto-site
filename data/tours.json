@@ -206,7 +206,8 @@
     "tourId": "chris-brown-usher-the-rb-tour",
     "tourName": "The R&B Tour",
     "artist": "Chris Brown & Usher",
-    "tourWebsite": "https://www.ticketmaster.ca/usher-raymond-chris-brown-tickets/artist/4314089"
+    "tourWebsite": "https://www.ticketmaster.ca/usher-raymond-chris-brown-tickets/artist/4314089",
+    "genre": "Hip-Hop & R&B"
   },
   {
     "tourId": "eagles-live-at-sphere-2026",
@@ -429,7 +430,8 @@
     "tourId": "jason-aldean-luke-bryan-double-down-tour",
     "tourName": "Double Down Tour 2026",
     "artist": "Jason Aldean & Luke Bryan",
-    "tourWebsite": "https://www.jasonaldean.com"
+    "tourWebsite": "https://www.jasonaldean.com",
+    "genre": "Country & Folk"
   },
   {
     "tourId": "garth-brooks-blame-it-all-on-my-roots-tour",
@@ -505,7 +507,8 @@
     "tourId": "disney-worlds-collide-concert-tour",
     "tourName": "Descendants, ZOMBIES & Camp Rock: Worlds Collide Concert Tour",
     "artist": "Disney",
-    "tourWebsite": "https://www.worldscollidetour.com"
+    "tourWebsite": "https://www.worldscollidetour.com",
+    "genre": "Other"
   },
   {
     "tourId": "the-weeknd-after-hours-til-dawn-tour",
@@ -714,7 +717,8 @@
     "tourId": "logic-g-eazy-endless-summer-tour-part-ii",
     "tourName": "The Endless Summer Tour Part II",
     "artist": "Logic & G-Eazy",
-    "tourWebsite": "https://rattpack.club/"
+    "tourWebsite": "https://rattpack.club/",
+    "genre": "Hip-Hop & R&B"
   },
   {
     "tourId": "ella-mai-do-you-still-love-me-tour",
@@ -790,7 +794,8 @@
     "tourId": "kany-garcia-puerta-abierta-tour",
     "tourName": "Puerta Abierta Tour",
     "artist": "Kany García",
-    "tourWebsite": "https://www.kanygarcia.com/"
+    "tourWebsite": "https://www.kanygarcia.com/",
+    "genre": "Latin"
   },
   {
     "tourId": "melanie-martinez-hades-the-sacrifice-tour",
@@ -817,7 +822,8 @@
     "tourId": "chicago-styx-the-windy-cities-tour",
     "tourName": "The Windy Cities Tour",
     "artist": "Chicago & Styx",
-    "tourWebsite": "https://www.styxworld.com/tour/"
+    "tourWebsite": "https://www.styxworld.com/tour/",
+    "genre": "Rock & Alternative"
   },
   {
     "tourId": "don-omar-the-last-king-world-tour",
@@ -858,7 +864,8 @@
     "tourId": "johnny-blue-skies-mutiny-for-the-masses-2026-tour",
     "tourName": "Mutiny for the Masses 2026 Tour",
     "artist": "Johnny Blue Skies & The Dark Clouds",
-    "tourWebsite": "https://johnnyblueskiestour.com/"
+    "tourWebsite": "https://johnnyblueskiestour.com/",
+    "genre": "Country & Folk"
   },
   {
     "tourId": "soda-stereo-ecos-tour",
@@ -913,13 +920,15 @@
     "tourId": "b52s-devo-cosmic-de-evolution-tour",
     "tourName": "COSMIC DE-EVOLUTION TOUR",
     "artist": "The B-52s & DEVO",
-    "tourWebsite": "https://www.theb52s.com/shows"
+    "tourWebsite": "https://www.theb52s.com/shows",
+    "genre": "Rock & Alternative"
   },
   {
     "tourId": "allman-betts-family-revival-tour",
     "tourName": "Family Revival Tour",
     "artist": "Allman Betts Family Revival",
-    "tourWebsite": "https://allmanbettsfamilyrevival.com/"
+    "tourWebsite": "https://allmanbettsfamilyrevival.com/",
+    "genre": "Rock & Alternative"
   },
   {
     "tourId": "asake-in-god-we-trust-world-tour",
@@ -1227,6 +1236,7 @@
     "tourName": "The Happiness Anytime Tour",
     "artist": "Leon Bridges",
     "tourWebsite": "https://www.leonbridges.com/",
+    "lastShowDate": "2027-09-29",
     "genre": "Hip-Hop & R&B"
   },
   {
@@ -1234,6 +1244,7 @@
     "tourName": "NONSTOP FLIGHT TOUR",
     "artist": "Alex Sampson",
     "tourWebsite": "https://www.livenation.com/artist/K8vZ917qpfV/alex-sampson-events",
+    "lastShowDate": "2027-04-24",
     "genre": "Pop"
   },
   {
@@ -1248,6 +1259,7 @@
     "tourName": "North American Tour 2027",
     "artist": "Calvin Harris",
     "tourWebsite": "https://calvinharris.com/",
+    "lastShowDate": "2027-05-27",
     "genre": "Pop"
   },
   {
@@ -1255,6 +1267,7 @@
     "tourName": "Forever Tour",
     "artist": "Bon Jovi",
     "tourWebsite": "https://www.bonjovi.com/",
+    "lastShowDate": "2027-08-04",
     "genre": "Rock & Alternative"
   },
   {
@@ -1262,6 +1275,7 @@
     "tourName": "2027 North American Tour",
     "artist": "Def Leppard",
     "tourWebsite": "https://www.defleppard.com/",
+    "lastShowDate": "2027-07-02",
     "genre": "Rock & Alternative"
   },
   {
@@ -1269,6 +1283,7 @@
     "tourName": "THE SHOW MUST GO ON Tour",
     "artist": "Tinashe",
     "tourWebsite": "https://www.tinashenow.com/",
+    "lastShowDate": "2027-05-15",
     "genre": "Hip-Hop & R&B"
   }
 ]

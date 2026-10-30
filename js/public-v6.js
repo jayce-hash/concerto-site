@@ -320,7 +320,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var items = [].slice.call(document.querySelectorAll(sel));
       if (!items.length) return;
       var grid = items[0].parentElement, empty = null, timer = null;
-      var haystack = items.map(function (it) { return norm(it.textContent); });
+      // Each entry is searchable by its text plus data-q (a venue's state or country), word by word,
+      // so "texas", "austin tx" and "tx clubs" all work.
+      var haystack = items.map(function (it) { return (it.textContent + ' ' + (it.getAttribute('data-q') || '')).split(/\s+/).map(norm).join(' '); });
+      function hit(h, q) { var w = q.split(/\s+/).map(norm).filter(Boolean); for (var j = 0; j < w.length; j++) if (h.indexOf(w[j]) === -1) return false; return true; }
       // Filter panel (Venues, Tours): one choice per group, matched against data-f-<group> on each entry.
       var chosen = {}, wrap = input.closest('.c-filter-wrap'), panel = wrap && wrap.querySelector('.c-fpanel'), fbtn = wrap && wrap.querySelector('[data-fbtn]');
       if (panel && fbtn) {
@@ -345,10 +348,19 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !panel.hidden) { toggle(false); fbtn.focus(); } });
       }
       function apply() {
-        var q = norm(input.value), shown = 0, dir = grid.closest('.c-directory');
-        if (dir) dir.classList.toggle('is-searching', !!q || Object.keys(chosen).length > 0);
+        var q = input.value.trim(), shown = 0, dir = grid.closest('.c-directory');
+        if (dir) {
+          dir.classList.toggle('is-searching', !!q || Object.keys(chosen).length > 0);
+          // A search for a state or country itself ("texas", "tx", "new york") also offers that place's page.
+          var qw = q.split(/\s+/).map(norm).filter(Boolean);
+          dir.querySelectorAll('.c-seeall-top').forEach(function (li) {
+            var aw = (li.getAttribute('data-area') || '').split(/\s+/).map(norm).filter(Boolean);
+            var m = qw.length > 0 && qw.every(function (w) { return aw.some(function (a) { return a.indexOf(w) === 0; }); });
+            li.classList.toggle('is-match', m && (qw.join('').length >= 2));
+          });
+        }
         items.forEach(function (it, i) {
-          var show = !q || haystack[i].indexOf(q) !== -1;
+          var show = !q || hit(haystack[i], q);
           for (var k in chosen) { if (show && it.getAttribute('data-f-' + k) !== chosen[k]) show = false; }
           it.hidden = !show; if (show) shown++;
         });
