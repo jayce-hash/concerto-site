@@ -585,7 +585,7 @@ def tour_dates_shell(t):
     extra = (f' data-tour-keyword="{e(sh.get("searchTerm") or t["artist"])}" data-tour-match="prefix"' + (' data-tour-any' if sh.get('anyCategory') else '')) if sh else ''
     return (f'<section class="cx-sec c-upcoming" id="dates" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}"{extra} hidden aria-labelledby="dates-h">'
             f'<div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2" id="dates-h">Tour Dates <span class="c-up-count" data-count></span></h2></div>'
-            '<ol class="c-up-list"></ol><p class="cx-note">Each venue guide has its bag rules, doors, parking, and rideshare pickup. Dates from Ticketmaster.</p></div></section>')
+            '<ol class="c-up-list"></ol><p class="cx-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show. Dates from Ticketmaster.</p></div></section>')
 
 def cx_panel(anchor, ic, title, meta, body, check=True):
     """An always-open white card, like the app's Setlist card."""

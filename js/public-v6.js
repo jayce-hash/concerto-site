@@ -1112,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ol.appendChild(row(ev, {
           title: function () { return ev.name; },
           meta: function () { var acts = supportActs(ev, headliner); return [timeLine(ev), acts.length ? 'With ' + acts.join(', ') : '']; },
-          actions: function () { return [appLink('Save in Concerto', 'concerto://venue/' + slug, 'website-venue-upcoming'), ticketLink(ev.url)]; }
+          actions: function () { return [appLink('Save this show', 'concerto://save/' + encodeURIComponent(ev.id), 'website-venue-save'), ticketLink(ev.url)]; }
         }));
       });
       host.hidden = false;
@@ -1147,7 +1147,7 @@ document.addEventListener('DOMContentLoaded', function () {
           meta: function () { var acts = supportActs(ev, artist); return [v.name, timeLine(ev), acts.length ? 'With ' + acts.join(', ') : '']; },
           actions: function () {
             var g = null; if (vslug) { g = el('a', 'c-up-guide', 'Venue guide'); g.href = '/venue/' + vslug; }
-            return [g, appLink('Save in Concerto', 'concerto://tour/' + slug, 'website-tour-dates'), ticketLink(ev.url)];
+            return [g, appLink('Save this show', 'concerto://save/' + encodeURIComponent(ev.id), 'website-tour-save'), ticketLink(ev.url)];
           }
         });
         if (i >= 8) li.hidden = true;
