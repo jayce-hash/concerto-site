@@ -1369,3 +1369,34 @@ document.addEventListener('DOMContentLoaded', function () {
     })();
   }).catch(function () {});
 })();
+
+/* Getting the app, the way app companies do it on the web:
+   - /download sends phones straight to their store (keeps the ct campaign, e.g. from the QR code);
+   - on a computer, the header's Download button opens a small card with a QR code and both badges. */
+(function () {
+  var ua = (typeof navigator !== 'undefined' && navigator.userAgent) || '';
+  var IOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && typeof navigator !== 'undefined' && navigator.maxTouchPoints > 1);
+  var ANDROID = /Android/i.test(ua);
+  if (/^\/download(\.html)?\/?$/.test(location.pathname) && (IOS || ANDROID)) {
+    var ct = (location.search.match(/[?&]ct=([\w-]+)/) || [])[1] || 'website-download';
+    location.replace(IOS
+      ? 'https://apps.apple.com/us/app/concerto-show-go/id6744903414?pt=127753814&ct=' + ct + '&mt=8'
+      : 'https://play.google.com/store/apps/details?id=com.v8ef92dbd0a8.www&referrer=' + encodeURIComponent('utm_source=concertocity&utm_campaign=' + ct));
+    return;
+  }
+  if (IOS || ANDROID) return;
+  function ready(fn) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn(); }
+  ready(function () {
+    var btn = document.querySelector('[data-dl-pop]'), pop = document.querySelector('.dl-pop');
+    if (!btn || !pop) return;
+    function close() { pop.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', function (e) {
+      if (window.innerWidth <= 860) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      var open = pop.hidden; pop.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && typeof window.gtag === 'function') { try { window.gtag('event', 'download_card_open', { page_path: location.pathname }); } catch (_) {} }
+    }, true);
+    document.addEventListener('click', function (e) { if (!pop.hidden && !e.target.closest('.dl-wrap')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) { close(); btn.focus(); } });
+  });
+})();

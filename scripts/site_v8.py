@@ -1097,6 +1097,13 @@ def search_page():
     answer = '<div class="c-answer" data-ask-answer hidden aria-live="polite"></div>'
     return '<main id="main-content" class="c-page">' + h + '<section class="c-section c-white c-search-section"><div class="c-wrap">' + answer + '<div data-site-search-results class="site-search-results c-search-results" aria-live="polite"><p class="c-body">Try an artist, tour, venue, or city.</p></div></div></section></main>'
 
+def download_page():
+    """/download: phones go straight to their store (js/public-v6.js); everyone else gets the QR code and both badges."""
+    actions = (f'<div class="c-close-row c-dl-row">{store_button("website-download")}'
+               '<img class="c-qr" src="/img/download-qr.png" width="120" height="120" alt="QR code: download Concerto for iPhone or Android"></div>'
+               '<p class="c-dl-fine">On a computer? Point your phone camera at the code.</p>')
+    return simple('Download', 'Concerto is free on<br>iPhone and Android.', 'Venue guides, tour dates and setlists, and your whole show night on one page.', actions)
+
 def simple(kicker, h1, lead, actions):
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, actions, None, 'cream', 'c-hero-simple') + '</main>'
 
@@ -1201,6 +1208,11 @@ def build():
     for v in VENUES: rewrite(f'venue/{v["id"]}.html', venue_page(v))
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
+    ensure_page('download.html', 'Download Concerto | Free on iPhone and Android', 'Get Concerto, the concert companion app: venue guides, tour dates and setlists, and your whole show night on one page. Free on iPhone and Android.', '/download')
+    rewrite('download.html', download_page())
+    _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header
+    _d = re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/download'), _d, flags=re.S)
+    (ROOT / 'download.html').write_text(_d)
     ensure_page('founder.html', 'From the Founder | Concerto', 'Why Concerto exists: Jayce Wells on the Eras Tour night that started it, and what it took to build a concert guide to 600+ venues.', '/founder')
     rewrite('founder.html', founder());
     rewrite('press.html', press()); rewrite('investors.html', investors()); rewrite('creators.html', creators()); rewrite('partners.html', partners_hub())

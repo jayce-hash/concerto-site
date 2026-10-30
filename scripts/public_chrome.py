@@ -109,7 +109,14 @@ def header_html(path='/'):
         f'<nav class="site-nav" aria-label="Main">{main_links}</nav>'
         '<div class="header-actions">'
         '<a class="search-icon" href="/search" aria-label="Search Concerto"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg></a>'
-        f'<a class="header-cta" href="{app_link_campaign("website-header")}" target="_blank" rel="noopener">Download</a>'
+        f'<a class="header-get" href="{app_link_campaign("website-header-mobile")}" rel="noopener">Get the app</a>'
+        f'<span class="dl-wrap"><a class="header-cta" href="{app_link_campaign("website-header")}" target="_blank" rel="noopener" data-dl-pop aria-haspopup="dialog">Download</a>'
+        '<span class="dl-pop" role="dialog" aria-label="Get Concerto on your phone" hidden>'
+        '<img class="dl-qr" src="/img/download-qr.png" width="132" height="132" alt="QR code: download Concerto">'
+        '<span class="dl-copy"><b>Get Concerto on your phone</b><small>Point your phone camera at the code. Free on iPhone and Android.</small>'
+        f'<span class="dl-badges"><a href="{app_link_campaign("website-header-pop")}" target="_blank" rel="noopener"><img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="120" height="40"></a>'
+        f'<a href="{play_link_campaign("website-header-pop")}" target="_blank" rel="noopener"><img src="/img/badges/google-play.svg" alt="Get it on Google Play" width="135" height="40"></a></span></span>'
+        '</span></span>'
         '<button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span class="menu-bar"></span><span class="menu-bar"></span></button>'
         '</div></div>'
         f'<nav class="mobile-nav" id="site-menu" aria-label="Menu" hidden><div class="mn">{mobile_menu(path)}'
@@ -121,7 +128,7 @@ def header_html(path='/'):
 
 def footer_html():
     cols = [
-        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', APP)]),
+        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', '/download')]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
         ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
         ('Support', [('Help Center', '/help'), ('FAQ', '/faq')]),
