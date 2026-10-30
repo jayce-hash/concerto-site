@@ -198,7 +198,7 @@ def about():
             + close() + '</main>')
 
 # Venue types and regions for the Venues filter (same groups as the app, src/lib/filters.ts).
-VENUE_TYPES = [('stadium', 'Stadiums'), ('arena', 'Arenas'), ('amphitheater', 'Amphitheaters & outdoor'),
+VENUE_TYPES = [('stadium', 'Stadiums'), ('arena', 'Arenas'), ('amphitheater', 'Amphitheaters'),
                ('theater', 'Theaters & halls'), ('club', 'Clubs & small rooms'), ('festival', 'Festivals')]
 REGIONS = [('us', 'United States'), ('ca', 'Canada'), ('eu', 'UK & Europe'), ('world', 'Rest of world')]
 EUROPE = {'GB', 'IE', 'FR', 'DE', 'ES', 'IT', 'NL', 'BE', 'PT', 'AT', 'CH', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'GR', 'IS', 'LU', 'HR', 'RO', 'SK', 'SI', 'EE', 'LV', 'LT', 'RS', 'BG', 'UK'}
@@ -214,8 +214,9 @@ def filter_panel(groups):
     for key, label, opts in groups:
         rows = ''.join(f'<button type="button" class="c-fopt{" is-on" if not v else ""}" data-fkey="{key}" data-fval="{e(v)}" aria-pressed="{"true" if not v else "false"}">{e(l)}</button>'
                        for v, l in [('', 'All')] + opts)
-        out.append(f'<div class="c-fgroup" role="group" aria-label="{e(label)}"><p class="c-fhead">{e(label)}</p>{rows}</div>')
-    return ('<div class="c-fpanel" id="c-fpanel" hidden>' + ''.join(out)
+        cols = ' c-fopts-2' if len(opts) > 5 else ''
+        out.append(f'<div class="c-fgroup{cols}" role="group" aria-label="{e(label)}"><p class="c-fhead">{e(label)}</p><div class="c-fopts">{rows}</div></div>')
+    return ('<div class="c-fpanel" id="c-fpanel" hidden><div class="c-fgroups">' + ''.join(out) + '</div>'
             + '<div class="c-ffoot"><button type="button" class="c-fclear" data-fclear>Clear</button><button type="button" class="c-btn c-btn-navy c-fdone" data-fdone>Done</button></div></div>')
 
 def hub_intro(kicker, h1, lead, placeholder, target):

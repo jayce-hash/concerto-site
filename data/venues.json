@@ -11,6 +11,17 @@
     "type": "arena"
   },
   {
+    "id": "3rd-and-lindsley",
+    "name": "3rd & Lindsley",
+    "city": "Nashville",
+    "state": "TN",
+    "country": "US",
+    "lat": 36.1521,
+    "lng": -86.77,
+    "guideUrl": "/cityguide/3rdlindsley",
+    "type": "club"
+  },
+  {
     "id": "713-music-hall",
     "name": "713 Music Hall",
     "city": "Houston",
@@ -20,6 +31,17 @@
     "lng": -95.3661,
     "guideUrl": "/cityguide/713musichall",
     "type": "theater"
+  },
+  {
+    "id": "7th-st-entry",
+    "name": "7th St Entry",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9787,
+    "lng": -93.276,
+    "guideUrl": "/cityguide/7thstentry",
+    "type": "club"
   },
   {
     "id": "9-30-club",
@@ -130,6 +152,17 @@
     "lng": -71.11773,
     "guideUrl": "/cityguide/agganis-arena",
     "type": "arena"
+  },
+  {
+    "id": "aggie-theatre",
+    "name": "Aggie Theatre",
+    "city": "Fort Collins",
+    "state": "CO",
+    "country": "US",
+    "lat": 40.5855,
+    "lng": -105.0769,
+    "guideUrl": "/cityguide/aggietheatre",
+    "type": "theater"
   },
   {
     "id": "agora-theatre",
@@ -385,6 +418,17 @@
     "type": "theater"
   },
   {
+    "id": "ardmore-music-hall",
+    "name": "Ardmore Music Hall",
+    "city": "Ardmore",
+    "state": "PA",
+    "country": "US",
+    "lat": 40.0075,
+    "lng": -75.2901,
+    "guideUrl": "/cityguide/ardmoremusichall",
+    "type": "club"
+  },
+  {
     "id": "ariat-arena",
     "name": "Ariat Arena",
     "city": "Fort Worth",
@@ -532,6 +576,17 @@
     "type": "arena"
   },
   {
+    "id": "baltimore-soundstage",
+    "name": "Baltimore Soundstage",
+    "city": "Baltimore",
+    "state": "MD",
+    "country": "US",
+    "lat": 39.2876,
+    "lng": -76.607,
+    "guideUrl": "/cityguide/baltimoresoundstage",
+    "type": "club"
+  },
+  {
     "id": "bank-of-america-stadium",
     "name": "Bank of America Stadium",
     "city": "Charlotte",
@@ -609,6 +664,28 @@
     "type": "stadium"
   },
   {
+    "id": "beachland-ballroom",
+    "name": "Beachland Ballroom",
+    "city": "Cleveland",
+    "state": "OH",
+    "country": "US",
+    "lat": 41.5712,
+    "lng": -81.5708,
+    "guideUrl": "/cityguide/beachlandballroom",
+    "type": "club"
+  },
+  {
+    "id": "beachland-tavern",
+    "name": "Beachland Tavern",
+    "city": "Cleveland",
+    "state": "OH",
+    "country": "US",
+    "lat": 41.5712,
+    "lng": -81.5708,
+    "guideUrl": "/cityguide/beachlandtavern",
+    "type": "club"
+  },
+  {
     "id": "beacon-theatre",
     "name": "Beacon Theatre",
     "city": "New York",
@@ -617,6 +694,17 @@
     "lat": 40.7804903,
     "lng": -73.9811314,
     "guideUrl": "/cityguide/beacon-theatre",
+    "type": "theater"
+  },
+  {
+    "id": "bearsville-theater",
+    "name": "Bearsville Theater",
+    "city": "Woodstock",
+    "state": "NY",
+    "country": "US",
+    "lat": 42.0403,
+    "lng": -74.1523,
+    "guideUrl": "/cityguide/bearsvilletheater",
     "type": "theater"
   },
   {
@@ -665,6 +753,17 @@
       "Amalie Arena"
     ],
     "type": "arena"
+  },
+  {
+    "id": "berlin-minneapolis",
+    "name": "Berlin",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9855,
+    "lng": -93.2691,
+    "guideUrl": "/cityguide/berlin",
+    "type": "club"
   },
   {
     "id": "bethel-woods-center-for-the-arts",
@@ -734,6 +833,17 @@
     "type": "arena"
   },
   {
+    "id": "black-cat-washington",
+    "name": "Black Cat",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9144,
+    "lng": -77.0319,
+    "guideUrl": "/cityguide/blackcat",
+    "type": "club"
+  },
+  {
     "id": "blossom-music-center",
     "name": "Blossom Music Center",
     "city": "Cuyahoga Falls",
@@ -756,6 +866,17 @@
     "type": "arena"
   },
   {
+    "id": "blue-nile-new-orleans",
+    "name": "Blue Nile",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9629,
+    "lng": -90.0578,
+    "guideUrl": "/cityguide/bluenile",
+    "type": "club"
+  },
+  {
     "id": "bluebird-theater",
     "name": "Bluebird Theater",
     "city": "Denver",
@@ -764,6 +885,17 @@
     "lat": 39.7404282,
     "lng": -104.9483729,
     "guideUrl": "/cityguide/bluebird-theater",
+    "type": "club"
+  },
+  {
+    "id": "blues-alley",
+    "name": "Blues Alley",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9047,
+    "lng": -77.0627,
+    "guideUrl": "/cityguide/bluesalley",
     "type": "club"
   },
   {
@@ -880,6 +1012,17 @@
     "type": "festival"
   },
   {
+    "id": "boulder-theater",
+    "name": "Boulder Theater",
+    "city": "Boulder",
+    "state": "CO",
+    "country": "US",
+    "lat": 40.0188,
+    "lng": -105.2774,
+    "guideUrl": "/cityguide/bouldertheater",
+    "type": "theater"
+  },
+  {
     "id": "bowery-ballroom",
     "name": "Bowery Ballroom",
     "city": "New York",
@@ -922,6 +1065,17 @@
     "lng": -84.4920022,
     "guideUrl": "/cityguide/breslin-center",
     "type": "arena"
+  },
+  {
+    "id": "brick-and-mortar-music-hall",
+    "name": "Brick & Mortar Music Hall",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "US",
+    "lat": 37.7697,
+    "lng": -122.4202,
+    "guideUrl": "/cityguide/brickmortarmusichall",
+    "type": "club"
   },
   {
     "id": "bridgestone-arena",
@@ -1067,6 +1221,17 @@
     "type": "amphitheater"
   },
   {
+    "id": "buffas",
+    "name": "Buffa's",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9654,
+    "lng": -90.0626,
+    "guideUrl": "/cityguide/buffas",
+    "type": "club"
+  },
+  {
     "id": "burning-man",
     "name": "Burning Man",
     "city": "Black Rock Desert",
@@ -1110,6 +1275,17 @@
     "lng": -94.4129,
     "guideUrl": "/cityguide/cabledahmerarena",
     "type": "arena"
+  },
+  {
+    "id": "cactus-club-milwaukee",
+    "name": "Cactus Club",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 42.9989,
+    "lng": -87.8903,
+    "guideUrl": "/cityguide/cactusclub",
+    "type": "club"
   },
   {
     "id": "caesars-superdome",
@@ -1376,6 +1552,17 @@
     "type": "club"
   },
   {
+    "id": "civic-theatre-new-orleans",
+    "name": "Civic Theatre",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9501,
+    "lng": -90.0743,
+    "guideUrl": "/cityguide/civictheatre",
+    "type": "theater"
+  },
+  {
     "id": "climate-pledge-arena",
     "name": "Climate Pledge Arena",
     "city": "Seattle",
@@ -1385,6 +1572,17 @@
     "lng": -122.3541,
     "guideUrl": "/cityguide/climatepledgearena",
     "type": "arena"
+  },
+  {
+    "id": "cloudland-theater-minneapolis",
+    "name": "Cloudland Theater",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9483,
+    "lng": -93.2212,
+    "guideUrl": "/cityguide/cloudlandtheater",
+    "type": "theater"
   },
   {
     "id": "cma-fest",
@@ -1687,6 +1885,17 @@
     "type": "amphitheater"
   },
   {
+    "id": "dakota-minneapolis",
+    "name": "Dakota",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9739,
+    "lng": -93.2749,
+    "guideUrl": "/cityguide/dakota",
+    "type": "club"
+  },
+  {
     "id": "dar-constitution-hall",
     "name": "DAR Constitution Hall",
     "city": "Washington",
@@ -1718,6 +1927,39 @@
     "lng": -97.7326229,
     "guideUrl": "/cityguide/darrell-k-royaltexas-memorial-stadium",
     "type": "stadium"
+  },
+  {
+    "id": "dazzle",
+    "name": "Dazzle",
+    "city": "Denver",
+    "state": "CO",
+    "country": "US",
+    "lat": 39.7458,
+    "lng": -104.9979,
+    "guideUrl": "/cityguide/dazzle",
+    "type": "club"
+  },
+  {
+    "id": "dba-new-orleans",
+    "name": "d.b.a.",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9638,
+    "lng": -90.0578,
+    "guideUrl": "/cityguide/dba",
+    "type": "club"
+  },
+  {
+    "id": "dc9",
+    "name": "DC9",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9162,
+    "lng": -77.024,
+    "guideUrl": "/cityguide/dc9",
+    "type": "club"
   },
   {
     "id": "dean-e-smith-center",
@@ -1908,6 +2150,17 @@
     "type": "festival"
   },
   {
+    "id": "el-corazon",
+    "name": "El Corazon",
+    "city": "Seattle",
+    "state": "WA",
+    "country": "US",
+    "lat": 47.6187,
+    "lng": -122.3292,
+    "guideUrl": "/cityguide/elcorazon",
+    "type": "club"
+  },
+  {
     "id": "el-rey-theatre",
     "name": "El Rey Theatre",
     "city": "Los Angeles",
@@ -1941,6 +2194,17 @@
     "isFestival": true,
     "guideUrl": "/cityguide/electriczoo",
     "type": "festival"
+  },
+  {
+    "id": "elsewhere-brooklyn",
+    "name": "Elsewhere",
+    "city": "Brooklyn",
+    "state": "NY",
+    "country": "US",
+    "lat": 40.7092,
+    "lng": -73.9239,
+    "guideUrl": "/cityguide/elsewhere",
+    "type": "club"
   },
   {
     "id": "emo-s-austin",
@@ -2109,6 +2373,17 @@
     "type": "theater"
   },
   {
+    "id": "falcon-bowl-milwaukee",
+    "name": "Falcon Bowl",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.0656,
+    "lng": -87.9015,
+    "guideUrl": "/cityguide/falconbowl",
+    "type": "club"
+  },
+  {
     "id": "falcon-stadium",
     "name": "Falcon Stadium",
     "city": "Air Force Academy",
@@ -2216,6 +2491,17 @@
     "lat": 44.9796,
     "lng": -93.2753,
     "guideUrl": "/cityguide/fillmoreminneapolispresentedbyaffinityplus",
+    "type": "club"
+  },
+  {
+    "id": "fine-line-minneapolis",
+    "name": "Fine Line",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.982,
+    "lng": -93.2717,
+    "guideUrl": "/cityguide/fineline",
     "type": "club"
   },
   {
@@ -2395,6 +2681,17 @@
     "lat": 33.7726429,
     "lng": -84.3855618,
     "guideUrl": "/cityguide/fox-theatre",
+    "type": "theater"
+  },
+  {
+    "id": "fox-theatre-boulder",
+    "name": "Fox Theatre",
+    "city": "Boulder",
+    "state": "CO",
+    "country": "US",
+    "lat": 40.0078,
+    "lng": -105.2763,
+    "guideUrl": "/cityguide/foxtheatre",
     "type": "theater"
   },
   {
@@ -2666,6 +2963,17 @@
     "type": "amphitheater"
   },
   {
+    "id": "green-room-minneapolis",
+    "name": "Green Room",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.949,
+    "lng": -93.2969,
+    "guideUrl": "/cityguide/greenroom",
+    "type": "club"
+  },
+  {
     "id": "groupama-stadium",
     "name": "Groupama Stadium",
     "city": "Lyon",
@@ -2720,6 +3028,17 @@
     "isFestival": true,
     "guideUrl": "/cityguide/hangoutmusicfestival",
     "type": "festival"
+  },
+  {
+    "id": "happy-dog-cleveland",
+    "name": "Happy Dog",
+    "city": "Cleveland",
+    "state": "OH",
+    "country": "US",
+    "lat": 41.485,
+    "lng": -81.7263,
+    "guideUrl": "/cityguide/happydog",
+    "type": "club"
   },
   {
     "id": "hard-rock-live",
@@ -3318,6 +3637,17 @@
     "type": "club"
   },
   {
+    "id": "knuckleheads",
+    "name": "Knuckleheads",
+    "city": "Kansas City",
+    "state": "MO",
+    "country": "US",
+    "lat": 39.1206,
+    "lng": -94.549,
+    "guideUrl": "/cityguide/knuckleheads",
+    "type": "club"
+  },
+  {
     "id": "kohl-center",
     "name": "Kohl Center",
     "city": "Madison",
@@ -3393,6 +3723,17 @@
     "lng": 4.9796,
     "guideUrl": "/cityguide/ldlcarena",
     "type": "arena"
+  },
+  {
+    "id": "le-poisson-rouge",
+    "name": "Le Poisson Rouge",
+    "city": "New York",
+    "state": "NY",
+    "country": "US",
+    "lat": 40.7285,
+    "lng": -73.9999,
+    "guideUrl": "/cityguide/lepoissonrouge",
+    "type": "club"
   },
   {
     "id": "leader-bank-pavilion",
@@ -3494,6 +3835,17 @@
     "lng": -77.028986,
     "guideUrl": "/cityguide/lincoln-theatre",
     "type": "theater"
+  },
+  {
+    "id": "linnemans-riverwest-inn",
+    "name": "Linneman's Riverwest Inn",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.071,
+    "lng": -87.899,
+    "guideUrl": "/cityguide/linnemansriverwestinn",
+    "type": "club"
   },
   {
     "id": "little-caesars-arena",
@@ -3694,6 +4046,17 @@
     "lng": -73.9936,
     "guideUrl": "/cityguide/manhattancenterhammersteinballroom",
     "type": "theater"
+  },
+  {
+    "id": "maple-leaf-bar",
+    "name": "Maple Leaf Bar",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9489,
+    "lng": -90.1318,
+    "guideUrl": "/cityguide/mapleleafbar",
+    "type": "club"
   },
   {
     "id": "marathon-music-works",
@@ -4037,6 +4400,17 @@
     "type": "theater"
   },
   {
+    "id": "mississippi-studios",
+    "name": "Mississippi Studios",
+    "city": "Portland",
+    "state": "OR",
+    "country": "US",
+    "lat": 45.5513,
+    "lng": -122.6756,
+    "guideUrl": "/cityguide/mississippistudios",
+    "type": "club"
+  },
+  {
     "id": "mizzou-arena",
     "name": "Mizzou Arena",
     "city": "Columbia",
@@ -4239,6 +4613,17 @@
     "lng": -83.0066,
     "guideUrl": "/cityguide/nationwidearena",
     "type": "arena"
+  },
+  {
+    "id": "neck-of-the-woods",
+    "name": "Neck of the Woods",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "US",
+    "lat": 37.783,
+    "lng": -122.4641,
+    "guideUrl": "/cityguide/neckofthewoods",
+    "type": "club"
   },
   {
     "id": "neptune-theatre",
@@ -4464,6 +4849,17 @@
     "type": "club"
   },
   {
+    "id": "off-broadway-st-louis",
+    "name": "Off Broadway",
+    "city": "St. Louis",
+    "state": "MO",
+    "country": "US",
+    "lat": 38.5903,
+    "lng": -90.2191,
+    "guideUrl": "/cityguide/offbroadway",
+    "type": "club"
+  },
+  {
     "id": "ogden-theatre",
     "name": "Ogden Theatre",
     "city": "Denver",
@@ -4495,6 +4891,17 @@
     "lng": -86.1510753,
     "guideUrl": "/cityguide/old-national-centre",
     "type": "theater"
+  },
+  {
+    "id": "old-rock-house",
+    "name": "Old Rock House",
+    "city": "St. Louis",
+    "state": "MO",
+    "country": "US",
+    "lat": 38.6154,
+    "lng": -90.1965,
+    "guideUrl": "/cityguide/oldrockhouse",
+    "type": "club"
   },
   {
     "id": "olympiahalle",
@@ -4839,6 +5246,28 @@
     "type": "arena"
   },
   {
+    "id": "photo-city-music-hall",
+    "name": "Photo City Music Hall",
+    "city": "Rochester",
+    "state": "NY",
+    "country": "US",
+    "lat": 43.1564,
+    "lng": -77.5695,
+    "guideUrl": "/cityguide/photocitymusichall",
+    "type": "club"
+  },
+  {
+    "id": "pie-shop",
+    "name": "Pie Shop",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9001,
+    "lng": -76.987,
+    "guideUrl": "/cityguide/pieshop",
+    "type": "club"
+  },
+  {
     "id": "pine-knob-music-theatre",
     "name": "Pine Knob Music Theatre",
     "city": "Clarkston",
@@ -4983,6 +5412,28 @@
     "type": "arena"
   },
   {
+    "id": "pub-station-ballroom",
+    "name": "Pub Station Ballroom",
+    "city": "Billings",
+    "state": "MT",
+    "country": "US",
+    "lat": 45.7838,
+    "lng": -108.5021,
+    "guideUrl": "/cityguide/pubstationballroom",
+    "type": "club"
+  },
+  {
+    "id": "pub-station-taproom",
+    "name": "Pub Station Taproom",
+    "city": "Billings",
+    "state": "MT",
+    "country": "US",
+    "lat": 45.7838,
+    "lng": -108.5021,
+    "guideUrl": "/cityguide/pubstationtaproom",
+    "type": "club"
+  },
+  {
     "id": "radio-city-music-hall",
     "name": "Radio City Music Hall",
     "city": "New York",
@@ -5068,6 +5519,50 @@
     "lat": 37.7878176,
     "lng": -122.4215762,
     "guideUrl": "/cityguide/regency-ballroom",
+    "type": "club"
+  },
+  {
+    "id": "reggies-chicago",
+    "name": "Reggies",
+    "city": "Chicago",
+    "state": "IL",
+    "country": "US",
+    "lat": 41.8541,
+    "lng": -87.627,
+    "guideUrl": "/cityguide/reggies",
+    "type": "club"
+  },
+  {
+    "id": "republic-nola",
+    "name": "Republic NOLA",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9441,
+    "lng": -90.0658,
+    "guideUrl": "/cityguide/republicnola",
+    "type": "club"
+  },
+  {
+    "id": "revolution-hall",
+    "name": "Revolution Hall",
+    "city": "Portland",
+    "state": "OR",
+    "country": "US",
+    "lat": 45.5193,
+    "lng": -122.6517,
+    "guideUrl": "/cityguide/revolutionhall",
+    "type": "theater"
+  },
+  {
+    "id": "rhizome-dc",
+    "name": "Rhizome DC",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9747,
+    "lng": -77.0151,
+    "guideUrl": "/cityguide/rhizomedc",
     "type": "club"
   },
   {
@@ -5452,6 +5947,17 @@
     "type": "festival"
   },
   {
+    "id": "shank-hall",
+    "name": "Shank Hall",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.0486,
+    "lng": -87.8963,
+    "guideUrl": "/cityguide/shankhall",
+    "type": "club"
+  },
+  {
     "id": "shell-energy-stadium",
     "name": "Shell Energy Stadium",
     "city": "Houston",
@@ -5584,6 +6090,17 @@
     "type": "arena"
   },
   {
+    "id": "sobs",
+    "name": "SOB's",
+    "city": "New York",
+    "state": "NY",
+    "country": "US",
+    "lat": 40.7287,
+    "lng": -74.0052,
+    "guideUrl": "/cityguide/sobs",
+    "type": "club"
+  },
+  {
     "id": "sofi-stadium",
     "name": "SoFi Stadium",
     "city": "Inglewood",
@@ -5606,6 +6123,28 @@
     "type": "stadium"
   },
   {
+    "id": "soma-san-diego",
+    "name": "SOMA",
+    "city": "San Diego",
+    "state": "CA",
+    "country": "US",
+    "lat": 32.7534,
+    "lng": -117.2098,
+    "guideUrl": "/cityguide/soma",
+    "type": "club"
+  },
+  {
+    "id": "songbyrd-music-house",
+    "name": "Songbyrd Music House",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9101,
+    "lng": -76.9968,
+    "guideUrl": "/cityguide/songbyrdmusichouse",
+    "type": "club"
+  },
+  {
     "id": "south-side-ballroom",
     "name": "South Side Ballroom",
     "city": "Dallas",
@@ -5615,6 +6154,17 @@
     "lng": -96.7981509,
     "guideUrl": "/cityguide/south-side-ballroom",
     "type": "theater"
+  },
+  {
+    "id": "space-ballroom-hamden",
+    "name": "Space Ballroom",
+    "city": "Hamden",
+    "state": "CT",
+    "country": "US",
+    "lat": 41.3529,
+    "lng": -72.923,
+    "guideUrl": "/cityguide/spaceballroom",
+    "type": "club"
   },
   {
     "id": "spectrum-center",
@@ -6126,6 +6676,17 @@
     "type": "club"
   },
   {
+    "id": "the-atlantis-washington",
+    "name": "The Atlantis",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9182,
+    "lng": -77.0238,
+    "guideUrl": "/cityguide/theatlantis",
+    "type": "club"
+  },
+  {
     "id": "the-barbary",
     "name": "The Barbary",
     "city": "Philadelphia",
@@ -6170,6 +6731,28 @@
     "type": "club"
   },
   {
+    "id": "the-cedar-cultural-center",
+    "name": "The Cedar Cultural Center",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9697,
+    "lng": -93.2473,
+    "guideUrl": "/cityguide/thecedarculturalcenter",
+    "type": "theater"
+  },
+  {
+    "id": "the-cicada-fort-worth",
+    "name": "The Cicada",
+    "city": "Fort Worth",
+    "state": "TX",
+    "country": "US",
+    "lat": 32.7342,
+    "lng": -97.3259,
+    "guideUrl": "/cityguide/thecicada",
+    "type": "club"
+  },
+  {
     "id": "the-colosseum-at-caesars-palace",
     "name": "The Colosseum at Caesars Palace",
     "city": "Las Vegas",
@@ -6179,6 +6762,28 @@
     "lng": -115.175,
     "guideUrl": "/cityguide/the-colosseum-at-caesars-palace",
     "type": "theater"
+  },
+  {
+    "id": "the-commonwealth-room-salt-lake-city",
+    "name": "The Commonwealth Room",
+    "city": "South Salt Lake",
+    "state": "UT",
+    "country": "US",
+    "lat": 40.7254,
+    "lng": -111.8967,
+    "guideUrl": "/cityguide/thecommonwealthroom",
+    "type": "club"
+  },
+  {
+    "id": "the-cooperage-milwaukee",
+    "name": "The Cooperage",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.0227,
+    "lng": -87.9067,
+    "guideUrl": "/cityguide/thecooperage",
+    "type": "club"
   },
   {
     "id": "the-danforth-music-hall",
@@ -6291,6 +6896,17 @@
     "type": "club"
   },
   {
+    "id": "the-fitzgerald-theater",
+    "name": "The Fitzgerald Theater",
+    "city": "St. Paul",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9491,
+    "lng": -93.0975,
+    "guideUrl": "/cityguide/thefitzgeraldtheater",
+    "type": "theater"
+  },
+  {
     "id": "the-fonda-theatre",
     "name": "The Fonda Theatre",
     "city": "Los Angeles",
@@ -6299,6 +6915,17 @@
     "lat": 34.101642,
     "lng": -118.323259,
     "guideUrl": "/cityguide/the-fonda-theatre",
+    "type": "club"
+  },
+  {
+    "id": "the-funhouse-seattle",
+    "name": "The Funhouse",
+    "city": "Seattle",
+    "state": "WA",
+    "country": "US",
+    "lat": 47.6187,
+    "lng": -122.3292,
+    "guideUrl": "/cityguide/thefunhouse",
     "type": "club"
   },
   {
@@ -6313,6 +6940,61 @@
     "type": "amphitheater"
   },
   {
+    "id": "the-hamilton-live",
+    "name": "The Hamilton Live",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.8974,
+    "lng": -77.032,
+    "guideUrl": "/cityguide/thehamiltonlive",
+    "type": "club"
+  },
+  {
+    "id": "the-hideout-chicago",
+    "name": "The Hideout",
+    "city": "Chicago",
+    "state": "IL",
+    "country": "US",
+    "lat": 41.9137,
+    "lng": -87.6624,
+    "guideUrl": "/cityguide/thehideout",
+    "type": "club"
+  },
+  {
+    "id": "the-hook-and-ladder-theater",
+    "name": "The Hook and Ladder Theater",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.948,
+    "lng": -93.2341,
+    "guideUrl": "/cityguide/thehookandladdertheater",
+    "type": "theater"
+  },
+  {
+    "id": "the-howlin-wolf-new-orleans",
+    "name": "The Howlin' Wolf",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9427,
+    "lng": -90.0659,
+    "guideUrl": "/cityguide/thehowlinwolf",
+    "type": "club"
+  },
+  {
+    "id": "the-loft-atlanta",
+    "name": "The Loft",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "lat": 33.7923,
+    "lng": -84.3878,
+    "guideUrl": "/cityguide/theloft",
+    "type": "club"
+  },
+  {
     "id": "the-lyric",
     "name": "The Lyric",
     "city": "Baltimore",
@@ -6321,6 +7003,17 @@
     "lat": 39.291,
     "lng": -76.6156,
     "guideUrl": "/cityguide/thelyric",
+    "type": "club"
+  },
+  {
+    "id": "the-maison-new-orleans",
+    "name": "The Maison",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9627,
+    "lng": -90.0577,
+    "guideUrl": "/cityguide/themaison",
     "type": "club"
   },
   {
@@ -6343,6 +7036,17 @@
     "lat": 37.7911743,
     "lng": -122.4129901,
     "guideUrl": "/cityguide/the-masonic",
+    "type": "club"
+  },
+  {
+    "id": "the-masquerade-atlanta",
+    "name": "The Masquerade",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "lat": 33.7523,
+    "lng": -84.3924,
+    "guideUrl": "/cityguide/themasquerade",
     "type": "club"
   },
   {
@@ -6423,6 +7127,17 @@
     "type": "club"
   },
   {
+    "id": "the-parkway-theater",
+    "name": "The Parkway Theater",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9158,
+    "lng": -93.2627,
+    "guideUrl": "/cityguide/theparkwaytheater",
+    "type": "theater"
+  },
+  {
     "id": "the-pavilion-at-ole-miss",
     "name": "The Sandy and John Black Pavilion at Ole Miss",
     "city": "Oxford",
@@ -6478,6 +7193,28 @@
     "type": "club"
   },
   {
+    "id": "the-pocket-washington",
+    "name": "The Pocket",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.9098,
+    "lng": -77.0092,
+    "guideUrl": "/cityguide/thepocket",
+    "type": "club"
+  },
+  {
+    "id": "the-pyramid-scheme",
+    "name": "The Pyramid Scheme",
+    "city": "Grand Rapids",
+    "state": "MI",
+    "country": "US",
+    "lat": 42.9616,
+    "lng": -85.6691,
+    "guideUrl": "/cityguide/thepyramidscheme",
+    "type": "club"
+  },
+  {
     "id": "the-rady-shell-at-jacobs-park",
     "name": "The Rady Shell at Jacobs Park",
     "city": "San Diego",
@@ -6500,6 +7237,17 @@
     "type": "club"
   },
   {
+    "id": "the-rebel-lounge",
+    "name": "The Rebel Lounge",
+    "city": "Phoenix",
+    "state": "AZ",
+    "country": "US",
+    "lat": 33.4948,
+    "lng": -112.0323,
+    "guideUrl": "/cityguide/therebellounge",
+    "type": "club"
+  },
+  {
     "id": "the-ritz",
     "name": "The Ritz",
     "city": "Raleigh",
@@ -6508,6 +7256,17 @@
     "lat": 35.8161276,
     "lng": -78.6203606,
     "guideUrl": "/cityguide/the-ritz",
+    "type": "club"
+  },
+  {
+    "id": "the-rock-box-san-antonio",
+    "name": "The Rock Box",
+    "city": "San Antonio",
+    "state": "TX",
+    "country": "US",
+    "lat": 29.4252,
+    "lng": -98.4788,
+    "guideUrl": "/cityguide/therockbox",
     "type": "club"
   },
   {
@@ -6555,6 +7314,39 @@
     "type": "club"
   },
   {
+    "id": "the-social-orlando",
+    "name": "The Social",
+    "city": "Orlando",
+    "state": "FL",
+    "country": "US",
+    "lat": 28.543,
+    "lng": -81.3791,
+    "guideUrl": "/cityguide/thesocial",
+    "type": "club"
+  },
+  {
+    "id": "the-sovereign-st-louis",
+    "name": "The Sovereign",
+    "city": "St. Louis",
+    "state": "MO",
+    "country": "US",
+    "lat": 38.6377,
+    "lng": -90.2264,
+    "guideUrl": "/cityguide/thesovereign",
+    "type": "theater"
+  },
+  {
+    "id": "the-spotted-cat-music-club",
+    "name": "The Spotted Cat Music Club",
+    "city": "New Orleans",
+    "state": "LA",
+    "country": "US",
+    "lat": 29.9638,
+    "lng": -90.0577,
+    "guideUrl": "/cityguide/thespottedcatmusicclub",
+    "type": "club"
+  },
+  {
     "id": "the-star",
     "name": "The Star",
     "city": "Frisco",
@@ -6564,6 +7356,17 @@
     "lng": -96.8233,
     "guideUrl": "/cityguide/the-star",
     "type": "arena"
+  },
+  {
+    "id": "the-state-room-salt-lake-city",
+    "name": "The State Room",
+    "city": "Salt Lake City",
+    "state": "UT",
+    "country": "US",
+    "lat": 40.7552,
+    "lng": -111.8883,
+    "guideUrl": "/cityguide/thestateroom",
+    "type": "club"
   },
   {
     "id": "the-tabernacle",
@@ -6663,6 +7466,17 @@
     "lng": -122.410268,
     "guideUrl": "/cityguide/the-warfield",
     "type": "theater"
+  },
+  {
+    "id": "the-whistler-chicago",
+    "name": "The Whistler",
+    "city": "Chicago",
+    "state": "IL",
+    "country": "US",
+    "lat": 41.9253,
+    "lng": -87.7011,
+    "guideUrl": "/cityguide/thewhistler",
+    "type": "club"
   },
   {
     "id": "the-wiltern",
@@ -6797,6 +7611,28 @@
     "type": "theater"
   },
   {
+    "id": "turf-club-st-paul",
+    "name": "Turf Club",
+    "city": "St. Paul",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9557,
+    "lng": -93.168,
+    "guideUrl": "/cityguide/turfclub",
+    "type": "club"
+  },
+  {
+    "id": "turner-hall-ballroom",
+    "name": "Turner Hall Ballroom",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.0435,
+    "lng": -87.9159,
+    "guideUrl": "/cityguide/turnerhallballroom",
+    "type": "theater"
+  },
+  {
     "id": "ubc-doug-mitchell-thunderbird-sports-centre",
     "name": "UBC – Doug Mitchell Thunderbird Sports Centre",
     "city": "Vancouver",
@@ -6851,6 +7687,28 @@
     "isFestival": true,
     "guideUrl": "/cityguide/ultramusicfestival",
     "type": "festival"
+  },
+  {
+    "id": "underground-music-venue-minneapolis",
+    "name": "Underground Music Venue",
+    "city": "Minneapolis",
+    "state": "MN",
+    "country": "US",
+    "lat": 44.9828,
+    "lng": -93.275,
+    "guideUrl": "/cityguide/undergroundmusicvenue",
+    "type": "club"
+  },
+  {
+    "id": "union-stage-washington",
+    "name": "Union Stage",
+    "city": "Washington",
+    "state": "DC",
+    "country": "US",
+    "lat": 38.8792,
+    "lng": -77.0236,
+    "guideUrl": "/cityguide/unionstage",
+    "type": "club"
   },
   {
     "id": "union-transfer",
@@ -7139,6 +7997,28 @@
     "type": "theater"
   },
   {
+    "id": "vinyl-atlanta",
+    "name": "Vinyl",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "US",
+    "lat": 33.7923,
+    "lng": -84.3878,
+    "guideUrl": "/cityguide/vinyl",
+    "type": "club"
+  },
+  {
+    "id": "vivarium-milwaukee",
+    "name": "Vivarium",
+    "city": "Milwaukee",
+    "state": "WI",
+    "country": "US",
+    "lat": 43.0542,
+    "lng": -87.891,
+    "guideUrl": "/cityguide/vivarium",
+    "type": "club"
+  },
+  {
     "id": "vystar-veterans-memorial-arena",
     "name": "VyStar Veterans Memorial Arena",
     "city": "Jacksonville",
@@ -7380,6 +8260,17 @@
     "lng": -87.6553,
     "guideUrl": "/cityguide/wrigleyfield",
     "type": "stadium"
+  },
+  {
+    "id": "x-ray-arcade",
+    "name": "X-Ray Arcade",
+    "city": "Cudahy",
+    "state": "WI",
+    "country": "US",
+    "lat": 42.9529,
+    "lng": -87.8599,
+    "guideUrl": "/cityguide/xrayarcade",
+    "type": "club"
   },
   {
     "id": "xfinity-center",
