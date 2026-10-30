@@ -858,7 +858,7 @@ def home():
 # feature names can never drift apart between pages. Keep in step with app/plus.tsx.
 PLUS_YEAR, PLUS_PASS = '$29.99', '$4.99'
 PLUS_PRICE_LINE = f'{PLUS_YEAR} a year, or {PLUS_PASS} for one show.'
-V_COPY = '600+'  # venues: say "600+ venues worldwide", not the exact count
+V_COPY = '1,000+'  # venues: say "1,000+ venues worldwide", not the exact count
 
 def four(cols):
     """The four Your Night tabs, side by side: name, one line, and what lives there.
@@ -1009,7 +1009,7 @@ def press():
               f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, eight times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
-    bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 600+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
+    bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 1,000+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
     res = section('white', 'Media resources', 'Logos, interviews, and figures.', '<p class="c-body">Logo files, product images, interviews, confirmed figures. Ask and we will send them.</p><div class="c-actions"><a class="c-link" href="/contact?topic=media">Contact for media</a><a class="c-link" href="/about">Read the founder story</a></div>')
     return '<main id="main-content" class="c-page">' + h + press_coverage() + boiler + kit + bio + res + close() + '</main>'
 
@@ -1076,7 +1076,7 @@ def partners_hub():
         ('The same card as every place around you.', 'Your photo from your Google listing, your price, and your distance from the venue. Tapping it opens directions.', ''),
         ('An optional Perk.', 'Add an offer, like a free dessert on show nights. A gold star appears on your card, and signed-in fans tap it to see the offer.', '')]))
     how = section('cream', 'How it works', 'Three steps.', rows([
-        ('Pick your venue.', 'Search for your restaurant or hotel near any of Concerto’s 600+ venues worldwide. Your address, location, and photo fill in from Google.', ''),
+        ('Pick your venue.', 'Search for your restaurant or hotel near any of Concerto’s 1,000+ venues worldwide. Your address, location, and photo fill in from Google.', ''),
         ('Add an offer if you want one.', 'Optional. Add an offer and your reservation or booking link. Fans who tap your star see the offer and can go straight to your link.', ''),
         ('Pay, and you’re live.', 'Restaurants are $99 a month and hotels $299 a month, with savings on annual plans and no commissions or booking fees. You’re live within minutes, and each month you see how many fans viewed and tapped your card.', '')]))
     note = section('white', 'Where it shows', '', '<p class="c-statement">In the app, on your venue’s page online, and in Concerto AI and Plan My Night.<br>Always labeled Concerto Partner.</p>', narrow=True)
@@ -1100,7 +1100,7 @@ def partners_why(kind='restaurants and hotels'):
 
 PARTNER_V2 = {
     'partner-venues': dict(kicker='Venues', h1='Work with Concerto<br>on your venue guide.',
-        lead='Fans use Concerto to plan their visit to 600+ venues worldwide: bag rules, entry, parking and rideshare. Work with us to keep your guide accurate and to reach fans before they arrive.',
+        lead='Fans use Concerto to plan their visit to 1,000+ venues worldwide: bag rules, entry, parking and rideshare. Work with us to keep your guide accurate and to reach fans before they arrive.',
         chips=['Accurate venue guides', 'Fans before they arrive', 'Custom partnerships'],
         rows=[('Keep your guide accurate.', 'Send us your current bag policy, entry, parking and rideshare details, and we&rsquo;ll update your guide in the app and on concertocity.com.'),
               ('Reach fans before they arrive.', 'Share event-day updates, like doors, set times or parking changes, with fans who saved a show at your venue.'),
@@ -1257,7 +1257,7 @@ def build():
     set_head('premium.html', 'Concerto+ | Exit Plan, AI Bag Check, and Plan My Night', 'Concerto+ adds Exit Plan, AI Bag Check, Plan My Night, and more Concerto AI to Your Night. $29.99 a year, or a $4.99 Show Pass for one show.',
              [{'@type': 'Offer', 'price': '29.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Yearly'},
               {'@type': 'Offer', 'price': '4.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Show Pass'}])
-    set_head('index.html', 'Concerto | Your Concert Night, on One Page', 'Concerto makes concert nights easier: guides to 600+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone and Android.')
+    set_head('index.html', 'Concerto | Your Concert Night, on One Page', 'Concerto makes concert nights easier: guides to 1,000+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone and Android.')
     rewrite('about.html', about())
     rewrite('venues.html', venues_hub()); rewrite('tours.html', tours_hub()); rewrite('setlists.html', setlists_hub()); rewrite('bagcheck.html', bagcheck())
     rewrite('bags.html', topic_page('bagPolicy', 'Bag policies', 'Concert bag policies,<br>venue by venue.', f'The bag rule at {N_V} venues, from each venue’s published policy, dated.'))
@@ -1286,7 +1286,7 @@ def build():
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header
     _d = re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/download'), _d, flags=re.S)
     (ROOT / 'download.html').write_text(_d)
-    ensure_page('founder.html', 'From the Founder | Concerto', 'Why Concerto exists: Jayce Wells on the Eras Tour night that started it, and what it took to build a concert guide to 600+ venues.', '/founder')
+    ensure_page('founder.html', 'From the Founder | Concerto', 'Why Concerto exists: Jayce Wells on the Eras Tour night that started it, and what it took to build a concert guide to 1,000+ venues.', '/founder')
     rewrite('founder.html', founder());
     rewrite('press.html', press()); rewrite('investors.html', investors()); rewrite('creators.html', creators()); rewrite('partners.html', partners_hub())
     for k in PARTNER:
