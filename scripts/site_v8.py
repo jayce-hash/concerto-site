@@ -236,15 +236,87 @@ def request_form(kind):
             f'<p class="c-request-note" aria-live="polite">We read every request.</p></div></section>')
 
 
-def venues_hub():
+US_STATES = {'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California','CO':'Colorado','CT':'Connecticut','DE':'Delaware','DC':'Washington, DC','FL':'Florida','GA':'Georgia','HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa','KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee','TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington','WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','PR':'Puerto Rico'}
+COUNTRY_NAMES = {'CA':'Canada','GB':'United Kingdom','UK':'United Kingdom','DE':'Germany','FR':'France','IE':'Ireland','IT':'Italy','ES':'Spain','BE':'Belgium','NL':'Netherlands','SE':'Sweden','FI':'Finland','MX':'Mexico','CZ':'Czechia','AU':'Australia','AT':'Austria','CH':'Switzerland','PL':'Poland','PT':'Portugal','DK':'Denmark','NO':'Norway','JP':'Japan','BR':'Brazil','NZ':'New Zealand'}
+HUB_PER_GROUP = 6        # venues shown per state on /venues before "See all"
+AREA_PAGE_MIN = 3        # a state or country gets its own page at this many venues
+
+def venue_area(v):
+    """(sort key, display name, page slug) for the state (US) or country a venue belongs to."""
+    c = (v.get('country') or '').upper()
+    if c in ('US', 'USA'):
+        st = (v.get('state') or '').upper()
+        name = US_STATES.get(st, st or 'United States')
+        return (0, name), name, slug_val(name.replace(', DC', ''))
+    name = COUNTRY_NAMES.get(c, c or 'Other')
+    return (1, name), name, slug_val(name)
+
+def venue_areas():
     groups = {}
-    for v in sorted(VENUES, key=lambda x: (x.get('country') != 'US', x.get('state') or x.get('country') or '', x['name'])):
-        key = v.get('state') if v.get('country') == 'US' and v.get('state') else (v.get('country') or 'Other')
-        groups.setdefault(key, []).append(v)
-    body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(f'<li class="c-entry" data-f-type="{e(v.get("type") or "")}" data-f-region="{region_of(v.get("country"))}"><a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>' for v in vs) + '</ul></div>' for k, vs in groups.items())
+    for v in VENUES:
+        key, name, slug = venue_area(v)
+        groups.setdefault(key, {'name': name, 'slug': slug, 'venues': []})['venues'].append(v)
+    for g in groups.values():
+        g['venues'].sort(key=lambda x: x['name'].lower())
+        g['page'] = len(g['venues']) >= AREA_PAGE_MIN
+    return [groups[k] for k in sorted(groups)]
+
+def venue_entry(v, more=False):
+    return (f'<li class="c-entry{" c-more" if more else ""}" data-f-type="{e(v.get("type") or "")}" data-f-region="{region_of(v.get("country"))}">'
+            f'<a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>')
+
+_AREA_PAGES = None
+def area_crumb(v):
+    global _AREA_PAGES
+    if _AREA_PAGES is None: _AREA_PAGES = {g['slug']: g['name'] for g in venue_areas() if g['page']}
+    _, name, slug = venue_area(v)
+    return f'<a href="/concert-venues/{slug}">{e(name)}</a><span>/</span>' if slug in _AREA_PAGES else ''
+
+def venues_hub():
+    # Every venue stays in the page so search and filters reach all of them; past the first few per
+    # state, rows are folded until someone searches, and "See all" opens that state's own page.
+    body = ''
+    for g in venue_areas():
+        vs, url = g['venues'], f'/concert-venues/{g["slug"]}'
+        head = f'<a href="{url}">{e(g["name"])}</a>' if g['page'] else e(g['name'])
+        rows = ''.join(venue_entry(v, i >= HUB_PER_GROUP) for i, v in enumerate(vs))
+        more = (f'<li class="c-seeall"><a href="{url}">See all {len(vs)} in {e(g["name"])}</a></li>' if g['page'] and len(vs) > HUB_PER_GROUP else '')
+        body += f'<div class="c-group"><h2>{head}</h2><ul>{rows}{more}</ul></div>'
     return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry',
                       groups=[('type', 'Type', VENUE_TYPES), ('region', 'Region', REGIONS)])
+            + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-fold">{body}</div></section>' + request_form('venue') + close() + '</main>')
+
+def area_page(g):
+    """/concert-venues/<state>: every venue guide in one state or country, by city."""
+    cities = {}
+    for v in g['venues']: cities.setdefault(v.get('city') or 'Other', []).append(v)
+    body = ''.join(f'<div class="c-group"><h2>{e(c)}</h2><ul>' + ''.join(venue_entry(v) for v in vs) + '</ul></div>'
+                   for c, vs in sorted(cities.items(), key=lambda kv: (-len(kv[1]), kv[0])))
+    n = len(g['venues'])
+    present = [t for t in VENUE_TYPES if any(v.get('type') == t[0] for v in g['venues'])]
+    intro = hub_intro(f'Venue guides · {g["name"]}', f'Concert venues<br>in {e(g["name"])}.',
+                      f'{n} venue guides: bag policy, entry, parking, and rideshare, from each venue’s official sources.',
+                      'Search venues or cities', '.c-entry', groups=[('type', 'Type', present)] if len(present) > 1 else None)
+    intro = intro.replace('<div class="c-wrap c-hero-inner">', f'<div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(g["name"])}</nav>', 1)
+    return ('<main id="main-content" class="c-page">' + intro
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('venue') + close() + '</main>')
+
+def build_area_pages():
+    import shutil
+    d = ROOT / 'concert-venues'
+    if d.exists(): shutil.rmtree(d)
+    d.mkdir()
+    for g in venue_areas():
+        if not g['page']: continue
+        rel = f'concert-venues/{g["slug"]}.html'
+        n = len(g['venues'])
+        ensure_page(rel, f'Concert Venues in {g["name"]}: Bag Policy, Parking & Entry | Concerto',
+                    f'Guides to {n} concert venues in {g["name"]}: bag policy, entry, parking, rideshare, and accessibility, from each venue’s official sources.',
+                    f'/concert-venues/{g["slug"]}')
+        rewrite(rel, area_page(g))
+        src = (ROOT / rel).read_text()
+        src = re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/venues'), src, flags=re.S)
+        (ROOT / rel).write_text(src)
 
 def tours_hub():
     groups = {}
@@ -428,7 +500,7 @@ def venue_page(v):
     chips = cx_chips([('info', 'Venue info'), ('upcoming', 'Upcoming'), ('around', 'Around the venue')] + ([('venues', 'Nearby venues')] if near else []))
     return ('<main id="main-content" class="c-page cx">'
             # Same header as every other page: label, name, place, with a small photo on the right. No jump links.
-            + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{e(v["name"])}</nav>'
+            + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{area_crumb(v)}{e(v["name"])}</nav>'
             f'{eyebrow("Venue guide")}<h1>{e(v["name"])}</h1><p class="c-lead">{e(place(v))}</p>{photo}'
             # Holds the venue's name and location for the page scripts; not shown.
             f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
@@ -1208,6 +1280,7 @@ def build():
     for v in VENUES: rewrite(f'venue/{v["id"]}.html', venue_page(v))
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
+    build_area_pages()
     ensure_page('download.html', 'Download Concerto | Free on iPhone and Android', 'Get Concerto, the concert companion app: venue guides, tour dates and setlists, and your whole show night on one page. Free on iPhone and Android.', '/download')
     rewrite('download.html', download_page())
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header

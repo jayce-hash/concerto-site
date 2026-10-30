@@ -345,7 +345,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !panel.hidden) { toggle(false); fbtn.focus(); } });
       }
       function apply() {
-        var q = norm(input.value), shown = 0;
+        var q = norm(input.value), shown = 0, dir = grid.closest('.c-directory');
+        if (dir) dir.classList.toggle('is-searching', !!q || Object.keys(chosen).length > 0);
         items.forEach(function (it, i) {
           var show = !q || haystack[i].indexOf(q) !== -1;
           for (var k in chosen) { if (show && it.getAttribute('data-f-' + k) !== chosen[k]) show = false; }
