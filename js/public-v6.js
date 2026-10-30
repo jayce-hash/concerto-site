@@ -321,12 +321,39 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!items.length) return;
       var grid = items[0].parentElement, empty = null, timer = null;
       var haystack = items.map(function (it) { return norm(it.textContent); });
+      // Filter panel (Venues, Tours): one choice per group, matched against data-f-<group> on each entry.
+      var chosen = {}, wrap = input.closest('.c-filter-wrap'), panel = wrap && wrap.querySelector('.c-fpanel'), fbtn = wrap && wrap.querySelector('[data-fbtn]');
+      if (panel && fbtn) {
+        var dot = fbtn.querySelector('.c-fdot');
+        var toggle = function (open) { panel.hidden = !open; fbtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+        fbtn.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); toggle(panel.hidden); });
+        panel.addEventListener('click', function (ev) {
+          var b = ev.target.closest('.c-fopt');
+          if (b) {
+            var k = b.getAttribute('data-fkey'), v = b.getAttribute('data-fval');
+            if (v) chosen[k] = v; else delete chosen[k];
+            panel.querySelectorAll('.c-fopt[data-fkey="' + k + '"]').forEach(function (o) { var on = o === b; o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+          } else if (ev.target.closest('[data-fclear]')) {
+            chosen = {};
+            panel.querySelectorAll('.c-fopt').forEach(function (o) { var on = !o.getAttribute('data-fval'); o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+          } else if (ev.target.closest('[data-fdone]')) { toggle(false); return; }
+          else return;
+          var any = Object.keys(chosen).length > 0; if (dot) dot.hidden = !any; fbtn.classList.toggle('is-on', any);
+          apply(); input.dispatchEvent(new Event('input'));
+        });
+        document.addEventListener('click', function (ev) { if (!panel.hidden && !wrap.contains(ev.target)) toggle(false); });
+        document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !panel.hidden) { toggle(false); fbtn.focus(); } });
+      }
       function apply() {
         var q = norm(input.value), shown = 0;
-        items.forEach(function (it, i) { var show = !q || haystack[i].indexOf(q) !== -1; it.hidden = !show; if (show) shown++; });
+        items.forEach(function (it, i) {
+          var show = !q || haystack[i].indexOf(q) !== -1;
+          for (var k in chosen) { if (show && it.getAttribute('data-f-' + k) !== chosen[k]) show = false; }
+          it.hidden = !show; if (show) shown++;
+        });
         if (!shown) {
           if (!empty) { empty = document.createElement('div'); empty.className = 'catalog-empty'; grid.appendChild(empty); }
-          empty.textContent = 'Nothing matches "' + input.value.trim() + '" yet. Try a broader artist, venue, or city.';
+          empty.textContent = input.value.trim() ? 'Nothing matches "' + input.value.trim() + '" yet. Try a broader artist, venue, or city.' : 'Nothing matches these filters yet. Try clearing one.';
           empty.hidden = false;
         } else if (empty) empty.hidden = true;
       }

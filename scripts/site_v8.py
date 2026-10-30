@@ -197,6 +197,27 @@ def about():
             '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/contact">Contact</a></div></section>'
             + close() + '</main>')
 
+# Venue types and regions for the Venues filter (same groups as the app, src/lib/filters.ts).
+VENUE_TYPES = [('stadium', 'Stadiums'), ('arena', 'Arenas'), ('amphitheater', 'Amphitheaters & outdoor'),
+               ('theater', 'Theaters & halls'), ('club', 'Clubs & small rooms'), ('festival', 'Festivals')]
+REGIONS = [('us', 'United States'), ('ca', 'Canada'), ('eu', 'UK & Europe'), ('world', 'Rest of world')]
+EUROPE = {'GB', 'IE', 'FR', 'DE', 'ES', 'IT', 'NL', 'BE', 'PT', 'AT', 'CH', 'SE', 'NO', 'DK', 'FI', 'PL', 'CZ', 'HU', 'GR', 'IS', 'LU', 'HR', 'RO', 'SK', 'SI', 'EE', 'LV', 'LT', 'RS', 'BG', 'UK'}
+TOUR_GENRES = ['Pop', 'Rock & Alternative', 'Country & Folk', 'Hip-Hop & R&B', 'Latin', 'Electronic', 'Jazz & Blues', 'Classical', 'Other']
+def region_of(country):
+    c = (country or '').upper()
+    return 'us' if c in ('US', 'USA') else 'ca' if c == 'CA' else 'eu' if c in EUROPE else 'world'
+def slug_val(x): return re.sub(r'[^a-z0-9]+', '-', x.lower()).strip('-')
+
+def filter_panel(groups):
+    """The filter icon's panel: one choice per group, 'All' by default. No chips on the page."""
+    out = []
+    for key, label, opts in groups:
+        rows = ''.join(f'<button type="button" class="c-fopt{" is-on" if not v else ""}" data-fkey="{key}" data-fval="{e(v)}" aria-pressed="{"true" if not v else "false"}">{e(l)}</button>'
+                       for v, l in [('', 'All')] + opts)
+        out.append(f'<div class="c-fgroup" role="group" aria-label="{e(label)}"><p class="c-fhead">{e(label)}</p>{rows}</div>')
+    return ('<div class="c-fpanel" id="c-fpanel" hidden>' + ''.join(out)
+            + '<div class="c-ffoot"><button type="button" class="c-fclear" data-fclear>Clear</button><button type="button" class="c-btn c-btn-navy c-fdone" data-fdone>Done</button></div></div>')
+
 def hub_intro(kicker, h1, lead, placeholder, target):
     return (f'<section class="c-hero c-hero-type c-hero-hub"><div class="c-wrap">{eyebrow(kicker)}<h1>{h1}</h1><p class="c-lead">{lead}</p>'
             f'<label class="c-filter"><span class="c-sr">{e(placeholder)}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
@@ -219,8 +240,9 @@ def venues_hub():
     for v in sorted(VENUES, key=lambda x: (x.get('country') != 'US', x.get('state') or x.get('country') or '', x['name'])):
         key = v.get('state') if v.get('country') == 'US' and v.get('state') else (v.get('country') or 'Other')
         groups.setdefault(key, []).append(v)
-    body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(f'<li class="c-entry"><a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>' for v in vs) + '</ul></div>' for k, vs in groups.items())
-    return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry')
+    body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(f'<li class="c-entry" data-f-type="{e(v.get("type") or "")}" data-f-region="{region_of(v.get("country"))}"><a href="/venue/{v["id"]}">{e(v["name"])}</a><span>{e(v.get("city"))}</span></li>' for v in vs) + '</ul></div>' for k, vs in groups.items())
+    return ('<main id="main-content" class="c-page">' + hub_intro('Venue guides', f'{N_V} venues.<br>Every rule, checked.', 'Bag policy, entry, parking, rideshare, accessibility.<br>From official sources, dated.', 'Search venues or cities', '.c-entry',
+                      groups=[('type', 'Type', VENUE_TYPES), ('region', 'Region', REGIONS)])
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('venue') + close() + '</main>')
 
 def tours_hub():
@@ -230,9 +252,12 @@ def tours_hub():
         groups.setdefault(k, []).append(t)
     def row(t):
         n = len(LIVE[t['tourId']]['songs']) if t['tourId'] in LIVE else 0
-        return f'<li class="c-entry"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a><span>{e(t["tourName"])}{" · " + songs_word(n) if n else ""}</span></li>'
+        return (f'<li class="c-entry" data-f-genre="{slug_val(t.get("genre") or "")}" data-f-setlist="{"yes" if n else ""}"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a>'
+                f'<span>{e(t["tourName"])}{" · " + songs_word(n) if n else ""}</span></li>')
     body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(row(t) for t in ts) + '</ul></div>' for k, ts in groups.items())
-    return ('<main id="main-content" class="c-page">' + hub_intro('Tours', f'{N_T} tours<br>on the road.', f'Dates, the official tour site, and {N_S} setlists, labeled by source.', 'Search artists or tours', '.c-entry')
+    return ('<main id="main-content" class="c-page">' + hub_intro('Tours', f'{N_T} tours<br>on the road.', f'Dates, the official tour site, and {N_S} setlists, labeled by source.', 'Search artists or tours', '.c-entry',
+                      groups=([('genre', 'Genre', [(slug_val(g), g) for g in TOUR_GENRES if any(t.get('genre') == g for t in TOURS)])] if any(t.get('genre') for t in TOURS) else [])
+                      + [('setlist', 'Setlist', [('yes', 'Has a setlist')])])
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('tour') + close() + '</main>')
 
 def setlists_hub():
@@ -840,9 +865,13 @@ def about():
     links = '<section class="c-section c-cream" data-reveal><div class="c-wrap c-links-row"><a class="c-link" href="/press">Press</a><a class="c-link" href="/investors">Investors</a><a class="c-link" href="/partners">Partners</a><a class="c-link" href="/contact">Contact</a></div></section>'
     return '<main id="main-content" class="c-page">' + h + founder + asks + proof_strip() + principles() + fx + links + close() + '</main>'
 
-def hub_intro(kicker, h1, lead, placeholder, target, items=None):
+def hub_intro(kicker, h1, lead, placeholder, target, items=None, groups=None):
+    btn = ('<button type="button" class="c-fbtn" aria-label="Filters" aria-expanded="false" aria-controls="c-fpanel" data-fbtn>'
+           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>'
+           '<span class="c-fdot" hidden></span></button>') if groups else ''
     filt = (f'<label class="c-filter"><span class="c-sr">{e(placeholder)}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5" stroke-linecap="round"/></svg>'
-            f'<input type="search" placeholder="{e(placeholder)}" data-filter-target="{target}" autocomplete="off"></label>')
+            f'<input type="search" placeholder="{e(placeholder)}" data-filter-target="{target}" autocomplete="off">{btn}</label>')
+    if groups: filt = f'<div class="c-filter-wrap">{filt}{filter_panel(groups)}</div>'
     return hero(kicker, h1, lead, filt, items, 'cream', 'c-hero-hub')
 
 def bagcheck():
