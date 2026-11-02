@@ -72,6 +72,22 @@ def close(title='See you at the show.', ct='website-close', fine='Free on iPhone
             '<img class="c-qr" src="/img/download-qr.png" width="104" height="104" alt="QR code: download Concerto for iPhone or Android" loading="lazy"></div>'
             f'<p class="c-fine">{e(fine)}</p></div></section>')
 
+def testimonials():
+    """Real fans only, with their OK: data/testimonials.json is a list of
+    {"quote": "...", "name": "First name", "context": "Saw X at Y", "instagram": "handle"}.
+    Nothing renders until the file has at least one entry."""
+    try: items = json.loads((ROOT / 'data/testimonials.json').read_text())
+    except Exception: items = []
+    items = [t for t in items if t.get('quote') and t.get('name')]
+    if not items: return ''
+    def card(t):
+        ig = (t.get('instagram') or '').lstrip('@').strip()
+        who = e(t['name']) + (f' · <a href="https://www.instagram.com/{e(ig)}/" target="_blank" rel="noopener">@{e(ig)}</a>' if ig else '')
+        return (f'<figure class="c-quote"><blockquote>“{e(t["quote"])}”</blockquote>'
+                f'<figcaption><b>{who}</b>{("<span>" + e(t["context"]) + "</span>") if t.get("context") else ""}</figcaption></figure>')
+    return ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('From fans') +
+            '<h2 class="c-h2 c-h2-sm">What fans say.</h2><div class="c-quotes">' + ''.join(card(t) for t in items[:6]) + '</div></div></section>')
+
 def eyebrow(t): return f'<p class="c-eyebrow">{e(t)}</p>'
 
 def principles():
@@ -149,11 +165,11 @@ def home():
             + ''.join(f'<li><span class="c-num">0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p><a class="c-link" href="{u}">{e(l)}</a></li>' for i, (h, t, u, l) in enumerate(rows)) + '</ol></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
             '<h2 class="c-h2">More of Your Night.</h2><p class="c-body">Exit Plan. AI Bag Check. Plan My Night.<br>' + e(PLUS_PRICE_LINE) + '</p>'
-            '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
+            '<a class="c-link" href="/premium">Explore Concerto+</a><p class="c-free-note">Venue guides, setlists, Your Night, and places nearby are free, always. Concerto+ only adds the planning.</p></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
                 '<div class="c-actions"><a class="c-link" href="/partners">Partner with Concerto</a></div></div></div></section>')
-    return '<main id="main-content" class="c-page">' + hero + name_section() + what + photo_band() + numbers() + principles() + plus + partners + guide_index() + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + hero + name_section() + what + photo_band() + numbers() + principles() + plus + testimonials() + partners + guide_index() + close() + '</main>'
 
 def your_night():
     stages = [('Weeks out', 'Learn the songs. Know the rules.', 'The setlist, labeled by source. Bag policy, entry, and parking, each dated.'),
@@ -854,9 +870,9 @@ def home():
             '<p class="c-pull">Memory card.<br>Passport.<br>Concerto Wrapped.</p></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
             '<h2 class="c-h2">More of Your Night.</h2><p class="c-body">Exit Plan. AI Bag Check. Plan My Night.<br>' + e(PLUS_PRICE_LINE) + '</p>'
-            '<a class="c-link" href="/premium">Explore Concerto+</a></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
+            '<a class="c-link" href="/premium">Explore Concerto+</a><p class="c-free-note">Venue guides, setlists, Your Night, and places nearby are free, always. Concerto+ only adds the planning.</p></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     # Phone length matters: the principles live on About, and After the show is step 4 of How it works.
-    return '<main id="main-content" class="c-page">' + h + problem_section() + what + how + plus + guide_index() + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + problem_section() + what + how + plus + testimonials() + guide_index() + close() + '</main>'
 
 # ---------------- 2.7: Your Night and Concerto+ ----------------
 # One source for the words both pages (and the homepage) use, so the price and the
@@ -930,7 +946,7 @@ def about():
              '', ['Founded 2025', 'Concerto LLC', 'Concerto for iPhone and Android'], 'navy')
     founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
                '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
-               '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 600 venues worldwide.</p>'
+               '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 1,000 venues worldwide.</p>'
                '<p class="c-body">Today you save a show and Concerto builds Your Night around it, with what you need to know about the venue and the tour, and what’s around you in the city. You can ask Concerto AI anything about your show. Afterward you get a memory card of your photos, a Passport of every show, and Concerto Wrapped at the end of the year.</p>'
                '<div class="c-actions"><a class="c-link" href="/your-night">See Your Night</a><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
     asks = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('What fans ask') + '<h2 class="c-h2">The same questions,<br>before every show.</h2></div>'
@@ -980,11 +996,11 @@ def founder():
       + drafts
       + P("I started with 112 venues, every NFL, NBA and MLB stadium in the country. I entered each venue&#8217;s policies and official links into a spreadsheet by hand, then went venue by venue finding the restaurants and hotels nearby. In March 2025 Concerto became a company, and in April the first version launched on the App Store and Google Play.")
       + P("By that summer the guide had grown to 346 venues. I&#8217;d love to say it got easier. It didn&#8217;t. I spent hours, days and weeks researching venues, entering data, sketching new features, redesigning screens and making social content, even while paying for a developer and a PR agency. When neither was moving the needle, I made the hardest call so far: I cut both, took Concerto back, and rebuilt it from the ground up myself.")
-      + P(f"Today Concerto covers more than 600 venues worldwide, from college arenas to stadiums and clubs across North America, the U.K. and Europe. Every guide is researched from the venue&#8217;s own official sources and dated, because the night deserves accuracy. It&#8217;s still built by one person.")
+      + P(f"Today Concerto covers more than 1,000 venues worldwide, from college arenas to stadiums and clubs across North America, the U.K. and Europe. Every guide is researched from the venue&#8217;s own official sources and dated, because the night deserves accuracy. It&#8217;s still built by one person.")
       + P('Where this goes next is bigger than one app. I want Concerto to know your night from the moment you buy the ticket to the moment you get home, and to share it with the people you&#8217;re going with. That means working with the people who make those nights happen: venues that want their guests to arrive knowing the rules, the restaurants and hotels around them, and <a href="/creators">creators</a> who live for live music. If that&#8217;s you, <a href="/contact">I&#8217;d love to talk</a>, and if you&#8217;d like to help build what comes next, <a href="/investors">start here</a>.')
       + P("If you&#8217;ve ever stood outside a venue wondering what you&#8217;re allowed to bring in, or how you&#8217;re getting home, Concerto is for you. Thank you for being here.")
       + '<p class="c-letter-sign">Jayce</p><p class="c-letter-role">Jayce Wells, Founder, Concerto</p>'
-      + '<div class="c-actions"><a class="c-btn c-btn-navy" href="/contact">Write to Jayce</a><a class="c-link" href="/press">Press</a></div>'
+      + '<div class="c-actions"><a class="c-btn c-btn-navy" href="/contact">Write to Jayce</a><a class="c-link" href="https://www.linkedin.com/in/jayce-wells" target="_blank" rel="noopener">Jayce on LinkedIn</a><a class="c-link" href="/press">Press</a></div>'
       + '</div></section>')
     return '<main id="main-content" class="c-page">' + h + letter + close() + '</main>'
 
