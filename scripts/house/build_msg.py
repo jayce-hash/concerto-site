@@ -165,6 +165,25 @@ add('nursing', 'Nursing room', '100', sec_point(['118'], '100', 1.38), sections=
 add('guest_services', 'Guest experience booth', '200', sec_point(['206'], '200', 1.1), sections=['206'], offers='Outside Section 206.', source=ACCESS)
 add('guest_services', 'Guest experience booth', 'bridge', sec_point(['328'], 'bridge', 1.1), sections=['328'], offers='Outside Section 328.', source=ACCESS)
 
+# Pins that land on almost the same spot (a stand and a restroom both beside one section) are
+# pushed apart a little, so each one can be tapped once the map is zoomed in.
+def spread(points, gap=0.022, rounds=40):
+    for _ in range(rounds):
+        moved = False
+        for i, a in enumerate(points):
+            for b in points[i + 1:]:
+                if a['level'] != b['level']: continue
+                dx, dy = b['x'] - a['x'], b['y'] - a['y']; d = math.hypot(dx, dy)
+                if d < gap:
+                    if d == 0: dx, dy, d = 1.0, 0.0, 1.0
+                    push = (gap - d) / 2
+                    a['x'] -= dx / d * push; a['y'] -= dy / d * push
+                    b['x'] += dx / d * push; b['y'] += dy / d * push
+                    moved = True
+        if not moved: break
+    for q in points: q['x'], q['y'] = round(q['x'], 4), round(q['y'], 4)
+spread(points)
+
 def secmap(keys):
     return {k: dict(zip(('x', 'y'), norm(MAINP[k]))) for k in keys}
 lv100 = [k for k in MAINP if LEVEL_OF(k) in ('floor', '1')]
