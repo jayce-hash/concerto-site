@@ -1,0 +1,1628 @@
+{
+ "venue": "madison-square-garden",
+ "name": "Madison Square Garden",
+ "updated": "2026-11-02",
+ "sourceLabel": "msg.com",
+ "note": "On MSG’s concert seat map, the stage sits in front of Sections 111 to 113. Your show’s layout can differ.",
+ "levels": [
+  {
+   "id": "100",
+   "label": "100 Level",
+   "image": "/img/house/msg-100.svg",
+   "aspect": 1.0653,
+   "sections": {
+    "109": {
+     "x": 0.3387,
+     "y": 0.3208
+    },
+    "110": {
+     "x": 0.2685,
+     "y": 0.3425
+    },
+    "105": {
+     "x": 0.6565,
+     "y": 0.3263
+    },
+    "103": {
+     "x": 0.7735,
+     "y": 0.4088
+    },
+    "111": {
+     "x": 0.2163,
+     "y": 0.4023
+    },
+    "113": {
+     "x": 0.2163,
+     "y": 0.5912
+    },
+    "112": {
+     "x": 0.197,
+     "y": 0.4967
+    },
+    "102": {
+     "x": 0.801,
+     "y": 0.4967
+    },
+    "114": {
+     "x": 0.2685,
+     "y": 0.6509
+    },
+    "120": {
+     "x": 0.7294,
+     "y": 0.6509
+    },
+    "115": {
+     "x": 0.3387,
+     "y": 0.6803
+    },
+    "119": {
+     "x": 0.6606,
+     "y": 0.6792
+    },
+    "118": {
+     "x": 0.5767,
+     "y": 0.6987
+    },
+    "116": {
+     "x": 0.4226,
+     "y": 0.6987
+    },
+    "117": {
+     "x": 0.4997,
+     "y": 0.7085
+    },
+    "104": {
+     "x": 0.7294,
+     "y": 0.3436
+    },
+    "101": {
+     "x": 0.7735,
+     "y": 0.5858
+    },
+    "106": {
+     "x": 0.5767,
+     "y": 0.2828
+    },
+    "108": {
+     "x": 0.424,
+     "y": 0.2828
+    },
+    "107": {
+     "x": 0.4997,
+     "y": 0.2763
+    },
+    "3": {
+     "x": 0.6785,
+     "y": 0.4348
+    },
+    "2": {
+     "x": 0.6813,
+     "y": 0.4967
+    },
+    "1": {
+     "x": 0.6785,
+     "y": 0.5586
+    },
+    "F": {
+     "x": 0.5712,
+     "y": 0.4283
+    },
+    "E": {
+     "x": 0.5712,
+     "y": 0.4967
+    },
+    "D": {
+     "x": 0.5712,
+     "y": 0.5652
+    },
+    "C": {
+     "x": 0.4529,
+     "y": 0.4283
+    },
+    "B": {
+     "x": 0.4488,
+     "y": 0.4967
+    },
+    "A": {
+     "x": 0.4529,
+     "y": 0.5652
+    }
+   }
+  },
+  {
+   "id": "200",
+   "label": "200 Level",
+   "image": "/img/house/msg-200.svg",
+   "aspect": 1.0653,
+   "sections": {
+    "211": {
+     "x": 0.4997,
+     "y": 0.134
+    },
+    "212": {
+     "x": 0.4116,
+     "y": 0.1308
+    },
+    "210": {
+     "x": 0.5877,
+     "y": 0.1308
+    },
+    "209": {
+     "x": 0.6744,
+     "y": 0.1536
+    },
+    "213": {
+     "x": 0.3249,
+     "y": 0.1503
+    },
+    "208": {
+     "x": 0.7473,
+     "y": 0.1862
+    },
+    "214": {
+     "x": 0.2548,
+     "y": 0.1981
+    },
+    "216": {
+     "x": 0.1378,
+     "y": 0.3501
+    },
+    "217": {
+     "x": 0.1048,
+     "y": 0.4435
+    },
+    "218": {
+     "x": 0.1048,
+     "y": 0.55
+    },
+    "219": {
+     "x": 0.1378,
+     "y": 0.6433
+    },
+    "227": {
+     "x": 0.7501,
+     "y": 0.8084
+    },
+    "221": {
+     "x": 0.2548,
+     "y": 0.8084
+    },
+    "226": {
+     "x": 0.6744,
+     "y": 0.8442
+    },
+    "222": {
+     "x": 0.3236,
+     "y": 0.8442
+    },
+    "223": {
+     "x": 0.4116,
+     "y": 0.8725
+    },
+    "225": {
+     "x": 0.5877,
+     "y": 0.8627
+    },
+    "224": {
+     "x": 0.4997,
+     "y": 0.867
+    },
+    "207": {
+     "x": 0.801,
+     "y": 0.2752
+    },
+    "201": {
+     "x": 0.801,
+     "y": 0.7183
+    },
+    "203": {
+     "x": 0.8739,
+     "y": 0.6075
+    },
+    "202": {
+     "x": 0.8505,
+     "y": 0.6585
+    },
+    "206": {
+     "x": 0.8505,
+     "y": 0.3349
+    },
+    "220": {
+     "x": 0.1997,
+     "y": 0.7335
+    },
+    "204": {
+     "x": 0.9028,
+     "y": 0.4967
+    },
+    "215": {
+     "x": 0.2066,
+     "y": 0.2383
+    }
+   }
+  },
+  {
+   "id": "400",
+   "label": "400s",
+   "image": "/img/house/msg-400.svg",
+   "aspect": 1.0653,
+   "sections": {
+    "420": {
+     "x": 0.1695,
+     "y": 0.7834
+    },
+    "419": {
+     "x": 0.1337,
+     "y": 0.7248
+    },
+    "418": {
+     "x": 0.0979,
+     "y": 0.6379
+    },
+    "417": {
+     "x": 0.0787,
+     "y": 0.5456
+    },
+    "416": {
+     "x": 0.0787,
+     "y": 0.4479
+    },
+    "415": {
+     "x": 0.0979,
+     "y": 0.3556
+    },
+    "414": {
+     "x": 0.1337,
+     "y": 0.2687
+    },
+    "413": {
+     "x": 0.1695,
+     "y": 0.2101
+    },
+    "421": {
+     "x": 0.1929,
+     "y": 0.8182
+    }
+   }
+  },
+  {
+   "id": "bridge",
+   "label": "Hyundai Bridge",
+   "image": "/img/house/msg-bridge.svg",
+   "aspect": 1.0653,
+   "sections": {
+    "328": {
+     "x": 0.7446,
+     "y": 0.7541
+    },
+    "327": {
+     "x": 0.6593,
+     "y": 0.7595
+    },
+    "326": {
+     "x": 0.5038,
+     "y": 0.7628
+    },
+    "325": {
+     "x": 0.347,
+     "y": 0.7606
+    },
+    "324": {
+     "x": 0.2589,
+     "y": 0.7563
+    },
+    "323": {
+     "x": 0.2094,
+     "y": 0.7324
+    },
+    "322": {
+     "x": 0.1695,
+     "y": 0.6694
+    },
+    "321": {
+     "x": 0.1392,
+     "y": 0.5836
+    },
+    "320": {
+     "x": 0.1282,
+     "y": 0.4978
+    },
+    "319": {
+     "x": 0.1392,
+     "y": 0.4088
+    },
+    "318": {
+     "x": 0.1695,
+     "y": 0.3273
+    },
+    "317": {
+     "x": 0.208,
+     "y": 0.2654
+    },
+    "316": {
+     "x": 0.2534,
+     "y": 0.2394
+    },
+    "315": {
+     "x": 0.3291,
+     "y": 0.235
+    },
+    "314": {
+     "x": 0.4157,
+     "y": 0.2318
+    },
+    "313": {
+     "x": 0.5024,
+     "y": 0.2307
+    },
+    "312": {
+     "x": 0.5891,
+     "y": 0.2318
+    },
+    "311": {
+     "x": 0.6744,
+     "y": 0.235
+    },
+    "310": {
+     "x": 0.7501,
+     "y": 0.2405
+    },
+    "309": {
+     "x": 0.7955,
+     "y": 0.2654
+    },
+    "308": {
+     "x": 0.8299,
+     "y": 0.3165
+    },
+    "307": {
+     "x": 0.8546,
+     "y": 0.3729
+    },
+    "306": {
+     "x": 0.8656,
+     "y": 0.4359
+    },
+    "305": {
+     "x": 0.8711,
+     "y": 0.4989
+    },
+    "304": {
+     "x": 0.8656,
+     "y": 0.563
+    },
+    "303": {
+     "x": 0.8546,
+     "y": 0.6249
+    },
+    "302": {
+     "x": 0.8285,
+     "y": 0.6824
+    },
+    "301": {
+     "x": 0.7941,
+     "y": 0.7324
+    }
+   }
+  },
+  {
+   "id": "outside",
+   "label": "Entrances",
+   "image": "/img/house/msg-outside.svg",
+   "aspect": 1.2917,
+   "sections": {}
+  }
+ ],
+ "points": [
+  {
+   "id": "outside-1",
+   "kind": "gate",
+   "name": "Chase Entrance A",
+   "level": "outside",
+   "x": 0.1677,
+   "y": 0.6083,
+   "offers": "8th Avenue side, toward 31st Street. Your ticket shows the entrance for your seat.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-2",
+   "kind": "gate",
+   "name": "Chase Entrance B",
+   "level": "outside",
+   "x": 0.1677,
+   "y": 0.3917,
+   "offers": "8th Avenue side, toward 33rd Street. Has a CLEAR lane.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-3",
+   "kind": "gate",
+   "name": "Chase Entrance C",
+   "level": "outside",
+   "x": 0.3065,
+   "y": 0.2042,
+   "offers": "33rd Street side, toward 8th Avenue. Has a CLEAR lane.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-4",
+   "kind": "gate",
+   "name": "Chase Entrance D",
+   "level": "outside",
+   "x": 0.5129,
+   "y": 0.2042,
+   "offers": "33rd Street side, toward 7th Avenue.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-5",
+   "kind": "gate",
+   "name": "7th Ave Entrance",
+   "level": "outside",
+   "x": 0.8968,
+   "y": 0.5,
+   "offers": "Through Chase Square, on 7th Avenue between 31st and 33rd Streets. Accessible entrance.",
+   "tags": [
+    "accessible"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-6",
+   "kind": "gate",
+   "name": "Lexus VIP North Entrance",
+   "level": "outside",
+   "x": 0.7065,
+   "y": 0.3875,
+   "offers": "Off Chase Square.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-7",
+   "kind": "gate",
+   "name": "Lexus VIP South Entrance",
+   "level": "outside",
+   "x": 0.7065,
+   "y": 0.6125,
+   "offers": "Off Chase Square.",
+   "source": "https://www.msg.com/madison-square-garden/entrances",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-8",
+   "kind": "gate",
+   "name": "Accessible entrance at 8 Penn",
+   "level": "outside",
+   "x": 0.1032,
+   "y": 0.1333,
+   "offers": "33rd Street and 8th Avenue.",
+   "tags": [
+    "accessible"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/accessibility-services",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-9",
+   "kind": "merch",
+   "name": "MSG Official Team Store",
+   "level": "outside",
+   "x": 0.771,
+   "y": 0.5,
+   "offers": "In Chase Square.",
+   "source": "https://www.msg.com/madison-square-garden/faqs",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-10",
+   "kind": "rideshare",
+   "name": "Rideshare pickup: 7th Avenue",
+   "level": "outside",
+   "x": 0.9403,
+   "y": 0.2292,
+   "offers": "No official rideshare zone. Pick up and drop off on 7th Avenue between 31st and 34th Streets.",
+   "source": "https://www.msg.com/madison-square-garden/faqs",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "outside-11",
+   "kind": "rideshare",
+   "name": "Rideshare pickup: 8th Avenue",
+   "level": "outside",
+   "x": 0.0597,
+   "y": 0.2292,
+   "offers": "No official rideshare zone. Pick up and drop off on 8th Avenue between 31st and 34th Streets.",
+   "source": "https://www.msg.com/madison-square-garden/faqs",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-12",
+   "kind": "bar",
+   "name": "Courtside/Rinkside Bar",
+   "level": "100",
+   "x": 0.8466,
+   "y": 0.6098,
+   "sections": [
+    "101"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-13",
+   "kind": "bar",
+   "name": "Craft Beer Garden",
+   "level": "100",
+   "x": 0.8816,
+   "y": 0.4967,
+   "sections": [
+    "102"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-14",
+   "kind": "bar",
+   "name": "Mixed Drinks",
+   "level": "100",
+   "x": 0.8466,
+   "y": 0.385,
+   "sections": [
+    "103"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-15",
+   "kind": "stand",
+   "name": "Garden Market",
+   "level": "100",
+   "x": 0.7907,
+   "y": 0.3023,
+   "sections": [
+    "104"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-16",
+   "kind": "stand",
+   "name": "Mighty Quinn’s Barbeque, Carnegie Deli, Bar at the Garden",
+   "level": "100",
+   "x": 0.6981,
+   "y": 0.2802,
+   "sections": [
+    "105"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-17",
+   "kind": "stand",
+   "name": "Daily Burger",
+   "level": "100",
+   "x": 0.5968,
+   "y": 0.2251,
+   "sections": [
+    "106"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-18",
+   "kind": "stand",
+   "name": "Rafters Bar, Pat LaFrieda",
+   "level": "100",
+   "x": 0.4989,
+   "y": 0.2168,
+   "sections": [
+    "107"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-19",
+   "kind": "stand",
+   "name": "Monster Energy Bodega, Brooklyn Dumpling Shop",
+   "level": "100",
+   "x": 0.4028,
+   "y": 0.2251,
+   "sections": [
+    "108"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-20",
+   "kind": "stand",
+   "name": "Chicken & Things, Veselka",
+   "level": "100",
+   "x": 0.2945,
+   "y": 0.2733,
+   "sections": [
+    "109"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-21",
+   "kind": "stand",
+   "name": "Draft Beer, Beverage Grab & Go, Ice Cream",
+   "level": "100",
+   "x": 0.2054,
+   "y": 0.3009,
+   "sections": [
+    "110"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-22",
+   "kind": "stand",
+   "name": "Chickies, Garden Market Express",
+   "level": "100",
+   "x": 0.139,
+   "y": 0.3768,
+   "sections": [
+    "111"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-23",
+   "kind": "stand",
+   "name": "Farley’s Bar, Garden Market, Gluten-Free at The Garden, TopDog, Luchini Italian Sandwich Shop, Avenue Cantina",
+   "level": "100",
+   "x": 0.1145,
+   "y": 0.4967,
+   "sections": [
+    "112"
+   ],
+   "tags": [
+    "gluten free"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-24",
+   "kind": "stand",
+   "name": "Mixed Drinks, Garden Market & Drinks, Shah’s Halal",
+   "level": "100",
+   "x": 0.2054,
+   "y": 0.6926,
+   "sections": [
+    "114"
+   ],
+   "tags": [
+    "halal"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-25",
+   "kind": "stand",
+   "name": "Garden Market, Dunkin’ Donuts, Mike’s Hot Honey",
+   "level": "100",
+   "x": 0.2945,
+   "y": 0.7298,
+   "sections": [
+    "115"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-26",
+   "kind": "stand",
+   "name": "Daily Burger, Simply Vegan",
+   "level": "100",
+   "x": 0.4011,
+   "y": 0.7533,
+   "sections": [
+    "116"
+   ],
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-27",
+   "kind": "stand",
+   "name": "Paulie Gee’s Pizza",
+   "level": "100",
+   "x": 0.4989,
+   "y": 0.7657,
+   "sections": [
+    "117"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-28",
+   "kind": "stand",
+   "name": "TAO Sushi, Rock N’ Lobster",
+   "level": "100",
+   "x": 0.5968,
+   "y": 0.7533,
+   "sections": [
+    "118"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-29",
+   "kind": "stand",
+   "name": "Bar at the Garden, Fuku",
+   "level": "100",
+   "x": 0.7034,
+   "y": 0.7284,
+   "sections": [
+    "119"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-30",
+   "kind": "stand",
+   "name": "Eats, Popcorn & Drinks, Insomnia Cookies",
+   "level": "100",
+   "x": 0.7907,
+   "y": 0.6926,
+   "sections": [
+    "120"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-31",
+   "kind": "stand",
+   "name": "Garden Market",
+   "level": "200",
+   "x": 0.8278,
+   "y": 0.7382,
+   "sections": [
+    "201"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-32",
+   "kind": "stand",
+   "name": "Dunkin’ Donuts",
+   "level": "200",
+   "x": 0.8818,
+   "y": 0.6731,
+   "sections": [
+    "202"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-33",
+   "kind": "stand",
+   "name": "Prime Rib, Pat LaFrieda",
+   "level": "200",
+   "x": 0.9073,
+   "y": 0.6175,
+   "sections": [
+    "203"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-34",
+   "kind": "stand",
+   "name": "Chicken & Things, Bar at the Garden, Mighty Quinn’s Barbeque",
+   "level": "200",
+   "x": 0.9388,
+   "y": 0.4967,
+   "sections": [
+    "204"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-35",
+   "kind": "bar",
+   "name": "Bar at the Garden",
+   "level": "200",
+   "x": 0.8818,
+   "y": 0.3204,
+   "sections": [
+    "206"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-36",
+   "kind": "stand",
+   "name": "Garden Market",
+   "level": "200",
+   "x": 0.8278,
+   "y": 0.2553,
+   "sections": [
+    "207"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-37",
+   "kind": "bar",
+   "name": "Garden Pub",
+   "level": "200",
+   "x": 0.6899,
+   "y": 0.1227,
+   "sections": [
+    "209"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-38",
+   "kind": "stand",
+   "name": "SeoulBird Korean BBQ, Daily Burger, Draft Beer",
+   "level": "200",
+   "x": 0.5954,
+   "y": 0.0979,
+   "sections": [
+    "210"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-39",
+   "kind": "bar",
+   "name": "The Trophy Bar",
+   "level": "200",
+   "x": 0.4994,
+   "y": 0.1014,
+   "sections": [
+    "211"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-40",
+   "kind": "stand",
+   "name": "Draft Beer, Garden Market",
+   "level": "200",
+   "x": 0.4034,
+   "y": 0.0979,
+   "sections": [
+    "212"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-41",
+   "kind": "bar",
+   "name": "Popcorn & Drinks",
+   "level": "200",
+   "x": 0.309,
+   "y": 0.1192,
+   "sections": [
+    "213"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-42",
+   "kind": "bar",
+   "name": "Mixed Drinks",
+   "level": "200",
+   "x": 0.18,
+   "y": 0.215,
+   "sections": [
+    "215"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-43",
+   "kind": "stand",
+   "name": "Garden Market, Garden Melt",
+   "level": "200",
+   "x": 0.081,
+   "y": 0.4435,
+   "sections": [
+    "216",
+    "217",
+    "218"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-44",
+   "kind": "stand",
+   "name": "Carnegie Deli",
+   "level": "200",
+   "x": 0.105,
+   "y": 0.6565,
+   "sections": [
+    "219"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-45",
+   "kind": "bar",
+   "name": "Mixed Drinks",
+   "level": "200",
+   "x": 0.2025,
+   "y": 0.7956,
+   "sections": [
+    "220",
+    "221"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-46",
+   "kind": "bar",
+   "name": "Draft Beer",
+   "level": "200",
+   "x": 0.4034,
+   "y": 0.9063,
+   "sections": [
+    "223"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-47",
+   "kind": "stand",
+   "name": "Paulie Gee’s Pizza, Draft Beer, 7th Street Burger",
+   "level": "200",
+   "x": 0.4994,
+   "y": 0.9004,
+   "sections": [
+    "224"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-48",
+   "kind": "stand",
+   "name": "Garden Market Express, Draft Beer",
+   "level": "200",
+   "x": 0.5954,
+   "y": 0.8956,
+   "sections": [
+    "225"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-49",
+   "kind": "bar",
+   "name": "Garden Pub",
+   "level": "200",
+   "x": 0.6899,
+   "y": 0.8755,
+   "sections": [
+    "226"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-50",
+   "kind": "stand",
+   "name": "Mixed Drinks, Ice Cream, Bud Light",
+   "level": "200",
+   "x": 0.7724,
+   "y": 0.8364,
+   "sections": [
+    "227"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "400-51",
+   "kind": "stand",
+   "name": "Garden Market",
+   "level": "400",
+   "x": 0.0484,
+   "y": 0.5819,
+   "sections": [
+    "416",
+    "417",
+    "419"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "bridge-52",
+   "kind": "stand",
+   "name": "Chicken & Things, Veselka",
+   "level": "bridge",
+   "x": 0.9092,
+   "y": 0.5709,
+   "sections": [
+    "304"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "bridge-53",
+   "kind": "stand",
+   "name": "Bar at the Garden, Daily Burger, Chicken & Things",
+   "level": "bridge",
+   "x": 0.9154,
+   "y": 0.4992,
+   "sections": [
+    "305"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "bridge-54",
+   "kind": "stand",
+   "name": "Garden Melt",
+   "level": "bridge",
+   "x": 0.0956,
+   "y": 0.3982,
+   "sections": [
+    "319"
+   ],
+   "source": "https://www.msg.com/madison-square-garden/food-drink",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-55",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "100",
+   "x": 0.2782,
+   "y": 0.2785,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-56",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "100",
+   "x": 0.5423,
+   "y": 0.765,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-57",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "100",
+   "x": 0.7088,
+   "y": 0.2709,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-58",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "100",
+   "x": 0.3882,
+   "y": 0.7552,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-59",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "100",
+   "x": 0.7996,
+   "y": 0.6564,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-60",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "100",
+   "x": 0.8477,
+   "y": 0.4305,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-61",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "100",
+   "x": 0.6029,
+   "y": 0.2372,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-62",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "100",
+   "x": 0.4653,
+   "y": 0.2296,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-63",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "100",
+   "x": 0.2438,
+   "y": 0.2991,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-64",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "100",
+   "x": 0.1942,
+   "y": 0.6488,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-65",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "100",
+   "x": 0.7446,
+   "y": 0.7031,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-66",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "100",
+   "x": 0.8436,
+   "y": 0.4131,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-67",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.3786,
+   "y": 0.2405,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-68",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.7225,
+   "y": 0.2785,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-69",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "100",
+   "x": 0.8422,
+   "y": 0.1319,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-70",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "100",
+   "x": 0.1612,
+   "y": 0.1319,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-71",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "100",
+   "x": 0.1612,
+   "y": 0.8627,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-72",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "100",
+   "x": 0.845,
+   "y": 0.8627,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-73",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.219,
+   "y": 0.1123,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-74",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.9509,
+   "y": 0.2872,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-75",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.9509,
+   "y": 0.7063,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-76",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.296,
+   "y": 0.1851,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-77",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.2947,
+   "y": 0.8095,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-78",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.457,
+   "y": 0.8464,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-79",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.7047,
+   "y": 0.8106,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-80",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.7858,
+   "y": 0.2242,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-81",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "200",
+   "x": 0.5423,
+   "y": 0.1482,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-82",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.4556,
+   "y": 0.1493,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-83",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.3703,
+   "y": 0.1612,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-84",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.3703,
+   "y": 0.8334,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-85",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.5423,
+   "y": 0.8453,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-86",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.6276,
+   "y": 0.8323,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-87",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.7047,
+   "y": 0.1829,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-88",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "200",
+   "x": 0.6276,
+   "y": 0.1612,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-89",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "200",
+   "x": 0.3263,
+   "y": 0.0678,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-90",
+   "kind": "merch",
+   "name": "Merchandise",
+   "level": "200",
+   "x": 0.3208,
+   "y": 0.9235,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-91",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "200",
+   "x": 0.8422,
+   "y": 0.1319,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-92",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "200",
+   "x": 0.1612,
+   "y": 0.1319,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-93",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "200",
+   "x": 0.1612,
+   "y": 0.8627,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-94",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "200",
+   "x": 0.845,
+   "y": 0.8627,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-95",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "200",
+   "x": 0.219,
+   "y": 0.1123,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-96",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "200",
+   "x": 0.9509,
+   "y": 0.2872,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-97",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "200",
+   "x": 0.9509,
+   "y": 0.7063,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "bridge-98",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "bridge",
+   "x": 0.0966,
+   "y": 0.5814,
+   "source": "https://www.msg.com/madison-square-garden/seating/msg-concerts",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-99",
+   "kind": "guest_services",
+   "name": "Guest Services Office",
+   "level": "100",
+   "x": 0.4987,
+   "y": 0.7847,
+   "sections": [
+    "117"
+   ],
+   "offers": "Kalshi Concourse (sixth floor), outside Section 117. Sensory bags are available here at no cost with an ID.",
+   "source": "https://www.msg.com/madison-square-garden/accessibility-services",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-100",
+   "kind": "first_aid",
+   "name": "First aid",
+   "level": "100",
+   "x": 0.3923,
+   "y": 0.7755,
+   "sections": [
+    "117"
+   ],
+   "offers": "Behind the Guest Services Office on the Kalshi Concourse (sixth floor), outside Section 117.",
+   "source": "https://www.msg.com/madison-square-garden/faqs",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-101",
+   "kind": "nursing",
+   "name": "Nursing room",
+   "level": "100",
+   "x": 0.6049,
+   "y": 0.7755,
+   "sections": [
+    "117"
+   ],
+   "offers": "By the Guest Services Office on the Kalshi Concourse (sixth floor), outside Section 117.",
+   "source": "https://www.msg.com/madison-square-garden/faqs",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "200-102",
+   "kind": "guest_services",
+   "name": "Guest experience booth",
+   "level": "200",
+   "x": 0.8853,
+   "y": 0.3188,
+   "sections": [
+    "206"
+   ],
+   "offers": "Outside Section 206.",
+   "source": "https://www.msg.com/madison-square-garden/accessibility-services",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "bridge-103",
+   "kind": "guest_services",
+   "name": "Guest experience booth",
+   "level": "bridge",
+   "x": 0.7688,
+   "y": 0.7798,
+   "sections": [
+    "328"
+   ],
+   "offers": "Outside Section 328.",
+   "source": "https://www.msg.com/madison-square-garden/accessibility-services",
+   "verified": "2026-11-02"
+  }
+ ]
+}
