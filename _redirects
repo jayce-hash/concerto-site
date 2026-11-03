@@ -1,3 +1,45 @@
+# ── BEGIN private files (scripts/seo-polish.py) ──
+/scripts/*  /404.html  404!
+/supabase/*  /404.html  404!
+/netlify/*  /404.html  404!
+/ALIGNED-RELEASE.md  /404.html  404!
+/BRAND-LANGUAGE-2.5.md  /404.html  404!
+/BRAND-SYSTEM-AUDIT.md  /404.html  404!
+/CONCERTO-BRAND-AND-PRODUCT-STANDARDS.md  /404.html  404!
+/CONTENT-PAGE-SYSTEM.md  /404.html  404!
+/EDITING-DATA.md  /404.html  404!
+/GROWTH-UPDATE-2026-10-11.md  /404.html  404!
+/LAUNCH-2.5.md  /404.html  404!
+/PARTNER-FORMS-SETUP.md  /404.html  404!
+/PARTNERS-SETUP.md  /404.html  404!
+/PICKS-DEPLOY.md  /404.html  404!
+/PRODUCT-2.5.md  /404.html  404!
+/PRODUCT-PRESENTATION-STANDARD.md  /404.html  404!
+/PRODUCT-SCREENSHOTS.md  /404.html  404!
+/PUBLIC-WEB-ARCHITECTURE.md  /404.html  404!
+/PUBLIC-WEB-CHROME.md  /404.html  404!
+/README-BUILD.md  /404.html  404!
+/README-DEPLOY.md  /404.html  404!
+/README-NEARBY-SPLIT.md  /404.html  404!
+/README-PHOTOS.md  /404.html  404!
+/README-SHOWNIGHT.md  /404.html  404!
+/README.md  /404.html  404!
+/RELEASE-2.5-STATUS.md  /404.html  404!
+/SCREENSHOT-REPLACEMENT-GUIDE.md  /404.html  404!
+/SECURITY-AND-LEGAL.md  /404.html  404!
+/VENUE-ENTRY-EXAMPLE.json  /404.html  404!
+/VENUE-WORKLIST.md  /404.html  404!
+/WEB-SYNC.md  /404.html  404!
+/WEBSITE-BRIEF.md  /404.html  404!
+/WEBSITE-REDESIGN.md  /404.html  404!
+/WEBSITE.md  /404.html  404!
+/build_data.py  /404.html  404!
+/build_sitemap.py  /404.html  404!
+/package-lock.json  /404.html  404!
+/package.json  /404.html  404!
+/rebuild_nearby.py  /404.html  404!
+# ── END private files ──
+
 # ── Hub pages first ─────────────────────────────────────────────────
 # Netlify splats (/tours/*) also match the bare path (/tours), and the
 # first matching rule wins. These must sit above every splat rule below

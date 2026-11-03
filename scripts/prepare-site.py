@@ -7,6 +7,8 @@ root = Path(__file__).resolve().parent.parent
 for script in ('refresh-product-captures.py', 'rebuild-consumer-site.py',
                'prepare-app-utilities.py', 'apply-public-chrome.py'):
     subprocess.run([sys.executable, str(root/'scripts'/script)], cwd=root, check=True)
+# Titles, opening definitions, and structured data, after every page is generated.
+subprocess.run([sys.executable, str(root/'scripts'/'seo-polish.py')], cwd=root, check=True)
 # The sitemap is built from the venue, tour, and setlist pages that exist, and those
 # pages are generated above, during this build. Rebuild it here so every generated
 # page is listed (the committed copy only knew about the pages committed to git).
