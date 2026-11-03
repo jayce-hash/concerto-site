@@ -369,6 +369,9 @@ def guide_page(g):
     d = _dt.date.fromisoformat(g['date']).strftime('%B %-d, %Y')
     crumbs = '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/blog">Blog</a><span>/</span>' + e(g['h1'].split(':')[0]) + '</nav>'
     head = hero(g['kicker'], e(g['h1']), f'By Concerto · {d}', '', None, 'cream', 'c-hero-page', crumbs)
+    import re as _re
+    _n = iter(range(100))
+    g = dict(g, body=_re.sub(r'<h2>', lambda m: f'<h2 id="q{next(_n)}">', g['body']))
     faq = ''.join(f'<details class="c-art-q"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in g['faq'])
     src = ''.join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(t)}</a></li>' for t, u in g['sources'])
     tour = f'<a class="c-btn c-btn-line" href="/tour/{g["tour"]}">Tour page and setlist</a>' if g.get('tour') else ''
@@ -376,12 +379,21 @@ def guide_page(g):
            f'<p class="cx-save-b">Save it in Concerto. Your Night puts the arena’s bag rule, entrances, parking and rideshare pickup on one page, with a reminder the morning of the show.</p></div>'
            f'{store_button("website-guide", tone="white")}</div>')
     return ('<main id="main-content" class="c-page">' + head
-            + f'<section class="c-section c-white c-guide-sec"><div class="c-wrap c-art-wrap"><article class="c-art">{g["body"]}{cta}'
+            + f'<section class="c-section c-white c-art-sec"><div class="c-wrap c-art-wrap"><div class="c-art-grid"><article class="c-art">{g["body"]}{cta}'
             + f'<h2>Frequently asked questions</h2><div class="c-art-faq">{faq}</div>'
             + f'<h2>Sources</h2><ul class="c-art-sources">{src}</ul>'
             + f'<p class="c-art-fine">Written by Concerto. Venue rules are from each venue’s official sources, checked on the dates shown in its Concerto guide. Rules can change, so check your venue’s guide before you go. <a href="/founder">About Concerto</a></p>'
             + (f'<div class="c-actions">{tour}<a class="c-btn c-btn-line" href="/blog">More from the blog</a></div>')
-            + '</article></div></section>' + close() + '</main>')
+            + '</article>' + art_toc(g) + '</div></div></section>' + close() + '</main>')
+
+def art_toc(g):
+    """Desktop only: the article's questions in a column beside it, plus the app."""
+    import re as _re
+    hs = _re.findall(r'<h2 id="(q\d+)">(.*?)</h2>', g['body'])
+    items = ''.join(f'<li><a href="#{i}">{h}</a></li>' for i, h in hs)
+    return (f'<aside class="c-art-side" aria-label="In this article"><p class="c-art-side-h">In this article</p><ol>{items}</ol>'
+            f'<div class="c-art-side-app"><b>Save your show in Concerto</b><span>The bag rule, entrances, parking and pickup for your arena, on one page.</span>'
+            f'<a class="c-btn c-btn-navy" href="{STORE("website-blog-side")}" target="_blank" rel="noopener">Get the app</a></div></aside>')
 
 def guides_hub(gs):
     cards = ''.join(f'<a class="c-art-card" href="/blog/{g["slug"]}"><span class="c-eyebrow">{e(g["kicker"])}</span><b>{e(g["h1"])}</b><small>{e(g["desc"])}</small></a>' for g in gs)

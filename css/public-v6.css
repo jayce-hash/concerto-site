@@ -2513,7 +2513,7 @@ h1,h2{font-weight:700}
 .v8 .c-letter-h:first-child{margin-top:0}
 
 /* Guides (articles by Concerto) */
-.v8 .c-art{display:block;max-width:760px;margin:0 auto}
+.v8 .c-art{display:block;max-width:760px;margin:0;min-width:0}
 .v8 .c-art h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:28px;line-height:1.25;color:var(--navy,#121E36);margin:44px 0 14px}
 .v8 .c-art p,.v8 .c-art li{font-size:17px;line-height:1.65;color:#2A3547}
 .v8 .c-art p{margin:0 0 16px}
@@ -2569,3 +2569,29 @@ h1,h2{font-weight:700}
 .v8 .c-feat-steps{margin:0 0 18px;padding-left:22px}
 .v8 .c-feat-steps li{font-size:17px;line-height:1.55;color:var(--navy,#121E36);margin:0 0 8px}
 @media (max-width:560px){.v8 .c-feat-steps li{font-size:16px}}
+
+.v8 .c-art-grid{display:block}
+.v8 .c-art-side{display:none}
+@media (min-width:1100px){
+.v8 .c-art-grid{display:grid;grid-template-columns:minmax(0,760px) 280px;gap:72px;align-items:start}
+.v8 .c-art-side{display:block;position:sticky;top:110px}
+.v8 .c-art-side-h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A6D1F;margin:0 0 12px}
+.v8 .c-art-side ol{list-style:none;margin:0 0 24px;padding:0;border-left:1px solid #E2E6EC}
+.v8 .c-art-side li{margin:0}
+.v8 .c-art-side li a{display:block;padding:7px 0 7px 14px;font-size:14px;line-height:1.4;color:#4A5568;text-decoration:none}
+.v8 .c-art-side li a:hover{color:var(--navy,#121E36)}
+.v8 .c-art-side-app{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;background:var(--navy,#121E36);color:#fff}
+.v8 .c-art-side-app b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px;line-height:1.3}
+.v8 .c-art-side-app span{font-size:14px;line-height:1.5;color:rgba(255,255,255,.75)}
+.v8 .c-art-side-app .c-btn{align-self:flex-start;margin-top:4px;background:#C9A84C;color:var(--navy,#121E36);text-decoration:none}
+}
+/* Blog, CNN-style on desktop: headline on the page's left edge; a wide main column where the
+   lead answer and tables run full width; the reading text inset to the right; contents rail beside it. */
+@media (min-width:1100px){
+.v8 .c-art-grid{grid-template-columns:minmax(0,1fr) 280px;gap:56px}
+.v8 .c-art{max-width:none}
+.v8 .c-art > h2,.v8 .c-art > p:not(.c-art-answer),.v8 .c-art > ul,.v8 .c-art > .c-art-faq,.v8 .c-art > .c-actions{max-width:720px;margin-left:auto}
+.v8 .c-art > .c-art-answer{max-width:none}
+.v8 .c-art > .c-art-table,.v8 .c-art > .cx-save{max-width:none}
+.v8 .c-art > p.c-art-fine{margin-left:auto}
+}
