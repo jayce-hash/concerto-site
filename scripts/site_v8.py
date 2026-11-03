@@ -322,6 +322,69 @@ def area_page(g):
     return ('<main id="main-content" class="c-page">' + intro
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('venue') + close() + '</main>')
 
+# ---------------- blog (articles by Concerto, at /blog) ----------------
+def guide_page(g):
+    import datetime as _dt
+    d = _dt.date.fromisoformat(g['date']).strftime('%B %-d, %Y')
+    crumbs = '<nav class="c-crumbs" aria-label="Breadcrumb"><a href="/blog">Blog</a><span>/</span>' + e(g['h1'].split(':')[0]) + '</nav>'
+    head = hero(g['kicker'], e(g['h1']), f'By Concerto · {d}', '', None, 'cream', 'c-hero-page', crumbs)
+    faq = ''.join(f'<details class="c-art-q"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in g['faq'])
+    src = ''.join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(t)}</a></li>' for t, u in g['sources'])
+    tour = f'<a class="c-btn c-btn-line" href="/tour/{g["tour"]}">Tour page and setlist</a>' if g.get('tour') else ''
+    cta = (f'<div class="cx-save"><div class="cx-save-copy"><p class="cx-save-h">Going to a show on this list?</p>'
+           f'<p class="cx-save-b">Save it in Concerto. Your Night puts the arena’s bag rule, entrances, parking and rideshare pickup on one page, with a reminder the morning of the show.</p></div>'
+           f'{store_button("website-guide", tone="white")}</div>')
+    return ('<main id="main-content" class="c-page">' + head
+            + f'<section class="c-section c-white c-guide-sec"><div class="c-wrap c-art-wrap"><article class="c-art">{g["body"]}{cta}'
+            + f'<h2>Frequently asked questions</h2><div class="c-art-faq">{faq}</div>'
+            + f'<h2>Sources</h2><ul class="c-art-sources">{src}</ul>'
+            + f'<p class="c-art-fine">Written by Concerto. Venue rules are from each venue’s official sources, checked on the dates shown in its Concerto guide. Rules can change, so check your venue’s guide before you go. <a href="/founder">About Concerto</a></p>'
+            + (f'<div class="c-actions">{tour}<a class="c-btn c-btn-line" href="/blog">More from the blog</a></div>')
+            + '</article></div></section>' + close() + '</main>')
+
+def guides_hub(gs):
+    cards = ''.join(f'<a class="c-art-card" href="/blog/{g["slug"]}"><span class="c-eyebrow">{e(g["kicker"])}</span><b>{e(g["h1"])}</b><small>{e(g["desc"])}</small></a>' for g in gs)
+    return ('<main id="main-content" class="c-page">' + hero('Blog', 'The Concerto Blog', 'Tours, venues and show nights, written by Concerto from official sources and its venue guides.', '', None, 'cream', 'c-hero-page')
+            + f'<section class="c-section c-white"><div class="c-wrap"><div class="c-art-cards">{cards}</div></div></section>' + close() + '</main>')
+
+def build_blog():
+    import shutil, sys as _s
+    _s.path.insert(0, str(ROOT / 'scripts'))
+    from guides import all_guides
+    gs = all_guides()
+    d = ROOT / 'blog'
+    if d.exists(): shutil.rmtree(d)
+    d.mkdir()
+    for g in gs:
+        rel = f'blog/{g["slug"]}.html'
+        ensure_page(rel, g['title'] + ' | Concerto', g['desc'], f'/blog/{g["slug"]}')
+        rewrite(rel, guide_page(g))
+        src = (ROOT / rel).read_text()
+        src = re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/blog'), src, flags=re.S)
+        ld = {'@context': 'https://schema.org', '@type': 'Article', 'headline': g['h1'], 'description': g['desc'],
+              'datePublished': g['date'], 'dateModified': g['date'], 'mainEntityOfPage': f'https://concertocity.com/blog/{g["slug"]}',
+              'author': {'@type': 'Organization', 'name': 'Concerto', 'url': 'https://concertocity.com'},
+              'publisher': {'@id': 'https://concertocity.com/#org'}, 'image': 'https://concertocity.com/img/app-icon.png'}
+        fq = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in g['faq']]}
+        tags = ''.join('<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace('</', '<\\/') + '</script>' for x in (ld, fq))
+        src = src.replace('</head>', tags + '</head>', 1)
+        (ROOT / rel).write_text(src)
+    for g in gs:   # the tour's own page points to its guide
+        tp = ROOT / 'tour' / f'{g.get("tour")}.html'
+        if g.get('tour') and tp.exists():
+            t = tp.read_text()
+            card = (f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><a class="cx-house" href="/blog/{g["slug"]}">'
+                    f'<span class="cx-house-ic">{icon("info", 20)}</span><span class="cx-house-copy"><b>On the Concerto Blog: {e(g["h1"].split(":")[0])}</b>'
+                    f'<small>{e(g["desc"])}</small></span><span class="cx-house-go" aria-hidden="true">›</span></a></div></section>')
+            if f'href="/blog/{g["slug"]}"' not in t:
+                t = t.replace('<section class="cx-sec c-upcoming" id="dates"', card + '<section class="cx-sec c-upcoming" id="dates"', 1)
+                tp.write_text(t)
+    ensure_page('blog.html', 'The Concerto Blog: Tours, Venues and Show Nights | Concerto',
+                'The Concerto Blog: tour stops and lineups, venue bag rules, re-entry and rideshare pickup, written by Concerto from official sources and its venue guides.', '/blog')
+    rewrite('blog.html', guides_hub(gs))
+    src = (ROOT / 'blog.html').read_text()
+    (ROOT / 'blog.html').write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/blog'), src, flags=re.S))
+
 def build_area_pages():
     import shutil
     d = ROOT / 'concert-venues'
@@ -993,6 +1056,7 @@ def founder():
     h = hero('From the founder', 'It started with<br>one night in Toronto.', 'Why Concerto exists, and what it took to build it.',
              '', ['Jayce Wells', 'September 2026'], 'navy')
     P = lambda t: f'<p class="c-letter-p">{t}</p>'
+    H = lambda t: f'<h2 class="c-letter-h">{t}</h2>'
     drafts = ('<figure class="c-drafts">'
               '<div class="c-drafts-row">'
               '<img src="/img/founder/first-design-your-event.jpg" width="560" height="724" loading="lazy" alt="First Concerto design: a Your Event screen for a show at AT&amp;T Stadium, with restaurants, hotels, shops and transportation">'
@@ -1001,12 +1065,24 @@ def founder():
               '</div><figcaption>The first designs, made in Canva in October 2024.</figcaption></figure>')
     letter = (
       '<section class="c-section c-white" data-reveal><div class="c-wrap c-letter">'
+      + H('Where did the idea for Concerto come from?')
       + P("In November 2024, I had tickets to night six of the Eras Tour in Toronto. I&#8217;d lived in Toronto, but I didn&#8217;t know the area around the Rogers Centre, and I spent the weeks before the show bouncing between Google, Apple Maps and OpenTable, trying to figure out where to eat, where to stay and what to do around one specific night.")
       + P("I kept thinking: there should be one app for this. Not for the city in general, but for the exact show you&#8217;re going to. So on October 25, 2024, I opened Canva and started designing it. The name Concerto and the line <em>From the Concert to the City</em> came right after.")
       + drafts
+      + H('How did Concerto get built?')
       + P("I started with 112 venues, every NFL, NBA and MLB stadium in the country. I entered each venue&#8217;s policies and official links into a spreadsheet by hand, then went venue by venue finding the restaurants and hotels nearby. In March 2025 Concerto became a company, and in April the first version launched on the App Store and Google Play.")
       + P("By that summer the guide had grown to 346 venues. I&#8217;d love to say it got easier. It didn&#8217;t. I spent hours, days and weeks researching venues, entering data, sketching new features, redesigning screens and making social content, even while paying for a developer and a PR agency. When neither was moving the needle, I made the hardest call so far: I cut both, took Concerto back, and rebuilt it from the ground up myself.")
+      + H('What was the hardest part of building it alone?')
+      + P("I didn&#8217;t know how to code. My background is in marketing, not software, and anything technical was new to me. So I leaned on the tools I had, like Claude, and started over from scratch. They let me see things I couldn&#8217;t see before.")
+      + P("I didn&#8217;t tell an AI to build an app and walk away. I took the time to learn what it was doing: why a screen broke, why a venue&#8217;s data didn&#8217;t load, why one fix caused a new problem somewhere else. I spent hours upon hours every week trying to get it right. Concerto is better for it, and so am I.")
+      + H('How did people start finding Concerto?')
+      + P("Everybody wants instant gratification, and I&#8217;m no different. When the download numbers weren&#8217;t climbing the way I hoped, I started asking how else people could discover Concerto. That&#8217;s when I went all in on the website.")
+      + P("Most people find something like Concerto by searching for a specific answer: a venue&#8217;s bag policy, where to park, what a tour has been playing. So I made concertocity.com answer those questions on its own, for free, with a guide to every venue and a page for every tour. Today the site has a guide for each of the 1,000+ venues in the app, a page for every state and country with three or more of them, and the setlists to go with them. It&#8217;s where I expect most people to meet Concerto first. If the website helps you once, the app is there for the next show.")
+      + H('What does Concerto do today?')
       + P(f"Today Concerto covers more than 1,000 venues worldwide, from college arenas to stadiums and clubs across North America, the U.K. and Europe. Every guide is researched from the venue&#8217;s own official sources and dated, because the night deserves accuracy. It&#8217;s still built by one person.")
+      + P("Concerto also does more than it did a year ago. Save a show and Your Night puts the bag rule, doors, parking and the ride home in one place, with a reminder on the morning of the show. Tour pages show the setlist each tour has been playing. And at Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, House Map shows every food stand, restroom and entrance by section, with more arenas on the way.")
+      + P("The response from first-time users has been the same almost every time: it&#8217;s a really helpful tool. That&#8217;s the whole point. Concerto should make the night easier, not give you one more thing to figure out.")
+      + H('What comes next?')
       + P('Where this goes next is bigger than one app. I want Concerto to know your night from the moment you buy the ticket to the moment you get home, and to share it with the people you&#8217;re going with. That means working with the people who make those nights happen: venues that want their guests to arrive knowing the rules, the restaurants and hotels around them, and <a href="/creators">creators</a> who live for live music. If that&#8217;s you, <a href="/contact">I&#8217;d love to talk</a>, and if you&#8217;d like to help build what comes next, <a href="/investors">start here</a>.')
       + P("If you&#8217;ve ever stood outside a venue wondering what you&#8217;re allowed to bring in, or how you&#8217;re getting home, Concerto is for you. Thank you for being here.")
       + '<p class="c-letter-sign">Jayce</p><p class="c-letter-role">Jayce Wells, Founder, Concerto</p>'
@@ -1312,6 +1388,7 @@ def build():
     for t in TOURS: rewrite(f'tour/{t["tourId"]}.html', tour_page(t))
     for k, s in LIVE.items(): rewrite(f'setlist/{k}.html', setlist_page(k, s))
     build_area_pages()
+    build_blog()
     ensure_page('download.html', 'Download Concerto | Free on iPhone and Android', 'Get Concerto, the concert companion app: venue guides, tour dates and setlists, and your whole show night on one page. Free on iPhone and Android.', '/download')
     rewrite('download.html', download_page())
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header

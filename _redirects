@@ -2,6 +2,7 @@
 /scripts/*  /404.html  404!
 /supabase/*  /404.html  404!
 /netlify/*  /404.html  404!
+/partners-kit/*  /404.html  404!
 /ALIGNED-RELEASE.md  /404.html  404!
 /BRAND-LANGUAGE-2.5.md  /404.html  404!
 /BRAND-SYSTEM-AUDIT.md  /404.html  404!
@@ -50,6 +51,8 @@
 /tours/     /tours.html      200
 /setlists   /setlists.html   200
 /setlists/  /setlists.html   200
+/blog       /blog.html       200
+/blog/      /blog.html       200
 
 # ── BEGIN renamed venues ──
 # One page per building: an old or duplicate name 301s to the current one.
@@ -72,6 +75,7 @@
 /about.html /about 301!
 /bagcheck.html /bagcheck 301!
 /bags.html /bags 301!
+/blog.html /blog 301!
 /concessions.html /concessions 301!
 /contact.html /contact 301!
 /creators.html /creators 301!

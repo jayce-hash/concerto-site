@@ -2508,3 +2508,59 @@ h1,h2{font-weight:700}
 .v8 .cx-house-copy b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px}
 .v8 .cx-house-copy small{font-size:14px;line-height:1.45;color:#4A5568}
 .v8 .cx-house-go{margin-left:auto;font-size:26px;line-height:1;color:#C9A84C}
+
+.v8 .c-letter-h{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:26px;line-height:1.25;color:var(--navy,#121E36);margin:40px 0 12px}
+.v8 .c-letter-h:first-child{margin-top:0}
+
+/* Guides (articles by Concerto) */
+.v8 .c-art{display:block;max-width:760px;margin:0 auto}
+.v8 .c-art h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:28px;line-height:1.25;color:var(--navy,#121E36);margin:44px 0 14px}
+.v8 .c-art p,.v8 .c-art li{font-size:17px;line-height:1.65;color:#2A3547}
+.v8 .c-art p{margin:0 0 16px}
+.v8 .c-art a{color:var(--navy,#121E36);text-decoration:underline;text-underline-offset:3px}
+.v8 .c-art .c-btn,.v8 .c-art .c-store{text-decoration:none}
+.v8 .c-art-answer{font-size:19px!important;line-height:1.6;padding:20px 22px;border-left:3px solid #C9A84C;background:rgba(201,168,76,.10);border-radius:0 12px 12px 0}
+.v8 .c-art-table{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px;border:1px solid #E2E6EC;border-radius:12px;background:#fff}
+.v8 .c-art-table table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+.v8 .c-art-table th{background:#F3F5F8;text-align:left;font-weight:700;padding:10px 12px;color:var(--navy,#121E36);white-space:nowrap}
+.v8 .c-art-table td{padding:10px 12px;border-top:1px solid #E2E6EC;vertical-align:top;line-height:1.45}
+.v8 .c-art-table td:first-child{white-space:nowrap}
+.v8 .c-art-list{padding-left:20px;margin:0 0 16px}
+.v8 .c-art-fine{font-size:14px!important;color:#5B6578!important}
+.v8 .c-art-faq{display:flex;flex-direction:column;gap:10px}
+.v8 .c-art-q{border:1px solid #E2E6EC;border-radius:12px;padding:14px 16px;background:#fff}
+.v8 .c-art-q summary{font-weight:700;cursor:pointer;color:var(--navy,#121E36)}
+.v8 .c-art-q p{margin:10px 0 0}
+.v8 .c-art-sources{padding-left:20px}
+.v8 .c-art-sources li{font-size:15px}
+.v8 .c-art .cx-save{margin:36px 0 8px}
+.v8 .c-art .cx-save p{color:#fff}
+.v8 .c-art .cx-save .cx-save-b{color:rgba(255,255,255,.78)}
+.v8 .c-art-sec .c-art-wrap{display:block}
+.v8 .c-art-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.v8 .c-art-card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid #E2E6EC;border-radius:16px;background:#fff;text-decoration:none;color:var(--navy,#121E36)}
+.v8 .c-art-card b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:21px;line-height:1.3}
+.v8 .c-art-card small{font-size:14px;line-height:1.5;color:#5B6578}
+@media (max-width:560px){.v8 .c-art h2{font-size:24px}.v8 .c-art p,.v8 .c-art li{font-size:16px}.v8 .c-art-answer{font-size:17px!important}}
+@media (max-width:640px){
+.v8 .c-art-table{border:0;background:none;overflow:visible}
+.v8 .c-art-table table{min-width:0}
+.v8 .c-art-table thead{display:none}
+.v8 .c-art-table tr{display:block;background:#fff;border:1px solid #E2E6EC;border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.v8 .c-art-table td{display:block;border:0;padding:3px 0;white-space:normal!important}
+.v8 .c-art-table td[data-l]:before{content:attr(data-l);display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A93A3;margin-top:4px}
+}
+@media (max-width:640px){
+.v8 .c-art-table td[data-l="Date"],.v8 .c-art-table td[data-l="City"],.v8 .c-art-table td[data-l="Starts"]{display:inline;font-weight:700;color:var(--navy,#121E36)}
+.v8 .c-art-table td[data-l="Date"]:before,.v8 .c-art-table td[data-l="City"]:before,.v8 .c-art-table td[data-l="Starts"]:before{content:none}
+.v8 .c-art-table td[data-l="City"]:after{content:"";display:block}
+.v8 .c-art-table td[data-l="Date"]:after{content:" · "}
+.v8 .c-art-table td[data-l="Arena"]{display:inline}
+.v8 .c-art-table td[data-l="Arena"]:before{content:none}
+.v8 .c-art-table td[data-l="Starts"]{font-weight:400}
+.v8 .c-art-table td[data-l="Starts"]:before{content:" · ";display:inline;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit;margin:0}
+.v8 .c-art-table td[data-l="Lineup"]:before,.v8 .c-art-table td[data-l="Bag rule"]:before{content:none}
+.v8 .c-art-table td[data-l="Lineup"],.v8 .c-art-table td[data-l="Bag rule"]{margin-top:6px;font-size:15px;color:#4A5568}
+.v8 .c-art-table td[data-l="Checked"]{font-size:12px;color:#8A93A3}
+.v8 .c-art-table td[data-l="Checked"]:before{content:"Checked ";display:inline;font-size:inherit;font-weight:400;letter-spacing:0;text-transform:none;margin:0}
+}

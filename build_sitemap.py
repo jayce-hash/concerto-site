@@ -13,7 +13,7 @@ HUBS=[
  '/partners', '/partners/restaurants', '/partners/hotels', '/partners/venues',
  '/about', '/founder', '/creators', '/press', '/investors',
  '/contact', '/faq', '/help', '/bagcheck', '/bags', '/parking', '/rideshare',
- '/concessions', '/privacy', '/terms', '/download'
+ '/concessions', '/privacy', '/terms', '/download', '/blog'
 ]
 
 FILE_FOR={
@@ -24,7 +24,7 @@ FILE_FOR={
  '/partners/artists':'partner-artists.html','/creators':'creators.html','/press':'press.html',
  '/investors':'investors.html','/contact':'contact.html','/faq':'faq.html','/help':'help.html',
  '/bagcheck':'bagcheck.html','/bags':'bags.html','/parking':'parking.html','/rideshare':'rideshare.html',
- '/concessions':'concessions.html','/download':'download.html','/privacy':'privacy.html','/terms':'terms.html'
+ '/concessions':'concessions.html','/download':'download.html','/blog':'blog.html','/privacy':'privacy.html','/terms':'terms.html'
 }
 
 venues=json.loads((ROOT/'data/venues.json').read_text())
@@ -48,6 +48,9 @@ rows=[]
 for loc in HUBS:
     f=FILE_FOR[loc]
     if (ROOT/f).exists(): rows.append(row(loc))
+
+for p in sorted((ROOT/'blog').glob('*.html')) if (ROOT/'blog').exists() else []:
+    rows.append(row(f'/blog/{p.stem}'))
 
 for p in sorted((ROOT/'concert-venues').glob('*.html')):
     rows.append(row(f'/concert-venues/{p.stem}'))

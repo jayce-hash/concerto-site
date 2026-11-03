@@ -139,6 +139,61 @@ def definitions(rel, src):
     return src
 
 
+DESC_FIXED = {
+    '404.html': 'This page isn’t here. Concerto has guides to 1,000+ venues worldwide, current tours and setlists, and Your Night for every show you save.',
+    'about.html': 'About Concerto, the concert companion app: why founder Jayce Wells built it, what it does on show night, and how its venue guides are researched.',
+    'concessions.html': 'What food and drinks are inside 1,000+ concert venues worldwide, what each one sells, and how to pay, from each venue’s official sources.',
+    'contact.html': 'Contact Concerto for fan support, venue, restaurant and hotel partnerships, media requests, and company inquiries, by email or the contact form.',
+    'creators.html': 'Concerto works with creators who make useful concert-night content. Pitch a collaboration on venue guides, tours, setlists, or your show night.',
+    'faq.html': 'How Concerto works, what stays free, how Your Night and House Map fit in, what Concerto+ adds, and what a verified date on a venue guide means.',
+    'index.html': 'Concerto makes show nights easier: guides to 1,000+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone and Android.',
+    'investors.html': 'Concerto is building the companion for every concert night. Learn about the company and start a conversation with founder Jayce Wells.',
+    'partner-artists.html': 'Concerto helps artists and tours give fans useful show-night information, from bag rules to setlists, and a reason to engage around every date.',
+    'partner-hotels.html': 'Get your hotel in front of concert fans planning where to stay. Appear first in Nearby Hotels for your venue in the Concerto app for $299 a month.',
+    'partner-restaurants.html': 'Get your restaurant in front of concert fans planning where to eat. Appear first in Nearby Restaurants for your venue in Concerto for $99 a month.',
+    'partner-venues.html': 'Concerto puts your venue’s published guidance, from bag policy to parking, within reach of fans planning their visit, checked against your official pages.',
+    'partners.html': 'Concerto Partners helps restaurants and hotels near 1,000+ concert venues worldwide reach fans while they plan their night, from $99 a month.',
+    'press.html': 'Press resources for Concerto, the concert companion app: company background, founder Jayce Wells, coverage, and how to reach us for media inquiries.',
+    'privacy.html': 'How Concerto collects, uses, and protects your information across the Concerto app and concertocity.com, and the choices you have about your data.',
+    'terms.html': 'The terms that apply when you use the Concerto app and concertocity.com, including your account, Concerto+ subscriptions, and venue information.',
+    'your-night.html': 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and a memory card of your photos afterward.',
+}
+DLO, DHI = 110, 160
+
+def desc_for(rel, cur):
+    if rel in DESC_FIXED: return DESC_FIXED[rel]
+    if DLO <= len(cur) <= DHI: return cur
+    parts = rel.split('/'); slug = parts[-1][:-5]
+    cands = [cur]
+    if parts[0] == 'venue' and slug in venues:
+        v = venues[slug]; place = ', '.join(x for x in (v.get('city'), v.get('state') or v.get('country')) if x)
+        d = cur.replace(f"for {v['name']}, from", f"for {v['name']} in {place}, from").replace(
+            'Plus parking, entry, and rideshare.', f"Plus parking, entry, and rideshare at {v['name']} in {place}.")
+        cands = [d, d + ' Free on Concerto.', cur + f" At {v['name']} in {place}.", cur + ' Free on Concerto.']
+    elif parts[0] == 'setlist':
+        d = re.sub(r'updated (\d{4})-(\d\d)-(\d\d)', lambda m: 'updated ' + __import__('datetime').date(int(m[1]), int(m[2]), int(m[3])).strftime('%b %-d, %Y'), cur)
+        d = d.replace('View the current tour setlist on Concerto.', 'See the songs, the tour dates, and a guide to each venue on Concerto.')
+        cands = [d, d.replace(' and a guide to each venue', '')]
+    elif parts[0] == 'tour':
+        cands = [cur.replace(' Free on Concerto.', ''), cur.replace(' Free on Concerto.', '').replace(', plus tour dates and a guide to every venue', ', plus tour dates and venue guides'),
+                 cur.replace(', on Concerto.', ', with bag rules, parking, and rideshare for each one, on Concerto.')]
+    else:
+        cands = [cur + ' Free on Concerto.', cur + ' Each one links to its dates and venue guides.', cur + ' Free on iPhone and Android.']
+    for c in cands:
+        if DLO <= len(c) <= DHI: return c
+    return cur
+
+def set_desc(src, new):
+    q = html.escape(new, quote=True)
+    if re.search(r'<meta name="description" content="', src):
+        src = re.sub(r'(<meta name="description" content=")[^"]*(")', lambda m: m.group(1) + q + m.group(2), src, count=1)
+    else:
+        src = src.replace('</title>', f'</title><meta name="description" content="{q}">', 1)
+    for attr in (r'property="og:description"', r'name="twitter:description"'):
+        src = re.sub(r'(<meta ' + attr + r' content=")[^"]*(")', lambda m: m.group(1) + q + m.group(2), src, count=1)
+    return src
+
+
 ORG = None
 def org_block():
     global ORG
@@ -160,7 +215,8 @@ def structured(rel, src):
         art = {'@context': 'https://schema.org', '@type': 'Article', 'headline': 'From the Founder: Why I Built Concerto',
                'url': 'https://concertocity.com/founder',
                'author': {'@type': 'Person', 'name': 'Jayce Wells', 'jobTitle': 'Founder', 'sameAs': ['https://www.linkedin.com/in/jayce-wells']},
-               'publisher': {'@id': 'https://concertocity.com/#org'}, 'image': 'https://concertocity.com/img/app-icon.png'}
+               'publisher': {'@id': 'https://concertocity.com/#org'}, 'image': 'https://concertocity.com/img/app-icon.png',
+               'datePublished': '2026-09', 'dateModified': '2026-11-03', 'mainEntityOfPage': 'https://concertocity.com/founder'}
         src = src.replace('</head>', '<script type="application/ld+json">' + json.dumps(art, ensure_ascii=False) + '</script></head>', 1)
     return src
 
@@ -170,7 +226,7 @@ PRIV_END = '# ── END private files ──'
 def private_files():
     """The site publishes the repo root, so build scripts, notes and SQL were reachable (and
     scripts/handbuilt/ held duplicate copies of two partner pages). Answer 404 for all of them."""
-    rules = [f'/{d}/*  /404.html  404!' for d in ('scripts', 'supabase', 'netlify')]
+    rules = [f'/{d}/*  /404.html  404!' for d in ('scripts', 'supabase', 'netlify', 'partners-kit')]
     for f in sorted(ROOT.iterdir()):
         if f.is_file() and (f.suffix in ('.md', '.py') or f.name in ('package.json', 'package-lock.json', 'VENUE-ENTRY-EXAMPLE.json')):
             rules.append(f'/{f.name}  /404.html  404!')
@@ -204,6 +260,10 @@ def main():
             new = cur if cur.lower() not in seen else f'{new[:HI - 4]} ({len(seen)})'
         seen[new.lower()] = rel
         out = definitions(rel, structured(rel, set_title(src, new) if new != cur else src))
+        dm = re.search(r'<meta name="description" content="([^"]*)"', out)
+        dcur = html.unescape(dm.group(1)) if dm else ''
+        dnew = desc_for(rel, dcur)
+        if dnew != dcur: out = set_desc(out, dnew)
         if out != src:
             p.write_text(out); changed += 1
     n = len(seen)

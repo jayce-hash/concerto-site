@@ -131,7 +131,7 @@ def footer_html():
         ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', '/download')]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
         ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
-        ('Support', [('Help Center', '/help'), ('FAQ', '/faq')]),
+        ('Support', [('Help Center', '/help'), ('FAQ', '/faq'), ('Blog', '/blog')]),
     ]
     col_html = ''.join(
         f'<div class="ftr-col"><h2>{_e(t)}</h2><ul>' + ''.join(f'<li><a href="{h}">{_e(l)}</a></li>' for l, h in links) + '</ul></div>'
