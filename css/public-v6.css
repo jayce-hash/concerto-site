@@ -2564,3 +2564,8 @@ h1,h2{font-weight:700}
 .v8 .c-art-table td[data-l="Checked"]{font-size:12px;color:#8A93A3}
 .v8 .c-art-table td[data-l="Checked"]:before{content:"Checked ";display:inline;font-size:inherit;font-weight:400;letter-spacing:0;text-transform:none;margin:0}
 }
+
+.v8 .c-feat-h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A6D1F;margin:0 0 10px}
+.v8 .c-feat-steps{margin:0 0 18px;padding-left:22px}
+.v8 .c-feat-steps li{font-size:17px;line-height:1.55;color:var(--navy,#121E36);margin:0 0 8px}
+@media (max-width:560px){.v8 .c-feat-steps li{font-size:16px}}

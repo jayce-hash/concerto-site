@@ -13,7 +13,7 @@ HUBS=[
  '/partners', '/partners/restaurants', '/partners/hotels', '/partners/venues',
  '/about', '/founder', '/creators', '/press', '/investors',
  '/contact', '/faq', '/help', '/bagcheck', '/bags', '/parking', '/rideshare',
- '/concessions', '/privacy', '/terms', '/download', '/blog'
+ '/concessions', '/privacy', '/terms', '/download', '/blog', '/features'
 ]
 
 FILE_FOR={
@@ -24,7 +24,7 @@ FILE_FOR={
  '/partners/artists':'partner-artists.html','/creators':'creators.html','/press':'press.html',
  '/investors':'investors.html','/contact':'contact.html','/faq':'faq.html','/help':'help.html',
  '/bagcheck':'bagcheck.html','/bags':'bags.html','/parking':'parking.html','/rideshare':'rideshare.html',
- '/concessions':'concessions.html','/download':'download.html','/blog':'blog.html','/privacy':'privacy.html','/terms':'terms.html'
+ '/concessions':'concessions.html','/download':'download.html','/blog':'blog.html','/features':'features.html','/privacy':'privacy.html','/terms':'terms.html'
 }
 
 venues=json.loads((ROOT/'data/venues.json').read_text())

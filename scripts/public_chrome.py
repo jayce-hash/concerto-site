@@ -35,6 +35,7 @@ def app_link_campaign(ct):
     return f'{_APP_BASE}?pt={_PT}&ct={ct}&mt=8'
 
 NAV = [
+    ('Features', '/features'),
     ('Your Night', '/your-night'),
     ('Venues', '/venues'),
     ('Tours', '/tours'),
