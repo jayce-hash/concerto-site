@@ -487,6 +487,16 @@ def save_prompt(v):
             f'<p class="cx-save-b">Save it in Concerto. On the morning of the show you get the doors time and this guide, with Your Night one tap away.</p></div>'
             f'{store_button("website-venue-inline", tone="white")}</div>')
 
+HOUSE = set(json.loads((ROOT / 'data/house/index.json').read_text())) if (ROOT / 'data/house/index.json').exists() else set()
+
+def house_card(v):
+    """Venues with a House Map get one card under Venue info, the same entry point the app has."""
+    if v['id'] not in HOUSE: return ''
+    return (f'<a class="cx-house" href="{STORE("website-house")}" data-app-link="concerto://house/{e(v["id"])}" target="_blank" rel="noopener">'
+            f'<span class="cx-house-ic">{icon("pin", 20)}</span><span class="cx-house-copy"><b>House Map</b>'
+            f'<small>Every food stand, bar, restroom, and entrance at {e(v["name"])}, by section, from the venue’s own maps. Open it in the Concerto app.</small></span>'
+            f'<span class="cx-house-go" aria-hidden="true">›</span></a>')
+
 def upcoming_shell(v):
     """Filled by js/public-v6.js from the same Ticketmaster feed the app uses. Hidden until it has shows."""
     return (f'<section class="cx-sec c-upcoming" id="upcoming" data-venue-upcoming hidden aria-labelledby="up-h"><div class="cx-wrap">'
@@ -527,7 +537,7 @@ def venue_page(v):
             f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
             # Order: Concerto Partners (added by the page script right after the hero), venue info,
             # upcoming shows, places around the venue, nearby venues.
-            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div>{save_prompt(v)}</div></section>'
+            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div>{house_card(v)}{save_prompt(v)}</div></section>'
             + upcoming_shell(v)
             + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue. Places from Google.</p></div><div class="cx-rows"></div></div></section>'
             + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')

@@ -1,0 +1,1492 @@
+{
+ "venue": "american-airlines-center",
+ "name": "American Airlines Center",
+ "updated": "2026-11-02",
+ "sourceLabel": "americanairlinescenter.com",
+ "note": "On AAC’s concert seating map, the stage sits at the south end, in front of Sections 101 and 124. Your show’s layout can differ. Men’s, women’s and gender neutral family restrooms are in the corners of every concourse.",
+ "levels": [
+  {
+   "id": "plaza",
+   "label": "Plaza (100s)",
+   "image": "/img/house/aac-plaza.svg",
+   "aspect": 1.2877,
+   "sections": {
+    "101": {
+     "x": 0.2652,
+     "y": 0.4508
+    },
+    "102": {
+     "x": 0.2772,
+     "y": 0.3723
+    },
+    "103": {
+     "x": 0.3142,
+     "y": 0.3262
+    },
+    "104": {
+     "x": 0.368,
+     "y": 0.3123
+    },
+    "105": {
+     "x": 0.4229,
+     "y": 0.3123
+    },
+    "106": {
+     "x": 0.4791,
+     "y": 0.3123
+    },
+    "107": {
+     "x": 0.5364,
+     "y": 0.3123
+    },
+    "108": {
+     "x": 0.5926,
+     "y": 0.3123
+    },
+    "109": {
+     "x": 0.6452,
+     "y": 0.3123
+    },
+    "110": {
+     "x": 0.7049,
+     "y": 0.3154
+    },
+    "111": {
+     "x": 0.7348,
+     "y": 0.3769
+    },
+    "112": {
+     "x": 0.7348,
+     "y": 0.4508
+    },
+    "113": {
+     "x": 0.7348,
+     "y": 0.5323
+    },
+    "114": {
+     "x": 0.7276,
+     "y": 0.6123
+    },
+    "115": {
+     "x": 0.6977,
+     "y": 0.6585
+    },
+    "116": {
+     "x": 0.6464,
+     "y": 0.6708
+    },
+    "117": {
+     "x": 0.5914,
+     "y": 0.6708
+    },
+    "118": {
+     "x": 0.5364,
+     "y": 0.6708
+    },
+    "119": {
+     "x": 0.4791,
+     "y": 0.6708
+    },
+    "120": {
+     "x": 0.4229,
+     "y": 0.6708
+    },
+    "121": {
+     "x": 0.3644,
+     "y": 0.6677
+    },
+    "122": {
+     "x": 0.3154,
+     "y": 0.6554
+    },
+    "123": {
+     "x": 0.2843,
+     "y": 0.5892
+    },
+    "124": {
+     "x": 0.2688,
+     "y": 0.5246
+    },
+    "12": {
+     "x": 0.4803,
+     "y": 0.4462
+    },
+    "15": {
+     "x": 0.5424,
+     "y": 0.4462
+    },
+    "18": {
+     "x": 0.6105,
+     "y": 0.4462
+    },
+    "11": {
+     "x": 0.4803,
+     "y": 0.4954
+    },
+    "14": {
+     "x": 0.5424,
+     "y": 0.4954
+    },
+    "17": {
+     "x": 0.6105,
+     "y": 0.4954
+    },
+    "10": {
+     "x": 0.4803,
+     "y": 0.54
+    },
+    "13": {
+     "x": 0.5424,
+     "y": 0.54
+    },
+    "16": {
+     "x": 0.6105,
+     "y": 0.54
+    }
+   }
+  },
+  {
+   "id": "terrace",
+   "label": "Terrace (300s)",
+   "image": "/img/house/aac-terrace.svg",
+   "aspect": 1.2877,
+   "sections": {
+    "301": {
+     "x": 0.1697,
+     "y": 0.5031
+    },
+    "302": {
+     "x": 0.1697,
+     "y": 0.4323
+    },
+    "303": {
+     "x": 0.1804,
+     "y": 0.3631
+    },
+    "304": {
+     "x": 0.2019,
+     "y": 0.3015
+    },
+    "305": {
+     "x": 0.2509,
+     "y": 0.2138
+    },
+    "306": {
+     "x": 0.2939,
+     "y": 0.1831
+    },
+    "307": {
+     "x": 0.3489,
+     "y": 0.1477
+    },
+    "308": {
+     "x": 0.399,
+     "y": 0.1477
+    },
+    "309": {
+     "x": 0.4576,
+     "y": 0.1477
+    },
+    "310": {
+     "x": 0.5137,
+     "y": 0.1477
+    },
+    "311": {
+     "x": 0.5711,
+     "y": 0.1446
+    },
+    "312": {
+     "x": 0.6487,
+     "y": 0.1477
+    },
+    "313": {
+     "x": 0.7168,
+     "y": 0.1677
+    },
+    "314": {
+     "x": 0.767,
+     "y": 0.2138
+    },
+    "315": {
+     "x": 0.8208,
+     "y": 0.2938
+    },
+    "316": {
+     "x": 0.8471,
+     "y": 0.3477
+    },
+    "317": {
+     "x": 0.8602,
+     "y": 0.4292
+    },
+    "318": {
+     "x": 0.8602,
+     "y": 0.5062
+    },
+    "319": {
+     "x": 0.8602,
+     "y": 0.5846
+    },
+    "320": {
+     "x": 0.8471,
+     "y": 0.6569
+    },
+    "321": {
+     "x": 0.822,
+     "y": 0.7138
+    },
+    "322": {
+     "x": 0.767,
+     "y": 0.8
+    },
+    "323": {
+     "x": 0.7157,
+     "y": 0.8385
+    },
+    "324": {
+     "x": 0.6487,
+     "y": 0.8785
+    },
+    "325": {
+     "x": 0.5723,
+     "y": 0.8785
+    },
+    "326": {
+     "x": 0.5137,
+     "y": 0.8785
+    },
+    "327": {
+     "x": 0.46,
+     "y": 0.8785
+    },
+    "328": {
+     "x": 0.399,
+     "y": 0.8785
+    },
+    "329": {
+     "x": 0.3513,
+     "y": 0.8662
+    },
+    "330": {
+     "x": 0.2939,
+     "y": 0.8292
+    },
+    "331": {
+     "x": 0.2521,
+     "y": 0.8
+    },
+    "332": {
+     "x": 0.2055,
+     "y": 0.7031
+    },
+    "333": {
+     "x": 0.184,
+     "y": 0.6369
+    },
+    "334": {
+     "x": 0.1697,
+     "y": 0.5692
+    }
+   }
+  }
+ ],
+ "points": [
+  {
+   "id": "plaza-1",
+   "kind": "stand",
+   "name": "7 Eleven Slurpee",
+   "level": "plaza",
+   "x": 0.7058,
+   "y": 0.2016,
+   "sections": [
+    "109"
+   ],
+   "offers": "Slurpees and Coca-Cola",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-2",
+   "kind": "stand",
+   "name": "7 Eleven Slurpee",
+   "level": "plaza",
+   "x": 0.2496,
+   "y": 0.7893,
+   "sections": [
+    "121"
+   ],
+   "offers": "Slurpees and Coca-Cola",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-3",
+   "kind": "stand",
+   "name": "Big D Dogs + Brews",
+   "level": "terrace",
+   "x": 0.9008,
+   "y": 0.5054,
+   "sections": [
+    "318"
+   ],
+   "offers": "Niman Ranch Hot Dog, Sonoran Dog, Beer Brat, Nachos, Bottomless Popcorn, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-4",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "plaza",
+   "x": 0.1718,
+   "y": 0.3111,
+   "sections": [
+    "102"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-5",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "plaza",
+   "x": 0.556,
+   "y": 0.2015,
+   "sections": [
+    "107"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-6",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "plaza",
+   "x": 0.7794,
+   "y": 0.337,
+   "sections": [
+    "111"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-7",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "plaza",
+   "x": 0.4621,
+   "y": 0.7892,
+   "sections": [
+    "119"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-8",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "terrace",
+   "x": 0.678,
+   "y": 0.1,
+   "sections": [
+    "312"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-9",
+   "kind": "stand",
+   "name": "Bonanno Brothers Pizzeria",
+   "level": "terrace",
+   "x": 0.331,
+   "y": 0.9123,
+   "sections": [
+    "329"
+   ],
+   "offers": "Cheese and Pepperoni Pizza, Beer and Wine, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-10",
+   "kind": "stand",
+   "name": "Bud and Burger",
+   "level": "plaza",
+   "x": 0.8004,
+   "y": 0.6552,
+   "sections": [
+    "114"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Garlic Parmesan Fries, Bottomless Popcorn, Beer and Wine, Cold Brew",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-11",
+   "kind": "stand",
+   "name": "Bud and Burger",
+   "level": "plaza",
+   "x": 0.172,
+   "y": 0.5366,
+   "sections": [
+    "124"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Garlic Parmesan Fries, Bottomless Popcorn, Beer and Wine, Cold Brew",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-12",
+   "kind": "stand",
+   "name": "DBQ",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.5738,
+   "sections": [
+    "334"
+   ],
+   "offers": "Brisket or Pulled Pork Sandwich, Loaded BBQ Nachos, BBQ Beer Brat, Brisket Mac and Cheese",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-13",
+   "kind": "stand",
+   "name": "El Taco Tex",
+   "level": "plaza",
+   "x": 0.3738,
+   "y": 0.2015,
+   "sections": [
+    "105"
+   ],
+   "offers": "Street Tacos, Loaded Nachos, Vegan Tacos, Vegan Nachos, Churros, Elote Cup, Frozen Margaritas",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-14",
+   "kind": "stand",
+   "name": "El Taco Tex",
+   "level": "plaza",
+   "x": 0.6503,
+   "y": 0.7892,
+   "sections": [
+    "117"
+   ],
+   "offers": "Street Tacos, Loaded Nachos, Vegan Tacos, Vegan Nachos, Churros, Elote Cup, Frozen Margaritas",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-15",
+   "kind": "stand",
+   "name": "Fast Break",
+   "level": "plaza",
+   "x": 0.8124,
+   "y": 0.5447,
+   "sections": [
+    "113"
+   ],
+   "offers": "Chili Cheese Nacho, Texas Chili Cheese Dog, Niman Ranch Hot Dog, Soft Pretzel, Popcorn, Cotton Candy",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-16",
+   "kind": "stand",
+   "name": "Fast Break",
+   "level": "plaza",
+   "x": 0.7365,
+   "y": 0.7886,
+   "sections": [
+    "116"
+   ],
+   "offers": "Chili Cheese Nacho, Texas Chili Cheese Dog, Niman Ranch Hot Dog, Soft Pretzel, Popcorn, Cotton Candy",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-17",
+   "kind": "stand",
+   "name": "Fast Break",
+   "level": "terrace",
+   "x": 0.3282,
+   "y": 0.1,
+   "sections": [
+    "307"
+   ],
+   "offers": "Chili Cheese Nacho, Texas Chili Cheese Dog, Niman Ranch Hot Dog, Soft Pretzel, Popcorn, Cotton Candy",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-18",
+   "kind": "stand",
+   "name": "Fast Break",
+   "level": "terrace",
+   "x": 0.6533,
+   "y": 0.9123,
+   "sections": [
+    "324"
+   ],
+   "offers": "Chili Cheese Nacho, Texas Chili Cheese Dog, Niman Ranch Hot Dog, Soft Pretzel, Popcorn, Cotton Candy",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-19",
+   "kind": "stand",
+   "name": "Hot dog stand",
+   "level": "plaza",
+   "x": 0.172,
+   "y": 0.4334,
+   "sections": [
+    "101"
+   ],
+   "offers": "Niman Ranch Hot Dog, Sonoran Dog, Beer Brat, Nachos, Artisan Pretzel, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-20",
+   "kind": "stand",
+   "name": "Hot dog stand",
+   "level": "plaza",
+   "x": 0.7498,
+   "y": 0.2015,
+   "sections": [
+    "109"
+   ],
+   "offers": "Niman Ranch Hot Dog, Sonoran Dog, Beer Brat, Nachos, Artisan Pretzel, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-21",
+   "kind": "stand",
+   "name": "Hot dog stand",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.5018,
+   "sections": [
+    "301"
+   ],
+   "offers": "Niman Ranch Hot Dog, Sonoran Dog, Beer Brat, Nachos, Artisan Pretzel, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-22",
+   "kind": "stand",
+   "name": "Grill Zone",
+   "level": "plaza",
+   "x": 0.4639,
+   "y": 0.2015,
+   "sections": [
+    "106"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Grilled Chicken Sandwich, Garlic Parmesan Fries, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-23",
+   "kind": "stand",
+   "name": "Grill Zone",
+   "level": "plaza",
+   "x": 0.5582,
+   "y": 0.7892,
+   "sections": [
+    "118"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Grilled Chicken Sandwich, Garlic Parmesan Fries, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-24",
+   "kind": "stand",
+   "name": "Grill Zone",
+   "level": "terrace",
+   "x": 0.5147,
+   "y": 0.1,
+   "sections": [
+    "310"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Grilled Chicken Sandwich, Garlic Parmesan Fries, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-25",
+   "kind": "stand",
+   "name": "Grill Zone",
+   "level": "terrace",
+   "x": 0.5144,
+   "y": 0.9123,
+   "sections": [
+    "326"
+   ],
+   "offers": "Smashburger Baskets, Chicken Tenders, Grilled Chicken Sandwich, Garlic Parmesan Fries, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-26",
+   "kind": "stand",
+   "name": "High Steaks",
+   "level": "plaza",
+   "x": 0.6461,
+   "y": 0.2015,
+   "sections": [
+    "108"
+   ],
+   "offers": "Texas Cheese Steak Sandwich, Cheese Steak Nachos, Corn Dog, S’mores Nachos, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-27",
+   "kind": "stand",
+   "name": "High Steaks",
+   "level": "plaza",
+   "x": 0.3681,
+   "y": 0.7892,
+   "sections": [
+    "120"
+   ],
+   "offers": "Texas Cheese Steak Sandwich, Cheese Steak Nachos, Corn Dog, S’mores Nachos, Frozen Margaritas",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-28",
+   "kind": "stand",
+   "name": "Hot Popped and Twisted",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.4103,
+   "sections": [
+    "302"
+   ],
+   "offers": "Nachos, Soft Pretzel, Bottomless Popcorn, Peanuts, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-29",
+   "kind": "stand",
+   "name": "Hot Popped and Twisted",
+   "level": "terrace",
+   "x": 0.9008,
+   "y": 0.4096,
+   "sections": [
+    "317"
+   ],
+   "offers": "Nachos, Soft Pretzel, Bottomless Popcorn, Peanuts, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-30",
+   "kind": "stand",
+   "name": "Market to Go",
+   "level": "plaza",
+   "x": 0.254,
+   "y": 0.2,
+   "sections": [
+    "104"
+   ],
+   "offers": "Deli Sandwiches, Salads, Vegan Power Bowl, Fruit Cups, Gelato, Frozen Treats",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-31",
+   "kind": "stand",
+   "name": "Market to Go",
+   "level": "plaza",
+   "x": 0.8454,
+   "y": 0.337,
+   "sections": [
+    "111"
+   ],
+   "offers": "Deli Sandwiches, Salads, Vegan Power Bowl, Fruit Cups, Gelato, Frozen Treats",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-32",
+   "kind": "stand",
+   "name": "Market to Go",
+   "level": "terrace",
+   "x": 0.9008,
+   "y": 0.5929,
+   "sections": [
+    "319"
+   ],
+   "offers": "Deli Sandwiches, Salads, Vegan Power Bowl, Fruit Cups, Gelato, Frozen Treats",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-33",
+   "kind": "stand",
+   "name": "The Nutty Bavarian",
+   "level": "plaza",
+   "x": 0.8124,
+   "y": 0.219,
+   "sections": [
+    "110"
+   ],
+   "offers": "Cinnamon Glazed Almonds, Cashews and Pecans",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-34",
+   "kind": "stand",
+   "name": "Tostitos Cantina",
+   "level": "plaza",
+   "x": 0.316,
+   "y": 0.2027,
+   "sections": [
+    "104"
+   ],
+   "offers": "Street Corn Nachos, Flamin’ Hot Elote Dog, Niman Ranch Hot Dog, Soft Pretzel, Beer and Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-35",
+   "kind": "stand",
+   "name": "Zavala’s Barbeque",
+   "level": "plaza",
+   "x": 0.2716,
+   "y": 0.7885,
+   "sections": [
+    "121"
+   ],
+   "offers": "Brisket Tacos, Sandwiches and Nachos, Smoked Brisket Dog, BBQ Popcorn",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-36",
+   "kind": "bar",
+   "name": "Bud Light Bar",
+   "level": "plaza",
+   "x": 0.8014,
+   "y": 0.337,
+   "sections": [
+    "111"
+   ],
+   "offers": "Bud Light Seltzers, Karbach, Kona, Golden Road, Michelob Ultra, Bud Light, Budweiser",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-37",
+   "kind": "bar",
+   "name": "Karbach Craft Beer Bar",
+   "level": "plaza",
+   "x": 0.7278,
+   "y": 0.2124,
+   "sections": [
+    "109"
+   ],
+   "offers": "Light Circus, Lovestreet, Hopadillo, Jukebock",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-38",
+   "kind": "bar",
+   "name": "Ranch Water Bar",
+   "level": "terrace",
+   "x": 0.4557,
+   "y": 0.9123,
+   "sections": [
+    "327"
+   ],
+   "offers": "Frozen Margaritas, Bottled and Canned Beer, Wine",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-39",
+   "kind": "bar",
+   "name": "Michelob Ultra Bar",
+   "level": "plaza",
+   "x": 0.275,
+   "y": 0.2064,
+   "sections": [
+    "104"
+   ],
+   "offers": "Michelob Ultra, Bud Light, Shock Top, rotating craft beers",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-40",
+   "kind": "bar",
+   "name": "Modelo Beer Bar",
+   "level": "plaza",
+   "x": 0.824,
+   "y": 0.6557,
+   "sections": [
+    "114"
+   ],
+   "offers": "Modelo, Modelo Negra, Pacifico, Corona, rotating imports",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-41",
+   "kind": "bar",
+   "name": "Texas Craft Beer Bar",
+   "level": "plaza",
+   "x": 0.7584,
+   "y": 0.7893,
+   "sections": [
+    "116"
+   ],
+   "offers": "Ziegenbock, Saint Arnold, Fireman’s 4, Franconia",
+   "source": "https://www.americanairlinescenter.com/food-beverage/concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-42",
+   "kind": "bar",
+   "name": "Modelo Gold Lion Bar & Grill",
+   "level": "plaza",
+   "x": 0.1577,
+   "y": 0.1477,
+   "offers": "Southwest corner of the Plaza concourse.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-43",
+   "kind": "bar",
+   "name": "Karbach Rotunda Bar",
+   "level": "plaza",
+   "x": 0.7479,
+   "y": 0.1292,
+   "offers": "Northwest rotunda, Plaza level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-44",
+   "kind": "bar",
+   "name": "1933 Ranch Bar & Lounge",
+   "level": "terrace",
+   "x": 0.1398,
+   "y": 0.1215,
+   "offers": "Southwest corner of the Terrace level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-45",
+   "kind": "bar",
+   "name": "Casa Bacardí",
+   "level": "terrace",
+   "x": 0.1362,
+   "y": 0.8985,
+   "offers": "Southeast corner of the Terrace level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-46",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "plaza",
+   "x": 0.7277,
+   "y": 0.1904,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-47",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "plaza",
+   "x": 0.8119,
+   "y": 0.3125,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-48",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "plaza",
+   "x": 0.8123,
+   "y": 0.6743,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-49",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "plaza",
+   "x": 0.7145,
+   "y": 0.79,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-50",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "plaza",
+   "x": 0.2935,
+   "y": 0.79,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-51",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "plaza",
+   "x": 0.1727,
+   "y": 0.6588,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-52",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "plaza",
+   "x": 0.1729,
+   "y": 0.333,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-53",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "plaza",
+   "x": 0.2948,
+   "y": 0.1968,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-54",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.3608,
+   "y": 0.1,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-55",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.4205,
+   "y": 0.1,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-56",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.4803,
+   "y": 0.1,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-57",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.5424,
+   "y": 0.1,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-58",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.656,
+   "y": 0.1,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-59",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.2724,
+   "y": 0.14,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-60",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.7742,
+   "y": 0.1646,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-61",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.1374,
+   "y": 0.3231,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-62",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.8757,
+   "y": 0.3031,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-63",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.4322,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-64",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.5446,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-65",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.1219,
+   "y": 0.5958,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-66",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.9008,
+   "y": 0.4316,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-67",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.1362,
+   "y": 0.6754,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-68",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.8734,
+   "y": 0.7138,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-69",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.3035,
+   "y": 0.8846,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-70",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.7527,
+   "y": 0.8569,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-71",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.3608,
+   "y": 0.9123,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-72",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.4205,
+   "y": 0.9123,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-73",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.4803,
+   "y": 0.9123,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-74",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.5424,
+   "y": 0.9123,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-75",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "terrace",
+   "x": 0.6753,
+   "y": 0.9123,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-76",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "terrace",
+   "x": 0.1792,
+   "y": 0.1554,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-77",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "terrace",
+   "x": 0.8841,
+   "y": 0.2108,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-78",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "terrace",
+   "x": 0.8984,
+   "y": 0.7831,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-79",
+   "kind": "escalator",
+   "name": "Escalator",
+   "level": "terrace",
+   "x": 0.1792,
+   "y": 0.8569,
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-80",
+   "kind": "merch",
+   "name": "Fan Shop",
+   "level": "plaza",
+   "x": 0.9164,
+   "y": 0.1169,
+   "offers": "Northwest corner, Plaza level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-81",
+   "kind": "merch",
+   "name": "Fan Shop",
+   "level": "plaza",
+   "x": 0.1063,
+   "y": 0.2092,
+   "offers": "Southwest side, Plaza level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-82",
+   "kind": "merch",
+   "name": "Fan Shop",
+   "level": "terrace",
+   "x": 0.6033,
+   "y": 0.1031,
+   "offers": "West side, Terrace level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-83",
+   "kind": "merch",
+   "name": "Fan Shop",
+   "level": "terrace",
+   "x": 0.6033,
+   "y": 0.92,
+   "offers": "East side, Terrace level.",
+   "source": "https://www.americanairlinescenter.com/floorplans",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-84",
+   "kind": "guest_services",
+   "name": "Guest Relations",
+   "level": "plaza",
+   "x": 0.3489,
+   "y": 0.1538,
+   "sections": [
+    "104"
+   ],
+   "offers": "Plaza concourse, across from Section 104. Open one hour before and after every event. Lost and found goes here.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-85",
+   "kind": "guest_services",
+   "name": "Guest Relations",
+   "level": "terrace",
+   "x": 0.5448,
+   "y": 0.9354,
+   "sections": [
+    "326"
+   ],
+   "offers": "Terrace level, across from Section 326. Open one hour before and after every event.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-86",
+   "kind": "first_aid",
+   "name": "First aid",
+   "level": "plaza",
+   "x": 0.8234,
+   "y": 0.337,
+   "sections": [
+    "111"
+   ],
+   "offers": "Plaza concourse, near Section 111.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "terrace-87",
+   "kind": "first_aid",
+   "name": "First aid",
+   "level": "terrace",
+   "x": 0.7312,
+   "y": 0.1215,
+   "sections": [
+    "313"
+   ],
+   "offers": "Terrace concourse, near Section 313.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-88",
+   "kind": "atm",
+   "name": "Reverse ATM (cash to card)",
+   "level": "plaza",
+   "x": 0.1912,
+   "y": 0.1754,
+   "offers": "The arena is cashless. Next to the Modelo Gold Lion Bar & Grill, southwest Plaza level.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-89",
+   "kind": "atm",
+   "name": "Reverse ATM (cash to card)",
+   "level": "plaza",
+   "x": 0.8686,
+   "y": 0.8554,
+   "offers": "The arena is cashless. Next to the Michelob Ultra Club, northeast Plaza level.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-90",
+   "kind": "nursing",
+   "name": "Nursing room",
+   "level": "plaza",
+   "x": 0.2174,
+   "y": 0.2246,
+   "offers": "Across from the Modelo Gold Lion Bar & Grill, Plaza level. Locking door.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-91",
+   "kind": "gate",
+   "name": "South Entry (PNC Plaza)",
+   "level": "plaza",
+   "x": 0.0287,
+   "y": 0.4554,
+   "offers": "Main entrance, open to all ticketed guests.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-92",
+   "kind": "gate",
+   "name": "West Entry (DART Station)",
+   "level": "plaza",
+   "x": 0.5042,
+   "y": 0.0246,
+   "offers": "Main entrance, open to all ticketed guests. Closest to the DART station.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-93",
+   "kind": "gate",
+   "name": "North Entry (ADA Parking)",
+   "level": "plaza",
+   "x": 0.9797,
+   "y": 0.4554,
+   "offers": "Main entrance, open to all ticketed guests. By the ADA parking.",
+   "tags": [
+    "accessible"
+   ],
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-94",
+   "kind": "gate",
+   "name": "East Entry (Lexus Garage)",
+   "level": "plaza",
+   "x": 0.5042,
+   "y": 0.9723,
+   "offers": "Main entrance, open to all ticketed guests. Across from the Lexus Garage.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-95",
+   "kind": "gate",
+   "name": "Platinum Entry (VIP)",
+   "level": "plaza",
+   "x": 0.9761,
+   "y": 0.6215,
+   "offers": "Northeast, All-Star Way side. Suite and Premier Seat holders only.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-96",
+   "kind": "box_office",
+   "name": "Box office",
+   "level": "plaza",
+   "x": 0.8363,
+   "y": 0.9631,
+   "offers": "On North Houston Street, across from the Lexus Garage.",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-97",
+   "kind": "rideshare",
+   "name": "Uber pickup: All-Star Way",
+   "level": "plaza",
+   "x": 0.99,
+   "y": 0.3015,
+   "offers": "Designated Uber pickup and drop-off on All-Star Way (north side).",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "plaza-98",
+   "kind": "rideshare",
+   "name": "Uber pickup: Nowitzki Way",
+   "level": "plaza",
+   "x": 0.0167,
+   "y": 0.3015,
+   "offers": "Designated Uber pickup and drop-off on Nowitzki Way (south side).",
+   "source": "https://www.americanairlinescenter.com/plan-your-visit/arena-faq",
+   "verified": "2026-11-02"
+  }
+ ]
+}

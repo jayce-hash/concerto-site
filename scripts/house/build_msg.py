@@ -175,10 +175,10 @@ def spread(points, gap=0.022, rounds=40):
                 if a['level'] != b['level']: continue
                 dx, dy = b['x'] - a['x'], b['y'] - a['y']; d = math.hypot(dx, dy)
                 if d < gap:
-                    if d == 0: dx, dy, d = 1.0, 0.0, 1.0
                     push = (gap - d) / 2
-                    a['x'] -= dx / d * push; a['y'] -= dy / d * push
-                    b['x'] += dx / d * push; b['y'] += dy / d * push
+                    ux, uy = (dx / d, dy / d) if d else (1.0, 0.0)  # same spot: split them sideways
+                    a['x'] -= ux * push; a['y'] -= uy * push
+                    b['x'] += ux * push; b['y'] += uy * push
                     moved = True
         if not moved: break
     for q in points: q['x'], q['y'] = round(q['x'], 4), round(q['y'], 4)

@@ -1,0 +1,883 @@
+{
+ "venue": "scotiabank-arena",
+ "name": "Scotiabank Arena",
+ "updated": "2026-11-02",
+ "sourceLabel": "scotiabankarena.com",
+ "note": "On Scotiabank Arena’s concert map, the stage sits at the west end, in front of Sections 112 to 115. In this layout some west-end seats are closed. Your show’s layout can differ.",
+ "levels": [
+  {
+   "id": "100",
+   "label": "100 Level",
+   "image": "/img/house/sba-100.svg",
+   "aspect": 1.36,
+   "sections": {
+    "101": {
+     "x": 0.6941,
+     "y": 0.4267
+    },
+    "102": {
+     "x": 0.699,
+     "y": 0.4947
+    },
+    "103": {
+     "x": 0.699,
+     "y": 0.5653
+    },
+    "104": {
+     "x": 0.6961,
+     "y": 0.6293
+    },
+    "105": {
+     "x": 0.651,
+     "y": 0.6667
+    },
+    "106": {
+     "x": 0.6147,
+     "y": 0.6867
+    },
+    "107": {
+     "x": 0.5618,
+     "y": 0.6987
+    },
+    "108": {
+     "x": 0.4971,
+     "y": 0.6987
+    },
+    "109": {
+     "x": 0.4294,
+     "y": 0.6987
+    },
+    "110": {
+     "x": 0.3725,
+     "y": 0.6987
+    },
+    "111": {
+     "x": 0.3206,
+     "y": 0.696
+    },
+    "112": {
+     "x": 0.2941,
+     "y": 0.632
+    },
+    "113": {
+     "x": 0.2922,
+     "y": 0.5653
+    },
+    "114": {
+     "x": 0.2922,
+     "y": 0.496
+    },
+    "115": {
+     "x": 0.2941,
+     "y": 0.4307
+    },
+    "116": {
+     "x": 0.3402,
+     "y": 0.3893
+    },
+    "117": {
+     "x": 0.3745,
+     "y": 0.364
+    },
+    "118": {
+     "x": 0.4304,
+     "y": 0.364
+    },
+    "119": {
+     "x": 0.4971,
+     "y": 0.364
+    },
+    "120": {
+     "x": 0.5637,
+     "y": 0.364
+    },
+    "121": {
+     "x": 0.6147,
+     "y": 0.364
+    },
+    "122": {
+     "x": 0.6706,
+     "y": 0.364
+    },
+    "105A": {
+     "x": 0.6902,
+     "y": 0.6933
+    },
+    "116A": {
+     "x": 0.3,
+     "y": 0.3573
+    }
+   }
+  },
+  {
+   "id": "300",
+   "label": "300 Level",
+   "image": "/img/house/sba-300.svg",
+   "aspect": 1.36,
+   "sections": {
+    "301": {
+     "x": 0.7745,
+     "y": 0.3333
+    },
+    "302": {
+     "x": 0.8059,
+     "y": 0.4293
+    },
+    "303": {
+     "x": 0.8176,
+     "y": 0.528
+    },
+    "304": {
+     "x": 0.8059,
+     "y": 0.6227
+    },
+    "305": {
+     "x": 0.7735,
+     "y": 0.72
+    },
+    "306": {
+     "x": 0.7392,
+     "y": 0.828
+    },
+    "307": {
+     "x": 0.6647,
+     "y": 0.872
+    },
+    "308": {
+     "x": 0.5775,
+     "y": 0.88
+    },
+    "309": {
+     "x": 0.4941,
+     "y": 0.88
+    },
+    "310": {
+     "x": 0.4147,
+     "y": 0.88
+    },
+    "311": {
+     "x": 0.3275,
+     "y": 0.872
+    },
+    "312": {
+     "x": 0.2392,
+     "y": 0.8133
+    },
+    "313": {
+     "x": 0.1941,
+     "y": 0.7467
+    },
+    "314": {
+     "x": 0.1863,
+     "y": 0.616
+    },
+    "315": {
+     "x": 0.1833,
+     "y": 0.528
+    },
+    "316": {
+     "x": 0.1882,
+     "y": 0.44
+    },
+    "317": {
+     "x": 0.1941,
+     "y": 0.312
+    },
+    "318": {
+     "x": 0.2392,
+     "y": 0.244
+    },
+    "319": {
+     "x": 0.3235,
+     "y": 0.184
+    },
+    "320": {
+     "x": 0.4147,
+     "y": 0.184
+    },
+    "321": {
+     "x": 0.4951,
+     "y": 0.184
+    },
+    "322": {
+     "x": 0.5775,
+     "y": 0.184
+    },
+    "323": {
+     "x": 0.6627,
+     "y": 0.184
+    },
+    "324": {
+     "x": 0.7363,
+     "y": 0.232
+    },
+    "309A": {
+     "x": 0.5137,
+     "y": 0.8493
+    },
+    "319A": {
+     "x": 0.3127,
+     "y": 0.2147
+    }
+   }
+  }
+ ],
+ "points": [
+  {
+   "id": "100-1",
+   "kind": "stand",
+   "name": "Hogtown",
+   "level": "100",
+   "x": 0.7745,
+   "y": 0.5782,
+   "sections": [
+    "103"
+   ],
+   "offers": "Bacon-wrapped foot-long hot dogs and other foot-longs",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-2",
+   "kind": "stand",
+   "name": "Hogtown",
+   "level": "100",
+   "x": 0.2402,
+   "y": 0.6592,
+   "sections": [
+    "112"
+   ],
+   "offers": "Bacon-wrapped foot-long hot dogs and other foot-longs",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-3",
+   "kind": "stand",
+   "name": "Hogtown",
+   "level": "300",
+   "x": 0.2809,
+   "y": 0.12,
+   "sections": [
+    "319"
+   ],
+   "offers": "Bacon-wrapped foot-long hot dogs and other foot-longs",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-4",
+   "kind": "stand",
+   "name": "Wicked Carib",
+   "level": "100",
+   "x": 0.7745,
+   "y": 0.6678,
+   "sections": [
+    "104"
+   ],
+   "offers": "Caribbean entrées, all halal-certified",
+   "tags": [
+    "halal"
+   ],
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-5",
+   "kind": "stand",
+   "name": "Panini",
+   "level": "100",
+   "x": 0.6965,
+   "y": 0.7933,
+   "sections": [
+    "106"
+   ],
+   "offers": "Meatball, Reuben and Turkey Club sandwiches, subs",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-6",
+   "kind": "stand",
+   "name": "Crispy",
+   "level": "100",
+   "x": 0.5993,
+   "y": 0.7933,
+   "sections": [
+    "107"
+   ],
+   "offers": "Jumbo chicken tenders, wings, chicken sandwiches",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-7",
+   "kind": "stand",
+   "name": "Crispy",
+   "level": "300",
+   "x": 0.1329,
+   "y": 0.7748,
+   "sections": [
+    "313"
+   ],
+   "offers": "Jumbo chicken tenders, wings, chicken sandwiches",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-8",
+   "kind": "stand",
+   "name": "Tim Hortons",
+   "level": "100",
+   "x": 0.225,
+   "y": 0.2957,
+   "sections": [
+    "116"
+   ],
+   "offers": "Coffee",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-9",
+   "kind": "stand",
+   "name": "Hot Stove Carve",
+   "level": "100",
+   "x": 0.306,
+   "y": 0.2693,
+   "sections": [
+    "117"
+   ],
+   "offers": "Prime Rib Sandwich with kettle chips",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-10",
+   "kind": "stand",
+   "name": "Hot Stove Carve",
+   "level": "300",
+   "x": 0.1769,
+   "y": 0.7748,
+   "sections": [
+    "313"
+   ],
+   "offers": "Prime Rib Sandwich with kettle chips",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-11",
+   "kind": "stand",
+   "name": "La Cantina",
+   "level": "100",
+   "x": 0.6027,
+   "y": 0.2693,
+   "sections": [
+    "120"
+   ],
+   "offers": "Quesadillas, loaded nachos, rice bowls",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-12",
+   "kind": "stand",
+   "name": "St. Patties Burgers & Poutine",
+   "level": "100",
+   "x": 0.7593,
+   "y": 0.2693,
+   "sections": [
+    "122"
+   ],
+   "offers": "Burgers (vegan version available) and poutine",
+   "tags": [
+    "vegan"
+   ],
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-13",
+   "kind": "stand",
+   "name": "Cherry Street Bar-B-Que",
+   "level": "300",
+   "x": 0.1549,
+   "y": 0.7748,
+   "sections": [
+    "313"
+   ],
+   "offers": "Barbecue, beside the Coors Light Chill Zone",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-14",
+   "kind": "stand",
+   "name": "Poutinerie",
+   "level": "300",
+   "x": 0.5817,
+   "y": 0.12,
+   "sections": [
+    "322"
+   ],
+   "offers": "House-made poutines",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-15",
+   "kind": "bar",
+   "name": "Molson Canadian Brewhouse",
+   "level": "100",
+   "x": 0.4982,
+   "y": 0.7933,
+   "sections": [
+    "108"
+   ],
+   "offers": "Beer",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-16",
+   "kind": "bar",
+   "name": "Captain Morgan Rum Bar",
+   "level": "100",
+   "x": 0.2402,
+   "y": 0.7722,
+   "sections": [
+    "111"
+   ],
+   "offers": "Rum cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-17",
+   "kind": "bar",
+   "name": "Smirnoff Vodka Bar",
+   "level": "100",
+   "x": 0.2547,
+   "y": 0.2938,
+   "sections": [
+    "116"
+   ],
+   "offers": "Specialty cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-18",
+   "kind": "bar",
+   "name": "Smirnoff Vodka Bar",
+   "level": "300",
+   "x": 0.851,
+   "y": 0.7727,
+   "sections": [
+    "305"
+   ],
+   "offers": "Specialty cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-19",
+   "kind": "bar",
+   "name": "Smirnoff Vodka Bar",
+   "level": "300",
+   "x": 0.3029,
+   "y": 0.12,
+   "sections": [
+    "319"
+   ],
+   "offers": "Specialty cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-20",
+   "kind": "bar",
+   "name": "Ciroc Ultra Premium Bar",
+   "level": "100",
+   "x": 0.3936,
+   "y": 0.2693,
+   "sections": [
+    "118"
+   ],
+   "offers": "Premium vodka and specialty cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-21",
+   "kind": "bar",
+   "name": "Crown Royal Bar",
+   "level": "300",
+   "x": 0.8267,
+   "y": 0.12,
+   "sections": [
+    "324"
+   ],
+   "offers": "Whisky and cocktails",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-22",
+   "kind": "bar",
+   "name": "Coors Light Chill Zone",
+   "level": "300",
+   "x": 0.1549,
+   "y": 0.5283,
+   "sections": [
+    "313",
+    "314",
+    "315",
+    "316",
+    "317"
+   ],
+   "offers": "Above Gate 6, behind Sections 313 to 317. Service to your table.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/food-beverage/food-concessions",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-23",
+   "kind": "guest_services",
+   "name": "Fan Services Desk",
+   "level": "100",
+   "x": 0.4856,
+   "y": 0.2693,
+   "offers": "Inside Gate 1. First aid kits and lost and found.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-24",
+   "kind": "guest_services",
+   "name": "Fan Services Desk",
+   "level": "300",
+   "x": 0.84,
+   "y": 0.2793,
+   "sections": [
+    "301"
+   ],
+   "offers": "Outside Section 301. First aid kits and lost and found.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-25",
+   "kind": "sensory",
+   "name": "Sensory service desk",
+   "level": "100",
+   "x": 0.5076,
+   "y": 0.2693,
+   "sections": [
+    "119"
+   ],
+   "offers": "Behind Section 119.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-26",
+   "kind": "sensory",
+   "name": "Sensory service desk",
+   "level": "300",
+   "x": 0.862,
+   "y": 0.2793,
+   "sections": [
+    "301"
+   ],
+   "offers": "Behind Section 301.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-27",
+   "kind": "first_aid",
+   "name": "Paramedics",
+   "level": "100",
+   "x": 0.7745,
+   "y": 0.7636,
+   "sections": [
+    "105A"
+   ],
+   "offers": "Outside Section 105A.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-28",
+   "kind": "first_aid",
+   "name": "Paramedics",
+   "level": "100",
+   "x": 0.2409,
+   "y": 0.3109,
+   "sections": [
+    "116A"
+   ],
+   "offers": "Outside Section 116A.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-29",
+   "kind": "first_aid",
+   "name": "Paramedics",
+   "level": "300",
+   "x": 0.5193,
+   "y": 0.944,
+   "sections": [
+    "309A"
+   ],
+   "offers": "Outside Section 309A.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-30",
+   "kind": "first_aid",
+   "name": "Paramedics",
+   "level": "300",
+   "x": 0.2581,
+   "y": 0.12,
+   "sections": [
+    "319A"
+   ],
+   "offers": "Outside Section 319A.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-31",
+   "kind": "family_restroom",
+   "name": "Universal accessible washroom",
+   "level": "100",
+   "x": 0.7745,
+   "y": 0.623,
+   "sections": [
+    "103",
+    "104"
+   ],
+   "offers": "Sections 103/104.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-32",
+   "kind": "family_restroom",
+   "name": "Universal accessible washroom",
+   "level": "100",
+   "x": 0.2402,
+   "y": 0.4455,
+   "sections": [
+    "114",
+    "115"
+   ],
+   "offers": "Sections 114/115.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-33",
+   "kind": "family_restroom",
+   "name": "Universal accessible washroom",
+   "level": "300",
+   "x": 0.3461,
+   "y": 0.944,
+   "sections": [
+    "310",
+    "311"
+   ],
+   "offers": "Sections 310/311.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-34",
+   "kind": "family_restroom",
+   "name": "Universal accessible washroom",
+   "level": "300",
+   "x": 0.1549,
+   "y": 0.2165,
+   "sections": [
+    "317",
+    "318"
+   ],
+   "offers": "Sections 317/318.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-35",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "100",
+   "x": 0.7813,
+   "y": 0.2693,
+   "sections": [
+    "122"
+   ],
+   "offers": "By Section 122.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-36",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "100",
+   "x": 0.2402,
+   "y": 0.5742,
+   "sections": [
+    "113"
+   ],
+   "offers": "By Section 113.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-37",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "300",
+   "x": 0.2921,
+   "y": 0.944,
+   "sections": [
+    "311"
+   ],
+   "offers": "By Section 311.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "300-38",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "300",
+   "x": 0.6037,
+   "y": 0.12,
+   "sections": [
+    "322"
+   ],
+   "offers": "By Section 322.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-39",
+   "kind": "nursing",
+   "name": "Infant feeding room",
+   "level": "100",
+   "x": 0.549,
+   "y": 0.2693,
+   "offers": "100 Level concourse, by Gate 1.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-40",
+   "kind": "gate",
+   "name": "Gate 1 (Galleria)",
+   "level": "100",
+   "x": 0.4951,
+   "y": 0.052,
+   "offers": "Union Station and Front Street side. Has an accessible entrance lane.",
+   "tags": [
+    "accessible"
+   ],
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-41",
+   "kind": "gate",
+   "name": "Gate 3",
+   "level": "100",
+   "x": 0.9275,
+   "y": 0.3827,
+   "offers": "Bay Street side. Suggested for shorter lines.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-42",
+   "kind": "gate",
+   "name": "Gate 4",
+   "level": "100",
+   "x": 0.8412,
+   "y": 0.836,
+   "offers": "Southeast corner. Suggested for shorter lines.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-43",
+   "kind": "gate",
+   "name": "Gate 5",
+   "level": "100",
+   "x": 0.1196,
+   "y": 0.7773,
+   "offers": "Southwest, off Maple Leaf Square. Gate 5B is suggested for shorter lines.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-44",
+   "kind": "gate",
+   "name": "Gate 6",
+   "level": "100",
+   "x": 0.0569,
+   "y": 0.528,
+   "offers": "Maple Leaf Square side.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-45",
+   "kind": "gate",
+   "name": "Scotiabank Premium Entrance",
+   "level": "100",
+   "x": 0.8824,
+   "y": 0.2347,
+   "offers": "Bay Street. Used for general admission too.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-46",
+   "kind": "box_office",
+   "name": "Ticket office",
+   "level": "100",
+   "x": 0.3137,
+   "y": 0.0867,
+   "offers": "West end of the Galleria, near Gate 1.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-47",
+   "kind": "merch",
+   "name": "Real Sports Apparel",
+   "level": "100",
+   "x": 0.4412,
+   "y": 0.2693,
+   "offers": "At Gate 1.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "100-48",
+   "kind": "elevator",
+   "name": "Elevator",
+   "level": "100",
+   "x": 0.1324,
+   "y": 0.7533,
+   "offers": "At Gate 5. Goes up to Level 400.",
+   "source": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq",
+   "verified": "2026-11-02"
+  }
+ ]
+}

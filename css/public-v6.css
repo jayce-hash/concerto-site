@@ -2499,3 +2499,12 @@ h1,h2{font-weight:700}
 .v8 .c-quote figcaption{margin-top:14px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .v8 .c-quote figcaption b{color:var(--navy)}
 .v8 .c-quote figcaption a{color:var(--gold-ink,#8a6d1f)}
+
+/* House Map entry on venue pages (venues listed in /data/house/index.json) */
+.v8 .cx-house{display:flex;align-items:center;gap:14px;margin-top:16px;padding:16px 18px;border-radius:16px;background:rgba(201,168,76,.12);border:1px solid #C9A84C;color:var(--navy,#121E36);text-decoration:none}
+.v8 .cx-house:hover{background:rgba(201,168,76,.18)}
+.v8 .cx-house-ic{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--navy,#121E36);color:#fff}
+.v8 .cx-house-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.v8 .cx-house-copy b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px}
+.v8 .cx-house-copy small{font-size:14px;line-height:1.45;color:#4A5568}
+.v8 .cx-house-go{margin-left:auto;font-size:26px;line-height:1;color:#C9A84C}

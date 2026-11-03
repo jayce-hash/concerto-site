@@ -1,0 +1,1283 @@
+{
+ "venue": "cryptocom-arena",
+ "name": "Crypto.com Arena",
+ "updated": "2026-11-02",
+ "sourceLabel": "cryptoarena.com",
+ "note": "On the arena’s own map, the stage sits at the northeast end, in front of Sections 113 to 117. Your show’s layout can differ.",
+ "levels": [
+  {
+   "id": "main",
+   "label": "Main Concourse",
+   "image": "/img/house/crypto-main.svg",
+   "aspect": 1.0889,
+   "sections": {
+    "101": {
+     "x": 0.4677,
+     "y": 0.5852
+    },
+    "102": {
+     "x": 0.4259,
+     "y": 0.6171
+    },
+    "103": {
+     "x": 0.3949,
+     "y": 0.6399
+    },
+    "104": {
+     "x": 0.374,
+     "y": 0.6726
+    },
+    "105": {
+     "x": 0.3381,
+     "y": 0.6608
+    },
+    "106": {
+     "x": 0.3021,
+     "y": 0.6353
+    },
+    "107": {
+     "x": 0.2737,
+     "y": 0.5852
+    },
+    "108": {
+     "x": 0.2753,
+     "y": 0.5324
+    },
+    "109": {
+     "x": 0.3029,
+     "y": 0.4969
+    },
+    "110": {
+     "x": 0.3389,
+     "y": 0.4695
+    },
+    "111": {
+     "x": 0.3757,
+     "y": 0.445
+    },
+    "112": {
+     "x": 0.4075,
+     "y": 0.4012
+    },
+    "113": {
+     "x": 0.4476,
+     "y": 0.3903
+    },
+    "114": {
+     "x": 0.4895,
+     "y": 0.3648
+    },
+    "115": {
+     "x": 0.5505,
+     "y": 0.3766
+    },
+    "116": {
+     "x": 0.5706,
+     "y": 0.4468
+    },
+    "117": {
+     "x": 0.5639,
+     "y": 0.5014
+    },
+    "118": {
+     "x": 0.5396,
+     "y": 0.5342
+    },
+    "119": {
+     "x": 0.487,
+     "y": 0.5561
+    },
+    "205": {
+     "x": 0.3255,
+     "y": 0.72
+    },
+    "206": {
+     "x": 0.2829,
+     "y": 0.7
+    },
+    "207": {
+     "x": 0.2444,
+     "y": 0.6672
+    },
+    "208": {
+     "x": 0.2201,
+     "y": 0.6271
+    },
+    "209": {
+     "x": 0.2084,
+     "y": 0.5779
+    },
+    "210": {
+     "x": 0.2101,
+     "y": 0.5306
+    },
+    "214": {
+     "x": 0.5196,
+     "y": 0.3056
+    },
+    "215": {
+     "x": 0.5555,
+     "y": 0.3247
+    },
+    "216": {
+     "x": 0.5932,
+     "y": 0.3557
+    },
+    "217": {
+     "x": 0.6199,
+     "y": 0.3967
+    },
+    "218": {
+     "x": 0.6325,
+     "y": 0.4468
+    },
+    "219": {
+     "x": 0.6342,
+     "y": 0.4923
+    }
+   }
+  },
+  {
+   "id": "upper",
+   "label": "Upper Concourse",
+   "image": "/img/house/crypto-upper.svg",
+   "aspect": 1.0889,
+   "sections": {
+    "301": {
+     "x": 0.548,
+     "y": 0.6944
+    },
+    "302": {
+     "x": 0.5061,
+     "y": 0.72
+    },
+    "303": {
+     "x": 0.4714,
+     "y": 0.7422
+    },
+    "304": {
+     "x": 0.4347,
+     "y": 0.7644
+    },
+    "305": {
+     "x": 0.3816,
+     "y": 0.7778
+    },
+    "306": {
+     "x": 0.3367,
+     "y": 0.7778
+    },
+    "307": {
+     "x": 0.2908,
+     "y": 0.7667
+    },
+    "308": {
+     "x": 0.2459,
+     "y": 0.7444
+    },
+    "309": {
+     "x": 0.2082,
+     "y": 0.7078
+    },
+    "310": {
+     "x": 0.1796,
+     "y": 0.6644
+    },
+    "311": {
+     "x": 0.1612,
+     "y": 0.6133
+    },
+    "312": {
+     "x": 0.1571,
+     "y": 0.5644
+    },
+    "313": {
+     "x": 0.1602,
+     "y": 0.5133
+    },
+    "314": {
+     "x": 0.1765,
+     "y": 0.4644
+    },
+    "315": {
+     "x": 0.2,
+     "y": 0.4233
+    },
+    "316": {
+     "x": 0.2367,
+     "y": 0.3867
+    },
+    "317": {
+     "x": 0.2694,
+     "y": 0.3622
+    },
+    "318": {
+     "x": 0.3092,
+     "y": 0.3322
+    },
+    "319": {
+     "x": 0.3531,
+     "y": 0.3022
+    },
+    "320": {
+     "x": 0.3857,
+     "y": 0.28
+    },
+    "321": {
+     "x": 0.4286,
+     "y": 0.2578
+    },
+    "322": {
+     "x": 0.4755,
+     "y": 0.25
+    },
+    "323": {
+     "x": 0.5214,
+     "y": 0.2522
+    },
+    "324": {
+     "x": 0.5582,
+     "y": 0.2667
+    },
+    "329": {
+     "x": 0.6867,
+     "y": 0.4644
+    },
+    "330": {
+     "x": 0.6827,
+     "y": 0.5133
+    },
+    "331": {
+     "x": 0.6704,
+     "y": 0.5533
+    },
+    "332": {
+     "x": 0.649,
+     "y": 0.5978
+    },
+    "333": {
+     "x": 0.6133,
+     "y": 0.6389
+    },
+    "334": {
+     "x": 0.5755,
+     "y": 0.6667
+    }
+   }
+  }
+ ],
+ "points": [
+  {
+   "id": "main-1",
+   "kind": "bar",
+   "name": "Bud Light Seltzer Market",
+   "level": "main",
+   "x": 0.4697,
+   "y": 0.2651,
+   "sections": [
+    "113"
+   ],
+   "offers": "Drinks and snacks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-2",
+   "kind": "bar",
+   "name": "Codigo Bar",
+   "level": "main",
+   "x": 0.5318,
+   "y": 0.7014,
+   "sections": [
+    "101"
+   ],
+   "offers": "Bar",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-3",
+   "kind": "stand",
+   "name": "Deli & Dash",
+   "level": "main",
+   "x": 0.61,
+   "y": 0.3126,
+   "sections": [
+    "115"
+   ],
+   "offers": "Deli",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-4",
+   "kind": "stand",
+   "name": "Dirt Dog",
+   "level": "main",
+   "x": 0.3708,
+   "y": 0.2772,
+   "sections": [
+    "112"
+   ],
+   "offers": "Hot dogs and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-5",
+   "kind": "stand",
+   "name": "Dirt Dog",
+   "level": "main",
+   "x": 0.4215,
+   "y": 0.7504,
+   "sections": [
+    "102"
+   ],
+   "offers": "Hot dogs and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-6",
+   "kind": "bar",
+   "name": "Doritos After Dark",
+   "level": "main",
+   "x": 0.6689,
+   "y": 0.4038,
+   "sections": [
+    "116"
+   ],
+   "offers": "Bar and grill",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-7",
+   "kind": "stand",
+   "name": "Farmer’s Fridge",
+   "level": "main",
+   "x": 0.4437,
+   "y": 0.7517,
+   "sections": [
+    "102"
+   ],
+   "offers": "Salads and sandwiches",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-8",
+   "kind": "bar",
+   "name": "Golden Road Brew House",
+   "level": "main",
+   "x": 0.6478,
+   "y": 0.5561,
+   "sections": [
+    "118"
+   ],
+   "offers": "Bar",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-9",
+   "kind": "stand",
+   "name": "LA Cooler Market",
+   "level": "main",
+   "x": 0.6698,
+   "y": 0.5561,
+   "sections": [
+    "118"
+   ],
+   "offers": "Drinks and snacks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-10",
+   "kind": "stand",
+   "name": "Ludo Bird",
+   "level": "main",
+   "x": 0.5999,
+   "y": 0.6378,
+   "sections": [
+    "119"
+   ],
+   "offers": "Fried chicken",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-11",
+   "kind": "stand",
+   "name": "Ludobab",
+   "level": "main",
+   "x": 0.653,
+   "y": 0.4944,
+   "sections": [
+    "117"
+   ],
+   "offers": "Mediterranean",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-12",
+   "kind": "stand",
+   "name": "Pizza",
+   "level": "main",
+   "x": 0.1671,
+   "y": 0.4804,
+   "sections": [
+    "109"
+   ],
+   "offers": "Pizza",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-13",
+   "kind": "stand",
+   "name": "Salt & Char",
+   "level": "main",
+   "x": 0.5137,
+   "y": 0.2666,
+   "sections": [
+    "114"
+   ],
+   "offers": "Burgers and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-14",
+   "kind": "stand",
+   "name": "Salt & Char",
+   "level": "upper",
+   "x": 0.6065,
+   "y": 0.6406,
+   "sections": [
+    "333"
+   ],
+   "offers": "Burgers and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-15",
+   "kind": "stand",
+   "name": "Tostitos Cart",
+   "level": "main",
+   "x": 0.4148,
+   "y": 0.2772,
+   "sections": [
+    "112"
+   ],
+   "offers": "Nachos",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-16",
+   "kind": "stand",
+   "name": "Tostitos Cart",
+   "level": "upper",
+   "x": 0.3514,
+   "y": 0.2664,
+   "sections": [
+    "319"
+   ],
+   "offers": "Nachos",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-17",
+   "kind": "stand",
+   "name": "Trois Familia",
+   "level": "main",
+   "x": 0.6966,
+   "y": 0.4998,
+   "sections": [
+    "117"
+   ],
+   "offers": "Mexican",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-18",
+   "kind": "stand",
+   "name": "Wetzel’s Pretzels",
+   "level": "main",
+   "x": 0.3928,
+   "y": 0.2772,
+   "sections": [
+    "112"
+   ],
+   "offers": "Pretzels",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-19",
+   "kind": "stand",
+   "name": "Wetzel’s Pretzels",
+   "level": "main",
+   "x": 0.3709,
+   "y": 0.7593,
+   "sections": [
+    "103"
+   ],
+   "offers": "Pretzels",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-20",
+   "kind": "stand",
+   "name": "Wetzel’s Pretzels",
+   "level": "upper",
+   "x": 0.202,
+   "y": 0.3619,
+   "sections": [
+    "316"
+   ],
+   "offers": "Pretzels",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-21",
+   "kind": "stand",
+   "name": "Coca-Cola Area",
+   "level": "upper",
+   "x": 0.6285,
+   "y": 0.6406,
+   "sections": [
+    "333"
+   ],
+   "offers": "Food and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-22",
+   "kind": "stand",
+   "name": "EATS",
+   "level": "upper",
+   "x": 0.2961,
+   "y": 0.2949,
+   "sections": [
+    "318"
+   ],
+   "offers": "Snacks and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-23",
+   "kind": "stand",
+   "name": "fuku",
+   "level": "upper",
+   "x": 0.6357,
+   "y": 0.3532,
+   "offers": "Chicken tenders. On the Upper Concourse Terrace, across from Section 325.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-24",
+   "kind": "bar",
+   "name": "Kona Big Wave Liquid Aloha",
+   "level": "upper",
+   "x": 0.2239,
+   "y": 0.364,
+   "sections": [
+    "316"
+   ],
+   "offers": "Drinks and snacks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-25",
+   "kind": "bar",
+   "name": "Marg Bar",
+   "level": "upper",
+   "x": 0.5274,
+   "y": 0.7532,
+   "sections": [
+    "302"
+   ],
+   "offers": "Margaritas",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-26",
+   "kind": "stand",
+   "name": "South Park Market",
+   "level": "upper",
+   "x": 0.568,
+   "y": 0.7127,
+   "sections": [
+    "301"
+   ],
+   "offers": "Snacks and drinks",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-27",
+   "kind": "bar",
+   "name": "The Spirited Mule",
+   "level": "upper",
+   "x": 0.2551,
+   "y": 0.3333,
+   "sections": [
+    "317"
+   ],
+   "offers": "Bar",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-28",
+   "kind": "stand",
+   "name": "Michelob Ultra Club Market",
+   "level": "main",
+   "x": 0.4918,
+   "y": 0.9222,
+   "offers": "Snacks and drinks, at the Figueroa St. Entrance.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-29",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.1827,
+   "y": 0.6485,
+   "sections": [
+    "208"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-30",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.6669,
+   "y": 0.4699,
+   "sections": [
+    "219"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-31",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.6578,
+   "y": 0.3747,
+   "sections": [
+    "217"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-32",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.5557,
+   "y": 0.2795,
+   "sections": [
+    "214"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-33",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.1663,
+   "y": 0.5293,
+   "sections": [
+    "210"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-34",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.3108,
+   "y": 0.7522,
+   "sections": [
+    "205"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-35",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.2164,
+   "y": 0.4054,
+   "sections": [
+    "110"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-36",
+   "kind": "restroom",
+   "name": "Men’s restroom",
+   "level": "main",
+   "x": 0.5538,
+   "y": 0.7014,
+   "sections": [
+    "101"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-37",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.5345,
+   "y": 0.2737,
+   "sections": [
+    "114"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-38",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.297,
+   "y": 0.3269,
+   "sections": [
+    "111"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-39",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.1661,
+   "y": 0.591,
+   "sections": [
+    "209"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-40",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.2596,
+   "y": 0.7317,
+   "sections": [
+    "206"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-41",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.6219,
+   "y": 0.6378,
+   "sections": [
+    "119"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-42",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.626,
+   "y": 0.3277,
+   "sections": [
+    "216"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-43",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.6751,
+   "y": 0.4336,
+   "sections": [
+    "218"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-44",
+   "kind": "restroom",
+   "name": "Women’s restroom",
+   "level": "main",
+   "x": 0.1891,
+   "y": 0.4804,
+   "sections": [
+    "109"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-45",
+   "kind": "family_restroom",
+   "name": "All Gender Restroom",
+   "level": "main",
+   "x": 0.6746,
+   "y": 0.4986,
+   "sections": [
+    "117"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-46",
+   "kind": "family_restroom",
+   "name": "All Gender Restroom",
+   "level": "upper",
+   "x": 0.6444,
+   "y": 0.5545,
+   "sections": [
+    "331"
+   ],
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-47",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.2242,
+   "y": 0.3298,
+   "offers": "Toward the Kobe Bryant Entrance side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-48",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.243,
+   "y": 0.3149,
+   "offers": "Toward the Kobe Bryant Entrance side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-49",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.4114,
+   "y": 0.2419,
+   "offers": "Toward the Kobe Bryant Entrance side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-50",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.4341,
+   "y": 0.239,
+   "offers": "Toward the Kobe Bryant Entrance side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-51",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.6706,
+   "y": 0.4947,
+   "offers": "By Sections 329 to 331.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-52",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.6683,
+   "y": 0.5536,
+   "offers": "By Sections 329 to 331.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-53",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.6368,
+   "y": 0.6195,
+   "offers": "By Sections 329 to 331.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-54",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.5169,
+   "y": 0.7731,
+   "offers": "Toward the Figueroa St. Entry side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-55",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.5482,
+   "y": 0.7461,
+   "offers": "Toward the Figueroa St. Entry side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-56",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.3187,
+   "y": 0.8518,
+   "offers": "Toward the Figueroa St. Entry side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-57",
+   "kind": "restroom",
+   "name": "Restroom",
+   "level": "upper",
+   "x": 0.353,
+   "y": 0.8509,
+   "offers": "Toward the Figueroa St. Entry side.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-58",
+   "kind": "guest_services",
+   "name": "Guest Service Center",
+   "level": "main",
+   "x": 0.2229,
+   "y": 0.3702,
+   "offers": "Main Concourse, across from aisle M12. Lost and found.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-59",
+   "kind": "guest_services",
+   "name": "Guest Service Center",
+   "level": "upper",
+   "x": 0.2957,
+   "y": 0.8638,
+   "offers": "Upper Concourse, across from aisle U6.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-60",
+   "kind": "first_aid",
+   "name": "First Aid",
+   "level": "main",
+   "x": 0.4244,
+   "y": 0.7723,
+   "offers": "Main Concourse, across from aisle M3.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-61",
+   "kind": "sensory",
+   "name": "Sensory Pod",
+   "level": "upper",
+   "x": 0.4816,
+   "y": 0.8111,
+   "offers": "Upper Concourse, across from aisle 3.",
+   "source": "https://www.cryptoarena.com/accessibility",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-62",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "main",
+   "x": 0.2395,
+   "y": 0.7186,
+   "offers": "Main Concourse, aisle 6.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-63",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "main",
+   "x": 0.1642,
+   "y": 0.5513,
+   "offers": "Main Concourse, aisle 9.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-64",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "main",
+   "x": 0.4917,
+   "y": 0.2661,
+   "offers": "Main Concourse, aisle 17.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-65",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "main",
+   "x": 0.6865,
+   "y": 0.4801,
+   "offers": "Main Concourse, aisle 22.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-66",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "upper",
+   "x": 0.3681,
+   "y": 0.8349,
+   "offers": "Upper Concourse, aisle 5.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-67",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "upper",
+   "x": 0.2379,
+   "y": 0.347,
+   "offers": "Upper Concourse, aisle 16.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-68",
+   "kind": "water",
+   "name": "Water fountain",
+   "level": "upper",
+   "x": 0.6561,
+   "y": 0.5353,
+   "offers": "Upper Concourse, aisle 30.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-69",
+   "kind": "merch",
+   "name": "Team LA kiosk",
+   "level": "main",
+   "x": 0.285,
+   "y": 0.3084,
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-70",
+   "kind": "merch",
+   "name": "Team LA kiosk",
+   "level": "main",
+   "x": 0.4744,
+   "y": 0.7728,
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-71",
+   "kind": "merch",
+   "name": "Team LA kiosk",
+   "level": "upper",
+   "x": 0.3341,
+   "y": 0.2798,
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "upper-72",
+   "kind": "merch",
+   "name": "Team LA kiosk",
+   "level": "upper",
+   "x": 0.4898,
+   "y": 0.7756,
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-73",
+   "kind": "merch",
+   "name": "Team LA Store",
+   "level": "main",
+   "x": 0.9184,
+   "y": 0.2389,
+   "offers": "At Star Plaza, beside the Star Plaza Entrance.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-74",
+   "kind": "box_office",
+   "name": "Box Office",
+   "level": "main",
+   "x": 0.6857,
+   "y": 0.1316,
+   "offers": "At Star Plaza, by the Box Office Entrance.",
+   "source": "https://visit.cryptoarena.com/map",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-75",
+   "kind": "gate",
+   "name": "Kobe Bryant Entrance",
+   "level": "main",
+   "x": 0.3204,
+   "y": 0.0833,
+   "offers": "Corner of Chick Hearn Ct. (11th St.) and Georgia St.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-76",
+   "kind": "gate",
+   "name": "Box Office Entrance",
+   "level": "main",
+   "x": 0.6857,
+   "y": 0.1095,
+   "offers": "Chick Hearn Ct. side, by the Box Office.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-77",
+   "kind": "gate",
+   "name": "Star Plaza Entrance",
+   "level": "main",
+   "x": 0.852,
+   "y": 0.2189,
+   "offers": "Corner of Chick Hearn Ct. and Figueroa St., at Star Plaza.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-78",
+   "kind": "gate",
+   "name": "Star Plaza VIP Entrance",
+   "level": "main",
+   "x": 0.9745,
+   "y": 0.2544,
+   "offers": "Star Plaza.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-79",
+   "kind": "gate",
+   "name": "Figueroa St. Entrance",
+   "level": "main",
+   "x": 0.4918,
+   "y": 0.9778,
+   "offers": "Corner of 12th St. and Figueroa St.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-80",
+   "kind": "gate",
+   "name": "SW VIP Entrance",
+   "level": "main",
+   "x": 0.0122,
+   "y": 0.5489,
+   "offers": "Southwest side, between the 11th Street and Figueroa entrances.",
+   "source": "https://www.cryptoarena.com/a-z-guide",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-81",
+   "kind": "rideshare",
+   "name": "Rideshare and taxi zone: Chick Hearn Ct.",
+   "level": "main",
+   "x": 0.5714,
+   "y": 0.0156,
+   "offers": "The white zone on Chick Hearn Ct., eastbound.",
+   "source": "https://www.cryptoarena.com/public-transportation",
+   "verified": "2026-11-02"
+  },
+  {
+   "id": "main-82",
+   "kind": "rideshare",
+   "name": "Rideshare and taxi zone: Figueroa St.",
+   "level": "main",
+   "x": 0.9796,
+   "y": 0.6667,
+   "offers": "The white zone on Figueroa St., southbound, toward 12th St.",
+   "source": "https://www.cryptoarena.com/public-transportation",
+   "verified": "2026-11-02"
+  }
+ ]
+}
