@@ -139,6 +139,10 @@ NAME_FIXES = {
     'hayley-williams-at-a-bachelorette-party-tour':
         (None, 'Hayley Williams at a Bachelorette Party'),
     'olivia-dean-the-art-of-loving-tour': (None, 'The Art of Loving Live'),
+    # Verified 2026-11-04 (Wikipedia, official billing)
+    'bts-world-tour': (None, 'Arirang World Tour'),
+    'olivia-obrien-presents-the-pixie-tour': (None, 'The PIXIE Tour'),
+    'kehlani-the-kehlani-world-tour-north-america': (None, 'The Kehlani World Tour'),
 }
 
 changed_data = False

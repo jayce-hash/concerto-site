@@ -54,6 +54,11 @@ def _best_rule(bag, limit=118):
         prohibited = [a for a in (bag.get('prohibited') or []) if a][:2]
         parts = ([('Allowed: ' + ', '.join(allowed))] if allowed else []) + ([('Not allowed: ' + ', '.join(prohibited))] if prohibited else [])
         best = '. '.join(parts)
+    # Too long: drop trailing clauses (", clear or not", " for all arena events") before ever cutting mid-sentence.
+    while len(best) > limit:
+        m = _re.search(r'(,| for | at | during | including | and | when | if )[^,]*$', best)
+        if not m or m.start() < 40: break
+        best = best[:m.start()].rstrip(' ,;:')
     if len(best) > limit: best = best[:limit].rsplit(' ', 1)[0].rstrip(',;:') + '…'
     return best
 

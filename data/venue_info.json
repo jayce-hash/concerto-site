@@ -2672,7 +2672,7 @@
       ],
       "note": "Medical and parenting bags exceeding the size limit are permitted but subject to additional search procedures.",
       "officialLink": "https://www.benchmarkintlarena.com/arena-info/policies",
-      "verified": "2026-08-20",
+      "verified": "2026-11-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -19746,16 +19746,24 @@
     "lat": 35.2251,
     "lng": -80.8392,
     "bagPolicy": {
-      "summary": "Spectrum Center has introduced a new bag policy allowing only small clutches, wallets, and wristlets not exceeding 4in x 6in x 1.5in for all arena events and Hornets games.",
+      "summary": "Only small bags, clutches, crossbody bags and wristlets up to 5 x 7 x 1.5 inches are allowed at Spectrum Center, clear or not.",
       "allowed": [
-        "small clutches",
-        "wallets",
-        "wristlets not exceeding 4in x 6in x 1.5in"
+        "Small bags, clutches, crossbody bags and wristlets up to 5 x 7 x 1.5 inches",
+        "Diaper bags for an infant or young child",
+        "Medical and disability-related bags",
+        "Breast pumps and supplies"
       ],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "prohibited": [
+        "Backpacks",
+        "Totes and shopping bags",
+        "Briefcases and luggage",
+        "Camera bags",
+        "Cinch and drawstring bags",
+        "Purses, fanny packs and belt bags over 5 x 7 x 1.5 inches"
+      ],
+      "note": "The limit applies to clear and opaque bags. There is no bag check, and all bags are screened. Rules can change by event, so check your event page before you go.",
       "officialLink": "https://www.spectrumcentercharlotte.com/plan-your-visit/a-z-guide",
-      "verified": "2026-08-20",
+      "verified": "2026-11-04",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {

@@ -18,6 +18,18 @@ SKIP_DIRS = {'scripts', 'node_modules', 'netlify', 'supabase', '_expo', 'assets'
 
 venues = {v['id']: v for v in json.loads((ROOT / 'data/venues.json').read_text())}
 tours = {t['tourId']: t for t in json.loads((ROOT / 'data/tours.json').read_text())}
+setlists = json.loads((ROOT / 'setlists.json').read_text())
+
+
+def set_info(slug):
+    # The show a setlist came from, if it came from a real show: (year, 'Venue, City', 'Mon D, YYYY')
+    import datetime
+    src = (setlists.get(slug) or {}).get('source') or {}
+    d = src.get('eventDate')
+    if not d or not (setlists.get(slug) or {}).get('songs'):
+        return None
+    y, m, dd = map(int, d.split('-'))
+    return str(y), src.get('venue') or '', datetime.date(y, m, dd).strftime('%b %-d, %Y')
 
 KIND = {'arena': 'an arena', 'stadium': 'a stadium', 'theater': 'a theater', 'club': 'a live music club',
         'amphitheater': 'an amphitheater', 'festival': 'a music festival'}
@@ -72,7 +84,11 @@ def title_for(rel, cur):
         t = tours.get(parts[1][:-5])
         if t:
             a, n = tour_parts(t)
-            return first_fit(with_suffix(own, f'{a} {n} Setlist', f'{a} Setlist: {n}', f'{a} Tour Setlist', f'{a} Setlist'))
+            info = set_info(parts[1][:-5])
+            yr = f' {info[0]}' if info and not re.search(r'\b20\d\d\b', n) else ''
+            nn = n[4:] if n.startswith('The ') else n
+            dated = [f'{a} {nn} Setlist{yr}', f'{a} Setlist{yr}: {nn}'] if yr else []
+            return first_fit(dated + with_suffix(own, f'{a} {n} Setlist', f'{a} Setlist: {n}', f'{a} Tour Setlist', f'{a} Setlist'))
     if parts[0] == 'venue' and len(parts) == 2:
         v = venues.get(parts[1][:-5])
         if v:
@@ -162,6 +178,17 @@ DLO, DHI = 110, 160
 
 def desc_for(rel, cur):
     if rel in DESC_FIXED: return DESC_FIXED[rel]
+    sp = rel.split('/')
+    if sp[0] == 'setlist' and len(sp) == 2 and sp[1][:-5] in tours:
+        slug = sp[1][:-5]; info = set_info(slug)
+        if info:
+            a, n = tour_parts(tours[slug]); k = len(setlists[slug]['songs'])
+            n = n[4:] if n.startswith('The ') else n
+            for c in (f"The {k}-song setlist {a} played on the {n} at {info[1]} on {info[2]}. See the full set list, tour dates, and venue guides on Concerto.",
+                      f"The {k}-song setlist {a} played on the {n} at {info[1]} on {info[2]}. See the full set list and tour dates on Concerto.",
+                      f"The {k}-song setlist {a} played at {info[1]} on {info[2]}. See the full set list and tour dates on Concerto.",
+                      f"{a}'s {k}-song setlist from {info[1]} on {info[2]}, on Concerto."):
+                if DLO <= len(c) <= DHI: return c
     if DLO <= len(cur) <= DHI: return cur
     parts = rel.split('/'); slug = parts[-1][:-5]
     cands = [cur]
