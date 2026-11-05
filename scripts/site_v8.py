@@ -148,7 +148,7 @@ def problem_section():
     return ('<section class="c-section c-navy" data-reveal><div class="c-wrap c-narrow">' + eyebrow('The problem') +
             '<p class="c-statement">A ticket has the date and the venue.<br>Planning the rest usually takes five different&nbsp;apps.</p>'
             '<p class="c-statement-after">What can I bring in? Where do I park? Where should we eat before the show?<br>'
-            'One page. Every answer sourced and dated.</p></div></section>')
+            'One page. Every answer sourced&nbsp;and&nbsp;dated.</p></div></section>')
 
 def home():
     hero = (f'<section class="c-hero"><div class="c-wrap c-hero-grid"><div class="c-hero-copy">{eyebrow("Your Concert Companion")}'
@@ -187,7 +187,7 @@ def your_night():
             f'<section class="c-section c-cream" data-reveal><div class="c-wrap">{eyebrow("What it costs")}<h2 class="c-h2">The essentials are free.</h2>{cols}</div></section>'
             + close('Save your next show.', 'website-your-night') + '</main>')
 
-FX_DIM = {'home': 1038, 'nearme': 1115, 'tour': 1280, 'tours': 1152, 'venue': 1311, 'venues': 1150, 'yn-page': 5192, 'yn-add': 1305,
+FX_DIM = {'home': 972, 'nearme': 1049, 'tour': 1214, 'tours': 1086, 'venue': 1245, 'venues': 1084, 'yn-page': 5192, 'yn-add': 1305,
           'plus-planner': 1305, 'plus-bag': 1305, 'plus-exit': 1305, 'plus-home': 1305, 'plus-locked': 1305,
           **{f'yn-{k}': 1082 for k in ('plan', 'seat', 'there', 'eat', 'venue', 'setlist', 'home')}}
 

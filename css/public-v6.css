@@ -2688,7 +2688,7 @@ h1,h2{font-weight:700}
 @media (max-width:1100px){.v8 .c-page:has(.c-hero-home) .c-rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.v8 .c-page:has(.c-hero-home) .c-rows{grid-template-columns:1fr}}
 
-.v8 .c-fx-step .c-fx-shot{aspect-ratio:603/1038;object-fit:cover;object-position:top}
+.v8 .c-fx-step .c-fx-shot{aspect-ratio:603/972;object-fit:cover;object-position:top}
 @media (max-width:860px){.v8 .c-fx-ptext{order:-1;margin-bottom:8px}}
 
 /* Features: Your Night as one page. A pinned phone whose screen moves with the captions (desktop). */
@@ -2720,3 +2720,11 @@ h1,h2{font-weight:700}
   .v8 .c-fx-tools .c-fx-shot{width:min(300px,78vw);margin-left:auto;margin-right:auto}
 }
 .v8 .c-fx-add-dark .c-fx-ptext p:not(.c-eyebrow){color:rgba(255,255,255,.76)}
+
+/* Homepage: the Ask bar, hint and buttons centered as one column, and no one- or two-word last lines. */
+.v8 .c-hero-home .c-actions{width:100%;max-width:none;align-self:stretch;justify-content:center}
+.v8 .c-hero-home .c-ask-hint{text-align:center}
+.v8 .c-page:has(.c-hero-home) :is(h1,h2,h3,.c-lead,.c-body,.c-statement,.c-statement-after,.c-free-note,.c-pull,.c-rows p,.c-journey span){text-wrap:balance}
+.v8 .c-fx-head :is(.c-lead,.c-h2),.v8 .c-fx-step p,.v8 .c-fx-nhead p,.v8 .c-yn-cap p,.v8 .c-fx-ptext p,.v8 .c-fx-tools p,.v8 .c-fx-ftext p{text-wrap:pretty}
+.v8 .c-hero-home .c-actions{flex-direction:column;align-items:center;gap:16px}
+.v8 .c-hero-home .c-actions>.c-ask,.v8 .c-hero-home .c-actions>.c-ask-hint{width:min(640px,100%);margin-left:0;margin-right:0}
