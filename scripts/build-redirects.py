@@ -9,7 +9,9 @@ ROOT=Path(__file__).resolve().parent.parent
 START='# ── BEGIN generated: .html -> canonical (scripts/build-redirects.py) ──'
 END='# ── END generated ──'
 NOINDEX_UTILITY={'account','plan','settings','search','404','partners-thank-you','contact-thank-you'}
-lines=['/index.html / 301!']
+# Pages folded into another page (Nov 2026): the old URL and its .html form go to the new home.
+RETIRED={'your-night':'/features'}
+lines=['/index.html / 301!']+[r for k,v in RETIRED.items() for r in (f'/{k} {v} 301!',f'/{k}.html {v} 301!',f'/{k}/ {v} 301!')]
 for d in ['.','venue','tour','setlist']:
     for f in sorted((ROOT/d).glob('*.html')):
         stem=f.stem
@@ -17,6 +19,7 @@ for d in ['.','venue','tour','setlist']:
         if stem.startswith('['): continue
         route='/'+stem if d=='.' else f'/{d}/{stem}'
         if d=='.' and stem.startswith('partner-'): route='/partners/'+stem[len('partner-'):]
+        if d=='.' and stem in RETIRED: continue
         lines.append(f'/{stem}.html {route} 301!' if d=='.' else f'/{d}/{stem}.html {route} 301!')
 block='\n'.join([START]+lines+[END])
 s=(ROOT/'_redirects').read_text()

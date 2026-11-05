@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parent
 SITE='https://concertocity.com'
 
 HUBS=[
- '/', '/venues', '/tours', '/setlists', '/near-me', '/your-night', '/premium',
+ '/', '/venues', '/tours', '/setlists', '/near-me', '/premium',
  # Partners is back (Oct 2026): restaurants and hotels lead the Nearby rows in the app.
  # Perks and artist partnerships stay out until they return.
  '/partners', '/partners/restaurants', '/partners/hotels', '/partners/venues',

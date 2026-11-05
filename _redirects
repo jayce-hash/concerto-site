@@ -39,6 +39,8 @@
 /package-lock.json  /404.html  404!
 /package.json  /404.html  404!
 /rebuild_nearby.py  /404.html  404!
+/venue_crawl.py  /404.html  404!
+/venue_crawl2.py  /404.html  404!
 # ── END private files ──
 
 # ── Hub pages first ─────────────────────────────────────────────────
@@ -72,6 +74,9 @@
 
 # ── BEGIN generated: .html -> canonical (scripts/build-redirects.py) ──
 /index.html / 301!
+/your-night /features 301!
+/your-night.html /features 301!
+/your-night/ /features 301!
 /about.html /about 301!
 /bagcheck.html /bagcheck 301!
 /bags.html /bags 301!
@@ -100,7 +105,6 @@
 /terms.html /terms 301!
 /tours.html /tours 301!
 /venues.html /venues 301!
-/your-night.html /your-night 301!
 /venue/1720.html /venue/1720 301!
 /venue/24-oxford.html /venue/24-oxford 301!
 /venue/3arena.html /venue/3arena 301!
@@ -2011,7 +2015,6 @@
 # Canonical public website routes. These are explicit so public navigation never falls through to an app shell.
 / /index.html 200
 /near-me /near-me.html 200
-/your-night /your-night.html 200
 /premium /premium.html 200
 /perks / 301!
 /partners /partners.html 200

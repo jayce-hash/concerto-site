@@ -36,7 +36,6 @@ def app_link_campaign(ct):
 
 NAV = [
     ('Features', '/features'),
-    ('Your Night', '/your-night'),
     ('Venues', '/venues'),
     ('Tours', '/tours'),
     ('Concerto+', '/premium'),
@@ -83,7 +82,7 @@ _sys.path.insert(0, _os.path.dirname(__file__))
 from app_icons import IONICONS as _IO, MDI_STADIUM as _STADIUM
 MOBILE_MENU = [
     # Same icons as the app's tab bar: ticket, stadium, mic, navigate.
-    [('Your Night', '/your-night', 'ticket'), ('Venues', '/venues', 'stadium'), ('Tours', '/tours', 'mic'), ('Near Me', '/near-me', 'navigate'), ('Setlists', '/setlists', 'musical-notes')],
+    [('Features', '/features', 'ticket'), ('Venues', '/venues', 'stadium'), ('Tours', '/tours', 'mic'), ('Near Me', '/near-me', 'navigate'), ('Setlists', '/setlists', 'musical-notes')],
     [('Concerto+', '/premium', 'sparkles'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help-circle-outline'), ('About', '/about', 'information-circle-outline')],
 ]
 def mobile_menu(path='/'):
@@ -129,7 +128,7 @@ def header_html(path='/'):
 
 def footer_html():
     cols = [
-        ('Product', [('Your Night', '/your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', '/download')]),
+        ('Product', [('Features', '/features'), ('Your Night', '/features#your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', '/download')]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
         ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
         ('Support', [('Help Center', '/help'), ('FAQ', '/faq'), ('Blog', '/blog')]),

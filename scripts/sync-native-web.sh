@@ -38,6 +38,8 @@ fi
 python3 "$SITE/scripts/prepare-app-utilities.py"
 python3 "$SITE/scripts/rebuild-consumer-site.py"
 python3 "$SITE/scripts/apply-public-chrome.py"
+# Titles, descriptions and definitions (the same last pass prepare-site.py runs).
+python3 "$SITE/scripts/seo-polish.py"
 python3 "$SITE/build_sitemap.py"
 python3 "$SITE/scripts/build-redirects.py"
 node "$SITE/scripts/validate-brand-system.js"
