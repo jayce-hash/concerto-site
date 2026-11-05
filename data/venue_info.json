@@ -31501,8 +31501,8 @@
     "city": "Orlando",
     "state": "FL",
     "country": "US",
-    "lat": 34.1359945,
-    "lng": -118.3551362,
+    "lat": 28.4747,
+    "lng": -81.4676,
     "bagPolicy": {
       "summary": "Small bags and purses are allowed and searched at entry. Oversized bags, large backpacks and beach bags are prohibited; no size is listed.",
       "allowed": [
@@ -83864,5 +83864,355 @@
     "country": "US",
     "lat": 36.1513,
     "lng": -86.8041
+  },
+  "northwest-stadium": {
+    "name": "Northwest Stadium",
+    "city": "Landover",
+    "state": "MD",
+    "country": "US",
+    "lat": 38.9078,
+    "lng": -76.8645,
+    "bagPolicy": {
+      "summary": "Northwest Stadium follows the NFL clear bag policy for Commanders games. You can bring one clear plastic, vinyl or PVC bag up to 12 x 6 x 12 inches or a one-gallon clear freezer bag, plus a small clutch about 4.5 x 6.5 inches. Concert rules may differ, so check your event page before you go.",
+      "allowed": [
+        "Clear plastic, vinyl or PVC bag no larger than 12 x 6 x 12 inches",
+        "One-gallon clear plastic freezer bag (Ziploc or similar)",
+        "Small clutch about 4.5 x 6.5 inches, with or without a handle or strap, carried with one clear bag"
+      ],
+      "prohibited": [
+        "Purses larger than a clutch",
+        "Coolers",
+        "Briefcases",
+        "Backpacks",
+        "Fanny packs",
+        "Cinch bags",
+        "Luggage of any kind",
+        "Computer bags",
+        "Camera bags",
+        "Any bag larger than the permitted size",
+        "Non-approved seat cushions with pockets, zippers, compartments or covers"
+      ],
+      "note": "Medically necessary items are allowed after inspection at a designated gate. The policy applies on the stadium plaza, at the gates and in queue lines.",
+      "officialLink": "https://northweststadium.com/entry-policy",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "parking": {
+      "note": "Pre-purchased parking passes are required on Northwest Stadium property, except for the Gray Lot. The Gray Lot is cash only, first come, first served, and can't be bought in advance. Buy parking early, since prices can change on event day and lots can sell out.",
+      "summary": "Buy parking in advance for every lot except the cash-only Gray Lot.",
+      "lots": [
+        "Gray Lot (cash only)",
+        "Lot A - Black",
+        "Lot A - Gold",
+        "Lot D - Burgundy",
+        "Lot D - Gold",
+        "Lot E - Black",
+        "Lot E - Gold",
+        "Lot F - Black",
+        "Lot F - Burgundy",
+        "Lot F - Gold",
+        "Lot G - Burgundy",
+        "Lot G - Gold",
+        "Lot H - Burgundy",
+        "Lot H - Gold",
+        "Limo Lot - A",
+        "Bus/RV Lot",
+        "Red Zone Lot"
+      ],
+      "officialLink": "https://northweststadium.com/parking",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "rideshare": {
+      "note": "Rideshare drop-off and pickup are in the Red Zone Lot on event days, about a 5-minute walk from the stadium. For drop-off, enter Prince George's County Sports Complex, 8001 Sheriff Rd, as your destination. Pickups can only be requested from the rideshare lot; follow the signs from Gate A. The nearest Metro stop is Morgan Boulevard on the Blue and Silver Lines, about a 20-minute walk with no shuttle.",
+      "summary": "Rideshare drop-off and pickup are in the Red Zone Lot, about 5 minutes from the stadium on foot.",
+      "officialLink": "https://northweststadium.com/public-transit",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "concessions": {
+      "note": "Food is sold on the 100, 300 and 400 levels, with local picks like Ben's Chili Bowl, DMV Crab Cage, Peruvian Brothers and Factoria Maria Pupuseria alongside burgers, pizza and BBQ.",
+      "summary": "Stands on every level carry local DC-area food as well as stadium staples.",
+      "stands": [
+        "Ben's Chili Bowl (Sections 123, 415, 441)",
+        "DMV Crab Cage (Section 137)",
+        "DMV Crabrolls (Section 141)",
+        "Washington Legends Hot Dogs (Section 131)",
+        "Capitol Counter (Section 135)",
+        "Beltway Bites Smashburger (Sections 107, 129)",
+        "Beltway Bites Paisano's Pizza (Section 136)",
+        "BBQ Country (Sections 105, 126)",
+        "Pardon My Cheesesteak (Section 120)",
+        "Factoria Maria Pupuseria (Section 134)",
+        "Mac Shac (Sections 138, 402, 432)",
+        "Pattie Lou's Donuts (Section 104)",
+        "Peach Cobbler Factory (Section 317)",
+        "Fuzzies Burgers (Section 319)",
+        "Capo Deli (Sections 320, 405)",
+        "DC Que (Sections 429, 453)",
+        "Peruvian Brothers (Section 450)",
+        "Bruster's (Sections 128, 300, 400)",
+        "Rita's Ice (Sections 139, 317)",
+        "Dippin Dots (Sections 122, 431)"
+      ],
+      "officialLink": "https://northweststadium.com/concessions",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "body": "Accessible parking and seating are limited and first come, first served, so buy accessible seats in advance and arrive early. Public ramps are next to Gates A, H, E and D, and elevators are at Gate A and Gate E; get an elevator wristband at any Guest Services booth. Assisted listening devices are available at the Gate A Guest Services booth, and sensory kits can be checked out at main concourse Guest Services booths. Service dogs and miniature horses trained for a disability are allowed; emotional support animals are not. Email guestservices@northweststadium.com with questions.",
+      "summary": "Ramps, elevators at Gates A and E, assisted listening and sensory kits are available.",
+      "officialLink": "https://northweststadium.com/accessibility",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "reEntry": {
+      "title": "Re-Entry Policy",
+      "body": "Once you leave the stadium, you can't come back in unless you have a full, unused ticket for that day's event.",
+      "summary": "There is no re-entry once you exit.",
+      "officialLink": "https://northweststadium.com/a-z-guide",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "ticketPickup": {
+      "title": "Box Office & Ticket Pickup",
+      "body": "The stadium's official pages don't list a will call or box office location. For ticket help, contact the Ticket Office at 301-276-6050 or tickets@northweststadium.com.",
+      "summary": "Contact the Ticket Office at 301-276-6050 for ticket help.",
+      "officialLink": "https://northweststadium.com/contact-us",
+      "verificationStatus": "official_source_reviewed_no_specific_extract",
+      "verified": "2026-11-04"
+    },
+    "gates": {
+      "title": "Gates & Entrances",
+      "body": "Gate opening times vary and are posted on each event's page. All fans go through set screening locations, which can cause delays. Elevators are at Redwire Gate (Gate A) and Bank of America Gate (Gate E), and Guest Services booths are across from Sections 104, 124, 304, 324, 404 and 431.",
+      "summary": "Gate times vary by event and are posted on the event page.",
+      "officialLink": "https://northweststadium.com/a-z-guide",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "seatingChartLink": "",
+    "photo": "",
+    "capacity": ""
+  },
+  "michigan-stadium": {
+    "name": "Michigan Stadium",
+    "city": "Ann Arbor",
+    "state": "MI",
+    "country": "US",
+    "lat": 42.2658,
+    "lng": -83.7487,
+    "bagPolicy": {
+      "summary": "Michigan Stadium does not allow bags of any kind at football games, including clear bags, purses and fanny packs. Guests with medical or childcare needs can bring one bag sized for those items through a bag exception gate. This is the game-day policy, and concert rules may differ.",
+      "allowed": [
+        "One medical bag, sized for the items needed, after inspection at Gate 3 or Gate 9",
+        "One childcare bag, sized for the items needed, after inspection at Gate 3 or Gate 9"
+      ],
+      "prohibited": [
+        "All bags, including purses, clear bags and fanny packs",
+        "Bottles and containers of any kind",
+        "Food",
+        "Outside alcohol",
+        "Tobacco",
+        "Umbrellas",
+        "Flags",
+        "Video cameras and selfie sticks",
+        "Weapons"
+      ],
+      "note": "Medical and childcare bags must enter through Gate 3 (south end) or Gate 9 West (north end). Bag Check is inside the southeast entrance of Crisler Center off Stadium Way and won't take cash, alcohol, drugs, food, cameras, video cameras or weapons. Email guestservices@umich.edu with questions about permitted items.",
+      "officialLink": "https://mgoblue.com/safety",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "parking": {
+      "note": "Football parking lots open between 6 a.m. and noon on game day, and vehicles must leave within two hours after the game or be towed. Many lots are permit only. The Blue Lot is for season ticket holders by priority points, the Brown Lot (Varsity Tennis Center) sells permits on site, and the Maize Lot sells cashless permits on site. Printed digital parking QR codes aren't accepted. Accessible parking is in the Green Lot, first come, first served, with a valid disability placard.",
+      "summary": "Lots open 6 a.m. to noon on game day and many require a permit.",
+      "lots": [
+        "Blue Lot (permit)",
+        "Brown Lot (Varsity Tennis Center)",
+        "Maize Lot",
+        "Green Lot (accessible parking)",
+        "Pioneer High School",
+        "University of Michigan Golf Course",
+        "Ann Arbor Golf & Outing"
+      ],
+      "officialLink": "https://mgoblue.com/news/2019/7/10/Parking_Information_for_Football_Game_Days",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "rideshare": {
+      "note": "Michigan Athletics doesn't post a rideshare zone. TheRide's FootballRide shuttle runs about every 20 minutes starting two hours before kickoff and drops off at Gate 2, and it takes mobile tickets or exact cash. Guests who need to be dropped off and picked up for accessibility reasons can use Gate 2 (Varsity Plaza).",
+      "summary": "No official rideshare zone is posted; the FootballRide shuttle drops off at Gate 2.",
+      "officialLink": "https://mgoblue.com/news/2019/7/10/Parking_Information_for_Football_Game_Days",
+      "verificationStatus": "official_source_reviewed_no_specific_extract",
+      "verified": "2026-11-04"
+    },
+    "concessions": {
+      "note": "Michigan Stadium concessions are cashless, so bring a credit card, debit card or mobile payment. Alcohol is sold at select spots on the outer concourse from one hour before kickoff until the start of the fourth quarter, and not in the student section.",
+      "summary": "Concessions are cashless, with alcohol sold from one hour before kickoff to the fourth quarter.",
+      "stands": [
+        "Big House Burgers (Sections 2U, 4L, 8, 30)",
+        "Big House Bites (Sections 3U, 5L, 10, 16, 18, 26, 28, 33, 37, 40L, 42U)",
+        "Big Boy (Section 32, Gate 9)",
+        "Coop 734 (Sections 10, 15, 29, 35, 39L, 43U)",
+        "Hungry Howie's Pizza (Sections 2L, 8, 11, 17, 19, 30, 34, 36)",
+        "Gridiron Cheesesteaks (Sections 14, 37, 44L)",
+        "Slows BBQ (Section 26)",
+        "4th & Bowl (Section 12)",
+        "Big House Mac (Section 8)",
+        "Nacho Zone (Sections 20, 35, 40L)",
+        "Prime Rib Sandwich (Section 17)",
+        "Top Dogs (Sections 1L, 37)",
+        "Empanadas (Section 27)",
+        "State Street Fair Foods (Section 13)",
+        "Sticky Stuff (Sections 3L, 9, 25, 34)",
+        "Crumbl Cookies (Sections 12, 26, 38U)",
+        "Carvel Ice Cream (Section 4L)",
+        "Superbowl (Section 26)"
+      ],
+      "officialLink": "https://mgoblue.com/sports/2024/8/16/michigan-stadium-guide-concessions",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "body": "Gates 2 (Varsity Plaza), 4 (Champions Plaza) and 8 (Wolverine Plaza) are ADA accessible entrances, and Gate 2 is the drop-off and pickup point for guests who need it. Accessible parking requires a state-issued disability placard or plate. The stadium has 14 elevators for guests with accessibility needs, free assisted listening devices on loan, wheelchair check-out and a limited number of accessible shuttles. Service dogs and miniature horses are allowed. Email guestservices@umich.edu or call the Michigan Ticket Office at 734-764-0247.",
+      "summary": "Gates 2, 4 and 8 are accessible entrances, and Gate 2 is the accessible drop-off point.",
+      "officialLink": "https://mgoblue.com/news/2009/6/5/Michigan_Stadium_Guide_for_Guests_with_a_Disability",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "reEntry": {
+      "title": "Re-Entry Policy",
+      "body": "Re-entry is generally not allowed except in approved emergencies. Premium tower guests who step out to the public concourse need a transit hand stamp to get back into the tower.",
+      "summary": "Re-entry is generally not allowed.",
+      "officialLink": "https://mgoblue.com/news/2009/6/1/Michigan_Stadium_Information.aspx",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "ticketPickup": {
+      "title": "Box Office & Ticket Pickup",
+      "body": "Ticket Office locations open two and a half hours before kickoff. General public windows are at the northeast entrance of Crisler Center and the Gate 9 Guest Services west window, and both close at the start of the third quarter. East side club and suite guests use the Jack Roth Stadium Club Entrance, and west side suite guests use the Ross Tower Lobby south of Gate 8.",
+      "summary": "Ticket windows open two and a half hours before kickoff at Crisler Center and Gate 9.",
+      "officialLink": "https://mgoblue.com/news/2009/6/1/Michigan_Stadium_Information.aspx",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "gates": {
+      "title": "Gates & Entrances",
+      "body": "General public Gates 1, 2, 4, 7, 8 and 10 open two hours before kickoff. Gates 3 and 9 are the bag exception gates for medical and childcare bags; Gate 3 closes at the end of the first quarter. Students enter through Gates 8 and 10. Premium entrances open two and a half hours before kickoff.",
+      "summary": "Public gates open two hours before kickoff, and Gates 3 and 9 handle medical and childcare bags.",
+      "officialLink": "https://mgoblue.com/news/2009/6/1/Michigan_Stadium_Information.aspx",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "seatingChartLink": "",
+    "photo": "",
+    "capacity": "107601"
+  },
+  "ben-hill-griffin-stadium": {
+    "name": "Ben Hill Griffin Stadium",
+    "city": "Gainesville",
+    "state": "FL",
+    "country": "US",
+    "lat": 29.65,
+    "lng": -82.3486,
+    "bagPolicy": {
+      "summary": "For Gators football, Ben Hill Griffin Stadium uses the SEC clear bag policy: one clear plastic, vinyl or PVC bag up to 12 x 6 x 12 inches or a one-gallon clear resealable bag, plus a small clutch up to 4.5 x 6.5 inches. Concert rules can be stricter. For Morgan Wallen's May 2026 shows, only wallets, wristlets and clutch or crossbody bags up to 4.5 x 6.5 inches were allowed, and larger bags were not allowed even if clear.",
+      "allowed": [
+        "Clear plastic, vinyl or PVC bag no larger than 12 x 6 x 12 inches",
+        "One-gallon clear resealable plastic storage bag",
+        "Small clutch no larger than 4.5 x 6.5 inches, with or without a handle or strap",
+        "Medically necessary items after inspection",
+        "Diapers carried in a clear bag"
+      ],
+      "prohibited": [
+        "Purses",
+        "Backpacks",
+        "Cinch or drawstring bags",
+        "Briefcases",
+        "Coolers or containers, including cans and cups",
+        "Fanny packs",
+        "Luggage of any kind",
+        "Computer bags",
+        "Camera bags",
+        "Binocular cases",
+        "Personal seatbacks",
+        "Any bag larger than the permitted size"
+      ],
+      "note": "Clear bags must be clear from top to bottom; a trim of up to 2 inches and one logo up to 4.5 x 3.4 inches are allowed. Fans with medical items use the Bag entry line for inspection.",
+      "officialLink": "https://floridagators.com/sports/2016/4/11/clear-bag-policy",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "parking": {
+      "note": "Parking near the stadium is limited and sold in advance by zone. For Morgan Wallen's May 2026 concerts, the Orange Zone (North Lawn, Lots 18, 20, 25, 26) was $125, the Blue Zone (Flavet Field, Lots 29, 30, 36, 38, 57, 112) was $75, and the Yellow Zone (Garages 113 and 114, Lot 114A) was $50, first come, first served. On football game days, the university points fans to shuttles because public lots are limited.",
+      "summary": "Parking is limited and sold in advance by zone for concerts.",
+      "lots": [
+        "Orange Zone: North Lawn, Lots 18, 20, 25, 26",
+        "Blue Zone: Flavet Field, Lots 29, 30, 36, 38, 57, 112",
+        "Yellow Zone: Garages 113 and 114, Lot 114A"
+      ],
+      "officialLink": "https://www.floridagators.com/sports/2025/10/30/morgan-wallen-still-the-problem-tour-2006",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "rideshare": {
+      "note": "Florida Athletics doesn't post a rideshare drop-off or pickup zone for the stadium. On football game days, shuttle tickets can be bought ahead or on game day by card in the GoRTS Fares Transit app, and Park and Ride locations sell day-of tickets for cash only.",
+      "summary": "No official rideshare zone is posted.",
+      "officialLink": "https://floridagators.com/news/2025/10/3/football-florida-texas-what-you-need-to-know",
+      "verificationStatus": "official_source_reviewed_no_specific_extract",
+      "verified": "2026-11-04"
+    },
+    "concessions": {
+      "note": "Food and drink sales at Ben Hill Griffin Stadium are fully cashless; stands take credit cards, debit cards and touchless phone payment. You can turn cash into a gift card at any Grab N' Go location.",
+      "summary": "All food and drink sales are cashless.",
+      "stands": [
+        "Grab N Go Gators (inside Gate 18 and North End Zone main concourse)",
+        "Gators Food Patio (Gate 1)",
+        "Cutwater Spirits (inside Gate 7)",
+        "Shock Top Helix (Gate 7)",
+        "High Noon Helix (Gate 8)",
+        "Sip N Skip (Gate 8)"
+      ],
+      "officialLink": "https://floridagators.com/news/2025/10/3/football-florida-texas-what-you-need-to-know",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "body": "The stadium has two accessible elevators reserved for guests with disabilities and mobility needs, and accessible restrooms throughout. Fans who need a wheelchair space or accessible seating should contact the Gator Ticket Office before event day at 800-34-GATOR (352-375-4683 ext. 6800), TDD/TTY 711. Family restrooms are on the west side inside the Gate 2 corridor. Only service dogs are allowed; emotional support animals do not qualify.",
+      "summary": "Two accessible elevators are available, and accessible seating is arranged through the Gator Ticket Office.",
+      "officialLink": "https://floridagators.com/sports/2015/12/10/_facilities_bhgriffin_guide_",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "reEntry": {
+      "title": "Re-Entry Policy",
+      "body": "Once your ticket has been scanned, you can't leave and re-enter Ben Hill Griffin Stadium. This applied to football games and to Morgan Wallen's May 2026 concerts.",
+      "summary": "There is no re-entry once your ticket is scanned.",
+      "officialLink": "https://floridagators.com/sports/2015/12/10/_gameday_policies_",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "ticketPickup": {
+      "title": "Box Office & Ticket Pickup",
+      "body": "On event days, will call and the ticket office are outside Gate 1 of Exactech Arena at the Stephen C. O'Connell Center and open three hours before the event. On non-event days, the Gator Ticket Office is at Gate 2 on the west side of the stadium.",
+      "summary": "Will call is outside Gate 1 of Exactech Arena and opens three hours before the event.",
+      "officialLink": "https://floridagators.com/sports/2015/12/10/_facilities_bhgriffin_guide_",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "gates": {
+      "title": "Gates & Entrances",
+      "body": "For football, gates open 90 minutes before kickoff and students enter through Gate 9 or Gates 12 to 15. For Morgan Wallen's May 2026 concerts, all gates opened at 4:30 p.m., Field Level ticket holders entered by the SEZ Ramp between Gates 15 and 16, and Express Entry lanes were at Gates 1, 4, 7, 8, 12, 16, the SEZ Ramp and West Premium. Guest Services kiosks are at Gates 2, 7 and 16.",
+      "summary": "Football gates open 90 minutes before kickoff; concert gate times are set per show.",
+      "officialLink": "https://floridagators.com/sports/2015/12/10/_facilities_bhgriffin_guide_",
+      "verified": "2026-11-04",
+      "verificationStatus": "official_source_confirmed"
+    },
+    "seatingChartLink": "",
+    "photo": "",
+    "capacity": "88548"
   }
 }

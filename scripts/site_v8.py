@@ -146,7 +146,7 @@ def problem_section():
     # The homepage names the fan's problem in their own words. The story of the name is a good
     # one, but it explains Concerto rather than the night, so it lives on About instead.
     return ('<section class="c-section c-navy" data-reveal><div class="c-wrap c-narrow">' + eyebrow('The problem') +
-            '<p class="c-statement">A ticket has the date and the venue.<br>Planning the rest usually takes five different apps.</p>'
+            '<p class="c-statement">A ticket has the date and the venue.<br>Planning the rest usually takes five different&nbsp;apps.</p>'
             '<p class="c-statement-after">What can I bring in? Where do I park? Where should we eat before the show?<br>'
             'One page. Every answer sourced and dated.</p></div></section>')
 
@@ -188,44 +188,48 @@ def your_night():
             + close('Save your next show.', 'website-your-night') + '</main>')
 
 def features():
-    """One page that names every feature and says how to use it: the four main features, then Concerto+."""
-    h = hero('Features', 'Everything Concerto does.',
-             'Four features, free on iPhone and Android: Your Night, Venues, Tours, and Near Me. Concerto+ adds four more when you want the night planned for you.',
-             store_button('website-features') + '<a class="c-link" href="#plus">See Concerto+</a>',
-             ['Your Night', 'Venues', 'Tours', 'Near Me'], 'cream')
-    def feat(sid, kicker, title, what, steps, more, link, label):
-        st = ''.join(f'<li>{x}</li>' for x in steps)
-        return (f'<section class="c-section c-{"white" if sid in ("your-night", "tours") else "cream"}" id="{sid}" data-reveal><div class="c-wrap c-split"><div>' + eyebrow(kicker)
-                + f'<h2 class="c-h2">{title}</h2><p class="c-body">{what}</p></div><div><p class="c-feat-h">How to use it</p><ol class="c-feat-steps">{st}</ol>'
-                + (f'<p class="c-body">{more}</p>' if more else '') + f'<div class="c-actions"><a class="c-link" href="{link}">{label}</a></div></div></div></section>')
-    main = (
-        feat('your-night', 'Your Night', 'Your whole show, on one page.',
-             'Save a show and Your Night puts everything for that night in one place, in four tabs: Before, Arrive, Show and After. On the morning of the show, Concerto sends you the doors and show time.',
-             ['Find your show on Home, Venues, Tours or Near Me, and tap the bookmark.', 'Tell Concerto how you’re getting there, what bag you’re bringing, and where you’re sitting.', 'Open Your Night before you leave. The bag rule, directions, parking, rideshare and the setlist are already there.'],
-             'After the show, your memory card puts your photos with the setlist, and every show gets a stamp in your Passport. Concerto Wrapped lives in Passport at the end of the year.',
-             '/your-night', 'More about Your Night')
-        + feat('venues', 'Venues', 'Know the venue before you go.',
-               f'Guides for {V_COPY} venues worldwide, each checked against the venue’s own official sources and dated: bag policy, entrances and doors, parking, rideshare, re-entry, tickets, food and drink, and accessibility. Each guide also shows places to eat and stay nearby.',
-               ['Search a venue on Home, or browse Venues by state, country or type.', 'Open the guide and tap any section to see the rule and its source.', 'Save a show there and the guide comes with you in Your Night.'],
-               'At Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, the venue guide includes House Map: every food stand, bar, restroom and entrance by section.',
-               '/venues', 'Browse venue guides')
-        + feat('tours', 'Tours', 'Every date, and the songs.',
-               'Tour pages list every upcoming date with a bookmark to save it, the setlist the tour has been playing, labeled by source, and a guide to every venue on the tour.',
-               ['Search an artist on Home, or browse Tours.', 'Tap a date to save that show.', 'Open the setlist to know the songs before the lights go down.'],
-               'Tap Follow on a tour and Concerto tells you when new dates are added.',
-               '/tours', 'Browse tours')
-        + feat('near-me', 'Near Me', 'What’s on around you.',
-               'Near Me shows the concerts around you, grouped by night, with a guide to every venue.',
-               ['Open Near Me and allow your location, or pick a city.', 'Filter by date.', 'Tap a show to see the venue and save it.'],
-               '', '/near-me', 'See concerts near you'))
-    ai = section('white', 'On every page', 'Ask Concerto AI.',
-                 '<p class="c-body">Type a question in the search bar on Home or in Your Night, like “Can I bring a backpack to MSG?” Concerto AI answers from Concerto’s own venue guides and says so when it doesn’t know. 3 answers a day are free.</p>', narrow=True)
-    plus = rows([('Concerto+: Smart Planner', 'Dinner nearby, when to leave, and the show, planned around showtime and how you’re getting there. In the Before tab of Your Night.', ''),
-                 ('Concerto+: Exit Plan', 'The fastest way out of the venue and the best place to get picked up. In the After tab.', ''),
-                 ('Concerto+: AI Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. In the Arrive tab.', ''),
-                 ('Concerto+: Show Pass', f'Everything in Concerto+ for one show, through the morning after, for {PLUS_PASS}. Or get Concerto+ for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.', '')])
-    plus_sec = section('cream', 'Concerto+', 'When you want the night planned for you.', plus + '<div class="c-actions"><a class="c-link" href="/premium">More about Concerto+</a></div>', sid='plus')
-    return ('<main id="main-content" class="c-page">' + h + main + ai + plus_sec
+    """The Features page: four free features as the steps of a show night, then Concerto+.
+    Screens are real app captures with Ticketmaster and Google photos replaced by Concerto's own illustrations."""
+    def shot(k, alt):
+        return f'<img class="c-fx-shot" src="/img/features/{k}.webp" width="603" height="1040" alt="{e(alt)}" loading="lazy">'
+    hero_ = ('<section class="c-hero-fx c-cream"><div class="c-wrap c-fx-hero"><div class="c-fx-copy">' + eyebrow('Features')
+             + '<h1>Everything<br>Concerto Does.</h1>'
+             + f'<p class="c-lead">Venue guides, tours and setlists, concerts near you, and one page for your show night. Free on iPhone and Android.</p>'
+             + store_button('website-features')
+             + f'<ul class="c-fx-proof"><li><b>{V_COPY}</b> venues worldwide</li><li><b>{(N_T // 10) * 10}+</b> tours and setlists</li><li><b>Free</b> on iPhone and Android</li></ul></div>'
+             + '<div class="c-fx-art">' + shot('home', 'Concerto Home screen with your next show') .replace(' loading="lazy"', ' loading="eager"')
+             + '<div class="c-fx-qr"><img src="/img/download-qr.png" width="104" height="104" alt="QR code: download Concerto"><span>Scan to download</span></div></div></div></section>')
+    steps = [
+        ('tours', 'tour', 'Find the Tour', 'Every date, and the setlist the tour has been playing.', 'A tour page in Concerto with dates and the setlist',
+         ['Search an artist on Home, or browse Tours.', 'Tap a date to save that show.', 'Open the setlist to know the songs before the lights go down.', 'Tap Follow and Concerto tells you when new dates are added.'], '/tours', 'Browse tours'),
+        ('near-me', 'nearme', 'See What’s On', 'Concerts around you, night by night, on a map.', 'Near Me in Concerto, with a map and tonight’s shows',
+         ['Open Near Me and allow your location, or pick a city.', 'Filter by date.', 'Tap a show to see the venue and save it.'], '/near-me', 'See concerts near you'),
+        ('venues', 'venue', 'Know the Venue', 'Bag policy, gates, parking and rideshare, checked against official sources.', 'A venue guide in Concerto with AI Bag Check and Smart Planner',
+         ['Search a venue on Home, or browse Venues by state, country or type.', 'Open the guide and tap any section to see the rule and its source.', 'At Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, House Map shows every food stand, bar, restroom and entrance by section.'], '/venues', 'Browse venue guides'),
+        ('your-night', 'yournight', 'Save Your Night', 'Everything for your show on one page, from doors to the ride home.', 'Your Night in Concerto, with Before, Arrive, Show and After tabs',
+         ['Find your show on Home, Venues, Tours or Near Me, and tap the bookmark.', 'Tell Concerto how you’re getting there, what bag you’re bringing, and where you’re sitting.', 'Open Your Night before you leave. The bag rule, directions, parking, rideshare and the setlist are already there.', 'After the show, your memory card puts your photos with the setlist, and every show gets a stamp in your Passport.'], '/your-night', 'More about Your Night'),
+    ]
+    cards = ''.join(
+        f'<li class="c-fx-card" id="{sid}">{shot(k, alt)}<span class="c-fx-num">{i + 1}</span><h3>{e(t)}</h3><p>{e(line)}</p>'
+        f'<details class="c-fx-how"><summary>How it works</summary><ol>{"".join(f"<li>{x}</li>" for x in how)}</ol><a class="c-link" href="{link}">{label}</a></details></li>'
+        for i, (sid, k, t, line, alt, how, link, label) in enumerate(steps))
+    steps_sec = ('<section class="c-section c-white" data-reveal><div class="c-wrap"><div class="c-fx-head"><h2 class="c-h2">Your Show in Four Steps</h2>'
+                 '<p class="c-lead">The four free features, in the order you use&nbsp;them.</p></div>'
+                 f'<ol class="c-fx-grid">{cards}</ol></div></section>')
+    plus = [('Smart Planner', 'Dinner nearby, when to leave, and the show, planned around showtime and how you’re getting there.'),
+            ('Exit Plan', 'The fastest way out of the venue and the best place to get picked up.'),
+            ('AI Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy.'),
+            ('Show Pass', f'Everything in Concerto+ for one show, through the morning after, for {PLUS_PASS}.')]
+    plus_cards = ''.join(f'<li><span class="c-fx-plus" aria-hidden="true">+</span><h3><span>Concerto+</span> {e(t)}</h3><p>{e(d)}</p></li>' for t, d in plus)
+    plus_sec = ('<section class="c-section c-navy c-fx-plusband" id="plus" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Concerto+')
+                + f'<h2 class="c-h2">For the Nights You Want Planned</h2><p class="c-lead">{PLUS_YEAR} a year, or {PLUS_PASS} for one show. The essentials stay free.</p></div>'
+                + f'<ul class="c-fx-plusgrid">{plus_cards}</ul><div class="c-actions"><a class="c-link" href="/premium">More about Concerto+</a></div></div></section>')
+    extras = [('House Map', 'Every food stand, bar, restroom and entrance by section, at Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena.'),
+              ('Concerto AI', 'Ask a question in the search bar, like “Can I bring a backpack to MSG?” Answers come from Concerto’s own venue guides. 3 a day are free.'),
+              ('Passport', 'Every show you’ve been to, with a stamp for each one. Concerto Wrapped lives here at the end of the year.')]
+    extra_sec = ('<section class="c-section c-cream" data-reveal><div class="c-wrap"><h2 class="c-h2">Also in Concerto</h2><ul class="c-fx-extras">'
+                 + ''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p></li>' for t, d in extras) + '</ul></div></section>')
+    return ('<main id="main-content" class="c-page">' + hero_ + steps_sec + plus_sec + extra_sec
             + close('Start with the show you’re going to.', 'website-features') + '</main>')
 
 def premium():
@@ -397,7 +401,7 @@ def art_toc(g):
 
 def guides_hub(gs):
     cards = ''.join(f'<a class="c-art-card" href="/blog/{g["slug"]}"><span class="c-eyebrow">{e(g["kicker"])}</span><b>{e(g["h1"])}</b><small>{e(g["desc"])}</small></a>' for g in gs)
-    return ('<main id="main-content" class="c-page">' + hero('Blog', 'The Concerto Blog', 'Tours, venues and show nights, written by Concerto from official sources and its venue guides.', '', None, 'cream', 'c-hero-page')
+    return ('<main id="main-content" class="c-page">' + hero('Blog', 'The Concerto Blog', 'Tours, venues and show nights, written by Concerto from official sources and its venue guides.', '', None, 'cream', 'c-hero-page c-hero-center')
             + f'<section class="c-section c-white"><div class="c-wrap"><div class="c-art-cards">{cards}</div></div></section>' + close() + '</main>')
 
 def build_blog():
