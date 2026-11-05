@@ -1,0 +1,858 @@
+{
+ "madison-square-garden": {
+  "transit": {
+   "text": "Use 34 St–Penn Station.",
+   "source": "https://www.mta.info/maps/subway-line-maps/1-line"
+  },
+  "checked": "2026-11-05"
+ },
+ "mortgage-matchup-center": {
+  "pickup": {
+   "name": null,
+   "where": "For Lyft pickup, meet your driver by the Phoenix Convention Center at South 3rd Street and East Jefferson Street.",
+   "address": "South 3rd Street & East Jefferson Street",
+   "source": "https://mortgagematchupcenter.com/plan-your-visit/transportation-parking/"
+  },
+  "transit": {
+   "text": "Use 3rd St/Jefferson or 3rd St/Washington for Valley Metro Rail. Pick the station for your direction.",
+   "source": "https://mortgagematchupcenter.com/plan-your-visit/transportation-parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "shoreline-amphitheatre": {
+  "pickup": {
+   "name": null,
+   "where": "Use the marked pickup zone on Amphitheatre Parkway, directly across from the pedestrian path into the venue.",
+   "address": null,
+   "source": "https://www.shorelineamphitheatre.com/faq"
+  },
+  "parking": {
+   "lots": [
+    "Premier Parking Lot",
+    "Lot C (oversized vehicles)"
+   ],
+   "source": "https://www.shorelineamphitheatre.com/faq"
+  },
+  "transit": {
+   "text": "The closest Caltrain stop is Mountain View Station, 2.5 miles from the venue.",
+   "source": "https://www.shorelineamphitheatre.com/faq"
+  },
+  "checked": "2026-11-05"
+ },
+ "spectrum-center": {
+  "pickup": {
+   "name": null,
+   "where": "Check your app for pickup. The arena points riders to East 5th Street when traffic and road closures allow.",
+   "address": null,
+   "source": "https://www.spectrumcentercharlotte.com/a-z-guide"
+  },
+  "transit": {
+   "text": "Use CTC/Arena Station for the LYNX Blue Line or the Charlotte Transportation Center across Trade Street for CATS buses.",
+   "source": "https://www.spectrumcentercharlotte.com/a-z-guide"
+  },
+  "checked": "2026-11-05"
+ },
+ "benchmark-international-arena": {
+  "pickup": {
+   "name": "Rider Pick Up",
+   "where": "Look for Rider Pick Up signs at Jefferson and Eunice, Nebraska and Eunice, Nebraska and Cumberland, or Water and Cumberland.",
+   "address": "Jefferson St & Eunice St; Nebraska Ave & Eunice St; Nebraska Ave & Cumberland Ave; Water St & Cumberland Ave",
+   "source": "https://www.benchmarkintlarena.com/directions-transportation/"
+  },
+  "parking": {
+   "lots": [
+    "Teal Lot",
+    "Foundation 2 Lot",
+    "Tampa Convention Center Garage"
+   ],
+   "source": "https://www.benchmarkintlarena.com/parking/"
+  },
+  "transit": {
+   "text": "Use Water Street Station for the TECO Line Streetcar.",
+   "source": "https://tecolinestreetcar.org/"
+  },
+  "checked": "2026-11-05"
+ },
+ "brooklyn-paramount": {
+  "parking": {
+   "lots": [
+    "MPG Parking (152 Ashland Place)",
+    "GGMC Parking (66 Rockwell Place)"
+   ],
+   "source": "https://www.brooklynparamount.com/visit"
+  },
+  "transit": {
+   "text": "Use DeKalb Avenue station across the street.",
+   "source": "https://www.brooklynparamount.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-anthem": {
+  "pickup": {
+   "name": null,
+   "where": "Check your rideshare app for the designated pickup spot.",
+   "address": null,
+   "source": "https://theanthemdc.com/contact-directions/"
+  },
+  "transit": {
+   "text": "L’Enfant Plaza and Waterfront Metro stations are each four blocks away.",
+   "source": "https://theanthemdc.com/contact-directions/"
+  },
+  "checked": "2026-11-05"
+ },
+ "bill-graham-civic-auditorium": {
+  "parking": {
+   "lots": [
+    "Civic Center Garage"
+   ],
+   "source": "https://billgrahamcivic.com/parking-and-directions/"
+  },
+  "transit": {
+   "text": "Use Civic Center Station for BART or Muni Metro.",
+   "source": "https://billgrahamcivic.com/parking-and-directions/"
+  },
+  "checked": "2026-11-05"
+ },
+ "merriweather-post-pavilion": {
+  "exit": {
+   "text": "The eastbound Broken Land Parkway ramp to US-29 South is closed. Take US-29 North to MD-175 and loop back onto US-29 South.",
+   "source": "https://merriweathermusic.com/parking/"
+  },
+  "parking": {
+   "lots": [
+    "Lot 2",
+    "Lot 4"
+   ],
+   "source": "https://merriweathermusic.com/parking/"
+  },
+  "transit": {
+   "text": "Use the Mall in Columbia stop for RTA buses.",
+   "source": "https://merriweathermusic.com/directions/"
+  },
+  "checked": "2026-11-05"
+ },
+ "gas-south-arena": {
+  "pickup": {
+   "name": "A5 Parking Lot",
+   "where": "Meet your driver in Lot A5 outside the arena.",
+   "address": null,
+   "source": "https://www.gassouthdistrict.com/arena-parking-directions"
+  },
+  "parking": {
+   "lots": [
+    "Lot A",
+    "Deck 2"
+   ],
+   "source": "https://www.gassouthdistrict.com/arena-parking-directions"
+  },
+  "checked": "2026-11-05"
+ },
+ "allstate-arena": {
+  "parking": {
+   "lots": [
+    "Allstate Arena parking lot"
+   ],
+   "source": "https://rosemont.com/allstate/directions-parking/"
+  },
+  "transit": {
+   "text": "Use the Mannheim Road and Lunt Avenue stop for Pace bus 250.",
+   "source": "https://rosemont.com/allstate/directions-parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "oakland-arena": {
+  "pickup": {
+   "name": "Baldwin Gate",
+   "where": "Meet your driver at Baldwin Gate.",
+   "address": null,
+   "source": "https://www.theoaklandarena.com/getting-here"
+  },
+  "exit": {
+   "text": "If you parked in the Platinum GG Lot, exit through Gate 5.",
+   "source": "https://www.theoaklandarena.com/parking"
+  },
+  "parking": {
+   "lots": [
+    "GG Lot (Platinum Parking)",
+    "C Lot (VIP Parking)"
+   ],
+   "source": "https://www.theoaklandarena.com/parking"
+  },
+  "transit": {
+   "text": "Use the pedestrian bridge to reach Coliseum BART Station.",
+   "source": "https://www.bart.gov/stations/cols"
+  },
+  "checked": "2026-11-05"
+ },
+ "uc-berkeley-greek-theatre": {
+  "parking": {
+   "lots": [
+    "Foothill Lot",
+    "Upper Hearst Structure",
+    "Lower Hearst Structure",
+    "Berkeley Law Lot"
+   ],
+   "source": "https://pt.berkeley.edu/special-events/greek"
+  },
+  "transit": {
+   "text": "The closest BART stop is Downtown Berkeley at Center Street and Shattuck Avenue.",
+   "source": "https://thegreekberkeley.com/venue-info/parking-and-directions/"
+  },
+  "checked": "2026-11-05"
+ },
+ "isleta-amphitheater": {
+  "exit": {
+   "text": "Ask your driver to arrive 45 minutes before the show ends. Drivers who arrive later have to wait until most cars have left.",
+   "source": "https://www.firstfinancialamp.com/know-before-you-go"
+  },
+  "parking": {
+   "lots": [
+    "General Parking",
+    "Premier Parking",
+    "VIP Parking"
+   ],
+   "source": "https://www.firstfinancialamp.com/know-before-you-go"
+  },
+  "checked": "2026-11-05"
+ },
+ "td-garden": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver on Merrimac Street between 7 p.m. and 2 a.m.",
+   "address": null,
+   "source": "https://www.tdgarden.com/plan-your-visit/transportation"
+  },
+  "parking": {
+   "lots": [
+    "North Station Garage"
+   ],
+   "source": "https://www.tdgarden.com/north-station-garage"
+  },
+  "transit": {
+   "text": "Use North Station for the MBTA Green Line, Orange Line, or Commuter Rail.",
+   "source": "https://www.tdgarden.com/plan-your-visit/transportation"
+  },
+  "checked": "2026-11-05"
+ },
+ "synovus-bank-amphitheater-at-chastain-park": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver on Chastain Park Avenue near the pool.",
+   "address": null,
+   "source": "https://www.synovusbankampatchastainpark.com/know-before-you-go"
+  },
+  "parking": {
+   "lots": [
+    "Red Lot",
+    "Yellow Lot",
+    "Blue Lot"
+   ],
+   "source": "https://www.synovusbankampatchastainpark.com/accessibility"
+  },
+  "checked": "2026-11-05"
+ },
+ "kia-forum": {
+  "pickup": {
+   "name": "Lot H",
+   "where": "Meet your driver in Lot H at Pincay Drive and Prairie Avenue.",
+   "address": "Pincay Drive & Prairie Avenue",
+   "source": "https://thekiaforum.com/getting-to-the-kia-forum/"
+  },
+  "transit": {
+   "text": "Use Prairie/Manchester for Metro bus 115 or Prairie/Kelso for 211 or 212.",
+   "source": "https://www.metro.net/destinations/kia-forum/"
+  },
+  "checked": "2026-11-05"
+ },
+ "dos-equis-pavilion": {
+  "pickup": {
+   "name": "Gate 6",
+   "where": "Use Gate 6 off Robert B. Cullum Boulevard on the west side of the venue.",
+   "address": null,
+   "source": "https://www.dosequispavilion.com/know-before-you-go"
+  },
+  "exit": {
+   "text": "Ask your driver to arrive 45 minutes before the show ends to avoid a longer wait getting in.",
+   "source": "https://www.dosequispavilion.com/know-before-you-go"
+  },
+  "parking": {
+   "lots": [
+    "General Parking",
+    "Easy Out Parking",
+    "Ultra VIP Parking",
+    "VIP Parking",
+    "Reserved Parking"
+   ],
+   "source": "https://www.dosequispavilion.com/visit"
+  },
+  "transit": {
+   "text": "Use Fair Park Station for DART.",
+   "source": "https://www.dosequispavilion.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "ubs-arena": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver on the north side of the arena. Drivers reach the pickup area via Cross Island Parkway Exit 26D and Green Road.",
+   "address": null,
+   "source": "https://ubsarena.com/plan-your-trip/"
+  },
+  "parking": {
+   "lots": [
+    "Belmont Park Garage",
+    "Emerald Parking"
+   ],
+   "source": "https://ubsarena.com/plan-your-trip/"
+  },
+  "transit": {
+   "text": "Use Elmont–UBS Arena Station for the LIRR. A free shuttle connects the arena, Emerald Parking, and the station.",
+   "source": "https://ubsarena.com/plan-your-trip/"
+  },
+  "checked": "2026-11-05"
+ },
+ "jiffy-lube-live": {
+  "pickup": {
+   "name": null,
+   "where": "The designated pickup area is a short walk from the front gates.",
+   "address": null,
+   "source": "https://www.jiffylubelive.com/know-before-you-go"
+  },
+  "exit": {
+   "text": "Leave through the front gates and follow the rideshare signs. Drivers must arrive 45 minutes before the show ends because traffic switches to outbound only.",
+   "source": "https://www.jiffylubelive.com/know-before-you-go"
+  },
+  "parking": {
+   "lots": [
+    "General Admission Parking",
+    "Premier Parking",
+    "VIP Parking"
+   ],
+   "source": "https://www.jiffylubelive.com/know-before-you-go"
+  },
+  "checked": "2026-11-05"
+ },
+ "estadio-gnp-seguros": {
+  "transit": {
+   "text": "Use Ciudad Deportiva or Puebla on Mexico City Metro Line 9.",
+   "source": "https://www.estadiognpseguros.com/como-llegar"
+  },
+  "checked": "2026-11-05"
+ },
+ "save-mart-center": {
+  "exit": {
+   "text": "Use Lot 4 to exit onto Woodrow Avenue for westbound Shaw Avenue. Use Lot 6 to exit onto Chestnut Avenue for eastbound Shaw Avenue.",
+   "source": "https://www.savemartcenter.com/venue-info/parking/"
+  },
+  "parking": {
+   "lots": [
+    "Lot 4",
+    "Lot 6"
+   ],
+   "source": "https://www.savemartcenter.com/venue-info/parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "713-music-hall": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver at Franklin Street and Bagby Street.",
+   "address": "Franklin Street & Bagby Street",
+   "source": "https://www.713musichall.com/visit"
+  },
+  "parking": {
+   "lots": [
+    "Premier Parking"
+   ],
+   "source": "https://www.713musichall.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-dome-at-americas-center": {
+  "transit": {
+   "text": "Use Convention Center Station for MetroLink.",
+   "source": "https://www.metrostlouis.org/metrolink-station/convention-center-station/"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-wiltern": {
+  "parking": {
+   "lots": [
+    "Ralphs Parking Lot",
+    "Aroma Parking Lot"
+   ],
+   "source": "https://www.wiltern.com/accessibility"
+  },
+  "transit": {
+   "text": "Use Wilshire/Western Station across the street.",
+   "source": "https://www.wiltern.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "schottenstein-center": {
+  "pickup": {
+   "name": null,
+   "where": "Select Schottenstein Center in your rideshare app after the show for the closest available pickup spot.",
+   "address": null,
+   "source": "https://www.schottensteincenter.com/plan-your-visit/directions-parking"
+  },
+  "parking": {
+   "lots": [
+    "Buckeye Lots",
+    "Scarlet Lots (accessible parking)"
+   ],
+   "source": "https://www.schottensteincenter.com/plan-your-visit/directions-parking"
+  },
+  "checked": "2026-11-05"
+ },
+ "viejas-arena": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your rideshare on Hardy Avenue in front of the Calpulli Center.",
+   "address": null,
+   "source": "https://as.sdsu.edu/viejas_arena/construction"
+  },
+  "parking": {
+   "lots": [
+    "Parking Structure 12",
+    "Parking Structure 7"
+   ],
+   "source": "https://as.sdsu.edu/viejas_arena/parking"
+  },
+  "transit": {
+   "text": "Use SDSU Trolley Station for the MTS Green Line.",
+   "source": "https://as.sdsu.edu/viejas_arena/guide"
+  },
+  "checked": "2026-11-05"
+ },
+ "wamu-theater": {
+  "parking": {
+   "lots": [
+    "Lumen Field Event Center Garage",
+    "North Lot"
+   ],
+   "source": "https://www.wamutheater.com/plan-your-visit/arrival-parking"
+  },
+  "checked": "2026-11-05"
+ },
+ "metlife-stadium": {
+  "pickup": {
+   "name": "Rideshare Zone",
+   "where": "Meet your driver in Lot E off West Peripheral Road, outside the Verizon Gate.",
+   "address": null,
+   "source": "https://www.metlifestadium.com/guest-services/a-z-guide/"
+  },
+  "exit": {
+   "text": "For the train, leave through the MetLife or Verizon Gate.",
+   "source": "https://www.metlifestadium.com/plan-your-visit/public-transportation/"
+  },
+  "transit": {
+   "text": "Use Meadowlands Station for the NJ Transit shuttle to Secaucus Junction when rail service is scheduled for your event.",
+   "source": "https://www.njtransit.com/press-releases/nj-transit-offers-rail-service-upcoming-metlife-stadium-events-and-concerts"
+  },
+  "checked": "2026-11-05"
+ },
+ "rosemont-theatre": {
+  "transit": {
+   "text": "Use Rosemont Station for the CTA Blue Line.",
+   "source": "https://rosemont.com/theatre/directions-parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "jma-wireless-dome": {
+  "pickup": {
+   "name": "Newhouse Loop",
+   "where": "Meet your driver at Newhouse Loop or on the Waverly Avenue side of Bird Library.",
+   "address": "Waverly Avenue & South Crouse Avenue",
+   "source": "https://cuse.com/sports/2018/8/8/jma-dome-guest-services"
+  },
+  "exit": {
+   "text": "Exit through Gate M or N and follow signs to either rideshare pickup point.",
+   "source": "https://cuse.com/sports/2018/8/8/jma-dome-guest-services"
+  },
+  "parking": {
+   "lots": [
+    "Skytop",
+    "Lally Athletics Complex"
+   ],
+   "source": "https://cuse.com/sports/2018/8/8/jma-dome-parking-lot-guide"
+  },
+  "checked": "2026-11-05"
+ },
+ "howard-theatre": {
+  "parking": {
+   "lots": [
+    "Progression Place"
+   ],
+   "source": "https://www.unionstagepresents.com/wp-content/uploads/2025/03/2025-26-Rental-Guide-The-Howard-Theatre.pdf"
+  },
+  "transit": {
+   "text": "Use Shaw–Howard University Metro Station one block away.",
+   "source": "https://www.unionstagepresents.com/the-howard/getting-here"
+  },
+  "checked": "2026-11-05"
+ },
+ "coca-cola-coliseum": {
+  "parking": {
+   "lots": [
+    "Exhibition Place Lot 2",
+    "Exhibition Place Lot 3",
+    "Enercare Centre Underground Parking"
+   ],
+   "source": "https://www.coca-colacoliseum.com/plan-your-visit/directions-parking"
+  },
+  "transit": {
+   "text": "Use Exhibition GO Station next to the venue.",
+   "source": "https://www.gotransit.com/en/partners-and-promotions/promo-go-to-coca-cola-coliseum"
+  },
+  "checked": "2026-11-05"
+ },
+ "north-island-credit-union-amphitheatre": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver on the westbound side of Main Street.",
+   "address": null,
+   "source": "https://www.northislandcreditunionamp.com/faq"
+  },
+  "parking": {
+   "lots": [
+    "General Admission Parking",
+    "Premier Parking",
+    "VIP Parking",
+    "Priority Parking",
+    "EZ Out Parking"
+   ],
+   "source": "https://www.northislandcreditunionamp.com/faq"
+  },
+  "checked": "2026-11-05"
+ },
+ "arizona-financial-theatre": {
+  "parking": {
+   "lots": [
+    "Adams Street Parking Garage"
+   ],
+   "source": "https://www.arizonafinancialtheatre.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-armory": {
+  "parking": {
+   "lots": [
+    "Armory Parking Ramp"
+   ],
+   "source": "https://armorymn.com/information/parking-and-directions/"
+  },
+  "checked": "2026-11-05"
+ },
+ "american-airlines-center": {
+  "pickup": {
+   "name": "Uber Pickup/Dropoff Areas",
+   "where": "Use one of the two marked areas on All-Star Way or Nowitzki Way.",
+   "address": null,
+   "source": "https://www.americanairlinescenter.com/arena-faq"
+  },
+  "parking": {
+   "lots": [
+    "Lexus Garage"
+   ],
+   "source": "https://www.americanairlinescenter.com/events-tickets/parking"
+  },
+  "transit": {
+   "text": "Use Victory Station for the DART Green or Orange Line.",
+   "source": "https://www.americanairlinescenter.com/public-transportation"
+  },
+  "checked": "2026-11-05"
+ },
+ "talking-stick-resort-amphitheatre": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your rideshare driver on Palm Lane on the southwest side of the venue.",
+   "address": null,
+   "source": "https://www.talkingstickresortamphitheatre.com/know-before-you-go"
+  },
+  "parking": {
+   "lots": [
+    "Premier Parking",
+    "Easy Out Parking"
+   ],
+   "source": "https://www.talkingstickresortamphitheatre.com/faq"
+  },
+  "checked": "2026-11-05"
+ },
+ "fontainebleau-las-vegas": {
+  "transit": {
+   "text": "For the Vegas Loop passenger station, take the South Lobby escalators or elevators to Level V1 and use the far lane.",
+   "source": "https://www.fontainebleaulasvegas.com/information/vegas-loop/"
+  },
+  "checked": "2026-11-05"
+ },
+ "irving-plaza": {
+  "transit": {
+   "text": "Use 14 St–Union Sq for the subway.",
+   "source": "https://www.mta.info/schedules/subway/l-train"
+  },
+  "checked": "2026-11-05"
+ },
+ "3arena": {
+  "parking": {
+   "lots": [
+    "The Point Village car park"
+   ],
+   "source": "https://3arena.ie/plan-your-visit/getting-here"
+  },
+  "transit": {
+   "text": "Use The Point stop next to the arena for the Luas Red Line. Check the show’s travel notice for service changes.",
+   "source": "https://3arena.ie/plan-your-visit/getting-here"
+  },
+  "checked": "2026-11-05"
+ },
+ "state-farm-arena": {
+  "pickup": {
+   "name": "Centennial Yards",
+   "where": "Meet your driver at the Centennial Yards parking garage past Irish Exit.",
+   "address": null,
+   "source": "https://www.statefarmarena.com/rideshare"
+  },
+  "exit": {
+   "text": "Exit through Gate 2, 4, or 5, cross Centennial Olympic Park Drive NW, and follow the rideshare signs.",
+   "source": "https://www.statefarmarena.com/rideshare"
+  },
+  "parking": {
+   "lots": [
+    "CTR Garage",
+    "Diamond Deck"
+   ],
+   "source": "https://www.statefarmarena.com/arena-parking"
+  },
+  "transit": {
+   "text": "Use MARTA’s SEC District Station.",
+   "source": "https://www.statefarmarena.com/plan-your-visit/transportation"
+  },
+  "checked": "2026-11-05"
+ },
+ "moody-center": {
+  "pickup": {
+   "name": "Lot 37",
+   "where": "Meet your driver in the LBJ Library parking lot, one block north of Moody Center.",
+   "address": "Red River Street & Clyde Littlefield Drive",
+   "source": "https://moodycenteratx.com/plan-my-trip/"
+  },
+  "exit": {
+   "text": "Follow the rideshare signs north from Moody Center and tell your driver which zone you are in.",
+   "source": "https://moodycenteratx.com/plan-my-trip/"
+  },
+  "parking": {
+   "lots": [
+    "Manor Garage (prepaid only)"
+   ],
+   "source": "https://moodycenteratx.com/parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "ovo-hydro": {
+  "pickup": {
+   "name": "Drop-Off / Pick-Up (DOPU)",
+   "where": "Meet your driver at the designated zone west of the SEC Centre.",
+   "address": null,
+   "source": "https://www.ovohydro.com/visitor-info/how-to-get-here-parking/drop-off-and-pick-up"
+  },
+  "transit": {
+   "text": "Use Exhibition Centre railway station.",
+   "source": "https://www.ovohydro.com/visitor-info/how-to-get-here-parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "shrine-auditorium": {
+  "pickup": {
+   "name": null,
+   "where": "Set your pickup to 665 West Jefferson Boulevard.",
+   "address": "665 West Jefferson Boulevard, Los Angeles, CA 90007",
+   "source": "https://www.shrineauditorium.com/the-venue/"
+  },
+  "parking": {
+   "lots": [
+    "Shrine West Lot",
+    "North Parking Structure",
+    "USC Shrine Structure"
+   ],
+   "source": "https://www.shrineauditorium.com/the-venue/"
+  },
+  "transit": {
+   "text": "Use Jefferson/USC Station, about a five-minute walk from the venue.",
+   "source": "https://www.shrineauditorium.com/the-venue/"
+  },
+  "checked": "2026-11-05"
+ },
+ "house-of-blues-chicago": {
+  "transit": {
+   "text": "Use Grand Station on State Street for the CTA Red Line.",
+   "source": "https://www.transitchicago.com/station/grre/"
+  },
+  "checked": "2026-11-05"
+ },
+ "paramount-theatre": {
+  "parking": {
+   "lots": [
+    "7th & Pike Garage",
+    "Seattle Convention Center garages",
+    "Pacific Place Mall garage"
+   ],
+   "source": "https://www.stgpresents.org/theatres/directions-parking/the-paramount-theatre/"
+  },
+  "checked": "2026-11-05"
+ },
+ "center-stage-theater": {
+  "parking": {
+   "lots": [
+    "Center Stage Garage"
+   ],
+   "source": "https://www.centerstage-atlanta.com/directions-parking/"
+  },
+  "transit": {
+   "text": "Use MARTA Arts Center Station for the Red or Gold Line.",
+   "source": "https://www.centerstage-atlanta.com/directions-parking/"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-tabernacle": {
+  "parking": {
+   "lots": [
+    "Garage at 100 Luckie Street"
+   ],
+   "source": "https://www.tabernacleatl.com/visit"
+  },
+  "checked": "2026-11-05"
+ },
+ "rogers-centre": {
+  "transit": {
+   "text": "Use Union Station or St Andrew Station for the subway. GO Transit also serves Union Station.",
+   "source": "https://www.mlb.com/bluejays/ballpark/transportation/driving-directions"
+  },
+  "checked": "2026-11-05"
+ },
+ "mgm-music-hall-at-fenway": {
+  "transit": {
+   "text": "Use Kenmore Station on the MBTA Green Line.",
+   "source": "https://crossroadspresents.com/pages/mgm-fenway-music-hall"
+  },
+  "checked": "2026-11-05"
+ },
+ "gallagher-square-at-petco-park": {
+  "pickup": {
+   "name": null,
+   "where": "Meet your driver across from the Bayfront Hilton, next to the Convention Center.",
+   "address": "Harbor Drive & Park Boulevard",
+   "source": "https://www.mlb.com/padres/ballpark/information/guide"
+  },
+  "checked": "2026-11-05"
+ },
+ "the-o2": {
+  "pickup": {
+   "name": "Car Park 1",
+   "where": "Follow the signs to the free pickup point in Car Park 1 off Millennium Way.",
+   "address": null,
+   "source": "https://www.theo2.co.uk/visit-us/getting-to-the-o2/parking/"
+  },
+  "parking": {
+   "lots": [
+    "Car Park 1"
+   ],
+   "source": "https://www.theo2.co.uk/visit-us/getting-to-the-o2/parking/"
+  },
+  "transit": {
+   "text": "Use North Greenwich for the Jubilee line or buses.",
+   "source": "https://help.theo2.co.uk/hc/en-gb/articles/23250711344797-Getting-to-The-O2-all-your-Parking-Transport-questions-answered"
+  },
+  "checked": "2026-11-05"
+ },
+ "empower-field-at-mile-high": {
+  "pickup": {
+   "name": "Ball Arena Rideshare Lot",
+   "where": "Walk about 15 minutes east of the stadium to the Ball Arena pickup lot.",
+   "address": "5th Street & Walnut Street",
+   "source": "https://www.empowerfieldatmilehigh.com/plan-your-visit/fan-guide-a-z"
+  },
+  "transit": {
+   "text": "Use Empower Field at Mile High Station or Decatur–Federal Station for light rail.",
+   "source": "https://www.empowerfieldatmilehigh.com/plan-your-visit/directions-parking/broncos/"
+  },
+  "checked": "2026-11-05"
+ },
+ "showbox-sodo": {
+  "transit": {
+   "text": "Use Stadium Station for Link light rail. It is about a 15-minute walk from Showbox SoDo.",
+   "source": "https://www.showboxpresents.com/directions"
+  },
+  "checked": "2026-11-05"
+ },
+ "kaseya-center": {
+  "pickup": {
+   "name": "HEAT BLVD",
+   "where": "Ask your driver to pick you up on HEAT Boulevard.",
+   "address": null,
+   "source": "https://www.kaseyacenter.com/guest-services/faqs"
+  },
+  "parking": {
+   "lots": [
+    "P2 Garage"
+   ],
+   "source": "https://www.kaseyacenter.com/guest-services/faqs"
+  },
+  "transit": {
+   "text": "Use Park West Station for Metromover. The arena says service may run until 1 a.m. after special events.",
+   "source": "https://www.kaseyacenter.com/plan-your-visit/directions-parking"
+  },
+  "checked": "2026-11-05"
+ },
+ "veterans-memorial-coliseum": {
+  "parking": {
+   "lots": [
+    "Garden Garage",
+    "Annex Garage",
+    "East Garage",
+    "West Garage"
+   ],
+   "source": "https://www.rosequarter.com/plan-your-visit/directions-transportation"
+  },
+  "transit": {
+   "text": "Use Rose Quarter Transit Center next to the Coliseum.",
+   "source": "https://news.trimet.org/2026/05/go-by-trimet-and-go-for-gold-u-s-olympians-skate-into-portland-for-stars-on-ice/"
+  },
+  "checked": "2026-11-05"
+ },
+ "cryptocom-arena": {
+  "pickup": {
+   "name": null,
+   "where": "Use either white zone: eastbound Chick Hearn Court between L.A. Live Way and Georgia Street, or southbound Figueroa Street between 12th Street and Pico Boulevard.",
+   "address": "Chick Hearn Court between L.A. Live Way and Georgia Street; Figueroa Street between 12th Street and Pico Boulevard",
+   "source": "https://www.cryptoarena.com/plan-your-visit/getting-here/public-transportation"
+  },
+  "parking": {
+   "lots": [
+    "Lot W (West Garage)",
+    "Lot E (East Garage)",
+    "Lot 1",
+    "Lot C"
+   ],
+   "source": "https://www.cryptoarena.com/getting-here"
+  },
+  "transit": {
+   "text": "Use Pico Station for Metro Rail.",
+   "source": "https://www.cryptoarena.com/plan-your-visit/getting-here/public-transportation"
+  },
+  "checked": "2026-11-05"
+ },
+ "scotiabank-arena": {
+  "parking": {
+   "lots": [
+    "Maple Leaf Square Garage"
+   ],
+   "source": "https://www.scotiabankarena.com/arena-info/getting-here"
+  },
+  "transit": {
+   "text": "Use Union Station for subway and regional rail.",
+   "source": "https://www.scotiabankarena.com/arena-info/getting-here"
+  },
+  "checked": "2026-11-05"
+ }
+}
