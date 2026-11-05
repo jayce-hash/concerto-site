@@ -187,6 +187,12 @@ def your_night():
             f'<section class="c-section c-cream" data-reveal><div class="c-wrap">{eyebrow("What it costs")}<h2 class="c-h2">The essentials are free.</h2>{cols}</div></section>'
             + close('Save your next show.', 'website-your-night') + '</main>')
 
+def fx_src(k):
+    """Feature screenshots are cached for a year, so each file name carries a hash of its contents."""
+    import glob as _g, os as _o
+    hits = sorted(_g.glob(str(ROOT / 'img' / 'features' / f'{k}.*.webp')))
+    return '/img/features/' + _o.path.basename(hits[-1]) if hits else f'/img/features/{k}.webp'
+
 FX_DIM = {'home': 972, 'nearme': 1049, 'tour': 1214, 'tours': 1086, 'venue': 1245, 'venues': 1084, 'yn-page': 5192, 'yn-add': 1305,
           'plus-planner': 1305, 'plus-bag': 1305, 'plus-exit': 1305, 'plus-home': 1305, 'plus-locked': 1305,
           **{f'yn-{k}': 1082 for k in ('plan', 'seat', 'there', 'eat', 'venue', 'setlist', 'home')}}
@@ -197,7 +203,7 @@ def features():
     is replaced with Concerto's own illustrations, and Plan My Night reads Smart Planner."""
     def shot(k, alt, eager=False):
         h = FX_DIM.get(k, 1311)
-        return f'<img class="c-fx-shot" src="/img/features/{k}.webp" width="603" height="{h}" alt="{e(alt)}" loading="{"eager" if eager else "lazy"}">'
+        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="{h}" alt="{e(alt)}" loading="{"eager" if eager else "lazy"}">'
     # 1. How to use Concerto: find a show, save it, then Your Night (Before, Arrive, Show, After)
     first = (
         '<li class="c-fx-step">' + shot('home', 'Concerto Home with Olivia Rodrigo at Intuit Dome as the next show', True)
@@ -220,7 +226,7 @@ def features():
         for i, (k, sh, t, d) in enumerate(parts))
     night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Build Your Night</h3>'
              '<p>Everything for the show, on one page. The bar at the top takes you to any part of it.</p></div>'
-             '<div class="c-yn"><div class="c-yn-phone" aria-hidden="true"><img src="/img/features/yn-page.webp" width="603" height="5192" alt="" loading="lazy" style="transform:translateY(0%)"></div>'
+             '<div class="c-yn"><div class="c-yn-phone" aria-hidden="true"><img src="' + fx_src('yn-page') + '" width="603" height="5192" alt="" loading="lazy" style="transform:translateY(0%)"></div>'
              f'<ol class="c-yn-caps">{caps}</ol></div>'
              '<div class="c-fx-add">' + shot('yn-add', 'Adding a hotel to Your Night') +
              '<div class="c-fx-ptext"><p class="c-eyebrow">Make it yours</p><h3>Add to My Night</h3><p>Pick where you’re eating, where you’re staying and what else you’re doing. Each one lands in your plan with directions from the venue.</p></div></div>'
@@ -1091,7 +1097,7 @@ def premium():
                   ('More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
                   ('More alerts', 'Time to Head Out, two hours before the show, and your Exit Plan near the end of the night, plus new dates and presales for the artists you follow. The show-day alert, the memory card reminder, and This Weekend stay free.', '')])
     def pshot(k, alt):
-        return f'<img class="c-fx-shot" src="/img/features/{k}.webp" width="603" height="1305" alt="{e(alt)}" loading="lazy">'
+        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="1305" alt="{e(alt)}" loading="lazy">'
     where = ('<section class="c-section c-navy c-fx-plusband" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Where it lives')
              + '<h2 class="c-h2">Each Tool Has Its Own Screen</h2><p class="c-lead">Open them from your next show on Home, or from the part of Your Night where they matter: Smart Planner with your plan, AI Bag Check with the venue’s rules, Exit Plan with getting home.</p></div>'
              + '<ul class="c-fx-tools">'

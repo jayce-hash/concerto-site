@@ -2728,3 +2728,4 @@ h1,h2{font-weight:700}
 .v8 .c-fx-head :is(.c-lead,.c-h2),.v8 .c-fx-step p,.v8 .c-fx-nhead p,.v8 .c-yn-cap p,.v8 .c-fx-ptext p,.v8 .c-fx-tools p,.v8 .c-fx-ftext p{text-wrap:pretty}
 .v8 .c-hero-home .c-actions{flex-direction:column;align-items:center;gap:16px}
 .v8 .c-hero-home .c-actions>.c-ask,.v8 .c-hero-home .c-actions>.c-ask-hint{width:min(640px,100%);margin-left:0;margin-right:0}
+.v8 .c-page:has(.c-hero-home) .c-free-note{margin-left:auto;margin-right:auto}
