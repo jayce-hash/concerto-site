@@ -1030,10 +1030,11 @@
     "lat": 42.0176,
     "lng": -87.8309,
     "bagPolicy": {
-      "summary": "Fans attending events at Allstate Arena cannot enter with backpacks, totes, mid/large sized bags, and coolers. Diaper bags with a child and medical bags are allowed after a security search.",
+      "summary": "Bags up to 12\" x 12\" are allowed. Backpacks, totes, mid- and large-sized bags, and coolers are not. Diaper bags with a child and medical bags are allowed after a search.",
       "allowed": [
+        "Bags up to 12\" x 12\"",
         "Diaper bags (with child)",
-        "Medical bags (approved, no bigger than 12\" x 12\")"
+        "Medical bags"
       ],
       "prohibited": [
         "Backpacks",
@@ -1043,7 +1044,7 @@
       ],
       "note": "Diaper bags with a child and medical bags are exceptions and allowed after a security search.",
       "officialLink": "https://rosemont.com/allstate/allstate-arena-policies/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -2672,7 +2673,7 @@
       ],
       "note": "Medical and parenting bags exceeding the size limit are permitted but subject to additional search procedures.",
       "officialLink": "https://www.benchmarkintlarena.com/arena-info/policies",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -2866,12 +2867,20 @@
     "lat": 37.778,
     "lng": -122.4162,
     "bagPolicy": {
-      "summary": "The Bill Graham Civic Auditorium allows factory sealed water bottles, empty refillable water bottles, personal food items, and empty Camelbaks. Totems less than 6ft tall and at 1/2in thick are also permitted if made of light materials.",
-      "allowed": [],
-      "prohibited": [],
+      "summary": "Large bags are not allowed, but Bill Graham does not publish a bag size limit. Sealed water bottles, empty refillable bottles and empty Camelbaks are allowed.",
+      "allowed": [
+        "Factory-sealed water bottles",
+        "Empty refillable water bottles",
+        "Personal food items",
+        "Empty Camelbaks",
+        "Totems under 6 ft and 1/2 in thick, of light materials"
+      ],
+      "prohibited": [
+        "Large bags"
+      ],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
-      "officialLink": "https://billgrahamcivic.com/q-what-items-are-allowed-in-the-venue/",
-      "verified": "2026-08-20",
+      "officialLink": "https://billgrahamcivic.com/faq/",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -3643,18 +3652,19 @@
     "lat": 40.6925,
     "lng": -73.9822,
     "bagPolicy": {
-      "summary": "Bags up to 12 by 6 by 12 inches are permitted and searched before entry. Non-clear bags receive additional screening.",
+      "summary": "Clear plastic, vinyl or PVC bags up to 12\" x 6\" x 12\" and small bags up to 6\" x 9\" are allowed. Larger bags must be checked for a fee.",
       "allowed": [
-        "Bags no larger than 12 by 6 by 12 inches"
+        "Clear plastic, vinyl or PVC bags up to 12\" x 6\" x 12\"",
+        "Small bags up to 6\" x 9\" (clear or not)"
       ],
       "prohibited": [
-        "Bags larger than 12 by 6 by 12 inches",
+        "Bags larger than the size limits (check them for a fee)",
         "Hydration packs",
         "Coolers"
       ],
       "note": "Coat and bag check is available for a fee, subject to capacity.",
-      "officialLink": "https://www.brooklynparamount.com/visit",
-      "verified": "2026-08-20",
+      "officialLink": "https://www.brooklynparamount.com/plan-your-visit",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -6806,7 +6816,7 @@
       "prohibited": [],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
       "officialLink": "https://www.dosequispavilion.com/know-before-you-go",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -11325,7 +11335,7 @@
       "prohibited": [],
       "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
       "officialLink": "https://www.jiffylubelive.com/visit",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -13903,7 +13913,7 @@
       ],
       "note": "One personal food item in a clear disposable non-glass container and one empty or factory-sealed water bottle are generally permitted, subject to show-specific exceptions.",
       "officialLink": "https://merriweathermusic.com/faq/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -14474,18 +14484,17 @@
     "lat": 33.4459,
     "lng": -112.0712,
     "bagPolicy": {
-      "summary": "For quick entry, fans are encouraged to leave bags at home. Small clutches, crossbody bags, and clear bags are allowed, while standard backpacks are not permitted.",
+      "summary": "Bags must be within 14\" x 14\" x 6\", and no backpacks of any size are allowed. Each event can set its own bag policy, so check your event page.",
       "allowed": [
-        "small clutches",
-        "crossbody bags",
-        "clear bags"
+        "Bags within 14\" x 14\" x 6\""
       ],
       "prohibited": [
-        "standard backpacks"
+        "Backpacks of any size",
+        "Bags larger than 14\" x 14\" x 6\""
       ],
       "note": "Purses, medical bags, and diaper bags are allowed if they meet NBA size requirements of 14” x 14” x 6” and will undergo additional screening.",
-      "officialLink": "https://www.mortgagematchupcenter.com/",
-      "verified": "2026-08-20",
+      "officialLink": "https://mortgagematchupcenter.com/events/teddy-swims/",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -15267,7 +15276,7 @@
       ],
       "note": "Medical supplies are permitted.",
       "officialLink": "https://www.theoaklandarena.com/plan/prohibited-items",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -19196,7 +19205,7 @@
       ],
       "note": "Service animals are permitted.",
       "officialLink": "https://www.shorelineamphitheatre.com/faq",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -19763,7 +19772,7 @@
       ],
       "note": "The limit applies to clear and opaque bags. There is no bag check, and all bags are screened. Rules can change by event, so check your event page before you go.",
       "officialLink": "https://www.spectrumcentercharlotte.com/plan-your-visit/a-z-guide",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -21110,17 +21119,17 @@
     "lat": 42.3662,
     "lng": -71.0621,
     "bagPolicy": {
-      "summary": "TD Garden discourages bringing bags to events to ensure safety and quick entry. Small bags, clutches, crossbodies, and wristlets are allowed if they do not exceed 4in x 6in x 1.5in. Oversized bags can be stored on-site for a fee.",
+      "summary": "Bags, including clear bags, can be no larger than 6\" x 4\" x 1.5\". Oversized bags go to the Event Bag Check on Level 1 for $15.",
       "allowed": [
-        "Small bags",
-        "Clutches",
-        "Crossbodies",
-        "Wristlets"
+        "Small bags, clutches, crossbodies and wristlets up to 6\" x 4\" x 1.5\"",
+        "Diaper, breast pump and medical bags"
       ],
-      "prohibited": [],
+      "prohibited": [
+        "Bags larger than 6\" x 4\" x 1.5\" (use the $15 Event Bag Check)"
+      ],
       "note": "Exceptions are made for diaper bags, breast pump bags, and bags needed for medical purposes, which are subject to visual or x-ray screening.",
       "officialLink": "https://www.tdgarden.com/policies",
-      "verified": "2026-08-20",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -21208,16 +21217,15 @@
     "lat": 38.8731,
     "lng": -77.011,
     "bagPolicy": {
-      "summary": "The Anthem prohibits most bags, including backpacks and large purses, allowing only small clutches or wallets smaller than 5” x 7” x 1”. Medical and diaper bags are permitted but subject to search.",
+      "summary": "A small purse is allowed. Backpacks, luggage and bags larger than a small purse are searched and must go into the paid coat check on the first floor.",
       "allowed": [
-        "Small clutches and wallets smaller than 5” x 7” x 1”",
+        "A small purse or bag",
+        "Backpacks and larger bags, but only into the paid coat check",
         "Medical bags",
         "Diaper bags"
       ],
       "prohibited": [
-        "Bags",
-        "Backpacks",
-        "Large purses",
+        "Backpacks or bags larger than a small purse inside the venue",
         "Outside food and beverages",
         "Weapons",
         "Professional photographic gear",
@@ -21225,8 +21233,8 @@
         "Sound amplifiers"
       ],
       "note": "Medical bags and diaper bags are allowed but subject to search.",
-      "officialLink": "https://theanthemdc.com/faq/",
-      "verified": "2026-08-20",
+      "officialLink": "https://theanthemdc.com/faq",
+      "verified": "2026-11-05",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {

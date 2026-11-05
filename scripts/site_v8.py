@@ -116,10 +116,10 @@ def numbers():
     items = [(V_COPY, 'venue guides'), (N_T, 'tours followed'), (N_S, 'setlists live'), (8, 'essentials per venue')]
     return '<section class="c-numbers" data-reveal><div class="c-wrap c-numbers-row">' + ''.join(f'<div><b>{n}</b><span>{e(l)}</span></div>' for n, l in items) + '</div></section>'
 
-# Demand, from Google Search Console (Jul 13 to Oct 12, 2026): about 1,450 search appearances a
-# day in the first week, about 12,050 in the last; average position 10.3 then, 9.0 now. Update
-# these four values when the numbers move; every page that shows the proof reads them from here.
-PROOF_DAY, PROOF_GROWTH, PROOF_POS, PROOF_AS_OF = '12,000', '8×', '9.0', 'October 2026'
+# Demand, from Google Search Console (Jul 1 to Nov 3, 2026): July averaged about 1,360 search
+# appearances a day; the last 7 days averaged about 13,900. Average position 10.9 in July, 9.0 now.
+# Update these four values when the numbers move; every page that shows the proof reads them from here.
+PROOF_DAY, PROOF_GROWTH, PROOF_POS, PROOF_AS_OF = '14,000', '10×', '9.0', 'November 2026'
 
 def proof_strip():
     items = [(PROOF_DAY, 'Google search appearances a day'), (PROOF_GROWTH, 'as many as in July'), ('Page one', f'average Google position, {PROOF_POS}')]
@@ -657,6 +657,16 @@ def upcoming_shell(v):
             f'<div class="cx-sec-head"><h2 class="cx-h2" id="up-h">Upcoming shows at {e(v["name"])}</h2></div><ol class="c-up-list"></ol>'
             f'<p class="cx-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show.</p></div></section>')
 
+BAG_FOCUS = json.loads((ROOT / 'data/bag_focus.json').read_text()) if (ROOT / 'data/bag_focus.json').exists() else {}
+
+def can_bring(v):
+    """The questions people search before a show here, answered first. Only for venues in data/bag_focus.json."""
+    f = BAG_FOCUS.get(v['id']) or {}
+    if not f.get('faq'): return ''
+    rows = ''.join(f'<div class="cx-faq-row"><h3>{e(q)}</h3><p>{e(a)}</p></div>' for q, a in f['faq'])
+    return (f'<div class="cx-faq" id="can-i-bring"><h2 class="cx-h2">Can I bring…?</h2>{rows}'
+            f'<p class="cx-note">From {e(v["name"])}’s official guidance, checked {pretty_date(f["checked"])}. Staff at the door make the final call.</p></div>')
+
 def venue_page(v):
     info = INFO.get(v['id']) or {}
     cards = []
@@ -691,7 +701,7 @@ def venue_page(v):
             f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
             # Order: Concerto Partners (added by the page script right after the hero), venue info,
             # upcoming shows, places around the venue, nearby venues.
-            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div><div class="cx-cards">{"".join(cards)}</div>{house_card(v)}{save_prompt(v)}</div></section>'
+            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div>{can_bring(v)}<div class="cx-cards">{"".join(cards)}</div>{house_card(v)}{save_prompt(v)}</div></section>'
             + upcoming_shell(v)
             + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue. Places from Google.</p></div><div class="cx-rows"></div></div></section>'
             + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
@@ -1212,7 +1222,7 @@ def press():
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
               '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone, Android and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>'
               '<p class="c-body">Concerto is free. Concerto+ adds Exit Plan, AI Bag Check, and Smart Planner. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
-              f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, eight times as often as in July.</p>'
+              f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, ten times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
     bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 1,000+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
@@ -1300,7 +1310,7 @@ def partners_why(kind='restaurants and hotels'):
     return ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Why it works') +
             '<h2 class="c-h2">Fans come for the venue.<br>Then they <span class="no-widow">plan the night.</span></h2></div><div>'
             '<p class="c-body">Fans find Concerto when they look up their venue before a show: the bag policy, parking, when doors open. Those searches already bring Concerto about '
-            f'{PROOF_DAY} Google search appearances a day, eight times as many as in July.</p>'
+            f'{PROOF_DAY} Google search appearances a day, ten times as many as in July.</p>'
             f'<p class="c-body">Once a fan knows what they can bring, the next thing they decide is {nxt}. The same page answers it, and Concerto Partners come first.</p>'
             '</div></div></section>')
 

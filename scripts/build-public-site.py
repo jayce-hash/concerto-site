@@ -75,7 +75,13 @@ def _RULE_COUNTS():
                 _RC[_best_rule(_b)] += 1
     return _RC
 
+# Search Console, Jul 1 to Nov 3, 2026: these venues rank on page one for "[venue] bag policy"
+# but get almost no clicks, because the description gave the whole answer away. Their
+# descriptions and "Can I bring...?" answers are written by hand in data/bag_focus.json.
+BAG_FOCUS = json.loads((ROOT/'data/bag_focus.json').read_text()) if (ROOT/'data/bag_focus.json').exists() else {}
+
 def venue_description(v, shown):
+    if (BAG_FOCUS.get(v.get('id') or '') or {}).get('description'): return BAG_FOCUS[v['id']]['description']
     rec = INFO_FOR_DESC.get(v.get('id') or '', {}) if 'INFO_FOR_DESC' in globals() else {}
     bag = rec.get('bagPolicy') or {}
     try: when = _dt.date.fromisoformat(bag.get('verified') or '').strftime('%b %Y')
@@ -293,6 +299,8 @@ for v in venues:
     ld['geo']={'@type':'GeoCoordinates','latitude':v.get('lat'),'longitude':v.get('lng')} if v.get('lat') else None
     ld={k:x for k,x in ld.items() if x is not None}
     extra=ld_json(ld)+breadcrumb_ld([('Venues','/venues'),(v['name'],f'/venue/{slug}')])
+    if (BAG_FOCUS.get(slug) or {}).get('faq'):
+        extra+=ld_json({'@context':'https://schema.org','@type':'FAQPage','mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in BAG_FOCUS[slug]['faq']]})
     fb=venue_fallback(v)
     page=head(venue_title(v, shown),desc,f'/venue/{slug}',extra,banner=smart_banner('venue',slug))+f'''<main class="experience-product"><section class="stage-hero library-hero"><div class="site-shell"><div class="breadcrumbs"><a href="/venues">Venues</a> &nbsp;/&nbsp; {esc(v['name'])}</div><p class="eyebrow">Venue guide</p><h1>{esc(v['name'])}</h1><p class="lead">{esc(v.get('city'))}{', '+esc(v.get('state')) if v.get('state') else ''}{' · '+esc(v.get('country')) if v.get('country') else ''}</p><div class="hero-actions">{app_link('venue',slug,'Save a show here in Concerto')}</div><div class="tonight" data-venue-tonight data-name="{esc(v['name'])}" data-country="{esc(v.get('country') or '')}" data-lat="{esc(v.get('lat'))}" data-lng="{esc(v.get('lng'))}"></div></div><div class="site-shell wide"><div class="detail-media library-media" data-vphoto data-vname="{esc(v['name'])}" data-vcity="{esc(v.get('city'))}" data-vlat="{esc(v.get('lat'))}" data-vlng="{esc(v.get('lng'))}"{fallback_attr(fb)}></div></div></section><section class="library-body"><div class="site-shell"><div class="section-lead"><p class="eyebrow">Know before you go</p><h2>What matters at {esc(v['name'])}.</h2><p>Each section shows its source and the date it was last checked. When something is not confirmed, it says so.</p></div><div class="card-grid">{''.join(sections)}</div></div></section>{related_list(related_venues(v),'venue')}<section class="last-call"><div class="site-shell"><h2>Going to a show here?</h2><div class="last-call-actions">{app_link('venue',slug,'Open in Concerto')}</div><p class="small-print">Your Night keeps these rules, the setlist, and the way home on one page.</p></div></section></main>'''+end()
     (ROOT/'venue'/f'{slug}.html').write_text(page)

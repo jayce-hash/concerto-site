@@ -2729,3 +2729,13 @@ h1,h2{font-weight:700}
 .v8 .c-hero-home .c-actions{flex-direction:column;align-items:center;gap:16px}
 .v8 .c-hero-home .c-actions>.c-ask,.v8 .c-hero-home .c-actions>.c-ask-hint{width:min(640px,100%);margin-left:0;margin-right:0}
 .v8 .c-page:has(.c-hero-home) .c-free-note{margin-left:auto;margin-right:auto}
+
+/* "Can I bring...?" answers on the venues people search most (data/bag_focus.json) */
+.v8 .cx-faq{margin:0 0 24px;padding:22px 24px;border-radius:20px;background:#fff;border:1px solid var(--line-soft,#E3E6EB)}
+.v8 .cx-faq .cx-h2{margin:0 0 6px}
+.v8 .cx-faq-row{padding:14px 0;border-top:1px solid var(--line-soft,#EEF0F3)}
+.v8 .cx-faq-row:first-of-type{border-top:0}
+.v8 .cx-faq-row h3{margin:0 0 4px;font:700 16px/1.35 var(--body);color:var(--navy,#121E36);text-wrap:balance}
+.v8 .cx-faq-row p{margin:0;font-size:15px;line-height:1.55;color:var(--muted,#5B6477);text-wrap:pretty}
+.v8 .cx-faq>.cx-note{margin:10px 0 0;text-wrap:balance}
+@media (max-width:720px){.v8 .cx-faq{padding:18px}}
