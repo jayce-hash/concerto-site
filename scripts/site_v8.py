@@ -201,7 +201,7 @@ FX_DIM = {'home': 972, 'nearme': 1049, 'tour': 1214, 'tours': 1086, 'venue': 124
 def features():
     """The Features page, built around one real night: Olivia Rodrigo at Intuit Dome, with LA for
     Near Me and Venues. Screens are real app captures; every Ticketmaster and Google photo in them
-    is replaced with Concerto's own illustrations, and the planner is Plan Your Night."""
+    is replaced with Concerto's own illustrations, and the planner is Plan My Night."""
     def shot(k, alt, eager=False):
         h = FX_DIM.get(k, 1311)
         return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="{h}" alt="{e(alt)}" loading="{"eager" if eager else "lazy"}">'
@@ -210,12 +210,12 @@ def features():
         '<li class="c-fx-step">' + shot('home', 'Concerto Home with Olivia Rodrigo at Intuit Dome as the next show', True)
         + '<span class="c-fx-num">1</span><h3>Find Your Show</h3><p>Search an artist, a venue or a city, or ask Concerto AI. Your next show sits at the top of Home.</p></li>'
         + '<li class="c-fx-step">' + shot('tour', 'Olivia Rodrigo’s tour page in Concerto with dates to save', True)
-        + '<span class="c-fx-num">2</span><h3>Save It</h3><p>Tap the bookmark on your date and sign in. Concerto builds Your Night for that show.</p></li>')
+        + '<span class="c-fx-num">2</span><h3>Save It</h3><p>Tap your show, or the bookmark on your date, and sign in. Your Night is ready for that show.</p></li>')
     # 3. Plan your night: a few quick questions (or Concerto+ plans it), then the night in order.
     plan_steps = [('pyn-start', 'Plan your night in Concerto', 'Plan It or Pick', 'Tap Plan my night on your show. Pick each part yourself, free, or let Concerto+ plan it for you.'),
                   ('pyn-question', 'Choosing how you’re getting there', 'Five Quick Questions', 'Your ticket, getting there, food, your bag and the way home. Skip anything.'),
                   ('pyn-night', 'Your Night as a timeline', 'Your Night, in Order', 'Dinner, doors, your seat, the show and the ride home. Tap any stop for its details.')]
-    night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Plan Your Night</h3>'
+    night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Plan My Night</h3>'
              '<p>Answer once. Edit reopens the questions anytime.</p></div>'
              '<ol class="c-fx-steps c-fx-steps-3">' + ''.join(f'<li class="c-fx-step">{shot(k, a)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for k, a, t, d in plan_steps) + '</ol>'
              '</div>')
@@ -1006,7 +1006,7 @@ def ask_bar(home=False):
 
 def home():
     h = hero('From the Concert to the City', 'Your Concert Companion.',
-             f'Venue guides for {V_COPY} venues worldwide, the setlist every tour is playing, and your whole show night on one page. Save a show and Concerto does the rest.',
+             f'Concerto plans everything around a concert you already have tickets for: the venue’s rules, the setlist, dinner nearby, and the way home. Free, with guides for {V_COPY} venues worldwide.',
              ask_bar(home=True) + store_button('website-home') + '<a class="c-link" href="#how">How it works</a>',
              [f'{V_COPY} venue guides', f'{N_T} tours', f'{N_S} setlists', 'Free on iPhone and Android'], 'cream', 'c-hero-home')
     what = section('white', 'What Concerto does', 'Four features, all free.', rows([
