@@ -52,7 +52,7 @@ marketing standard (12:00, full signal, Wi-Fi, battery) and write compact WebP f
 `css/public-v6.css` is sized to that exact aspect ratio, so the whole screen is
 visible with nothing overlaid or cut off.
 
-Only `home`, `near-me`, and `venue` are real captures today. The AI Bag Check,
+Only `home`, `near-me`, and `venue` are real captures today. The Bag Check,
 bags, parking, rideshare, concessions, and Concerto+ pages fall back to the
 venue screen until a real capture is added with the matching name.
 

@@ -128,7 +128,7 @@ def header_html(path='/'):
 
 def footer_html():
     cols = [
-        ('Product', [('Features', '/features'), ('Your Night', '/features#your-night'), ('Concerto+', '/premium'), ('AI Bag Check', '/bagcheck'), ('Download', '/download')]),
+        ('Product', [('Features', '/features'), ('Your Night', '/features#your-night'), ('Concerto+', '/premium'), ('Bag Check', '/bagcheck'), ('Download', '/download')]),
         ('Guides', [('Venues', '/venues'), ('Tours', '/tours'), ('Setlists', '/setlists'), ('Bag policies', '/bags'), ('Parking', '/parking'), ('Near Me', '/near-me')]),
         ('Company', [('About', '/about'), ('From the Founder', '/founder'), ('Press', '/press'), ('Investors', '/investors'), ('Creators', '/creators'), ('Partners', '/partners'), ('Contact', '/contact')]),
         ('Support', [('Help Center', '/help'), ('FAQ', '/faq'), ('Blog', '/blog')]),

@@ -13,7 +13,7 @@ The website can be pushed now with its existing example images. Later, upload or
 | Concerto+ | night-plan.png | Concerto+ product section; ideally capture a completed Plan My Night timeline |
 | Your Night | your-night.png | Your Night overview |
 
-The first eight views are your requested set. Existing detail screenshots remain in the site for venue essentials, getting home, parking, and concessions; you do not need to replace those now. AI Bag Check remains text-only unless bag-check.png is supplied later.
+The first eight views are your requested set. Existing detail screenshots remain in the site for venue essentials, getting home, parking, and concessions; you do not need to replace those now. Bag Check remains text-only unless bag-check.png is supplied later.
 
 Use original full-resolution PNGs from the same iPhone and appearance. Set the location in Account first. Use the same tour, venue, and saved concert for related screens. Wait for data to load. No added device frame, backgrounds, captions, stitched screenshots, or private information.
 

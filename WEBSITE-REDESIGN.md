@@ -66,7 +66,7 @@ Keep the existing domain and Search Console property. A visual rebuild on these 
 
 The browser security policy blocked both local HTTP and self-contained preview URLs. No desktop/mobile rendered visual sign-off is claimed. Before publishing, review Home, Your Night, Concerto+, Partners, one category form, About, a venue, a tour/setlist, search, and help/legal at 1440, 1024, 768, 390, and 320 px. Check focus visibility, the mobile menu, all three walkthrough tabs, reduced-motion behavior, forms, and app links. Live form delivery, live Perks service, and App Store opening were not tested here.
 
-The eight requested captures are listed in `SCREENSHOT-REPLACEMENT-GUIDE.md`. Existing screenshots remain temporary. A real completed plan will replace the Your Night fallback on Concerto+; AI Bag Check will gain its screenshot automatically when supplied.
+The eight requested captures are listed in `SCREENSHOT-REPLACEMENT-GUIDE.md`. Existing screenshots remain temporary. A real completed plan will replace the Your Night fallback on Concerto+; Bag Check will gain its screenshot automatically when supplied.
 
 For the pre-existing partner approval/database setup, retain the instructions in `ALIGNED-RELEASE.md` and `supabase/README-partners.md`. This visual redesign does not apply that migration.
 

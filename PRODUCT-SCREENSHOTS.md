@@ -7,7 +7,7 @@ The public website uses real current app captures from `img/product/source/`. Ev
 - `home.png` — Homepage hero / saved-show context.
 - `premium.png` — Homepage Concerto+ section.
 - `near-me.png` — Near Me product page.
-- `bagcheck.png` — AI Bag Check page.
+- `bagcheck.png` — Bag Check page.
 - `bags.png` — Bag-policy page.
 - `parking.png` — Parking page.
 - `rideshare.png` — Rideshare page.

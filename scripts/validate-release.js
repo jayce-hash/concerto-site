@@ -33,7 +33,7 @@ ok(aasa.includes('/show/*'),'AASA must include /show/* for saved-show universal 
 const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
 for(const slug of ['creators','press','investors','contact']) ok(sitemap.includes(`https://concertocity.com/${slug}`),`sitemap missing /${slug}`);
 const publicText=companyPages.map(f=>fs.readFileSync(path.join(root,f),'utf8')).join('\n');
-for(const stale of ['Three things. AI Bag Check','Three tools. One night.','first plan free to preview','Concerto Premium']) ok(!publicText.includes(stale),`stale public product copy remains: ${stale}`);
+for(const stale of ['Three things. Bag Check','Three tools. One night.','first plan free to preview','Concerto Premium']) ok(!publicText.includes(stale),`stale public product copy remains: ${stale}`);
 ok(publicText.includes('From the Concert to the City&reg;') || publicText.includes('From the Concert to the City®'),'registered slogan missing from company pages');
 for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){ const html=fs.readFileSync(path.join(root,f),'utf8'); const n=(html.match(/<script src="\/?auth\.js"><\/script>/g)||[]).length; ok(n<=1,`${f} loads auth.js more than once`); }
 ok(fs.existsSync(path.join(root,'BRAND-LANGUAGE-2.5.md')),'2.5 brand language source of truth missing');

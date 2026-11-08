@@ -26,7 +26,7 @@
 
 Shipping in 2.5:
 - native notifications
-- camera and photo-library access for AI Bag Check
+- camera and photo-library access for Bag Check
 - location
 - native maps/rideshare handoff
 - haptics

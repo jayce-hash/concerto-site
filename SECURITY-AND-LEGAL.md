@@ -32,7 +32,7 @@
 ## Legal: have a lawyer review before or shortly after launch
 - Privacy Policy and Terms, including section 8. Ask specifically about: a state privacy rights
   section (California and other states), whether any analytics counts as "sharing," data retention
-  periods, and how AI Bag Check photos are handled. Update the effective date when approved.
+  periods, and how Bag Check photos are handled. Update the effective date when approved.
 - Photo rights. You need permission for every photo on the site and in the app. Confirm in writing
   where the venue exteriors in `img/cityguides/*/<Venue>.webp` (Kia Forum, Bridgestone Arena, Moody
   Center, TD Garden) came from; if you cannot, replace them with your own or licensed photos. The same

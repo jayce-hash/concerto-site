@@ -8,7 +8,7 @@
 
 **Your Night** is the show-specific experience opened from a saved-show countdown. Venue essentials, weather, setlist, nearby restaurants, hotels, things to do, getting there, and getting home live together on that page.
 
-**Concerto+** is the personalized concierge layer. Free Concerto tells the user what they need to know. Concerto+ helps decide what to do with it through Plan My Night, timing, AI Bag Check, and contextual alerts.
+**Concerto+** is the personalized concierge layer. Free Concerto tells the user what they need to know. Concerto+ helps decide what to do with it through Plan My Night, timing, Bag Check, and contextual alerts.
 
 ## 2.5 App Store metadata
 
@@ -22,7 +22,7 @@ Concerto 2.5 brings your whole concert night together.
 
 - Tap your saved-show countdown to open Your Night.
 - See venue essentials, weather, setlists, nearby restaurants, hotels, things to do, getting there, and getting home in one place.
-- Concerto+ now fits naturally into each saved show with personalized planning, timing, AI Bag Check, and contextual alerts.
+- Concerto+ now fits naturally into each saved show with personalized planning, timing, Bag Check, and contextual alerts.
 - Manage favorite artists, tours, and venues from Account.
 - Follow Concerto on Instagram, TikTok, and YouTube from the app.
 - Includes major reliability, offline-data, subscription, notification, and account-sync improvements.
@@ -63,7 +63,7 @@ Concerto 2.5 brings your whole concert night together.
 - Restore Purchases works.
 - RevenueCat webhook updates `profiles.is_premium`.
 - Plan My Night opens from a saved show with show context prefilled.
-- AI Bag Check uses the selected venue policy and reports a clear result.
+- Bag Check uses the selected venue policy and reports a clear result.
 - Notification switches cancel/reconcile scheduled notifications correctly.
 - Sign out clears account-specific local state.
 - Instagram, TikTok, and YouTube open from Account.

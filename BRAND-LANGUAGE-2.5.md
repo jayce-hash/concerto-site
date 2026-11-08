@@ -52,7 +52,7 @@ Product boundary:
 - Free tells the fan what is true and what is nearby.
 - Concerto+ tells the fan what to do with it.
 
-Concerto+ can include personalized planning, timing, contextual alerts, AI Bag Check, weather-aware recommendations, getting-home planning, and future partner benefits.
+Concerto+ can include personalized planning, timing, contextual alerts, Bag Check, weather-aware recommendations, getting-home planning, and future partner benefits.
 
 Do not define Concerto+ as only "three features." Individual benefits can evolve without changing what the membership means.
 
@@ -63,7 +63,7 @@ Plan My Night is an action inside Concerto+, not the identity of the membership.
 Preferred description:
 "Build a personalized timeline around your saved show, including where to go, when to leave, when to arrive, and how to get home."
 
-## AI Bag Check
+## Bag Check
 
 Preferred description:
 "Photograph the bag you are bringing and Concerto checks it against the venue's posted bag policy before you leave."
