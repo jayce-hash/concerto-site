@@ -2608,6 +2608,7 @@ h1,h2{font-weight:700}
 .v8 .c-fx-num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:700;font-size:16px}
 .v8 .c-fx-steps{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:clamp(28px,6vw,96px)}
 .v8 .c-fx-step{text-align:center}
+.v8 .c-fx-steps-3{grid-template-columns:repeat(3,minmax(0,280px));gap:clamp(24px,4vw,64px)}
 .v8 .c-fx-step .c-fx-shot{margin-bottom:24px}
 .v8 .c-fx-step h3,.v8 .c-fx-nhead h3{font-family:var(--display);font-weight:500;font-size:clamp(24px,2.2vw,30px);line-height:1.15;color:var(--navy);margin:12px 0 8px}
 .v8 .c-fx-step p,.v8 .c-fx-nhead p{font-size:16px;line-height:1.55;color:var(--muted,#5B6477);margin:0 auto;max-width:30ch}
@@ -2655,6 +2656,9 @@ h1,h2{font-weight:700}
   .v8 .c-fx-tablist label{padding:10px 15px;font-size:14px}
   .v8 .c-fx-pair .c-fx-shot:nth-child(2){margin-top:28px}
   .v8 .c-fx-plusgrid{grid-template-columns:1fr}
+  .v8 .c-fx-steps-3{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:64%;justify-content:start;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 8px;scrollbar-width:none}
+  .v8 .c-fx-steps-3::-webkit-scrollbar{display:none}
+  .v8 .c-fx-steps-3 .c-fx-step{scroll-snap-align:center}
 }
 
 /* Centered heroes (Nov 2026): every page except the Tours and Venues guides (hubs and guide pages)
@@ -2689,6 +2693,7 @@ h1,h2{font-weight:700}
 @media (max-width:560px){.v8 .c-page:has(.c-hero-home) .c-rows{grid-template-columns:1fr}}
 
 .v8 .c-fx-step .c-fx-shot{aspect-ratio:603/972;object-fit:cover;object-position:top}
+.v8 .c-fx-steps-3 .c-fx-step .c-fx-shot{aspect-ratio:603/1206}
 @media (max-width:860px){.v8 .c-fx-ptext{order:-1;margin-bottom:8px}}
 
 /* Features: Your Night as one page. A pinned phone whose screen moves with the captions (desktop). */

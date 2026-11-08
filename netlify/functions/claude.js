@@ -121,7 +121,7 @@ exports.handler = async function (event) {
       .from('profiles').select('is_premium').eq('id', user.id).single();
     let allowed = Boolean(profile?.is_premium);
     if (!allowed) {
-      // A Show Pass unlocks everything for one show, AI Bag Check and Smart Planner included.
+      // A Show Pass unlocks everything for one show, AI Bag Check and Plan it for me included.
       try {
         const { data: pass } = await supabase.from('show_passes').select('until').eq('user_id', user.id)
           .gt('until', new Date().toISOString()).limit(1);

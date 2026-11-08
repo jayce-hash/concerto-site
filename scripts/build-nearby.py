@@ -9,7 +9,7 @@ Three tabs, like the existing files: Restaurants, Hotels, More (bars and cafes).
 What a fan would actually pick, not just what's closest: Google ranks by popularity within about
 a mile, then Concerto drops convenience stores, grocery stores, gas stations and other places
 that aren't somewhere you'd plan a night around, and anything with too few or too low reviews.
-The best of what's left comes first, with closer places breaking ties. Smart Planner reads
+The best of what's left comes first, with closer places breaking ties. Plan Your Night reads
 these lists, so their quality is the planner's quality.
 
 Google's terms allow keeping place IDs indefinitely but other Places content only temporarily,
