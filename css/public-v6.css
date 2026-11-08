@@ -2739,3 +2739,19 @@ h1,h2{font-weight:700}
 .v8 .cx-faq-row p{margin:0;font-size:15px;line-height:1.55;color:var(--muted,#5B6477);text-wrap:pretty}
 .v8 .cx-faq>.cx-note{margin:10px 0 0;text-wrap:balance}
 @media (max-width:720px){.v8 .cx-faq{padding:18px}}
+
+
+/* A night shared from the app (/night) */
+.v8 .c-night{padding:56px 0 64px}
+.v8 .c-night h1{margin:6px 0 0;font-family:var(--display,'Playfair Display',serif);font-weight:500;font-size:clamp(36px,6vw,52px);line-height:1.05;color:var(--navy,#121E36);text-wrap:balance}
+.v8 .c-night .c-lead{margin-top:8px}
+.v8 .c-night-list{list-style:none;margin:28px 0 0;padding:0}
+.v8 .c-night-list li{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:0 0 18px;position:relative}
+.v8 .c-night-list li::before{content:"";position:absolute;left:84px;top:6px;bottom:0;width:2px;background:rgba(201,168,76,.4)}
+.v8 .c-night-list li:last-child::before{display:none}
+.v8 .c-night-time{text-align:right;font-family:var(--display,'Playfair Display',serif);font-style:italic;font-size:16px;color:#8A6D1F;padding-right:14px}
+.v8 .c-night-list h2{margin:0;font-family:var(--body,'DM Sans',system-ui,sans-serif);font-size:17px;line-height:1.35;font-weight:700;color:var(--navy,#121E36);padding-left:10px;text-wrap:pretty}
+.v8 .c-night-list p{margin:3px 0 0;font-size:15px;line-height:1.5;color:var(--muted,#5B6477);padding-left:10px;text-wrap:pretty}
+.v8 .c-night-actions{margin-top:20px}
+.v8 .c-night-note{margin-top:14px;font-size:14px;color:var(--muted,#5B6477)}
+.v8 .c-night-empty{margin-top:20px;font-size:16px}

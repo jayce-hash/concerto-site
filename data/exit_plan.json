@@ -854,5 +854,22 @@
    "source": "https://www.scotiabankarena.com/arena-info/getting-here"
   },
   "checked": "2026-11-05"
+ },
+ "intuit-dome": {
+  "pickup": {
+   "name": "Mobility Hub",
+   "where": "First level of the East Garage. The only rideshare pickup and drop-off at Intuit Dome.",
+   "address": "3700 W Century Blvd, Inglewood, CA",
+   "source": "https://www.intuitdome.com/about/faq"
+  },
+  "parking": {
+   "lots": [
+    "VIP West Garage",
+    "Standard East Garage",
+    "Players' Garage"
+   ],
+   "source": "https://intuitdome.com/plan-your-visit/parking-information"
+  },
+  "checked": "2026-10-16"
  }
 }

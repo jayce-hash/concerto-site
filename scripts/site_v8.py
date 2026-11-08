@@ -75,11 +75,11 @@ def close(title='See you at the show.', ct='website-close', fine='Free on iPhone
 def testimonials():
     """Real fans only, with their OK: data/testimonials.json is a list of
     {"quote": "...", "name": "First name", "context": "Saw X at Y", "instagram": "handle"}.
-    Nothing renders until the file has at least one entry."""
+    The section stays hidden until there are at least two, so one quote never stands alone."""
     try: items = json.loads((ROOT / 'data/testimonials.json').read_text())
     except Exception: items = []
     items = [t for t in items if t.get('quote') and t.get('name')]
-    if not items: return ''
+    if len(items) < 2: return ''
     def card(t):
         ig = (t.get('instagram') or '').lstrip('@').strip()
         who = e(t['name']) + (f' · <a href="https://www.instagram.com/{e(ig)}/" target="_blank" rel="noopener">@{e(ig)}</a>' if ig else '')
@@ -1529,9 +1529,28 @@ def build():
         rewrite('partners-thank-you.html', simple('Inquiry received', 'Thank you for<br>reaching out.', 'Concerto will review the fit and contact you at the email you provided if there is a next step. This does not activate a partnership or publish an offer.', '<a class="c-link" href="/partners">Back to Partners</a>'))
     if (ROOT / 'contact-thank-you.html').exists():
         rewrite('contact-thank-you.html', simple('Message received', 'We have it.', 'Thanks for reaching out to Concerto. Your message is in the right place, and we will route it from the details you provided.', '<a class="c-link" href="/">Back to Concerto</a><a class="c-link" href="/about">About the company</a>'))
+    ensure_page('night.html', 'A Night Planned with Concerto', 'A concert night planned in Concerto: dinner, doors, the show and the ride home, in one timeline.', '/night')
+    _n = (ROOT / 'night.html').read_text()
+    (ROOT / 'night.html').write_text(_n.replace('index,follow,max-image-preview:large', 'noindex,follow'))
+    rewrite('night.html', night_page())
     rewrite('404.html', simple('Error 404', 'This page left<br>before the encore.', f'The page you are looking for does not exist or has moved. Everything else is still here, including guides for {V_COPY} venues worldwide.', '<a class="c-btn c-btn-navy" href="/">Back to Concerto</a><a class="c-link" href="/venues">Venue guides</a><a class="c-link" href="/search">Search</a>'))
     print(f'V8.1 site written: {N_V} venues, {N_T} tours, {len(LIVE)} setlists, and every company, partner, support, and legal page')
 
+
+
+def night_page():
+    """A night shared from the app. The plan travels inside the link (#...), so nothing is stored
+    anywhere and there is nothing to index; js/night.js reads it and fills this page in. Never a
+    seat or a ticket: the app leaves those out of the link."""
+    return ('<main id="main-content" class="c-page">'
+            '<section class="c-night" aria-live="polite"><div class="c-wrap c-narrow">'
+            '<p class="c-eyebrow" id="n-eyebrow">A night planned with Concerto</p>'
+            '<h1 id="n-artist">Your night</h1><p class="c-lead" id="n-when"></p>'
+            '<ol class="c-night-list" id="n-stops"></ol>'
+            '<p class="c-night-empty" id="n-empty" hidden>This link is missing its plan. Ask for it again, or plan your own night in Concerto.</p>'
+            '<div class="c-actions c-night-actions">' + store_button('website-night') + '<a class="c-link" href="/features#your-night">How Your Night works</a></div>'
+            '<p class="c-night-note">Seats and tickets stay private to the person who shared this.</p>'
+            '</div></section></main><script src="/js/night.js" defer></script>')
 
 
 def set_head(rel, title, desc, offers=None):

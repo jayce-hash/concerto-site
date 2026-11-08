@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 START='# ── BEGIN generated: .html -> canonical (scripts/build-redirects.py) ──'
 END='# ── END generated ──'
-NOINDEX_UTILITY={'account','plan','settings','search','404','partners-thank-you','contact-thank-you'}
+NOINDEX_UTILITY={'account','plan','settings','search','404','partners-thank-you','contact-thank-you','night'}
 # Pages folded into another page (Nov 2026): the old URL and its .html form go to the new home.
 RETIRED={'your-night':'/features'}
 lines=['/index.html / 301!']+[r for k,v in RETIRED.items() for r in (f'/{k} {v} 301!',f'/{k}.html {v} 301!',f'/{k}/ {v} 301!')]
