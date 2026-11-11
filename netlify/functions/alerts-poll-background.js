@@ -12,6 +12,11 @@
 //   A. New tour dates for artists a premium user follows
 //   B. Presale/onsale timing for shows a premium user already saved
 //
+// And one pass that is free for everyone, because it is the difference between a saved show
+// being right and being wrong:
+//
+//   C. A saved show changed: new time, new date, postponed, or cancelled
+//
 // Runs on a schedule (netlify.toml, every 6 hours, not an in-file
 // config export -- this function uses the classic exports.handler
 // style, and Netlify's schedule-via-config only works for the newer
@@ -109,6 +114,58 @@ function savedEventTime(raw) {
   return new Date(raw).getTime();
 }
 
+// ---- Pass C helpers: what Ticketmaster says now, against what a fan saved ----
+function timeLabel(localTime) {
+  if (!localTime) return '';
+  const [h, m] = localTime.split(':').map(Number);
+  if (!Number.isFinite(h) || !Number.isFinite(m)) return '';
+  return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h >= 12 ? 'PM' : 'AM'}`;
+}
+function liveShow(tmEvent) {
+  const st = tmEvent?.dates?.start || {};
+  const code = String(tmEvent?.dates?.status?.code || '').toLowerCase();
+  const hour = st.localTime ? Number(st.localTime.split(':')[0]) : NaN;
+  // Same rule as the app: a flagged TBA, or a placeholder time before 6 AM, is no time at all.
+  const noTime = Boolean(st.timeTBA || st.noSpecificTime || st.dateTBA || st.dateTBD) || !st.localTime || (Number.isFinite(hour) && hour < 6);
+  return {
+    status: code === 'cancelled' || code === 'canceled' ? 'cancelled' : code === 'postponed' ? 'postponed' : 'on',
+    day: st.localDate || '',
+    time: noTime ? '' : timeLabel(st.localTime),
+    timezone: tmEvent?.dates?.timezone || '',
+  };
+}
+function savedDay(saved, timezone) {
+  const raw = String(saved?.date || '');
+  if (!/[zZ]$|[+-]\d{2}:\d{2}$/.test(raw)) return raw.slice(0, 10); // already a local date
+  try { return new Intl.DateTimeFormat('en-CA', { timeZone: timezone || saved.timezone || 'UTC', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(raw)); }
+  catch { return raw.slice(0, 10); }
+}
+function dayWords(day) {
+  try { return new Date(`${day}T12:00:00Z`).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' }); }
+  catch { return day; }
+}
+// Returns null when the saved copy is still right. A time that was simply announced (the saved
+// copy had none) is not a change worth an alert; the app fills it in quietly.
+function describeChange(saved, live) {
+  if (live.status === 'cancelled') {
+    if (saved.status === 'cancelled') return null;
+    return { key: 'changed:cancelled', title: 'cancelled', body: () => 'Ticketmaster now lists this show as cancelled. Check with your ticket seller about refunds.' };
+  }
+  if (live.status === 'postponed') {
+    if (saved.status === 'postponed') return null;
+    return { key: 'changed:postponed', title: 'postponed', body: () => 'Ticketmaster now lists this show as postponed. Your Night updates when a new date is set.' };
+  }
+  const was = savedDay(saved, live.timezone);
+  if (live.day && was && live.day !== was) {
+    return { key: `changed:date:${live.day}`, title: 'new date', body: (venue) => `Now ${dayWords(live.day)}${live.time ? ` at ${live.time}` : ''} at ${venue}. It was ${dayWords(was)}.` };
+  }
+  const savedTime = saved.timeTBA ? '' : String(saved.doors || '');
+  if (live.time && savedTime && live.time !== savedTime) {
+    return { key: `changed:time:${live.day}:${live.time}`, title: 'new show time', body: (venue) => `Now ${live.time} at ${venue}. It was ${savedTime}. Your Night has the new times.` };
+  }
+  return null;
+}
+
 function eventDoorsLine(tmEvent) {
   const venue = tmEvent._embedded?.venues?.[0];
   const name = tmEvent.name || 'A show';
@@ -136,9 +193,11 @@ async function sendPush(tokens, title, body, url) {
   return { sent, dryRun: false, recipients: tokens.length };
 }
 
+exports._test = { liveShow, describeChange, savedDay };
+
 exports.handler = async function () {
   const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
-  const summary = { dryRun: DRY_RUN, newTourDates: 0, presaleAlerts: 0, staleArtists: [], errors: [] };
+  const summary = { dryRun: DRY_RUN, newTourDates: 0, presaleAlerts: 0, showChanges: 0, staleArtists: [], errors: [] };
 
   // Only premium users with the onsale toggle on (or unset, which
   // defaults true) count for either pass. A user who has never
@@ -303,6 +362,62 @@ exports.handler = async function () {
         summary.errors.push(`event:${event.id}:${String(e).slice(0, 120)}`);
       }
     }
+  }
+
+  // ---- Pass C: a saved show changed (free, every signed-in fan) --------
+  // Shows in the next 60 days are looked up once each per run and compared with the copy
+  // each fan saved. A fan is told once per change: the log key carries what changed, so the
+  // same new time is never announced twice, but a second change still gets through.
+  try {
+    const { data: everyone, error: allErr } = await supabase
+      .from('profiles')
+      .select('id, saved_events, notif_prefs');
+    if (allErr) throw allErr;
+    const watchers = (everyone || []).filter((p) => p.notif_prefs?.showDay !== false && Array.isArray(p.saved_events) && p.saved_events.length);
+    const horizon = Date.now() + 60 * 86400000;
+    const byEvent = new Map(); // event id -> [{ userId, saved }]
+    for (const p of watchers) {
+      for (const e of p.saved_events) {
+        const t = savedEventTime(e?.date);
+        if (!e?.id || !Number.isFinite(t) || t < Date.now() || t > horizon) continue;
+        if (!byEvent.has(e.id)) byEvent.set(e.id, []);
+        byEvent.get(e.id).push({ userId: p.id, saved: e });
+      }
+    }
+    await inBatches([...byEvent.keys()], 5, async (eventId) => {
+      try {
+        const tmEvent = await tmGetEvent(eventId);
+        if (!tmEvent) return;
+        const live = liveShow(tmEvent);
+        const changed = byEvent.get(eventId)
+          .map((o) => ({ ...o, change: describeChange(o.saved, live) }))
+          .filter((o) => o.change);
+        if (!changed.length) return;
+        // One announcement per distinct change, to the fans whose saved copy is out of date.
+        const groups = new Map();
+        for (const o of changed) {
+          if (!groups.has(o.change.key)) groups.set(o.change.key, { change: o.change, users: [], saved: o.saved });
+          groups.get(o.change.key).users.push(o.userId);
+        }
+        for (const { change, users, saved } of groups.values()) {
+          if (!DRY_RUN) {
+            const { error: logErr } = await supabase
+              .from('show_change_log')
+              .insert({ event_id: eventId, change_key: change.key });
+            if (logErr) continue; // already announced (or the log table isn't there yet: stay quiet)
+          }
+          const { data: tokenRows } = await supabase.from('push_tokens').select('token').in('user_id', users);
+          const tokens = (tokenRows ?? []).map((r) => r.token).filter((t) => t && /^(ExponentPushToken|ExpoPushToken)/.test(t));
+          const who = (saved.lineup && saved.lineup[0]) || saved.name || 'Your show';
+          await sendPush(tokens, `${who}: ${change.title}`, change.body(saved.venueName || 'the venue'), `/show/${encodeURIComponent(eventId)}`);
+          summary.showChanges += 1;
+        }
+      } catch (e) {
+        summary.errors.push(`change:${eventId}:${String(e).slice(0, 120)}`);
+      }
+    });
+  } catch (e) {
+    summary.errors.push(`changes:${String(e).slice(0, 120)}`);
   }
 
   // ---- Zero-results check: tours that have quietly ended ------------

@@ -241,7 +241,7 @@ def features():
                 '<p class="c-lead">Free on iPhone and Android, no account needed to browse.</p></div>' + rows_ + '</div></section>')
     tools = [('plus-planner', 'Plan it for me', 'Concerto plans the whole night in order: dinner, doors, your seat and the ride home.'),
              ('plus-bag', 'Bag Check', 'Take a photo of your bag and know before you leave if the venue allows it.'),
-             ('plus-exit', 'Exit Plan', 'When to move, your way out and where to meet your ride, built from your seat.')]
+             ('plus-exit', 'Exit Plan', 'When to move, your way out and where to meet your ride, from the venue’s own guidance.')]
     tool_cards = ''.join(f'<li>{shot(k, "Concerto+ " + t)}<h3><span>Concerto+</span> {e(t)}</h3><p>{e(d)}</p></li>' for k, t, d in tools)
     plus_sec = ('<section class="c-section c-navy c-fx-plusband" id="plus" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Concerto+')
                 + '<h2 class="c-h2">Three Tools for the Night</h2>'
@@ -1060,7 +1060,7 @@ def your_night():
              ['Free in Concerto', 'Asked once, edit anytime', 'Dinner to the ride home, in order'], 'navy')
     setup = rows([('Your ticket', 'A screenshot fills in your seat. Or type it.', ''),
                   ('Getting there', 'Driving, rideshare, transit, or walking, with the venue’s own pickup spot or garages.', ''),
-                  ('Dinner, your bag, the way home', 'Pick a place nearby, check your bag against the rule, and say how you’re heading home. Skip anything.', '')])
+                  ('Dinner, your bag, the way home', 'Pick a place nearby or add your own, with a time if you have a reservation. Check your bag against the rule, and say how you’re heading home. Skip anything.', '')])
     night = rows([('5:45 PM · Dinner nearby', 'When to leave and the walk to the venue. Tap for directions.', ''),
                   ('6:30 PM · Doors open', 'Your bag against the rule, and the entrances.', ''),
                   ('Your seat', 'Section, row, and seat. One tap opens your ticket.', ''),
@@ -1076,8 +1076,8 @@ def your_night():
     ask = section('white', 'Concerto AI', 'Ask anything about your show.',
                   '<p class="c-body">Every Your Night page has its own question bar. Concerto AI already knows the venue and the artist, so “Can I bring a portable charger?” gets an answer for your show, from the venue’s own rules.</p>', narrow=True)
     free = ['Your Night for every show you save', 'Restaurants, hotels, and things to do near the venue', 'The setlist, weather, directions, parking, and rideshare',
-            'Your bag, checked against the venue’s rule', 'Show-day alerts, and concerts near you each Friday', 'Your memory card and Passport', '3 Concerto AI answers a day']
-    paid = ['Plan it for me', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: Time to Head Out, Exit Plan, and presales']
+            'Your bag, checked against the venue’s rule', 'Show-day alerts, a notice if your show changes, and concerts near you each Friday', 'Your memory card and Passport', '3 Concerto AI answers a day']
+    paid = ['Plan it for me', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: your Exit Plan, new dates, and presales']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div class="c-compare-plus"><h3>Concerto+</h3><ul>'
             + ''.join(f'<li>{e(x)}</li>' for x in paid) + f'</ul><p class="c-body">{e(PLUS_PRICE_LINE)}</p><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return ('<main id="main-content" class="c-page">' + h + section('cream', 'Plan your night', 'Five quick questions, asked once.', setup) + tabs_sec + memory + ask
@@ -1088,11 +1088,11 @@ def premium():
              'Three tools for the parts of the night that take the most planning: Plan it for me for the evening, Bag Check for your bag, and Exit Plan for the way out. A Show Pass unlocks all three for one show.',
              store_button('website-premium') + '<a class="c-link" href="#pricing">See pricing</a>',
              [f'{PLUS_YEAR} a year', f'{PLUS_PASS} Show Pass for one show', 'Billed through the App Store'], 'gold')
-    feats = rows([('Exit Plan', 'The fastest way out of the venue and the best place to get picked up, so the night doesn’t end in a crowd at the curb.', ''),
+    feats = rows([('Exit Plan', 'When to head out, your way out, and where to meet your ride or find your car, drawn from the venue’s official guidance.', ''),
                   ('Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. It shows the rule it used, and the venue still makes the final call.', ''),
-                  ('Plan it for me', 'Concerto plans the whole night: dinner nearby, when to leave, your seat, the show and the ride home, timed to the venue’s doors.', ''),
+                  ('Plan it for me', 'Concerto picks how to get there and where to eat near the venue, gives a reason for each pick, and lays out the night in order around the venue’s doors. Swap any pick.', ''),
                   ('More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
-                  ('More alerts', 'Time to Head Out, two hours before the show, and your Exit Plan near the end of the night, plus new dates and presales for the artists you follow. The show-day alert, the memory card reminder, and This Weekend stay free.', '')])
+                  ('More alerts', 'Your Exit Plan near the end of the night, plus new dates and presales for the artists you follow. The show-day alert, Time to Head Out, the memory card reminder, and This Weekend stay free.', '')])
     def pshot(k, alt):
         return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="1305" alt="{e(alt)}" loading="lazy">'
     where = ('<section class="c-section c-navy c-fx-plusband" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Where it lives')
@@ -1100,7 +1100,7 @@ def premium():
              + '<ul class="c-fx-tools">'
              + f'<li>{pshot("plus-planner", "Concerto+ Plan it for me")}<h3><span>Concerto+</span> Plan it for me</h3><p>Concerto plans the whole night in order: dinner, doors, your seat and the ride home.</p></li>'
              + f'<li>{pshot("plus-bag", "Concerto+ Bag Check")}<h3><span>Concerto+</span> Bag Check</h3><p>Take a photo of your bag and know before you leave if the venue allows it.</p></li>'
-             + f'<li>{pshot("plus-exit", "Concerto+ Exit Plan")}<h3><span>Concerto+</span> Exit Plan</h3><p>When to move, your way out and where to meet your ride, built from your seat.</p></li>'
+             + f'<li>{pshot("plus-exit", "Concerto+ Exit Plan")}<h3><span>Concerto+</span> Exit Plan</h3><p>When to move, your way out and where to meet your ride, from the venue’s own guidance.</p></li>'
              + '</ul><div class="c-fx-add c-fx-add-dark">' + pshot('plus-locked', 'A Bag Check example in Your Night before buying')
              + '<div class="c-fx-ptext"><p class="c-eyebrow">See it before you buy</p><h3>An Example of Each</h3><p>Without Concerto+, each tool shows an example of what it does, with Show Pass one tap away. With it, each one opens from your next show’s card on Home.</p></div></div></div></section>')
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +

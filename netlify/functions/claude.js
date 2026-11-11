@@ -5,7 +5,7 @@
 // AUTH MODEL:
 //   - PUBLIC (no login):  tm_venue_events  → powers the public venue pages' "Upcoming Events"
 //   - LOGGED IN required: ticketmaster, geocode, places_nearby
-//   - PREMIUM required:   claude, bag_check
+//   - PREMIUM required:   claude, bag_check, exit_plan, plan_night
 //
 // HARDENING:
 //   - Anthropic/Google/Ticketmaster keys live only in env vars (never in the client)
@@ -17,6 +17,19 @@
 const { createClient } = require('@supabase/supabase-js');
 const venueInfo = require('../../data/venue_info.json');
 const { tmFetch } = require('./lib/tm-cache');
+const fs = require('fs');
+const path = require('path');
+
+// Verified pickup zones, exits, lots and transit (data/exit_plan.json, listed in netlify.toml's
+// included_files). Read once per warm function; a missing file just means no extra facts.
+let exitPlanData = null;
+function exitFacts(slug) {
+  if (exitPlanData === null) {
+    try { exitPlanData = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'exit_plan.json'), 'utf8')); }
+    catch (_) { exitPlanData = {}; }
+  }
+  return exitPlanData[String(slug)] || null;
+}
 
 const ALLOWED_ORIGINS = [
   'https://concertocity.com',
@@ -28,7 +41,7 @@ const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
 const MAX_TOKENS_CAP = 4096;
 
 const PUBLIC_SERVICES  = new Set(['tm_venue_events']);
-const PREMIUM_SERVICES = new Set(['claude', 'bag_check', 'exit_plan']);
+const PREMIUM_SERVICES = new Set(['claude', 'bag_check', 'exit_plan', 'plan_night']);
 const TM = 'https://app.ticketmaster.com/discovery/v2';
 
 function corsHeaders(origin) {
@@ -251,6 +264,98 @@ Give 3 or 4 steps in order: when to move, which way out, where to go, and a back
         return { statusCode: 200, headers, body: JSON.stringify({ headline: String(r.headline || '').slice(0, 200), steps, pickup: String(r.pickup || '').slice(0, 300) }) };
       } catch (_) {
         return { statusCode: 500, headers, body: JSON.stringify({ error: 'Could not make the plan' }) };
+      }
+    }
+
+    // ── Plan it for me (Concerto+) ──
+    // Chooses how to get there and where to eat for one fan's night, with a short reason for
+    // each choice. The venue's facts are server-owned. The places to choose from are the ones
+    // the app already shows the fan near this venue; the answer may only pick from that list,
+    // and every pick is checked against it before it goes back. Nothing here is a reservation.
+    if (service === 'plan_night') {
+      const { venueSlug } = body;
+      const v = venueSlug ? venueInfo[String(venueSlug)] : null;
+      if (!v) return { statusCode: 404, headers, body: JSON.stringify({ error: 'Venue not found' }) };
+      const str = (x, n) => String(x == null ? '' : x).replace(/[\r\n\t]+/g, ' ').replace(/[<>{}`]/g, '').trim().slice(0, n);
+      const clean = (x) => String(x || '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').slice(0, 500);
+      const sec = (k) => v[k] ? [v[k].summary, v[k].note, (v[k].lots || []).join('; ')].filter(Boolean).map(clean).join(' ') : '';
+      const TRAVEL = ['rideshare', 'drive', 'transit', 'walk'];
+      const places = (Array.isArray(body.restaurants) ? body.restaurants : []).slice(0, 12).map((p, i) => ({
+        ref: `R${i + 1}`,
+        id: str(p && p.id, 120),
+        name: str(p && p.name, 80),
+        types: (Array.isArray(p && p.types) ? p.types : []).slice(0, 4).map((t) => str(t, 30)).filter(Boolean),
+        price: str(p && p.price, 8),
+        rating: Number(p && p.rating) > 0 && Number(p.rating) <= 5 ? Number(p.rating) : null,
+        reviews: Number(p && p.reviews) > 0 ? Math.round(Number(p.reviews)) : null,
+        miles: Number.isFinite(Number(p && p.distance_mi)) ? Number(p.distance_mi) : null,
+        partner: Boolean(p && p.partner),
+      })).filter((p) => p.id && p.name);
+      const show = body.show && typeof body.show === 'object' ? body.show : {};
+      const fan = body.fan && typeof body.fan === 'object' ? body.fan : {};
+      const chosenTravel = TRAVEL.includes(fan.travel) ? fan.travel : '';
+      const usualTravel = TRAVEL.includes(fan.usualTravel) ? fan.usualTravel : '';
+      const w = body.weather && typeof body.weather === 'object' ? body.weather : null;
+      const weather = w && Number.isFinite(Number(w.highF)) ? `High ${Math.round(Number(w.highF))}F, ${str(w.label, 30) || 'no description'}${Number(w.precipPercent) >= 20 ? `, ${Math.round(Number(w.precipPercent))}% chance of rain` : ''}` : 'no forecast yet';
+      const ex = exitFacts(venueSlug);
+      const pickup = ex && ex.pickup && !ex.pickup.noZone ? [ex.pickup.name, ex.pickup.where].filter(Boolean).map(clean).join(': ') : '';
+      const transit = ex && ex.transit && ex.transit.text ? clean(ex.transit.text) : '';
+      const placeLines = places.map((p) => `${p.ref} | ${p.name} | ${p.types.join(', ') || 'restaurant'} | ${p.price || 'price unknown'} | ${p.rating ? `${p.rating} stars (${p.reviews || '?'} reviews)` : 'no rating'} | ${p.miles != null ? `${p.miles} mi from the venue` : 'distance unknown'}${p.partner ? ' | Concerto Partner' : ''}`).join('\n');
+      const prompt = `You are Concerto's "Plan it for me". Plan one fan's concert night at ${v.name} (${v.city}${v.state ? ', ' + v.state : ''}).
+
+THE SHOW
+Artist: ${str(show.artist, 80) || 'unknown'}
+Show time: ${str(show.showTime, 20) || 'not announced'}
+Doors: ${str(show.doorsTime, 20) || 'not posted'}${show.doorsEstimated ? ' (an estimate, not posted by the venue)' : ''}
+Weather on the day: ${weather}
+
+THE FAN
+Getting there: ${chosenTravel ? `${chosenTravel} (already chosen, keep it)` : usualTravel ? `not chosen yet; last time they chose ${usualTravel}` : 'not chosen yet'}
+Bag: ${str(fan.bag, 20) || 'not chosen yet'}
+
+THE VENUE (the only venue facts you may use)
+Rideshare: ${sec('rideshare') || 'nothing published'}${pickup ? ` Official pickup: ${pickup}` : ''}
+Parking: ${sec('parking') || 'nothing published'}
+Transit: ${transit || 'nothing verified'}
+Entrances: ${sec('gates') || 'nothing published'}
+Bag rule: ${sec('bagPolicy') || 'nothing published'}
+
+PLACES TO EAT NEAR THE VENUE (the only places you may pick)
+${placeLines || 'none'}
+
+RULES
+- Pick dinner only from the list, by its ref (R1, R2...). If the list is empty, dinner is null.
+- Prefer a short walk to the venue. Between similar options prefer the better rated one. If a Concerto Partner is a reasonable fit, pick it first.
+- You know nothing about opening hours, menus, wait times, or reservations. Never state or imply them.
+- Each "why" is one plain sentence, 14 words or fewer, using only the facts above (distance, type, price, rating, weather, venue guidance).
+- If the fan already chose how they are getting there, keep it. Otherwise choose the option the venue's guidance supports best, and say why in one sentence.
+- "tips": up to 3 short, specific notes for this night drawn only from the facts above (weather, the bag rule, parking, entrances, timing against doors). No generic advice. Leave it empty if there is nothing specific to say.
+- No slogans, no exclamation marks, no dashes.
+
+Respond ONLY with valid JSON, no markdown:
+{"travel":"rideshare"|"drive"|"transit"|"walk","travelWhy":"","dinner":{"ref":"R1","why":""}|null,"alternates":[{"ref":"R2","why":""}],"tips":[""]}
+"alternates" holds up to 2 other good picks from the list, different from dinner.`;
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+        body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 700, messages: [{ role: 'user', content: prompt }] }),
+      });
+      const data = await response.json();
+      const text = (data?.content?.[0]?.text || '').trim().replace(/```json|```/g, '').trim();
+      try {
+        const r = JSON.parse(text);
+        const line = (x, n) => String(x || '').replace(/\s+/g, ' ').replace(/[—–]/g, ',').trim().slice(0, n);
+        const byRef = new Map(places.map((p) => [p.ref, p]));
+        const pick = (x) => { const p = x && byRef.get(String(x.ref || '').toUpperCase()); return p ? { id: p.id, why: line(x.why, 140) } : null; };
+        const dinner = pick(r.dinner);
+        const seen = new Set(dinner ? [dinner.id] : []);
+        const alternates = (Array.isArray(r.alternates) ? r.alternates : []).map(pick)
+          .filter((a) => a && !seen.has(a.id) && seen.add(a.id)).slice(0, 2);
+        const travel = chosenTravel || (TRAVEL.includes(r.travel) ? r.travel : usualTravel || 'rideshare');
+        const tips = (Array.isArray(r.tips) ? r.tips : []).map((t) => line(t, 170)).filter(Boolean).slice(0, 3);
+        return { statusCode: 200, headers, body: JSON.stringify({ travel, travelWhy: line(r.travelWhy, 160), dinner, alternates, tips }) };
+      } catch (_) {
+        return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not make the plan' }) };
       }
     }
 
