@@ -212,11 +212,11 @@ def features():
         + '<li class="c-fx-step">' + shot('tour', 'Olivia Rodrigo’s tour page in Concerto with dates to save', True)
         + '<span class="c-fx-num">2</span><h3>Save It</h3><p>Tap your show, or the bookmark on your date, and sign in. Your Night is ready for that show.</p></li>')
     # 3. Plan your night: a few quick questions (or Concerto+ plans it), then the night in order.
-    plan_steps = [('pyn-start', 'Plan your night in Concerto', 'Plan It or Pick', 'Tap Plan my night on your show. Pick each part yourself, free, or let Concerto+ plan it for you.'),
-                  ('pyn-question', 'Choosing how you’re getting there', 'Five Quick Questions', 'Your ticket, getting there, food, your bag and the way home. Skip anything.'),
+    plan_steps = [('pyn-start', 'Your Night right after saving a show', 'Laid Out When You Save', 'Save a show and your night is already in order: doors, the show and the way home.'),
+                  ('pyn-question', 'An open spot in Your Night, answered in one tap', 'Fill the Open Spots', 'Getting there, dinner, your bag and your ticket. One tap each, or skip. Concerto+ fills them in for you.'),
                   ('pyn-night', 'Your Night as a timeline', 'Your Night, in Order', 'Dinner, doors, your seat, the show and the ride home. Tap any stop for its details.')]
-    night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Plan My Night</h3>'
-             '<p>Answer once. Edit reopens the questions anytime.</p></div>'
+    night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Fill In Your Night</h3>'
+             '<p>Nothing to answer up front. Change anything, anytime.</p></div>'
              '<ol class="c-fx-steps c-fx-steps-3">' + ''.join(f'<li class="c-fx-step">{shot(k, a)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for k, a, t, d in plan_steps) + '</ol>'
              '</div>')
     howto = ('<section class="c-section c-cream c-fx-top"><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Features')
@@ -1019,7 +1019,7 @@ def home():
     # the App Store, and the app all describe one journey.
     steps = [('Find your show', 'Search an artist, a venue, or a city. Or open Near Me for what’s on around you.'),
              ('Save it', 'Tap the bookmark and sign in with Apple.'),
-             ('Plan your night', 'Five quick questions, or let Concerto+ plan it for you. Your Night lays the evening out in order, from dinner to the ride home.'),
+             ('Fill in your night', 'Your night is laid out when you save. Fill in what you want, or let Concerto+ plan it for you, from dinner to the ride home.'),
              ('After the show', 'A memory card of your photos from the show, every show added to your Passport, and Concerto Wrapped in December.'),
              ('Add Concerto+', 'Plan it for me, Bag Check, and Exit Plan. ' + PLUS_PRICE_LINE)]
     journey = '<ol class="c-journey">' + ''.join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t, d in steps) + '</ol>'
@@ -1055,9 +1055,9 @@ def four(cols):
 
 def your_night():
     h = hero('Your Night', 'Your whole show,<br>on one page.',
-             'Save a show and answer five quick questions, or let Concerto+ plan it for you. Your Night lays the evening out in order, and each stop opens its details.',
+             'Save a show and your night is laid out in order. Fill in what you want, or let Concerto+ plan it for you. Each stop opens its details.',
              store_button('website-your-night', tone='white') + '<a class="c-link" href="#tabs">See a night</a>',
-             ['Free in Concerto', 'Asked once, edit anytime', 'Dinner to the ride home, in order'], 'navy')
+             ['Free in Concerto', 'Laid out when you save', 'Dinner to the ride home, in order'], 'navy')
     setup = rows([('Your ticket', 'A screenshot fills in your seat. Or type it.', ''),
                   ('Getting there', 'Driving, rideshare, transit, or walking, with the venue’s own pickup spot or garages.', ''),
                   ('Dinner, your bag, the way home', 'Pick a place nearby or add your own, with a time if you have a reservation. Check your bag against the rule, and say how you’re heading home. Skip anything.', '')])
@@ -1080,7 +1080,7 @@ def your_night():
     paid = ['Plan it for me', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: your Exit Plan, new dates, and presales']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div class="c-compare-plus"><h3>Concerto+</h3><ul>'
             + ''.join(f'<li>{e(x)}</li>' for x in paid) + f'</ul><p class="c-body">{e(PLUS_PRICE_LINE)}</p><a class="c-link" href="/premium">About Concerto+</a></div></div>')
-    return ('<main id="main-content" class="c-page">' + h + section('cream', 'Plan your night', 'Five quick questions, asked once.', setup) + tabs_sec + memory + ask
+    return ('<main id="main-content" class="c-page">' + h + section('cream', 'Your night, laid out', 'A few open spots, one tap each.', setup) + tabs_sec + memory + ask
             + section('cream', 'What it costs', 'Your Night is free.', cols) + close('Save your next show.', 'website-your-night') + '</main>')
 
 def premium():
