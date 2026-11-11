@@ -290,6 +290,7 @@ Give 3 or 4 steps in order: when to move, which way out, where to go, and a back
         reviews: Number(p && p.reviews) > 0 ? Math.round(Number(p.reviews)) : null,
         miles: Number.isFinite(Number(p && p.distance_mi)) ? Number(p.distance_mi) : null,
         partner: Boolean(p && p.partner),
+        hours: str(p && p.hours, 120),
       })).filter((p) => p.id && p.name);
       const show = body.show && typeof body.show === 'object' ? body.show : {};
       const fan = body.fan && typeof body.fan === 'object' ? body.fan : {};
@@ -300,7 +301,7 @@ Give 3 or 4 steps in order: when to move, which way out, where to go, and a back
       const ex = exitFacts(venueSlug);
       const pickup = ex && ex.pickup && !ex.pickup.noZone ? [ex.pickup.name, ex.pickup.where].filter(Boolean).map(clean).join(': ') : '';
       const transit = ex && ex.transit && ex.transit.text ? clean(ex.transit.text) : '';
-      const placeLines = places.map((p) => `${p.ref} | ${p.name} | ${p.types.join(', ') || 'restaurant'} | ${p.price || 'price unknown'} | ${p.rating ? `${p.rating} stars (${p.reviews || '?'} reviews)` : 'no rating'} | ${p.miles != null ? `${p.miles} mi from the venue` : 'distance unknown'}${p.partner ? ' | Concerto Partner' : ''}`).join('\n');
+      const placeLines = places.map((p) => `${p.ref} | ${p.name} | ${p.types.join(', ') || 'restaurant'} | ${p.price || 'price unknown'} | ${p.rating ? `${p.rating} stars (${p.reviews || '?'} reviews)` : 'no rating'} | ${p.miles != null ? `${p.miles} mi from the venue` : 'distance unknown'}${p.hours ? ` | listed hours: ${p.hours}` : ''}${p.partner ? ' | Concerto Partner' : ''}`).join('\n');
       const prompt = `You are Concerto's "Plan it for me". Plan one fan's concert night at ${v.name} (${v.city}${v.state ? ', ' + v.state : ''}).
 
 THE SHOW
@@ -326,7 +327,7 @@ ${placeLines || 'none'}
 RULES
 - Pick dinner only from the list, by its ref (R1, R2...). If the list is empty, dinner is null.
 - Prefer a short walk to the venue. Between similar options prefer the better rated one. If a Concerto Partner is a reasonable fit, pick it first.
-- You know nothing about opening hours, menus, wait times, or reservations. Never state or imply them.
+- You know nothing about menus, wait times, or reservations. Never state or imply them. Opening hours: only when a place shows "listed hours". Then avoid a place whose listed hours end before the fan would finish dinner, and if you mention hours say "listed hours", since they can be out of date. Never guess hours for a place that lists none.
 - Each "why" is one plain sentence, 14 words or fewer, using only the facts above (distance, type, price, rating, weather, venue guidance).
 - If the fan already chose how they are getting there, keep it. Otherwise choose the option the venue's guidance supports best, and say why in one sentence.
 - "tips": up to 3 short, specific notes for this night drawn only from the facts above (weather, the bag rule, parking, entrances, timing against doors). No generic advice. Leave it empty if there is nothing specific to say.

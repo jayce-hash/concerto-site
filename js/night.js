@@ -20,6 +20,12 @@
   text($('n-artist'), String(data.a).slice(0, 80));
   text($('n-when'), [when, String(data.v || '').slice(0, 80)].filter(Boolean).join(' · '));
   document.title = data.a + ' · A night planned with Concerto';
+  // Going to the same show: the link carries the show's id, so one tap saves it in the app.
+  var id = String(data.i || '');
+  if (/^[A-Za-z0-9_-]{4,40}$/.test(id) && $('n-save')) {
+    $('n-save').setAttribute('data-app-link', 'concerto://save/' + encodeURIComponent(id));
+    $('n-going').hidden = false;
+  }
   var list = $('n-stops');
   data.s.slice(0, 14).forEach(function (s) {
     var li = document.createElement('li');

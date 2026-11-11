@@ -164,7 +164,7 @@ def home():
     what = (f'<section class="c-section c-white" id="what" data-reveal><div class="c-wrap">{eyebrow("What Concerto does")}<h2 class="c-h2">Three things, done carefully.</h2><ol class="c-rows">'
             + ''.join(f'<li><span class="c-num">0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p><a class="c-link" href="{u}">{e(l)}</a></li>' for i, (h, t, u, l) in enumerate(rows)) + '</ol></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
-            '<h2 class="c-h2">Three tools for the night.</h2><p class="c-body">Plan it for me, Bag Check and Exit Plan, right on your show’s card.<br>' + e(PLUS_PRICE_LINE) + '</p>'
+            '<h2 class="c-h2">Concerto runs your night.</h2><p class="c-body">It plans the evening, checks your bag, and tells you when and how to leave.<br>' + e(PLUS_PRICE_LINE) + '</p>'
             '<a class="c-link" href="/premium">Explore Concerto+</a><p class="c-free-note">Venue guides, setlists, Your Night, and places nearby are free, always. Concerto+ only adds the planning.</p></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     partners = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('For venues and partners') +
                 '<h2 class="c-h2">Built with the rooms we cover.</h2></div><div><p class="c-body">Venues verify their own page and post stage times.<br>Restaurants and hotels reach fans on show night, always labeled.</p>'
@@ -239,13 +239,13 @@ def features():
         for sid, kick, t, d, shots, link, label in more)
     more_sec = ('<section class="c-section c-white" data-reveal><div class="c-wrap"><div class="c-fx-head"><h2 class="c-h2">Everything Else in Concerto</h2>'
                 '<p class="c-lead">Free on iPhone and Android, no account needed to browse.</p></div>' + rows_ + '</div></section>')
-    tools = [('plus-planner', 'Plan it for me', 'Concerto plans the whole night in order: dinner, doors, your seat and the ride home.'),
-             ('plus-bag', 'Bag Check', 'Take a photo of your bag and know before you leave if the venue allows it.'),
-             ('plus-exit', 'Exit Plan', 'When to move, your way out and where to meet your ride, from the venue’s own guidance.')]
+    tools = [('plus-planner', 'Plan it for me', 'Before: Concerto picks how to get there and where to eat, with a reason for each pick.'),
+             ('plus-bag', 'Bag Check', 'At the door: take a photo of your bag and know before you leave if the venue allows it.'),
+             ('plus-exit', 'Exit Plan', 'The end: an alert before the last song, with your way out and where to meet your ride.')]
     tool_cards = ''.join(f'<li>{shot(k, "Concerto+ " + t)}<h3><span>Concerto+</span> {e(t)}</h3><p>{e(d)}</p></li>' for k, t, d in tools)
     plus_sec = ('<section class="c-section c-navy c-fx-plusband" id="plus" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Concerto+')
-                + '<h2 class="c-h2">Three Tools for the Night</h2>'
-                + f'<p class="c-lead">A Show Pass unlocks all three for one show, through the morning after, for {PLUS_PASS}. Concerto+ unlocks them for every show for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.</p></div>'
+                + '<h2 class="c-h2">Concerto+ Runs Your Night</h2>'
+                + f'<p class="c-lead">Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you. A Show Pass turns it on for one show, through the morning after, for {PLUS_PASS}. Concerto+ covers every show for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.</p></div>'
                 + f'<ul class="c-fx-tools">{tool_cards}</ul>'
                 + '<div class="c-fx-add c-fx-add-dark">' + shot('plus-home', 'The next show on Home with Plan my night, Bag check and Exit Plan')
                 + '<div class="c-fx-ptext"><p class="c-eyebrow">Always one tap away</p><h3>Right on Your Show’s Card</h3><p>Your next show on Home has a button for each tool, so it’s always clear which show it’s for.</p></div></div>'
@@ -1021,7 +1021,7 @@ def home():
              ('Save it', 'Tap the bookmark and sign in with Apple.'),
              ('Fill in your night', 'Your night is laid out when you save. Fill in what you want, or let Concerto+ plan it for you, from dinner to the ride home.'),
              ('After the show', 'A memory card of your photos from the show, every show added to your Passport, and Concerto Wrapped in December.'),
-             ('Add Concerto+', 'Plan it for me, Bag Check, and Exit Plan. ' + PLUS_PRICE_LINE)]
+             ('Add Concerto+', 'Concerto plans the night for you, checks your bag, and gets you out. ' + PLUS_PRICE_LINE)]
     journey = '<ol class="c-journey">' + ''.join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t, d in steps) + '</ol>'
     how = ('<section class="c-section c-cream" id="how" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('How it works') +
            '<h2 class="c-h2">How Concerto works.</h2><p class="c-body">Five steps. The first three take a minute.</p>'
@@ -1032,7 +1032,7 @@ def home():
             '<p class="c-body">Every show you go to is added to your Passport. In December, Concerto Wrapped totals your year: shows, artists, venues, and songs heard live.</p></div>'
             '<p class="c-pull">Memory card.<br>Passport.<br>Concerto Wrapped.</p></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
-            '<h2 class="c-h2">Three tools for the night.</h2><p class="c-body">Plan it for me, Bag Check and Exit Plan, right on your show’s card.<br>' + e(PLUS_PRICE_LINE) + '</p>'
+            '<h2 class="c-h2">Concerto runs your night.</h2><p class="c-body">It plans the evening, checks your bag, and tells you when and how to leave.<br>' + e(PLUS_PRICE_LINE) + '</p>'
             '<a class="c-link" href="/premium">Explore Concerto+</a><p class="c-free-note">Venue guides, setlists, Your Night, and places nearby are free, always. Concerto+ only adds the planning.</p></div><p class="c-pull">Dinner at 5:45.<br>Out the door at 7:10.<br>Lights down at 7:30.</p></div></section>')
     # Phone length matters: the principles live on About, and After the show is step 4 of How it works.
     return '<main id="main-content" class="c-page">' + h + problem_section() + what + how + plus + testimonials() + guide_index() + close() + '</main>'
@@ -1084,30 +1084,32 @@ def your_night():
             + section('cream', 'What it costs', 'Your Night is free.', cols) + close('Save your next show.', 'website-your-night') + '</main>')
 
 def premium():
-    h = hero('Concerto+', 'Three Tools<br>for the Night.',
-             'Three tools for the parts of the night that take the most planning: Plan it for me for the evening, Bag Check for your bag, and Exit Plan for the way out. A Show Pass unlocks all three for one show.',
+    h = hero('Concerto+', 'Concerto Runs<br>Your Night.',
+             'Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you: it plans the evening, checks your bag against the venue’s rule, and tells you when and how to leave. A Show Pass turns it on for one show.',
              store_button('website-premium') + '<a class="c-link" href="#pricing">See pricing</a>',
              [f'{PLUS_YEAR} a year', f'{PLUS_PASS} Show Pass for one show', 'Billed through the App Store'], 'gold')
-    feats = rows([('Exit Plan', 'When to head out, your way out, and where to meet your ride or find your car, drawn from the venue’s official guidance.', ''),
-                  ('Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. It shows the rule it used, and the venue still makes the final call.', ''),
-                  ('Plan it for me', 'Concerto picks how to get there and where to eat near the venue, gives a reason for each pick, and lays out the night in order around the venue’s doors. Swap any pick.', ''),
-                  ('More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
-                  ('More alerts', 'Your Exit Plan near the end of the night, plus new dates and presales for the artists you follow. The show-day alert, Time to Head Out, the memory card reminder, and This Weekend stay free.', '')])
+    compare = rows([('Free', 'You fill in your night: how you’re getting there, dinner, your bag and your ticket. Concerto lays it out in order, alerts you on show day, and tells you if the show changes.', ''),
+                    ('Concerto+', 'Concerto picks how you get there and where you eat, with a reason for each pick. It checks your bag from a photo, and alerts you before the last song with your way out.', '')])
+    feats = rows([('Before the show: Plan it for me', 'Concerto picks how to get there and where to eat near the venue, gives a reason for each pick, and lays out the night in order around the venue’s doors. Swap any pick.', ''),
+                  ('At the door: Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. It shows the rule it used, and the venue still makes the final call.', ''),
+                  ('The end of the night: Exit Plan', 'An alert about ten minutes before the last song, with your way out and where to meet your ride or find your car. Where a venue publishes its pickup spot, exits and lots, Concerto uses them.', ''),
+                  ('Anytime: More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
+                  ('Anytime: More alerts', 'New dates and presales for the artists you follow. The show-day alert, Time to Head Out, the memory card reminder, and This Weekend stay free.', '')])
     def pshot(k, alt):
         return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="1305" alt="{e(alt)}" loading="lazy">'
     where = ('<section class="c-section c-navy c-fx-plusband" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Where it lives')
              + '<h2 class="c-h2">Right on Your Show’s Card</h2><p class="c-lead">Your next show on Home has a button for each tool, so it’s always clear which show it’s for.</p></div>'
              + '<ul class="c-fx-tools">'
-             + f'<li>{pshot("plus-planner", "Concerto+ Plan it for me")}<h3><span>Concerto+</span> Plan it for me</h3><p>Concerto plans the whole night in order: dinner, doors, your seat and the ride home.</p></li>'
+             + f'<li>{pshot("plus-planner", "Concerto+ Plan it for me")}<h3><span>Concerto+</span> Plan it for me</h3><p>Concerto picks how to get there and where to eat, with a reason for each pick.</p></li>'
              + f'<li>{pshot("plus-bag", "Concerto+ Bag Check")}<h3><span>Concerto+</span> Bag Check</h3><p>Take a photo of your bag and know before you leave if the venue allows it.</p></li>'
-             + f'<li>{pshot("plus-exit", "Concerto+ Exit Plan")}<h3><span>Concerto+</span> Exit Plan</h3><p>When to move, your way out and where to meet your ride, from the venue’s own guidance.</p></li>'
+             + f'<li>{pshot("plus-exit", "Concerto+ Exit Plan")}<h3><span>Concerto+</span> Exit Plan</h3><p>An alert before the last song, with your way out and where to meet your ride.</p></li>'
              + '</ul><div class="c-fx-add c-fx-add-dark">' + pshot('plus-locked', 'A Bag Check example in Your Night before buying')
              + '<div class="c-fx-ptext"><p class="c-eyebrow">See it before you buy</p><h3>An Example of Each</h3><p>Without Concerto+, each tool shows an example of what it does, with Show Pass one tap away. With it, each one opens from your next show’s card on Home.</p></div></div></div></section>')
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +
-               '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
+               '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Try it on one show with a Show Pass. If you go to seven or more shows a year, the yearly plan costs less. Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
                f'<div class="c-prices"><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div></div></div></section>')
     free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, your memory card, and your Passport.<br>Never behind Concerto+.</p>', narrow=True)
-    return ('<main id="main-content" class="c-page">' + h + section('white', 'What is included', 'Five things that make the night easier.', feats) + where + pricing + free
+    return ('<main id="main-content" class="c-page">' + h + section('cream', 'Free or Concerto+', 'Your Night is the same page either way.', compare) + section('white', 'What is included', 'Concerto handles three moments of the night.', feats) + where + pricing + free
             + close('Start with Your Night.', 'website-premium', 'Free on iPhone and Android. Concerto+ is on iPhone.') + '</main>')
 
 def about():
@@ -1457,7 +1459,7 @@ def build():
     form_of = lambda f: re.search(r'<form.*?</form>', legacy[f], re.S).group(0)
     rewrite('index.html', home()); rewrite('your-night.html', your_night()); rewrite('premium.html', premium());
     set_head('your-night.html', 'Your Night | Your Whole Show on One Page | Concerto', 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and a memory card of your photos afterward. Free on iPhone and Android.')
-    set_head('premium.html', 'Concerto+ | Plan it for me, Bag Check, and Exit Plan', 'Concerto+ adds Plan it for me, Bag Check, Exit Plan, and more Concerto AI to Your Night. $29.99 a year, or a $4.99 Show Pass for one show.',
+    set_head('premium.html', 'Concerto+ | Concerto Runs Your Night', 'Your Night is free. With Concerto+, Concerto plans the night for you, checks your bag, and tells you when and how to leave. $29.99 a year, or a $4.99 Show Pass for one show.',
              [{'@type': 'Offer', 'price': '29.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Yearly'},
               {'@type': 'Offer', 'price': '4.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Show Pass'}])
     set_head('index.html', 'Concerto | Your Concert Night, on One Page', 'Concerto makes concert nights easier: guides to 1,000+ venues worldwide, tour dates and setlists, and things to do around every show. Free on iPhone and Android.')
@@ -1535,7 +1537,9 @@ def night_page():
             '<h1 id="n-artist">Your night</h1><p class="c-lead" id="n-when"></p>'
             '<ol class="c-night-list" id="n-stops"></ol>'
             '<p class="c-night-empty" id="n-empty" hidden>This link is missing its plan. Ask for it again, or plan your own night in Concerto.</p>'
-            '<div class="c-actions c-night-actions">' + store_button('website-night') + '<a class="c-link" href="/features#your-night">How Your Night works</a></div>'
+            # Shown only when the link carries the show: one tap saves the same show in the app, or opens the store.
+            '<p class="c-night-going" id="n-going" hidden><a class="c-link" id="n-save" href="' + STORE('website-night-save') + '" rel="noopener">Going too? Save this show in Concerto</a></p>'
+                        '<div class="c-actions c-night-actions">' + store_button('website-night') + '<a class="c-link" href="/features#your-night">How Your Night works</a></div>'
             '<p class="c-night-note">Seats and tickets stay private to the person who shared this.</p>'
             '</div></section></main><script src="/js/night.js" defer></script>')
 
