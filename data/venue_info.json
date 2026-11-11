@@ -2121,17 +2121,18 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Ball Arena offers several parking lots with varying prices depending on the event. Parking lots open 3 hours before events, and credit/debit cards are accepted at all lots. The Tundra lot offers a $5 discount for card payments.",
+      "note": "Lots open 3 hours before the event. Camry North is reached from 12th Street and Chopper Circle, or from 7th Street off Auraria Parkway. Tundra is off Chopper Circle, and RAV4 is off 11th Street. Cards are accepted at every lot, and cash only at the Tundra lot. You can buy parking in advance, and prices can change on event night.",
+      "summary": "Buy parking in advance. Lots open 3 hours before the event.",
       "lots": [
-        "Toyota Camry Lot",
-        "Toyota Corolla Lot",
-        "Toyota 4Runner Lot",
-        "Toyota Tacoma Lot",
-        "Toyota Tundra Lot",
-        "Elitch's Lot"
+        "Camry North Lot",
+        "Tundra Lot",
+        "RAV4 Lot (Premier Parking)",
+        "Corolla Lot (closed for some events)",
+        "Tacoma Lot (permit only for some events)",
+        "Elitch's Lot (run by Elitch Gardens)"
       ],
       "officialLink": "https://www.ballarena.com/plan-your-visit/parking-directions/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -4619,10 +4620,14 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Chase Center offers multiple parking options, including official lots and nearby garages. Pricing varies depending on the event and location, and it is recommended to book in advance. Public transportation and rideshare services are also encouraged due to limited parking availability.",
-      "lots": [],
+      "note": "Chase Center asks you to reserve parking before event day, because spaces are limited. The Mercedes-Benz Garage and the Warriors Way Garage generally open at 5 p.m. for weeknight events.",
+      "summary": "Reserve parking before event day. Spaces are limited.",
+      "lots": [
+        "Mercedes-Benz Garage",
+        "Warriors Way Garage"
+      ],
       "officialLink": "https://www.chasecenter.com/plan-your-visit/transportation/parking/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -6149,20 +6154,20 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Crypto.com Arena offers several parking options with varying clearance heights, mostly not accommodating oversized vehicles. Some lots provide disabled parking spots and EV charging stations.",
+      "note": "The West Garage (Lot W) and East Garage (Lot E) are open 6 AM to 2 AM daily. Lot 1 and Lot C open 2.5 hours before an event. Event parking in the West Garage at Gates E and F is $40, and Gate B is a flat rate of $10 to $50 depending on the event, plus city parking tax. No overnight parking, in-and-out privileges or tailgating.",
+      "summary": "The West and East Garages are the main event parking. No in-and-out privileges.",
       "lots": [
-        "Lot 1",
-        "Southwest VIP (SW VIP)",
-        "Lot W (West Garage) - Gate B",
-        "Lot W (West Garage) - Gate D",
-        "Lot W (West Garage) - Gate E & F",
-        "Lot E (East Garage)",
-        "Lot C",
-        "Lot 4",
-        "Lot 12"
+        "Lot W, West Garage Gate B: 1005 Chick Hearn Court",
+        "Lot W, West Garage Gate D: 1015 Chick Hearn Court",
+        "Lot W, West Garage Gates E and F: 1015 Georgia Street",
+        "Lot E, East Garage: 888 West Olympic Boulevard",
+        "Lot 1: 900 Chick Hearn Court",
+        "Lot C: 1145 L.A. Live Way",
+        "Lot 4: 966 Georgia Street",
+        "Lot 12: 832 Francisco Street"
       ],
       "officialLink": "https://www.cryptoarena.com/getting-here",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -6418,19 +6423,20 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking at the Delta Center offers a variety of options, including both covered and uncovered stalls. Prices and availability vary, with some lots offering game-by-game passes and others providing free parking for a limited time. TRAX is also available for free within the downtown zone, but stops running at midnight.",
+      "note": "Delta Center lists eight nearby lots and the arena door closest to each. Park Place sells game-by-game passes through ParkWhiz. The first 2 hours at City Creek Mall are free. TRAX riders can ride free inside the Free Fare Downtown Zone, and TRAX stops running at 12:00 AM.",
+      "summary": "Eight nearby lots, each matched to an arena door.",
       "lots": [
-        "PARK PLACE",
-        "Japanese church of christ",
-        "The Gateway mall",
-        "the triad center",
-        "city creek mall",
-        "Hyatt House",
-        "Crown burger",
-        "West High"
+        "Park Place, 50 North 300 West (Door 5)",
+        "The Gateway, 75 South 400 West (Door 8)",
+        "The Triad Center, 50 South 300 West (Door 2)",
+        "City Creek Mall, 50 East South Temple (Door 5)",
+        "Hyatt House, 300 West 140 South (Door 8)",
+        "Japanese Church of Christ, 268 100 South (Doors 5 and 8)",
+        "Crown Burger lot, 118 North 300 West (Door 5)",
+        "West High, 241 North 300 West (Door 5)"
       ],
       "officialLink": "https://www.deltacenter.com/parking/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -9181,12 +9187,13 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "There are several parking options within walking distance to Gainbridge Fieldhouse, including the Virginia Avenue Parking Garage, which is connected via a sky bridge. Parking passes can be purchased in advance through ParkWhiz.",
+      "note": "The Virginia Avenue Parking Garage is on the northeast corner of the building and is the closest covered parking. Its entrance is off Maryland Street, and a covered sky bridge on the third floor connects it to the Fieldhouse. You can buy individual passes in advance at select locations through ParkWhiz. Other downtown garages and street parking are within walking distance.",
+      "summary": "The Virginia Avenue Garage connects to the Fieldhouse by sky bridge.",
       "lots": [
-        "Virginia Avenue Parking Garage"
+        "Virginia Avenue Parking Garage (entrance off Maryland Street)"
       ],
       "officialLink": "https://www.gainbridgefieldhouse.com/plan-your-visit/directions-parking",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -9817,10 +9824,11 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Parking options around Golden 1 Center include various nearby lots and garages. Pricing may vary depending on the event and location, so it's advisable to check in advance. Arriving early can help secure a convenient spot.",
+      "note": "Golden 1 Center recommends buying a pre-paid pass for a city garage through the City of Sacramento's SacPark website. Garages open 2 hours before the event, and pre-purchased passes are good until 2 hours after it. Spaces are first come, first served, and a specific garage is subject to availability. Walkways to the arena run from 5th and J, 7th and K, and 5th and L Streets. No tailgating in city garages.",
+      "summary": "Buy a pre-paid city garage pass through SacPark. Garages open 2 hours before the event.",
       "lots": [],
       "officialLink": "https://www.golden1center.com/visit/directions-and-parking/",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -14923,13 +14931,14 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "There are over 15,000 parking spaces within a 10-minute walk of Nationwide Arena, with prices varying by location. Parking can be purchased in advance or on the event day. Accessible parking is available but may be limited during heavily attended events.",
+      "note": "More than 15,000 spaces in surface lots and garages are within a 10-minute walk, and the arena links to an Arena District parking map. Parking can be bought in advance or on the day of the event, and prices vary by location. For accessible parking, the arena suggests the north entrance of the McConnell garage and the northeast entrance of the Front Street garage. All pick-ups and drop-offs are on West Street.",
+      "summary": "Over 15,000 spaces within a 10-minute walk. Buy in advance or on the day.",
       "lots": [
-        "McConnell garage",
-        "Front Street garage"
+        "McConnell Garage",
+        "Front Street Garage"
       ],
       "officialLink": "https://www.nationwidearena.com/directions-parking",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -17411,15 +17420,16 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "Prudential Center offers several parking options including the Parking Deck presented by Hyundai and Green Street Garage. BMW owners can enjoy complimentary parking for select events, while Hyundai owners have access to reserved spaces. It's recommended to reserve parking in advance.",
+      "note": "Prudential Center lists four parking locations and asks you to reserve ahead for every event. Pre-paid parking is sold through ParkMobile.",
+      "summary": "Reserve ahead through ParkMobile.",
       "lots": [
-        "Parking Deck presented by Hyundai",
-        "Green 3 & 4",
-        "Green Street Garage",
-        "Green 7"
+        "Parking Deck presented by Hyundai, 15 Lafayette St",
+        "Green 3 & 4, 30-42 Lafayette St",
+        "Green Street Garage, 47-63 Green St",
+        "Green 7, 299 Mulberry St"
       ],
       "officialLink": "https://www.prucenter.com/parking",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {
@@ -20423,15 +20433,17 @@
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
-      "note": "State Farm Arena offers multiple parking options with varying proximity to the venue. Pre-purchasing parking through ParkMobile guarantees a spot and the lowest prices. Options include the Sapphire Deck, Ruby Lot, State Farm Drive, and Diamond Deck.",
+      "note": "State Farm Arena lists five decks and lots, all within a 5-minute walk. It recommends reserving in advance through ParkMobile to guarantee a spot and the lowest price.",
+      "summary": "Five decks and lots within a 5-minute walk. Reserve through ParkMobile.",
       "lots": [
-        "Sapphire Deck",
-        "Ruby Lot",
-        "State Farm Drive",
-        "Diamond Deck"
+        "State Farm Drive, 1 State Farm Dr (under a 1-minute walk)",
+        "Diamond Deck, 100 Lower Andrew Young International Dr (VIP)",
+        "Ruby Lot, 199 Alabama St SW (under a 3-minute walk)",
+        "Sapphire Deck, 127 Centennial Olympic Park Dr NW (under a 5-minute walk)",
+        "The CTR Garage, 103 Centennial Olympic Park Dr NW (under a 5-minute walk)"
       ],
       "officialLink": "https://www.statefarmarena.com/arena-parking",
-      "verified": "2026-08-20",
+      "verified": "2026-11-11",
       "verificationStatus": "official_source_confirmed"
     },
     "rideshare": {

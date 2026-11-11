@@ -1041,7 +1041,7 @@ def home():
 # One source for the words both pages (and the homepage) use, so the price and the
 # feature names can never drift apart between pages. Keep in step with app/plus.tsx.
 PLUS_YEAR, PLUS_PASS = '$29.99', '$4.99'
-PLUS_PRICE_LINE = f'{PLUS_YEAR} a year, or {PLUS_PASS} for one show.'
+PLUS_PRICE_LINE = f'{PLUS_PASS} for one show, or {PLUS_YEAR} a year.'
 V_COPY = '1,000+'  # venues: say "1,000+ venues worldwide", not the exact count
 
 def four(cols):
@@ -1087,7 +1087,7 @@ def premium():
     h = hero('Concerto+', 'Concerto Runs<br>Your Night.',
              'Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you: it plans the evening, checks your bag against the venue’s rule, and tells you when and how to leave. A Show Pass turns it on for one show.',
              store_button('website-premium') + '<a class="c-link" href="#pricing">See pricing</a>',
-             [f'{PLUS_YEAR} a year', f'{PLUS_PASS} Show Pass for one show', 'Billed through the App Store'], 'gold')
+             [f'{PLUS_PASS} Show Pass for one show', f'{PLUS_YEAR} a year for every show', 'Billed through the App Store'], 'gold')
     compare = rows([('Free', 'You fill in your night: how you’re getting there, dinner, your bag and your ticket. Concerto lays it out in order, alerts you on show day, and tells you if the show changes.', ''),
                     ('Concerto+', 'Concerto picks how you get there and where you eat, with a reason for each pick. It checks your bag from a photo, and alerts you before the last song with your way out.', '')])
     feats = rows([('Before the show: Plan it for me', 'Concerto picks how to get there and where to eat near the venue, gives a reason for each pick, and lays out the night in order around the venue’s doors. Swap any pick.', ''),
@@ -1107,7 +1107,7 @@ def premium():
              + '<div class="c-fx-ptext"><p class="c-eyebrow">See it before you buy</p><h3>An Example of Each</h3><p>Without Concerto+, each tool shows an example of what it does, with Show Pass one tap away. With it, each one opens from your next show’s card on Home.</p></div></div></div></section>')
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +
                '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Try it on one show with a Show Pass. If you go to seven or more shows a year, the yearly plan costs less. Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
-               f'<div class="c-prices"><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div></div></div></section>')
+               f'<div class="c-prices"><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div></div></div></section>')
     free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, your memory card, and your Passport.<br>Never behind Concerto+.</p>', narrow=True)
     return ('<main id="main-content" class="c-page">' + h + section('cream', 'Free or Concerto+', 'Your Night is the same page either way.', compare) + section('white', 'What is included', 'Concerto handles three moments of the night.', feats) + where + pricing + free
             + close('Start with Your Night.', 'website-premium', 'Free on iPhone and Android. Concerto+ is on iPhone.') + '</main>')
