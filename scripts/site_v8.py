@@ -245,7 +245,7 @@ def features():
     tool_cards = ''.join(f'<li>{shot(k, "Concerto+ " + t)}<h3><span>Concerto+</span> {e(t)}</h3><p>{e(d)}</p></li>' for k, t, d in tools)
     plus_sec = ('<section class="c-section c-navy c-fx-plusband" id="plus" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Concerto+')
                 + '<h2 class="c-h2">Concerto+ Runs Your Night</h2>'
-                + f'<p class="c-lead">Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you. A Show Pass turns it on for one show, through the morning after, for {PLUS_PASS}. Concerto+ covers every show for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.</p></div>'
+                + f'<p class="c-lead">Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you, and on show day Leave Time tells you when to leave. A Show Pass turns it on for one show, through the morning after, for {PLUS_PASS}. Concerto+ covers every show for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.</p></div>'
                 + f'<ul class="c-fx-tools">{tool_cards}</ul>'
                 + '<div class="c-fx-add c-fx-add-dark">' + shot('plus-home', 'The next show on Home with Plan my night, Bag check and Exit Plan')
                 + '<div class="c-fx-ptext"><p class="c-eyebrow">Always one tap away</p><h3>Right on Your Show’s Card</h3><p>Your next show on Home has a button for each tool, so it’s always clear which show it’s for.</p></div></div>'
@@ -1077,7 +1077,7 @@ def your_night():
                   '<p class="c-body">Every Your Night page has its own question bar. Concerto AI already knows the venue and the artist, so “Can I bring a portable charger?” gets an answer for your show, from the venue’s own rules.</p>', narrow=True)
     free = ['Your Night for every show you save', 'Restaurants, hotels, and things to do near the venue', 'The setlist, weather, directions, parking, and rideshare',
             'Your bag, checked against the venue’s rule', 'Show-day alerts, a notice if your show changes, and concerts near you each Friday', 'Your memory card and Passport', '3 Concerto AI answers a day']
-    paid = ['Plan it for me', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: your Exit Plan, new dates, and presales']
+    paid = ['Plan it for me', 'Leave Time: when to leave, from the trip right now', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: your Exit Plan, new dates, and presales']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div class="c-compare-plus"><h3>Concerto+</h3><ul>'
             + ''.join(f'<li>{e(x)}</li>' for x in paid) + f'</ul><p class="c-body">{e(PLUS_PRICE_LINE)}</p><a class="c-link" href="/premium">About Concerto+</a></div></div>')
     return ('<main id="main-content" class="c-page">' + h + section('cream', 'Your night, laid out', 'A few open spots, one tap each.', setup) + tabs_sec + memory + ask
@@ -1085,12 +1085,13 @@ def your_night():
 
 def premium():
     h = hero('Concerto+', 'Concerto Runs<br>Your Night.',
-             'Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you: it plans the evening, checks your bag against the venue’s rule, and tells you when and how to leave. A Show Pass turns it on for one show.',
+             'Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you: it plans the evening, tells you when to leave for it, checks your bag against the venue’s rule, and gets you out at the end. A Show Pass turns it on for one show.',
              store_button('website-premium') + '<a class="c-link" href="#pricing">See pricing</a>',
              [f'{PLUS_PASS} Show Pass for one show', f'{PLUS_YEAR} a year for every show', 'Billed through the App Store'], 'gold')
     compare = rows([('Free', 'You fill in your night: how you’re getting there, dinner, your bag and your ticket. Concerto lays it out in order, alerts you on show day, and tells you if the show changes.', ''),
-                    ('Concerto+', 'Concerto picks how you get there and where you eat, with a reason for each pick. It checks your bag from a photo, and alerts you before the last song with your way out.', '')])
+                    ('Concerto+', 'Concerto picks how you get there and where you eat, with a reason for each pick. On show day it tells you when to leave, from how long the trip is right then. It checks your bag from a photo, and alerts you before the last song with your way out.', '')])
     feats = rows([('Before the show: Plan it for me', 'Concerto picks how to get there and where to eat near the venue, gives a reason for each pick, and lays out the night in order around the venue’s doors. Swap any pick.', ''),
+                  ('Leaving: Leave Time', 'On show day, Concerto checks how long the trip is from where you are to your dinner stop or the venue, and tells you when to leave. It checks again while Your Night is open, and alerts you ten minutes before. It needs your location, which is used for the trip and not saved.', ''),
                   ('At the door: Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. It shows the rule it used, and the venue still makes the final call.', ''),
                   ('The end of the night: Exit Plan', 'An alert about ten minutes before the last song, with your way out and where to meet your ride or find your car. Where a venue publishes its pickup spot, exits and lots, Concerto uses them.', ''),
                   ('Anytime: More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
@@ -1109,7 +1110,7 @@ def premium():
                '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Try it on one show with a Show Pass. If you go to seven or more shows a year, the yearly plan costs less. Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
                f'<div class="c-prices"><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div></div></div></section>')
     free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, your memory card, and your Passport.<br>Never behind Concerto+.</p>', narrow=True)
-    return ('<main id="main-content" class="c-page">' + h + section('cream', 'Free or Concerto+', 'Your Night is the same page either way.', compare) + section('white', 'What is included', 'Concerto handles three moments of the night.', feats) + where + pricing + free
+    return ('<main id="main-content" class="c-page">' + h + section('cream', 'Free or Concerto+', 'Your Night is the same page either way.', compare) + section('white', 'What is included', 'Concerto handles four moments of the night.', feats) + where + pricing + free
             + close('Start with Your Night.', 'website-premium', 'Free on iPhone and Android. Concerto+ is on iPhone.') + '</main>')
 
 def about():
@@ -1210,7 +1211,7 @@ def press():
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
               '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone, Android and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, fans get a memory card of their photos, a Passport of every show, and Concerto Wrapped each December.</p>'
-              '<p class="c-body">Concerto is free. Concerto+ adds Plan it for me, Bag Check, and Exit Plan. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
+              '<p class="c-body">Concerto is free. Concerto+ adds Plan it for me, Leave Time, Bag Check, and Exit Plan. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
               f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, ten times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
@@ -1235,7 +1236,7 @@ def investors():
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show, with Concerto AI to answer fans’ questions about it. The app and website are built.</p>'
-             '<p class="c-body">Concerto makes money two ways. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Plan it for me, Bag Check, and Exit Plan. Concerto Partners lets restaurants and hotels near a venue come first in its Nearby rows, at $99 and $299 a month.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a><a class="c-link" href="/partners">Concerto Partners</a></div></div></div></section>')
+             '<p class="c-body">Concerto makes money two ways. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Plan it for me, Leave Time, Bag Check, and Exit Plan. Concerto Partners lets restaurants and hotels near a venue come first in its Nearby rows, at $99 and $299 a month.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a><a class="c-link" href="/partners">Concerto Partners</a></div></div></div></section>')
     demand = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The demand') + '<h2 class="c-h2">Fans are already<br>asking these questions.</h2></div><div>'
               '<p class="c-body">Before a show, fans search for the bag policy, parking, door times and the setlist. Google is sending those searches to Concerto’s venue and tour guides, and Concerto is still new, so it is climbing in the results every month.</p>'
               '<p class="c-body">The fan reading a venue’s bag policy is planning their night, and the next thing they decide is where to eat and stay. That is where Concerto Partners appear.</p></div></div></section>')
