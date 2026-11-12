@@ -51,6 +51,8 @@ def fix_head(head):
     head = re.sub(r'<link[^>]*rel="preconnect"[^>]*>\s*', '', head)
     head = re.sub(r'<link[^>]*fonts\.googleapis\.com/css2[^>]*>\s*', '', head)
     head = re.sub(r'<link[^>]*href="/css/public-v6\.css"[^>]*>\s*', '', head)
+    head = re.sub(r'<link[^>]*rel="manifest"[^>]*>\s*', '', head)
+    head = re.sub(r'<meta[^>]*name="theme-color"[^>]*>\s*', '', head)
     return head + HEAD_ASSETS
 
 

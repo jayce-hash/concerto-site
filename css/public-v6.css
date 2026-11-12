@@ -2760,3 +2760,7 @@ h1,h2{font-weight:700}
 .v8 .c-night-actions{margin-top:20px}
 .v8 .c-night-note{margin-top:14px;font-size:14px;color:var(--muted,#5B6477)}
 .v8 .c-night-empty{margin-top:20px;font-size:16px}
+
+/* Page-to-page: a short cross-fade instead of a white flash, in browsers that support it.
+   Off for anyone who has asked their device for less motion. */
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-group(root){animation-duration:.16s}}

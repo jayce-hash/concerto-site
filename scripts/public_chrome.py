@@ -55,6 +55,9 @@ HEAD_ASSETS = (
     '&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">'
     '<link rel="stylesheet" href="/css/public-v6.css">'
     '<script src="/analytics.js" defer></script>'
+    # Home-screen name and icon, and the browser bar tinted to the page instead of white.
+    '<link rel="manifest" href="/site.webmanifest">'
+    '<meta name="theme-color" content="#F8F9F9">'
 )
 
 
