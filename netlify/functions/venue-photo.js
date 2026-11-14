@@ -153,7 +153,11 @@ exports.handler = async function (event) {
       return { statusCode: 404, headers: CORS, body: JSON.stringify({ error: 'no coordinate-verified match' }) };
     }
 
-    const photo = match.photos[0];
+    // Google's first photo for a venue is sometimes its logo, not the building. A logo is
+    // nearly always square or small, so take the first photo that is clearly wider than it is
+    // tall and at least 800px across; if none qualifies, fall back to the first, as before.
+    const wide = (p) => Number(p.widthPx) >= 800 && Number(p.widthPx) >= Number(p.heightPx) * 1.25;
+    const photo = match.photos.slice(0, 10).find(wide) || match.photos[0];
     const credit = (photo.authorAttributions || [])
       .map((a) => a.displayName)
       .filter(Boolean)

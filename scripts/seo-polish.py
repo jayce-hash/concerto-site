@@ -172,7 +172,7 @@ DESC_FIXED = {
     'press.html': 'Press resources for Concerto, the concert companion app: company background, founder Jayce Wells, coverage, and how to reach us for media inquiries.',
     'privacy.html': 'How Concerto collects, uses, and protects your information across the Concerto app and concertocity.com, and the choices you have about your data.',
     'terms.html': 'The terms that apply when you use the Concerto app and concertocity.com, including your account, Concerto+ subscriptions, and venue information.',
-    'your-night.html': 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and a memory card of your photos afterward.',
+    'your-night.html': 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and your photos in your Passport afterward.',
 }
 DLO, DHI = 110, 160
 
