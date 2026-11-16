@@ -15,7 +15,11 @@
 [build.environment]
   # Google Maps browser keys are referrer-restricted and must ship to the client,
   # so they are not real secrets. Tell Netlify's scanner to skip them.
-  SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY,SUPABASE_URL"
+  # The Apple Team ID and Maps Key ID are identifiers, not secrets: the Team ID is published
+  # on purpose in .well-known/apple-app-site-association, which iOS reads to open links in
+  # the app. With APPLE_MAPS_TEAM_ID saved as a secret variable, the scanner found that same
+  # value in that file and failed every deploy. The private key itself is still scanned.
+  SECRETS_SCAN_OMIT_KEYS = "GOOGLE_MAPS_API_KEY,GOOGLE_MAPS_BROWSER_KEY,SUPABASE_URL,APPLE_MAPS_TEAM_ID,APPLE_MAPS_KEY_ID"
 
 # City guide SPA retired. Venue pages carry the guide now.
 # NOTE: _redirects is authoritative and has a per-slug cityguide map;
