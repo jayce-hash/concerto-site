@@ -4389,16 +4389,19 @@
     "lat": 33.7815,
     "lng": -84.3865,
     "bagPolicy": {
-      "summary": "Backpacks are not permitted. Small bags under 12 inches are allowed and will be searched.",
+      "summary": "Center Stage in Atlanta does not allow backpacks. Small bags under 12 inches are allowed and will be searched.",
       "allowed": [
-        "small bags under 12 inches"
+        "Small bags under 12 inches",
+        "Phone cameras and small point-and-shoot cameras, unless the artist says otherwise"
       ],
       "prohibited": [
-        "backpacks"
+        "Backpacks",
+        "Video recording devices, GoPros and audio recorders",
+        "iPads and tablets"
       ],
-      "note": "All ticket holders are subject to security screening. Artist or event restrictions may be stricter.",
+      "note": "There is no coat check, and staff will not watch your things, so only bring what you can keep with you.",
       "officialLink": "https://www.centerstage-atlanta.com/frequently-asked-questions/",
-      "verified": "2026-09-04",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -9284,10 +9287,26 @@
     "lat": 32.7076,
     "lng": -117.157,
     "bagPolicy": {
-      "summary": "Only single-compartment clear plastic bags up to 12 by 6 by 12 inches, infant and medical bags, and clutches or purses no larger than 5 by 7 inches are allowed. All other backpacks and bags are prohibited.",
+      "summary": "Petco Park only allows single-compartment clear plastic bags up to 12 x 6 x 12 inches, and clutches or purses up to 5 x 7 inches.",
       "officialLink": "https://www.mlb.com/padres/tickets/concerts/prohibited-items",
-      "verified": "2026-10-22",
-      "verificationStatus": "official_source_confirmed"
+      "verified": "2026-11-15",
+      "verificationStatus": "official_source_confirmed",
+      "allowed": [
+        "Single-compartment clear plastic bags up to 12 x 6 x 12 inches",
+        "Clutches and purses up to 5 x 7 inches",
+        "Infant bags",
+        "Medical bags"
+      ],
+      "prohibited": [
+        "Backpacks, and bags that are not clear",
+        "CamelBak-style backpacks",
+        "Food and drinks, including factory-sealed and reusable water bottles",
+        "Hard-sided coolers",
+        "Umbrellas",
+        "Lawn chairs and rigid-framed seats",
+        "Tents"
+      ],
+      "note": "This is the Padres’ list for Petco Park. Concerts at Gallagher Square can have their own rules, so check your event page as well."
     },
     "parking": {
       "note": "Gallagher Square is the park-within-the-park at Petco Park in downtown San Diego, so use Petco Park parking: the Padres Parkade, Tailgate Park, and nearby East Village garages and lots. Prepaid parking is cheaper than drive-up, and the MTS Trolley stops a short walk away.",
@@ -10729,14 +10748,21 @@
     "lat": 41.8881,
     "lng": -87.6289,
     "bagPolicy": {
-      "summary": "Bags up to 12\"x6\"x12\" are allowed in the venue and will be searched prior to entry. Non-clear bags may undergo additional searches.",
+      "summary": "Bags up to 12 x 6 x 12 inches are allowed at House of Blues Chicago. Every bag is searched, and bags that are not clear get an extra search.",
       "allowed": [
-        "Bags up to 12\"x6\"x12\""
+        "Bags up to 12 x 6 x 12 inches, clear or not"
       ],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "prohibited": [
+        "Bags larger than 12 x 6 x 12 inches",
+        "Outside food and drinks",
+        "Personal video cameras, GoPros, selfie sticks and drones",
+        "Professional audio and video equipment, including detachable lenses and tripods",
+        "Stuffed animals and toys",
+        "Masks and laser pointers"
+      ],
+      "note": "Coat check is $5 and merch check is $10, card only, in the winter season and when the weather calls for it. There is no re-entry.",
       "officialLink": "https://chicago.houseofblues.com/faq",
-      "verified": "2026-08-20",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -18966,16 +18992,17 @@
     "lat": 43.6435,
     "lng": -79.3791,
     "bagPolicy": {
-      "summary": "Scotiabank Arena enforces a restricted bag policy allowing only small purses, clutches, or fanny packs smaller than 16.5cm x 11.5cm. Bags not meeting this requirement may be subject to x-ray inspection.",
+      "summary": "Scotiabank Arena only allows small purses, clutches and fanny packs under 16.5 x 11.5 cm (6.5 x 4.5 inches). Bag check costs $25.",
       "allowed": [
-        "small purses",
-        "clutch",
-        "fanny pack type bags smaller than 16.5cm x 11.5cm"
+        "Small purses, clutches and fanny packs under 16.5 x 11.5 cm (6.5 x 4.5 inches)",
+        "A larger bag needed for medical or other reasons, after an x-ray at Gate 1, 3 or 5"
       ],
-      "prohibited": [],
-      "note": "Bags required for medical reasons may be permitted subject to x-ray inspection.",
+      "prohibited": [
+        "Any bag larger than 16.5 x 11.5 cm (6.5 x 4.5 inches)"
+      ],
+      "note": "Bag check is $25, in the Galleria across from Gate 1. The arena encourages fans not to bring a bag at all, and says the policy can change by event.",
       "officialLink": "https://www.scotiabankarena.com/plan-your-visit/plan-your-visit-faq/bag-policy",
-      "verified": "2026-08-20",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -24747,15 +24774,26 @@
     "lat": 45.5345,
     "lng": -122.6667,
     "bagPolicy": {
-      "summary": "Bags 10x6x2 inches and smaller can go through expedited entry, while bags up to 14x14x6 inches must be screened by x-ray machines. Bag check is available at the P3 Lobby of the Garden Garage.",
+      "summary": "Bags up to 14 x 14 x 6 inches are allowed at concerts at Veterans Memorial Coliseum. For basketball the limit is 10 x 6 x 2 inches.",
       "allowed": [
-        "Bags 10x6x2 inches and smaller",
-        "Bags up to 14x14x6 inches"
+        "Bags up to 14 x 14 x 6 inches at concerts and other non-basketball events",
+        "Empty non-glass water bottles up to 32 oz, except on general admission floors",
+        "Small personal umbrellas, kept closed inside",
+        "Cameras without a detachable lens, without flash",
+        "Signs up to 11 x 17 inches that relate to the event",
+        "Child bags, bottles and food, after a search"
       ],
-      "prohibited": [],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "prohibited": [
+        "Hard-sided bags",
+        "SLR and DSLR cameras, tripods, laptops and tablets",
+        "Large or pointed umbrellas",
+        "Outside food and drinks",
+        "Helium balloons and inflatables",
+        "Signs larger than 11 x 17 inches, and flags"
+      ],
+      "note": "Bag check is on the Commons, between Dr. Jack’s and the Annex Box Office. There is no re-entry at Rose Quarter events.",
       "officialLink": "https://www.rosequarter.com/plan-your-visit/venue-guide",
-      "verified": "2026-08-20",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -38868,16 +38906,25 @@
     "lat": 34.101642,
     "lng": -118.323259,
     "bagPolicy": {
-      "summary": "Bags may not be larger than 14 × 14 inches; the venue’s prohibited list flags backpacks and oversized luggage.",
+      "summary": "Bags at The Fonda Theatre, including backpacks, can be no larger than 14 x 14 inches.",
       "allowed": [
-        "Bag up to 14 × 14 inches"
+        "Bags and backpacks up to 14 x 14 inches",
+        "Disposable cameras, without flash",
+        "Signs up to 11 x 17 inches, not on a pole or stick"
       ],
       "prohibited": [
-        "Bags larger than 14 × 14 inches"
+        "Bags, backpacks, suitcases and luggage larger than 14 x 14 inches",
+        "Water bottles, Hydro Flasks and CamelBaks",
+        "Outside food and drinks",
+        "Glass bottles and metal cans",
+        "Umbrellas",
+        "Chairs",
+        "Professional cameras with a detachable lens",
+        "iPads, tablets, video cameras, tripods and GoPros"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "No water bottle of any kind is allowed in. A government-issued photo ID is needed for age-restricted shows; a photo of your ID is not accepted.",
       "officialLink": "https://www.fondatheatre.com/faq/",
-      "verified": "2026-09-23",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -40424,16 +40471,24 @@
     "lat": 41.8760769,
     "lng": -87.6252708,
     "bagPolicy": {
-      "summary": "Security inspects all bags. A personal item up to 17 × 13 × 8 inches is recommended; bags that cannot fit on your lap or under your seat must go to the $2 coat check.",
+      "summary": "The Auditorium Theatre recommends a bag no larger than 17 x 13 x 8 inches, small enough to sit on your lap or under your seat. Anything bigger goes to coat check.",
       "allowed": [
-        "Bag fitting on a lap or under a seat"
+        "Bags that fit on your lap or under your seat, about 17 x 13 x 8 inches"
       ],
       "prohibited": [
-        "Unscreened bags"
+        "Bags too big for your lap or under your seat, unless checked",
+        "Outside food and drinks",
+        "Cameras and professional camera equipment",
+        "Audio recording equipment",
+        "Signs of any type",
+        "Helium balloons",
+        "Noisemakers",
+        "Wrapped gifts",
+        "Confetti and glitter"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "Coat check is in the Main Floor Lobby between Aisle 2 and Aisle 3. It costs $2 an item and takes cards only. Some tours do not allow bags at all, so check your pre-show email.",
       "officialLink": "https://www.auditoriumtheatre.org/visit/faqs-and-accessibility",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -41478,16 +41533,25 @@
     "lat": 29.7857927,
     "lng": -95.366809,
     "bagPolicy": {
-      "summary": "Bags or backpacks larger than 14 inches in any dimension are prohibited. Every bag is subject to search.",
+      "summary": "White Oak Music Hall does not allow bags or backpacks larger than 14 inches in any dimension. All bags are searched.",
       "allowed": [
-        "Bag no larger than 14 inches in any dimension"
+        "Bags and backpacks up to 14 inches in every dimension",
+        "Phones and pocket-sized point-and-shoot cameras",
+        "Rain gear and ponchos"
       ],
       "prohibited": [
-        "Bags and backpacks larger than 14 inches in any dimension"
+        "Bags and backpacks larger than 14 inches in any dimension",
+        "Chairs of any kind",
+        "Lawn blankets, towels and tarps, unless allowed for your show",
+        "Umbrellas",
+        "Outside food and drinks",
+        "Glass and metal containers",
+        "Cameras with detachable lenses",
+        "Camcorders, GoPros and Meta glasses"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "Chairs are banned on the Lawn because of the slope. Blankets are sometimes allowed for smaller or wet shows, so check the venue’s email and social posts. There is no re-entry unless a show says otherwise.",
       "officialLink": "https://whiteoakmusichall.com/about/faq/",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -41748,17 +41812,27 @@
     "lat": 29.5770512,
     "lng": -95.6433618,
     "bagPolicy": {
-      "summary": "Bags and purses no larger than 12 × 6 × 12 inches are allowed and do not have to be clear. Larger medical equipment bags and parenting bags accompanying a child are inspected; backpacks or oversize bags cannot be stored at Guest Services.",
+      "summary": "Bags at Smart Financial Centre can be no larger than 12 x 6 x 12 inches. Clear bags are preferred but not required.",
       "allowed": [
-        "Bag up to 12 × 6 × 12 inches",
-        "Screened medical or parenting bag"
+        "Bags and purses up to 12 x 6 x 12 inches, clear or not",
+        "Diaper and parenting bags, with an infant or toddler, after a search",
+        "Bags for medical equipment, sized to the equipment, after a search",
+        "Small cameras with a lens under 4 inches, unless the artist says otherwise"
       ],
       "prohibited": [
-        "Bags over 12 × 6 × 12 inches"
+        "Bags larger than 12 x 6 x 12 inches",
+        "Large suitcases",
+        "Outside food and drinks",
+        "Cans, bottles, coolers and glass containers",
+        "Cameras with detachable lenses, and audio or video recorders",
+        "Tripods, selfie sticks and drones",
+        "Tablets",
+        "Banners and signs",
+        "Noisemakers"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "Guest Services cannot hold bags, so a bag that is too big has to go back to your car. A stroller check is available at Guest Services. There is no re-entry.",
       "officialLink": "https://us.atgtickets.com/venues/smart-financial-centre/venue-info/",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -44421,15 +44495,20 @@
     "lat": 47.5880461,
     "lng": -122.333928,
     "bagPolicy": {
-      "summary": "Backpacks and bags larger than 16 × 16 × 8 inches are prohibited. The FAQ does not require clear bags.",
-      "allowed": [],
+      "summary": "Showbox SoDo does not allow backpacks or large bags, meaning anything over 16 x 16 x 8 inches.",
+      "allowed": [
+        "Bags up to 16 x 16 x 8 inches",
+        "Point-and-shoot cameras without a detachable lens, unless the artist says otherwise"
+      ],
       "prohibited": [
         "Backpacks",
-        "Bags larger than 16 × 16 × 8 inches"
+        "Bags larger than 16 x 16 x 8 inches",
+        "Food, drinks and drink containers, including reusable water bottles",
+        "Hydration packs such as CamelBaks"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "Coat check is available for restricted items. The camera rule follows each artist’s policy, so check your event.",
       "officialLink": "https://www.showboxpresents.com/plan-your-visit/frequently-asked-questions",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -46012,16 +46091,22 @@
     "lat": 42.3474106,
     "lng": -71.0957606,
     "bagPolicy": {
-      "summary": "Bags up to 12 × 6 × 12 inches are allowed and searched. Nonclear bags undergo additional inspection; larger bags are prohibited.",
+      "summary": "Bags up to 12 x 6 x 12 inches are allowed at Citizens House of Blues Boston. Every bag is searched, and bags that are not clear get an extra search.",
       "allowed": [
-        "Bag up to 12 × 6 × 12 inches"
+        "Bags up to 12 x 6 x 12 inches, clear or not",
+        "Personal cameras, without flash"
       ],
       "prohibited": [
-        "Bags larger than 12 × 6 × 12 inches"
+        "Bags larger than 12 x 6 x 12 inches",
+        "Outside food and drinks",
+        "Personal video cameras, GoPros, selfie sticks and drones",
+        "Removable-lens cameras and flash photography, without venue or artist approval",
+        "Stuffed animals and toys",
+        "Masks and laser pointers"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "The venue has a strict no re-entry policy: once you are inside, you stay in until you leave for the night.",
       "officialLink": "https://boston.houseofblues.com/faq",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
@@ -48464,17 +48549,19 @@
     "lat": 44.9782606,
     "lng": -93.2760295,
     "bagPolicy": {
-      "summary": "Small bags are normally allowed; larger messenger bags and backpacks must be checked. The venue checks bags for free, and artist requirements can vary.",
+      "summary": "First Avenue allows a small bag at most shows. Large bags, messenger bags and backpacks have to be left at coat check, which is free for bags.",
       "allowed": [
-        "Small bags"
+        "A small bag, at most shows",
+        "Phones and small point-and-shoot cameras, without flash"
       ],
       "prohibited": [
-        "Large bags on the concert floor",
-        "Backpacks on the concert floor"
+        "Large bags, messenger bags and backpacks, unless checked",
+        "Cameras with detachable or telescoping lenses",
+        "Weapons of any kind"
       ],
-      "note": "Policies may change or vary by event. Review the linked official guidance shortly before arrival.",
+      "note": "Coat check is open all year. Checking a bag is free and checking a coat is $5. A camera that is not allowed can be checked for free.",
       "officialLink": "https://first-avenue.com/about/FAQ/",
-      "verified": "2026-09-24",
+      "verified": "2026-11-15",
       "verificationStatus": "official_source_confirmed"
     },
     "parking": {
