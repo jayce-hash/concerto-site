@@ -188,31 +188,31 @@ def your_night():
             + close('Save your next show.', 'website-your-night') + '</main>')
 
 def fx_src(k):
-    """Feature screenshots are cached for a year, so each file name carries a hash of its contents."""
+    """Feature screenshots are cached for a year, so each file name carries a hash of its contents.
+    Exactly one file per screen: a leftover old capture used to win by alphabetical order."""
     import glob as _g, os as _o
-    hits = sorted(_g.glob(str(ROOT / 'img' / 'features' / f'{k}.*.webp')))
-    return '/img/features/' + _o.path.basename(hits[-1]) if hits else f'/img/features/{k}.webp'
+    hits = _g.glob(str(ROOT / 'img' / 'features' / f'{k}.*.webp'))
+    if len(hits) != 1:
+        raise SystemExit(f'img/features needs exactly one file for "{k}", found {len(hits)}: {sorted(_o.path.basename(h) for h in hits)}')
+    return '/img/features/' + _o.path.basename(hits[0])
 
-FX_DIM = {'home': 972, 'nearme': 1049, 'tour': 1214, 'tours': 1086, 'venue': 1245, 'venues': 1084, 'yn-page': 5192, 'yn-add': 1305,
-          'plus-planner': 1305, 'plus-bag': 1305, 'plus-exit': 1305, 'plus-home': 912, 'plus-locked': 1305,
-          'pyn-start': 1206, 'pyn-question': 1206, 'pyn-night': 1206,
-          **{f'yn-{k}': 1082 for k in ('plan', 'seat', 'there', 'eat', 'venue', 'setlist', 'home')}}
+# Every screenshot is the app inside an iPhone, all one size.
+FX_W, FX_H = 657, 1353
 
 def features():
     """The Features page, built around one real night: Olivia Rodrigo at Intuit Dome, with LA for
     Near Me and Venues. Screens are real app captures; every Ticketmaster and Google photo in them
     is replaced with Concerto's own illustrations, and the planner is Plan My Night."""
     def shot(k, alt, eager=False):
-        h = FX_DIM.get(k, 1311)
-        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="{h}" alt="{e(alt)}" loading="{"eager" if eager else "lazy"}">'
+        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="{FX_W}" height="{FX_H}" alt="{e(alt)}" loading="{"eager" if eager else "lazy"}">'
     # 1. How to use Concerto: find a show, save it, then Your Night (Before, Arrive, Show, After)
     first = (
-        '<li class="c-fx-step">' + shot('home', 'Concerto Home with Olivia Rodrigo at Intuit Dome as the next show', True)
+        '<li class="c-fx-step">' + shot('home', 'Concerto Home on an iPhone, with Olivia Rodrigo at Intuit Dome as the next show', True)
         + '<span class="c-fx-num">1</span><h3>Find Your Show</h3><p>Search an artist, a venue or a city, or ask Concerto AI. Your next show sits at the top of Home.</p></li>'
         + '<li class="c-fx-step">' + shot('tour', 'Olivia Rodrigo’s tour page in Concerto with dates to save', True)
         + '<span class="c-fx-num">2</span><h3>Save It</h3><p>Tap your show, or the bookmark on your date, and sign in. Your Night is ready for that show.</p></li>')
     # 3. Plan your night: a few quick questions (or Concerto+ plans it), then the night in order.
-    plan_steps = [('pyn-start', 'Your Night right after saving a show', 'Laid Out When You Save', 'Save a show and your night is already in order: doors, the show and the way home.'),
+    plan_steps = [('pyn-start', 'Your Night right after saving a show, with three spots open', 'Laid Out When You Save', 'Save a show and your night is already in order: doors, the show and the way home.'),
                   ('pyn-question', 'An open spot in Your Night, answered in one tap', 'Fill the Open Spots', 'Getting there, dinner, your bag and your ticket. One tap each, or skip. Concerto+ fills them in for you.'),
                   ('pyn-night', 'Your Night as a timeline', 'Your Night, in Order', 'Dinner, doors, your seat, the show and the ride home. Tap any stop for its details.')]
     night = ('<div class="c-fx-night" id="your-night"><div class="c-fx-nhead"><span class="c-fx-num">3</span><h3>Fill In Your Night</h3>'
@@ -229,7 +229,7 @@ def features():
         ('tours', 'Tours', 'Every Tour, and the Songs', f'{(N_T // 10) * 10}+ tours on the road, each with every upcoming date and the setlist it’s been playing, labeled by source. Follow a tour, and with Concerto+ you’ll get an alert when new dates and presales are added.',
          [('tours', 'Tours in Concerto'), ('tour', 'A tour page with dates')], '/tours', 'Browse tours'),
         ('venues', 'Venues', 'Know the Venue Before You Go', f'Guides for {V_COPY} venues worldwide: bag policy, entrances and doors, parking, rideshare, food and drink, re-entry and accessibility, each checked against the venue’s official sources and dated. At Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, House Map shows every food stand, bar, restroom and entrance by section.',
-         [('venues', 'Venues in Concerto'), ('venue', 'The Intuit Dome venue guide')], '/venues', 'Browse venue guides'),
+         [('venues', 'Venues in Concerto'), ('venue', 'The Intuit Dome venue guide with its bag policy open')], '/venues', 'Browse venue guides'),
         ('near-me', 'Near Me', 'What’s On Around You', 'Every concert around you, night by night, on a map. Pick another city to plan a trip, and tap any show to see its venue guide and save it.',
          [('nearme', 'Near Me in Los Angeles')], '/near-me', 'See concerts near you'),
     ]
@@ -247,8 +247,8 @@ def features():
                 + '<h2 class="c-h2">Concerto+ Runs Your Night</h2>'
                 + f'<p class="c-lead">Your Night is free, and you can fill it in yourself. With Concerto+, Concerto does it for you, and on show day Leave Time tells you when to leave. A Show Pass turns it on for one show, through the morning after, for {PLUS_PASS}. Concerto+ covers every show for {PLUS_YEAR} a year, with 30 Concerto AI answers a day.</p></div>'
                 + f'<ul class="c-fx-tools">{tool_cards}</ul>'
-                + '<div class="c-fx-add c-fx-add-dark">' + shot('plus-home', 'The next show on Home with Plan my night, Bag check and Exit Plan')
-                + '<div class="c-fx-ptext"><p class="c-eyebrow">Always one tap away</p><h3>Right on Your Show’s Card</h3><p>Your next show on Home has a button for each tool, so it’s always clear which show it’s for.</p></div></div>'
+                + '<div class="c-fx-add c-fx-add-dark">' + shot('plus-home', 'Your Night with a Show Pass, and Plan it for me at the top')
+                + '<div class="c-fx-ptext"><p class="c-eyebrow">Always one tap away</p><h3>Inside Your Night</h3><p>Open your show and each tool is on the page, next to the part of the night it helps with.</p></div></div>'
                 + '<div class="c-actions"><a class="c-link" href="/premium">More about Concerto+</a></div></div></section>')
     return ('<main id="main-content" class="c-page">' + howto + more_sec + plus_sec
             + close('Start with the show you’re going to.', 'website-features') + '</main>')
@@ -1097,15 +1097,15 @@ def premium():
                   ('Anytime: More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
                   ('Anytime: More alerts', 'New dates and presales for the artists you follow. The show-day alert, Time to Head Out, the Passport reminder, and This Weekend stay free.', '')])
     def pshot(k, alt):
-        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="603" height="1305" alt="{e(alt)}" loading="lazy">'
+        return f'<img class="c-fx-shot" src="{fx_src(k)}" width="{FX_W}" height="{FX_H}" alt="{e(alt)}" loading="lazy">'
     where = ('<section class="c-section c-navy c-fx-plusband" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Where it lives')
-             + '<h2 class="c-h2">Right on Your Show’s Card</h2><p class="c-lead">Your next show on Home has a button for each tool, so it’s always clear which show it’s for.</p></div>'
+             + '<h2 class="c-h2">Inside Your Night</h2><p class="c-lead">Open your show and each tool is on the page, next to the part of the night it helps with.</p></div>'
              + '<ul class="c-fx-tools">'
              + f'<li>{pshot("plus-planner", "Concerto+ Plan it for me")}<h3><span>Concerto+</span> Plan it for me</h3><p>Concerto picks how to get there and where to eat, with a reason for each pick.</p></li>'
              + f'<li>{pshot("plus-bag", "Concerto+ Bag Check")}<h3><span>Concerto+</span> Bag Check</h3><p>Take a photo of your bag and know before you leave if the venue allows it.</p></li>'
              + f'<li>{pshot("plus-exit", "Concerto+ Exit Plan")}<h3><span>Concerto+</span> Exit Plan</h3><p>An alert before the last song, with your way out and where to meet your ride.</p></li>'
-             + '</ul><div class="c-fx-add c-fx-add-dark">' + pshot('plus-locked', 'A Bag Check example in Your Night before buying')
-             + '<div class="c-fx-ptext"><p class="c-eyebrow">See it before you buy</p><h3>An Example of Each</h3><p>Without Concerto+, each tool shows an example of what it does, with Show Pass one tap away. With it, each one opens from your next show’s card on Home.</p></div></div></div></section>')
+             + '</ul><div class="c-fx-add c-fx-add-dark">' + pshot('plus-locked', 'The Concerto+ page for one show, with Show Pass and the yearly plan')
+             + '<div class="c-fx-ptext"><p class="c-eyebrow">See it before you buy</p><h3>What You Get, Up Front</h3><p>Tap any Concerto+ tool and one page shows what it adds to your night and what it costs: a Show Pass for that show, or Concerto+ for the year.</p></div></div></div></section>')
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +
                '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Try it on one show with a Show Pass. If you go to seven or more shows a year, the yearly plan costs less. Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
                f'<div class="c-prices"><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div></div></div></section>')

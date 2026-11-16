@@ -2604,7 +2604,7 @@ h1,h2{font-weight:700}
 .v8 .c-fx-head .c-h2{margin:0 auto 14px;max-width:none}
 .v8 .c-fx-head .c-lead{margin:18px auto 0;max-width:56ch}
 .v8 .c-fx-head .c-stores{justify-content:center;margin-top:26px}
-.v8 .c-fx-shot{display:block;width:100%;height:auto;border-radius:30px;background:#fff;box-shadow:0 1px 0 rgba(18,30,54,.06),0 22px 54px rgba(18,30,54,.15)}
+.v8 .c-fx-shot{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 30px rgba(18,30,54,.22))}
 .v8 .c-fx-num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:700;font-size:16px}
 .v8 .c-fx-steps{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:clamp(28px,6vw,96px)}
 .v8 .c-fx-step{text-align:center}
@@ -2632,6 +2632,7 @@ h1,h2{font-weight:700}
 .v8 .c-fx-night .c-actions{justify-content:center;display:flex;margin-top:40px}
 .v8 .c-fx-feature{display:grid;grid-template-columns:minmax(0,400px) minmax(0,560px);justify-content:center;align-items:center;gap:clamp(28px,6vw,96px);padding:clamp(28px,4vw,56px) 0;scroll-margin-top:104px}
 .v8 .c-fx-feature:nth-of-type(even) .c-fx-ftext{order:2}
+@media (min-width:861px){.v8 .c-fx-feature:nth-of-type(even){grid-template-columns:minmax(0,560px) minmax(0,400px)}}
 .v8 .c-fx-single{grid-template-columns:minmax(0,280px);justify-content:center}
 .v8 .c-fx-single .c-fx-shot{margin-top:0!important}
 .v8 .c-fx-plusgrid{list-style:none;margin:0 0 32px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
@@ -2652,7 +2653,6 @@ h1,h2{font-weight:700}
   .v8 .c-fx-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .v8 .c-fx-step p{font-size:14px}
   .v8 .c-fx-step h3{font-size:21px}
-  .v8 .c-fx-shot{border-radius:20px}
   .v8 .c-fx-tablist label{padding:10px 15px;font-size:14px}
   .v8 .c-fx-pair .c-fx-shot:nth-child(2){margin-top:28px}
   .v8 .c-fx-plusgrid{grid-template-columns:1fr}
@@ -2692,8 +2692,6 @@ h1,h2{font-weight:700}
 @media (max-width:1100px){.v8 .c-page:has(.c-hero-home) .c-rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.v8 .c-page:has(.c-hero-home) .c-rows{grid-template-columns:1fr}}
 
-.v8 .c-fx-step .c-fx-shot{aspect-ratio:603/972;object-fit:cover;object-position:top}
-.v8 .c-fx-steps-3 .c-fx-step .c-fx-shot{aspect-ratio:603/1206}
 @media (max-width:860px){.v8 .c-fx-ptext{order:-1;margin-bottom:8px}}
 
 /* Features: Your Night as one page. A pinned phone whose screen moves with the captions (desktop). */
@@ -2709,7 +2707,7 @@ h1,h2{font-weight:700}
 .v8 .c-fx-add{display:grid;grid-template-columns:minmax(0,300px) minmax(0,420px);justify-content:center;align-items:center;gap:clamp(28px,6vw,96px);text-align:left;margin-top:clamp(40px,6vw,88px)}
 .v8 .c-fx-add-dark .c-fx-ptext h3{color:#fff}
 .v8 .c-fx-tools{list-style:none;margin:0 0 8px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,300px));justify-content:center;gap:clamp(18px,3vw,40px);text-align:center}
-.v8 .c-fx-tools .c-fx-shot{margin-bottom:22px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.v8 .c-fx-tools .c-fx-shot{margin-bottom:22px;filter:drop-shadow(0 24px 34px rgba(0,0,0,.45))}
 .v8 .c-fx-tools h3{font-family:var(--display);font-weight:500;font-size:26px;line-height:1.15;margin:0 0 8px;color:#fff}
 .v8 .c-fx-tools h3 span{display:block;font-family:var(--body);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px}
 .v8 .c-fx-tools p{font-size:15px;line-height:1.55;margin:0 auto;max-width:30ch}
@@ -2718,7 +2716,7 @@ h1,h2{font-weight:700}
   .v8 .c-yn-phone{display:none}
   .v8 .c-yn-caps{padding:0;display:grid;gap:44px}
   .v8 .c-yn-cap{min-height:0;opacity:1;text-align:center;align-items:center}
-  .v8 .c-yn-cap .c-fx-shot{display:block;width:min(300px,78vw);margin:0 auto 20px;aspect-ratio:603/1082}
+  .v8 .c-yn-cap .c-fx-shot{display:block;width:min(300px,78vw);margin:0 auto 20px}
   .v8 .c-fx-add{grid-template-columns:1fr;justify-items:center;text-align:center}
   .v8 .c-fx-add .c-fx-shot{width:min(300px,78vw)}
   .v8 .c-fx-tools{grid-template-columns:1fr;justify-items:center;gap:44px}

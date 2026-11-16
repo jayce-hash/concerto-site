@@ -17,4 +17,4 @@ if(/#(?:DAD4ED|F7F6F2|FCFCFA|F6F4EE)\b/i.test(css)) fail.push('unapproved websit
 const chrome=fs.readFileSync(path.join(root,'scripts/public_chrome.py'),'utf8');
 if(!chrome.includes('Playfair+Display:wght@500;700')) fail.push('app display font weights missing');
 if(fail.length){console.error('BRAND SYSTEM VALIDATION FAILED');fail.forEach(x=>console.error(' - '+x));process.exit(1)}
-console.log('PASS: native brand alignment - app fonts and palette, one public stylesheet, unframed product captures');
+console.log('PASS: native brand alignment - app fonts and palette, one public stylesheet, real product captures');
