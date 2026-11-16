@@ -157,7 +157,11 @@ exports.handler = async function (event) {
     // nearly always square or small, so take the first photo that is clearly wider than it is
     // tall and at least 800px across; if none qualifies, fall back to the first, as before.
     const wide = (p) => Number(p.widthPx) >= 800 && Number(p.widthPx) >= Number(p.heightPx) * 1.25;
-    const photo = match.photos.slice(0, 10).find(wide) || match.photos[0];
+    // A few venues lead with a logo that is wide, which the rule above can't tell from a
+    // photo. For those, the first photo is passed over by name.
+    const SKIP_FIRST = ['intuit dome'];
+    const pool = SKIP_FIRST.includes(String(name).trim().toLowerCase()) && match.photos.length > 1 ? match.photos.slice(1) : match.photos;
+    const photo = pool.slice(0, 10).find(wide) || pool[0];
     const credit = (photo.authorAttributions || [])
       .map((a) => a.displayName)
       .filter(Boolean)
