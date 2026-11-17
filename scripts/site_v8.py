@@ -1387,9 +1387,19 @@ def download_page():
 # Medley, its community rules) at the bottom, so the apps can link straight to those sections.
 # The App Store link is a switch in data/family.json: empty means "Coming Soon", a real
 # apps.apple.com address turns the badge on (js/public-v6.js). The apps read the same switch.
+def app_icon(app):
+    """Images under /img are cached for a year, so the icon's file name carries a fingerprint of
+    its contents. A new icon gets a new name and shows up at once; delete the old file when you
+    add one."""
+    import glob as _g, os.path as _o
+    hits = _g.glob(_o.join(_o.dirname(_o.dirname(_o.abspath(__file__))), 'img', 'apps', app + '-icon.*.png'))
+    if len(hits) != 1:
+        raise SystemExit(f'img/apps needs exactly one {app}-icon.*.png, found {len(hits)}: {sorted(_o.basename(h) for h in hits)}')
+    return '/img/apps/' + _o.basename(hits[0])
+
 def sister_link(app, name):
     return (f'<div class="c-applink" data-app="{app}">'
-            f'<img class="c-appicon-sm" src="/img/apps/{app}-256.png" width="72" height="72" alt="{name} app icon">'
+            f'<img class="c-appicon-sm" src="{app_icon(app)}" width="72" height="72" alt="{name} app icon">'
             f'<a class="c-store" data-store hidden href="/{app}" target="_blank" rel="noopener" aria-label="Download {name} on the App Store">'
             '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53"></a>'
             '<p class="c-soon" data-soon>Coming Soon To The App Store</p></div>')
