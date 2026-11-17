@@ -2795,8 +2795,36 @@ h1,h2{font-weight:700}
 .v8 .c-section .c-acc-head + .c-acc{margin-top:20px}
 @media (max-width:760px){
   .v8 .c-applogo{height:64px;margin-bottom:18px}
-  .v8 .c-appshots{grid-template-columns:repeat(4,62%);overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:0 -20px;padding:0 20px 18px;-webkit-overflow-scrolling:touch}
+  .v8 .c-appshots,.v8 .c-appshots.c-appshots-5{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:0 -20px;padding:0 20px 18px;-webkit-overflow-scrolling:touch}
   .v8 .c-appshots figure{scroll-snap-align:center}
   .v8 .c-acc-item summary{font-size:16px;padding:18px 0}
 }
 @media (prefers-reduced-motion:reduce){.v8 .c-acc-item summary::after{transition:none}}
+/* Homepage: a row of phones for each app, then the memberships. */
+.v8 .c-row-head{text-align:center;max-width:720px;margin:0 auto clamp(36px,4.5vw,60px)}
+.v8 .c-row-head .c-body{margin:14px auto 0}
+.v8 .c-row-head .c-applogo{height:72px;margin-bottom:18px}
+.v8 .c-appshots.c-appshots-5{grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.v8 .c-appshots figcaption b{display:block;font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;letter-spacing:0;color:var(--navy)}
+.v8 .c-appshots figcaption span{display:block;margin:8px auto 0;max-width:28ch;font-size:15px;font-weight:400;line-height:1.55;letter-spacing:0;color:var(--muted)}
+.v8 .c-appshots figcaption .c-shot-num{margin:0 auto 6px;font-family:var(--display);font-style:italic;font-size:20px;line-height:1;color:var(--gold)}
+.v8 .c-row-actions{justify-content:center;margin-top:clamp(36px,4.5vw,56px)}
+.v8 .c-freefour{margin-top:clamp(56px,7vw,88px);padding-top:clamp(40px,5vw,56px);border-top:1px solid rgba(18,30,54,.12)}
+.v8 .c-freefour > h3{font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.15;margin:0;text-align:center;color:var(--navy)}
+.v8 .c-points.c-points-4{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 36px}
+.v8 .c-points-4 h3{font-size:22px}
+.v8 .c-points-4 p{font-size:15.5px;margin-bottom:14px}
+.v8 .c-passes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.v8 .c-pass{border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;text-align:left}
+.v8 .c-pass h3{font-family:var(--display);font-weight:500;font-size:26px;line-height:1.15;margin:0;color:#fff}
+.v8 .c-navy .c-pass .c-pass-price{margin:8px 0 14px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.v8 .c-pass p{margin:0 0 20px;font-size:15.5px;line-height:1.6}
+.v8 .c-pass .c-link{margin-top:auto;align-self:flex-start}
+@media (max-width:1040px){.v8 .c-points.c-points-4,.v8 .c-passes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .v8 .c-row-head .c-applogo{height:56px}
+  .v8 .c-appshots.c-appshots-5{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;gap:18px}
+  .v8 .c-appshots figcaption{text-align:center}
+  .v8 .c-points.c-points-4{grid-template-columns:1fr;gap:28px}
+  .v8 .c-passes{grid-template-columns:1fr}
+}
