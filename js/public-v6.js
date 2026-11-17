@@ -1430,3 +1430,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }).catch(function () {});
 })();
+
+// No sentence ends with one word alone on its last line. Browsers that support
+// text-wrap: pretty already avoid it; this joins the last two words everywhere else too.
+(function () {
+  function lastText(el) {
+    for (var n = el.lastChild; n; n = n.previousSibling) {
+      if (n.nodeType === 3 && /\S/.test(n.nodeValue)) return n;
+      if (n.nodeType === 1 && !/^(BR|IMG|SVG|BUTTON|INPUT|SELECT)$/i.test(n.nodeName)) { var t = lastText(n); if (t) return t; }
+    }
+    return null;
+  }
+  function run() {
+    var els = document.querySelectorAll('main p, main li, main h1, main h2, main h3, main figcaption, .ftr-tag');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.querySelector('p, li, ul, ol, form, table')) continue;
+      if ((el.textContent || '').trim().split(/\s+/).length < 4) continue;
+      var node = lastText(el);
+      if (!node) continue;
+      var v = node.nodeValue, body = v.replace(/\s+$/, ''), at = body.lastIndexOf(' ');
+      if (at < 1) continue;
+      var last = body.slice(at + 1), before = body.slice(0, at).split(/\s/).pop();
+      if (last.length > 14 || before.length > 14 || last.indexOf(' ') >= 0) continue;
+      node.nodeValue = body.slice(0, at) + ' ' + last + v.slice(body.length);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
