@@ -1413,3 +1413,20 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) { close(); btn.focus(); } });
   });
 })();
+
+// Sister apps: the App Store badge appears once data/family.json holds a real App Store address.
+(function () {
+  var els = document.querySelectorAll('[data-app]');
+  if (!els.length || !window.fetch) return;
+  fetch('/data/family.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j) return;
+    els.forEach(function (el) {
+      var entry = j[el.getAttribute('data-app')];
+      var store = entry && entry.store;
+      if (typeof store !== 'string' || store.indexOf('https://apps.apple.com/') !== 0) return;
+      var a = el.querySelector('[data-store]'), soon = el.querySelector('[data-soon]');
+      if (a) { a.href = store; a.hidden = false; }
+      if (soon) soon.hidden = true;
+    });
+  }).catch(function () {});
+})();

@@ -1382,6 +1382,94 @@ def download_page():
                '<p class="c-dl-fine">On a computer? Point your phone camera at the code.</p>')
     return simple('Download', 'Concerto is free on<br>iPhone and Android.', 'Venue guides, tour dates and setlists, and your whole show night on one page.', actions)
 
+# ----- the sister apps: one page each, "by Concerto" -----
+# Each page says what the app is, links to it, and carries that app's privacy notes (and, for
+# Medley, its community rules) at the bottom, so the apps can link straight to those sections.
+# The App Store link is a switch in data/family.json: empty means "Coming Soon", a real
+# apps.apple.com address turns the badge on (js/public-v6.js). The apps read the same switch.
+def sister_link(app, name):
+    return (f'<div class="c-applink" data-app="{app}">'
+            f'<img class="c-appicon-sm" src="/img/apps/{app}-256.png" width="72" height="72" alt="{name} app icon">'
+            f'<a class="c-store" data-store hidden href="/{app}" target="_blank" rel="noopener" aria-label="Download {name} on the App Store">'
+            '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53"></a>'
+            '<p class="c-soon" data-soon>Coming Soon To The App Store</p></div>')
+
+def app_points(items):
+    return '<div class="c-points">' + ''.join(f'<div><h3>{e(h)}</h3><p>{t}</p></div>' for h, t in items) + '</div>'
+
+def app_doc(anchor, title, paras):
+    return (f'<section class="c-section c-white c-doc-section" id="{anchor}"><div class="c-wrap c-doc"><h2>{e(title)}</h2>'
+            + ''.join(f'<p>{t}</p>' for t in paras) + '</div></section>')
+
+def family_section(name, body):
+    return ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('From the creator of Concerto')
+            + '<h2 class="c-h2">One Account,<br>Three Apps.</h2></div>'
+            f'<div><p class="c-body">{body}</p>'
+            '<div class="c-actions"><a class="c-link" href="/features">See Concerto</a><a class="c-link" href="/reprise">Reprise</a><a class="c-link" href="/medley">Medley</a></div></div></div></section>')
+
+def reprise_page():
+    h = hero('Reprise by Concerto', 'Relive Your Shows<br>And Trips.',
+             'Reprise turns the photos from a concert or a trip into an album. From there you can make a card to share, send the photos to friends, or publish them to your own website.',
+             sister_link("reprise", "Reprise"), None, 'navy')
+    what = ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('What it does') + '<h2 class="c-h2">Your Photos, Sorted<br>Into Albums.</h2>'
+            + app_points([
+                ('Albums For Every Show And Trip', 'Choose your photos and Reprise groups them into an album, with the place and the dates filled in from the photos themselves.'),
+                ('A Card Worth Sharing', 'Pick a layout, then change the photos, words, colours and lettering. Cards are sized for Instagram, TikTok and Messages.'),
+                ('Your Own Website', 'Have a WordPress site or travel blog? Send photos from any album straight to it, resized, with captions.'),
+                ('Simple By Design', 'Everything starts from the album. Open one, choose what you want to do with it, and Reprise takes you to that step.'),
+            ]) + '</div></section>')
+    fam = family_section('Reprise', 'Reprise uses the same account as Concerto and Medley. A show you saved in Concerto is ready in Reprise the morning after, with the artist, venue, date, your seat and the setlist already in place. A Concerto+ membership includes Reprise+, and Reprise+ includes Concerto+.')
+    plus = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Reprise+') + '<h2 class="c-h2">Free To Use.<br>More If You Want It.</h2></div>'
+            '<div><p class="c-body">Albums, cards, sharing and website uploads are free. Reprise+ adds more lettering, stickers, and cards without the small Reprise line.</p>'
+            '<p class="c-body">An Album Pass unlocks the same for one album. Prices are shown in the app before you buy.</p></div></div></section>')
+    privacy = app_doc('privacy', 'Reprise Privacy', [
+        'Effective Date: November 17, 2026',
+        '<strong>Your photos stay on your iPhone.</strong> Reprise only opens the photos you choose, or the ones from a date you ask it to find. Albums and cards are made on your phone. Reprise does not upload your photos to Concerto.',
+        '<strong>Place names.</strong> If a photo carries a location, Reprise asks Apple’s maps service for the name of that place so the album can be titled. Concerto does not receive or keep it.',
+        '<strong>Your website.</strong> If you connect a WordPress site, photos you send go directly from your phone to that site. Your site password is kept in the iPhone keychain, on your phone only.',
+        '<strong>Your account.</strong> Signing in is optional. If you do, Reprise uses the same account as Concerto and Medley: your email address, the shows you saved in Concerto, whether you are a member, and each album’s details (its name, dates, show details and card design, never the photos), so your albums are there on a new phone.',
+        '<strong>Purchases.</strong> Reprise+ and the Album Pass are bought through Apple. We receive confirmation that a purchase was made, not your payment details.',
+        '<strong>What Reprise does not do.</strong> No advertising, no selling of personal data, and no tracking across other apps or websites.',
+        '<strong>Deleting your account.</strong> In Reprise, open Account and choose Delete My Account. That removes the account and everything on it for all three apps. Albums on your phone are removed when you delete the app.',
+        'Everything else is covered by the <a href="/privacy">Concerto Privacy Policy</a>. Questions: <a href="mailto:support@concertocity.com">support@concertocity.com</a>.',
+    ])
+    return '<main id="main-content" class="c-page">' + h + what + fam + plus + privacy + '</main>'
+
+def medley_page():
+    h = hero('Medley by Concerto', 'Setlists And Streams,<br>In One Place.',
+             'Medley is the quick way to see what an artist is playing on tour. Search an artist, open the setlist, and save it to Apple Music as a playlist.',
+             sister_link("medley", "Medley"), None, 'navy')
+    what = ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('What it does') + '<h2 class="c-h2">Setlists, Community<br>And Streams.</h2>'
+            + app_points([
+                ('Setlists', 'Search by artist, tour or song. Each setlist says where it came from and when it was last updated. Save the ones you want to keep.'),
+                ('Community', 'Fans who were at the show add what was played. When three fans confirm a setlist, it is marked as confirmed.'),
+                ('Streams', 'Fans who stream shows are listed by invitation. Each stream opens on the platform it is on. Medley does not host video.'),
+                ('Save To Apple Music', 'One tap turns a setlist into a playlist in your Apple Music library, in the order it was played.'),
+            ]) + '</div></section>')
+    fam = family_section('Medley', 'Medley uses the same account as Concerto and Reprise. The setlists for the shows you saved in Concerto are at the top of Medley, and from any setlist you can plan the night in Concerto or relive it in Reprise. Reading setlists needs no account.')
+    rules = app_doc('rules', 'Community Rules And Terms', [
+        'Effective Date: November 17, 2026',
+        '<strong>Add what was really played.</strong> Only add a setlist for a show you were at. No made-up setlists, guesses, or jokes.',
+        '<strong>Be decent.</strong> No abuse, hate, threats, spam, or anything unlawful, in a setlist, a name, or a stream listing.',
+        '<strong>Reporting and blocking.</strong> Anyone signed in can report a setlist or block the person who added it. Reports are reviewed within 24 hours. A setlist that several people report is hidden until it has been reviewed. We remove content that breaks these rules and may close the account that added it.',
+        '<strong>Streams.</strong> Streamers are listed by invitation after asking to be included. A listing is a link to a stream on another platform; Medley does not host, record, or control it. Streamers are responsible for following the rules of that platform, the venue and the artist.',
+        '<strong>Rights holders.</strong> If you are an artist, venue, promoter or their representative and want a setlist or stream listing removed, email <a href="mailto:support@concertocity.com">support@concertocity.com</a> and it will be taken down.',
+        '<strong>Where setlists come from.</strong> Medley credits the source of every setlist it shows. Songs and their order can change from show to show.',
+        'By using Medley you also agree to the <a href="/terms">Concerto Terms of Service</a>.',
+    ])
+    privacy = app_doc('privacy', 'Medley Privacy', [
+        'Effective Date: November 17, 2026',
+        '<strong>No account needed to read.</strong> Searching and reading setlists, and seeing streams, works without signing in.',
+        '<strong>Your account.</strong> Adding or confirming a setlist, reporting, and asking to be listed as a streamer need an account. It is the same account as Concerto and Reprise: your email address, the shows you saved in Concerto, and the setlists you saved in Medley.',
+        '<strong>What you add.</strong> Setlists you add, your confirmations and your reports are stored with your account. A setlist you add is shown to everyone without your name or email. You can remove your own setlist at any time.',
+        '<strong>Stream requests.</strong> If you ask to be listed, we keep your handle, the platform, and the contact detail you give us so we can reply. The contact detail is never shown in the app.',
+        '<strong>Apple Music.</strong> With your permission, Medley adds a playlist to your library when you ask it to. It does not read your library or your listening history.',
+        '<strong>What Medley does not do.</strong> No advertising, no selling of personal data, and no tracking across other apps or websites.',
+        '<strong>Deleting your account.</strong> In Medley, open Account and choose Delete My Account. That removes the account and everything you added, for all three apps.',
+        'Everything else is covered by the <a href="/privacy">Concerto Privacy Policy</a>. Questions: <a href="mailto:support@concertocity.com">support@concertocity.com</a>.',
+    ])
+    return '<main id="main-content" class="c-page">' + h + what + fam + rules + privacy + '</main>'
+
 def simple(kicker, h1, lead, actions):
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, actions, None, 'cream', 'c-hero-simple') + '</main>'
 
@@ -1494,6 +1582,13 @@ def build():
     (ROOT / 'features.html').write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/features'), _f, flags=re.S))
     ensure_page('download.html', 'Download Concerto | Free on iPhone and Android', 'Get Concerto, the concert companion app: venue guides, tour dates and setlists, and your whole show night on one page. Free on iPhone and Android.', '/download')
     rewrite('download.html', download_page())
+    ensure_page('reprise.html', 'Reprise by Concerto | Relive Your Shows and Trips', 'Reprise turns the photos from a concert or a trip into an album, a card to share, or photos for your own website. From the creator of Concerto.', '/reprise')
+    rewrite('reprise.html', reprise_page())
+    ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, save it to Apple Music, and see fans streaming the show. From the creator of Concerto.', '/medley')
+    rewrite('medley.html', medley_page())
+    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley')):   # the shell came from About: give each its own header
+        _s = (ROOT / _rel).read_text()
+        (ROOT / _rel).write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html(_path), _s, flags=re.S))
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header
     _d = re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html('/download'), _d, flags=re.S)
     (ROOT / 'download.html').write_text(_d)

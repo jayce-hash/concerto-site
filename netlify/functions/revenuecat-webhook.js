@@ -28,10 +28,11 @@ function tierFor(productId) {
 function iso(ms) {
   return Number(ms) > 0 ? new Date(Number(ms)).toISOString() : null;
 }
-// The Show Pass ($4.99, one show) is a one-time purchase. It must never touch the yearly
+// The Show Pass ($4.99, one show) and Reprise's Album Pass are the same one-time purchase,
+// sold in each app. It must never touch the yearly
 // membership; it only records how long the pass lasts, so Concerto AI can honor it.
 function isShowPass(e) {
-  return /show/i.test(String(e.product_id || ''));
+  return /show|album_pass/i.test(String(e.product_id || ''));
 }
 function showPassUntil(e) {
   const attr = e.subscriber_attributes && e.subscriber_attributes.show_pass_until;

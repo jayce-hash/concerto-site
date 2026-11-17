@@ -90,6 +90,7 @@
 /founder.html /founder 301!
 /help.html /help 301!
 /investors.html /investors 301!
+/medley.html /medley 301!
 /near-me.html /near-me 301!
 /parking.html /parking 301!
 /partner-artists.html /partners/artists 301!
@@ -100,6 +101,7 @@
 /premium.html /premium 301!
 /press.html /press 301!
 /privacy.html /privacy 301!
+/reprise.html /reprise 301!
 /rideshare.html /rideshare 301!
 /setlists.html /setlists 301!
 /terms.html /terms 301!
@@ -1574,6 +1576,14 @@
 /tours/goo-goo-dolls-summer-2026   /tours   301!
 /setlist/goo-goo-dolls-summer-2026   /setlists   301!
 /setlists/goo-goo-dolls-summer-2026   /setlists   301!
+
+# Sister apps (Nov 2026). Medley reads its artist photos from one address; the site builds the
+# list. Reprise and Medley link to the privacy and rules sections of their own page.
+/data/artist-art.json   /.netlify/functions/artist-art   200
+/reprise/privacy        /reprise#privacy                 301
+/medley/privacy         /medley#privacy                  301
+/medley/rules           /medley#rules                    301
+/medley/terms           /medley#rules                    301
 
 # ── Concerto public web architecture ───────────────────────────────
 # One content system, two presentation systems. Public venue, tour, and
