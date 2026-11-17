@@ -39,6 +39,8 @@ NAV = [
     ('Venues', '/venues'),
     ('Tours', '/tours'),
     ('Concerto+', '/premium'),
+    ('Reprise', '/reprise'),
+    ('Medley', '/medley'),
     ('About', '/about'),
 ]
 MENU_EXTRA = [('Setlists', '/setlists'), ('Search', '/search'), ('Help', '/help')]
@@ -86,7 +88,7 @@ from app_icons import IONICONS as _IO, MDI_STADIUM as _STADIUM
 MOBILE_MENU = [
     # Same icons as the app's tab bar: ticket, stadium, mic, navigate.
     [('Features', '/features', 'ticket'), ('Venues', '/venues', 'stadium'), ('Tours', '/tours', 'mic'), ('Near Me', '/near-me', 'navigate'), ('Setlists', '/setlists', 'musical-notes')],
-    [('Concerto+', '/premium', 'sparkles'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help-circle-outline'), ('About', '/about', 'information-circle-outline')],
+    [('Concerto+', '/premium', 'sparkles'), ('Reprise', '/reprise', 'repeat'), ('Medley', '/medley', 'musical-notes'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help-circle-outline'), ('About', '/about', 'information-circle-outline')],
 ]
 def mobile_menu(path='/'):
     def row(label, href, ic):
