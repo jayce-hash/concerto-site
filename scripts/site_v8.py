@@ -1441,7 +1441,7 @@ def app_accordion(title, questions, docs):
             + '<h3 class="c-acc-head">Policies</h3>' + f'<div class="c-acc">{pol}</div></div></section>')
 
 def reprise_page():
-    h = hero('Reprise by Concerto', 'Relive Your Shows<br>And Trips.',
+    h = hero('By Concerto', 'Relive Your Shows<br>And Trips.',
              'Reprise turns the photos from a concert or a trip into an album. From there you can make a card to share, send the photos to friends, or publish them to your own website.',
              sister_link("reprise", "Reprise"), None, 'navy', crumbs=app_logo('reprise', 'Reprise', 737))
     shots = app_shots('reprise', [
@@ -1489,7 +1489,7 @@ def reprise_page():
     return '<main id="main-content" class="c-page">' + h + shots + what + steps + fam + plus + acc + '</main>'
 
 def medley_page():
-    h = hero('Medley by Concerto', 'Setlists And Streams,<br>In One Place.',
+    h = hero('By Concerto', 'Setlists And Streams,<br>In One Place.',
              'Medley is the quick way to see what an artist is playing on tour. Search an artist, open the setlist, and save it to Apple Music as a playlist.',
              sister_link("medley", "Medley"), None, 'navy', crumbs=app_logo('medley', 'Medley', 744))
     shots = app_shots('medley', [
