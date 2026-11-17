@@ -2773,3 +2773,30 @@ h1,h2{font-weight:700}
 .v8 .c-points p{margin:0;font-size:16.5px;line-height:1.65;color:var(--muted);max-width:46ch}
 .v8 .c-doc-section[id]{scroll-margin-top:96px}
 @media (max-width:760px){.v8 .c-points{grid-template-columns:1fr;gap:28px}}
+/* Sister app pages: the logo, a row of phones, and questions and policies that open on demand. */
+.v8 .c-applogo{display:block;height:84px;width:auto;margin:0 auto 22px}
+.v8 .c-appshots-section{padding-top:clamp(40px,5vw,72px);padding-bottom:clamp(24px,3vw,40px)}
+.v8 .c-appshots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,36px);align-items:start}
+.v8 .c-appshots figure{margin:0;text-align:center}
+.v8 .c-appshots img{width:100%;height:auto;display:block;filter:drop-shadow(0 22px 34px rgba(18,30,54,.16))}
+.v8 .c-appshots figcaption{margin-top:16px;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--navy)}
+.v8 .c-acc{border-top:1px solid rgba(18,30,54,.14);margin-top:32px}
+.v8 .c-acc-item{border-bottom:1px solid rgba(18,30,54,.14);scroll-margin-top:96px}
+.v8 .c-acc-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-size:17px;font-weight:600;line-height:1.4;color:var(--navy)}
+.v8 .c-acc-item summary::-webkit-details-marker{display:none}
+.v8 .c-acc-item summary::after{content:'+';flex:none;color:var(--gold);font-size:24px;font-weight:400;line-height:1;transition:transform .18s ease}
+.v8 .c-acc-item[open] summary::after{transform:rotate(45deg)}
+.v8 .c-acc-item summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:6px}
+.v8 .c-acc-body{padding:0 0 24px;max-width:68ch}
+.v8 .c-acc-body p{margin:0 0 14px;font-size:16.5px;line-height:1.7;color:rgba(18,30,54,.86)}
+.v8 .c-acc-body p:last-child{margin-bottom:0}
+.v8 .c-acc-body a{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.v8 .c-acc-head{font-family:var(--display);font-weight:500;font-size:24px;margin:56px 0 0;color:var(--navy)}
+.v8 .c-acc-head + .c-acc{margin-top:18px}
+@media (max-width:760px){
+  .v8 .c-applogo{height:64px;margin-bottom:18px}
+  .v8 .c-appshots{grid-template-columns:repeat(4,62%);overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:0 -20px;padding:0 20px 18px;-webkit-overflow-scrolling:touch}
+  .v8 .c-appshots figure{scroll-snap-align:center}
+  .v8 .c-acc-item summary{font-size:16px;padding:18px 0}
+}
+@media (prefers-reduced-motion:reduce){.v8 .c-acc-item summary::after{transition:none}}

@@ -1458,3 +1458,18 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
+
+// Sister app pages: a link that lands on a policy (#privacy, #rules) opens that policy.
+// The apps link straight to these, so the answer is never one tap away from where they land.
+(function () {
+  function openFromHash() {
+    var id = decodeURIComponent((location.hash || '').slice(1));
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el || el.tagName !== 'DETAILS') return;
+    el.open = true;
+    setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 60);
+  }
+  window.addEventListener('hashchange', openFromHash);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openFromHash); else openFromHash();
+})();

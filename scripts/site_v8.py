@@ -256,7 +256,7 @@ def features():
 def premium():
     feats = [('Plan it for me', 'When to eat. When to leave. How you get home.'),
              ('Bag Check', 'Your bag against the venue’s published rule, before you leave. The venue still decides at the door.'),
-             ('More show-day alerts', 'A nudge before you leave, the way home after the encore, and a Passport reminder the next morning. The 9am show-day reminder is free.')]
+             ('More show-day alerts', 'A nudge before you leave, the way home after the encore, and a Reprise reminder the next morning. The 9am show-day reminder is free.')]
     rows = ''.join(f'<li><span class="c-num">0{i+1}</span><h3>{e(h)}</h3><p>{e(t)}</p></li>' for i, (h, t) in enumerate(feats))
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-type"><div class="c-wrap c-narrow">{eyebrow("Concerto+")}<h1>For the nights<br>you want planned.</h1><p class="c-lead">An evening built around your show. Your bag checked against the venue’s rule. More alerts on show day.</p><div class="c-actions">{store_button("website-premium", "Start the 7-day free trial")}</div></div></section>'
@@ -1020,16 +1020,16 @@ def home():
     steps = [('Find your show', 'Search an artist, a venue, or a city. Or open Near Me for what’s on around you.'),
              ('Save it', 'Tap the bookmark and sign in with Apple.'),
              ('Fill in your night', 'Your night is laid out when you save. Fill in what you want, or let Concerto+ plan it for you, from dinner to the ride home.'),
-             ('After the show', 'Every show you go to is kept in your Passport, with a card of your photos, the setlist and your seat to share.'),
+             ('After the show', 'Every show you go to is kept in Reprise, with a card of your photos, the setlist and your seat to share.'),
              ('Add Concerto+', 'Concerto plans the night for you, checks your bag, and gets you out. ' + PLUS_PRICE_LINE)]
     journey = '<ol class="c-journey">' + ''.join(f'<li><b>{e(t)}</b><span>{e(d)}</span></li>' for t, d in steps) + '</ol>'
     how = ('<section class="c-section c-cream" id="how" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('How it works') +
            '<h2 class="c-h2">How Concerto works.</h2><p class="c-body">Five steps. The first three take a minute.</p>'
            '<div class="c-actions"><a class="c-link" href="/features#your-night">How Your Night works</a><a class="c-link" href="/help">Help Center</a></div></div><div>' + journey + '</div></div></section>')
     keep = ('<section class="c-section c-navy" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('After the show') +
-            '<h2 class="c-h2">Every Show,<br>in Your Passport.</h2>'
-            '<p class="c-body">Every show you go to is kept in your Passport. Concerto puts the photos you took at the venue on a card with the artist, the date, and the setlist, sized for Instagram Stories.</p>'
-            '<p class="c-body">Passport also keeps your totals: shows, artists, venues, and cities.</p></div>'
+            '<h2 class="c-h2">Every Show,<br>Kept in Reprise.</h2>'
+            '<p class="c-body">Every show you go to is kept in Reprise. Concerto puts the photos you took at the venue on a card with the artist, the date, and the setlist, sized for Instagram Stories.</p>'
+            '<p class="c-body">Reprise also keeps your totals: shows, artists, venues, and cities.</p></div>'
             '<p class="c-pull">Your photos.<br>The setlist.<br>Every show.</p></div></section>')
     plus = ('<section class="c-section c-gold" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Concerto+') +
             '<h2 class="c-h2">Concerto runs your night.</h2><p class="c-body">It plans the evening, checks your bag, and tells you when and how to leave.<br>' + e(PLUS_PRICE_LINE) + '</p>'
@@ -1069,14 +1069,14 @@ def your_night():
     tabs_sec = section('white', 'Your Night', 'The night, in order.',
                        night + '<p class="c-note">Tap any stop to change it. Your plan is saved with the show.</p>', sid='tabs')
     memory = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('After the show') +
-              '<h2 class="c-h2">Your Passport.</h2>'
-              '<p class="c-body">Every show you go to is kept in your Passport. Concerto finds the photos you took there and puts them on a card with the artist, the date, the venue, and the setlist. Save it or share it.</p>'
-              '<p class="c-body">Passport also keeps your totals: your shows, venues, artists, and cities.</p></div>'
+              '<h2 class="c-h2">Reprise.</h2>'
+              '<p class="c-body">Every show you go to is kept in Reprise. Concerto finds the photos you took there and puts them on a card with the artist, the date, the venue, and the setlist. Save it or share it.</p>'
+              '<p class="c-body">Reprise also keeps your totals: your shows, venues, artists, and cities.</p></div>'
               '<p class="c-pull">Your photos.<br>The setlist.<br>Every show.</p></div></section>')
     ask = section('white', 'Concerto AI', 'Ask anything about your show.',
                   '<p class="c-body">Every Your Night page has its own question bar. Concerto AI already knows the venue and the artist, so “Can I bring a portable charger?” gets an answer for your show, from the venue’s own rules.</p>', narrow=True)
     free = ['Your Night for every show you save', 'Restaurants, hotels, and things to do near the venue', 'The setlist, weather, directions, parking, and rideshare',
-            'Your bag, checked against the venue’s rule', 'Show-day alerts, a notice if your show changes, and concerts near you each Friday', 'Your Passport, with every show you’ve been to', '3 Concerto AI answers a day']
+            'Your bag, checked against the venue’s rule', 'Show-day alerts, a notice if your show changes, and concerts near you each Friday', 'Reprise, with every show you’ve been to', '3 Concerto AI answers a day']
     paid = ['Plan it for me', 'Leave Time: when to leave, from the trip right now', 'Bag Check', 'Exit Plan', '30 Concerto AI answers a day', 'More alerts: your Exit Plan, new dates, and presales']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div class="c-compare-plus"><h3>Concerto+</h3><ul>'
             + ''.join(f'<li>{e(x)}</li>' for x in paid) + f'</ul><p class="c-body">{e(PLUS_PRICE_LINE)}</p><a class="c-link" href="/premium">About Concerto+</a></div></div>')
@@ -1095,7 +1095,7 @@ def premium():
                   ('At the door: Bag Check', 'Take a photo of your bag and Concerto checks it against the venue’s published policy. It shows the rule it used, and the venue still makes the final call.', ''),
                   ('The end of the night: Exit Plan', 'An alert about ten minutes before the last song, with your way out and where to meet your ride or find your car. Where a venue publishes its pickup spot, exits and lots, Concerto uses them.', ''),
                   ('Anytime: More Concerto AI', '30 answers a day instead of 3, for every question about your show.', ''),
-                  ('Anytime: More alerts', 'New dates and presales for the artists you follow. The show-day alert, Time to Head Out, the Passport reminder, and This Weekend stay free.', '')])
+                  ('Anytime: More alerts', 'New dates and presales for the artists you follow. The show-day alert, Time to Head Out, the Reprise reminder, and This Weekend stay free.', '')])
     def pshot(k, alt):
         return f'<img class="c-fx-shot" src="{fx_src(k)}" width="{FX_W}" height="{FX_H}" alt="{e(alt)}" loading="lazy">'
     where = ('<section class="c-section c-navy c-fx-plusband" data-reveal><div class="c-wrap"><div class="c-fx-head">' + eyebrow('Where it lives')
@@ -1109,7 +1109,7 @@ def premium():
     pricing = ('<section class="c-section c-white" id="pricing" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Pricing') +
                '<h2 class="c-h2">Two ways in.</h2><p class="c-body">Try it on one show with a Show Pass. If you go to seven or more shows a year, the yearly plan costs less. Billed through the App Store. The yearly plan renews each year until you cancel in your Apple Account settings. The Show Pass is a one&#8209;time purchase. Concerto+ is on iPhone today and coming to Android; members who joined on iPhone can sign in on Android and keep it.</p></div>'
                f'<div class="c-prices"><div><b>{PLUS_PASS}</b><span>Show Pass: everything in Concerto+ for one show, through the morning after</span></div><div><b>{PLUS_YEAR}</b><span>a year, for every show you save</span></div></div></div></section>')
-    free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, and your Passport.<br>Never behind Concerto+.</p>', narrow=True)
+    free = section('cream', 'Always free', '', '<p class="c-statement">Venue guides, places nearby, directions, the setlist, and Reprise.<br>Never behind Concerto+.</p>', narrow=True)
     return ('<main id="main-content" class="c-page">' + h + section('cream', 'Free or Concerto+', 'Your Night is the same page either way.', compare) + section('white', 'What is included', 'Concerto handles four moments of the night.', feats) + where + pricing + free
             + close('Start with Your Night.', 'website-premium', 'Free on iPhone and Android. Concerto+ is on iPhone.') + '</main>')
 
@@ -1119,7 +1119,7 @@ def about():
     founder = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Our story') + '<h2 class="c-h2">It started with<br>one night in Toronto.</h2></div>'
                '<div><p class="c-body">Our founder, Jayce Wells, had tickets to the Eras Tour in Toronto. Planning the night meant bouncing between Google, Apple Maps and OpenTable just to figure out what was around the stadium.</p>'
                '<p class="c-body">So he designed one app for the exact show you are going to. It started with every NFL, NBA and MLB stadium, entered by hand, and now covers more than 1,000 venues worldwide.</p>'
-               '<p class="c-body">Today you save a show and Concerto builds Your Night around it, with what you need to know about the venue and the tour, and what’s around you in the city. You can ask Concerto AI anything about your show. Afterward, the show is kept in your Passport with a card of your photos and the setlist.</p>'
+               '<p class="c-body">Today you save a show and Concerto builds Your Night around it, with what you need to know about the venue and the tour, and what’s around you in the city. You can ask Concerto AI anything about your show. Afterward, the show is kept in Reprise with a card of your photos and the setlist.</p>'
                '<div class="c-actions"><a class="c-link" href="/features#your-night">See Your Night</a><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
     asks = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('What fans ask') + '<h2 class="c-h2">The same questions,<br>before every show.</h2></div>'
             '<div><p class="c-body"><b>What bag can I bring? Where do I park? When do doors open? What will they play? Where should we eat?</b></p>'
@@ -1210,7 +1210,7 @@ def press():
     facts = [('Company', 'Concerto LLC'), ('Founder', 'Jayce Wells'), ('Founded', 'March 2025'), ('Product', 'Concerto for iPhone and Android, and concertocity.com'), ('Coverage', f'{V_COPY} venues worldwide, {N_T} tours'), ('Pricing', f'Free. Concerto+ is {PLUS_YEAR} a year, or {PLUS_PASS} for one show'), ('Partners', 'Restaurants $99 a month, hotels $299 a month'), ('Search reach', f'About {PROOF_DAY} Google search appearances a day ({PROOF_AS_OF})'), ('Independence', 'Independent from artists, venues, teams, and promoters')]
     fact_list = '<dl class="c-facts-list">' + ''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in facts) + '</dl>'
     boiler = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Company background') + '<h2 class="c-h2">What Concerto does.</h2></div><div>'
-              '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone, Android and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, it is kept in the fan’s Passport with a card of their photos and the setlist.</p>'
+              '<p class="c-body">A concert companion for fans who already have a ticket, on iPhone, Android and the web, founded by Jayce Wells in 2025. Fans save a show and Concerto builds Your Night: the venue’s policies, the tour and setlist, and restaurants and hotels nearby. Concerto AI answers fans’ questions about their show from Concerto’s own venue guides. After the show, it is kept in the fan’s Reprise with a card of their photos and the setlist.</p>'
               '<p class="c-body">Concerto is free. Concerto+ adds Plan it for me, Leave Time, Bag Check, and Exit Plan. Through Concerto Partners, restaurants and hotels near a venue can appear first in its Nearby rows, always labeled Concerto Partner.</p>'
               f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, ten times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
@@ -1407,10 +1407,39 @@ def family_section(name, body):
             f'<div><p class="c-body">{body}</p>'
             '<div class="c-actions"><a class="c-link" href="/features">See Concerto</a><a class="c-link" href="/reprise">Reprise</a><a class="c-link" href="/medley">Medley</a></div></div></div></section>')
 
+def app_logo(app, name, w):
+    return f'<img class="c-applogo" src="/img/apps/{app}-wordmark.png" width="{w}" height="220" alt="{name}">'
+
+def app_shots(app, shots):
+    """A row of phones under the hero: the app itself, in the same frame the Features page uses."""
+    return ('<section class="c-section c-white c-appshots-section" data-reveal><div class="c-wrap"><div class="c-appshots">'
+            + ''.join(f'<figure><img src="/img/apps/{app}-{k}.webp" width="657" height="1353" loading="lazy" alt="{e(alt)}"><figcaption>{e(cap)}</figcaption></figure>' for k, cap, alt in shots)
+            + '</div></div></section>')
+
+def app_steps(title, steps):
+    return section('cream', 'How it works', title, rows([(h, t, '') for h, t in steps]))
+
+def app_accordion(title, questions, docs):
+    """Questions first, then the policies, each closed until asked for. A policy keeps its own
+    anchor (#privacy, #rules), and js/public-v6.js opens it when a link lands on that anchor,
+    so the links inside the apps still go straight to the right place."""
+    qa = ''.join(f'<details class="c-acc-item"><summary>{e(q)}</summary><div class="c-acc-body"><p>{a}</p></div></details>' for q, a in questions)
+    pol = ''.join(f'<details class="c-acc-item c-acc-doc" id="{anchor}"><summary>{e(name)}</summary><div class="c-acc-body">'
+                  + ''.join(f'<p>{t}</p>' for t in paras) + '</div></details>' for anchor, name, paras in docs)
+    return ('<section class="c-section c-white" id="questions" data-reveal><div class="c-wrap c-narrow">' + eyebrow('Questions and policies')
+            + f'<h2 class="c-h2">{title}</h2><div class="c-acc">{qa}</div>'
+            + '<h3 class="c-acc-head">Policies</h3>' + f'<div class="c-acc">{pol}</div></div></section>')
+
 def reprise_page():
     h = hero('Reprise by Concerto', 'Relive Your Shows<br>And Trips.',
              'Reprise turns the photos from a concert or a trip into an album. From there you can make a card to share, send the photos to friends, or publish them to your own website.',
-             sister_link("reprise", "Reprise"), None, 'navy')
+             sister_link("reprise", "Reprise"), None, 'navy', crumbs=app_logo('reprise', 'Reprise', 737))
+    shots = app_shots('reprise', [
+        ('home', 'Your Albums', 'The Reprise home screen with a concert album and a trip album'),
+        ('album', 'One Album Per Show Or Trip', 'An album for a concert with its date, venue, seat and photos'),
+        ('studio', 'Make A Card', 'The card editor with design, photos, words and colours'),
+        ('finish', 'Share Or Save', 'A finished card ready to share to Instagram'),
+    ])
     what = ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('What it does') + '<h2 class="c-h2">Your Photos, Sorted<br>Into Albums.</h2>'
             + app_points([
                 ('Albums For Every Show And Trip', 'Choose your photos and Reprise groups them into an album, with the place and the dates filled in from the photos themselves.'),
@@ -1418,11 +1447,25 @@ def reprise_page():
                 ('Your Own Website', 'Have a WordPress site or travel blog? Send photos from any album straight to it, resized, with captions.'),
                 ('Simple By Design', 'Everything starts from the album. Open one, choose what you want to do with it, and Reprise takes you to that step.'),
             ]) + '</div></section>')
+    steps = app_steps('Five Steps,<br>Start To Finish.', [
+        ('Start An Album', 'Tap New Album and choose your photos. Reprise reads where and when they were taken and makes an album for that show or trip.'),
+        ('Open The Album', 'You see its details and photos, and what you can do with it: Create, Share The Photos, or Send To Your Website.'),
+        ('Make A Card', 'Tap Create, pick what it is for (an Instagram Story, a post, TikTok or a square), then pick a layout.'),
+        ('Make It Yours', 'In the editor, use Design, Photos, Words, Colours and Details to change the card.'),
+        ('Share Or Save', 'Tap Next, then Share to send the card to any app, or Save to keep it in Photos.'),
+    ])
     fam = family_section('Reprise', 'Reprise uses the same account as Concerto and Medley. A show you saved in Concerto is ready in Reprise the morning after, with the artist, venue, date, your seat and the setlist already in place. A Concerto+ membership includes Reprise+, and Reprise+ includes Concerto+.')
     plus = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('Reprise+') + '<h2 class="c-h2">Free To Use.<br>More If You Want It.</h2></div>'
             '<div><p class="c-body">Albums, cards, sharing and website uploads are free. Reprise+ adds more lettering, stickers, and cards without the small Reprise line.</p>'
             '<p class="c-body">An Album Pass unlocks the same for one album. Prices are shown in the app before you buy.</p></div></div></section>')
-    privacy = app_doc('privacy', 'Reprise Privacy', [
+    acc = app_accordion('Good To Know.', [
+        ('Do I have to sign in?', 'No. Reprise works in full without an account. Signing in brings your Concerto shows and your membership, and keeps your albums’ details for a new phone.'),
+        ('How does Reprise work with Concerto?', 'They share one account. A show you saved in Concerto appears on the Reprise home screen after it happens, with Start Album beside it. The artist, venue and date are filled in for you.'),
+        ('How do I post to Instagram or TikTok?', 'Make a card, tap Next, then Share, and choose Instagram or TikTok from the list. There is nothing to connect or sign in to: your iPhone hands the card to that app.'),
+        ('Which websites can I send photos to?', 'WordPress sites, such as a travel blog. Open an album and tap Send To Your Website. Reprise resizes the photos, adds your watermark if you set one, and uploads them to your site’s media library with captions.'),
+        ('Where are my photos kept?', 'On your iPhone. Reprise does not upload them anywhere unless you send them to your own website or share them yourself.'),
+        ('I have Concerto+. Do I have Reprise+?', 'Yes. One membership covers both. Sign in with the same account in each app.'),
+    ], [('privacy', 'Reprise Privacy', [
         'Effective Date: November 17, 2026',
         '<strong>Your photos stay on your iPhone.</strong> Reprise only opens the photos you choose, or the ones from a date you ask it to find. Albums and cards are made on your phone. Reprise does not upload your photos to Concerto.',
         '<strong>Place names.</strong> If a photo carries a location, Reprise asks Apple’s maps service for the name of that place so the album can be titled. Concerto does not receive or keep it.',
@@ -1431,14 +1474,20 @@ def reprise_page():
         '<strong>Purchases.</strong> Reprise+ and the Album Pass are bought through Apple. We receive confirmation that a purchase was made, not your payment details.',
         '<strong>What Reprise does not do.</strong> No advertising, no selling of personal data, and no tracking across other apps or websites.',
         '<strong>Deleting your account.</strong> In Reprise, open Account and choose Delete My Account. That removes the account and everything on it for all three apps. Albums on your phone are removed when you delete the app.',
-        'Everything else is covered by the <a href="/privacy">Concerto Privacy Policy</a>. Questions: <a href="mailto:support@concertocity.com">support@concertocity.com</a>.',
-    ])
-    return '<main id="main-content" class="c-page">' + h + what + fam + plus + privacy + '</main>'
+        'Everything else is covered by the <a href="/privacy">Concerto Privacy Policy</a> and the <a href="/terms">Concerto Terms of Service</a>. Questions: <a href="mailto:support@concertocity.com">support@concertocity.com</a>.',
+    ])])
+    return '<main id="main-content" class="c-page">' + h + shots + what + steps + fam + plus + acc + '</main>'
 
 def medley_page():
     h = hero('Medley by Concerto', 'Setlists And Streams,<br>In One Place.',
              'Medley is the quick way to see what an artist is playing on tour. Search an artist, open the setlist, and save it to Apple Music as a playlist.',
-             sister_link("medley", "Medley"), None, 'navy')
+             sister_link("medley", "Medley"), None, 'navy', crumbs=app_logo('medley', 'Medley', 744))
+    shots = app_shots('medley', [
+        ('home', 'Your Shows First', 'The Medley home screen with setlists for saved shows and a list of tours'),
+        ('setlist', 'Every Song, In Order', 'A setlist with a Save To Apple Music button'),
+        ('community', 'Added By Fans', 'Setlists added and confirmed by fans who were at the show'),
+        ('streams', 'Who Is Streaming', 'A list of fans streaming shows on TikTok, YouTube and Instagram'),
+    ])
     what = ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('What it does') + '<h2 class="c-h2">Setlists, Community<br>And Streams.</h2>'
             + app_points([
                 ('Setlists', 'Search by artist, tour or song. Each setlist says where it came from and when it was last updated. Save the ones you want to keep.'),
@@ -1446,8 +1495,23 @@ def medley_page():
                 ('Streams', 'Fans who stream shows are listed by invitation. Each stream opens on the platform it is on. Medley does not host video.'),
                 ('Save To Apple Music', 'One tap turns a setlist into a playlist in your Apple Music library, in the order it was played.'),
             ]) + '</div></section>')
+    steps = app_steps('Five Steps,<br>Start To Finish.', [
+        ('Find A Setlist', 'On the Setlists tab, type an artist, a tour or a song. Or scroll: the newest setlists are first.'),
+        ('Open It', 'You see every song in order, and a line saying where the setlist came from and when.'),
+        ('Play A Song', 'Tap any song to open it in Apple Music. Hold a song to copy its title.'),
+        ('Keep It', 'Tap the bookmark to save a setlist. Saved setlists stay at the top of the Setlists tab.'),
+        ('Save It To Apple Music', 'Tap Save To Apple Music and the whole setlist is added to your library as a playlist, in the order it was played.'),
+    ])
     fam = family_section('Medley', 'Medley uses the same account as Concerto and Reprise. The setlists for the shows you saved in Concerto are at the top of Medley, and from any setlist you can plan the night in Concerto or relive it in Reprise. Reading setlists needs no account.')
-    rules = app_doc('rules', 'Community Rules And Terms', [
+    acc = app_accordion('Good To Know.', [
+        ('Is Medley free?', 'Yes.'),
+        ('Do I need an account?', 'Not to search, read or save setlists. You need one to add or confirm a setlist, report one, or ask to be listed as a streamer.'),
+        ('Where do the setlists come from?', 'Each setlist page says so under the artist’s name, with a link to the original report where there is one. Songs and their order can change from show to show.'),
+        ('How does a fan setlist get confirmed?', 'When three fans who were there tap I Was There, This Is Right, the setlist is marked as confirmed. A confirmed setlist replaces the reported one for that tour on the Setlists tab.'),
+        ('What if a setlist is wrong or abusive?', 'Open it and tap Report. Reports are reviewed within 24 hours. You can also tap Block This Person to stop seeing anything they add, and undo that under Account.'),
+        ('How do I get listed as a streamer?', 'On the Streams tab, tap Ask To Be Listed and tell us your handle, the platform and the show. We review each request and reply to the contact you give us.'),
+        ('Why did Save To Apple Music miss a song?', 'A few songs are not on Apple Music, such as unreleased songs and some covers. Medley adds the rest and tells you how many it found.'),
+    ], [('rules', 'Community Rules And Terms', [
         'Effective Date: November 17, 2026',
         '<strong>Add what was really played.</strong> Only add a setlist for a show you were at. No made-up setlists, guesses, or jokes.',
         '<strong>Be decent.</strong> No abuse, hate, threats, spam, or anything unlawful, in a setlist, a name, or a stream listing.',
@@ -1456,8 +1520,7 @@ def medley_page():
         '<strong>Rights holders.</strong> If you are an artist, venue, promoter or their representative and want a setlist or stream listing removed, email <a href="mailto:support@concertocity.com">support@concertocity.com</a> and it will be taken down.',
         '<strong>Where setlists come from.</strong> Medley credits the source of every setlist it shows. Songs and their order can change from show to show.',
         'By using Medley you also agree to the <a href="/terms">Concerto Terms of Service</a>.',
-    ])
-    privacy = app_doc('privacy', 'Medley Privacy', [
+    ]), ('privacy', 'Medley Privacy', [
         'Effective Date: November 17, 2026',
         '<strong>No account needed to read.</strong> Searching and reading setlists, and seeing streams, works without signing in.',
         '<strong>Your account.</strong> Adding or confirming a setlist, reporting, and asking to be listed as a streamer need an account. It is the same account as Concerto and Reprise: your email address, the shows you saved in Concerto, and the setlists you saved in Medley.',
@@ -1467,8 +1530,8 @@ def medley_page():
         '<strong>What Medley does not do.</strong> No advertising, no selling of personal data, and no tracking across other apps or websites.',
         '<strong>Deleting your account.</strong> In Medley, open Account and choose Delete My Account. That removes the account and everything you added, for all three apps.',
         'Everything else is covered by the <a href="/privacy">Concerto Privacy Policy</a>. Questions: <a href="mailto:support@concertocity.com">support@concertocity.com</a>.',
-    ])
-    return '<main id="main-content" class="c-page">' + h + what + fam + rules + privacy + '</main>'
+    ])])
+    return '<main id="main-content" class="c-page">' + h + shots + what + steps + fam + acc + '</main>'
 
 def simple(kicker, h1, lead, actions):
     return '<main id="main-content" class="c-page">' + hero(kicker, h1, lead, actions, None, 'cream', 'c-hero-simple') + '</main>'
@@ -1547,7 +1610,7 @@ def build():
     legacy = {f: (ROOT / f).read_text() for f in ['help.html', 'faq.html', 'privacy.html', 'terms.html', 'contact.html', 'partner-venues.html', 'partner-restaurants.html', 'partner-hotels.html', 'partner-artists.html']}
     form_of = lambda f: re.search(r'<form.*?</form>', legacy[f], re.S).group(0)
     rewrite('index.html', home()); rewrite('your-night.html', your_night()); rewrite('premium.html', premium());
-    set_head('your-night.html', 'Your Night | Your Whole Show on One Page | Concerto', 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and your photos in your Passport afterward. Free on iPhone and Android.')
+    set_head('your-night.html', 'Your Night | Your Whole Show on One Page | Concerto', 'Save a concert and Concerto builds one page for that night: the venue, the tour, the city around it, and your photos in Reprise afterward. Free on iPhone and Android.')
     set_head('premium.html', 'Concerto+ | Concerto Runs Your Night', 'Your Night is free. With Concerto+, Concerto plans the night for you, checks your bag, and tells you when and how to leave. $29.99 a year, or a $4.99 Show Pass for one show.',
              [{'@type': 'Offer', 'price': '29.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Yearly'},
               {'@type': 'Offer', 'price': '4.99', 'priceCurrency': 'USD', 'url': 'https://concertocity.com/premium', 'name': 'Show Pass'}])
