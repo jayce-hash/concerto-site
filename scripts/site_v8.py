@@ -1048,7 +1048,7 @@ def home():
     reprise = sister_row('reprise', 'Reprise', 'white', 'How Reprise Works.', 'Turn the photos from a show or a trip into an album, and an album into a card to share.', [
         ('home', 'The Reprise home screen with a concert album and a trip album', 'Start An Album', 'Choose your photos. Reprise files them under that show or trip.'),
         ('album', 'A concert album in Reprise with its date, venue, seat and photos', 'Open The Album', 'A show you saved in Concerto arrives with the artist, venue, seat and setlist filled in.'),
-        ('studio', 'The Reprise card editor', 'Make A Card', 'Pick a layout, then change the photos, words and colours.'),
+        ('studio', 'The Reprise card editor', 'Make A Card', 'Pick a layout, then change the photos, words and colors.'),
         ('finish', 'A finished Reprise card ready to share', 'Share Or Save', 'Send it to Instagram, TikTok or Messages, or keep it in Photos.')],
         'See Reprise')
     passes = [('Concerto+', f'{PLUS_YEAR} a year', 'Concerto plans the night for you, checks your bag, and gets you out. Includes Reprise+.', '/premium', 'Explore Concerto+'),
@@ -1478,13 +1478,13 @@ def reprise_page():
     shots = app_shots('reprise', [
         ('home', 'Your Albums', 'The Reprise home screen with a concert album and a trip album'),
         ('album', 'One Album Per Show Or Trip', 'An album for a concert with its date, venue, seat and photos'),
-        ('studio', 'Make A Card', 'The card editor with design, photos, words and colours'),
+        ('studio', 'Make A Card', 'The card editor, with the card filling the screen and tools along the bottom'),
         ('finish', 'Share Or Save', 'A finished card ready to share to Instagram'),
     ])
     what = ('<section class="c-section c-white" data-reveal><div class="c-wrap">' + eyebrow('What it does') + '<h2 class="c-h2">Your Photos, Sorted<br>Into Albums.</h2>'
             + app_points([
                 ('Albums For Every Show And Trip', 'Choose your photos and Reprise groups them into an album, with the place and the dates filled in from the photos themselves.'),
-                ('A Card Worth Sharing', 'Pick a layout, then change the photos, words, colours and lettering. Cards are sized for Instagram, TikTok and Messages.'),
+                ('A Card Worth Sharing', 'Pick a layout, then change the photos, words, colors and lettering. Cards are sized for Instagram, TikTok and Messages.'),
                 ('Your Own Website', 'Have a WordPress site or travel blog? Send photos from any album straight to it, resized, with captions.'),
                 ('Simple By Design', 'Everything starts from the album. Open one, choose what you want to do with it, and Reprise takes you to that step.'),
             ]) + '</div></section>')
@@ -1492,7 +1492,7 @@ def reprise_page():
         ('Start An Album', 'Tap New Album and choose your photos. Reprise reads where and when they were taken and makes an album for that show or trip.'),
         ('Open The Album', 'You see its details and photos, and what you can do with it: Create, Share The Photos, or Send To Your Website.'),
         ('Make A Card', 'Tap Create, pick what it is for (an Instagram Story, a post, TikTok or a square), then pick a layout.'),
-        ('Make It Yours', 'In the editor, use Design, Photos, Words, Colours and Details to change the card.'),
+        ('Make It Yours', 'The card fills the screen. Tap Layout, Photos, Words, Colors, Details or Stickers along the bottom to change it.'),
         ('Share Or Save', 'Tap Next, then Share to send the card to any app, or Save to keep it in Photos.'),
     ])
     fam = family_section('Reprise', 'Reprise uses the same account as Concerto and Medley. A show you saved in Concerto is ready in Reprise the morning after, with the artist, venue, date, your seat and the setlist already in place. A Concerto+ membership includes Reprise+, and Reprise+ includes Concerto+.')
