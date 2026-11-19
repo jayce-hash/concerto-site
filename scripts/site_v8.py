@@ -787,7 +787,7 @@ def jingle_ball_hub():
     from urllib.parse import quote
     d = jingle_ball_data()
     def card(c):
-        acts = ''.join(f'<li><a href="https://music.apple.com/us/search?term={quote(a)}" target="_blank" rel="noopener">{e(a)}<span>Listen ↗</span></a></li>' for a in c['lineup'])
+        acts = ''.join(f'<li><a href="https://music.apple.com/us/search?term={quote(a)}" target="_blank" rel="noopener" data-music-q="{e(a)}">{e(a)}<span>Listen ↗</span></a></li>' for a in c['lineup'])
         rules = ''.join(f'<li><b>{e(r["label"])}</b><span>{e(r["text"]) if r["text"] else "Not published by the venue"}</span></li>' for r in c['rules'])
         partner = (f'<div class="c-jb-partner"><span>Before the show \u00b7 Concerto Partner</span><a href="{e(c["partner"].get("url",""))}" target="_blank" rel="noopener">{e(c["partner"]["name"])}</a>'
                    + (f'<p>{e(c["partner"].get("offer",""))}</p>' if c["partner"].get("offer") else '') + '</div>') if c.get('partner') else ''
@@ -872,8 +872,11 @@ def cx_panel(anchor, ic, title, meta, body, check=True):
     return (f'<article class="cx-panel" id="{anchor}"><header><span class="cx-ic">{icon(ic)}</span><span class="cx-tt"><h2 class="cx-card-t">{e(title)}</h2>'
             f'{cx_ver(meta, check) if meta else ""}</span></header><div class="cx-card-b">{body}</div></article>')
 
-def cx_songs(songs, start=1):
-    return '<ol class="cx-songs">' + ''.join(f'<li><span class="cx-n">{i}</span><span>{e(x)}</span></li>' for i, x in enumerate(songs, start)) + '</ol>'
+def cx_songs(songs, start=1, artist=None):
+    """artist names the act for a setlist, so js/public-v6.js can open each song in the reader's
+    music app. An empty string means the rows are artists themselves (a lineup)."""
+    music = '' if artist is None else f' data-music="{e(artist)}"'
+    return f'<ol class="cx-songs"{music}>' + ''.join(f'<li><span class="cx-n">{i}</span><span>{e(x)}</span></li>' for i, x in enumerate(songs, start)) + '</ol>'
 
 def app_store_slot(app, name):
     """The App Store badge once data/family.json holds the app's address, "Coming Soon" until then.
@@ -891,7 +894,7 @@ def medley_card():
     return ('<aside class="c-medley" id="medley" data-app="medley" aria-label="Medley, the setlist app by Concerto">'
             f'<img class="c-medley-icon" src="{app_icon("medley")}" width="72" height="72" alt="Medley app icon" loading="lazy">'
             '<div class="c-medley-copy"><p class="c-eyebrow">Medley, By Concerto</p><h2>Get Medley For Every Setlist</h2>'
-            '<p>Medley is the setlist app by Concerto. Search any artist, tour or song, save a setlist to Apple Music as a playlist in one tap, and add the setlist from a show you went to. Free on iPhone.</p></div>'
+            '<p>Medley is the setlist app by Concerto. Search any artist, tour or song, open any song in Apple Music or Spotify, and add the setlist from a show you went to. Free on iPhone.</p></div>'
             '<div class="c-medley-act">' + app_store_slot('medley', 'Medley') +
             '<a class="c-link" href="/medley">See How Medley Works</a></div></aside>')
 
@@ -908,7 +911,7 @@ def tour_page(t):
         more = f'<a href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a href="/setlist/{t["tourId"]}">Setlist page</a>'
         listen = listen_link(t, s, '')
         panels.append(cx_panel('setlist', 'music', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
-            cx_songs(songs[:12]) +
+            cx_songs(songs[:12], artist=t['artist']) +
             f'<div class="cx-links">{more}{listen}</div>'))
         panels.append(medley_card())
         chips.append(('setlist', 'Setlist'))
@@ -927,7 +930,7 @@ def tour_page(t):
         lead = f'<p class="cx-lead">Every city has its own lineup. Dates, lineups, and a guide to every venue, from {e(d["source"])}.</p>'
         for i, c in enumerate(d['cities']):
             panels.append(cx_card(c['anchor'], 'music', c['city'], f'{c["date"]} · {c["time"]}',
-                f'<p>Lineup order is not performance order. <a href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>' + cx_songs(c['lineup']),
+                f'<p>Lineup order is not performance order. <a href="/venue/{c["venue"]}">{e(c["venueName"])} guide</a></p>' + cx_songs(c['lineup'], artist=''),
                 open_=i == 0, check=False))
         chips.append((d['cities'][0]['anchor'] if d['cities'] else 'dates', 'Lineups'))
     elif s and (s.get('note') or '').startswith('Lineups vary'):
@@ -966,7 +969,7 @@ def setlist_page(slug, s):
             f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
             f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
             + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div><p class="c-medley-hint">Want every tour’s setlist on your phone? <a href="#medley">Get Medley, the setlist app by Concerto</a>.</p></div></section>'
-            f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div>' + medley_card() + '</div></section>'
+            f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list" data-music="{e(s.get("artist") or "")}">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div>' + medley_card() + '</div></section>'
             + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone and Android.') + '</main>')
 
 def topic_page(key, kicker, h1, lead):
@@ -1062,7 +1065,7 @@ def home():
                 + f'<div class="c-actions c-row-actions"><a class="c-link" href="/{app}">{label}</a></div></div></section>')
     medley = sister_row('medley', 'Medley', 'cream', 'How Medley Works.', 'The quick way to see what an artist is playing on tour. Free.', [
         ('home', 'The Medley home screen with setlists for saved shows', 'Find A Setlist', 'Search an artist, a tour or a song. The shows you saved in Concerto are at the top.'),
-        ('setlist', 'A setlist in Medley with a Save To Apple Music button', 'Open It', 'Every song in order. Tap a song to open it in Apple Music, or save the whole setlist as a playlist.'),
+        ('setlist', 'A setlist in Medley with a Save To Apple Music button', 'Open It', 'Every song in order. Tap a song to open it in Apple Music or Spotify, or save the whole setlist as an Apple Music playlist.'),
         ('community', 'Setlists added and confirmed by fans in Medley', 'Add What They Played', 'Were you there? Add the setlist. Three fans who were there confirm it.'),
         ('streams', 'Fans streaming shows, listed in Medley', 'See Who Is Streaming', 'Fans streaming a show are listed by invitation. Each one opens on its own platform.')],
         'See Medley')
@@ -1441,9 +1444,9 @@ def credits_page():
             + app_doc('places', 'Places And Photos', P('Restaurants, hotels and things to do near a venue, and many venue photos, are powered by Google Maps. Walking and driving times are estimates.',
                 'In some cities, nearby places come from OpenStreetMap: © OpenStreetMap contributors, available under the <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">Open Database License</a>.',
                 'Places marked as partners have added their own details.'))
-            + app_doc('music', 'Music', P('Songs and playlists open in Apple Music. Saving a playlist needs an Apple Music subscription.'))
+            + app_doc('music', 'Music', P('Songs open in Apple Music or Spotify, whichever you choose. Saving a setlist as a playlist works with Apple Music and needs an Apple Music subscription. Concerto, Medley and Reprise are not affiliated with or endorsed by Apple or Spotify.'))
             + app_doc('independence', 'Independence', P('Concerto LLC is independent from artists, venues, teams, promoters and ticket sellers. Names of artists, tours and venues are used only to identify them.'))
-            + app_doc('trademarks', 'Trademarks', P('Apple, the Apple logo, iPhone, App Store and Apple Music are trademarks of Apple Inc. Google Play, the Google Play logo, Android and Google Maps are trademarks of Google LLC. Ticketmaster and all other names and marks belong to their owners.',
+            + app_doc('trademarks', 'Trademarks', P('Apple, the Apple logo, iPhone, App Store and Apple Music are trademarks of Apple Inc. Spotify is a trademark of Spotify AB. Google Play, the Google Play logo, Android and Google Maps are trademarks of Google LLC. Ticketmaster and all other names and marks belong to their owners.',
                 'From the Concert to the City is a registered trademark of Concerto LLC.'))
             + app_doc('contact', 'Questions', P('For a correction or a rights question, write to <a href="mailto:support@concertocity.com">support@concertocity.com</a>.'))
             + '</main>')
@@ -1561,7 +1564,7 @@ def reprise_page():
 
 def medley_page():
     h = hero('By Concerto', 'Setlists And Streams,<br>In One Place.',
-             'Medley is the quick way to see what an artist is playing on tour. Search an artist, open the setlist, and save it to Apple Music as a playlist.',
+             'Medley is the quick way to see what an artist is playing on tour. Search an artist, open the setlist, and play any song in Apple Music or Spotify.',
              sister_link("medley", "Medley"), None, 'navy', crumbs=app_logo('medley', 'Medley', 744))
     shots = app_shots('medley', [
         ('home', 'Your Shows First', 'The Medley home screen with setlists for saved shows and a list of tours'),
@@ -1574,12 +1577,12 @@ def medley_page():
                 ('Setlists', 'Search by artist, tour or song. Each setlist says where it came from and when it was last updated. Save the ones you want to keep.'),
                 ('Community', 'Fans who were at the show add what was played. When three fans confirm a setlist, it is marked as confirmed.'),
                 ('Streams', 'Fans who stream shows are listed by invitation. Each stream opens on the platform it is on. Medley does not host video.'),
-                ('Save To Apple Music', 'One tap turns a setlist into a playlist in your Apple Music library, in the order it was played.'),
+                ('Apple Music Or Spotify', 'Tap a song and it opens in the music app you use. On Apple Music, one tap also saves the whole setlist to your library as a playlist.'),
             ]) + '</div></section>')
     steps = app_steps('Five Steps,<br>Start To Finish.', [
         ('Find A Setlist', 'On the Setlists tab, type an artist, a tour or a song. Or scroll: the newest setlists are first.'),
         ('Open It', 'You see every song in order, and a line saying where the setlist came from and when.'),
-        ('Play A Song', 'Tap any song to open it in Apple Music. Hold a song to copy its title.'),
+        ('Play A Song', 'Tap any song. The first time, choose Apple Music or Spotify, and every song opens there from then on. Hold a song to copy its title.'),
         ('Keep It', 'Tap the bookmark to save a setlist. Saved setlists stay at the top of the Setlists tab.'),
         ('Save It To Apple Music', 'Tap Save To Apple Music and the whole setlist is added to your library as a playlist, in the order it was played.'),
     ])
@@ -1587,10 +1590,11 @@ def medley_page():
     acc = app_accordion('Good To Know.', [
         ('Is Medley free?', 'Yes.'),
         ('Do I need an account?', 'Not to search, read or save setlists. You need one to add or confirm a setlist, report one, or ask to be listed as a streamer.'),
-        ('Where do the setlists come from?', 'Each setlist page says so under the artist’s name, with a link to the original report where there is one. Songs and their order can change from show to show.'),
+        ('Where do the setlists come from?', 'Each setlist page says so under the artist’s name. Songs and their order can change from show to show.'),
         ('How does a fan setlist get confirmed?', 'When three fans who were there tap I Was There, This Is Right, the setlist is marked as confirmed. A confirmed setlist replaces the reported one for that tour on the Setlists tab.'),
         ('What if a setlist is wrong or abusive?', 'Open it and tap Report. Reports are reviewed within 24 hours. You can also tap Block This Person to stop seeing anything they add, and undo that under Account.'),
         ('How do I get listed as a streamer?', 'On the Streams tab, tap Ask To Be Listed and tell us your handle, the platform and the show. We review each request and reply to the contact you give us.'),
+        ('Can I use Spotify?', 'Yes. Tap any song and choose Spotify, and songs open there from then on. You can switch under Account. Saving a whole setlist as a playlist works with Apple Music.'),
         ('Why did Save To Apple Music miss a song?', 'A few songs are not on Apple Music, such as unreleased songs and some covers. Medley adds the rest and tells you how many it found.'),
     ], [('rules', 'Community Rules And Terms', [
         'Effective Date: November 17, 2026',

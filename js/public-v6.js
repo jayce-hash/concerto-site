@@ -1473,3 +1473,83 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('hashchange', openFromHash);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openFromHash); else openFromHash();
 })();
+
+// Songs open in the reader's music app. The first tap asks Apple Music or Spotify, the answer is
+// remembered on this device, and a line under the list says where songs open and lets them change it.
+// Without this script the setlist is still a plain numbered list.
+(function () {
+  var KEY = 'concerto:music-app';
+  var NAMES = { apple: 'Apple Music', spotify: 'Spotify' };
+  function get() { try { var v = localStorage.getItem(KEY); return NAMES[v] ? v : ''; } catch (_) { return ''; } }
+  function set(v) { try { localStorage.setItem(KEY, v); } catch (_) {} mem = v; notes(); }
+  var mem = get();
+  function url(app, q) {
+    return app === 'spotify' ? 'https://open.spotify.com/search/' + encodeURIComponent(q)
+                             : 'https://music.apple.com/us/search?term=' + encodeURIComponent(q);
+  }
+  function go(app, q) { window.open(url(app, q), '_blank', 'noopener'); }
+  function ask(q) {
+    var old = document.querySelector('.cc-music-ask'); if (old) old.remove();
+    var back = document.activeElement;
+    var wrap = document.createElement('div');
+    wrap.className = 'cc-music-ask';
+    wrap.innerHTML = '<div class="cc-music-card" role="dialog" aria-modal="true" aria-labelledby="cc-music-h">' +
+      '<h2 id="cc-music-h">Open Songs In</h2>' +
+      '<button type="button" data-app="apple">Apple Music</button>' +
+      '<button type="button" data-app="spotify">Spotify</button>' +
+      '<p>You can change this any time under the setlist.</p>' +
+      '<button type="button" class="cc-music-x">Cancel</button></div>';
+    function close() { wrap.remove(); document.removeEventListener('keydown', key); if (back && back.focus) back.focus(); }
+    function key(ev) { if (ev.key === 'Escape') close(); }
+    wrap.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (ev.target === wrap || (b && b.className === 'cc-music-x')) return close();
+      if (!b) return;
+      var app = b.getAttribute('data-app');
+      set(app); close(); if (q) go(app, q);
+    });
+    document.addEventListener('keydown', key);
+    document.body.appendChild(wrap);
+    wrap.querySelector('button').focus();
+  }
+  function open(q) { if (mem) go(mem, q); else ask(q); }
+  function notes() {
+    var all = document.querySelectorAll('.cc-music-note');
+    for (var i = 0; i < all.length; i++) {
+      var artists = all[i].getAttribute('data-kind') === 'artist';
+      all[i].innerHTML = mem
+        ? (artists ? 'Artists' : 'Songs') + ' open in ' + NAMES[mem] + '. <button type="button">Change</button>'
+        : 'Tap ' + (artists ? 'an artist' : 'a song') + ' to open it in Apple Music or&nbsp;Spotify.';
+    }
+  }
+  function run() {
+    var lists = document.querySelectorAll('ol[data-music]');
+    for (var i = 0; i < lists.length; i++) {
+      var ol = lists[i], artist = ol.getAttribute('data-music') || '';
+      var rows = ol.querySelectorAll('li');
+      for (var j = 0; j < rows.length; j++) {
+        var li = rows[j], holder = li.querySelector('span:last-child') || li;
+        var name = (holder.textContent || '').trim();
+        if (!name) continue;
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'cc-song'; b.textContent = name;
+        b.setAttribute('data-q', artist ? name + ' ' + artist : name);
+        holder.textContent = ''; holder.appendChild(b);
+      }
+      var note = document.createElement('p');
+      note.className = 'cc-music-note';
+      note.setAttribute('data-kind', artist ? 'song' : 'artist');
+      ol.parentNode.insertBefore(note, ol.nextSibling);
+    }
+    notes();
+    document.addEventListener('click', function (ev) {
+      var t = ev.target;
+      var song = t.closest && t.closest('.cc-song');
+      if (song) return open(song.getAttribute('data-q'));
+      if (t.closest && t.closest('.cc-music-note button')) return ask('');
+      var a = t.closest && t.closest('a[data-music-q]');
+      if (a) { ev.preventDefault(); open(a.getAttribute('data-music-q')); }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
