@@ -875,6 +875,16 @@ def cx_panel(anchor, ic, title, meta, body, check=True):
 def cx_songs(songs, start=1):
     return '<ol class="cx-songs">' + ''.join(f'<li><span class="cx-n">{i}</span><span>{e(x)}</span></li>' for i, x in enumerate(songs, start)) + '</ol>'
 
+def app_store_slot(app, name):
+    """The App Store badge once data/family.json holds the app's address, "Coming Soon" until then.
+    Written into the page at build time, so there is no flash and search engines see the link."""
+    try: store = (json.loads((ROOT / 'data' / 'family.json').read_text()).get(app) or {}).get('store') or ''
+    except Exception: store = ''
+    live = store.startswith('https://apps.apple.com/')
+    return (f'<a class="c-store" data-store{"" if live else " hidden"} href="{e(store) if live else "/" + app}" target="_blank" rel="noopener" aria-label="Download {name} on the App Store">'
+            '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53" loading="lazy"></a>'
+            f'<p class="c-soon" data-soon{" hidden" if live else ""}>Coming Soon To The App Store</p>')
+
 def medley_card():
     """On every page that shows a setlist: what Medley is and the way to get it. The badge is the
     same switch as the Medley page (data/family.json), so it turns on by itself at launch."""
@@ -882,9 +892,7 @@ def medley_card():
             f'<img class="c-medley-icon" src="{app_icon("medley")}" width="72" height="72" alt="Medley app icon" loading="lazy">'
             '<div class="c-medley-copy"><p class="c-eyebrow">Medley, By Concerto</p><h2>Get Medley For Every Setlist</h2>'
             '<p>Medley is the setlist app by Concerto. Search any artist, tour or song, save a setlist to Apple Music as a playlist in one tap, and add the setlist from a show you went to. Free on iPhone.</p></div>'
-            '<div class="c-medley-act"><a class="c-store" data-store hidden href="/medley" target="_blank" rel="noopener" aria-label="Download Medley on the App Store">'
-            '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53" loading="lazy"></a>'
-            '<p class="c-soon" data-soon>Coming Soon To The App Store</p>'
+            '<div class="c-medley-act">' + app_store_slot('medley', 'Medley') +
             '<a class="c-link" href="/medley">See How Medley Works</a></div></aside>')
 
 def tour_page(t):
@@ -1444,9 +1452,7 @@ def app_icon(app):
 def sister_link(app, name):
     return (f'<div class="c-applink" data-app="{app}">'
             f'<img class="c-appicon-sm" src="{app_icon(app)}" width="72" height="72" alt="{name} app icon">'
-            f'<a class="c-store" data-store hidden href="/{app}" target="_blank" rel="noopener" aria-label="Download {name} on the App Store">'
-            '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53"></a>'
-            '<p class="c-soon" data-soon>Coming Soon To The App Store</p></div>')
+            + app_store_slot(app, name) + '</div>')
 
 def app_points(items):
     return '<div class="c-points">' + ''.join(f'<div><h3>{e(h)}</h3><p>{t}</p></div>' for h, t in items) + '</div>'
