@@ -1439,6 +1439,7 @@ def credits_page():
             + app_doc('setlists', 'Setlists', P('Each setlist shows the show and date it was reported from, or says that it is an official tour playlist. Setlists in Medley’s Community are added and confirmed by fans who were there.',
                 'Artists change songs and their order from night to night, so a setlist is a guide to what a tour has been playing, not a promise for your show.'))
             + app_doc('places', 'Places And Photos', P('Restaurants, hotels and things to do near a venue, and many venue photos, are powered by Google Maps. Walking and driving times are estimates.',
+                'In some cities, nearby places come from OpenStreetMap: © OpenStreetMap contributors, available under the <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">Open Database License</a>.',
                 'Places marked as partners have added their own details.'))
             + app_doc('music', 'Music', P('Songs and playlists open in Apple Music. Saving a playlist needs an Apple Music subscription.'))
             + app_doc('independence', 'Independence', P('Concerto LLC is independent from artists, venues, teams, promoters and ticket sellers. Names of artists, tours and venues are used only to identify them.'))
