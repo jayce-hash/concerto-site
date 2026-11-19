@@ -2845,3 +2845,7 @@ h1,h2{font-weight:700}
   .v8 .c-medley-copy h2{font-size:23px}
   .v8 .c-medley-act{grid-column:1 / -1;align-items:flex-start}
 }
+
+/* The one attribution a page keeps beside Google places: small and quiet. */
+.v8 .cx-attr{margin:14px 0 0;font-size:12px;letter-spacing:.02em;color:var(--muted)}
+.v8 .c-source{font-size:12px;letter-spacing:.02em;color:var(--muted)}

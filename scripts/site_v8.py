@@ -498,7 +498,7 @@ def tours_hub():
 def setlists_hub():
     items = sorted(LIVE.items(), key=lambda kv: (kv[1].get('artist') or '').lower())
     body = '<div class="c-group"><ul>' + ''.join(f'<li class="c-entry"><a href="/setlist/{k}">{e(v.get("artist"))}</a><span>{e(v.get("tour"))} · {songs_word(len(v["songs"]))}</span></li>' for k, v in items) + '</ul></div>'
-    return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>each one dated.', 'Official tour playlists and reported setlists, each marked with the show and date it came from. Setlists change by night.', 'Search artists', '.c-entry')
+    return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>each one dated.', 'Official tour playlists and reported setlists, each marked with the show and date it came from.', 'Search artists', '.c-entry')
             + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{body}</div></section>' + close() + '</main>')
 
 # Hidden on the website until the place data is curated (apartments were showing as hotels).
@@ -535,7 +535,7 @@ def around_venue(v):
     return (f'<section class="c-section c-white" data-reveal><div class="c-wrap">{eyebrow("Around the venue")}'
             f'<h2 class="c-h2 c-h2-sm">Near {e(v["name"])}.</h2>'
             f'<div class="c-around">' + ''.join(cols) + '</div>'
-            f'<p class="c-source">Places from Google Maps. Walking times are estimates. Open Concerto for the full list and your night plan.</p></div></section>')
+            f'<p class="c-source">Google Maps</p></div></section>')
 
 
 def _miles(a, b):
@@ -652,7 +652,7 @@ def can_bring(v):
     if not f.get('faq'): return ''
     rows = ''.join(f'<div class="cx-faq-row"><h3>{e(q)}</h3><p>{e(a)}</p></div>' for q, a in f['faq'])
     return (f'<div class="cx-faq" id="can-i-bring"><h2 class="cx-h2">Can I bring…?</h2>{rows}'
-            f'<p class="cx-note">From {e(v["name"])}’s official guidance, checked {pretty_date(f["checked"])}. Staff at the door make the final call.</p></div>')
+            f'<p class="cx-note">From {e(v["name"])}’s official guidance, checked {pretty_date(f["checked"])}.</p></div>')
 
 def venue_page(v):
     info = INFO.get(v['id']) or {}
@@ -690,7 +690,7 @@ def venue_page(v):
             # upcoming shows, places around the venue, nearby venues.
             + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div>{can_bring(v)}<div class="cx-cards">{"".join(cards)}</div>{house_card(v)}{save_prompt(v)}</div></section>'
             + upcoming_shell(v)
-            + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue. Places from Google.</p></div><div class="cx-rows"></div></div></section>'
+            + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue.</p></div><div class="cx-rows"></div><p class="cx-attr">Google Maps</p></div></section>'
             + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
             + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
             + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {v["name"]}, with Your Night one tap away. Free on iPhone and Android.') + '</main>')
@@ -865,7 +865,7 @@ def tour_dates_shell(t):
     extra = (f' data-tour-keyword="{e(sh.get("searchTerm") or t["artist"])}" data-tour-match="prefix"' + (' data-tour-any' if sh.get('anyCategory') else '')) if sh else ''
     return (f'<section class="cx-sec c-upcoming" id="dates" data-tour-dates data-tour-artist="{e(t["artist"])}" data-tour="{e(t["tourId"])}"{extra} hidden aria-labelledby="dates-h">'
             f'<div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2" id="dates-h">Tour Dates <span class="c-up-count" data-count></span></h2></div>'
-            '<ol class="c-up-list"></ol><p class="cx-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show. Dates from Ticketmaster.</p></div></section>')
+            '<ol class="c-up-list"></ol><p class="cx-note">Save a show in Concerto and get its bag rules, doors, and parking on the morning of the show.</p></div></section>')
 
 def cx_panel(anchor, ic, title, meta, body, check=True):
     """An always-open white card, like the app's Setlist card."""
@@ -908,7 +908,7 @@ def tour_page(t):
         more = f'<a href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a href="/setlist/{t["tourId"]}">Setlist page</a>'
         listen = listen_link(t, s, '')
         panels.append(cx_panel('setlist', 'music', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
-            cx_songs(songs[:12]) + f'<p class="cx-fine">{e(re.sub(r", updated .*$", "", source_label(s)))}. Setlists change by night.</p>'
+            cx_songs(songs[:12]) +
             f'<div class="cx-links">{more}{listen}</div>'))
         panels.append(medley_card())
         chips.append(('setlist', 'Setlist'))
@@ -964,7 +964,7 @@ def setlist_page(slug, s):
     songs = s['songs']
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
-            f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}. Setlists change by night.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
+            f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
             + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div><p class="c-medley-hint">Want every tour’s setlist on your phone? <a href="#medley">Get Medley, the setlist app by Concerto</a>.</p></div></section>'
             f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div>' + medley_card() + '</div></section>'
             + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone and Android.') + '</main>')
@@ -1402,7 +1402,7 @@ def contact_page(form_html):
 # ----- product and utility -----
 def near_me():
     h = hero('Near Me', 'Concerts near you<br>this week.', 'Music shows in the next seven days, with the venue guide for each one.<br>Change the city to look somewhere else.',
-             store_button('website-near-me', tone='white'), ['From Ticketmaster', 'Venue guides linked'], 'navy')
+             store_button('website-near-me', tone='white'), ['Venue guides linked'], 'navy')
     live = ('<section class="c-section c-white c-live" data-live-near aria-labelledby="near-h"><div class="c-wrap">'
             '<p class="c-eyebrow">This week</p><h2 class="c-h2 c-h2-sm" id="near-h">Shows near <span data-live-city>you</span></h2>'
             '<p class="c-body" data-live-sub>Music shows in the next seven days, sorted by date.</p>'
@@ -1426,6 +1426,26 @@ def search_page():
     h = hero('Ask Concerto', 'Ask about<br>your show.', 'Search venues, tours, and setlists, or ask a question. Answers come from Concerto’s venue guides and tour data, with the source linked.', ask_bar(), None, 'cream', 'c-hero-hub')
     answer = '<div class="c-answer" data-ask-answer hidden aria-live="polite"></div>'
     return '<main id="main-content" class="c-page">' + h + '<section class="c-section c-white c-search-section"><div class="c-wrap">' + answer + '<div data-site-search-results class="site-search-results c-search-results" aria-live="polite"><p class="c-body">Try an artist, tour, venue, or city.</p></div></div></section></main>'
+
+def credits_page():
+    """One page for every source, credit and notice, so the guides themselves stay clean."""
+    P = lambda *x: list(x)
+    return ('<main id="main-content" class="c-page">'
+            + hero('Company', 'Sources And Credits.', 'Where Concerto’s information comes from, and the notices that go with it.', '', None, 'cream', 'c-hero-simple')
+            + app_doc('venues', 'Venue Guides', P('Bag policies, entry, parking, accessibility and other venue details are researched from each venue’s own official pages. Every guide shows the date it was last checked.',
+                'Rules can change, and a venue’s staff make the final call at the door. If something looks wrong, use Report Wrong Info on that page and it will be checked.'))
+            + app_doc('shows', 'Tour Dates And Tickets', P('Event dates, times and ticket links are provided by <a href="https://www.ticketmaster.com" rel="noopener" target="_blank">Ticketmaster</a>. The time shown is the show time unless a page says otherwise.',
+                'Buying a ticket happens on the seller’s own site, under the seller’s terms. Concerto does not sell tickets.'))
+            + app_doc('setlists', 'Setlists', P('Each setlist shows the show and date it was reported from, or says that it is an official tour playlist. Setlists in Medley’s Community are added and confirmed by fans who were there.',
+                'Artists change songs and their order from night to night, so a setlist is a guide to what a tour has been playing, not a promise for your show.'))
+            + app_doc('places', 'Places And Photos', P('Restaurants, hotels and things to do near a venue, and many venue photos, are powered by Google Maps. Walking and driving times are estimates.',
+                'Places marked as partners have added their own details.'))
+            + app_doc('music', 'Music', P('Songs and playlists open in Apple Music. Saving a playlist needs an Apple Music subscription.'))
+            + app_doc('independence', 'Independence', P('Concerto LLC is independent from artists, venues, teams, promoters and ticket sellers. Names of artists, tours and venues are used only to identify them.'))
+            + app_doc('trademarks', 'Trademarks', P('Apple, the Apple logo, iPhone, App Store and Apple Music are trademarks of Apple Inc. Google Play, the Google Play logo, Android and Google Maps are trademarks of Google LLC. Ticketmaster and all other names and marks belong to their owners.',
+                'From the Concert to the City is a registered trademark of Concerto LLC.'))
+            + app_doc('contact', 'Questions', P('For a correction or a rights question, write to <a href="mailto:support@concertocity.com">support@concertocity.com</a>.'))
+            + '</main>')
 
 def download_page():
     """/download: phones go straight to their store (js/public-v6.js); everyone else gets the QR code and both badges."""
@@ -1707,9 +1727,11 @@ def build():
     rewrite('download.html', download_page())
     ensure_page('reprise.html', 'Reprise by Concerto | Relive Your Shows and Trips', 'Reprise turns the photos from a concert or a trip into an album, a card to share, or photos for your own website. From the creator of Concerto.', '/reprise')
     rewrite('reprise.html', reprise_page())
+    ensure_page('credits.html', 'Sources And Credits | Concerto', 'Where Concerto’s venue guides, tour dates, setlists, places and photos come from, with trademark notices, on one page.', '/credits')
+    rewrite('credits.html', credits_page())
     ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, save it to Apple Music, and see fans streaming the show. From the creator of Concerto.', '/medley')
     rewrite('medley.html', medley_page())
-    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley')):   # the shell came from About: give each its own header
+    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about')):   # the shell came from About: give each its own header
         _s = (ROOT / _rel).read_text()
         (ROOT / _rel).write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html(_path), _s, flags=re.S))
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header
