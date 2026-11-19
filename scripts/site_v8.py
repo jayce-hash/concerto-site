@@ -43,7 +43,7 @@ def pretty_date(d):
     return f'{mon} {int(m.group(3))}, {m.group(1)}'
 def source_label(s):
     src = s.get('source') or {}
-    if src.get('eventDate') and src.get('provider') == 'setlist.fm': return f"Reported setlist from {src.get('venue') or 'a recent show'}, {pretty_date(src['eventDate'])} (setlist.fm)"
+    if src.get('eventDate') and src.get('kind') == 'reported': return f"Reported setlist from {src.get('venue') or 'a recent show'}, {pretty_date(src['eventDate'])}"
     if src.get('eventDate'): return f"Confirmed setlist from {src.get('venue') or 'a recent show'}, {pretty_date(src['eventDate'])}"
     if 'apple music' in (s.get('note') or '').lower(): return f"Official tour playlist (Apple Music), updated {pretty_date(s.get('updated'))}"
     return f"Updated {pretty_date(s.get('updated'))}"
@@ -172,12 +172,12 @@ def home():
     return '<main id="main-content" class="c-page">' + hero + name_section() + what + photo_band() + numbers() + principles() + plus + testimonials() + partners + guide_index() + close() + '</main>'
 
 def your_night():
-    stages = [('Weeks out', 'Learn the songs. Know the rules.', 'The setlist, labeled by source. Bag policy, entry, and parking, each dated.'),
+    stages = [('Weeks out', 'Learn the songs. Know the rules.', 'The setlist, with the show it came from. Bag policy, entry, and parking, each dated.'),
               ('The week of', 'The forecast arrives. The plan comes together.', 'Weather at seven days out, never sooner. Places to eat nearby, partners labeled.'),
               ('Show day', 'Leave on time. Walk in ready.', 'Alerts in the venue’s time zone. Directions, parking, and rideshare in one place.'),
               ('After the encore', 'The way home is already there.', 'The venue’s pickup guidance and your ride, kept with the show.')]
     tl = ''.join(f'<li><span class="c-when">{e(w)}</span><h3>{e(h)}</h3><p>{e(t)}</p></li>' for w, h, t in stages)
-    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, labeled by source', 'Directions, parking, and rideshare']
+    free = ['Saving shows, from Concerto or your calendar', 'Your Night for every saved show', 'A show-day reminder for every saved show', f'Venue guides for {N_V} venues', 'Setlists, each with its show and date', 'Directions, parking, and rideshare']
     paid = ['Plan it for me: Concerto fills in the whole night', 'Bag Check against the venue’s policy', 'More show-day alerts: before you leave and the way home', 'More Concerto AI answers each day']
     cols = ('<div class="c-compare"><div><h3>Free</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in free) + '</ul></div><div><h3>Concerto+</h3><ul>' + ''.join(f'<li>{e(x)}</li>' for x in paid) +
             '</ul><a class="c-link" href="/premium">About Concerto+</a></div></div>')
@@ -226,7 +226,7 @@ def features():
              + f'<ol class="c-fx-steps">{first}</ol>{night}</div></section>')
     # 2. The rest of Concerto: Tours, Venues, Near Me
     more = [
-        ('tours', 'Tours', 'Every Tour, and the Songs', f'{(N_T // 10) * 10}+ tours on the road, each with every upcoming date and the setlist it’s been playing, labeled by source. Follow a tour, and with Concerto+ you’ll get an alert when new dates and presales are added.',
+        ('tours', 'Tours', 'Every Tour, and the Songs', f'{(N_T // 10) * 10}+ tours on the road, each with every upcoming date and the setlist it’s been playing, with the show it came from. Follow a tour, and with Concerto+ you’ll get an alert when new dates and presales are added.',
          [('tours', 'Tours in Concerto'), ('tour', 'A tour page with dates')], '/tours', 'Browse tours'),
         ('venues', 'Venues', 'Know the Venue Before You Go', f'Guides for {V_COPY} venues worldwide: bag policy, entrances and doors, parking, rideshare, food and drink, re-entry and accessibility, each checked against the venue’s official sources and dated. At Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, House Map shows every food stand, bar, restroom and entrance by section.',
          [('venues', 'Venues in Concerto'), ('venue', 'The Intuit Dome venue guide with its bag policy open')], '/venues', 'Browse venue guides'),
@@ -490,7 +490,7 @@ def tours_hub():
         return (f'<li class="c-entry" data-f-genre="{slug_val(t.get("genre") or "")}" data-f-setlist="{"yes" if n else ""}"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a>'
                 f'<span>{e(t["tourName"])}{" · " + songs_word(n) if n else ""}</span></li>')
     body = ''.join(f'<div class="c-group"><h2>{e(k)}</h2><ul>' + ''.join(row(t) for t in ts) + '</ul></div>' for k, ts in groups.items())
-    return ('<main id="main-content" class="c-page">' + hub_intro('Tours', f'{N_T} tours<br>on the road.', f'Dates, the official tour site, and {N_S} setlists, labeled by source.', 'Search artists or tours', '.c-entry',
+    return ('<main id="main-content" class="c-page">' + hub_intro('Tours', f'{N_T} tours<br>on the road.', f'Dates, the official tour site, and {N_S} setlists, each with its show and date.', 'Search artists or tours', '.c-entry',
                       groups=([('genre', 'Genre', [(slug_val(g), g) for g in TOUR_GENRES if any(t.get('genre') == g for t in TOURS)])] if any(t.get('genre') for t in TOURS) else [])
                       + [('setlist', 'Setlist', [('yes', 'Has a setlist')])])
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('tour') + close() + '</main>')
@@ -498,7 +498,7 @@ def tours_hub():
 def setlists_hub():
     items = sorted(LIVE.items(), key=lambda kv: (kv[1].get('artist') or '').lower())
     body = '<div class="c-group"><ul>' + ''.join(f'<li class="c-entry"><a href="/setlist/{k}">{e(v.get("artist"))}</a><span>{e(v.get("tour"))} · {songs_word(len(v["songs"]))}</span></li>' for k, v in items) + '</ul></div>'
-    return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>labeled by source.', 'Official tour playlists and confirmed setlists, each marked with its source and date. Setlists change by night.', 'Search artists', '.c-entry')
+    return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>each one dated.', 'Official tour playlists and reported setlists, each marked with the show and date it came from. Setlists change by night.', 'Search artists', '.c-entry')
             + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{body}</div></section>' + close() + '</main>')
 
 # Hidden on the website until the place data is curated (apartments were showing as hotels).
@@ -1690,7 +1690,7 @@ def build():
         ('near-me.html', 'Concerts Near Me This Week | Concerto', 'Concerts near you this week, with a guide to every venue: what to bring, parking, and places to eat nearby. Free on iPhone and Android.'),
         ('bagcheck.html', 'Bag Check: Will My Bag Be Allowed? | Concerto', 'Take a photo of your bag and Concerto checks it against the venue’s published bag policy before you leave. Part of Concerto+.'),
         ('tours.html', 'Concert Tours: Dates & Setlists | Concerto', f'{N_T} concert tours with dates, the setlist each tour has been playing, and a guide to every venue.'),
-        ('setlists.html', 'Concert Setlists by Tour | Concerto', f'Setlists for {N_S} current concert tours, labeled by source, so you know the songs before the show.'),
+        ('setlists.html', 'Concert Setlists by Tour | Concerto', f'Setlists for {N_S} current concert tours, each with its show and date, so you know the songs before the show.'),
         ('venues.html', 'Concert Venue Guides: Bag Policy, Parking & Entry | Concerto', f'Guides to {V_COPY} concert venues worldwide: bag policy, entry, parking, rideshare, and what’s nearby, from official sources.'),
     ]:
         if (ROOT / _rel).exists(): set_head(_rel, _t, _d)

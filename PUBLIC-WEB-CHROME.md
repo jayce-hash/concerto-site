@@ -86,8 +86,7 @@ open; elsewhere it is a plain App Store link. The Smart App Banner on those page
 the same `app-argument`, so an installed user tapping Open lands on that screen. The AASA
 file in `.well-known/` is served as JSON via `_headers`.
 
-## Setlist pipeline
-`scripts/fetch_setlists.py` fills tours without a confirmed setlist from setlist.fm
-(needs `SETLISTFM_API_KEY`). Curated entries are never overwritten; setlist.fm entries
-carry a `source` block and a note naming the show. `--dry-run` previews, `--refresh`
-re-pulls setlist.fm entries older than 14 days. The app reads the same file.
+## Setlists
+`setlists.json` holds every setlist. A reported setlist carries a `source` block with the
+show it came from (venue and date) and a note naming that show. Curated entries are never
+overwritten. The app reads the same file.

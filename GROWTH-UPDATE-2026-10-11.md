@@ -13,7 +13,7 @@
 - Renamed: NRG Stadium to Reliant Stadium, SSE Arena Belfast to The O2 Belfast, Paris La Défense Arena to Plenitude Arena. Slugs unchanged; old names kept in page titles.
 - Merged duplicates: pnc-arena into lenovo-center, xl-center into peoplesbank-arena (301s in _redirects). Venue count is now 671 (validate-release.js updated).
 - Fixed Lenovo Center (Raleigh, correct coordinates) and Huntington Bank Field (Cleveland, correct coordinates).
-- setlists.json: 28 new setlists from ChatGPT (115 total). Its file had broken characters (curly apostrophes and accents garbled) in 64 places; repaired, so existing setlists are unchanged. Setlists taken from setlist.fm get a structured source and show as "Reported setlist from <venue>, <date> (setlist.fm)".
+- setlists.json: 28 new setlists from ChatGPT (115 total). Its file had broken characters (curly apostrophes and accents garbled) in 64 places; repaired, so existing setlists are unchanged. Reported setlists get a structured source and show as "Reported setlist from <venue>, <date>".
 
 ## Pages that answer first (second update, Oct 11)
 - Quick answers were built and then removed (Jayce's call): revisit with a smart search bar. scripts/venue_glance.py stays only for the bag sentence at the top of each venue page.

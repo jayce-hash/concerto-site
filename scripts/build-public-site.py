@@ -145,8 +145,8 @@ def setlist_provenance(sl):
     """Honest label for where a song list came from. An official tour playlist is
     trustworthy content but not proof of the performed set or its order."""
     src=sl.get('source') or {}; note=(sl.get('note') or '')
-    if src.get('provider')=='setlist.fm':
-        return f"Reported setlist from {esc(src.get('venue') or 'a recent show')}{' on '+esc(src['eventDate']) if src.get('eventDate') else ''} (setlist.fm)"
+    if src.get('kind')=='reported':
+        return f"Reported setlist from {esc(src.get('venue') or 'a recent show')}{' on '+esc(src['eventDate']) if src.get('eventDate') else ''}"
     if src.get('eventDate'):
         return f"Confirmed setlist from {esc(src.get('venue') or 'a recent show')}{' on '+esc(src['eventDate']) if src.get('eventDate') else ''}{' · draft' if src.get('draft') else ''}"
     if 'apple music' in note.lower() or src.get('provider')=='apple-music':
