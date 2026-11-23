@@ -496,10 +496,24 @@ def tours_hub():
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('tour') + close() + '</main>')
 
 def setlists_hub():
+    """Every setlist, A to Z, under the ones checked most recently. Setlists are what people search
+    for most, and Medley is the app for them, so this page opens and closes on Medley."""
+    entry = lambda k, v, extra='': f'<li class="c-entry"><a href="/setlist/{k}">{e(v.get("artist"))}</a><span>{e(v.get("tour"))} · {songs_word(len(v["songs"]))}{extra}</span></li>'
     items = sorted(LIVE.items(), key=lambda kv: (kv[1].get('artist') or '').lower())
-    body = '<div class="c-group"><ul>' + ''.join(f'<li class="c-entry"><a href="/setlist/{k}">{e(v.get("artist"))}</a><span>{e(v.get("tour"))} · {songs_word(len(v["songs"]))}</span></li>' for k, v in items) + '</ul></div>'
-    return ('<main id="main-content" class="c-page">' + hub_intro('Setlists', f'{N_S} setlists,<br>each one dated.', 'Official tour playlists and reported setlists, each marked with the show and date it came from.', 'Search artists', '.c-entry')
-            + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{body}</div></section>' + close() + '</main>')
+    def checked(v):
+        import datetime as _dt
+        try: return ' · Checked ' + _dt.date.fromisoformat(v.get('updated') or '').strftime('%b %-d')
+        except Exception: return ''
+    fresh = sorted(LIVE.items(), key=lambda kv: (kv[1].get('updated') or '', (kv[1].get('source') or {}).get('eventDate') or ''), reverse=True)[:12]
+    recent = '<div class="c-group"><h2 class="c-group-h">Just Updated</h2><ul>' + ''.join(entry(k, v, checked(v)) for k, v in fresh) + '</ul></div>'
+    body = '<div class="c-group"><h2 class="c-group-h">All Setlists, A To Z</h2><ul>' + ''.join(entry(k, v) for k, v in items) + '</ul></div>'
+    store = medley_store('website-setlists-hub')
+    get = (f'<p class="c-hub-medley">Want them on your phone? <a href="{e(store)}" data-app-link="medley://" data-else="/medley" rel="noopener">Get Medley, the setlist app by Concerto</a>.</p>' if store else '')
+    intro = hub_intro('Setlists', f'{N_S} setlists,<br>each one dated.', 'Every song in order for the tours on the road now, each marked with the show and date it came from. Tap a song to open it in Apple Music or Spotify.', 'Search artists', '.c-entry')
+    intro = intro.replace('autocomplete="off"></label>', 'autocomplete="off"></label>' + get, 1) if get else intro
+    assert not get or 'c-hub-medley' in intro, 'setlists hub: the Medley line did not land'
+    return ('<main id="main-content" class="c-page">' + intro
+            + f'<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">{recent}{body}</div></section>' + medley_close() + '</main>')
 
 # Hidden on the website until the place data is curated (apartments were showing as hotels).
 # Flip to True to bring the section back; nothing else changes.
@@ -903,8 +917,9 @@ def medley_open(slug, label='Open In Medley', cls='c-btn c-btn-navy'):
     if not store: return f'<a class="{cls}" href="/medley">{e(label)}</a>'
     return f'<a class="{cls}" href="{e(store)}" data-app-link="medley://setlist/{e(slug)}" data-else="/medley" rel="noopener">{e(label)}</a>'
 
-def medley_close(slug):
-    """The last thing on a setlist page: Medley, with one line pointing Concerto at the show itself."""
+def medley_close(slug=None):
+    """The last thing on a setlist page: Medley, with one line pointing Concerto at the show itself.
+    Without a slug (the setlists hub) that line points at all tours."""
     store = medley_store('website-setlist-close')
     badge = (f'<a class="c-store" href="{e(store)}" target="_blank" rel="noopener" aria-label="Download Medley on the App Store">'
              '<img src="/img/badges/app-store-white.svg" alt="Download on the App Store" width="160" height="53" loading="lazy"></a>') if store else ''
@@ -913,7 +928,8 @@ def medley_close(slug):
             '<p class="c-eyebrow">Medley, By Concerto</p><h2>Get Medley For Every Setlist</h2>'
             '<p class="c-close-lead">Search any artist, tour or song. Open any song in Apple Music or Spotify. Add the setlist from a show you went to.</p>'
             f'<div class="c-close-row">{badge}<a class="c-link c-link-white" href="/medley">See How Medley Works</a></div>'
-            f'<p class="c-fine">Free on iPhone. Going to the show? <a href="/tour/{e(slug)}">Concerto has the dates and the venue guide</a>.</p></div></section>')
+            + (f'<p class="c-fine">Free on iPhone. Going to the show? <a href="/tour/{e(slug)}">Concerto has the dates and the venue guide</a>.</p></div></section>' if slug
+               else '<p class="c-fine">Free on iPhone. Going to a show? <a href="/tours">Concerto has the dates and the venue guides</a>.</p></div></section>'))
 
 def medley_card():
     """On every page that shows a setlist: what Medley is and the way to get it. The badge is the
@@ -1747,7 +1763,7 @@ def build():
         ('near-me.html', 'Concerts Near Me This Week | Concerto', 'Concerts near you this week, with a guide to every venue: what to bring, parking, and places to eat nearby. Free on iPhone and Android.'),
         ('bagcheck.html', 'Bag Check: Will My Bag Be Allowed? | Concerto', 'Take a photo of your bag and Concerto checks it against the venue’s published bag policy before you leave. Part of Concerto+.'),
         ('tours.html', 'Concert Tours: Dates & Setlists | Concerto', f'{N_T} concert tours with dates, the setlist each tour has been playing, and a guide to every venue.'),
-        ('setlists.html', 'Concert Setlists by Tour | Concerto', f'Setlists for {N_S} current concert tours, each with its show and date, so you know the songs before the show.'),
+        ('setlists.html', 'Concert Setlists 2026: Every Tour, Song By Song | Concerto', f'Setlists for {N_S} current concert tours, each with its show and date, so you know the songs before the show. Open any song in Apple Music or Spotify.'),
         ('venues.html', 'Concert Venue Guides: Bag Policy, Parking & Entry | Concerto', f'Guides to {V_COPY} concert venues worldwide: bag policy, entry, parking, rideshare, and what’s nearby, from official sources.'),
     ]:
         if (ROOT / _rel).exists(): set_head(_rel, _t, _d)

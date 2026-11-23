@@ -38,12 +38,13 @@ NAV = [
     ('Features', '/features'),
     ('Venues', '/venues'),
     ('Tours', '/tours'),
+    ('Setlists', '/setlists'),
     ('Concerto+', '/premium'),
     ('Reprise', '/reprise'),
     ('Medley', '/medley'),
     ('About', '/about'),
 ]
-MENU_EXTRA = [('Setlists', '/setlists'), ('Search', '/search'), ('Help', '/help')]
+MENU_EXTRA = [('Search', '/search'), ('Help', '/help')]
 
 HEADER_START = '<!-- CONCERTO_CHROME_HEADER_START -->'
 HEADER_END = '<!-- CONCERTO_CHROME_HEADER_END -->'
@@ -81,23 +82,18 @@ def is_active(href, path):
     return bool(p and path.startswith(p))
 
 
-# The phone menu, in the app's style: two white cards of rows, each with an icon and a chevron.
+# The phone menu: one plain list in the same order as the desktop header, then three small
+# links, then the download button. It fits one screen, so nothing is cut off or scrolls.
 import sys as _sys, os as _os
 _sys.path.insert(0, _os.path.dirname(__file__))
 from app_icons import IONICONS as _IO, MDI_STADIUM as _STADIUM
-MOBILE_MENU = [
-    # Same icons as the app's tab bar: ticket, stadium, mic, navigate.
-    [('Features', '/features', 'ticket'), ('Venues', '/venues', 'stadium'), ('Tours', '/tours', 'mic'), ('Near Me', '/near-me', 'navigate'), ('Setlists', '/setlists', 'musical-notes')],
-    [('Concerto+', '/premium', 'sparkles'), ('Reprise', '/reprise', 'repeat'), ('Medley', '/medley', 'musical-notes'), ('Search', '/search', 'search'), ('Help Center', '/help', 'help-circle-outline'), ('About', '/about', 'information-circle-outline')],
-]
+MOBILE_SMALL = [('Near Me', '/near-me'), ('Help Center', '/help'), ('Search', '/search')]
 def mobile_menu(path='/'):
-    def row(label, href, ic):
+    def row(label, href, cls):
         cur = ' aria-current="page"' if is_active(href, path) else ''
-        svg = (f'<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{_STADIUM}"/></svg>' if ic == 'stadium'
-               else f'<svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">{_IO[ic]}</svg>')
-        return (f'<a class="mn-row" href="{href}"{cur}><span class="mn-ic">{svg}</span><span class="mn-label">{_e(label)}</span>'
-                f'<svg class="mn-chev" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">{_IO["chevron-forward"]}</svg></a>')
-    return ''.join('<div class="mn-group">' + ''.join(row(*r) for r in g) + '</div>' for g in MOBILE_MENU)
+        return f'<a class="{cls}" href="{href}"{cur}>{_e(label)}</a>'
+    return ('<div class="mn-list">' + ''.join(row(l, h, 'mn-link') for l, h in NAV) + '</div>'
+            '<div class="mn-small">' + ''.join(row(l, h, 'mn-sm') for l, h in MOBILE_SMALL) + '</div>')
 
 def header_html(path='/'):
     def link(label, href):

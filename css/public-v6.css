@@ -2874,3 +2874,18 @@ h1,h2{font-weight:700}
 .v8 .c-link-white{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
 .v8 .c-close-medley .c-fine a{color:#fff;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .v8 .cx-links .cx-medley-link{font-weight:700}
+
+/* Phone menu: one plain list, three small links, the download button. No cards, icons or chevrons. */
+.v8 .mn{gap:0;padding:8px 0 32px}
+.v8 .mn-list{display:flex;flex-direction:column}
+.v8 .mn-link{font:600 clamp(22px,6.4vw,26px)/1.15 var(--body);letter-spacing:-.02em;color:var(--navy);text-decoration:none;padding:clamp(9px,1.7dvh,14px) 0;animation:c-menu-in .28s cubic-bezier(.2,.7,.2,1) both}
+.v8 .mn-link[aria-current="page"]:after{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:10px;vertical-align:middle}
+.v8 .mn-small{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;padding-top:16px;border-top:1px solid rgba(18,30,54,.1)}
+.v8 .mn-sm{font:500 15px/1.2 var(--body);color:var(--muted);text-decoration:none;padding:8px 0}
+.v8 .mn-sm[aria-current="page"]{color:var(--navy)}
+.v8 .mn-cta{margin-top:18px;background:var(--navy);color:#fff}
+.v8 .mn-fine{margin-top:10px}
+@media (prefers-reduced-motion:reduce){.v8 .mn-link{animation:none}}
+/* Setlists hub: one line to Medley under the search box. */
+.v8 .c-hub-medley{margin:18px 0 0;font-size:15px;color:var(--muted)}
+.v8 .c-hub-medley a{color:var(--navy);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
