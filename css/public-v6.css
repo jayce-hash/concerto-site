@@ -2907,3 +2907,8 @@ h1,h2{font-weight:700}
 .v8 .c-xmas-hero .c-star + .c-star + .c-star{right:9%;top:68%;width:clamp(16px,2vw,26px);opacity:.5}
 .v8 .c-xmas-note{margin:-4px 0 14px;color:var(--muted);font-size:15px}
 @media (max-width:640px){.v8 .c-xmas-hero .c-star{right:2%;top:-18px;opacity:.6}.v8 .c-xmas-hero .c-star + .c-star,.v8 .c-xmas-hero .c-star + .c-star + .c-star{display:none}}
+
+/* The holiday directory at the top of the Holiday Concerts article. */
+.v8 .c-xmas-dir{margin:0 0 40px}
+.v8 .c-xmas-dir .c-group-h{display:flex;align-items:center;gap:10px}
+.v8 .c-xmas-dir .c-star{width:18px;height:18px}

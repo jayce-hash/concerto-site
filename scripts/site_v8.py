@@ -397,6 +397,7 @@ def guide_page(g):
     import re as _re
     _n = iter(range(100))
     g = dict(g, body=_re.sub(r'<h2>', lambda m: f'<h2 id="q{next(_n)}">', g['body']))
+    if g['slug'] == 'holiday-concerts-2026': g['body'] = holiday_directory() + g['body']
     faq = ''.join(f'<details class="c-art-q"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in g['faq'])
     src = ''.join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(t)}</a></li>' for t, u in g['sources'])
     tour = f'<a class="c-btn c-btn-line" href="/tour/{g["tour"]}">Tour page and setlist</a>' if g.get('tour') else ''
@@ -513,25 +514,22 @@ def season_strip():
     return (f'<p class="c-season" data-season-from="{e(h["from"])}" data-season-until="{e(h["until"])}" hidden>{STAR}'
             'Jingle Ball 2026 runs December 1 to 17. <a href="/tour/jingle-ball-2026-tour">See The Guide</a></p>')
 
-def christmas_page():
-    """Christmas concerts in one place: Jingle Ball city by city, then the holiday tours, each with
-    its dates page and, where there is one, its setlist. The page people look for in December."""
+def holiday_directory():
+    """Jingle Ball city by city, then the holiday tours with their setlists. This sits at the top of
+    the Holiday Concerts article (blog/holiday-concerts-2026), so there is one page for Christmas
+    concerts, not two competing for the same search."""
     h = holiday(); jb = jingle_ball_data()
+    if not h: return ''
     stops = ''.join(f'<li class="c-entry"><a href="/tour/jingle-ball-2026-tour#{e(c["anchor"])}">{e(c["city"].split("/")[0])}</a><span>{e(c["date"])} · {e(c["venueName"])}</span></li>' for c in jb['cities'])
     def tour_row(t):
         s = LIVE.get(t['tourId'])
         extra = f' · <a href="/setlist/{t["tourId"]}">Setlist, {songs_word(len(s["songs"]))}</a>' if s and s.get('songs') else ''
         return f'<li class="c-entry"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a><span>{e(t["tourName"])}{extra}</span></li>'
-    tours = ''.join(tour_row(t) for t in (h['list'] if h else []) if t['tourId'] != 'jingle-ball-2026-tour')
-    hero_html = ('<section class="c-xmas-hero"><div class="c-wrap">' + STAR + STAR + STAR
-                 + eyebrow('Holiday Shows · 2026') + '<h1>Christmas Concerts,<br>City By City.</h1>'
-                 '<p class="c-lead">Jingle Ball and the holiday tours on the road this December, with the setlist for each tour and the rules at each arena.</p>'
-                 '<div class="c-actions"><a class="c-btn c-btn-gold" href="/tour/jingle-ball-2026-tour">Jingle Ball 2026</a><a class="c-link c-link-white" href="#tours">The Holiday Tours</a></div></div></section>')
-    return ('<main id="main-content" class="c-page">' + hero_html
-            + '<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">'
-            + f'<div class="c-group"><h2 class="c-group-h">Jingle Ball 2026</h2><p class="c-xmas-note">Nine arenas from December 1 to 17. Each city has its own lineup, bag rule and start time.</p><ul>{stops}</ul></div>'
-            + f'<div class="c-group" id="tours"><h2 class="c-group-h">The Holiday Tours</h2><p class="c-xmas-note">Dates and venue guides for each tour, and the songs where the setlist is in.</p><ul>{tours}</ul></div>'
-            + '</div></section>' + medley_close() + '</main>')
+    tours = ''.join(tour_row(t) for t in h['list'] if t['tourId'] != 'jingle-ball-2026-tour')
+    return ('<div class="c-xmas-dir c-directory c-directory-one">'
+            f'<div class="c-group"><h2 class="c-group-h">Jingle Ball 2026 {STAR}</h2><p class="c-xmas-note">Nine arenas from December 1 to 17. Each city has its own lineup, bag rule and start time.</p><ul>{stops}</ul></div>'
+            f'<div class="c-group"><h2 class="c-group-h">The Holiday Tours {STAR}</h2><p class="c-xmas-note">Dates and venue guides for each tour, and the songs where the setlist is in.</p><ul>{tours}</ul></div>'
+            '</div>')
 
 def setlists_hub():
     """Every setlist, A to Z, under the ones checked most recently. Setlists are what people search
@@ -1289,7 +1287,7 @@ def bagcheck():
 # exception to "no app imagery": dated historical artifacts, labeled, on this page only.
 def founder():
     h = hero('From the founder', 'It started with<br>one night in Toronto.', 'Why Concerto exists, and what it took to build it.',
-             '', ['Jayce Wells', 'September 2026'], 'navy')
+             '', ['Jayce Wells', 'November 2026'], 'navy')
     P = lambda t: f'<p class="c-letter-p">{t}</p>'
     H = lambda t: f'<h2 class="c-letter-h">{t}</h2>'
     drafts = ('<figure class="c-drafts">'
@@ -1302,21 +1300,26 @@ def founder():
       '<section class="c-section c-white" data-reveal><div class="c-wrap c-letter">'
       + H('Where did the idea for Concerto come from?')
       + P("In November 2024, I had tickets to night six of the Eras Tour in Toronto. I&#8217;d lived in Toronto, but I didn&#8217;t know the area around the Rogers Centre, and I spent the weeks before the show bouncing between Google, Apple Maps and OpenTable, trying to figure out where to eat, where to stay and what to do around one specific night.")
-      + P("I kept thinking: there should be one app for this. Not for the city in general, but for the exact show you&#8217;re going to. So on October 25, 2024, I opened Canva and started designing it. The name Concerto and the line <em>From the Concert to the City</em> came right after.")
+      + P("I kept thinking: there should be one app for this. Not for the city in general, but for the exact show you&#8217;re going to. So on October 25, 2024, I opened Canva and started designing it. I was 21. The name Concerto and the line <em>From the Concert to the City</em> came right after.")
       + drafts
       + H('How did Concerto get built?')
       + P("I started with 112 venues, every NFL, NBA and MLB stadium in the country. I entered each venue&#8217;s policies and official links into a spreadsheet by hand, then went venue by venue finding the restaurants and hotels nearby. In March 2025 Concerto became a company, and in April the first version launched on the App Store and Google Play.")
       + P("By that summer the guide had grown to 346 venues. I&#8217;d love to say it got easier. It didn&#8217;t. I spent hours, days and weeks researching venues, entering data, sketching new features, redesigning screens and making social content, even while paying for a developer and a PR agency. When neither was moving the needle, I made the hardest call so far: I cut both, took Concerto back, and rebuilt it from the ground up myself.")
       + H('What was the hardest part of building it alone?')
-      + P("I didn&#8217;t know how to code. My background is in marketing, not software, and anything technical was new to me. So I leaned on the tools I had, like Claude, and started over from scratch. They let me see things I couldn&#8217;t see before.")
+      + P("I didn&#8217;t know how to code. My background is in marketing, not software, and anything technical was new to me. So I leaned on the tools I had, like Claude, and started over from scratch.")
       + P("I didn&#8217;t tell an AI to build an app and walk away. I took the time to learn what it was doing: why a screen broke, why a venue&#8217;s data didn&#8217;t load, why one fix caused a new problem somewhere else. I spent hours upon hours every week trying to get it right. Concerto is better for it, and so am I.")
+      + P("It also means there is no agency and no outside developer to wait on. When a venue changes a rule, or a fan finds a problem, I can usually fix it the same day.")
       + H('How did people start finding Concerto?')
-      + P("Everybody wants instant gratification, and I&#8217;m no different. When the download numbers weren&#8217;t climbing the way I hoped, I started asking how else people could discover Concerto. That&#8217;s when I went all in on the website.")
+      + P("An app on its own was never going to be enough. Most people don&#8217;t go looking for a new app. They search for an answer. So I went all in on the website.")
       + P("Most people find something like Concerto by searching for a specific answer: a venue&#8217;s bag policy, where to park, what a tour has been playing. So I made concertocity.com answer those questions on its own, for free, with a guide to every venue and a page for every tour. Today the site has a guide for each of the 1,000+ venues in the app, a page for every state and country with three or more of them, and the setlists to go with them. It&#8217;s where I expect most people to meet Concerto first. If the website helps you once, the app is there for the next show.")
+      + P(f"It is working. Concerto now shows up in Google about {PROOF_DAY} times a day, ten times as often as in July, and in one weekend this November Google sent more than 1,000 visits to the site.")
       + H('What does Concerto do today?')
       + P(f"Today Concerto covers more than 1,000 venues worldwide, from college arenas to stadiums and clubs across North America, the U.K. and Europe. Every guide is researched from the venue&#8217;s own official sources and dated, because the night deserves accuracy. It&#8217;s still built by one person.")
       + P("Concerto also does more than it did a year ago. Save a show and Your Night puts the bag rule, doors, parking and the ride home in one place, with a reminder on the morning of the show. Tour pages show the setlist each tour has been playing. And at Madison Square Garden, Crypto.com Arena, American Airlines Center and Scotiabank Arena, House Map shows every food stand, restroom and entrance by section, with more arenas on the way.")
       + P("The response from first-time users has been the same almost every time: it&#8217;s a really helpful tool. That&#8217;s the whole point. Concerto should make the night easier, not give you one more thing to figure out.")
+      + H('Why are there three apps now?')
+      + P('This fall Concerto became a family of three. <a href="/reprise">Reprise</a> turns the photos from a show or a trip into an album and a card to share. <a href="/medley">Medley</a> is the quick way to see what an artist is playing on tour. One account works in all three, so a show you save in Concerto is already waiting in the other two.')
+      + P("Concerto is the night itself. Reprise and Medley cover what comes around it: the songs before, and the photos after. I built all three, and they are meant to feel like one thing.")
       + H('What comes next?')
       + P('Where this goes next is bigger than one app. I want Concerto to know your night from the moment you buy the ticket to the moment you get home, and to share it with the people you&#8217;re going with. That means working with the people who make those nights happen: venues that want their guests to arrive knowing the rules, the restaurants and hotels around them, and <a href="/creators">creators</a> who live for live music. If that&#8217;s you, <a href="/contact">I&#8217;d love to talk</a>, and if you&#8217;d like to help build what comes next, <a href="/investors">start here</a>.')
       + P("If you&#8217;ve ever stood outside a venue wondering what you&#8217;re allowed to bring in, or how you&#8217;re getting home, Concerto is for you. Thank you for being here.")
@@ -1352,7 +1355,7 @@ def press():
               f'<p class="c-body">Fans are searching for these answers: Concerto shows up in Google about {PROOF_DAY} times a day, ten times as often as in July.</p>'
               '<p class="c-body">Independent from artists, venues, teams, and promoters. A listed guide is not a partnership.</p></div></div></section>')
     kit = section('cream', 'Fact sheet', 'The essentials.', fact_list)
-    bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells is the 23-year-old founder of Concerto, a concert-night app covering 1,000+ venues worldwide. The idea came while planning a night at the Eras Tour in Toronto in 2024, juggling three apps to figure out the area around the stadium. He started with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, launched in 2025, and after parting ways with his PR agency and app platform, rebuilt Concerto himself in 2026.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
+    bio = section('white', 'Founder bio', 'Jayce Wells.', '<p class="c-body">Jayce Wells founded Concerto at 22. It is a concert-night app covering 1,000+ venues worldwide. He started designing it at 21, while planning a night at the Eras Tour in Toronto in 2024 and juggling three apps to figure out the area around the stadium. He began with every NFL, NBA and MLB stadium, entering each venue&#8217;s policies by hand, and launched in 2025. In 2026, after parting ways with his PR agency and app platform, he rebuilt Concerto himself and then launched two sister apps, Reprise and Medley.</p><div class="c-actions"><a class="c-link" href="/founder">Read the letter from Jayce</a></div>')
     res = section('white', 'Media resources', 'Logos, interviews, and figures.', '<p class="c-body">Logo files, product images, interviews, confirmed figures. Ask and we will send them.</p><div class="c-actions"><a class="c-link" href="/contact?topic=media">Contact for media</a><a class="c-link" href="/about">Read the founder story</a></div>')
     return '<main id="main-content" class="c-page">' + h + press_coverage() + boiler + kit + bio + res + close() + '</main>'
 
@@ -1373,12 +1376,17 @@ def investors():
              '<a class="c-btn c-btn-navy" href="/contact?topic=investor">Contact the founder</a>', ['Founder-led', 'Since 2025'], 'navy')
     today = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The company today') + '<h2 class="c-h2">Built around one fan experience.</h2></div><div>'
              '<p class="c-body">Venue guidance, tour information, nearby discovery, and planning, around one saved show, with Concerto AI to answer fans’ questions about it. The app and website are built, and two sister apps share its account: Reprise for photos after the show, and Medley for setlists.</p>'
-             '<p class="c-body">Concerto makes money two ways. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Plan it for me, Leave Time, Bag Check, and Exit Plan. The same membership covers Reprise+. Concerto Partners lets restaurants and hotels near a venue come first in its Nearby rows, at $99 and $299 a month.</p><div class="c-actions"><a class="c-link" href="/founder">From the founder</a><a class="c-link" href="/partners">Concerto Partners</a></div></div></div></section>')
-    demand = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The demand') + '<h2 class="c-h2">Fans are already<br>asking these questions.</h2></div><div>'
+             '<p class="c-body">Concerto makes money two ways. Concerto+ is ' + PLUS_PRICE_LINE[:-1] + ', and adds Plan it for me, Leave Time, Bag Check, and Exit Plan. The same membership covers Reprise+. Concerto Partners lets restaurants and hotels near a venue come first in its Nearby rows, at $99 and $299 a month.</p><div class="c-actions"><a class="c-link" href="/partners">Concerto Partners</a></div></div></div></section>')
+    who = ('<section class="c-section c-cream" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The founder') + '<h2 class="c-h2">Built by one person.</h2></div><div>'
+           '<p class="c-body">Jayce Wells started designing Concerto at 21 and founded the company at 22. His background is in marketing, not software. In 2026 he took the product back from an outside developer, rebuilt it himself, and then launched two more apps on the same account.</p>'
+           f'<p class="c-body">Concerto, Reprise, Medley and a website with a guide to each of {V_COPY} venues were built, and are run, by one person, with no agency and no engineering payroll. Help goes into growth, not into finishing the product.</p>'
+           '<div class="c-actions"><a class="c-link" href="/founder">Read Jayce&#8217;s letter</a></div></div></div></section>')
+    demand = ('<section class="c-section c-white" data-reveal><div class="c-wrap c-split"><div>' + eyebrow('The demand') + '<h2 class="c-h2">Fans are already<br>asking these questions.</h2></div><div>'
               '<p class="c-body">Before a show, fans search for the bag policy, parking, door times and the setlist. Google is sending those searches to Concerto’s venue and tour guides, and Concerto is still new, so it is climbing in the results every month.</p>'
-              '<p class="c-body">The fan reading a venue’s bag policy is planning their night, and the next thing they decide is where to eat and stay. That is where Concerto Partners appear.</p></div></div></section>')
+              '<p class="c-body">The fan reading a venue’s bag policy is planning their night, and the next thing they decide is where to eat and stay. That is where Concerto Partners appear.</p>'
+              '<p class="c-body">From November 20 to 22, 2026, Google sent more than 1,000 visits to those guides in one weekend.</p></div></div></section>')
     conv = section('cream', 'The conversation', 'Relevant experience and introductions.', '<p class="c-body">Connections across venues, hospitality, artists, and consumer products are welcome. Financials, priorities, and terms are discussed directly.</p><div class="c-actions"><a class="c-link" href="/contact?topic=investor">Start a conversation</a></div>')
-    return '<main id="main-content" class="c-page">' + h + today + demand + proof_strip() + where_help() + conv + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + h + today + who + demand + proof_strip() + where_help() + conv + close() + '</main>'
 
 def creators():
     h = hero('Creators', 'Help fans see<br>the whole night.', 'A useful point of view on a concert, a venue, or a city.<br>Music, food, travel, and local creators welcome.',
@@ -1426,7 +1434,7 @@ def partners_hub():
     others = section('cream', 'Venues', 'Run a venue?',
                      '<p class="c-body">Venues can work with Concerto to keep their guide accurate and to share event-day updates with fans who saved a show. <a class="c-link" href="/partners/venues">Venue partnerships</a></p>', narrow=True)
     end = section('white', 'Questions', 'Questions about<br>Concerto Partners?',
-                  '<p class="c-body">Email <a href="mailto:partners@concertocity.com">partners@concertocity.com</a>.</p>'
+                  '<p class="c-body">Email <a href="mailto:partners@concertocity.com">partners@concertocity.com</a>. Jayce, Concerto&#8217;s founder, answers every message himself.</p>'
                   '<p class="c-actions"><a class="c-btn c-btn-navy" href="/partners/restaurants#join">For restaurants</a> <a class="c-btn c-btn-line" href="/partners/hotels#join">For hotels</a></p>', narrow=True)
     return '<main id="main-content" class="c-page">' + h + why + proof_strip() + what + how + note + others + end + '</main>'
 
@@ -1820,11 +1828,10 @@ def build():
     rewrite('reprise.html', reprise_page())
     ensure_page('credits.html', 'Sources And Credits | Concerto', 'Where Concerto’s venue guides, tour dates, setlists, places and photos come from, with trademark notices, on one page.', '/credits')
     rewrite('credits.html', credits_page())
-    ensure_page('christmas-concerts.html', 'Christmas Concerts 2026: Jingle Ball And Holiday Tours | Concerto', 'Christmas concerts in 2026: every Jingle Ball city and date, and the holiday tours on the road in December, with setlists and arena guides.', '/christmas-concerts')
-    rewrite('christmas-concerts.html', christmas_page())
+
     ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, open any song in Apple Music or Spotify, and see fans streaming the show. From the creator of Concerto.', '/medley')
     rewrite('medley.html', medley_page())
-    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about'), ('christmas-concerts.html', '/christmas-concerts')):   # the shell came from About: give each its own header
+    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about')):   # the shell came from About: give each its own header
         _s = (ROOT / _rel).read_text()
         (ROOT / _rel).write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html(_path), _s, flags=re.S))
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header

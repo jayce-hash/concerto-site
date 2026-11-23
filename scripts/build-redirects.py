@@ -10,9 +10,9 @@ START='# ── BEGIN generated: .html -> canonical (scripts/build-redirects.py)
 END='# ── END generated ──'
 NOINDEX_UTILITY={'account','plan','settings','search','404','partners-thank-you','contact-thank-you','night'}
 # Pages folded into another page (Nov 2026): the old URL and its .html form go to the new home.
-RETIRED={'your-night':'/features'}
+RETIRED={'your-night':'/features','christmas-concerts':'/blog/holiday-concerts-2026'}
 # Short addresses for posts and bios. Each is said out loud or typed by hand, so keep them plain.
-SHORT={'jingle-ball':'/tour/jingle-ball-2026-tour','christmas':'/christmas-concerts','holiday':'/christmas-concerts'}
+SHORT={'jingle-ball':'/tour/jingle-ball-2026-tour','christmas':'/blog/holiday-concerts-2026','holiday':'/blog/holiday-concerts-2026'}
 lines=['/index.html / 301!']+[r for k,v in RETIRED.items() for r in (f'/{k} {v} 301!',f'/{k}.html {v} 301!',f'/{k}/ {v} 301!')]
 lines+=[r for k,v in SHORT.items() for r in (f'/{k} {v} 302',f'/{k}/ {v} 302')]
 for d in ['.','venue','tour','setlist']:
