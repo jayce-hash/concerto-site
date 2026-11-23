@@ -2889,3 +2889,21 @@ h1,h2{font-weight:700}
 /* Setlists hub: one line to Medley under the search box. */
 .v8 .c-hub-medley{margin:18px 0 0;font-size:15px;color:var(--muted)}
 .v8 .c-hub-medley a{color:var(--navy);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+
+/* Holiday: one fine gold star, navy, and nothing else. In season only. */
+.v8 .c-star{width:16px;height:16px;color:var(--gold);flex:none}
+.v8 .c-season{margin:0;padding:11px 20px;text-align:center;font-size:14px;color:var(--navy);background:var(--cream);border-bottom:1px solid rgba(18,30,54,.08);display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
+.v8 .c-season[hidden]{display:none}
+.v8 .c-season a{color:var(--navy);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.v8 .c-xmas-hero{background:var(--navy);color:#fff;padding:clamp(64px,9vw,112px) 0 clamp(56px,8vw,96px);position:relative;overflow:hidden}
+.v8 .c-xmas-hero .c-wrap{position:relative}
+.v8 .c-xmas-hero .c-eyebrow{color:var(--gold)}
+.v8 .c-xmas-hero h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,6.4vw,84px);line-height:1.02;letter-spacing:-.02em;margin:16px 0 18px;color:#fff;text-wrap:balance}
+.v8 .c-xmas-hero .c-lead{max-width:54ch;color:rgba(255,255,255,.8)}
+.v8 .c-xmas-hero .c-actions{margin-top:28px;display:flex;gap:16px 26px;align-items:center;flex-wrap:wrap}
+.v8 .c-btn-gold{background:var(--gold);color:var(--navy)}
+.v8 .c-xmas-hero .c-star{position:absolute;right:4%;top:-6px;width:clamp(56px,9vw,112px);height:auto;aspect-ratio:1}
+.v8 .c-xmas-hero .c-star + .c-star{right:22%;top:46%;width:clamp(22px,3vw,40px);opacity:.7}
+.v8 .c-xmas-hero .c-star + .c-star + .c-star{right:9%;top:68%;width:clamp(16px,2vw,26px);opacity:.5}
+.v8 .c-xmas-note{margin:-4px 0 14px;color:var(--muted);font-size:15px}
+@media (max-width:640px){.v8 .c-xmas-hero .c-star{right:2%;top:-18px;opacity:.6}.v8 .c-xmas-hero .c-star + .c-star,.v8 .c-xmas-hero .c-star + .c-star + .c-star{display:none}}

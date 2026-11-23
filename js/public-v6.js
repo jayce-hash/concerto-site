@@ -1554,3 +1554,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
+
+// Seasonal lines (the holiday strip on the homepage) ship hidden and show only between their dates.
+(function () {
+  var els = document.querySelectorAll('[data-season-from]');
+  if (!els.length) return;
+  var d = new Date(), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var today = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  for (var i = 0; i < els.length; i++) {
+    if (today >= els[i].getAttribute('data-season-from') && today <= els[i].getAttribute('data-season-until')) els[i].hidden = false;
+  }
+})();

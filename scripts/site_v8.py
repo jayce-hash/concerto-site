@@ -495,6 +495,44 @@ def tours_hub():
                       + [('setlist', 'Setlist', [('yes', 'Has a setlist')])])
             + f'<section class="c-section c-white"><div class="c-wrap c-directory">{body}</div></section>' + request_form('tour') + close() + '</main>')
 
+STAR = '<svg class="c-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c.9 5.6 4.9 9.600 10.500 10.500-5.600.900-9.600 4.900-10.500 10.500C11.100 16.900 7.100 12.900 1.500 12 7.100 11.100 11.100 7.100 12 1.500Z" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linejoin="round"/></svg>'
+
+def holiday():
+    """The seasonal collection the apps also read (data/holiday.json): its dates and its tours."""
+    try: h = json.loads((ROOT / 'data' / 'holiday.json').read_text())
+    except Exception: return None
+    by = {t['tourId']: t for t in TOURS}
+    h['list'] = [by[k] for k in h.get('tours', []) if k in by]
+    return h if h['list'] else None
+
+def season_strip():
+    """One line under the header on the homepage, in season only. It ships hidden and
+    js/public-v6.js shows it between the two dates, so nobody has to remember to take it down."""
+    h = holiday()
+    if not h: return ''
+    return (f'<p class="c-season" data-season-from="{e(h["from"])}" data-season-until="{e(h["until"])}" hidden>{STAR}'
+            'Jingle Ball 2026 runs December 1 to 17. <a href="/tour/jingle-ball-2026-tour">See The Guide</a></p>')
+
+def christmas_page():
+    """Christmas concerts in one place: Jingle Ball city by city, then the holiday tours, each with
+    its dates page and, where there is one, its setlist. The page people look for in December."""
+    h = holiday(); jb = jingle_ball_data()
+    stops = ''.join(f'<li class="c-entry"><a href="/tour/jingle-ball-2026-tour#{e(c["anchor"])}">{e(c["city"].split("/")[0])}</a><span>{e(c["date"])} · {e(c["venueName"])}</span></li>' for c in jb['cities'])
+    def tour_row(t):
+        s = LIVE.get(t['tourId'])
+        extra = f' · <a href="/setlist/{t["tourId"]}">Setlist, {songs_word(len(s["songs"]))}</a>' if s and s.get('songs') else ''
+        return f'<li class="c-entry"><a href="/tour/{t["tourId"]}">{e(t["artist"])}</a><span>{e(t["tourName"])}{extra}</span></li>'
+    tours = ''.join(tour_row(t) for t in (h['list'] if h else []) if t['tourId'] != 'jingle-ball-2026-tour')
+    hero_html = ('<section class="c-xmas-hero"><div class="c-wrap">' + STAR + STAR + STAR
+                 + eyebrow('Holiday Shows · 2026') + '<h1>Christmas Concerts,<br>City By City.</h1>'
+                 '<p class="c-lead">Jingle Ball and the holiday tours on the road this December, with the setlist for each tour and the rules at each arena.</p>'
+                 '<div class="c-actions"><a class="c-btn c-btn-gold" href="/tour/jingle-ball-2026-tour">Jingle Ball 2026</a><a class="c-link c-link-white" href="#tours">The Holiday Tours</a></div></div></section>')
+    return ('<main id="main-content" class="c-page">' + hero_html
+            + '<section class="c-section c-white"><div class="c-wrap c-directory c-directory-one">'
+            + f'<div class="c-group"><h2 class="c-group-h">Jingle Ball 2026</h2><p class="c-xmas-note">Nine arenas from December 1 to 17. Each city has its own lineup, bag rule and start time.</p><ul>{stops}</ul></div>'
+            + f'<div class="c-group" id="tours"><h2 class="c-group-h">The Holiday Tours</h2><p class="c-xmas-note">Dates and venue guides for each tour, and the songs where the setlist is in.</p><ul>{tours}</ul></div>'
+            + '</div></section>' + medley_close() + '</main>')
+
 def setlists_hub():
     """Every setlist, A to Z, under the ones checked most recently. Setlists are what people search
     for most, and Medley is the app for them, so this page opens and closes on Medley."""
@@ -1128,7 +1166,7 @@ def home():
             '<p class="c-body">Venue guides, setlists, Your Night, Medley, and albums and cards in Reprise are free, always. One membership covers Concerto and Reprise.</p></div>'
             '<div class="c-passes">' + ''.join(f'<div class="c-pass"><h3>{e(t)}</h3><p class="c-pass-price">{e(pr)}</p><p>{e(d)}</p><a class="c-link" href="{href}">{e(label)}</a></div>' for t, pr, d, href, label in passes)
             + '</div></div></section>')
-    return '<main id="main-content" class="c-page">' + h + problem_section() + how + medley + reprise + plus + testimonials() + guide_index() + close() + '</main>'
+    return '<main id="main-content" class="c-page">' + season_strip() + h + problem_section() + how + medley + reprise + plus + testimonials() + guide_index() + close() + '</main>'
 
 
 # ---------------- 2.7: Your Night and Concerto+ ----------------
@@ -1782,9 +1820,11 @@ def build():
     rewrite('reprise.html', reprise_page())
     ensure_page('credits.html', 'Sources And Credits | Concerto', 'Where Concerto’s venue guides, tour dates, setlists, places and photos come from, with trademark notices, on one page.', '/credits')
     rewrite('credits.html', credits_page())
+    ensure_page('christmas-concerts.html', 'Christmas Concerts 2026: Jingle Ball And Holiday Tours | Concerto', 'Christmas concerts in 2026: every Jingle Ball city and date, and the holiday tours on the road in December, with setlists and arena guides.', '/christmas-concerts')
+    rewrite('christmas-concerts.html', christmas_page())
     ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, open any song in Apple Music or Spotify, and see fans streaming the show. From the creator of Concerto.', '/medley')
     rewrite('medley.html', medley_page())
-    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about')):   # the shell came from About: give each its own header
+    for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about'), ('christmas-concerts.html', '/christmas-concerts')):   # the shell came from About: give each its own header
         _s = (ROOT / _rel).read_text()
         (ROOT / _rel).write_text(re.sub(re.escape(HEADER_START) + r'.*?<!-- CONCERTO_CHROME_HEADER_END -->', lambda _: header_html(_path), _s, flags=re.S))
     _d = (ROOT / 'download.html').read_text()   # the shell came from About: give it its own header
