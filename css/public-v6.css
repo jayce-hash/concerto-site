@@ -2865,3 +2865,12 @@ h1,h2{font-weight:700}
 .cc-music-card p{margin:6px 0 0;font-size:13.5px;color:var(--muted)}
 .cc-music-card .cc-music-x{border:0;font-weight:500;font-size:15px;color:var(--muted);padding:8px}
 @media (max-width:640px){.cc-music-ask{align-items:flex-end}.cc-music-card{max-width:none}}
+
+/* Setlist pages end on Medley: the same navy closing block, sized for a longer heading. */
+.v8 .c-close-medley .c-eyebrow{color:var(--gold);margin:18px 0 10px}
+.v8 .c-close-medley h2{font-size:clamp(34px,5.2vw,68px);line-height:1.05;letter-spacing:-.02em;margin:0 auto 18px;max-width:16ch;text-wrap:balance}
+.v8 .c-close-lead{max-width:52ch;margin:0 auto 36px;font-size:18px;line-height:1.6;color:rgba(255,255,255,.82);text-wrap:pretty}
+.v8 .c-close-medley .c-close-row{flex-wrap:wrap;gap:18px 28px}
+.v8 .c-link-white{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.v8 .c-close-medley .c-fine a{color:#fff;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.v8 .cx-links .cx-medley-link{font-weight:700}

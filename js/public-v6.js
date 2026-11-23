@@ -494,7 +494,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
     document.querySelectorAll('[data-app-link]').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        if (!ios) return;
+        // An iPhone-only app (Medley): everywhere else the button leads to its page on this site.
+        if (!ios) { var other = a.getAttribute('data-else'); if (other) { e.preventDefault(); window.location.href = other; } return; }
         e.preventDefault();
         var store = a.getAttribute('href'), app = a.getAttribute('data-app-link'), t0 = Date.now(), left = false;
         var onHide = function () { left = true; };

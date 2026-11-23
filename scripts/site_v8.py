@@ -888,6 +888,33 @@ def app_store_slot(app, name):
             '<img src="/img/badges/app-store-black.svg" alt="Download on the App Store" width="160" height="53" loading="lazy"></a>'
             f'<p class="c-soon" data-soon{" hidden" if live else ""}>Coming Soon To The App Store</p>')
 
+def medley_store(ct='website-setlist'):
+    """Medley's App Store page with a campaign tag, so App Store Connect shows what the setlist
+    pages bring in. Empty until data/family.json holds the address."""
+    try: store = (json.loads((ROOT / 'data' / 'family.json').read_text()).get('medley') or {}).get('store') or ''
+    except Exception: store = ''
+    return f'{store}?pt=127753814&ct={ct}&mt=8' if store.startswith('https://apps.apple.com/') else ''
+
+def medley_open(slug, label='Open In Medley', cls='c-btn c-btn-navy'):
+    """The main button on a setlist page. On iPhone it opens this setlist in Medley when Medley is
+    installed and the App Store when it is not (js/public-v6.js). Anywhere else it goes to the
+    Medley page, because Medley is an iPhone app."""
+    store = medley_store()
+    if not store: return f'<a class="{cls}" href="/medley">{e(label)}</a>'
+    return f'<a class="{cls}" href="{e(store)}" data-app-link="medley://setlist/{e(slug)}" data-else="/medley" rel="noopener">{e(label)}</a>'
+
+def medley_close(slug):
+    """The last thing on a setlist page: Medley, with one line pointing Concerto at the show itself."""
+    store = medley_store('website-setlist-close')
+    badge = (f'<a class="c-store" href="{e(store)}" target="_blank" rel="noopener" aria-label="Download Medley on the App Store">'
+             '<img src="/img/badges/app-store-white.svg" alt="Download on the App Store" width="160" height="53" loading="lazy"></a>') if store else ''
+    return ('<section class="c-close c-close-medley" id="medley" data-reveal><div class="c-wrap">'
+            f'<img class="c-appicon" src="{app_icon("medley")}" width="96" height="96" alt="Medley app icon" loading="lazy">'
+            '<p class="c-eyebrow">Medley, By Concerto</p><h2>Get Medley For Every Setlist</h2>'
+            '<p class="c-close-lead">Search any artist, tour or song. Open any song in Apple Music or Spotify. Add the setlist from a show you went to.</p>'
+            f'<div class="c-close-row">{badge}<a class="c-link c-link-white" href="/medley">See How Medley Works</a></div>'
+            f'<p class="c-fine">Free on iPhone. Going to the show? <a href="/tour/{e(slug)}">Concerto has the dates and the venue guide</a>.</p></div></section>')
+
 def medley_card():
     """On every page that shows a setlist: what Medley is and the way to get it. The badge is the
     same switch as the Medley page (data/family.json), so it turns on by itself at launch."""
@@ -909,6 +936,7 @@ def tour_page(t):
         first, last = songs[0], songs[-1]
         lead = f'<p class="cx-lead"><b>Setlist:</b> {songs_word(len(songs))}, opening with “{e(first)}” and closing with “{e(last)}”.</p>'
         more = f'<a href="/setlist/{t["tourId"]}">All {songs_word(len(songs))}</a>' if len(songs) > 12 else f'<a href="/setlist/{t["tourId"]}">Setlist page</a>'
+        more += medley_open(t['tourId'], 'See The Full Setlist In Medley', 'cx-medley-link') if medley_store() else ''
         listen = listen_link(t, s, '')
         panels.append(cx_panel('setlist', 'music', 'Setlist', f'Updated {pretty_date(s.get("updated"))}' if s.get('updated') else '',
             cx_songs(songs[:12], artist=t['artist']) +
@@ -967,10 +995,10 @@ def setlist_page(slug, s):
     songs = s['songs']
     return ('<main id="main-content" class="c-page">' +
             f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/setlists">Setlists</a><span>/</span>{e(s.get("artist"))}</nav>{eyebrow("Setlist · " + (s.get("tour") or ""))}<h1>{e(s.get("artist"))}</h1>'
-            f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}.</p><div class="c-actions">{app_link("tour", slug, "Save your show in Concerto", "c-btn c-btn-navy")}'
-            + (listen_link(t, s) if t else '') + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour dates and venues</a>' if t else '') + '</div><p class="c-medley-hint">Want every tour’s setlist on your phone? <a href="#medley">Get Medley, the setlist app by Concerto</a>.</p></div></section>'
-            f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list" data-music="{e(s.get("artist") or "")}">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div>' + medley_card() + '</div></section>'
-            + close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone and Android.') + '</main>')
+            f'<p class="c-lead">{songs_word(len(songs))}. {e(source_label(s))}.</p><div class="c-actions">{medley_open(slug)}'
+            + (f'<a class="c-btn c-btn-line" href="/tour/{slug}#dates-h">Tour Dates And Venues</a>' if t else '') + '</div></div></section>'
+            f'<section class="c-section c-white"><div class="c-wrap"><div class="c-songs c-songs-full"><ol class="song-list" data-music="{e(s.get("artist") or "")}">' + ''.join(f'<li>{e(x)}</li>' for x in songs) + '</ol></div></div></section>'
+            + (medley_close(slug) if t else close('Know every word.', 'website-setlist', 'Save your show in Concerto. The setlist, the venue’s bag rules, and a show-day reminder stay with your show. Free on iPhone and Android.')) + '</main>')
 
 def topic_page(key, kicker, h1, lead):
     rows = ''

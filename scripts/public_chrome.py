@@ -198,6 +198,12 @@ def app_link(kind, slug, label='Open in Concerto', cls='btn-primary'):
             f'data-web-link="{SITE}/{kind}/{_e(slug)}" rel="noopener">{_e(label)}</a>')
 
 
+def medley_banner(slug):
+    """Setlist pages belong to Medley: on iPhone, Safari's own bar offers Medley (Get, or Open on
+    this exact setlist when it is installed)."""
+    return f'<meta name="apple-itunes-app" content="app-id=6835662934, app-argument=medley://setlist/{slug}">'
+
+
 def smart_banner(kind=None, slug=None):
     arg = f', app-argument=concerto://{kind}/{slug}' if kind and slug else ''
     return f'<meta name="apple-itunes-app" content="app-id=6744903414{arg}">'
