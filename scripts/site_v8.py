@@ -1572,7 +1572,9 @@ def reprise_page():
             '<p class="c-body">An Album Pass unlocks the same for one album. Prices are shown in the app before you buy.</p></div></div></section>')
     acc = app_accordion('Good To Know.', [
         ('Do I have to sign in?', 'No. Reprise works in full without an account. Signing in brings your Concerto shows and your membership, and keeps your albums’ details for a new phone.'),
-        ('How does Reprise work with Concerto?', 'They share one account. A show you saved in Concerto appears on the Reprise home screen after it happens, with Start Album beside it. The artist, venue and date are filled in for you.'),
+        ('How does Reprise work with Concerto?', 'They share one account. A show you saved in Concerto appears on the Reprise home screen under Your Shows after it happens, with Start Album beside it. The artist, venue and date are filled in for you.'),
+        ('Can I put the setlist on a card?', 'Yes. In a show’s album, tap Create and choose Setlist Poster. Reprise fills in the songs for the tours it knows, so there is nothing to type.'),
+        ('How does Reprise work with Medley?', 'A show’s album has See The Setlist In Medley, which opens that setlist in Medley, where each song opens in Apple Music or Spotify.'),
         ('How do I post to Instagram or TikTok?', 'Make a card, tap Next, then Share, and choose Instagram or TikTok from the list. There is nothing to connect or sign in to: your iPhone hands the card to that app.'),
         ('Which websites can I send photos to?', 'WordPress sites, such as a travel blog. Open an album and tap Send To Your Website. Reprise resizes the photos, adds your watermark if you set one, and uploads them to your site’s media library with captions.'),
         ('Where are my photos kept?', 'On your iPhone. Reprise does not upload them anywhere unless you send them to your own website or share them yourself.'),
@@ -1622,7 +1624,9 @@ def medley_page():
         ('How does a fan setlist get confirmed?', 'When three fans who were there tap I Was There, This Is Right, the setlist is marked as confirmed. A confirmed setlist replaces the reported one for that tour on the Setlists tab.'),
         ('What if a setlist is wrong or abusive?', 'Open it and tap Report. Reports are reviewed within 24 hours. You can also tap Block This Person to stop seeing anything they add, and undo that under Account.'),
         ('How do I get listed as a streamer?', 'On the Streams tab, tap Ask To Be Listed and tell us your handle, the platform and the show. We review each request and reply to the contact you give us.'),
-        ('Can I use Spotify?', 'Yes. Tap any song and choose Spotify, and songs open there from then on. You can switch under Account. Saving a whole setlist as a playlist works with Apple Music.'),
+        ('Can I use Spotify?', 'Yes. Tap any song and choose Spotify, and songs open there from then on. You can switch under Account, and when you are signed in the same choice is used in Concerto. Saving a whole setlist as a playlist works with Apple Music.'),
+        ('What happens on the day of my show?', 'Medley opens on that show’s setlist, so there is nothing to search for. This works for shows you saved in Concerto.'),
+        ('Why does Medley ask Was This The Setlist?', 'The morning after a show you saved, Medley asks once. Tap Yes if it matched, or Something Changed to fix a song. Your answer is how a reported setlist becomes one fans have confirmed.'),
         ('Why did Save To Apple Music miss a song?', 'A few songs are not on Apple Music, such as unreleased songs and some covers. Medley adds the rest and tells you how many it found.'),
     ], [('rules', 'Community Rules And Terms', [
         'Effective Date: November 17, 2026',
@@ -1762,7 +1766,7 @@ def build():
     rewrite('reprise.html', reprise_page())
     ensure_page('credits.html', 'Sources And Credits | Concerto', 'Where Concerto’s venue guides, tour dates, setlists, places and photos come from, with trademark notices, on one page.', '/credits')
     rewrite('credits.html', credits_page())
-    ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, save it to Apple Music, and see fans streaming the show. From the creator of Concerto.', '/medley')
+    ensure_page('medley.html', 'Medley by Concerto | Setlists and Streams', 'Medley is the quick way to see what an artist is playing on tour: search a setlist, open any song in Apple Music or Spotify, and see fans streaming the show. From the creator of Concerto.', '/medley')
     rewrite('medley.html', medley_page())
     for _rel, _path in (('reprise.html', '/reprise'), ('medley.html', '/medley'), ('credits.html', '/about')):   # the shell came from About: give each its own header
         _s = (ROOT / _rel).read_text()
