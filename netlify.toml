@@ -52,6 +52,11 @@
   # Once a day (12:00 UTC) instead of every 6 hours: the job was ~700 Ticketmaster calls a day on its own.
   schedule = "0 12 * * *"
 
+# Fan-stream alerts: late morning and mid afternoon, US time, so a stream approved that day is
+# still caught. Two database reads when nothing is listed.
+[functions."stream-alerts"]
+  schedule = "0 17,22 * * *"
+
 # Perks are off for now; old links go home.
 [[redirects]]
   from = "/perks"
