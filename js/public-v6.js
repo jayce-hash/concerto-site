@@ -1157,6 +1157,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
       });
       host.hidden = false;
+      // The next show, near the top of the page, with one tap to save it in Concerto.
+      var nx = document.querySelector('[data-venue-next]'), first = list[0];
+      var fs = first && first.dates && first.dates.start, fp = fs && fs.localDate ? dayParts(fs.localDate) : null;
+      if (nx && fp) {
+        nx.href = STORE + 'website-venue-next'; nx.rel = 'noopener'; nx.setAttribute('data-app-link', 'concerto://save/' + encodeURIComponent(first.id)); bindAppLink(nx);
+        nx.querySelector('.vp-next-d b').textContent = fp.mon; nx.querySelector('.vp-next-d i').textContent = fp.day;
+        nx.querySelector('.vp-next-t b').textContent = first.name;
+        nx.querySelector('.vp-next-t em').textContent = [fp.dow, timeLine(first)].filter(Boolean).join('. ');
+        nx.hidden = false;
+      }
     }).catch(function () {});
   }
 
@@ -1315,6 +1325,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var IC = { restaurants: "<path d=\"M357.57 223.94a79.48 79.48 0 0056.58-23.44l77-76.95c6.09-6.09 6.65-16 .85-22.39a16 16 0 00-23.17-.56l-68.63 68.58a12.29 12.29 0 01-17.37 0c-4.79-4.78-4.53-12.86.25-17.64l68.33-68.33a16 16 0 00-.56-23.16A15.62 15.62 0 00440.27 56a16.71 16.71 0 00-11.81 4.9l-68.27 68.26a12.29 12.29 0 01-17.37 0c-4.78-4.78-4.53-12.86.25-17.64l68.33-68.31a16 16 0 00-.56-23.16A15.62 15.62 0 00400.26 16a16.73 16.73 0 00-11.81 4.9L311.5 97.85a79.49 79.49 0 00-23.44 56.59v8.23a16 16 0 01-4.69 11.33l-35.61 35.62a4 4 0 01-5.66 0L68.82 36.33a16 16 0 00-22.58-.06C31.09 51.28 23 72.47 23 97.54c-.1 41.4 21.66 89 56.79 124.08l85.45 85.45A64.79 64.79 0 00211 326a64 64 0 0016.21-2.08 16.24 16.24 0 014.07-.53 15.93 15.93 0 0110.83 4.25l11.39 10.52a16.12 16.12 0 014.6 11.23v5.54a47.73 47.73 0 0013.77 33.65l90.05 91.57.09.1a53.29 53.29 0 0075.36-75.37L302.39 269.9a4 4 0 010-5.66L338 228.63a16 16 0 0111.32-4.69z\"/><path d=\"M211 358a97.32 97.32 0 01-68.36-28.25l-13.86-13.86a8 8 0 00-11.3 0l-85 84.56c-15.15 15.15-20.56 37.45-13.06 59.29a30.63 30.63 0 001.49 3.6C31 484 50.58 496 72 496a55.68 55.68 0 0039.64-16.44L225 365.66a4.69 4.69 0 001.32-3.72v-.26a4.63 4.63 0 00-5.15-4.27A97.09 97.09 0 01211 358z\"/>", hotels: "<path d=\"M432 230.7a79.44 79.44 0 00-32-6.7H112a79.51 79.51 0 00-32 6.69A80.09 80.09 0 0032 304v112a16 16 0 0032 0v-8a8.1 8.1 0 018-8h368a8.1 8.1 0 018 8v8a16 16 0 0032 0V304a80.09 80.09 0 00-48-73.3zM376 80H136a56 56 0 00-56 56v72a4 4 0 005.11 3.84A95.5 95.5 0 01112 208h4.23a4 4 0 004-3.55A32 32 0 01152 176h56a32 32 0 0131.8 28.45 4 4 0 004 3.55h24.46a4 4 0 004-3.55A32 32 0 01304 176h56a32 32 0 0131.8 28.45 4 4 0 004 3.55h4.2a95.51 95.51 0 0126.89 3.85A4 4 0 00432 208v-72a56 56 0 00-56-56z\"/>", more: "<path d=\"M208 512a24.84 24.84 0 01-23.34-16l-39.84-103.6a16.06 16.06 0 00-9.19-9.19L32 343.34a25 25 0 010-46.68l103.6-39.84a16.06 16.06 0 009.19-9.19L184.66 144a25 25 0 0146.68 0l39.84 103.6a16.06 16.06 0 009.19 9.19l103 39.63a25.49 25.49 0 0116.63 24.1 24.82 24.82 0 01-16 22.82l-103.6 39.84a16.06 16.06 0 00-9.19 9.19L231.34 496A24.84 24.84 0 01208 512zm66.85-254.84zM88 176a14.67 14.67 0 01-13.69-9.4l-16.86-43.84a7.28 7.28 0 00-4.21-4.21L9.4 101.69a14.67 14.67 0 010-27.38l43.84-16.86a7.31 7.31 0 004.21-4.21L74.16 9.79A15 15 0 0186.23.11a14.67 14.67 0 0115.46 9.29l16.86 43.84a7.31 7.31 0 004.21 4.21l43.84 16.86a14.67 14.67 0 010 27.38l-43.84 16.86a7.28 7.28 0 00-4.21 4.21l-16.86 43.84A14.67 14.67 0 0188 176zM400 256a16 16 0 01-14.93-10.26l-22.84-59.37a8 8 0 00-4.6-4.6l-59.37-22.84a16 16 0 010-29.86l59.37-22.84a8 8 0 004.6-4.6l22.67-58.95a16.45 16.45 0 0113.17-10.57 16 16 0 0116.86 10.15l22.84 59.37a8 8 0 004.6 4.6l59.37 22.84a16 16 0 010 29.86l-59.37 22.84a8 8 0 00-4.6 4.6l-22.84 59.37A16 16 0 01400 256z\"/>" };
   var ROWS = [['restaurants', 'Nearby Restaurants'], ['hotels', 'Nearby Hotels'], ['more', 'Nearby Things to Do']];
   var SKIP = ['convenience_store', 'gas_station', 'grocery_store', 'pharmacy', 'drugstore', 'atm', 'bank', 'car_repair', 'parking', 'storage'];
+  // The same list the page's Eat Nearby uses: chains nobody plans a night around.
+  var CHAIN = /starbucks|mcdonald|subway|7-eleven|burger king|wendy'?s|taco bell|\bkfc\b|domino'?s|pizza hut|dunkin|chipotle|panda express|jack in the box|raising cane|shake shack|in-n-out|whataburger|culver'?s|popeyes|little caesars|wingstop|sizzler|denny'?s|\bihop\b|chick-fil-a|panera|jersey mike|jimmy john|five guys|arby'?s|sonic drive|carl'?s jr|del taco|el pollo loco|papa john|tim hortons|pret a manger|costa coffee|greggs|smoothie king|jamba|vons|walmart|\btarget\b|\bcvs\b|walgreens|whole foods|trader joe|member lounge|club lounge/i;
   var RENTAL = /apartment|studio|bedroom|\bapt\b|\d\s?-?(bd|bdr|br)\b|penthouse|condo|airbnb|luxurious|vacation/i;
   var LABEL = { sports_bar: 'Sports bar', bar_and_grill: 'Bar and grill', steak_house: 'Steakhouse', steakhouse: 'Steakhouse', pizza_restaurant: 'Pizza',
     mexican_restaurant: 'Mexican', italian_restaurant: 'Italian', japanese_restaurant: 'Japanese', sushi_restaurant: 'Sushi', ramen_restaurant: 'Ramen',
@@ -1352,6 +1364,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (!n || seen[n] || taken[n] || i.lat == null) return false; seen[n] = 1;
           if ((i.types || []).some(function (t) { return SKIP.indexOf(t) >= 0; })) return false;
           if (rw[0] === 'hotels' && RENTAL.test(i.name)) return false;
+          if (rw[0] === 'restaurants' && CHAIN.test(i.name)) return false;
           return i.distance_mi == null || i.distance_mi <= 3;
         }).slice(0, 14);
         var partners = lead[rw[0]] || [];
@@ -1564,4 +1577,50 @@ document.addEventListener('DOMContentLoaded', function () {
   for (var i = 0; i < els.length; i++) {
     if (today >= els[i].getAttribute('data-season-from') && today <= els[i].getAttribute('data-season-until')) els[i].hidden = false;
   }
+})();
+
+// Venue page jump links: "Shows" and "Eat Nearby" only appear once that part of the page has loaded.
+(function () {
+  var links = document.querySelectorAll('[data-jump-if]'); if (!links.length) return;
+  function sync() { for (var i = 0; i < links.length; i++) { var t = document.getElementById(links[i].getAttribute('data-jump-if')); links[i].hidden = !t || t.hidden; } }
+  sync();
+  if (window.MutationObserver) for (var i = 0; i < links.length; i++) { var t = document.getElementById(links[i].getAttribute('data-jump-if')); if (t) new MutationObserver(sync).observe(t, { attributes: true, attributeFilter: ['hidden'] }); }
+})();
+
+// Venue page: jump links open the row they point at; the jump row marks where you are; the
+// Rideshare button opens its sheet.
+(function () {
+  var bar = document.querySelector('.cx-jumpbar'); if (!bar) return;
+  var head = document.querySelector('.site-header');
+  function size() { if (head) document.documentElement.style.setProperty('--cx-head', head.offsetHeight + 'px'); }
+  size(); window.addEventListener('resize', size);
+  function open(hash) {
+    if (!hash || hash.length < 2) return;
+    var t; try { t = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return; }
+    for (var d = t; d; d = d.parentElement) if (d.tagName === 'DETAILS') d.open = true;
+  }
+  open(location.hash);
+  var sheet = document.querySelector('[data-ride-sheet]');
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+    if (a.hasAttribute('data-ride') && sheet && sheet.showModal) { e.preventDefault(); sheet.showModal(); return; }
+    open(a.getAttribute('href'));
+  });
+  if (sheet) sheet.addEventListener('click', function (e) { if (e.target === sheet || (e.target.closest && e.target.closest('a'))) sheet.close(); });
+  // Mark the section in view.
+  var links = [].slice.call(bar.querySelectorAll('a[href^="#"]'));
+  function spy() {
+    var line = (head ? head.offsetHeight : 0) + bar.offsetHeight + 24, on = null;
+    links.forEach(function (a) {
+      if (a.hidden) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t || t.hidden) return;
+      if (t.getBoundingClientRect().top <= line) on = a;
+    });
+    links.forEach(function (a) { a.classList.toggle('is-on', a === on); });
+    if (on && on.scrollIntoView && bar.getBoundingClientRect().top <= (head ? head.offsetHeight : 0) + 1) {
+      var nav = on.parentElement, r = on.getBoundingClientRect(), n = nav.getBoundingClientRect();
+      if (r.left < n.left + 12 || r.right > n.right - 12) nav.scrollLeft += r.left - n.left - 20;
+    }
+  }
+  spy(); window.addEventListener('scroll', spy, { passive: true });
 })();

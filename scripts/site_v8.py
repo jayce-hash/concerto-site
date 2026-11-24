@@ -701,49 +701,242 @@ def can_bring(v):
     f = BAG_FOCUS.get(v['id']) or {}
     if not f.get('faq'): return ''
     rows = ''.join(f'<div class="cx-faq-row"><h3>{e(q)}</h3><p>{e(a)}</p></div>' for q, a in f['faq'])
-    return (f'<div class="cx-faq" id="can-i-bring"><h2 class="cx-h2">Can I bring…?</h2>{rows}'
-            f'<p class="cx-note">From {e(v["name"])}’s official guidance, checked {pretty_date(f["checked"])}.</p></div>')
+    rows = rows.replace('<h3>', '<h4>').replace('</h3>', '</h4>')
+    return (f'<details class="cx-faq cx-faq-in" id="can-i-bring"><summary><span>Common Questions</span>{icon("chev", 16)}</summary>{rows}'
+            f'<p class="cx-note">From {e(v["name"])}’s official guidance, checked {pretty_date(f["checked"])}.</p></details>')
+
+STAY22_AID = 'concertollc'
+
+# ---------- Venue page ----------
+# One page shape, in the order of a night: the place, four things you can do, the bag rule
+# (what most people came for), then Before You Go, Getting There, Eat Nearby, Inside, shows,
+# hotels, and the questions people ask. Sections are grouped lists, each row showing its
+# answer before it is opened.
+VENUE_KIND = {'arena': 'Arena', 'stadium': 'Stadium', 'club': 'Club', 'theater': 'Theater', 'amphitheater': 'Amphitheater', 'festival': 'Festival grounds'}
+VENUE_GROUPS = [('before', 'Before You Go', ('gates', 'ticketPickup', 'accessibility')),
+                ('getting', 'Getting There', ('parking', 'rideshare')),
+                ('inside', 'Inside', ('concessions', 'reEntry'))]
+VP_TITLE = {'bagPolicy': 'Bag Policy', 'gates': 'Entrances And Doors', 'ticketPickup': 'Tickets And Will Call', 'accessibility': 'Accessibility',
+            'parking': 'Parking', 'rideshare': 'Rideshare', 'concessions': 'Food And Drink', 'reEntry': 'Re-entry'}
+_DIM = re.compile(r'(\d+(?:\.\d+)?)\s*(?:"|”|″|in\b\.?|inch(?:es)?)?\s*[x×X]\s*(\d+(?:\.\d+)?)\s*(?:"|”|″|in\b\.?|inch(?:es)?)?(?:\s*[x×X]\s*(\d+(?:\.\d+)?))?\s*("|”|″|in\b|inch(?:es)?|cm\b|centimet)?', re.I)
+
+def _sec_text(x):
+    return ' '.join(((x or {}).get('summary') or (x or {}).get('note') or (x or {}).get('body') or '').split())
+
+def stay_url(v):
+    """Hotels around a venue, through Stay22 (it searches Booking.com, Expedia, Hotels.com and Vrbo).
+    By name, not by map point: with a point, Booking.com titles the search after whatever it finds
+    nearest (a Starbucks, for Madison Square Garden). A venue it does not know falls back to the
+    neighborhood or city, which is still right."""
+    from urllib.parse import urlencode
+    return 'https://www.stay22.com/allez/roam?' + urlencode({
+        'aid': STAY22_AID, 'address': ', '.join(x for x in (v['name'], v.get('city'), v.get('state'), v.get('country')) if x),
+        'campaign': 'venue_' + re.sub(r'[^a-z0-9]+', '_', v['id'].lower()).strip('_')})
+
+def stay_link(v):
+    if not v.get('city'): return ''
+    return ('<section class="vp-sec vp-stay" id="stay"><div class="vp-stay-h"><h2>Staying The Night?</h2>'
+            '<details class="vp-info"><summary aria-label="About this link">i</summary><p>Partner link. Concerto may earn a commission if you book, at no extra cost to you.</p></details></div>'
+            f'<p>Compare hotel prices around {e(v["name"])}.</p>'
+            f'<a class="vp-stay-go" href="{e(stay_url(v))}" target="_blank" rel="sponsored nofollow noopener" data-stay="{e(v["id"])}">See Hotels</a></section>')
+
+def vp_bag(v, info):
+    """The bag rule, largest thing on the page. A size is set in large type only when the guide
+    states one; the checked sentence always sits right under it, so nothing is implied."""
+    x = info.get('bagPolicy') or {}
+    t = _sec_text(x)
+    if not t: return ''
+    best = None
+    for m in _DIM.finditer(t):
+        nums = [float(n) for n in m.groups()[:3] if n]
+        vol = 1.0
+        for n in nums: vol *= n
+        if not best or vol > best[0]: best = (vol, m)
+    big = ''
+    if best:
+        m = best[1]
+        unit_txt = (m.group(4) or '') + t[m.start():m.end()]
+        unit = 'cm' if re.search(r'cm|centimet', unit_txt, re.I) else ('inches' if re.search(r'"|”|″|\bin\b|inch', unit_txt, re.I) else '')
+        dims = '&nbsp;×&nbsp;'.join(e(n) for n in m.groups()[:3] if n)
+        big = f'<p class="vp-dim">{dims}{f"<small>{unit}</small>" if unit else ""}</p>'
+    def col(h, items, cls):
+        if not items: return ''
+        return f'<div><h3>{h}</h3><ul class="{cls}">' + ''.join(f'<li>{e(a)}</li>' for a in items) + '</ul></div>'
+    lists = ''
+    if x.get('allowed') or x.get('prohibited'):
+        a, b = x.get('allowed') or [], x.get('prohibited') or []
+        lists = '<div class="vp-yn">' + col('Bring', a[:3], 'vp-yes') + col('Leave At Home', b[:3], 'vp-no') + '</div>'
+        if len(a) > 3 or len(b) > 3:
+            lists += ('<details class="vp-all"><summary>See The Full List</summary><div class="vp-yn">'
+                      + col('Bring', a[3:], 'vp-yes') + col('Leave At Home', b[3:], 'vp-no') + '</div></details>')
+    src = []
+    if x.get('verified'): src.append(f'Checked {pretty_date(x["verified"])}.')
+    if x.get('officialLink'): src.append(f'<a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a>')
+    return (f'<section class="vp-answer cx-card" id="bag-policy" data-section="bagPolicy"><h2>Bag Policy</h2>{big}'
+            f'<div class="cx-card-b"><p class="{"vp-rule-s" if big else "vp-rule"}">{e(t)}</p>{lists}'
+            + (f'<p class="vp-src">{" ".join(src)}</p>' if src else '') + '</div></section>')
+
+def vp_row(info, key):
+    x = info.get(key) or {}
+    t = _sec_text(x)
+    if not t: return ''
+    anchor = next(a for k, l, a in SECTIONS if k == key)
+    src = []
+    src.append(f'Checked {pretty_date(x["verified"])}.' if x.get('verified') else 'Not yet verified.')
+    if x.get('officialLink'): src.append(f'<a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a>')
+    lists = ''
+    if x.get('allowed') or x.get('prohibited'):
+        col = lambda h, items, cls: (f'<div><h4>{h}</h4><ul class="{cls}">' + ''.join(f'<li>{e(a)}</li>' for a in items) + '</ul></div>') if items else ''
+        lists = '<div class="vp-yn">' + col('Allowed', x.get('allowed') or [], 'vp-yes') + col('Not Allowed', x.get('prohibited') or [], 'vp-no') + '</div>'
+    return (f'<details class="vp-row cx-card" id="{anchor}" data-section="{key}"><summary><span class="vp-ri">{icon(SECTION_ICON.get(key, "info"), 19)}</span>'
+            f'<span class="vp-rt"><h3>{VP_TITLE[key]}</h3><span>{e(t)}</span></span><span class="vp-chev">{icon("chev", 16)}</span></summary>'
+            f'<div class="cx-card-b"><p>{e(t)}</p>{lists}<p class="vp-src">{" ".join(src)}</p></div></details>')
+
+# Places nobody plans a night around: chains, coffee, convenience stores, supermarkets.
+_CHAIN = re.compile(r"starbucks|mcdonald|subway|7-eleven|burger king|wendy'?s|taco bell|\bkfc\b|domino'?s|pizza hut|dunkin|chipotle|panda express|jack in the box|raising cane|shake shack|in-n-out|whataburger|culver'?s|popeyes|little caesars|wingstop|sizzler|denny'?s|\bihop\b|chick-fil-a|panera|jersey mike|jimmy john|five guys|arby'?s|sonic drive|carl'?s jr|del taco|el pollo loco|papa john|tim hortons|pret a manger|costa coffee|greggs|smoothie king|jamba|vons|walmart|\btarget\b|\bcvs\b|walgreens|whole foods|trader joe|member lounge|club lounge", re.I)
+_NOT_FOOD = {'convenience_store', 'gas_station', 'grocery_store', 'supermarket', 'pharmacy', 'drugstore', 'liquor_store', 'food_store', 'hotel', 'lodging', 'atm', 'bank', 'parking', 'stadium', 'arena', 'event_venue'}
+_FOOD_KIND = (('seafood_restaurant', 'Seafood'), ('mexican_restaurant', 'Mexican'), ('taco_restaurant', 'Tacos'), ('sushi_restaurant', 'Sushi'), ('ramen_restaurant', 'Ramen'),
+              ('japanese_restaurant', 'Japanese'), ('pizza_restaurant', 'Pizza'), ('italian_restaurant', 'Italian'), ('barbecue_restaurant', 'Barbecue'), ('steak_house', 'Steakhouse'),
+              ('indian_restaurant', 'Indian'), ('thai_restaurant', 'Thai'), ('chinese_restaurant', 'Chinese'), ('korean_restaurant', 'Korean'), ('vietnamese_restaurant', 'Vietnamese'),
+              ('mediterranean_restaurant', 'Mediterranean'), ('greek_restaurant', 'Greek'), ('french_restaurant', 'French'), ('spanish_restaurant', 'Spanish'),
+              ('vegan_restaurant', 'Vegan'), ('vegetarian_restaurant', 'Vegetarian'), ('hamburger_restaurant', 'Burgers'), ('chicken_restaurant', 'Chicken'),
+              ('brunch_restaurant', 'Brunch'), ('breakfast_restaurant', 'Breakfast'), ('gastropub', 'Gastropub'), ('bar_and_grill', 'Bar And Grill'), ('sports_bar', 'Sports Bar'),
+              ('cocktail_bar', 'Cocktails'), ('wine_bar', 'Wine Bar'), ('pub', 'Pub'), ('brewery', 'Brewery'), ('american_restaurant', 'American'), ('bar', 'Bar'),
+              ('bakery', 'Bakery'), ('cafe', 'Cafe'), ('restaurant', 'Restaurant'))
+TOP_PICKS = {x['slug']: x for x in json.loads((ROOT / 'data/top_picks.json').read_text())} if (ROOT / 'data/top_picks.json').exists() else {}
+
+def vp_eat(v):
+    """Where to eat before the show: Concerto's own picks where we have them, then the closest
+    real restaurants from the venue's nearby file. Built into the page, so it is there at once."""
+    f = ROOT / 'data/nearby' / f'{v["id"]}.json'
+    items = []
+    if f.exists():
+        try: tab = ((json.loads(f.read_text()).get('tabs') or {}).get('restaurants') or {}).get('items') or []
+        except Exception: tab = []
+        seen = set()
+        for i in tab:
+            name = (i.get('name') or '').strip()
+            types = set(i.get('types') or [])
+            try: mi = float(i.get('distance_mi'))
+            except (TypeError, ValueError): continue
+            if not name or name.lower() in seen or _CHAIN.search(name) or types & _NOT_FOOD or mi > 1.5 or i.get('lat') is None: continue
+            seen.add(name.lower())
+            kind = next((l for k, l in _FOOD_KIND if k in types), 'Restaurant')
+            price = '$' * int(i['price']) if str(i.get('price') or '').isdigit() and 0 < int(i['price']) < 5 else ''
+            from urllib.parse import quote
+            url = ('https://www.google.com/maps/search/?api=1&query=' + quote(name + ' ' + (i.get('address') or ''))
+                   + (f'&query_place_id={quote(i["place_id"])}' if i.get('place_id') else ''))
+            mins = max(1, round(mi * 20))
+            walk = f'{mins} min walk' if mins <= 20 else dist_label(mi, v.get('country'))
+            items.append((mi, name, ' · '.join(x for x in (kind, price) if x), walk, url))
+        items.sort()
+    picks = (TOP_PICKS.get(v['id']) or {}).get('items') or []
+    if len(items) < 2 and not picks: return ''
+    out = '<section class="vp-sec" id="eat"><h2>Eat Nearby</h2>'
+    if picks:
+        from urllib.parse import quote
+        cards = ''.join(f'<a class="vp-pick" href="https://www.google.com/maps/search/?api=1&query={quote(p["name"] + " " + (p.get("address") or ""))}" target="_blank" rel="noopener">'
+                        + (f'<img src="/{e(p["photo"])}" alt="" loading="lazy" width="232" height="150">' if p.get('photo') and (ROOT / p['photo']).exists() else '<span class="vp-pick-ph"></span>')
+                        + f'<b>{e(p["name"])}</b><span>{e(p.get("notes") or "")}</span></a>' for p in picks[:6])
+        out += f'<p class="vp-sub">Places we would send a friend before a show at {e(v["name"])}.</p><div class="vp-picks">{cards}</div>'
+        if items: out += '<h3 class="vp-h3">Closest To The Doors</h3>'
+    if items:
+        rows = ''.join(f'<a class="vp-place" href="{e(u)}" target="_blank" rel="noopener"><span class="vp-rt"><b>{e(n)}</b><span>{e(k)}</span></span><em>{e(w)}</em></a>' for mi, n, k, w, u in items[:4])
+        more = '<a class="vp-more" href="#around" data-jump-if="around" hidden>See More Places Nearby</a>' if len(items) > 4 else ''
+        out += f'<div class="vp-list">{rows}{more}</div><p class="vp-fine">Walking times are estimates.</p>'
+    return out + '</section>'
+
+def vp_questions(v, info):
+    """The questions people type into a search before a show, answered only from checked facts."""
+    name = v['name']
+    qs = [(q, a) for q, a in ((BAG_FOCUS.get(v['id']) or {}).get('faq') or [])]
+    asked = ' '.join(q.lower() for q, _ in qs)
+    g = {x['key']: x['value'] for x in venue_glance(info)}
+    dot = lambda t: t if t.endswith(('.', '!', '?')) else t + '.'
+    if g.get('clear') and 'clear' not in asked: qs.append((f'Do I need a clear bag at {name}?', dot(g['clear'])))
+    if g.get('bag') and not qs and not g.get('clear'): qs.append((f'What is the bag policy at {name}?', dot(g['bag'])))
+    if g.get('reentry') and 're-entry' not in asked and 'come back' not in asked: qs.append((f'Can I leave and come back in at {name}?', dot(g['reentry'])))
+    if g.get('doors') and 'doors' not in asked: qs.append((f'What time do doors open at {name}?', dot(g['doors'])))
+    if g.get('bagcheck'): qs.append((f'Is there a bag check at {name}?', dot(g['bagcheck'])))
+    if not qs: return ''
+    rows = ''.join(f'<details class="vp-row vp-q"><summary><span class="vp-rt"><h3>{e(q)}</h3></span><span class="vp-chev">{icon("chev", 16)}</span></summary><div class="cx-card-b"><p>{e(a)}</p></div></details>' for q, a in qs)
+    return f'<section class="vp-sec" id="questions"><h2>Questions</h2><div class="vp-list">{rows}</div></section>'
 
 def venue_page(v):
     info = INFO.get(v['id']) or {}
-    cards = []
-    for key, label, anchor in SECTIONS:
-        x = info.get(key) or {}
-        body = x.get('summary') or x.get('note') or x.get('body') or ''
-        if not body: continue
-        lists = ''
-        if x.get('allowed') or x.get('prohibited'):
-            col = lambda h, items, cls: (f'<div class="cx-rule {cls}"><h3>{h}</h3><ul>' + ''.join('<li>' + e(a) + '</li>' for a in items) + '</ul></div>') if items else ''
-            lists = '<div class="cx-rules">' + col('Allowed', x.get('allowed', []), 'cx-yes') + col('Not allowed', x.get('prohibited', []), 'cx-no') + '</div>'
-        src = (f'<div class="link-row cx-links"><a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a></div>' if x.get('officialLink') else '')
-        meta = f'Checked {pretty_date(x.get("verified"))}' if x.get('verified') else 'Not yet verified'
-        cards.append(cx_card(anchor, SECTION_ICON.get(key, 'info'), label, meta, f'<p>{e(body)}</p>{lists}{src}',
-                             open_=not cards, section=key, check=bool(x.get('verified'))))
+    name = v['name']
+    lat, lng = v.get('lat'), v.get('lng')
+    from urllib.parse import quote
+    # hero
+    local = dict(PHOTOS).get(v['id'])
+    fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
+    photo = f'<div class="c-venue-photo vp-photo" data-vphoto data-vname="{e(name)}" data-vcity="{e(v.get("city"))}" data-vlat="{e(lat)}" data-vlng="{e(lng)}"{fb}></div>'
+    kind = VENUE_KIND.get(v.get('type'), 'Venue')
+    dates = sorted(x.get('verified') for x in info.values() if isinstance(x, dict) and x.get('verified'))
+    checked = f'<p class="vp-checked">Checked {pretty_date(dates[-1])} against the venue’s official sources.</p>' if dates else ''
+    hero = (f'<header class="vp-hero">{photo}<div class="vp-hero-in"><nav class="vp-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{area_crumb(v)}</nav>'
+            f'<h1>{e(name)}</h1><p class="vp-where">{kind} in {e(place(v))}</p></div>'
+            f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(name)}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(lat)}" data-lng="{e(lng)}"></div></header>')
+    eat = vp_eat(v)
+    # the four things you can do
+    acts = []
+    if lat is not None and lng is not None:
+        g = f'https://www.google.com/maps/dir/?api=1&destination={lat},{lng}'
+        a = f'https://maps.apple.com/?daddr={lat},{lng}&q={quote(name)}'
+        acts.append(f'<a class="vp-act" href="{e(g)}" data-apple-maps="{e(a)}" target="_blank" rel="noopener"><span>{icon("nav", 22)}</span>Directions</a>')
+        acts.append(f'<a class="vp-act" href="#rideshare" data-ride><span>{icon("car", 22)}</span>Rideshare</a>')
+    acts.append(f'<a class="vp-act" href="#eat"><span>{icon("restaurant", 22)}</span>Food</a>' if eat
+                else f'<a class="vp-act" href="#around" data-jump-if="around" hidden><span>{icon("restaurant", 22)}</span>Food</a>')
+    if v.get('city'): acts.append(f'<a class="vp-act" href="#stay"><span>{icon("bed", 22)}</span>Hotels</a>')
+    actions = f'<div class="vp-acts">{"".join(acts)}</div>'
+    # quick facts (everything but the bag line, which the answer block states in full)
+    facts = ''.join(f'<a class="vp-fact" href="#{e(x["anchor"])}"><span>{e(x["label"])}</span><b>{nb_dims(x["value"])}</b></a>' for x in venue_glance(info) if x['key'] != 'bag')
+    facts = f'<div class="vp-facts">{facts}</div>' if facts else ''
+    nxt = ('<a class="vp-next" data-venue-next hidden><span class="vp-next-d"><b></b><i></i></span>'
+           '<span class="vp-next-t"><small>Next Show Here</small><b></b><em></em></span><span class="vp-next-go">Save</span></a>')
+    # the guide, in the order of the night
+    groups = []
+    for gid, title, keys in VENUE_GROUPS:
+        rows = ''.join(vp_row(info, k) for k in keys)
+        extra = house_card(v) if gid == 'inside' else ''
+        if rows or extra:
+            groups.append((gid, title, f'<section class="vp-sec" id="{gid}"><h2>{title}</h2>' + (f'<div class="vp-list">{rows}</div>' if rows else '') + extra + '</section>'))
+    body = ''
+    for gid, title, html_ in groups:
+        body += html_
+        if gid == 'getting': body += eat
+    if eat and not any(g[0] == 'getting' for g in groups): body = eat + body
     near = nearby_venues(v)
     near_html = ''.join(f'<a class="cx-tile" href="/venue/{x["id"]}"><span class="cx-tile-ic">{icon("pin", 18)}</span><span><b>{e(x["name"])}</b>'
                         f'<small>{e(x.get("city"))} · {dist_label(d, v.get("country"))}</small></span></a>' for d, x in near)
-    local = dict(PHOTOS).get(v['id'])
-    fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
-    # Answer first: most visitors searched "<venue> bag policy", so the lead is the rule itself.
-    bag_line = next((x['value'] for x in venue_glance(info) if x['key'] == 'bag'), None)
-    lead = (f'<p class="cx-lead"><b>Bag policy:</b> {nb_dims(bag_line)}.</p>' if bag_line
-            else f'<p class="cx-lead">Bag policy, entry, parking, rideshare, and accessibility at {e(v["name"])}, from official sources.</p>')
-    photo = f'<div class="c-venue-photo cx-hphoto" data-vphoto data-vname="{e(v["name"])}" data-vcity="{e(v.get("city"))}" data-vlat="{e(v.get("lat"))}" data-vlng="{e(v.get("lng"))}"{fb}></div>'
-    chips = cx_chips([('info', 'Venue info'), ('upcoming', 'Upcoming'), ('around', 'Around the venue')] + ([('venues', 'Nearby venues')] if near else []))
-    return ('<main id="main-content" class="c-page cx">'
-            # Same header as every other page: label, name, place, with a small photo on the right. No jump links.
-            + f'<section class="c-hero c-hero-cream c-hero-page"><div class="c-wrap c-hero-inner"><nav class="c-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{area_crumb(v)}{e(v["name"])}</nav>'
-            f'{eyebrow("Venue guide")}<h1>{e(v["name"])}</h1><p class="c-lead">{e(place(v))}</p>{photo}'
-            # Holds the venue's name and location for the page scripts; not shown.
-            f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(v["name"])}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(v.get("lat"))}" data-lng="{e(v.get("lng"))}"></div></div></section>'
-            # Order: Concerto Partners (added by the page script right after the hero), venue info,
-            # upcoming shows, places around the venue, nearby venues.
-            + f'<section class="cx-sec" id="info"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Venue info</h2><p class="cx-note">Checked against {e(v["name"])}’s official sources. Tap a section to open it.</p></div>{can_bring(v)}<div class="cx-cards">{"".join(cards)}</div>{house_card(v)}{save_prompt(v)}</div></section>'
-            + upcoming_shell(v)
-            + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(v["name"])}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Around {e(v["name"])}</h2><p class="cx-note">Places to eat, stay, and go near the venue.</p></div><div class="cx-rows"></div><p class="cx-attr">Google Maps</p></div></section>'
-            + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
-            + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(v["name"])}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
-            + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {v["name"]}, with Your Night one tap away. Free on iPhone and Android.') + '</main>')
+    questions = vp_questions(v, info)
+    jump = ''.join(f'<a href="#{gid}">{e(title)}</a>' + ('<a href="#eat">Eat</a>' if gid == 'getting' and eat else '') for gid, title, _ in groups)
+    if eat and 'href="#eat"' not in jump: jump = '<a href="#eat">Eat</a>' + jump
+    jump += ('<a href="#upcoming" data-jump-if="upcoming" hidden>Shows</a>' + ('<a href="#stay">Hotels</a>' if v.get('city') else '')
+             + ('<a href="#questions">Questions</a>' if questions else '') + ('<a href="#venues">Nearby Venues</a>' if near else ''))
+    jumpbar = f'<div class="cx-jumpbar vp-jumpbar"><nav class="vp-jump" aria-label="On this page">{jump}</nav></div>'
+    # rideshare: the venue's own pickup note, then the two apps
+    rs = _sec_text(info.get('rideshare'))
+    sheet = ''
+    if lat is not None and lng is not None:
+        uber = f'https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]={lat}&dropoff[longitude]={lng}&dropoff[nickname]={quote(name)}'
+        lyft = f'https://ride.lyft.com/ridetype?id=lyft&destination[latitude]={lat}&destination[longitude]={lng}'
+        sheet = (f'<dialog class="vp-sheet" data-ride-sheet aria-labelledby="ride-h"><i aria-hidden="true"></i><h2 id="ride-h">Rideshare To {e(name)}</h2>'
+                 + (f'<p>{e(rs)}</p>' if rs else '')
+                 + f'<a class="vp-sheet-go" href="{e(uber)}" target="_blank" rel="noopener">Open Uber</a><a class="vp-sheet-go vp-alt" href="{e(lyft)}" target="_blank" rel="noopener">Open Lyft</a>'
+                 '<form method="dialog"><button class="vp-sheet-x">Cancel</button></form></dialog>')
+    return ('<main id="main-content" class="c-page cx vp">'
+            + hero
+            + f'<div class="vp-col vp-first">{actions}{vp_bag(v, info)}{facts}{nxt}{checked}</div>'
+            + jumpbar
+            + '<div class="vp-col">' + body
+            + upcoming_shell(v).replace('class="cx-sec c-upcoming"', 'class="vp-sec c-upcoming"').replace('<div class="cx-wrap">', '<div>', 1)
+            + stay_link(v) + questions + '</div>'
+            + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(name)}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">More Around {e(name)}</h2></div><div class="cx-rows"></div><p class="cx-attr">Google Maps</p></div></section>'
+            + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby Venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
+            + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(name)}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
+            + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {name}, with Your Night one tap away. Free on iPhone and Android.')
+            + sheet + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
 
@@ -1534,6 +1727,7 @@ def credits_page():
             + app_doc('places', 'Places And Photos', P('Restaurants, hotels and things to do near a venue, and many venue photos, are powered by Google Maps. Walking and driving times are estimates.',
                 'In some cities, nearby places come from OpenStreetMap: © OpenStreetMap contributors, available under the <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">Open Database License</a>.',
                 'Places marked as partners have added their own details.'))
+            + app_doc('hotel-links', 'Hotel Links', P('The See Hotels link on a venue page opens a hotel search through Stay22. If you book, Concerto may earn a commission, at no extra cost to you. It is always labeled as a partner link.'))
             + app_doc('music', 'Music', P('Songs open in Apple Music or Spotify, whichever you choose. Saving a setlist as a playlist works with Apple Music and needs an Apple Music subscription. Concerto, Medley and Reprise are not affiliated with or endorsed by Apple or Spotify.'))
             + app_doc('independence', 'Independence', P('Concerto LLC is independent from artists, venues, teams, promoters and ticket sellers. Names of artists, tours and venues are used only to identify them.'))
             + app_doc('trademarks', 'Trademarks', P('Apple, the Apple logo, iPhone, App Store and Apple Music are trademarks of Apple Inc. Spotify is a trademark of Spotify AB. Google Play, the Google Play logo, Android and Google Maps are trademarks of Google LLC. Ticketmaster and all other names and marks belong to their owners.',
