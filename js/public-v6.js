@@ -1591,8 +1591,16 @@ document.addEventListener('DOMContentLoaded', function () {
 (function () {
   var bar = document.querySelector('.cx-jumpbar'); if (!bar) return;
   var head = document.querySelector('.site-header');
-  function size() { if (head) document.documentElement.style.setProperty('--cx-head', head.offsetHeight + 'px'); }
-  size(); window.addEventListener('resize', size);
+  // The menu sits exactly where the header ends, measured live: the header's height can change
+  // after the page loads (fonts, a banner), and a stale number leaves a gap between the two.
+  var last = -1;
+  function size() {
+    if (!head) return;
+    var b = Math.max(0, Math.round(head.getBoundingClientRect().bottom));
+    if (b !== last) { last = b; document.documentElement.style.setProperty('--cx-head', b + 'px'); }
+  }
+  size(); window.addEventListener('resize', size); window.addEventListener('scroll', size, { passive: true }); window.addEventListener('load', size);
+  if (window.ResizeObserver && head) new ResizeObserver(size).observe(head);
   function open(hash) {
     if (!hash || hash.length < 2) return;
     var t; try { t = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return; }

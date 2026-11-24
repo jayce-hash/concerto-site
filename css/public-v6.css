@@ -2920,7 +2920,7 @@ h1,h2{font-weight:700}
 /* ---------- Venue page ----------
    The reference page for a venue. Name, a row that jumps to any part, the short answers side by
    side, then every topic as a readable card with equal weight, in the order of a night. */
-.v8 .vp{--vp-mute:#5B6477;--vp-hair:rgba(18,30,54,.09);--vp-gold-ink:#8A6D1F;--vp-card:0 1px 2px rgba(18,30,54,.04),0 10px 30px rgba(18,30,54,.06);background:var(--cream);padding-top:12px}
+.v8 .vp{--vp-mute:#5B6477;--vp-hair:rgba(18,30,54,.09);--vp-gold-ink:#8A6D1F;--vp-line:rgba(18,30,54,.1);background:var(--cream);padding-top:12px}
 .v8 .vp-hero{position:relative;width:min(1100px,calc(100% - 24px));margin:0 auto;border-radius:28px;overflow:hidden;background:var(--navy);color:#fff;min-height:170px;display:flex;align-items:flex-end}
 .v8 .vp-hero:has(.has-photo){min-height:230px}
 .v8 .vp-photo{position:absolute;inset:0;margin:0;border-radius:0;background:none;width:auto;height:auto;aspect-ratio:auto}
@@ -2947,7 +2947,7 @@ h1,h2{font-weight:700}
 .v8 .vp-intro{margin:20px 4px 0;font-size:15px;line-height:1.5;color:var(--vp-mute)}
 /* short answers, side by side */
 .v8 .vp-glance{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;scroll-margin-top:calc(var(--cx-head,64px) + 62px)}
-.v8 .vp-tile{display:flex;flex-direction:column;gap:7px;padding:16px 18px;border-radius:20px;background:#fff;box-shadow:var(--vp-card);text-decoration:none}
+.v8 .vp-tile{display:flex;flex-direction:column;gap:7px;padding:16px 18px;border-radius:20px;background:#fff;border:1px solid var(--vp-line);text-decoration:none}
 .v8 .vp-tile:first-child:nth-last-child(odd){grid-column:1/-1}
 .v8 .vp-tile span{font:600 13px/1 var(--body);color:var(--vp-mute)}
 .v8 .vp-tile b{font:700 16.5px/1.3 var(--body);color:var(--navy);text-wrap:balance;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -2955,7 +2955,7 @@ h1,h2{font-weight:700}
 .v8 .vp .vp-sec{padding:34px 0 0;scroll-margin-top:calc(var(--cx-head,64px) + 50px)}
 .v8 .vp-sec>h2,.v8 .vp .c-upcoming h2{margin:0 0 14px 4px;font:700 24px/1.15 var(--body);letter-spacing:-.015em;color:var(--navy)}
 .v8 .vp-cards{display:grid;gap:12px}
-.v8 .vp .vp-card{margin:0;padding:20px 22px;border:0;border-radius:22px;background:#fff;box-shadow:var(--vp-card);break-inside:avoid;scroll-margin-top:calc(var(--cx-head,64px) + 62px)}
+.v8 .vp .vp-card{margin:0;padding:22px 24px;border-radius:20px;background:#fff;border:1px solid var(--vp-line);break-inside:avoid;scroll-margin-top:calc(var(--cx-head,64px) + 62px)}
 .v8 .vp-card header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .v8 .vp-ri{flex:none;width:36px;height:36px;border-radius:11px;background:var(--gold-soft);color:var(--vp-gold-ink);display:flex;align-items:center;justify-content:center}
 .v8 .vp-card h3{margin:0;font:700 18px/1.2 var(--body);letter-spacing:-.005em;color:var(--navy)}
@@ -2976,7 +2976,7 @@ h1,h2{font-weight:700}
 .v8 .vp .report-link{margin-top:8px;font:500 12px/1 var(--body);color:#9AA1AF}
 .v8 .vp .cx-house{margin-top:12px;border-radius:22px}
 /* lists (questions, places) */
-.v8 .vp-list{border-radius:22px;background:#fff;box-shadow:var(--vp-card);overflow:hidden}
+.v8 .vp-list{border-radius:22px;background:#fff;border:1px solid var(--vp-line);overflow:hidden}
 .v8 .vp .vp-row{border:0;border-top:1px solid var(--vp-hair);border-radius:0;background:none;box-shadow:none;margin:0}
 .v8 .vp .vp-row:first-child{border-top:0}
 .v8 .vp .vp-row summary{display:flex;align-items:center;gap:14px;padding:16px 20px;cursor:pointer;list-style:none}
@@ -3003,7 +3003,7 @@ h1,h2{font-weight:700}
 .v8 .vp-more[hidden]{display:none}
 .v8 .vp-fine{margin:10px 4px 0;font-size:12.5px;color:var(--vp-mute)}
 /* upcoming shows */
-.v8 .vp .c-upcoming .c-up-list{margin:0;padding:0 20px;border-radius:22px;background:#fff;box-shadow:var(--vp-card)}
+.v8 .vp .c-upcoming .c-up-list{margin:0;padding:0 20px;border-radius:22px;background:#fff;border:1px solid var(--vp-line)}
 .v8 .vp .c-upcoming .c-up-row:first-child{border-top:0}
 .v8 .vp .c-upcoming .c-up-row:last-child{border-bottom:0}
 .v8 .vp .c-upcoming .cx-note{margin:12px 4px 0}
@@ -3021,9 +3021,9 @@ h1,h2{font-weight:700}
 .v8 .vp .cx-sec{padding-top:34px}
 .v8 .vp .cx-sec .cx-h2{margin:0 0 0 4px;font:700 24px/1.15 var(--body);letter-spacing:-.015em}
 .v8 .vp .cx-row-head h3{font:700 16px/1.2 var(--body);letter-spacing:0;margin-left:4px}
-.v8 .vp .cx-place{border:0;border-radius:20px;box-shadow:var(--vp-card)}
+.v8 .vp .cx-place{border:1px solid var(--vp-line);border-radius:20px;box-shadow:none}
 .v8 .vp .cx-place-art{height:64px}
-.v8 .vp .cx-tiles{display:block;border-radius:22px;background:#fff;box-shadow:var(--vp-card);overflow:hidden}
+.v8 .vp .cx-tiles{display:block;border-radius:20px;background:#fff;border:1px solid var(--vp-line);overflow:hidden}
 .v8 .vp .cx-tile{border:0;border-top:1px solid var(--vp-hair);border-radius:0;background:none;box-shadow:none;padding:14px 20px}
 .v8 .vp .cx-tile:first-child{border-top:0}
 .v8 .vp .cx-cta-line{border-radius:20px}
@@ -3062,3 +3062,58 @@ h1,h2{font-weight:700}
 .v8 .vp-all[open] summary{display:none}
 .v8 .vp-all .vp-yn{margin-top:0;padding-top:8px;border-top:0}
 .v8 .vp-all .vp-yn h4{display:none}
+/* ---- polish pass: the site's own type, one spacing scale, no shadows ---- */
+/* type: the same faces and sizes the tour pages use (serif section and card titles, DM Sans text) */
+.v8 .vp .vp-sec>h2,.v8 .vp .c-upcoming h2,.v8 .vp .cx-sec .cx-h2,.v8 .vp .vp-stay h2{margin:0 0 16px;font-family:var(--display);font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.15;letter-spacing:-.01em}
+.v8 .vp .vp-stay h2{margin:0;font-size:clamp(24px,2.2vw,30px)}
+.v8 .vp .vp-card h3{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;letter-spacing:0}
+.v8 .vp .vp-sec .vp-h3,.v8 .vp .cx-row-head h3{margin:28px 0 12px;font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;letter-spacing:0}
+.v8 .vp .vp-pick b{font:600 16.5px/1.25 var(--body)}
+/* the page's menu: flush under the header, split from it only by the header's own line */
+.v8 .vp .vp-jumpbar{margin:12px 0 0;border-bottom:1px solid var(--vp-line);background:rgba(248,249,249,.92)}
+.v8 .vp .vp-jump{gap:28px;width:min(1100px,calc(100% - 32px));padding:0}
+.v8 .vp .vp-jump a{padding:0;height:48px;display:flex;align-items:center;font:600 15px/1 var(--body);border-bottom:0;position:relative}
+.v8 .vp .vp-jump a.is-on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold)}
+/* spacing: 8, 12, 16, 24, 40 */
+.v8 .vp .vp-intro{margin:24px 0 0}
+.v8 .vp .vp-glance{gap:12px;margin-top:16px}
+.v8 .vp .vp-tile{padding:16px 20px;border-radius:16px;gap:8px}
+.v8 .vp .vp-sec,.v8 .vp .cx-sec{padding-top:40px}
+.v8 .vp .vp-cards{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;columns:auto}
+.v8 .vp .vp-cards>.vp-card{margin:0}
+.v8 .vp .vp-card header{gap:12px;margin-bottom:12px}
+.v8 .vp .vp-ri{width:36px;height:36px;border-radius:10px}
+.v8 .vp .vp-yn{gap:24px;margin-top:16px;padding-top:16px}
+.v8 .vp .vp-tools{gap:8px;margin-top:16px}
+.v8 .vp .vp-tools a{display:inline-flex;align-items:center;height:40px;padding:0 18px}
+.v8 .vp .vp-card .cx-card-b .vp-src{margin-top:16px}
+.v8 .vp .report-link{margin-top:8px}
+.v8 .vp .cx-house{margin-top:12px;border-radius:20px;box-shadow:none}
+.v8 .vp .vp-list,.v8 .vp .c-upcoming .c-up-list{border-radius:20px}
+.v8 .vp .vp-row summary{padding:16px 24px}
+.v8 .vp .vp-row .cx-card-b{padding:0 24px 16px}
+.v8 .vp .vp-place{padding:16px 24px}
+.v8 .vp .vp-sub{margin:-8px 0 16px}
+.v8 .vp .vp-fine{margin:12px 0 0}
+.v8 .vp .vp-stay{margin-top:40px;padding:24px;border-radius:20px}
+.v8 .vp .cx-tile{padding:16px 24px}
+.v8 .vp .cx-sec-tight{padding-top:24px}
+@media (min-width:760px){
+  .v8 .vp .vp-jumpbar{margin-top:16px}
+  .v8 .vp .vp-jump{width:min(1100px,calc(100% - 48px))}
+  .v8 .vp .vp-cards{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+  .v8 .vp .vp-cards>.vp-card:only-child{grid-column:1/-1}
+  .v8 .vp .vp-card{padding:24px}
+  .v8 .vp .vp-sec,.v8 .vp .cx-sec{padding-top:48px}
+  .v8 .vp .vp-stay{margin-top:48px;padding:32px}
+  .v8 .vp-picks{gap:16px}
+}
+.v8 .vp .vp-glance{grid-template-columns:minmax(0,1fr)}
+@media (min-width:560px){.v8 .vp .vp-glance{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+/* upcoming shows: each show is one card, the same card as everything else, with no box around the set */
+.v8 .vp .c-upcoming .c-up-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:0;padding:0;background:none;border:0;border-radius:0}
+.v8 .vp .c-upcoming .c-up-row,.v8 .vp .c-upcoming .c-up-row:first-child,.v8 .vp .c-upcoming .c-up-row:last-child{grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:start;padding:20px 24px;border:1px solid var(--vp-line);border-radius:20px;background:#fff}
+.v8 .vp .c-upcoming .c-up-date{height:60px;border:0;border-radius:12px;background:var(--gold-soft)}
+.v8 .vp .c-upcoming .c-up-name{font:700 16.5px/1.3 var(--body);margin:0 0 4px}
+.v8 .vp .c-upcoming .cx-note{margin:16px 0 0}
+@media (min-width:760px){.v8 .vp .c-upcoming .c-up-list{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}}
