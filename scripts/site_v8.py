@@ -713,7 +713,7 @@ STAY22_AID = 'concertollc'
 # hotels, and the questions people ask. Sections are grouped lists, each row showing its
 # answer before it is opened.
 VENUE_KIND = {'arena': 'Arena', 'stadium': 'Stadium', 'club': 'Club', 'theater': 'Theater', 'amphitheater': 'Amphitheater', 'festival': 'Festival grounds'}
-VENUE_GROUPS = [('before', 'Before You Go', ('gates', 'ticketPickup', 'accessibility')),
+VENUE_GROUPS = [('before', 'Before You Go', ('bagPolicy', 'gates', 'ticketPickup', 'accessibility')),
                 ('getting', 'Getting There', ('parking', 'rideshare')),
                 ('inside', 'Inside', ('concessions', 'reEntry'))]
 VP_TITLE = {'bagPolicy': 'Bag Policy', 'gates': 'Entrances And Doors', 'ticketPickup': 'Tickets And Will Call', 'accessibility': 'Accessibility',
@@ -735,62 +735,70 @@ def stay_url(v):
 
 def stay_link(v):
     if not v.get('city'): return ''
-    return ('<section class="vp-sec vp-stay" id="stay"><div class="vp-stay-h"><h2>Staying The Night?</h2>'
+    return ('<section class="vp-sec vp-stay" id="stay"><div class="vp-stay-t"><div class="vp-stay-h"><h2>Staying The Night?</h2>'
             '<details class="vp-info"><summary aria-label="About this link">i</summary><p>Partner link. Concerto may earn a commission if you book, at no extra cost to you.</p></details></div>'
-            f'<p>Compare hotel prices around {e(v["name"])}.</p>'
+            f'<p>Compare hotel prices around {e(v["name"])}.</p></div>'
             f'<a class="vp-stay-go" href="{e(stay_url(v))}" target="_blank" rel="sponsored nofollow noopener" data-stay="{e(v["id"])}">See Hotels</a></section>')
 
-def vp_bag(v, info):
-    """The bag rule, largest thing on the page. A size is set in large type only when the guide
-    states one; the checked sentence always sits right under it, so nothing is implied."""
-    x = info.get('bagPolicy') or {}
-    t = _sec_text(x)
-    if not t: return ''
+def _bag_dims(t):
+    """The largest size the bag text states, as '12 × 6 × 12 in', or None."""
     best = None
-    for m in _DIM.finditer(t):
-        nums = [float(n) for n in m.groups()[:3] if n]
+    for m in _DIM.finditer(t or ''):
         vol = 1.0
-        for n in nums: vol *= n
+        for n in m.groups()[:3]:
+            if n: vol *= float(n)
         if not best or vol > best[0]: best = (vol, m)
-    big = ''
-    if best:
-        m = best[1]
-        unit_txt = (m.group(4) or '') + t[m.start():m.end()]
-        unit = 'cm' if re.search(r'cm|centimet', unit_txt, re.I) else ('inches' if re.search(r'"|”|″|\bin\b|inch', unit_txt, re.I) else '')
-        dims = '&nbsp;×&nbsp;'.join(e(n) for n in m.groups()[:3] if n)
-        big = f'<p class="vp-dim">{dims}{f"<small>{unit}</small>" if unit else ""}</p>'
-    def col(h, items, cls):
-        if not items: return ''
-        return f'<div><h3>{h}</h3><ul class="{cls}">' + ''.join(f'<li>{e(a)}</li>' for a in items) + '</ul></div>'
-    lists = ''
-    if x.get('allowed') or x.get('prohibited'):
-        a, b = x.get('allowed') or [], x.get('prohibited') or []
-        lists = '<div class="vp-yn">' + col('Bring', a[:3], 'vp-yes') + col('Leave At Home', b[:3], 'vp-no') + '</div>'
-        if len(a) > 3 or len(b) > 3:
-            lists += ('<details class="vp-all"><summary>See The Full List</summary><div class="vp-yn">'
-                      + col('Bring', a[3:], 'vp-yes') + col('Leave At Home', b[3:], 'vp-no') + '</div></details>')
-    src = []
-    if x.get('verified'): src.append(f'Checked {pretty_date(x["verified"])}.')
-    if x.get('officialLink'): src.append(f'<a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a>')
-    return (f'<section class="vp-answer cx-card" id="bag-policy" data-section="bagPolicy"><h2>Bag Policy</h2>{big}'
-            f'<div class="cx-card-b"><p class="{"vp-rule-s" if big else "vp-rule"}">{e(t)}</p>{lists}'
-            + (f'<p class="vp-src">{" ".join(src)}</p>' if src else '') + '</div></section>')
+    if not best: return None
+    m = best[1]
+    unit_txt = (m.group(4) or '') + t[m.start():m.end()]
+    unit = ' cm' if re.search(r'cm|centimet', unit_txt, re.I) else (' in' if re.search(r'"|”|″|\bin\b|inch', unit_txt, re.I) else '')
+    return '&nbsp;×&nbsp;'.join(e(n) for n in m.groups()[:3] if n) + unit
 
-def vp_row(info, key):
+def vp_card(v, info, key):
+    """One topic, fully readable: every card has the same weight, and anything you can do about
+    it (directions, a ride) sits inside the card it belongs to."""
     x = info.get(key) or {}
     t = _sec_text(x)
     if not t: return ''
     anchor = next(a for k, l, a in SECTIONS if k == key)
-    src = []
-    src.append(f'Checked {pretty_date(x["verified"])}.' if x.get('verified') else 'Not yet verified.')
-    if x.get('officialLink'): src.append(f'<a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a>')
     lists = ''
     if x.get('allowed') or x.get('prohibited'):
-        col = lambda h, items, cls: (f'<div><h4>{h}</h4><ul class="{cls}">' + ''.join(f'<li>{e(a)}</li>' for a in items) + '</ul></div>') if items else ''
-        lists = '<div class="vp-yn">' + col('Allowed', x.get('allowed') or [], 'vp-yes') + col('Not Allowed', x.get('prohibited') or [], 'vp-no') + '</div>'
-    return (f'<details class="vp-row cx-card" id="{anchor}" data-section="{key}"><summary><span class="vp-ri">{icon(SECTION_ICON.get(key, "info"), 19)}</span>'
-            f'<span class="vp-rt"><h3>{VP_TITLE[key]}</h3><span>{e(t)}</span></span><span class="vp-chev">{icon("chev", 16)}</span></summary>'
-            f'<div class="cx-card-b"><p>{e(t)}</p>{lists}<p class="vp-src">{" ".join(src)}</p></div></details>')
+        bag = key == 'bagPolicy'
+        col = lambda h, items, cls: (f'<div><h4>{h}</h4><ul class="{cls}">' + ''.join(f'<li>{e(a)}</li>' for a in items) + '</ul></div>') if items else '<div></div>'
+        ya, na = ('Bring', 'Leave At Home') if bag else ('Allowed', 'Not Allowed')
+        a_, b_ = x.get('allowed') or [], x.get('prohibited') or []
+        # A long list shows its first three; the rest is one tap away and still on the page.
+        cut = 3 if max(len(a_), len(b_)) > 4 else 99
+        lists = '<div class="vp-yn">' + col(ya, a_[:cut], 'vp-yes') + col(na, b_[:cut], 'vp-no') + '</div>'
+        if len(a_) > cut or len(b_) > cut:
+            lists += (f'<details class="vp-all"><summary>See The Full List</summary><div class="vp-yn">' + col(ya, a_[cut:], 'vp-yes') + col(na, b_[cut:], 'vp-no') + '</div></details>')
+    tools = ''
+    lat, lng = v.get('lat'), v.get('lng')
+    if lat is not None and lng is not None:
+        from urllib.parse import quote
+        if key == 'parking':
+            g = f'https://www.google.com/maps/dir/?api=1&destination={lat},{lng}'
+            a = f'https://maps.apple.com/?daddr={lat},{lng}&q={quote(v["name"])}'
+            tools = f'<div class="vp-tools"><a href="{e(g)}" data-apple-maps="{e(a)}" target="_blank" rel="noopener">Get Directions</a></div>'
+        elif key == 'rideshare':
+            uber = f'https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]={lat}&dropoff[longitude]={lng}&dropoff[nickname]={quote(v["name"])}'
+            lyft = f'https://ride.lyft.com/ridetype?id=lyft&destination[latitude]={lat}&destination[longitude]={lng}'
+            tools = f'<div class="vp-tools"><a href="{e(uber)}" target="_blank" rel="noopener">Open Uber</a><a href="{e(lyft)}" target="_blank" rel="noopener">Open Lyft</a></div>'
+    src = [f'Checked {pretty_date(x["verified"])}.' if x.get('verified') else 'Not yet verified.']
+    if x.get('officialLink'): src.append(f'<a href="{e(x["officialLink"])}" target="_blank" rel="noopener">Official source</a>')
+    return (f'<article class="vp-card cx-card" id="{anchor}" data-section="{key}"><header><span class="vp-ri">{icon(SECTION_ICON.get(key, "info"), 19)}</span><h3>{VP_TITLE[key]}</h3></header>'
+            f'<div class="cx-card-b"><p>{e(t)}</p>{lists}{tools}<p class="vp-src">{" ".join(src)}</p></div></article>')
+
+def vp_glance(v, info):
+    """The short answers, side by side, each one leading to its full card."""
+    tiles = ''
+    for g in venue_glance(info):
+        val = nb_dims(g['value'])
+        if g['key'] == 'bag':
+            dims = _bag_dims(_sec_text(info.get('bagPolicy')))
+            if dims: val = 'Up to ' + dims
+        tiles += f'<a class="vp-tile" href="#{e(g["anchor"])}"><span>{e(g["label"])}</span><b>{val}</b></a>'
+    return f'<section class="vp-glance" id="glance" aria-label="At a glance">{tiles}</section>' if tiles else ''
 
 # Places nobody plans a night around: chains, coffee, convenience stores, supermarkets.
 _CHAIN = re.compile(r"starbucks|mcdonald|subway|7-eleven|burger king|wendy'?s|taco bell|\bkfc\b|domino'?s|pizza hut|dunkin|chipotle|panda express|jack in the box|raising cane|shake shack|in-n-out|whataburger|culver'?s|popeyes|little caesars|wingstop|sizzler|denny'?s|\bihop\b|chick-fil-a|panera|jersey mike|jimmy john|five guys|arby'?s|sonic drive|carl'?s jr|del taco|el pollo loco|papa john|tim hortons|pret a manger|costa coffee|greggs|smoothie king|jamba|vons|walmart|\btarget\b|\bcvs\b|walgreens|whole foods|trader joe|member lounge|club lounge", re.I)
@@ -860,83 +868,64 @@ def vp_questions(v, info):
     if g.get('bagcheck'): qs.append((f'Is there a bag check at {name}?', dot(g['bagcheck'])))
     if not qs: return ''
     rows = ''.join(f'<details class="vp-row vp-q"><summary><span class="vp-rt"><h3>{e(q)}</h3></span><span class="vp-chev">{icon("chev", 16)}</span></summary><div class="cx-card-b"><p>{e(a)}</p></div></details>' for q, a in qs)
-    return f'<section class="vp-sec" id="questions"><h2>Questions</h2><div class="vp-list">{rows}</div></section>'
+    # Venues with hand-written bag questions already carry them as structured data in the page
+    # head; for every other venue the same questions shown here are described once, here.
+    ld = ''
+    if not (BAG_FOCUS.get(v['id']) or {}).get('faq'):
+        ld = '<script type="application/ld+json">' + json.dumps({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
+            {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in qs]}, ensure_ascii=False).replace('</', '<\\/') + '</script>'
+    return f'<section class="vp-sec" id="questions"><h2>Questions</h2><div class="vp-list">{rows}</div>{ld}</section>'
 
 def venue_page(v):
+    """THE page for a venue: its name, a row that jumps to any part, the short answers side by
+    side, then every topic as a readable card in the order of a night, shows, food, hotels,
+    and the questions people ask."""
     info = INFO.get(v['id']) or {}
     name = v['name']
     lat, lng = v.get('lat'), v.get('lng')
-    from urllib.parse import quote
-    # hero
     local = dict(PHOTOS).get(v['id'])
     fb = f' data-fallback-src="/img/cityguides/{v["id"]}/{local}.webp"' if local else ''
     photo = f'<div class="c-venue-photo vp-photo" data-vphoto data-vname="{e(name)}" data-vcity="{e(v.get("city"))}" data-vlat="{e(lat)}" data-vlng="{e(lng)}"{fb}></div>'
     kind = VENUE_KIND.get(v.get('type'), 'Venue')
     dates = sorted(x.get('verified') for x in info.values() if isinstance(x, dict) and x.get('verified'))
-    checked = f'<p class="vp-checked">Checked {pretty_date(dates[-1])} against the venue’s official sources.</p>' if dates else ''
+    checked = f' Checked {pretty_date(dates[-1])} against the venue’s official sources.' if dates else ''
     hero = (f'<header class="vp-hero">{photo}<div class="vp-hero-in"><nav class="vp-crumbs" aria-label="Breadcrumb"><a href="/venues">Venues</a><span>/</span>{area_crumb(v)}</nav>'
             f'<h1>{e(name)}</h1><p class="vp-where">{kind} in {e(place(v))}</p></div>'
             f'<div class="tonight cx-tonight" hidden data-venue-tonight data-name="{e(name)}" data-country="{e(ISO.get(v.get("country"), v.get("country") or ""))}" data-lat="{e(lat)}" data-lng="{e(lng)}"></div></header>')
     eat = vp_eat(v)
-    # the four things you can do
-    acts = []
-    if lat is not None and lng is not None:
-        g = f'https://www.google.com/maps/dir/?api=1&destination={lat},{lng}'
-        a = f'https://maps.apple.com/?daddr={lat},{lng}&q={quote(name)}'
-        acts.append(f'<a class="vp-act" href="{e(g)}" data-apple-maps="{e(a)}" target="_blank" rel="noopener"><span>{icon("nav", 22)}</span>Directions</a>')
-        acts.append(f'<a class="vp-act" href="#rideshare" data-ride><span>{icon("car", 22)}</span>Rideshare</a>')
-    acts.append(f'<a class="vp-act" href="#eat"><span>{icon("restaurant", 22)}</span>Food</a>' if eat
-                else f'<a class="vp-act" href="#around" data-jump-if="around" hidden><span>{icon("restaurant", 22)}</span>Food</a>')
-    if v.get('city'): acts.append(f'<a class="vp-act" href="#stay"><span>{icon("bed", 22)}</span>Hotels</a>')
-    actions = f'<div class="vp-acts">{"".join(acts)}</div>'
-    # quick facts (everything but the bag line, which the answer block states in full)
-    facts = ''.join(f'<a class="vp-fact" href="#{e(x["anchor"])}"><span>{e(x["label"])}</span><b>{nb_dims(x["value"])}</b></a>' for x in venue_glance(info) if x['key'] != 'bag')
-    facts = f'<div class="vp-facts">{facts}</div>' if facts else ''
-    nxt = ('<a class="vp-next" data-venue-next hidden><span class="vp-next-d"><b></b><i></i></span>'
-           '<span class="vp-next-t"><small>Next Show Here</small><b></b><em></em></span><span class="vp-next-go">Save</span></a>')
-    # the guide, in the order of the night
     groups = []
     for gid, title, keys in VENUE_GROUPS:
-        rows = ''.join(vp_row(info, k) for k in keys)
+        cards = ''.join(vp_card(v, info, k) for k in keys)
         extra = house_card(v) if gid == 'inside' else ''
-        if rows or extra:
-            groups.append((gid, title, f'<section class="vp-sec" id="{gid}"><h2>{title}</h2>' + (f'<div class="vp-list">{rows}</div>' if rows else '') + extra + '</section>'))
-    body = ''
-    for gid, title, html_ in groups:
-        body += html_
-        if gid == 'getting': body += eat
-    if eat and not any(g[0] == 'getting' for g in groups): body = eat + body
+        if cards or extra:
+            groups.append((gid, title, f'<section class="vp-sec" id="{gid}"><h2>{title}</h2>' + (f'<div class="vp-cards">{cards}</div>' if cards else '') + extra + '</section>'))
+    body = ''.join(g[2] for g in groups)
     near = nearby_venues(v)
     near_html = ''.join(f'<a class="cx-tile" href="/venue/{x["id"]}"><span class="cx-tile-ic">{icon("pin", 18)}</span><span><b>{e(x["name"])}</b>'
                         f'<small>{e(x.get("city"))} · {dist_label(d, v.get("country"))}</small></span></a>' for d, x in near)
     questions = vp_questions(v, info)
-    jump = ''.join(f'<a href="#{gid}">{e(title)}</a>' + ('<a href="#eat">Eat</a>' if gid == 'getting' and eat else '') for gid, title, _ in groups)
-    if eat and 'href="#eat"' not in jump: jump = '<a href="#eat">Eat</a>' + jump
-    jump += ('<a href="#upcoming" data-jump-if="upcoming" hidden>Shows</a>' + ('<a href="#stay">Hotels</a>' if v.get('city') else '')
-             + ('<a href="#questions">Questions</a>' if questions else '') + ('<a href="#venues">Nearby Venues</a>' if near else ''))
+    jump = (''.join(f'<a href="#{gid}">{e(title)}</a>' for gid, title, _ in groups)
+            + '<a href="#upcoming" data-jump-if="upcoming" hidden>Shows</a>'
+            + ('<a href="#eat">Eat Nearby</a>' if eat else '<a href="#around" data-jump-if="around" hidden>Eat Nearby</a>')
+            + ('<a href="#stay">Hotels</a>' if v.get('city') else '')
+            + ('<a href="#questions">Questions</a>' if questions else '')
+            + ('<a href="#venues">Nearby Venues</a>' if near else ''))
     jumpbar = f'<div class="cx-jumpbar vp-jumpbar"><nav class="vp-jump" aria-label="On this page">{jump}</nav></div>'
-    # rideshare: the venue's own pickup note, then the two apps
-    rs = _sec_text(info.get('rideshare'))
-    sheet = ''
-    if lat is not None and lng is not None:
-        uber = f'https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]={lat}&dropoff[longitude]={lng}&dropoff[nickname]={quote(name)}'
-        lyft = f'https://ride.lyft.com/ridetype?id=lyft&destination[latitude]={lat}&destination[longitude]={lng}'
-        sheet = (f'<dialog class="vp-sheet" data-ride-sheet aria-labelledby="ride-h"><i aria-hidden="true"></i><h2 id="ride-h">Rideshare To {e(name)}</h2>'
-                 + (f'<p>{e(rs)}</p>' if rs else '')
-                 + f'<a class="vp-sheet-go" href="{e(uber)}" target="_blank" rel="noopener">Open Uber</a><a class="vp-sheet-go vp-alt" href="{e(lyft)}" target="_blank" rel="noopener">Open Lyft</a>'
-                 '<form method="dialog"><button class="vp-sheet-x">Cancel</button></form></dialog>')
+    # Plain words for what is on the page: they are also the words people search for.
+    have = [w for k, w in (('bagPolicy', 'bag policy'), ('parking', 'parking'), ('gates', 'entry'), ('rideshare', 'rideshare')) if _sec_text(info.get(k))]
+    if eat: have.append('food nearby')
+    topics = (', '.join(have[:-1]) + ' and ' + have[-1]) if len(have) > 1 else (have[0] if have else 'venue guide')
+    intro = f'<p class="vp-intro">{e(name)} {topics}.{checked}</p>'
     return ('<main id="main-content" class="c-page cx vp">'
-            + hero
-            + f'<div class="vp-col vp-first">{actions}{vp_bag(v, info)}{facts}{nxt}{checked}</div>'
-            + jumpbar
-            + '<div class="vp-col">' + body
+            + hero + jumpbar
+            + '<div class="vp-wrap">' + intro + vp_glance(v, info) + body
             + upcoming_shell(v).replace('class="cx-sec c-upcoming"', 'class="vp-sec c-upcoming"').replace('<div class="cx-wrap">', '<div>', 1)
-            + stay_link(v) + questions + '</div>'
+            + eat + stay_link(v) + questions + '</div>'
             + f'<section class="cx-sec" id="around" data-nearby="{e(v["id"])}" data-name="{e(name)}" hidden><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">More Around {e(name)}</h2></div><div class="cx-rows"></div><p class="cx-attr">Google Maps</p></div></section>'
             + (f'<section class="cx-sec" id="venues"><div class="cx-wrap"><div class="cx-sec-head"><h2 class="cx-h2">Nearby Venues</h2></div><div class="cx-tiles">{near_html}</div></div></section>' if near else '')
             + f'<section class="cx-sec cx-sec-tight"><div class="cx-wrap"><p class="cx-cta-line"><b>Own a restaurant or hotel near {e(name)}?</b> Reach concert fans planning their night here. <a href="/partners/restaurants">For restaurants</a> · <a href="/partners/hotels">For hotels</a></p></div></section>'
             + close('Going to a show here?', 'website-venue', f'Save your show in Concerto. At 9am on show day, it sends you the doors and show time at {name}, with Your Night one tap away. Free on iPhone and Android.')
-            + sheet + '</main>')
+            + '</main>')
 
 RULES = (('bagPolicy', 'Bags'), ('gates', 'Entry'), ('reEntry', 'Re-entry'), ('parking', 'Parking'), ('rideshare', 'Rideshare'))
 

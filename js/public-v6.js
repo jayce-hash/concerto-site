@@ -1158,15 +1158,14 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       host.hidden = false;
       // The next show, near the top of the page, with one tap to save it in Concerto.
-      var nx = document.querySelector('[data-venue-next]'), first = list[0];
-      var fs = first && first.dates && first.dates.start, fp = fs && fs.localDate ? dayParts(fs.localDate) : null;
-      if (nx && fp) {
+      var first = list[0], fs = first && first.dates && first.dates.start, fp = fs && fs.localDate ? dayParts(fs.localDate) : null;
+      if (fp) [].forEach.call(document.querySelectorAll('[data-venue-next]'), function (nx) {
         nx.href = STORE + 'website-venue-next'; nx.rel = 'noopener'; nx.setAttribute('data-app-link', 'concerto://save/' + encodeURIComponent(first.id)); bindAppLink(nx);
         nx.querySelector('.vp-next-d b').textContent = fp.mon; nx.querySelector('.vp-next-d i').textContent = fp.day;
         nx.querySelector('.vp-next-t b').textContent = first.name;
         nx.querySelector('.vp-next-t em').textContent = [fp.dow, timeLine(first)].filter(Boolean).join('. ');
         nx.hidden = false;
-      }
+      });
     }).catch(function () {});
   }
 
@@ -1613,7 +1612,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var line = (head ? head.offsetHeight : 0) + bar.offsetHeight + 24, on = null;
     links.forEach(function (a) {
       if (a.hidden) return;
-      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t || t.hidden) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t || t.hidden || !a.offsetParent || !t.offsetParent) return;
       if (t.getBoundingClientRect().top <= line) on = a;
     });
     links.forEach(function (a) { a.classList.toggle('is-on', a === on); });
